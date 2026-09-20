@@ -1,0 +1,1776 @@
+{
+  "retail": {
+    "revision": "78282522143e25c3540583734fd192c3d69be910",
+    "family": "Mainline",
+    "game": "Mainline",
+    "scope": [
+      "Blizzard_UnitFrame",
+      "Blizzard_ActionBar",
+      "Blizzard_CompactRaidFrames",
+      "Blizzard_OverrideActionBar",
+      "Blizzard_ZoneAbility"
+    ],
+    "manifests": {
+      "Blizzard_UnitFrame": {
+        "manifest": "Blizzard_UnitFrame/Blizzard_UnitFrame_Mainline.toc",
+        "dependencies": [
+          "## Dependencies: Blizzard_SettingsDefinitions_Frame, Blizzard_BuffFrame, Blizzard_UIPanels_Game, Blizzard_ActionBar, Blizzard_TextStatusBar, Blizzard_SpellDiminishUI, Blizzard_PingUI, Blizzard_ColorPickerFrame, Blizzard_ManagedFrameSystem, Blizzard_StatusTrayManager"
+        ],
+        "orderedFiles": [
+          "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.lua",
+          "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.xml",
+          "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.xml",
+          "Blizzard_UnitFrame/Mainline/PowerBarColorUtil.lua",
+          "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.lua",
+          "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.xml",
+          "Blizzard_UnitFrame/Shared/UnitFrame.lua",
+          "Blizzard_UnitFrame/Mainline/UnitFrame.lua",
+          "Blizzard_UnitFrame/Shared/UnitFrame.xml",
+          "Blizzard_UnitFrame/Shared/PlayerFrameTemplates.xml",
+          "Blizzard_UnitFrame/Shared/PlayerFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PlayerFrame.xml",
+          "Blizzard_UnitFrame/Shared/GroupFrameVisibility.lua",
+          "Blizzard_UnitFrame/Shared/PartyMemberFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PartyMemberFrame.lua",
+          "Blizzard_UnitFrame/Shared/PartyFrameTemplates.xml",
+          "Blizzard_UnitFrame/Mainline/PartyFrameTemplates.xml",
+          "Blizzard_UnitFrame/Shared/PartyFrame.xml",
+          "Blizzard_UnitFrame/Shared/TargetFrame.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraShared.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.xml",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.xml",
+          "Blizzard_UnitFrame/Mainline/TargetFrame.xml",
+          "Blizzard_UnitFrame/Mainline/TotemFrame.xml",
+          "Blizzard_UnitFrame/Mainline/PetFrame.xml",
+          "Blizzard_UnitFrame/Mainline/ComboFrame.xml",
+          "Blizzard_UnitFrame/Mainline/ClassPowerBar.xml",
+          "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.xml",
+          "Blizzard_UnitFrame/Mainline/RuneFrame.xml",
+          "Blizzard_UnitFrame/Mainline/ShardBar.xml",
+          "Blizzard_UnitFrame/Mainline/RogueComboPointBar.xml",
+          "Blizzard_UnitFrame/Mainline/DruidComboPointBar.xml",
+          "Blizzard_UnitFrame/Mainline/InsanityBar.xml",
+          "Blizzard_UnitFrame/Mainline/EssenceFramePlayer.xml",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.xml",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBar.xml",
+          "Blizzard_UnitFrame/Mainline/MonkStaggerBar.lua",
+          "Blizzard_UnitFrame/Mainline/MonkStaggerBar.xml",
+          "Blizzard_UnitFrame/Mainline/EvokerEbonMightBar.xml",
+          "Blizzard_UnitFrame/Mainline/CompactUnitFrameOptions.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrame.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrame.xml",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameUtil.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.xml",
+          "Blizzard_UnitFrame/Shared/CompactRaidGroup.lua",
+          "Blizzard_UnitFrame/Shared/CompactRaidGroup.xml",
+          "Blizzard_UnitFrame/Shared/CompactPartyFrame.lua",
+          "Blizzard_UnitFrame/Shared/CompactPartyFrame.xml",
+          "Blizzard_UnitFrame/Mainline/CompactArenaFrame.lua",
+          "Blizzard_UnitFrame/Mainline/CompactArenaFrame.xml",
+          "Blizzard_UnitFrame/Mainline/PaladinPowerBar.xml",
+          "Blizzard_UnitFrame/Mainline/MageArcaneChargesBar.xml",
+          "Blizzard_UnitFrame/Mainline/MonkHarmonyBar.lua",
+          "Blizzard_UnitFrame/Mainline/MonkHarmonyBar.xml",
+          "Blizzard_UnitFrame/DemonHunterSoulFragmentsBar.lua",
+          "Blizzard_UnitFrame/DemonHunterSoulFragmentsBar.xml",
+          "Blizzard_UnitFrame/DevourerFuryBar.lua",
+          "Blizzard_UnitFrame/DevourerFuryBar.xml",
+          "Blizzard_UnitFrame/Shared/Localization.lua",
+          "Blizzard_UnitFrame/Mainline/Localization.lua"
+        ],
+        "excluded": [],
+        "expandedLoadOrder": [
+          "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.lua",
+          "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.xml",
+          "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.xml",
+          "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.lua",
+          "Blizzard_UnitFrame/Mainline/PowerBarColorUtil.lua",
+          "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.lua",
+          "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.xml",
+          "Blizzard_UnitFrame/Shared/UnitFrame.lua",
+          "Blizzard_UnitFrame/Mainline/UnitFrame.lua",
+          "Blizzard_UnitFrame/Shared/UnitFrame.xml",
+          "Blizzard_UnitFrame/Shared/PlayerFrameTemplates.xml",
+          "Blizzard_UnitFrame/Shared/PlayerFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PlayerFrame.xml",
+          "Blizzard_UnitFrame/Mainline/PlayerFrame.lua",
+          "Blizzard_UnitFrame/Shared/GroupFrameVisibility.lua",
+          "Blizzard_UnitFrame/Shared/PartyMemberFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PartyMemberFrame.lua",
+          "Blizzard_UnitFrame/Shared/PartyFrameTemplates.xml",
+          "Blizzard_UnitFrame/Mainline/PartyFrameTemplates.xml",
+          "Blizzard_UnitFrame/Shared/PartyFrame.xml",
+          "Blizzard_UnitFrame/Shared/PartyFrame.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrame.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraShared.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.xml",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.xml",
+          "Blizzard_UnitFrame/Mainline/TargetFrame.xml",
+          "Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+          "Blizzard_UnitFrame/Mainline/TotemFrame.xml",
+          "Blizzard_UnitFrame/Mainline/TotemFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PetFrame.xml",
+          "Blizzard_UnitFrame/Mainline/PetFrame.lua",
+          "Blizzard_UnitFrame/Mainline/ComboFrame.xml",
+          "Blizzard_UnitFrame/Mainline/ComboFrame.lua",
+          "Blizzard_UnitFrame/Mainline/ClassPowerBar.xml",
+          "Blizzard_UnitFrame/Mainline/ClassPowerBar.lua",
+          "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.xml",
+          "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.lua",
+          "Blizzard_UnitFrame/Mainline/RuneFrame.xml",
+          "Blizzard_UnitFrame/Mainline/RuneFrame.lua",
+          "Blizzard_UnitFrame/Mainline/ShardBar.xml",
+          "Blizzard_UnitFrame/Mainline/ShardBar.lua",
+          "Blizzard_UnitFrame/Mainline/RogueComboPointBar.xml",
+          "Blizzard_UnitFrame/Mainline/RogueComboPointBar.lua",
+          "Blizzard_UnitFrame/Mainline/DruidComboPointBar.xml",
+          "Blizzard_UnitFrame/Mainline/DruidComboPointBar.lua",
+          "Blizzard_UnitFrame/Mainline/InsanityBar.xml",
+          "Blizzard_UnitFrame/Mainline/InsanityBar.lua",
+          "Blizzard_UnitFrame/Mainline/EssenceFramePlayer.xml",
+          "Blizzard_UnitFrame/Mainline/EssenceFramePlayer.lua",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.xml",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.lua",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBar.xml",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBar.lua",
+          "Blizzard_UnitFrame/Mainline/MonkStaggerBar.lua",
+          "Blizzard_UnitFrame/Mainline/MonkStaggerBar.xml",
+          "Blizzard_UnitFrame/Mainline/EvokerEbonMightBar.xml",
+          "Blizzard_UnitFrame/Mainline/EvokerEbonMightBar.lua",
+          "Blizzard_UnitFrame/Mainline/CompactUnitFrameOptions.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrame.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrame.xml",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameUtil.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.xml",
+          "Blizzard_UnitFrame/Shared/CompactRaidGroup.lua",
+          "Blizzard_UnitFrame/Shared/CompactRaidGroup.xml",
+          "Blizzard_UnitFrame/Shared/CompactPartyFrame.lua",
+          "Blizzard_UnitFrame/Shared/CompactPartyFrame.xml",
+          "Blizzard_UnitFrame/Mainline/CompactArenaFrame.lua",
+          "Blizzard_UnitFrame/Mainline/CompactArenaFrame.xml",
+          "Blizzard_UnitFrame/Mainline/PaladinPowerBar.xml",
+          "Blizzard_UnitFrame/Mainline/PaladinPowerBar.lua",
+          "Blizzard_UnitFrame/Mainline/MageArcaneChargesBar.xml",
+          "Blizzard_UnitFrame/Mainline/MageArcaneChargesBar.lua",
+          "Blizzard_UnitFrame/Mainline/MonkHarmonyBar.lua",
+          "Blizzard_UnitFrame/Mainline/MonkHarmonyBar.xml",
+          "Blizzard_UnitFrame/DemonHunterSoulFragmentsBar.lua",
+          "Blizzard_UnitFrame/DemonHunterSoulFragmentsBar.xml",
+          "Blizzard_UnitFrame/DevourerFuryBar.lua",
+          "Blizzard_UnitFrame/DevourerFuryBar.xml",
+          "Blizzard_UnitFrame/Shared/Localization.lua",
+          "Blizzard_UnitFrame/Mainline/Localization.lua"
+        ]
+      },
+      "Blizzard_ActionBar": {
+        "manifest": "Blizzard_ActionBar/Blizzard_ActionBar_Mainline.toc",
+        "dependencies": [
+          "## Dependencies: Blizzard_StoreUI, Blizzard_QuickKeybind, Blizzard_EditMode, Blizzard_UIPanels_Game, Blizzard_TextStatusBar, Blizzard_Flyout, Blizzard_Colors, Blizzard_HelpPlate, Blizzard_MicroMenu, Blizzard_PingUI, Blizzard_GameMenuEsc"
+        ],
+        "orderedFiles": [
+          "Blizzard_ActionBar/Shared/ActionButtonUtil.lua",
+          "Blizzard_ActionBar/Mainline/ActionButtonUtilOverrides.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.xml",
+          "Blizzard_ActionBar/Mainline/AssistedCombatManager.lua",
+          "Blizzard_ActionBar/Shared/StatusTrackingBar.lua",
+          "Blizzard_ActionBar/Mainline/StatusTrackingBarTemplate.xml",
+          "Blizzard_ActionBar/Shared/ExpBar.lua",
+          "Blizzard_ActionBar/Mainline/ExpBarOverrides.lua",
+          "Blizzard_ActionBar/Mainline/ExpBar.xml",
+          "Blizzard_ActionBar/Shared/ReputationBar.lua",
+          "Blizzard_ActionBar/Mainline/ReputationBarOverrides.lua",
+          "Blizzard_ActionBar/Shared/ReputationBar.xml",
+          "Blizzard_ActionBar/Mainline/AzeriteBar.lua",
+          "Blizzard_ActionBar/Mainline/AzeriteBar.xml",
+          "Blizzard_ActionBar/Mainline/ArtifactBar.lua",
+          "Blizzard_ActionBar/Mainline/ArtifactBar.xml",
+          "Blizzard_ActionBar/Mainline/HonorBar.lua",
+          "Blizzard_ActionBar/Mainline/HonorBar.xml",
+          "Blizzard_ActionBar/Mainline/HouseFavorBar.lua",
+          "Blizzard_ActionBar/Mainline/HouseFavorBar.xml",
+          "Blizzard_ActionBar/Shared/ActionButton.lua",
+          "Blizzard_ActionBar/Mainline/ActionButtonOverrides.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonComponentTemplate.xml",
+          "Blizzard_ActionBar/Mainline/ActionButtonTemplate.xml",
+          "Blizzard_ActionBar/Shared/ActionBar.lua",
+          "Blizzard_ActionBar/Shared/ActionBarTemplate.xml",
+          "Blizzard_ActionBar/Shared/MultiActionBars.lua",
+          "Blizzard_ActionBar/Shared/MultiActionBars.xml",
+          "Blizzard_ActionBar/Shared/MainActionBar.lua",
+          "Blizzard_ActionBar/Mainline/MainActionBarOverrides.lua",
+          "Blizzard_ActionBar/Mainline/MainActionBar.xml",
+          "Blizzard_ActionBar/Shared/VehicleLeaveButton.lua",
+          "Blizzard_ActionBar/Shared/VehicleLeaveButton.xml",
+          "Blizzard_ActionBar/Shared/StatusTrackingManager.lua",
+          "Blizzard_ActionBar/Mainline/StatusTrackingManagerOverrides.lua",
+          "Blizzard_ActionBar/Mainline/StatusTrackingBar.xml",
+          "Blizzard_ActionBar/Shared/StanceBar.lua",
+          "Blizzard_ActionBar/Mainline/StanceBar.xml",
+          "Blizzard_ActionBar/Shared/ExtraActionBar.lua",
+          "Blizzard_ActionBar/Shared/ExtraActionBar.xml",
+          "Blizzard_ActionBar/Shared/PossessActionBar.lua",
+          "Blizzard_ActionBar/Mainline/PossessActionBar.xml",
+          "Blizzard_ActionBar/Shared/PetActionBar.lua",
+          "Blizzard_ActionBar/Mainline/PetActionBar.xml",
+          "Blizzard_ActionBar/Shared/SpellFlyout.lua",
+          "Blizzard_ActionBar/Shared/SpellFlyout.xml",
+          "Blizzard_ActionBar/Shared/Localization.lua"
+        ],
+        "excluded": [
+          "WoWLabs\\ActionButtonOverrides.lua [AllowLoadGameType plunderstorm]",
+          "WoWLabs\\CustomActionBarOverlays.lua [AllowLoadGameType plunderstorm]",
+          "WoWLabs\\CustomActionBarOverlays.xml [AllowLoadGameType plunderstorm]",
+          "WoWLabs\\KeybindReminder.lua [AllowLoadGameType plunderstorm]",
+          "WoWLabs\\KeybindReminder.xml [AllowLoadGameType plunderstorm]"
+        ],
+        "expandedLoadOrder": [
+          "Blizzard_ActionBar/Shared/ActionButtonUtil.lua",
+          "Blizzard_ActionBar/Mainline/ActionButtonUtilOverrides.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.xml",
+          "Blizzard_ActionBar/Mainline/AssistedCombatManager.lua",
+          "Blizzard_ActionBar/Shared/StatusTrackingBar.lua",
+          "Blizzard_ActionBar/Mainline/StatusTrackingBarTemplate.xml",
+          "Blizzard_ActionBar/Shared/ExpBar.lua",
+          "Blizzard_ActionBar/Mainline/ExpBarOverrides.lua",
+          "Blizzard_ActionBar/Mainline/ExpBar.xml",
+          "Blizzard_ActionBar/Shared/ReputationBar.lua",
+          "Blizzard_ActionBar/Mainline/ReputationBarOverrides.lua",
+          "Blizzard_ActionBar/Shared/ReputationBar.xml",
+          "Blizzard_ActionBar/Mainline/AzeriteBar.lua",
+          "Blizzard_ActionBar/Mainline/AzeriteBar.xml",
+          "Blizzard_ActionBar/Mainline/ArtifactBar.lua",
+          "Blizzard_ActionBar/Mainline/ArtifactBar.xml",
+          "Blizzard_ActionBar/Mainline/HonorBar.lua",
+          "Blizzard_ActionBar/Mainline/HonorBar.xml",
+          "Blizzard_ActionBar/Mainline/HouseFavorBar.lua",
+          "Blizzard_ActionBar/Mainline/HouseFavorBar.xml",
+          "Blizzard_ActionBar/Shared/ActionButton.lua",
+          "Blizzard_ActionBar/Mainline/ActionButtonOverrides.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonComponentTemplate.xml",
+          "Blizzard_ActionBar/Mainline/ActionButtonTemplate.xml",
+          "Blizzard_ActionBar/Shared/ActionBar.lua",
+          "Blizzard_ActionBar/Shared/ActionBarTemplate.xml",
+          "Blizzard_ActionBar/Shared/MultiActionBars.lua",
+          "Blizzard_ActionBar/Shared/MultiActionBars.xml",
+          "Blizzard_ActionBar/Shared/MainActionBar.lua",
+          "Blizzard_ActionBar/Mainline/MainActionBarOverrides.lua",
+          "Blizzard_ActionBar/Mainline/MainActionBar.xml",
+          "Blizzard_ActionBar/Shared/VehicleLeaveButton.lua",
+          "Blizzard_ActionBar/Shared/VehicleLeaveButton.xml",
+          "Blizzard_ActionBar/Shared/StatusTrackingManager.lua",
+          "Blizzard_ActionBar/Mainline/StatusTrackingManagerOverrides.lua",
+          "Blizzard_ActionBar/Mainline/StatusTrackingBar.xml",
+          "Blizzard_ActionBar/Shared/StanceBar.lua",
+          "Blizzard_ActionBar/Mainline/StanceBar.xml",
+          "Blizzard_ActionBar/Shared/ExtraActionBar.lua",
+          "Blizzard_ActionBar/Shared/ExtraActionBar.xml",
+          "Blizzard_ActionBar/Shared/PossessActionBar.lua",
+          "Blizzard_ActionBar/Mainline/PossessActionBar.xml",
+          "Blizzard_ActionBar/Shared/PetActionBar.lua",
+          "Blizzard_ActionBar/Mainline/PetActionBar.xml",
+          "Blizzard_ActionBar/Shared/SpellFlyout.lua",
+          "Blizzard_ActionBar/Shared/SpellFlyout.xml",
+          "Blizzard_ActionBar/Shared/Localization.lua"
+        ]
+      },
+      "Blizzard_CompactRaidFrames": {
+        "manifest": "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrames.toc",
+        "dependencies": [
+          "## Dependencies: Blizzard_RaidFrame"
+        ],
+        "orderedFiles": [
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameReservationManager.lua",
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.lua",
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.xml",
+          "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.lua",
+          "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.xml",
+          "Blizzard_CompactRaidFrames/Localization.lua"
+        ],
+        "excluded": [],
+        "expandedLoadOrder": [
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameReservationManager.lua",
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.lua",
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.xml",
+          "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.lua",
+          "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.xml",
+          "Blizzard_CompactRaidFrames/Localization.lua"
+        ]
+      },
+      "Blizzard_OverrideActionBar": {
+        "manifest": "Blizzard_OverrideActionBar/Blizzard_OverrideActionBar.toc",
+        "dependencies": [
+          "## Dependencies: Blizzard_ActionBar, Blizzard_UnitFrame, Blizzard_MicroMenu, Blizzard_ManagedFrameSystem"
+        ],
+        "orderedFiles": [
+          "Blizzard_OverrideActionBar/OverrideActionBar.lua",
+          "Blizzard_OverrideActionBar/OverrideActionBar.xml"
+        ],
+        "excluded": [],
+        "expandedLoadOrder": [
+          "Blizzard_OverrideActionBar/OverrideActionBar.lua",
+          "Blizzard_OverrideActionBar/OverrideActionBar.xml"
+        ]
+      },
+      "Blizzard_ZoneAbility": {
+        "manifest": "Blizzard_ZoneAbility/Blizzard_ZoneAbility_Mainline.toc",
+        "dependencies": [
+          "## Dependencies: Blizzard_UIPanels_Game, Blizzard_ActionBarController, Blizzard_ActionBar, Blizzard_PingUI"
+        ],
+        "orderedFiles": [
+          "Blizzard_ZoneAbility/ZoneAbility.lua",
+          "Blizzard_ZoneAbility/ZoneAbility.xml"
+        ],
+        "excluded": [],
+        "expandedLoadOrder": [
+          "Blizzard_ZoneAbility/ZoneAbility.lua",
+          "Blizzard_ZoneAbility/ZoneAbility.xml"
+        ]
+      }
+    },
+    "files": {
+      "Blizzard_ActionBar/Blizzard_ActionBar_Mainline.toc": {
+        "sha256": "48ff607d6ea59a05b3cc973496a727a94e7f758f05082a046d2710cd3040eb07",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ActionButtonOverrides.lua": {
+        "sha256": "cf68ef49a295cff5da99e4f848dbf0ddfb80698e0d94ba233f09be9347c7fe44",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ActionButtonTemplate.xml": {
+        "sha256": "6c2b6b19c746876e48b16068eb4b33d5c68738525f8c54d142c4d563c6500a1d",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ActionButtonUtilOverrides.lua": {
+        "sha256": "031633121052df1fbb0feb9d9e2aaad6f54be3f26d34218fe327004c141b12cf",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ArtifactBar.lua": {
+        "sha256": "a0ad2347afb93a69f2322c278e7095fcb8b1f67a637c73a985790b23b9bcc871",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ArtifactBar.xml": {
+        "sha256": "633b8abbf0349b908c5b755d131195834ba9e7f336916d89972973194d5d2e6a",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/AssistedCombatManager.lua": {
+        "sha256": "d78fda6ccbe0dbe60277f68fada7745b22a55d34dd2144d60a9bb87b81e41664",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/AzeriteBar.lua": {
+        "sha256": "ae2875dc0c2c42e4bd7a60c3a9d6fac964c6dbf8c90b72e0d8dc27d84df0a939",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/AzeriteBar.xml": {
+        "sha256": "8f4251c3b5cbd3dfcec4b783b7af13d219af6999cd24bff05cfff390264a82fa",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ExpBar.xml": {
+        "sha256": "438659df4d5e409b363fb7d3dcb8170b4dfa9b38ec61f039a7a5a385201bbe87",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ExpBarOverrides.lua": {
+        "sha256": "f96c26d0b411ed4b755a93a93060b64052789cf2e66bfe3828bee7162b27ee06",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/HonorBar.lua": {
+        "sha256": "03f633758e8d86e13eddba372e791468c9b7d02b7f4b2d3ab9df128ac2ff263f",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/HonorBar.xml": {
+        "sha256": "f7fcc23616fad5e1ec97f8bbcdc7e6552e1c7af630e2ca7f2894dc8cb8a8363f",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/HouseFavorBar.lua": {
+        "sha256": "fcdd05c1ab95c1ac7258c31de370b368985416aa646a42683a3d306033d9cc48",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/HouseFavorBar.xml": {
+        "sha256": "d17256e8599617264ebffbbbc470cceb27f6973a473d98e513bd8e8db2f08e94",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/MainActionBar.xml": {
+        "sha256": "a109f3779e6d41243bafb5c82885193cc3b3c8d8dbd8014ebbbb75f8bcd8da15",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/MainActionBarOverrides.lua": {
+        "sha256": "02a8d16aed2a5c87c7ebd2663d5a6136fb1320e36cb36d2c463b88a88bc42a82",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/PetActionBar.xml": {
+        "sha256": "70c0935b3764b29c93dd4bae469ef2b72973d72bdf15965778dec1236e8159f3",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/PossessActionBar.xml": {
+        "sha256": "c8b564a34c659ee8357cd910482d638dc225a2061100b99fa82f8c1be75a607e",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ReputationBarOverrides.lua": {
+        "sha256": "d498ddf32d4a1ec066c73ebabeb8284e8fd5c7341ffc27f537c0bf3044593a3b",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/StanceBar.xml": {
+        "sha256": "b44b28bba01723eb1aa3c853d4dde05fff8c6f762b6aa7f8d1cc8020c7d26eac",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/StatusTrackingBar.xml": {
+        "sha256": "6a49192fc09292018f0e3788eaa2b94361357f9616e406779c70c42f19cfaa12",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/StatusTrackingBarTemplate.xml": {
+        "sha256": "61e379aac559938705f0ecceefcba29cea5a9ffa236b34a256bed0a305a8e029",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/StatusTrackingManagerOverrides.lua": {
+        "sha256": "5d9175318513ec6bb7b6030c8f0fbc438d2d6c54a2abb7aff519f586323d08da",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionBar.lua": {
+        "sha256": "b1f3c29d6d673e5ffb056b834f7e379e67d54261dc8fadf88fb6ca589552ad8c",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionBarTemplate.xml": {
+        "sha256": "034a4381e7b3b97c97247e6932da0d8ddc09b3cb3ee17962892272af23ebee2c",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionButton.lua": {
+        "sha256": "54fb5625a5e8aa343cbbc0be805b23e2b3b329011e792448e6b732a4bebd8cba",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionButtonComponentTemplate.xml": {
+        "sha256": "4235a295b9dadf2edab8cd8a3d890a522c2e026f4e6e37fe7531b56fe3d693ff",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.lua": {
+        "sha256": "0abbe6b5695c8b3eaaac9f558ea514aa376e20a1d5fc1cea5d30a91637f4cd87",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.xml": {
+        "sha256": "83ced5fc7b52a46be56c1541024f9b9a9690c3060addfda2d90a500c157dadfb",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionButtonUtil.lua": {
+        "sha256": "53d26e8d32f3b3579d1a6146fbd3f68f115bfc07db88f342a394cb6d89d173e6",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ExpBar.lua": {
+        "sha256": "f9c286a87c1e059c88bc346b6b3c19500dd546652ea400520dfc662786a48bfd",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ExtraActionBar.lua": {
+        "sha256": "ec951e2c1a38ae4ca92dc54ab6ad3406c7b17ef6ce3671ed23cf98f69062dcf2",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ExtraActionBar.xml": {
+        "sha256": "da26c5c913562b1a0b887efb100da7f29fd3e892aafaec1f829589e8816a0ff6",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/Localization.lua": {
+        "sha256": "1059eff32850122741b8acb0984d9bf39a2693f562bba63295a3d867ea0765b8",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/MainActionBar.lua": {
+        "sha256": "8df40116d8eb5dd1bc52a81c8e8b4e05439c890a9ad9e599d903f754baba22fd",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/MultiActionBars.lua": {
+        "sha256": "e929ab9423011648349481e497617e67121b2b6fa9f75ffa5a67729d813b0cce",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/MultiActionBars.xml": {
+        "sha256": "bd7eb7d3ee594e90c7f1efc1a3c545b9716df62514162047639e6b58926179ba",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/PetActionBar.lua": {
+        "sha256": "d57c7226ff4ab093df049a7f28a1f8780207c844c651c4a3e71078e8cdd61d2f",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/PossessActionBar.lua": {
+        "sha256": "f90d2a1e959c6afcc6756f9495cddedcad5b8646f787aaadae1f52b1daabcab8",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ReputationBar.lua": {
+        "sha256": "a03c6199159dc1c8f32e63c2a1f19e3bb02916667c8e04f409b9c2352623c754",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ReputationBar.xml": {
+        "sha256": "3a85dd2c675778aef2a0816185f0d297a3ebaf26cdfd703acb7f61dccd08a529",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/SpellFlyout.lua": {
+        "sha256": "afe989d2ee790a5fb5d35ee634e44b6aebdaf1d599eb88dcec6ccd3833b7685c",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/SpellFlyout.xml": {
+        "sha256": "7424c0442c5e7cf78dfe9fb6f6805bcd074e5921891af79b89abcf227b683ab2",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/StanceBar.lua": {
+        "sha256": "5f702382fa1f84ce0ba1f927a527492437d7c7023e009072dccf917889f8b72f",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/StatusTrackingBar.lua": {
+        "sha256": "acffb2f5f2d18c1b60f8862b86b3479339f8859058fa9af039668fe02bee5c90",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/StatusTrackingManager.lua": {
+        "sha256": "af30565d35b03a14963aaeabdba20426262ffc5152d08b2b03713ec5a58d41de",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/VehicleLeaveButton.lua": {
+        "sha256": "5ad9cd3e88a4edc21333db34173b0e1c41dab8bb6653d57d7fc27d35ccdc920b",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/VehicleLeaveButton.xml": {
+        "sha256": "7ef120f1932a3d3aa48cf80ef9346a40a94168c5d214177fec0759f9dc039678",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.lua": {
+        "sha256": "9ac871ac7ae0f2eb283c9ecfc67062f3584f47a17beb52dc88265c22c454ee77",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.xml": {
+        "sha256": "371f615c173cdfce6f2e1bbc12042444dd97deebc41c841fe1426fad27ca9eab",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameReservationManager.lua": {
+        "sha256": "428fc54af9ed51fdceedecd57206b3065f7a7ade12a13601f1feaae4a2b6eee1",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrames.toc": {
+        "sha256": "b153792863ac5e0fb4f472e718a5de3f3bef77f6dcabf622d6dbb40b287b689a",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Localization.lua": {
+        "sha256": "835100e9c62e81bde9181d26349865ae5cdea459b04929ca019182859d9dd02d",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.lua": {
+        "sha256": "134260632b9bf382f13cb7e00b8a868e2bfde3f52559fdf3784eb65e769355ec",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.xml": {
+        "sha256": "fa3838b172f484ae62ffa385c02786d414f9348962afa59c8b285d8e4e33c5f8",
+        "includes": []
+      },
+      "Blizzard_OverrideActionBar/Blizzard_OverrideActionBar.toc": {
+        "sha256": "ba5c15b103f2d88125bc88de8ef8f98a1b18dd1b24e91f9e92dade22761fa2d0",
+        "includes": []
+      },
+      "Blizzard_OverrideActionBar/OverrideActionBar.lua": {
+        "sha256": "56260bc4d8f4ae8a8e406b7a4f35f2ccbd155b72e2b23953462d0606f863ffe8",
+        "includes": []
+      },
+      "Blizzard_OverrideActionBar/OverrideActionBar.xml": {
+        "sha256": "083f529d41cb0e49d00d4ab4211065d88b3c09b0b4e6500b2349da1e11e88a5d",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Blizzard_UnitFrame_Mainline.toc": {
+        "sha256": "a61dfc525d46bb202b42800f9debd47f27438d9d1e35bceac1d898d3dda6f99b",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/DemonHunterSoulFragmentsBar.lua": {
+        "sha256": "349c41cd5368e17948b1433f258897de91ee752fcc4cf09add790cd7de007f22",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/DemonHunterSoulFragmentsBar.xml": {
+        "sha256": "8d5c8744846cf4294fc7ba7c2f979dbc2a9500e5406c7c8c440a78de83cb35d9",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/DevourerFuryBar.lua": {
+        "sha256": "9696d6d1e1e6412b4ad9a2244cb9dee869281316d9bf37c1f9a7b93e2a8b668e",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/DevourerFuryBar.xml": {
+        "sha256": "cc5133e0d97933ae8722194413c1e12ba7e59636c48cdf99c6d1049b0fcf333d",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/AlternatePowerBar.lua": {
+        "sha256": "d7c68985b628a7fc18e40b487edf693786c91fcb2d1b128e95f32823fe2c2dd3",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/AlternatePowerBar.xml": {
+        "sha256": "f313c84bc88987c3a0cf798dbf21f89906c5d9e2e9364ad981e93540da72b0d1",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBar.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.lua": {
+        "sha256": "028b728a07d89ed0019c6a0bdddcd95399b43aa8f52149915a7bbacfd651c9b7",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.xml": {
+        "sha256": "ec70305067f2b431b70b54c5b5b3b52d7a718de769ef6f1c396bb77fbfa92f8e",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.lua": {
+        "sha256": "4c622a1dc62640c7447343edcfa001080906a125bd69b1caff11f3e1648ec372",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.xml": {
+        "sha256": "7c361785979b404d3e06959032e6e4f355bf728c3e2b6bf6092d6aff4bd6e26b",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ClassPowerBar.lua": {
+        "sha256": "07259b5608766fa207659db35922353056533225b048adfe3c104bd8881a5b8f",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ClassPowerBar.xml": {
+        "sha256": "7e3c12fe282d639a00b3491b7799d15e818b7c185cb7e13e54bf953e855dd9c2",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/ClassPowerBar.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.lua": {
+        "sha256": "4bbd0b1747da73bc3f9923c81c108580cbebf9fca284e440fe2bda231eeaeb7d",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.xml": {
+        "sha256": "b347bfa78e9229ab72fae8d273bc21aece69cef4ae1de79edbdb3458768ca7d3",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/ComboFrame.lua": {
+        "sha256": "85398de9ee6db3fc62fd3db047555f2e4c0bb1be72f7d89e1570458ca2763160",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ComboFrame.xml": {
+        "sha256": "84bb82a0b15363adf28e56d4a78422333510558369c9249cc4dc7d8589e011fc",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/ComboFrame.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/CompactArenaFrame.lua": {
+        "sha256": "296507f26a7be3f6fc73bd5d1443ea9ab176a2d36774da598d100ddeeeba865a",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/CompactArenaFrame.xml": {
+        "sha256": "57d99354952f3165821e46f5c4a9cac2bfc2620f8a0c08bcf14592e903724194",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/CompactUnitFrameOptions.lua": {
+        "sha256": "3e95359a650f648b849e5ec0621b0fd59ee483b9df3f476ad31b135a418526fa",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/DruidComboPointBar.lua": {
+        "sha256": "8beb439bcde6c12d9fcd6405cd1f3ca7eeccd39cfe0c9d57422e5f3d837d99bc",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/DruidComboPointBar.xml": {
+        "sha256": "8148f6fbbf6bd13a06e8dd1ee3fb0a926482288509951734b8b891fc13321a65",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/DruidComboPointBar.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/EssenceFramePlayer.lua": {
+        "sha256": "7ead328ed8d6ea15b44759bfa083428d5c57bb29deb38b6174f8c81db526a3bf",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/EssenceFramePlayer.xml": {
+        "sha256": "b744dab271e29172afe847be37abc4ad60d84f19ff6b3ca048e8986a5824eb75",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/EssenceFramePlayer.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/EvokerEbonMightBar.lua": {
+        "sha256": "00a7bf5d2c6531efd85f15b902aa72244e058ca03467fb266cb00a8304b2bef7",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/EvokerEbonMightBar.xml": {
+        "sha256": "c90c59d488ab0f5660cf87fb3a1c90b447af60be3f6234d75ccd4dea98063d5d",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/EvokerEbonMightBar.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/InsanityBar.lua": {
+        "sha256": "fe037284f833f01dea3208c23f74976cc33595adee085b51e80d9dbe3b46c5c4",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/InsanityBar.xml": {
+        "sha256": "d8235035d5bb43b8c821ca9fc92c53aee991370edebbb776a1143119c3a67c0b",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/InsanityBar.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/Localization.lua": {
+        "sha256": "bc54541f3deb4939359754a7b1dee2052ccf2e2c8f904abf6e885cfa1adf42ab",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/MageArcaneChargesBar.lua": {
+        "sha256": "9b4d75cac39b9f95d22b9fba19fefae6df101ec00ed114d84c1de161db1e98e4",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/MageArcaneChargesBar.xml": {
+        "sha256": "cf66cfee09e6b51aec3af4e260b2fa8eeeda6f204a01cda3396371aef3ca63e7",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/MageArcaneChargesBar.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/MonkHarmonyBar.lua": {
+        "sha256": "14abbbcb91dc2525feb5d5ac55f6a5fbd18831ccb1a2b7443cb38e2e44856d87",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/MonkHarmonyBar.xml": {
+        "sha256": "b3ed0bf84d665a9077a6888945fb20f7a502fb4018a24f85aff5e59f6293cae3",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/MonkStaggerBar.lua": {
+        "sha256": "51271e313947a3575fb9a7053d3bd5248ea331257fb726608d4d725476039099",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/MonkStaggerBar.xml": {
+        "sha256": "780a48fa12be9d3dfb1645b2589093e9e7d8c5feee6b2dcc394ac8d757534728",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PaladinPowerBar.lua": {
+        "sha256": "7cae90c9dc5044b2b920aefd35309a90bb982b86d720ecea176ef94794b3f39f",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PaladinPowerBar.xml": {
+        "sha256": "ec40f5ae6b477d10fb5a679b9b0341a47230ebf34adf4b074af87bf9a2cab6a4",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/PaladinPowerBar.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/PartyFrameTemplates.xml": {
+        "sha256": "7c1fe28ed580d13e5adb6c6a4e627310f5e98ebcf0979388c8673ace5ba9ee5f",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PartyMemberFrame.lua": {
+        "sha256": "08603297d885fce276effbcb149025fdfd0dd2e658453749baba90f195b07665",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PetFrame.lua": {
+        "sha256": "d4841981ff2dc8e35f469d897a8b200f282bb1979e1317dd668dbd5760f20d01",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PetFrame.xml": {
+        "sha256": "2147cc0b403c9ca371c6f9b9c7bfb7cd5308d2f63725bebfdda3e78d0f66d22d",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/PetFrame.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/PlayerFrame.lua": {
+        "sha256": "3f884782f74baf48b333372bf4bfd32a5605bbe77b4bf65cc95811ae658ab2e9",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PlayerFrame.xml": {
+        "sha256": "592d2577ed2c6c3c2a134d13d9dcfe7fde5890e06271dcbfbaad19f7859d678b",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/PlayerFrame.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/PowerBarColorUtil.lua": {
+        "sha256": "b65c40d1a183b8ac5d34368917cec61774b831a9f305c32ded3e996f8b53f9b4",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/RogueComboPointBar.lua": {
+        "sha256": "41821bc6c147311ecff0d392b289dfddfbf0d7cf9aa4fdb6b7cfbf9b4f356db3",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/RogueComboPointBar.xml": {
+        "sha256": "c251384ccd9e52e201516f1efed7eaa691ecbb44928ef0ba190e676ff7fd6521",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/RogueComboPointBar.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/RuneFrame.lua": {
+        "sha256": "0c744bdbd76a1e9149e216b3e91f86cdb89358ff56a8b52ae8045a1c812d1fd4",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/RuneFrame.xml": {
+        "sha256": "b8a8ccff6c4012178c4f7c306c8e84bbb7b57bdcf8f2c1f78043dcdc4c2e169e",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/RuneFrame.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/ShardBar.lua": {
+        "sha256": "73875a9ab875217b0900cb81a87da8bd56224cceb63c0ad73568e4487a0a0d00",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ShardBar.xml": {
+        "sha256": "275239d828674c65bfa556f1261abf8bc5d0ed17d0ce66f647794397595e40ca",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/ShardBar.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/TargetFrame.lua": {
+        "sha256": "b4c7aaa25fb9d508100291e78e7a32343d495fc17ab9ad41f1ae6f6a9ba38440",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/TargetFrame.xml": {
+        "sha256": "99a851903dba4f2a8521080548f4e3ddeab9f467472327785d9aac1773ef78bd",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/TargetFrame.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/TotemFrame.lua": {
+        "sha256": "18d3ff80ce407869cdbd18c466c197f8dc461f4437d750debcf3ad1142174f57",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/TotemFrame.xml": {
+        "sha256": "5e605ab8a663aed5b59426f6e13ac6270db07cd920862e1a3c9ed03be8cd01a6",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/TotemFrame.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Mainline/UnitFrame.lua": {
+        "sha256": "8b09e2e63b72d09f8c378545d1909097f7bde7a545d9cafd3adf361d6bf02208",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.lua": {
+        "sha256": "70bd25a508dc778cc2c7b641b47531f99a646be9bc71b019a083b30f08660d4d",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.xml": {
+        "sha256": "be8bcea341624ba90f8ba90f8732cf5f305501b2752728b95291412d623496a6",
+        "includes": [
+          "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Shared/CompactPartyFrame.lua": {
+        "sha256": "3a33a73243555fbd116b0d36a1b4fe60811197d1727c7e159fd61f7a8b02d684",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactPartyFrame.xml": {
+        "sha256": "beb8ac6890ab8ddaa276b765ea6e8830c11be2caa368913a46de9ad33dc7e206",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactRaidGroup.lua": {
+        "sha256": "bcfa658f858007760e4e27f5c2204b611a120ac51761f317f2cce59f35fa8bd8",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactRaidGroup.xml": {
+        "sha256": "c46af93633f66dbf36c636aae9c82d737d0b9a3972edecb9bcc7a2d0ff9531ba",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactUnitFrame.lua": {
+        "sha256": "b8d67655750d6693f2571d6d06228dba0b4fb3b16395876f94773f0424b68d13",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactUnitFrame.xml": {
+        "sha256": "6ad3c57511030cd3353e2cac44b00c54e8e83879dd141234b1e1d976f05a0e20",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.lua": {
+        "sha256": "80554d566fba35551215e509e780bc807b13984c77263b0ae6705dd3bdcbf18e",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.xml": {
+        "sha256": "c051541b129afac566fb69fff3866d9df9a4398a16aace8d96bb4b70c76fa50f",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactUnitFrameUtil.lua": {
+        "sha256": "829d46c7b96980c6f1e40c9cdb9b3336d1bd9ead500df688094d32ab997c6051",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/GroupFrameVisibility.lua": {
+        "sha256": "2b34ff1e0b3dc7d948addf2cb50fc1be704ab1e9f21e9ce9cfe6504bc6e6705e",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/Localization.lua": {
+        "sha256": "6ebd1e84f0f42586350cd9f0cfa3e8412bc9e9e564e3a08ccfa46d61417066ef",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PartyFrame.lua": {
+        "sha256": "36022fdf0001b09bf552d5d619e50b125bdce3a7e1fdf5b2ed305b4acce09194",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PartyFrame.xml": {
+        "sha256": "82bcaf015ffebdd2a9b805db48fd26e39e2ef3b7c37723973656630d219bf53c",
+        "includes": [
+          "Blizzard_UnitFrame/Shared/PartyFrame.lua"
+        ]
+      },
+      "Blizzard_UnitFrame/Shared/PartyFrameTemplates.xml": {
+        "sha256": "9991fa0b678fcb6305a66cb9840e780b1c2fbb86065cb1005f432c356438ee0e",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PartyMemberFrame.lua": {
+        "sha256": "9ece4d3330c534b6826c4b91576a811f090e214b27ad2cf58d4d109ebc934b96",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PlayerFrame.lua": {
+        "sha256": "ff359c336635a8b7306ca4f9c476bda2d0458109b539134979eeb7634c297996",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PlayerFrameTemplates.xml": {
+        "sha256": "941ee2cf035338c616ca6d388c98a145f54c1a8eadff93c38cc968333074ac07",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.lua": {
+        "sha256": "643b0f5012fdfebfaee198359199ab7c71539cc3c885a8a89040f518829f5b01",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.xml": {
+        "sha256": "f3feb54e411df7b28408e82ef9431ee0f2530b451493ea915f7ca0878cc90f21",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrame.lua": {
+        "sha256": "611e46cc2011148076c77dac8a2be69f2ffbe80220628c036a81243e1e2a5ea8",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.lua": {
+        "sha256": "48bab6d528aee4b6d4bad354d4c742d0395e800dabdfac18a8947f49bb67e661",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.xml": {
+        "sha256": "43112bbf35d4182649c4efa4cb9a26f96d8869944490b80bdc1026f9e63ab068",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.lua": {
+        "sha256": "6cf933edd279bd72da5ccd9e30a2ef1a079984e54227a9bc88ee4cee5debe877",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.xml": {
+        "sha256": "4c1000a2c8d5870708701e7b17c0f123b4dc2483af0de2f566246364f657fafd",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrameAuraShared.lua": {
+        "sha256": "1215af30e40981f49d9c1562543900ed105e07cd05951432979b8bb7016a58ed",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/UnitFrame.lua": {
+        "sha256": "c90aed7b678621553a788e516f8e9c1e01722fb2c88fb345610130e781e845a1",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/UnitFrame.xml": {
+        "sha256": "6d11e82bc610ba07ca2c4fdd36008d17cb37c39fe7f5993946dd74c228e41b14",
+        "includes": []
+      },
+      "Blizzard_ZoneAbility/Blizzard_ZoneAbility_Mainline.toc": {
+        "sha256": "4d331922e32bac28f0d367aaadca889d3719524f710edbe7ebfadcd4a22e957a",
+        "includes": []
+      },
+      "Blizzard_ZoneAbility/ZoneAbility.lua": {
+        "sha256": "3725946070cb3b92d4b9b30035bc8a1bdac60ef7a4c77014f71d7fbfaa756c55",
+        "includes": []
+      },
+      "Blizzard_ZoneAbility/ZoneAbility.xml": {
+        "sha256": "a4856f483a235024d0069c7e0da6c4e84cb1a465fe5f47c4698d2ee212cc7b1a",
+        "includes": []
+      }
+    }
+  },
+  "forever": {
+    "revision": "70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e",
+    "family": "Mainline",
+    "game": "Camelot",
+    "scope": [
+      "Blizzard_UnitFrame",
+      "Blizzard_ActionBar",
+      "Blizzard_CompactRaidFrames",
+      "Blizzard_OverrideActionBar",
+      "Blizzard_ZoneAbility"
+    ],
+    "manifests": {
+      "Blizzard_UnitFrame": {
+        "manifest": "Blizzard_UnitFrame/Blizzard_UnitFrame.toc",
+        "dependencies": [
+          "## Dep: Blizzard_SettingsDefinitions_Frame",
+          "## Dep: Blizzard_BuffFrame",
+          "## Dep: Blizzard_UIPanels_Game",
+          "## Dep: Blizzard_ActionBar [AllowLoadGameType mainline]",
+          "## Dep: Blizzard_TextStatusBar",
+          "## Dep: Blizzard_SpellDiminishUI [AllowLoadGameType mainline]",
+          "## Dep: Blizzard_PingUI [AllowLoadGameType mainline]",
+          "## Dep: Blizzard_ColorPickerFrame",
+          "## Dep: Blizzard_ManagedFrameSystem",
+          "## Dep: Blizzard_StatusTrayManager [AllowLoadGameType mainline]"
+        ],
+        "orderedFiles": [
+          "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.lua",
+          "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.xml",
+          "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.lua",
+          "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.xml",
+          "Blizzard_UnitFrame/Mainline/PowerBarColorUtil.lua",
+          "Blizzard_UnitFrame/Mainline/UnitFrameUtil.lua",
+          "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.lua",
+          "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.xml",
+          "Blizzard_UnitFrame/Shared/UnitFrame.lua",
+          "Blizzard_UnitFrame/Mainline/UnitFrame.lua",
+          "Blizzard_UnitFrame/Shared/UnitFrame.xml",
+          "Blizzard_UnitFrame/Shared/PlayerFrameTemplates.xml",
+          "Blizzard_UnitFrame/Shared/PlayerFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PlayerFrame.lua",
+          "Blizzard_UnitFrame/Camelot/PlayerFrame.lua",
+          "Blizzard_UnitFrame/Camelot/PlayerFrameTemplates.xml",
+          "Blizzard_UnitFrame/Mainline/PlayerFrame.xml",
+          "Blizzard_UnitFrame/Shared/GroupFrameVisibility.lua",
+          "Blizzard_UnitFrame/Shared/PartyMemberFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PartyMemberFrame.lua",
+          "Blizzard_UnitFrame/Shared/PartyFrameTemplates.xml",
+          "Blizzard_UnitFrame/Mainline/PartyFrameTemplates.xml",
+          "Blizzard_UnitFrame/Shared/PartyFrame.lua",
+          "Blizzard_UnitFrame/Shared/PartyFrame.xml",
+          "Blizzard_UnitFrame/Shared/TargetFrame.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraShared.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.xml",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.xml",
+          "Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+          "Blizzard_UnitFrame/Camelot/TargetFrame.lua",
+          "Blizzard_UnitFrame/Camelot/TargetFrameTemplates.xml",
+          "Blizzard_UnitFrame/Mainline/TargetFrame.xml",
+          "Blizzard_UnitFrame/Mainline/TotemFrame.lua",
+          "Blizzard_UnitFrame/Mainline/TotemFrame.xml",
+          "Blizzard_UnitFrame/Mainline/PetFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PetFrame.xml",
+          "Blizzard_UnitFrame/Mainline/ComboFrame.lua",
+          "Blizzard_UnitFrame/Mainline/ComboFrame.xml",
+          "Blizzard_UnitFrame/Camelot/ComboFrameOverrides.lua",
+          "Blizzard_UnitFrame/Mainline/ClassPowerBar.lua",
+          "Blizzard_UnitFrame/Mainline/ClassPowerBar.xml",
+          "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.lua",
+          "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.xml",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.lua",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.xml",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBar.lua",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBar.xml",
+          "Blizzard_UnitFrame/Mainline/CompactUnitFrameOptions.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrame.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrame.xml",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameUtil.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.xml",
+          "Blizzard_UnitFrame/Shared/CompactRaidGroup.lua",
+          "Blizzard_UnitFrame/Shared/CompactRaidGroup.xml",
+          "Blizzard_UnitFrame/Shared/CompactPartyFrame.lua",
+          "Blizzard_UnitFrame/Shared/CompactPartyFrame.xml",
+          "Blizzard_UnitFrame/Shared/Localization.lua",
+          "Blizzard_UnitFrame/Mainline/Localization.lua",
+          "Blizzard_UnitFrame/Camelot/TargetFrameUtils.lua"
+        ],
+        "excluded": [
+          "## Dep: Blizzard_ReadyCheck [AllowLoadGameType classic]",
+          "## Dep: Blizzard_UIParentPanelManager [AllowLoadGameType classic]",
+          "[Family]\\PlayerFrameTemplates.xml\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "Wrath\\AlternatePowerBar.lua\t\t\t\t[AllowLoadGameType wrath, cata, mists]",
+          "Wrath\\AlternatePowerBar.xml\t\t\t\t[AllowLoadGameType wrath, cata]",
+          "Mists\\AlternatePowerBar.xml\t\t\t\t[AllowLoadGameType mists]",
+          "Vanilla\\TargetFrameOverrides.lua\t\t[AllowLoadGameType vanilla]",
+          "[Family]\\TargetFrameTemplates.xml\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\ComboFrameOverrides.lua\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\RuneFrame.lua\t\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\RuneFrame.xml\t\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\ShardBar.lua\t\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\ShardBar.xml\t\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\RogueComboPointBar.lua\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\RogueComboPointBar.xml\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\DruidComboPointBar.lua\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\DruidComboPointBar.xml\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\InsanityBar.lua\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\InsanityBar.xml\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\EssenceFramePlayer.lua\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\EssenceFramePlayer.xml\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\MonkStaggerBar.lua\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\MonkStaggerBar.xml\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\EvokerEbonMightBar.lua\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\EvokerEbonMightBar.xml\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\CompactArenaFrame.lua\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\CompactArenaFrame.xml\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\PaladinPowerBar.lua\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\PaladinPowerBar.xml\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\MageArcaneChargesBar.lua\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\MageArcaneChargesBar.xml\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\MonkHarmonyBar.lua\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\MonkHarmonyBar.xml\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "DemonHunterSoulFragmentsBar.lua\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "DemonHunterSoulFragmentsBar.xml\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "DevourerFuryBar.lua\t\t\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "DevourerFuryBar.xml\t\t\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]",
+          "[Family]\\RuneFrame_Shared.lua\t\t\t[AllowLoadGameType wrath, cata, mists]",
+          "Wrath\\RuneFrame.lua\t\t\t\t\t\t[AllowLoadGameType wrath]",
+          "Wrath\\RuneFrame.xml\t\t\t\t\t\t[AllowLoadGameType wrath]",
+          "Cata\\RuneFrame.lua\t\t\t\t\t\t[AllowLoadGameType cata, mists]",
+          "Cata\\RuneFrame.xml\t\t\t\t\t\t[AllowLoadGameType cata, mists]",
+          "[Game]\\ShardBar.lua\t\t\t\t\t\t[AllowLoadGameType cata, mists]",
+          "[Game]\\ShardBar.xml\t\t\t\t\t\t[AllowLoadGameType cata, mists]",
+          "Cata\\EclipseBarFrame.lua\t\t\t\t[AllowLoadGameType cata, mists]",
+          "Cata\\EclipseBarFrame.xml\t\t\t\t[AllowLoadGameType cata, mists]",
+          "[Game]\\PaladinPowerBar.lua\t\t\t\t[AllowLoadGameType cata, mists]",
+          "[Game]\\PaladinPowerBar.xml\t\t\t\t[AllowLoadGameType cata, mists]",
+          "[Game]\\MonkHarmonyBar.lua\t\t\t\t[AllowLoadGameType mists]",
+          "[Game]\\MonkHarmonyBar.xml\t\t\t\t[AllowLoadGameType mists]",
+          "[Game]\\MonkStaggerBar.lua\t\t\t\t[AllowLoadGameType mists]",
+          "[Game]\\MonkStaggerBar.xml\t\t\t\t[AllowLoadGameType mists]",
+          "[Game]\\PriestBar.lua\t\t\t\t\t[AllowLoadGameType mists]",
+          "[Game]\\PriestBar.xml\t\t\t\t\t[AllowLoadGameType mists]",
+          "[Family]\\TargetFrameUtils.lua\t\t\t\t[AllowLoadGameType mainline] [ExcludeLoadGameType camelot]"
+        ],
+        "expandedLoadOrder": [
+          "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.lua",
+          "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.xml",
+          "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.lua",
+          "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.xml",
+          "Blizzard_UnitFrame/Mainline/PowerBarColorUtil.lua",
+          "Blizzard_UnitFrame/Mainline/UnitFrameUtil.lua",
+          "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.lua",
+          "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.xml",
+          "Blizzard_UnitFrame/Shared/UnitFrame.lua",
+          "Blizzard_UnitFrame/Mainline/UnitFrame.lua",
+          "Blizzard_UnitFrame/Shared/UnitFrame.xml",
+          "Blizzard_UnitFrame/Shared/PlayerFrameTemplates.xml",
+          "Blizzard_UnitFrame/Shared/PlayerFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PlayerFrame.lua",
+          "Blizzard_UnitFrame/Camelot/PlayerFrame.lua",
+          "Blizzard_UnitFrame/Camelot/PlayerFrameTemplates.xml",
+          "Blizzard_UnitFrame/Mainline/PlayerFrame.xml",
+          "Blizzard_UnitFrame/Shared/GroupFrameVisibility.lua",
+          "Blizzard_UnitFrame/Shared/PartyMemberFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PartyMemberFrame.lua",
+          "Blizzard_UnitFrame/Shared/PartyFrameTemplates.xml",
+          "Blizzard_UnitFrame/Mainline/PartyFrameTemplates.xml",
+          "Blizzard_UnitFrame/Shared/PartyFrame.lua",
+          "Blizzard_UnitFrame/Shared/PartyFrame.xml",
+          "Blizzard_UnitFrame/Shared/TargetFrame.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraShared.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.xml",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.lua",
+          "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.xml",
+          "Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+          "Blizzard_UnitFrame/Camelot/TargetFrame.lua",
+          "Blizzard_UnitFrame/Camelot/TargetFrameTemplates.xml",
+          "Blizzard_UnitFrame/Mainline/TargetFrame.xml",
+          "Blizzard_UnitFrame/Mainline/TotemFrame.lua",
+          "Blizzard_UnitFrame/Mainline/TotemFrame.xml",
+          "Blizzard_UnitFrame/Mainline/PetFrame.lua",
+          "Blizzard_UnitFrame/Mainline/PetFrame.xml",
+          "Blizzard_UnitFrame/Mainline/ComboFrame.lua",
+          "Blizzard_UnitFrame/Mainline/ComboFrame.xml",
+          "Blizzard_UnitFrame/Camelot/ComboFrameOverrides.lua",
+          "Blizzard_UnitFrame/Mainline/ClassPowerBar.lua",
+          "Blizzard_UnitFrame/Mainline/ClassPowerBar.xml",
+          "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.lua",
+          "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.xml",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.lua",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.xml",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBar.lua",
+          "Blizzard_UnitFrame/Mainline/AlternatePowerBar.xml",
+          "Blizzard_UnitFrame/Mainline/CompactUnitFrameOptions.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrame.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrame.xml",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameUtil.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.lua",
+          "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.xml",
+          "Blizzard_UnitFrame/Shared/CompactRaidGroup.lua",
+          "Blizzard_UnitFrame/Shared/CompactRaidGroup.xml",
+          "Blizzard_UnitFrame/Shared/CompactPartyFrame.lua",
+          "Blizzard_UnitFrame/Shared/CompactPartyFrame.xml",
+          "Blizzard_UnitFrame/Shared/Localization.lua",
+          "Blizzard_UnitFrame/Mainline/Localization.lua",
+          "Blizzard_UnitFrame/Camelot/TargetFrameUtils.lua"
+        ]
+      },
+      "Blizzard_ActionBar": {
+        "manifest": "Blizzard_ActionBar/Blizzard_ActionBar.toc",
+        "dependencies": [
+          "## Dep: Blizzard_StoreUI [AllowLoadGameType mainline]",
+          "## Dep: Blizzard_QuickKeybind",
+          "## Dep: Blizzard_EditMode",
+          "## Dep: Blizzard_UIPanels_Game [AllowLoadGameType mainline]",
+          "## Dep: Blizzard_TextStatusBar",
+          "## Dep: Blizzard_Flyout",
+          "## Dep: Blizzard_Colors [AllowLoadGameType mainline]",
+          "## Dep: Blizzard_HelpPlate [AllowLoadGameType mainline]",
+          "## Dep: Blizzard_MicroMenu",
+          "## Dep: Blizzard_PingUI [AllowLoadGameType mainline]",
+          "## Dep: Blizzard_GameMenuEsc"
+        ],
+        "orderedFiles": [
+          "Blizzard_ActionBar/Shared/ActionButtonUtil.lua",
+          "Blizzard_ActionBar/Mainline/ActionButtonUtilOverrides.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.xml",
+          "Blizzard_ActionBar/Mainline/AssistedCombatManager.lua",
+          "Blizzard_ActionBar/Shared/ActionButton.lua",
+          "Blizzard_ActionBar/Mainline/ActionButtonOverrides.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonComponentTemplate.xml",
+          "Blizzard_ActionBar/Mainline/ActionButtonTemplate.xml",
+          "Blizzard_ActionBar/Shared/ActionBar.lua",
+          "Blizzard_ActionBar/Shared/ActionBarTemplate.xml",
+          "Blizzard_ActionBar/Shared/MultiActionBars.lua",
+          "Blizzard_ActionBar/Shared/MultiActionBars.xml",
+          "Blizzard_ActionBar/Shared/MainActionBar.lua",
+          "Blizzard_ActionBar/Mainline/MainActionBarOverrides.lua",
+          "Blizzard_ActionBar/Camelot/MainMenuBarEndCaps.lua",
+          "Blizzard_ActionBar/Camelot/MainMenuBarEndCaps.xml",
+          "Blizzard_ActionBar/Mainline/MainActionBar.xml",
+          "Blizzard_ActionBar/Shared/VehicleLeaveButton.lua",
+          "Blizzard_ActionBar/Shared/VehicleLeaveButton.xml",
+          "Blizzard_ActionBar/Shared/StanceBar.lua",
+          "Blizzard_ActionBar/Mainline/StanceBar.xml",
+          "Blizzard_ActionBar/Shared/ExtraActionBar.lua",
+          "Blizzard_ActionBar/Shared/ExtraActionBar.xml",
+          "Blizzard_ActionBar/Shared/PossessActionBar.lua",
+          "Blizzard_ActionBar/Mainline/PossessActionBar.xml",
+          "Blizzard_ActionBar/Shared/PetActionBar.lua",
+          "Blizzard_ActionBar/Mainline/PetActionBar.xml",
+          "Blizzard_ActionBar/Shared/MultiCastActionBarFrame.lua",
+          "Blizzard_ActionBar/Shared/MultiCastActionBarFrame.xml",
+          "Blizzard_ActionBar/Shared/SpellFlyout.lua",
+          "Blizzard_ActionBar/Shared/SpellFlyout.xml",
+          "Blizzard_ActionBar/Shared/Localization.lua"
+        ],
+        "excluded": [
+          "## Dep: Blizzard_FrameXML [AllowLoadGameType classic]",
+          "## Dep: Blizzard_Minimap [AllowLoadGameType classic]",
+          "[Family]\\MainMenuBar.lua [AllowLoadGameType classic]",
+          "[Family]\\MainMenuBar.xml [AllowLoadGameType classic]",
+          "[Game]\\ActionButtonOverrides.lua [AllowLoadGameType plunderstorm]",
+          "[Family]\\MainMenuBarEndCaps.xml [ExcludeLoadGameType camelot, classic]",
+          "[Family]\\StanceBarOverrides.lua [AllowLoadGameType classic]",
+          "[Game]\\CustomActionBarOverlays.lua [AllowLoadGameType plunderstorm]",
+          "[Game]\\CustomActionBarOverlays.xml [AllowLoadGameType plunderstorm]",
+          "[Game]\\KeybindReminder.lua [AllowLoadGameType plunderstorm]",
+          "[Game]\\KeybindReminder.xml [AllowLoadGameType plunderstorm]"
+        ],
+        "expandedLoadOrder": [
+          "Blizzard_ActionBar/Shared/ActionButtonUtil.lua",
+          "Blizzard_ActionBar/Mainline/ActionButtonUtilOverrides.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.xml",
+          "Blizzard_ActionBar/Mainline/AssistedCombatManager.lua",
+          "Blizzard_ActionBar/Shared/ActionButton.lua",
+          "Blizzard_ActionBar/Mainline/ActionButtonOverrides.lua",
+          "Blizzard_ActionBar/Shared/ActionButtonComponentTemplate.xml",
+          "Blizzard_ActionBar/Mainline/ActionButtonTemplate.xml",
+          "Blizzard_ActionBar/Shared/ActionBar.lua",
+          "Blizzard_ActionBar/Shared/ActionBarTemplate.xml",
+          "Blizzard_ActionBar/Shared/MultiActionBars.lua",
+          "Blizzard_ActionBar/Shared/MultiActionBars.xml",
+          "Blizzard_ActionBar/Shared/MainActionBar.lua",
+          "Blizzard_ActionBar/Mainline/MainActionBarOverrides.lua",
+          "Blizzard_ActionBar/Camelot/MainMenuBarEndCaps.lua",
+          "Blizzard_ActionBar/Camelot/MainMenuBarEndCaps.xml",
+          "Blizzard_ActionBar/Mainline/MainActionBar.xml",
+          "Blizzard_ActionBar/Shared/VehicleLeaveButton.lua",
+          "Blizzard_ActionBar/Shared/VehicleLeaveButton.xml",
+          "Blizzard_ActionBar/Shared/StanceBar.lua",
+          "Blizzard_ActionBar/Mainline/StanceBar.xml",
+          "Blizzard_ActionBar/Shared/ExtraActionBar.lua",
+          "Blizzard_ActionBar/Shared/ExtraActionBar.xml",
+          "Blizzard_ActionBar/Shared/PossessActionBar.lua",
+          "Blizzard_ActionBar/Mainline/PossessActionBar.xml",
+          "Blizzard_ActionBar/Shared/PetActionBar.lua",
+          "Blizzard_ActionBar/Mainline/PetActionBar.xml",
+          "Blizzard_ActionBar/Shared/MultiCastActionBarFrame.lua",
+          "Blizzard_ActionBar/Shared/MultiCastActionBarFrame.xml",
+          "Blizzard_ActionBar/Shared/SpellFlyout.lua",
+          "Blizzard_ActionBar/Shared/SpellFlyout.xml",
+          "Blizzard_ActionBar/Shared/Localization.lua"
+        ]
+      },
+      "Blizzard_CompactRaidFrames": {
+        "manifest": "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrames.toc",
+        "dependencies": [
+          "## Dependencies: Blizzard_RaidFrame"
+        ],
+        "orderedFiles": [
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameReservationManager.lua",
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.lua",
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.xml",
+          "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.lua",
+          "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.xml",
+          "Blizzard_CompactRaidFrames/Localization.lua"
+        ],
+        "excluded": [],
+        "expandedLoadOrder": [
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameReservationManager.lua",
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.lua",
+          "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.xml",
+          "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.lua",
+          "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.xml",
+          "Blizzard_CompactRaidFrames/Localization.lua"
+        ]
+      },
+      "Blizzard_OverrideActionBar": {
+        "manifest": "Blizzard_OverrideActionBar/Blizzard_OverrideActionBar.toc",
+        "dependencies": [
+          "## Dependencies: Blizzard_ActionBar, Blizzard_UnitFrame, Blizzard_MicroMenu, Blizzard_ManagedFrameSystem"
+        ],
+        "orderedFiles": [
+          "Blizzard_OverrideActionBar/OverrideActionBar.lua",
+          "Blizzard_OverrideActionBar/OverrideActionBar.xml"
+        ],
+        "excluded": [],
+        "expandedLoadOrder": [
+          "Blizzard_OverrideActionBar/OverrideActionBar.lua",
+          "Blizzard_OverrideActionBar/OverrideActionBar.xml"
+        ]
+      },
+      "Blizzard_ZoneAbility": {
+        "manifest": "Blizzard_ZoneAbility/Blizzard_ZoneAbility.toc",
+        "dependencies": [
+          "## Dep: Blizzard_UIPanels_Game",
+          "## Dep: Blizzard_ActionBarController",
+          "## Dep: Blizzard_ActionBar",
+          "## Dep: Blizzard_PingUI"
+        ],
+        "orderedFiles": [
+          "Blizzard_ZoneAbility/ZoneAbility.lua",
+          "Blizzard_ZoneAbility/ZoneAbility.xml"
+        ],
+        "excluded": [],
+        "expandedLoadOrder": [
+          "Blizzard_ZoneAbility/ZoneAbility.lua",
+          "Blizzard_ZoneAbility/ZoneAbility.xml"
+        ]
+      }
+    },
+    "files": {
+      "Blizzard_ActionBar/Blizzard_ActionBar.toc": {
+        "sha256": "b65e3775dca81f815e13ffe6b60e99c8f2a99eb0c7973d1e0671a064426a862b",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Camelot/MainMenuBarEndCaps.lua": {
+        "sha256": "5736790cbcde6815140ef39cd481f30ec8065674d955a4893d7fadff996a732c",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Camelot/MainMenuBarEndCaps.xml": {
+        "sha256": "165820475f4517e95d55d67fdf303c8b200e0454f5aa78fb468648c78953b65d",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ActionButtonOverrides.lua": {
+        "sha256": "cf68ef49a295cff5da99e4f848dbf0ddfb80698e0d94ba233f09be9347c7fe44",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ActionButtonTemplate.xml": {
+        "sha256": "8f07e253a7691556e731cb06192caea5a1e7a7aca69dfa8f6b6ecfed796039a9",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/ActionButtonUtilOverrides.lua": {
+        "sha256": "43be4930117a3fd97717f4308cf620dc5583bf03b3143c2548b6adecbe62e74c",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/AssistedCombatManager.lua": {
+        "sha256": "216f6cd26e04808a44ea80e6f4aa120248ef43bfbc8a5f7397c480c4700f393e",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/MainActionBar.xml": {
+        "sha256": "b3e291870ffd16773eac1a9af21324778530b17a7d786465145c5c0414d1f899",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/MainActionBarOverrides.lua": {
+        "sha256": "8c9678ee0ee2ea9b243be05711f7d3c66320faf8c0c9e0ee7693c1d21ddf641a",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/PetActionBar.xml": {
+        "sha256": "c2ba9600ab5ba3f46e28d399b32486a728a310010fa8391e5c10ddb6e885da0a",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/PossessActionBar.xml": {
+        "sha256": "c8b564a34c659ee8357cd910482d638dc225a2061100b99fa82f8c1be75a607e",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Mainline/StanceBar.xml": {
+        "sha256": "b44b28bba01723eb1aa3c853d4dde05fff8c6f762b6aa7f8d1cc8020c7d26eac",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionBar.lua": {
+        "sha256": "ae9660fbd90828f9245beb69be5535b1f97331162e803c762699105217738914",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionBarTemplate.xml": {
+        "sha256": "1d2ac1065066363da6fbc01293ecb1d8c22169466e3b87f887f511247f87e9d7",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionButton.lua": {
+        "sha256": "ed9aa1a63c81706391f32f703a33303b42a92c98f70a7591a0d01176b2261e61",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionButtonComponentTemplate.xml": {
+        "sha256": "78f088e60ec0a8ce136153c755ad685fe19a586f997f6abe3a51a5c309882d88",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.lua": {
+        "sha256": "0abbe6b5695c8b3eaaac9f558ea514aa376e20a1d5fc1cea5d30a91637f4cd87",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionButtonSpellAlerts.xml": {
+        "sha256": "83ced5fc7b52a46be56c1541024f9b9a9690c3060addfda2d90a500c157dadfb",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ActionButtonUtil.lua": {
+        "sha256": "8067641e8c2825dcbacff7989b82e18fd838076e92db7534145dfcaffedbe758",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ExtraActionBar.lua": {
+        "sha256": "ec951e2c1a38ae4ca92dc54ab6ad3406c7b17ef6ce3671ed23cf98f69062dcf2",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/ExtraActionBar.xml": {
+        "sha256": "da26c5c913562b1a0b887efb100da7f29fd3e892aafaec1f829589e8816a0ff6",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/Localization.lua": {
+        "sha256": "1059eff32850122741b8acb0984d9bf39a2693f562bba63295a3d867ea0765b8",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/MainActionBar.lua": {
+        "sha256": "4372ba37a4ff1b03f0fbf20da36af1fd598ec7dbfc8db78177436d1bcf401ff8",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/MultiActionBars.lua": {
+        "sha256": "e929ab9423011648349481e497617e67121b2b6fa9f75ffa5a67729d813b0cce",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/MultiActionBars.xml": {
+        "sha256": "0647131a0e30bd3ce1498292651b6d334a343c78c1c420ea64d6895f9bcb1043",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/MultiCastActionBarFrame.lua": {
+        "sha256": "d8e5eb0fccdaeedd1101d66661ccca8d1bf0e40a339f215b8a8c33633e192a28",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/MultiCastActionBarFrame.xml": {
+        "sha256": "44a972c682ce257bc69197eac299315d58fe21376013a716f77050a6cc5c8c3e",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/PetActionBar.lua": {
+        "sha256": "b3c672a60d5aee0d7f403b3dae343d5fe14cb4f9e9b6099ef23ad52b74be4627",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/PossessActionBar.lua": {
+        "sha256": "f90d2a1e959c6afcc6756f9495cddedcad5b8646f787aaadae1f52b1daabcab8",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/SpellFlyout.lua": {
+        "sha256": "6bd7419eae09e842380ea17602feafe58c7a33a63ce82dcbf9a6772d7aa05d92",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/SpellFlyout.xml": {
+        "sha256": "f4b7e60b70a475cbdd81ab19c11d7c253660d41586b7f056e5cbd5aedae7a2da",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/StanceBar.lua": {
+        "sha256": "25d22e69073c2d08d5057157af79ae1141b6abc51eb7240b7c9e782101bcd68e",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/VehicleLeaveButton.lua": {
+        "sha256": "5ad9cd3e88a4edc21333db34173b0e1c41dab8bb6653d57d7fc27d35ccdc920b",
+        "includes": []
+      },
+      "Blizzard_ActionBar/Shared/VehicleLeaveButton.xml": {
+        "sha256": "7ef120f1932a3d3aa48cf80ef9346a40a94168c5d214177fec0759f9dc039678",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.lua": {
+        "sha256": "c5b1e1f8fa314a7c1757b774402aaa9917aed7695af3e410a1346fb69a709603",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.xml": {
+        "sha256": "aa84f6a0eebeb4199e11df349cd8ff99dcba34975a7a1d2d16a00761e67586f2",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameReservationManager.lua": {
+        "sha256": "428fc54af9ed51fdceedecd57206b3065f7a7ade12a13601f1feaae4a2b6eee1",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrames.toc": {
+        "sha256": "b153792863ac5e0fb4f472e718a5de3f3bef77f6dcabf622d6dbb40b287b689a",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Localization.lua": {
+        "sha256": "835100e9c62e81bde9181d26349865ae5cdea459b04929ca019182859d9dd02d",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.lua": {
+        "sha256": "7da7e3167dce548a3931a8dc8a5f5972fbbaf3cee5b0a6aef0befd2ae0b98d1c",
+        "includes": []
+      },
+      "Blizzard_CompactRaidFrames/Mainline/Blizzard_CompactRaidFrameManager.xml": {
+        "sha256": "fa3838b172f484ae62ffa385c02786d414f9348962afa59c8b285d8e4e33c5f8",
+        "includes": []
+      },
+      "Blizzard_OverrideActionBar/Blizzard_OverrideActionBar.toc": {
+        "sha256": "ba5c15b103f2d88125bc88de8ef8f98a1b18dd1b24e91f9e92dade22761fa2d0",
+        "includes": []
+      },
+      "Blizzard_OverrideActionBar/OverrideActionBar.lua": {
+        "sha256": "56260bc4d8f4ae8a8e406b7a4f35f2ccbd155b72e2b23953462d0606f863ffe8",
+        "includes": []
+      },
+      "Blizzard_OverrideActionBar/OverrideActionBar.xml": {
+        "sha256": "083f529d41cb0e49d00d4ab4211065d88b3c09b0b4e6500b2349da1e11e88a5d",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Blizzard_UnitFrame.toc": {
+        "sha256": "7cf60aee7e7253e1db1c5c6d3cdd40352bf9d31b0a2088b7c276c2c0d112ed11",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Camelot/ComboFrameOverrides.lua": {
+        "sha256": "3eb610814c1fcb184c043e3aa41c979dbf2e818f3239f9cf079ad9ac81df1370",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Camelot/PlayerFrame.lua": {
+        "sha256": "3100a0fa1bfeb4849a75b5a893b43b07725fcd7cb940aa95729bb5b7acd0b768",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Camelot/PlayerFrameTemplates.xml": {
+        "sha256": "8b9ab727a306efd4c88f815903a0552de8ca13946496e11983306c15863b29b8",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Camelot/TargetFrame.lua": {
+        "sha256": "5fde5d9da652e94ab350244190a67c525847564c4d5da58df476b500584e19c5",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Camelot/TargetFrameTemplates.xml": {
+        "sha256": "4b9ade7fa5ece12407e88b9b46de6a7889269c048bae74f0b2c1ad97e3531f0c",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Camelot/TargetFrameUtils.lua": {
+        "sha256": "abbd0825a170d0482b29c1e27632767d89c443ab4114783a2390bca569faf893",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/AlternatePowerBar.lua": {
+        "sha256": "d7c68985b628a7fc18e40b487edf693786c91fcb2d1b128e95f32823fe2c2dd3",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/AlternatePowerBar.xml": {
+        "sha256": "69a2e42b7fea1a092e768dbb52898659dd4902733a821810c475523387429740",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.lua": {
+        "sha256": "028b728a07d89ed0019c6a0bdddcd95399b43aa8f52149915a7bbacfd651c9b7",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/AlternatePowerBarBase.xml": {
+        "sha256": "debd9496fdced45b25d9b89fcd69202a2b9692e7f827600a96e73331d10c5067",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.lua": {
+        "sha256": "4c622a1dc62640c7447343edcfa001080906a125bd69b1caff11f3e1648ec372",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/BuilderSpenderFrame.xml": {
+        "sha256": "7c361785979b404d3e06959032e6e4f355bf728c3e2b6bf6092d6aff4bd6e26b",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ClassPowerBar.lua": {
+        "sha256": "07259b5608766fa207659db35922353056533225b048adfe3c104bd8881a5b8f",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ClassPowerBar.xml": {
+        "sha256": "0bf33feb7d925b3cb2920280cdc168e24d36a71c24c262d1fe3f3b40a9e34c01",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.lua": {
+        "sha256": "4bbd0b1747da73bc3f9923c81c108580cbebf9fca284e440fe2bda231eeaeb7d",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ClassResourceBarTemplate.xml": {
+        "sha256": "d270c48469fb0806ac252c66bd61df21f0113d572496a71c3e99102ccc0552f3",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ComboFrame.lua": {
+        "sha256": "437e57f7e267d01c32fa6b54c40552a2f017c73a4ef86b8a830c8e6854da2a26",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/ComboFrame.xml": {
+        "sha256": "3c8c972dbd2ebdf806392d231c5b81c36ec6a63d9128c1d5278edd55d7b7aa41",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/CompactUnitFrameOptions.lua": {
+        "sha256": "8f79009ab0c6ccaf72625e12675574736ad99890948cf450830d5e8b9d2f9ddf",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/Localization.lua": {
+        "sha256": "0449d404c8b9b41a72514a3dca9590ac620e80dddd5509675c5274821a000ec2",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PartyFrameTemplates.xml": {
+        "sha256": "98b8715e6703e04854f0d2a4f104fb63026e3ca3f180baf56aae2888695c99dc",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PartyMemberFrame.lua": {
+        "sha256": "a586f118f824577a9f365871cb9d18317854708456c286bdca907b17f4353d9f",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PetFrame.lua": {
+        "sha256": "a8f41227fec2a7c353fb24863b89c8008441aae0c51aa2a955f6a92a4b48ba2c",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PetFrame.xml": {
+        "sha256": "23ff44a6eeb5bbdf58e19003646e4018fe1493b3534c8bbda37573f32360c8e0",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PlayerFrame.lua": {
+        "sha256": "fe186db32c4ace446f38bfa3c55bd94b31ea512d26aaab36a59b56fc95af5717",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PlayerFrame.xml": {
+        "sha256": "8b79ef56654d1a652f6c73d54899cb42ed872211567fc704f6c26f0a991e763d",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/PowerBarColorUtil.lua": {
+        "sha256": "b65c40d1a183b8ac5d34368917cec61774b831a9f305c32ded3e996f8b53f9b4",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/TargetFrame.lua": {
+        "sha256": "db34fc42e0d059733935154b667ae275eb2b0edd7f4ecfdec90860629a7e4373",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/TargetFrame.xml": {
+        "sha256": "b74a7046542df1f918191e6e584e66a3e46b3989f8b9081dfd0f77ad07938afb",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/TotemFrame.lua": {
+        "sha256": "18d3ff80ce407869cdbd18c466c197f8dc461f4437d750debcf3ad1142174f57",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/TotemFrame.xml": {
+        "sha256": "a0ad8966059527d3d398f13a353006ac7ae09cc3e6e145a28e50080ce7b5052e",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/UnitFrame.lua": {
+        "sha256": "9b1de0fde6a496f6c01c3605a4e629fcb7595a8ad86fa8e719d49cb6f3133b74",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/UnitFrameUtil.lua": {
+        "sha256": "724acfb828089b0bc5dfac5c2e8647201c0f753588f68a5af82cbac385de3f6c",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.lua": {
+        "sha256": "70bd25a508dc778cc2c7b641b47531f99a646be9bc71b019a083b30f08660d4d",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Mainline/UnitPowerBarAlt.xml": {
+        "sha256": "b23bf5322a4b75577db3b60b5efb6e0e2ffdb13478d9754e6893375b7230d0a1",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactPartyFrame.lua": {
+        "sha256": "054679e5f9786404563ad69f199c998b48c3650df3daf1b58e83f320a8e7192b",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactPartyFrame.xml": {
+        "sha256": "a1e90229dced7902041b0040c11c1aa24a9f075edd34a80f303373d216cc4cc8",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactRaidGroup.lua": {
+        "sha256": "bcfa658f858007760e4e27f5c2204b611a120ac51761f317f2cce59f35fa8bd8",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactRaidGroup.xml": {
+        "sha256": "4d8454ad5fc02d2cafb397b66f77eb4039a9f7f706c379e25c2e29f17d803ddc",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactUnitFrame.lua": {
+        "sha256": "94f9cc2105039a2b9bedd5991bad4904b0669cbb1a738bb44368bfa3e940648d",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactUnitFrame.xml": {
+        "sha256": "af851f574a88a1a37ec6696516b3b912e6f138bb6493a4b4e454ac3c79ba5406",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.lua": {
+        "sha256": "80554d566fba35551215e509e780bc807b13984c77263b0ae6705dd3bdcbf18e",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactUnitFrameContainer.xml": {
+        "sha256": "c051541b129afac566fb69fff3866d9df9a4398a16aace8d96bb4b70c76fa50f",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/CompactUnitFrameUtil.lua": {
+        "sha256": "829d46c7b96980c6f1e40c9cdb9b3336d1bd9ead500df688094d32ab997c6051",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/GroupFrameVisibility.lua": {
+        "sha256": "2b34ff1e0b3dc7d948addf2cb50fc1be704ab1e9f21e9ce9cfe6504bc6e6705e",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/Localization.lua": {
+        "sha256": "6ebd1e84f0f42586350cd9f0cfa3e8412bc9e9e564e3a08ccfa46d61417066ef",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PartyFrame.lua": {
+        "sha256": "954d16c3ffd58747aa074f6cb778fed4180226a7a9e9497eda08f9742e71b6a6",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PartyFrame.xml": {
+        "sha256": "c2c72ca9f6698a4c213352c89bb682ea015618d2bd46c6b90da0069ef87160c3",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PartyFrameTemplates.xml": {
+        "sha256": "9991fa0b678fcb6305a66cb9840e780b1c2fbb86065cb1005f432c356438ee0e",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PartyMemberFrame.lua": {
+        "sha256": "9ece4d3330c534b6826c4b91576a811f090e214b27ad2cf58d4d109ebc934b96",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PlayerFrame.lua": {
+        "sha256": "e634e15b3e4dac9d114cb006c23a5ed313a5cf774eaa2a8dd1e6389f300f3135",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/PlayerFrameTemplates.xml": {
+        "sha256": "941ee2cf035338c616ca6d388c98a145f54c1a8eadff93c38cc968333074ac07",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.lua": {
+        "sha256": "643b0f5012fdfebfaee198359199ab7c71539cc3c885a8a89040f518829f5b01",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/StatusBarOverlaySegment.xml": {
+        "sha256": "f3feb54e411df7b28408e82ef9431ee0f2530b451493ea915f7ca0878cc90f21",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrame.lua": {
+        "sha256": "611e46cc2011148076c77dac8a2be69f2ffbe80220628c036a81243e1e2a5ea8",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.lua": {
+        "sha256": "48bab6d528aee4b6d4bad354d4c742d0395e800dabdfac18a8947f49bb67e661",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrameAuraButton.xml": {
+        "sha256": "deba9f506d80d54625d4f448bed4c7501e31fe6b74a35acaf22ac4849486abec",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.lua": {
+        "sha256": "e1aa808c0d78c1a134249e8ca094781e2334161d81977b811a54c1f6beb1153d",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrameAuraContainer.xml": {
+        "sha256": "db6b1a2b88888f71303535399ae50758257aa3244ecf23cc7299be912cb926c2",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/TargetFrameAuraShared.lua": {
+        "sha256": "1215af30e40981f49d9c1562543900ed105e07cd05951432979b8bb7016a58ed",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/UnitFrame.lua": {
+        "sha256": "c90aed7b678621553a788e516f8e9c1e01722fb2c88fb345610130e781e845a1",
+        "includes": []
+      },
+      "Blizzard_UnitFrame/Shared/UnitFrame.xml": {
+        "sha256": "6d11e82bc610ba07ca2c4fdd36008d17cb37c39fe7f5993946dd74c228e41b14",
+        "includes": []
+      },
+      "Blizzard_ZoneAbility/Blizzard_ZoneAbility.toc": {
+        "sha256": "55fb4d2552fab4278f522845133f82f359c38492bb96e3a46cda39dd28ad51dd",
+        "includes": []
+      },
+      "Blizzard_ZoneAbility/ZoneAbility.lua": {
+        "sha256": "988cd490a140bbcd78f722f5e9f2db90de8c21d4aa1aa3c2f9ef908298963682",
+        "includes": []
+      },
+      "Blizzard_ZoneAbility/ZoneAbility.xml": {
+        "sha256": "a4856f483a235024d0069c7e0da6c4e84cb1a465fe5f47c4698d2ee212cc7b1a",
+        "includes": []
+      }
+    }
+  }
+}
