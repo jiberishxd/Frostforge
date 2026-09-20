@@ -1,0 +1,3 @@
+local _, J = ...
+-- Packaging replaces this file with a single-client declaration.
+J.Build = {flavor='development', interface={120100,16001}, baseline='Retail 12.1.0.69875 / Forever 1.60.1.69913'}
