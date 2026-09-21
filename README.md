@@ -2,7 +2,7 @@
 
 Border skins for Blizzard's unit frames and action bars, with experimental ElvUI and Ellesmere integrations. The library has **52 trim choices across 15 material families**, plus **15 original class and holiday crests**. Human remains the default unit-border material. Every trim style can be selected globally or per frame group; portraits have independent controls.
 
-**Version 0.1.0-alpha.7 is an implementation for testing, not a compatibility-certified release.** It adds class/resource gradients, a separate Portrait tab, 13 class crests plus Halloween and Christmas, and a shared action-bar surround including micro-menu and bag-button areas. The 60 mocked behavioral groups and 4 recovery-parser tests pass; real rendering, combat safety, provider compatibility, and persistence still require in-game validation. See [new controls and test steps](docs/FANTASY.md).
+**Version 0.1.0-alpha.8 is an implementation for testing, not a compatibility-certified release.** It adds crest X/Y controls and a 10–300% size range, plus a sculpted bottom console with customizable artwork, dimensions, position, action-bar rows, micro menu, and bags. The 65 mocked behavioral groups and 4 recovery-parser tests pass. Alpha.7 options applied in game but the user reported poor fit; alpha.8's new docking, rendering, combat behavior, and provider compatibility still require in-game validation. See [controls and test steps](docs/FANTASY.md).
 
 New highlights include Dwarf / Ironforge, Night Elf Moonwell / Ancient Grove / Sentinel, Mage Arcane Crystal, Warlock Fel Covenant, and standard Black Stone, Slate, Obsidian, Silver Steel, Aged Bronze, Ivory Gold, Forest Wood, and Frost Stone. There are presets for all 13 classes, 26 race identities, and Alliance/Horde. Related presets deliberately share artwork and use different palettes; the library contains 15 material families, not 52 independently painted sets. See `docs/SKIN-LIBRARY.md` for the full mapping.
 
@@ -11,8 +11,8 @@ New highlights include Dwarf / Ironforge, Night Elf Moonwell / Ancient Grove / S
 1. Choose the matching archive in `dist`: Retail (interface **120100**, audited build **12.1.0.69875**) or Forever (interface **16001**, audited build **1.60.1.69913**).
 2. Extract its single `JiberishUI` folder into that client's `Interface/AddOns` directory. Avoid an extra nested folder.
 3. Start the client or reload its UI, enable JiberishUI, and open **Settings → AddOns → JiberishUI**, `/jui`, or `/jiberishui`.
-4. Choose Global or a frame group on the left. **Borders** changes unit/bar trim; **Colors** enables health/power gradients; **Portrait** selects independent trim and artwork. **Action setup** controls the shared surround. Style browsers support previews; color-mode buttons cycle choices. Use **Use global settings** on Borders to clear that group's overrides.
-5. Use Blizzard Edit Mode, ElvUI, or Ellesmere's layout controls for movement, dimensions, and spacing. Blizzard portrait frames retain the native curved outline and width; JiberishUI changes its material, tint, and opacity. Thickness, inset, and ornaments apply to rectangular borders where supported. External rectangular borders are limited to 3 UI units; shaped Ellesmere artwork retains Ellesmere's geometry.
+4. Choose Global or a frame group on the left. **Borders** changes unit/bar trim; **Colors** enables health/power gradients; **Portrait** selects independent trim, artwork, size, and X/Y offsets. **Action setup → Class fantasy hub** opens Console, Position, Controls, and Artwork sections. Previously saved action modes remain selected until changed. Use **Use global settings** on Borders to clear that group's overrides.
+5. In hub mode, **Position → Dock Blizzard bars** positions bars 1–3, micro menu, and bags using the Controls sliders. Turn docking off to use the native positions. Edit Mode pauses docking and still owns each bar's button rows/spacing. ElvUI/Ellesmere retain their own layout controls. Unit-frame movement and dimensions remain with the owning UI. Blizzard portrait frames retain their curved outline; JiberishUI changes its material, tint, opacity, and separate crest artwork.
 
 During combat, settings are saved and the synthetic preview updates; live changes apply afterward. Disabling a module requires **Reload UI**, which reconstructs the native frame state. Re-enable before reloading to cancel that disable request. To remove every customization, disable the addon and reload. Disabling Global can be overridden by explicitly enabled groups; use the addon checkbox to turn everything off.
 
@@ -20,7 +20,7 @@ The Profiles page supports named copies, per-character selection, reset, export,
 
 ## Coverage
 
-Implemented discovery includes player, target, focus, pet, boss, target-of-target, focus-target, portrait party/pets, compact party/pets, raids, main/additional action bars, pet/stance/possess/override buttons, extra/zone buttons, flyouts, and Forever multicast/totem buttons. The main/additional action bars default to one shared surround with native buttons. Individual-button styling remains optional; its legacy main-bar art and endcaps retain their own containers. Micro-menu and bag-button areas can join the surround without being moved or having their clicks modified.
+Implemented discovery includes player, target, focus, pet, boss, target-of-target, focus-target, portrait party/pets, compact party/pets, raids, main/additional action bars, pet/stance/possess/override buttons, extra/zone buttons, flyouts, and Forever multicast/totem buttons. New profiles default to the class fantasy hub with native buttons. Its optional docking moves/scales the three named Blizzard bottom bars, menu container, and bag bar outside combat; other bars stay in their existing positions. Simple surround, individual borders, both, and native modes remain available. No click attributes, bindings, parents, or native button visibility are changed.
 
 Native health/power colors remain the default. Custom modes use a white fill with the native mask. Health supports fixed and class/reaction colors; power supports fixed, class/reaction, and power-type palettes. Both offer gradients with direction and depth controls. Disconnected, dead, tapped, unavailable, and restricted states fall back to native presentation. Compact frames configured for threat-based health coloring keep native health colors.
 
@@ -32,7 +32,8 @@ Shadowed Unit Frames, PitBull, Bartender, Dominos, and Masque's Blizzard integra
 
 ## Project and verification
 
-- `JiberishUI/` — addon source and 227 packaged TGA assets, including 15 fantasy crests and the bar-interior exclusion mask.
+- `JiberishUI/` — addon source and 228 packaged TGA assets, including 15 fantasy crests, the console, and the bar-interior exclusion mask.
+- `artwork/hub-console.png` / `artwork/hub-prompts.json` — original console master and exact built-in image_gen prompt; `tools/build_hub.py` encodes its runtime TGA.
 - `docs/FANTASY.md` / `docs/fantasy-library.png` — new controls, implementation limits, live test steps, and the crest artwork sheet.
 - `artwork/fantasy/` / `artwork/fantasy-prompts.json` — 15 original transparent masters and exact built-in image_gen prompts.
 - `docs/border-showcase.png` — selected new borders at representative UI sizes.
