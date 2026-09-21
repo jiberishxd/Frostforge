@@ -50,19 +50,25 @@ function P:Init()
     local name,realm = UnitFullName('player')
     self.character = (name or 'Player')..'-'..(realm or GetRealmName() or '')
     local db = JiberishUIDB
+    self.loadState=type(db)=='table' and 'received' or 'missing'
     if type(db)=='table' and U.Number(db.version) and db.version>1 then return false,'Settings are from a newer addon version; preserved without changes.' end
     if type(db)~='table' then db={version=1,profiles={},characters={}}; JiberishUIDB=db end
     db.version=1
     if type(db.profiles)~='table' then db.profiles={} end
     if type(db.characters)~='table' then db.characters={} end
     if not P.Validate(db.profiles.Default) then
-        if db.profiles.Default then db.recoveryDefault=U.Copy(db.profiles.Default) end
+        if db.profiles.Default then db.recoveryDefault=U.Copy(db.profiles.Default);self.loadState='invalid-default' end
         db.profiles.Default=P.Default()
     end
     local selected=db.characters[self.character]
     if type(selected)~='string' or not P.Validate(db.profiles[selected]) then selected='Default' end
     db.characters[self.character]=selected; self.db=db
     return true
+end
+function P:LoadStatus()
+    if self.loadState=='received' then return 'Saved settings table received from the client.' end
+    if self.loadState=='invalid-default' then return 'Invalid Default profile preserved as recovery data; Default was rebuilt.' end
+    return 'No saved settings table received (first run or client loading failure).'
 end
 function P:Name() return self.db.characters[self.character] end
 function P:Current() return self.db.profiles[self:Name()] end
