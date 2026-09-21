@@ -35,6 +35,35 @@ end)
 test('forward schema is preserved',function()
     local old=JiberishUIDB;JiberishUIDB={version=99};local db=JiberishUIDB;assert(not P:Init());equal(JiberishUIDB,db);JiberishUIDB=old;assert(P:Init())
 end)
+test('fresh profile service restores serialized appearance and color modes without resetting',function()
+    local savedGlobal=JiberishUIDB
+    local profile=P.Default();profile.skin='dwarf';profile.global.healthMode='class';profile.global.powerMode='type'
+    profile.groups.player={skin='alliance',healthMode='class',powerMode='custom',powerColor={0.1,0.2,0.3}}
+    profile.groups.target={skin='bronze',opacity=0.6}
+    local serialized=assert(P.Export(profile));local restored=assert(P.Import(serialized))
+    JiberishUIDB={version=1,profiles={Default=restored},characters={}}
+    local fresh={Util=J.Util,Skins=J.Skins,GroupSet=J.GroupSet}
+    assert(loadfile('JiberishUI/Core/Profiles.lua'))('JiberishUI',fresh)
+    assert(fresh.Profiles:Init());equal(fresh.Profiles.loadState,'received')
+    equal(fresh.Profiles:Resolve('player').healthMode,'class');equal(fresh.Profiles:Resolve('player').skin,'alliance')
+    equal(fresh.Profiles:Resolve('target').skin,'bronze');equal(fresh.Profiles:Resolve('target').healthMode,'class')
+    equal(fresh.Profiles:Resolve('player').powerMode,'custom');equal(P.Export(fresh.Profiles:Current()),serialized)
+    JiberishUIDB=savedGlobal
+end)
+test('persistence diagnostics distinguish missing input from rejected profile data',function()
+    local savedGlobal=JiberishUIDB
+    JiberishUIDB=nil;assert(P:Init());equal(P.loadState,'missing');assert(P:LoadStatus():find('No saved settings',1,true))
+    JiberishUIDB={version=1,profiles={Default={skin='unknown'}},characters={}}
+    assert(P:Init());equal(P.loadState,'invalid-default');equal(JiberishUIDB.recoveryDefault.skin,'unknown')
+    JiberishUIDB=savedGlobal;assert(P:Init());equal(P.loadState,'received')
+end)
+test('direct export and import commands use the validated profile dialogs',function()
+    local before=assert(P.Export(P:Current()))
+    SlashCmdList.JIBERISHUI('export');equal(J.SettingsUI.dialog.edit:GetText(),before)
+    SlashCmdList.JIBERISHUI('import');local apply=J.SettingsUI.dialog.action
+    assert(not apply('return os.execute("bad")'));equal(P.Export(P:Current()),before)
+    assert(apply(before));equal(P.Export(P:Current()),before);J.SettingsUI.dialog:Hide()
+end)
 local raid,outsider
 test('container discovery includes compact pets and excludes nameplates',function()
     CompactRaidFrameContainer=CreateFrame('Frame',nil,UIParent);raid=M.compact(CompactRaidFrameContainer)

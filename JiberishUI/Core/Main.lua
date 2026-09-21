@@ -351,6 +351,8 @@ SLASH_JIBERISHUI1='/jui'; SLASH_JIBERISHUI2='/jiberishui'
 SlashCmdList.JIBERISHUI=function(command)
     command=(command or ''):lower():match('^%s*(.-)%s*$')
     if command=='diagnostics' or command=='diag' then J:Print(J:Diagnostics())
+    elseif command=='export' and J.ready then J.SettingsUI:ExportProfile()
+    elseif command=='import' and J.ready then J.SettingsUI:ImportProfile()
     elseif command=='reload' then if U.Combat() then J:Print('Reload UI after combat.'); else ReloadUI() end
     elseif J.ready then J.SettingsUI:Open()
     else J:Print('Unavailable on this client or profile version. Use /jui diagnostics.') end
