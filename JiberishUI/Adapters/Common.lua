@@ -6,14 +6,12 @@ local unitGroups={player=true,target=true,focus=true,pet=true,boss=true,targetta
 function A.Conflict(group)
     local loaded=C_AddOns and C_AddOns.IsAddOnLoaded or IsAddOnLoaded
     if not loaded then return end
-    if loaded('ElvUI') then return 'ElvUI owns overlapping Blizzard frames.' end
+    if J.Integrations and J.Integrations.conflicts[group] then return J.Integrations.conflicts[group] end
     if unitGroups[group] then
-        if loaded('EllesmereUIUnitFrames') then return 'EllesmereUI Unit Frames is loaded.' end
         if loaded('ShadowedUnitFrames') then return 'Shadowed Unit Frames is loaded.' end
         if loaded('PitBull4') then return 'PitBull is loaded.' end
-        if (group=='party' or group=='raid') and loaded('EllesmereUIRaidFrames') then return 'EllesmereUI Raid Frames is loaded.' end
     else
-        for _,addon in ipairs({'Bartender4','Dominos','EllesmereUIActionBars','Masque_Blizzard'}) do
+        for _,addon in ipairs({'Bartender4','Dominos','Masque_Blizzard'}) do
             if loaded(addon) then return addon..' owns overlapping action buttons.' end
         end
     end
@@ -77,7 +75,7 @@ function A.Discover(adapter)
         end,2)
     end
     if MainActionBar and MainActionBar.BorderArt then add(out,MainActionBar,'actionbars','rail') end
-    return out
+    return J.Integrations and J.Integrations:Discover(out) or out
 end
 function A.Resolve(frame,definition)
     local health=U.Path(frame,definition.health)

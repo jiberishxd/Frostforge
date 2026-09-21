@@ -28,6 +28,10 @@ local function cycle(parent,x,y,width,get,choices,change)
     return f
 end
 function S:Value() return P:Resolve(self.scope) end
+function S:UsesNativeShell()
+    local groups={player=true,target=true,focus=true,pet=true,boss=true,targettarget=true,focustarget=true}
+    return groups[self.scope] and not (J.Integrations and J.Integrations.providers[self.scope])
+end
 function S:Set(key,value)
     local ok,err=P:Set(self.scope,key,value)
     if not ok then J:Print(err) end
@@ -65,13 +69,17 @@ function S:Slider(parent,key,text,y,low,high,step)
         if not self.refreshing then self:Set(key,math.floor(value/step+0.5)*step) end
     end)
     self.controls[#self.controls+1]={Refresh=function()
+        local fixed=self:UsesNativeShell() and (key=='thickness' or key=='inset' or key=='ornament')
+        if slider.SetEnabled then slider:SetEnabled(not fixed) end
+        caption:SetAlpha(fixed and 0.5 or 1)
         local maximum=high
         if key=='thickness' and self.scope~='global' then
             maximum=({party=5,partypet=5,raid=5,pet=5,targettarget=5,focustarget=5,actionbars=10,petbar=10,stancebar=10,vehiclebar=10,extrabar=10,flyout=10,totembar=10})[self.scope] or high
+            if J.Integrations and J.Integrations.providers[self.scope] then maximum=3 end
         end
         slider:SetMinMaxValues(low,maximum)
         local value=U.Clamp(self:Value()[key],low,maximum); slider:SetValue(value)
-        caption:SetText(text..string.format(': %.2g',value))
+        caption:SetText(fixed and (text..': native shape') or (text..string.format(': %.2g',value)))
     end}
 end
 function S:Dialog(title,text,accept)
@@ -203,7 +211,7 @@ function S:Create()
     local health=CreateFrame('StatusBar',nil,preview); health:SetPoint('TOPLEFT'); health:SetSize(220,28); health:SetStatusBarTexture(J.Neutral); health:SetMinMaxValues(0,100); health:SetValue(75)
     local power=CreateFrame('StatusBar',nil,preview); power:SetPoint('TOPLEFT',0,-30); power:SetSize(220,10); power:SetStatusBarTexture(J.Neutral); power:SetMinMaxValues(0,100); power:SetValue(40)
     self.previewHealth,self.previewPower=health,power; self.previewBorder=R.Create(preview,preview,'compact')
-    label(appearance,'Synthetic preview\nNative indicators keep priority.',475,-485,210)
+    label(appearance,'Material preview\nLive shape follows your UI.\nBlizzard portrait borders use native width.',475,-485,210)
     self.status=label(panel,'',16,-555,680)
     self.profileLabel=label(profiles,'',24,-115,630)
     self.controls[#self.controls+1]=cycle(profiles,24,-148,285,function() return P:Name() end,function()

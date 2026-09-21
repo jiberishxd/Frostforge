@@ -18,7 +18,7 @@ def check_assets():
     assert len(manifest['sources'])==12+len(generated)
     actual={p.relative_to(ROOT).as_posix() for p in (ROOT/'JiberishUI/Media').rglob('*.tga')}
     expected={a['file'] for a in manifest['assets']}
-    assert actual==expected and len(actual)==len(materials)*14+1
+    assert actual==expected and len(actual)==len(materials)*14+2
     for material in materials:
         required={'tl','tr','bl','br','top','bottom','left','right','portrait','ornament','button-normal','button-pushed','button-highlight','button-checked'}
         assert {Path(p).stem for p in actual if Path(p).parent.name==material}==required,material
@@ -42,6 +42,10 @@ def check_assets():
         assert visible,path
         bounds=[min(x for x,y in visible),min(y for x,y in visible),max(x for x,y in visible)+1,max(y for x,y in visible)+1]
         assert bounds==asset['alphaBounds'],path
+        if path.name=='outside-rect.tga':
+            for y in range(8):
+                for x in range(8):
+                    assert pixels[(y*8+x)*4+3]==(0 if 2<=x<6 and 2<=y<6 else 255)
         if path.parent.name in generated and path.stem in {'top','bottom','left','right'}:
             def pixel(x,y):return pixels[(y*w+x)*4:(y*w+x+1)*4]
             if path.stem in {'top','bottom'}:assert all(pixel(0,y)==pixel(w-1,y) for y in range(h)),path

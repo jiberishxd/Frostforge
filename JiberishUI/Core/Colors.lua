@@ -7,16 +7,23 @@ local function query(fn,...)
     if not ok or not U.Safe(a) or not U.Safe(b) or not U.Safe(c) or not U.Safe(d) or not U.Safe(e) then return nil end
     return a,b,c,d,e
 end
-function C.Unit(frame)
+function C.Unit(frame,field)
+    if field then
+        local unit
+        if field=='attribute' then unit=query(frame.GetAttribute,frame,'unit')
+        elseif field=='_euiUnit' then unit=frame._euiUnit end
+        if U.Safe(unit) and type(unit)=='string' then return unit end
+        return nil
+    end
     local unit=frame.displayedUnit
     if not U.Safe(unit) then return nil end
     if type(unit)~='string' then unit=frame.unit end
     if not U.Safe(unit) or type(unit)~='string' then return nil end
     return unit
 end
-function C.Resolve(owner,kind,config)
+function C.Resolve(owner,kind,config,field)
     local mode=config[kind..'Mode']; if mode=='native' then return nil end
-    local unit=C.Unit(owner)
+    local unit=C.Unit(owner,field)
     if not unit then return nil end
     local connected=query(UnitIsConnected,unit)
     local dead=query(UnitIsDeadOrGhost,unit)
@@ -55,7 +62,7 @@ local function captureTexture(record)
     for _,v in ipairs(coords) do if not U.Number(v) then valid=false end end
     if valid then record.nativeCoords=coords end
 end
-function C.Attach(owner,bar,kind,mask,configGetter)
+function C.Attach(owner,bar,kind,mask,configGetter,unitField)
     if not bar or not bar.GetStatusBarTexture then return nil end
     if C.qualified==nil then
         if U.Combat() then return nil end
@@ -67,7 +74,7 @@ function C.Attach(owner,bar,kind,mask,configGetter)
         if not C.qualified and J.Failure then J:Failure('neutral-fill','Neutral artwork is missing. Native bar fills retained; repair the addon and reload.') end
     end
     if not C.qualified then return nil end
-    local record={owner=owner,bar=bar,kind=kind,mask=mask,getConfig=configGetter}
+    local record={owner=owner,bar=bar,kind=kind,mask=mask,getConfig=configGetter,unitField=unitField}
     captureTexture(record)
     local r,g,b,a=bar:GetStatusBarColor()
     if U.Number(r) and U.Number(g) and U.Number(b) then record.nativeColor={r,g,b,U.Number(a) and a or 1} end
@@ -93,7 +100,7 @@ function C.Apply(record,override)
     if record.busy or record.failed then return end
     local config=override or record.getConfig()
     if not config then return end
-    local color=C.Resolve(record.owner,record.kind,config)
+    local color=C.Resolve(record.owner,record.kind,config,record.unitField)
     local texture=record.bar:GetStatusBarTexture()
     if not texture or not record.nativeTexture then return end
     record.busy=true

@@ -2,9 +2,11 @@
 
 Status on 2026-09-20: **alpha implementation; not approved for production release**.
 
-Completed locally: classic WC3 source extraction/measurement, 11 original material masters, 52-choice catalog and synthetic preview sheets, complete relevant manifest/XML tracing at both pins, Lua 5.1 parsing and 33 mocked behavioral test groups, 211 asset/manifests integrity checks, and separate client packages. Mocked tests cannot reproduce combat lockdown, taint propagation, secret-value engine enforcement, real Settings layout, or Blizzard's renderer.
+Completed locally: classic WC3 source extraction/measurement, 11 original material masters, 52-choice catalog and synthetic preview sheets, complete relevant manifest/XML tracing at both pins, Lua 5.1 parsing and 48 mocked behavioral test groups, 212 asset/manifests integrity checks, installed ElvUI/Ellesmere source inspection, and separate client packages. Mocked tests cannot reproduce combat lockdown, taint propagation, secret-value engine enforcement, real Settings layout, or Blizzard's renderer.
 
-Initial user testing on Retail 12.1.0 build 69875 confirmed action bars applying in alpha.2; diagnostics showed every portrait-unit attachment failed, while compact party members/pets and action-button families applied. Alpha.3 fixes the unsupported portrait-texture resize hook. The user's alpha.3 screenshot confirms visible borders around the live player portrait, health bar, and power bar. This is partial evidence, not a pass of the coverage matrix. No Forever live test has been recorded. No blocked-action-free, fully compatible, seamless-fit, or restart-persistence claim is made. No Forever persistence defect was reproduced. The [build 69913 persistence report](https://us.forums.blizzard.com/en/wow/t/uiaddon-settings-wiped-on-client-restart/2353992) is a report to investigate, not an established local finding.
+Initial user testing on Retail 12.1.0 build 69875 confirmed action bars applying in alpha.2; diagnostics showed every portrait-unit attachment failed, while compact party members/pets and action-button families applied. Alpha.3 fixed the unsupported portrait-texture resize hook and applied all 155 discovered instances, but rectangular visual fit failed. Forever alpha.4 testing on 1.60.1 build 69913 applied all 169 discovered instances; screenshots showed material banding and a textured dead-target health backdrop. No blocked-action-free, fully compatible, seamless-fit, or restart-persistence claim is made. No Forever persistence defect was reproduced. The [build 69913 persistence report](https://us.forums.blizzard.com/en/wow/t/uiaddon-settings-wiped-on-client-restart/2353992) is a report to investigate, not an established local finding.
+
+Alpha.5 replaces the full-frame material with curved portrait trim and edge-only bar pieces, keeping native backdrops intact. All live checks for this correction and the external-provider adapters remain pending. Earlier attachment counts do not validate the new renderer. See `COMPATIBILITY.md` for the provider-specific test sequence.
 
 ## Gate 1: Human feasibility — required before wider rollout
 
@@ -16,7 +18,7 @@ Every row requires **Retail and Forever** testing, unless marked Forever-only. T
 
 | Family | Required cases | Live status |
 |---|---|---|
-| Player | Normal; vehicle; alternate resources; portrait/class icon choices | Retail alpha.3: basic live borders visible in user screenshot; remaining cases and Forever pending |
+| Player | Normal; vehicle; alternate resources; portrait/class icon choices | Alpha.3/4 visual fit failed; alpha.5 correction pending on both clients |
 | Target/focus | Player/NPC; minus/normal/elite/rare/boss; tapped, dead, disconnected where applicable | Pending |
 | Boss | Multiple bosses; appearance/removal; classification overlays | Pending |
 | Pet | Summon/dismiss; possession; attack flash; health/power/masks | Pending |
@@ -29,7 +31,7 @@ Every row requires **Retail and Forever** testing, unless marked Forever-only. T
 | Special bars | Pet; stance/form; possess; vehicle; override | Pending |
 | Extra/zone | Extra ability; pooled zone abilities; appear/disappear | Pending |
 | Flyout | Open/close; change spell list; first encounter during combat | Pending |
-| Forever totems | Action pages, summon/recall, multicast flyout, empty slots | Pending — Forever only |
+| Forever totems | Action pages, summon/recall, multicast flyout, empty slots | Alpha.4: 14 instances applied; visual/behavioral scenarios pending |
 | Main-bar art | Border visibility, both endcaps, Forever separate endcap Edit Mode controls | Pending |
 | Input | Mouse, keybindings, controller navigation, quick keybind mode | Pending |
 
@@ -40,13 +42,13 @@ Every row requires **Retail and Forever** testing, unless marked Forever-only. T
 - Repeat group changes, show/hide, Edit Mode save/cancel, skin switches, target changes, and addon loads. Confirm stable attachment counts and no growth in hooks/textures.
 - Exercise dead/disconnected/tapped states and native threat-health coloring. Custom neutral fills must yield to the native presentation and preserve absorb, heal prediction, temporary health loss, selection and threat signals.
 - Verify restricted/secret unit inputs do not produce Lua errors or expose unit quantities in diagnostics.
-- Test ElvUI, Ellesmere modules, SUF, PitBull, Bartender, Dominos, and Masque Blizzard overlap individually. Affected modules must be skipped, with an explanation.
+- Test ElvUI and Ellesmere modules individually, including profile changes, shaped portraits/buttons, and mixed provider configurations. Confirm diagnostics name the correct provider, native button states/clicks survive, and same-group provider conflicts are skipped with an explanation. SUF, PitBull, Bartender, Dominos, and Masque Blizzard remain conservative skips for affected modules.
 - Inspect nameplates before and after group/target updates: no JiberishUI textures or state changes.
 - Disable each module, then reload; disable the addon entirely and reload. Native appearance, secure clicks, actions, and controller navigation must work. No taint or blocked-action errors are acceptable.
 
 ## Visual checks
 
-Test all 15 material families at 1920 × 1080, 2560 × 1440, and 3840 × 2160, with representative UI scales (0.64, 0.8, 1.0) and frame scales (0.75, 1.0, 1.25) where supported. Spot-check all 52 presets for palette readability. Test the minimum and maximum thickness, inset, opacity, and ornament settings. Include narrow party frames, dense 40-member raid layouts, vertical/multiline action bars, and portrait-off states.
+Test all 15 material families at 1920 × 1080, 2560 × 1440, and 3840 × 2160, with representative UI scales (0.64, 0.8, 1.0) and frame scales (0.75, 1.0, 1.25) where supported. Spot-check all 52 presets for palette readability. Test the minimum and maximum thickness, inset, opacity, and ornament settings on rectangular layouts. Native silhouettes must retain the owning UI's geometry at every setting. Include narrow party frames, dense 40-member raid layouts, vertical/multiline action bars, portrait-off states, ElvUI portrait overlays, and Ellesmere shaped/inside portraits.
 
 Exercise the visual browser's four categories, search, empty search results, first/last page, and repeated open/close. Verify that selection applies to the intended Global/frame-group scope, existing profile IDs remain valid, and choosing a skin during combat changes the preview immediately while deferring protected-frame appearance until afterward. Confirm the dialog/card text fits on both clients.
 

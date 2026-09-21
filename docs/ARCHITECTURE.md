@@ -1,6 +1,6 @@
 # Implementation contract
 
-The addon is cosmetic. Blizzard retains secure buttons, attributes, parentage, layout, frame dimensions, frame levels, and event scripts. No global native function is replaced by addon code. Post-hooks are registered once, and the ownership registry and lifecycle flags live in addon-owned tables.
+The addon is cosmetic. Blizzard or the selected frame provider retains secure buttons, attributes, parentage, layout, frame dimensions, frame levels, and event scripts. No global native function is replaced by addon code. Post-hooks are registered once, and the ownership registry and lifecycle flags live in addon-owned tables.
 
 ## Layers
 
@@ -11,14 +11,21 @@ The addon is cosmetic. Blizzard retains secure buttons, attributes, parentage, l
 | `Adapters/Common.lua` | Explicit containers, texture allowlists, shared field paths, conflicts |
 | `Adapters/Retail.lua` | Retail descriptor, interface 120100, independent definitions |
 | `Adapters/Forever.lua` | Forever descriptor, interface 16001, Camelot medallion preservation, multicast coverage |
+| `Adapters/Integrations.lua` | ElvUI/Ellesmere registry discovery, ownership selection, optional refresh hooks |
 | `Core/Main.lua` | Discovery, ownership, lifecycle, coalesced events, combat deferral, reload rules |
-| `Core/Renderer.lua` | Addon-owned corner/edge textures, bounded geometry, native button-state textures |
+| `Core/Renderer.lua` | Native artwork silhouette masks, addon-owned corner/edge textures, bounded geometry, Blizzard button-state textures |
 | `Core/Colors.lua` | Neutral status-bar fills, mask ownership, native-priority fallback, no quantity reads |
 | `Core/Profiles.lua` | Schema validation, precedence, character assignments, bounded data-only import/export |
 | `Core/Settings.lua` | Native Settings canvas, searchable/paged visual skin browser, synthetic preview, profile controls |
 | `Core/Diagnostics.lua` | Build, geometry, attachment count, compatibility failures |
 
 Skin choice resolves group skin → explicit global skin → profile skin. The resulting skin defaults are merged with explicit global options and group options. Settings schema version 1 preserves unknown future versions without modifying them. An invalid default profile is retained as recovery data and replaced with a valid default; invalid named profiles are excluded from selection.
+
+Blizzard decorative textures contain both trim and bar backdrops; alpha.4 incorrectly painted the whole silhouette. Alpha.5 keeps the native texture and its opacity intact. Health/power trim is restricted to edge-only pieces outside each status bar. Portrait material follows 32 curved quadrilaterals around the portrait, with continuous texture coordinates along the arc. Addon-owned masks clip both to the native decorative texture's atlas/file and any extra native clipping masks. Additional opaque-outside/transparent-inside masks prevent portrait trim from entering either bar's horizontal span, including dead and partially empty bars. No whole-frame material or undercoat is used for Blizzard units. Native geometry and functional indicators remain unchanged, and native artwork stays visible if qualification fails. Mask pools are reused; creation, anchors, and vertex offsets wait until outside combat.
+
+The separate full-silhouette renderer is used only for Ellesmere's dedicated border-only portrait/button artwork. Its material and undercoat follow that source's exact bounds and visibility. Both renderers use the source's draw layer and sublevel.
+
+External providers are discovered only through their specific registries and known containers. Their rectangular frames receive an outer border limited to 3 UI units. Ellesmere shaped portraits/buttons use the same silhouette renderer where native border artwork exists. Button state textures are never replaced on external-provider buttons, including the special Blizzard buttons those addons style. Unit colors use ElvUI's existing unit field, Ellesmere unit frames' `_euiUnit`, or Ellesmere raid/party buttons' read-only `unit` attribute. Replaced bars restore their previous fill before being retired. Provider selection is recalculated on discovery, old ownership is revoked, and attachment waits until login and until outside combat. See `COMPATIBILITY.md` for coverage and limitations.
 
 The expanded library keeps all four original profile IDs unchanged. Category membership is descriptive: any preset can be selected on either client regardless of the player's actual race/class. Presets reuse 15 shared material directories; palette/default differences are explicit catalog data. Browser previews show the skin's defaults and disclose that saved appearance overrides still apply. Browsing and synthetic preview creation touch only addon-owned frames, including during combat; selecting a style uses the existing deferred application path.
 
@@ -55,4 +62,4 @@ Discovery runs after initialization, relevant addon loads, group/target/pet/vehi
 
 Suppressed decorations are a small texture allowlist, not all regions under a frame. A failed/unqualified border does not suppress its native decoration. Mask removal only removes masks added by JiberishUI. Native masks that were already present remain attached. Function hooks are not removable in WoW, so disabled modules are excluded from attachment after reload.
 
-The renderer's border layers are below normal artwork/overlay indicators on their owners. Endcaps inherit the visibility and positioning of their native decorative child. Dense layouts, unusual scaling, gamepad modes, and relative frame levels still require in-game verification; an offline host cannot certify those engine behaviors.
+Compact/rectangular border pieces use the border layer; native-shaped trim retains the source decoration's layer and sublevel. Endcaps inherit the visibility and positioning of their native decorative child. Dense layouts, unusual scaling, gamepad modes, and relative frame levels still require in-game verification; an offline host cannot certify those engine behaviors.

@@ -19,8 +19,12 @@ function methods:SetWidth(w) self.w=w end
 function methods:SetHeight(h) self.h=h end
 function methods:SetPoint(...) self.points[#self.points+1]={...}; M.layoutWrites=M.layoutWrites+1 end
 function methods:ClearAllPoints() self.points={} end
-function methods:SetAllPoints() M.layoutWrites=M.layoutWrites+1 end
-function methods:CreateTexture() M.textures=M.textures+1; return object('Texture',self) end
+function methods:SetAllPoints(region) self.allPoints=region or self.parent; M.layoutWrites=M.layoutWrites+1 end
+function methods:CreateTexture(_,layer,_,level) M.textures=M.textures+1;local t=object('Texture',self);t.drawLayer=layer or 'ARTWORK';t.subLevel=level or 0;return t end
+function methods:CreateMaskTexture() M.textures=M.textures+1;return object('MaskTexture',self) end
+function methods:GetDrawLayer() return self.drawLayer or 'ARTWORK',self.subLevel or 0 end
+function methods:SetDrawLayer(layer,level) self.drawLayer=layer;self.subLevel=level end
+function methods:SetVertexOffset(index,x,y) self.vertices=self.vertices or {};self.vertices[index]={x,y};M.layoutWrites=M.layoutWrites+1 end
 function methods:CreateFontString() return object('FontString',self) end
 function methods:SetTexture(path) if M.missing and type(path)=='string' and path:find(M.missing,1,true) then return false end; self.texture=path;self.atlas=nil; return true end
 function methods:GetTexture() return self.texture end
@@ -29,6 +33,7 @@ function methods:GetAtlas() return self.atlas end
 function methods:SetTexCoord(...) self.coords={...} end
 function methods:GetTexCoord() return unpack(self.coords) end
 function methods:SetVertexColor(...) self.vertex={...} end
+function methods:GetVertexColor() return unpack(self.vertex or {1,1,1,1}) end
 function methods:SetColorTexture(...) self.vertex={...} end
 function methods:SetAlpha(a) self.alpha=a end
 function methods:GetAlpha() return self.alpha end
