@@ -1,5 +1,5 @@
 local addon, J = ...
-J.name, J.version = addon, '0.1.0-alpha.2'
+J.name, J.version = addon, '0.1.0-alpha.3'
 J.Util = {}
 local U = J.Util
 function U.Safe(value)
@@ -32,6 +32,31 @@ function U.Path(object, path)
     return object
 end
 function U.Combat() return InCombatLockdown and InCombatLockdown() end
+function U.HookScript(region,script,callback)
+    -- Textures expose HookScript too, but do not support every Frame script.
+    if not region or type(region.HookScript)~='function' or type(region.HasScript)~='function' then return false end
+    local ok,supported=pcall(region.HasScript,region,script)
+    if not ok or not U.Safe(supported) or not supported then return false end
+    region:HookScript(script,callback)
+    return true
+end
+function U.ErrorSummary(message,stack)
+    -- Keep code locations and a fixed error category, never the raw payload or locals.
+    if not U.Safe(message) or type(message)~='string' then return 'Runtime error (details unavailable).' end
+    local file,line=message:gsub('\\','/'):match('JiberishUI/([%w_/-]+%.lua)["%]: ]*(%d+)')
+    if not file and U.Safe(stack) and type(stack)=='string' then
+        file,line=stack:gsub('\\','/'):match('JiberishUI/([%w_/-]+%.lua)["%]: ]*(%d+)')
+    end
+    local kind='Runtime error'
+    for _,entry in ipairs({{'secret','Restricted value'},{'forbidden','Forbidden frame access'},
+        {"Doesn't have a",'Unsupported widget script'},{'unsupported script','Unsupported widget script'},
+        {'Usage:','Invalid API call'},{'bad argument','Invalid API argument'},
+        {'attempt to call','Unavailable function'},{'attempt to index','Unavailable frame or field'},
+        {'SetPoint','Invalid anchor'}}) do
+        if message:find(entry[1],1,true) then kind=entry[2]; break end
+    end
+    return kind..(file and (' at '..file..':'..line) or '')..'.'
+end
 function J:Print(message)
     if DEFAULT_CHAT_FRAME then DEFAULT_CHAT_FRAME:AddMessage('|cff86bfffJiberishUI|r: '..message) end
 end

@@ -133,9 +133,9 @@ function C.Apply(record,override)
     record.busy=false
 end
 function C.RefreshSafely(record)
-    local ok=pcall(C.Apply,record)
+    local ok,err=pcall(C.Apply,record)
     if not ok then
         record.busy=false; record.failed=true
-        if J.Failure then J:Failure('color-'..record.kind,'Color update failed. Further color changes stopped; reload to restore native artwork.') end
+        if J.Failure then J:Failure('color-'..record.kind,U.ErrorSummary(err)..' Further color changes stopped; reload to restore native artwork.') end
     end
 end
