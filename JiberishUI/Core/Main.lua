@@ -7,9 +7,22 @@ function J:Failure(key,message)
     if self.failures[key]~=message then self.failures[key]=message; self:Print(key..': '..message) end
 end
 function J:Protect(key,fn,...)
-    local ok,result=pcall(fn,...)
-    -- Do not include error payloads: they can contain unit values or other addon data.
-    if not ok then self:Failure(key,'Cosmetic update failed; see /jui diagnostics. Reload to return to Blizzard appearance.') end
+    local args,count={...},select('#',...)
+    local ok,result=xpcall(function() return fn(unpack(args,1,count)) end,function(message)
+        local stack
+        if debugstack then
+            local captured,value=pcall(debugstack,2,12,0)
+            if captured then stack=value end
+        end
+        return U.ErrorSummary(message,stack)
+    end)
+    if not ok then
+        local message=result..' See /jui diagnostics; reload after updating the addon.'
+        local changed=self.failures[key]~=message
+        self:Failure(key,message)
+        -- Forward only the sanitized summary so error collectors can identify the failure.
+        if changed and geterrorhandler then pcall(geterrorhandler(), 'JiberishUI '..key..': '..message) end
+    end
     return ok,result
 end
 function J:RequestApply()
@@ -121,7 +134,10 @@ function J:Attach(descriptor)
     local function border(owner,region,variant,required)
         local value=R.Create(owner,region,variant); value.required=required
         record.borders[#record.borders+1]=value
-        if region.HookScript then region:HookScript('OnSizeChanged',function() self:Schedule() end) end
+        local resize=function() self:Schedule() end
+        if not U.HookScript(region,'OnSizeChanged',resize) and owner~=region then
+            U.HookScript(owner,'OnSizeChanged',resize)
+        end
     end
     if regions then
         if descriptor.kind=='compact' then border(frame,frame,'compact',true)
@@ -166,10 +182,8 @@ function J:Attach(descriptor)
             end
         end
     end
-    if frame.HookScript then
-        frame:HookScript('OnShow',function() self:RefreshSafely(record,not U.Combat()); self:Schedule() end)
-        frame:HookScript('OnSizeChanged',function() self:Schedule() end)
-    end
+    U.HookScript(frame,'OnShow',function() self:RefreshSafely(record,not U.Combat()); self:Schedule() end)
+    U.HookScript(frame,'OnSizeChanged',function() self:Schedule() end)
     self:RefreshSafely(record,true)
 end
 function J:InstallHooks()
@@ -223,7 +237,11 @@ end
 function J:Schedule()
     if self.scheduled or not self.ready then return end
     self.scheduled=true
-    C_Timer.After(0,function() self.scheduled=false; self:Protect('lifecycle',self.RefreshAll,self) end)
+    C_Timer.After(0,function()
+        self.scheduled=false; self:Protect('lifecycle',self.RefreshAll,self)
+        local settings=self.SettingsUI
+        if settings and settings.panel and settings.panel:IsShown() then self:Protect('settings',settings.Refresh,settings) end
+    end)
 end
 function J:Initialize()
     if self.ready then return end

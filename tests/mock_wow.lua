@@ -47,7 +47,14 @@ function methods:RemoveMaskTexture(mask) for i=#self.masks,1,-1 do if self.masks
 function methods:GetNumMaskTextures() return #self.masks end
 function methods:GetMaskTexture(i) return self.masks[i] end
 function methods:SetScript(name,fn) self.scripts[name]=fn end
-function methods:HookScript(name,fn) local old=self.scripts[name]; self.scripts[name]=function(...) if old then old(...) end; fn(...) end end
+function methods:HasScript(name)
+    if name=='OnSizeChanged' and (self.kind=='Texture' or self.kind=='MaskTexture' or self.kind=='FontString') then return false end
+    return true
+end
+function methods:HookScript(name,fn)
+    assert(self:HasScript(name),'Usage: HookScript: unsupported script '..name)
+    local old=self.scripts[name]; self.scripts[name]=function(...) if old then old(...) end; fn(...) end
+end
 function methods:RegisterEvent() end
 function methods:SetText(v) self.text=v end
 function methods:GetText() return self.text or '' end
@@ -103,5 +110,39 @@ function M.bar(parent,w,h)
 end
 function M.compact(parent)
     local frame=CreateFrame('Button',nil,parent); frame.unit='raid1';frame.healthBar=M.bar(frame);frame.powerBar=M.bar(frame,126,8);return frame
+end
+-- Widget hierarchy from the pinned Blizzard XML, independent of adapter field paths.
+function M.portraitUnit(kind)
+    local frame=CreateFrame('Button',nil,UIParent);frame.unit='player'
+    local function child(parent,key) local f=CreateFrame('Frame',nil,parent);parent[key]=f;return f end
+    local function tex(parent,key) local t=parent:CreateTexture();parent[key]=t;t:SetTexture('native');return t end
+    local health,power,portrait,decoration
+    if kind=='player' or kind=='target' then
+        local prefix=kind=='player' and 'PlayerFrame' or 'TargetFrame'
+        local container=child(frame,prefix..'Container')
+        portrait=tex(container,kind=='player' and 'PlayerPortrait' or 'Portrait');decoration=tex(container,'FrameTexture')
+        local content=child(frame,prefix..'Content');local main=child(content,prefix..'ContentMain')
+        local bars=child(main,'HealthBarsContainer');bars.HealthBar=M.bar(bars);health=bars.HealthBar;tex(bars,'HealthBarMask')
+        local area=kind=='player' and child(main,'ManaBarArea') or main
+        area.ManaBar=M.bar(area,124,10);power=area.ManaBar;tex(power,'ManaBarMask')
+    elseif kind=='party' then
+        local bars=child(frame,'HealthBarContainer');bars.HealthBar=M.bar(bars);health=bars.HealthBar;tex(bars,'HealthBarMask')
+        frame.ManaBar=M.bar(frame,70,8);power=frame.ManaBar;tex(power,'ManaBarMask')
+        portrait=tex(frame,'Portrait');decoration=tex(frame,'Texture')
+    elseif kind=='pet' then
+        frame.healthbar=M.bar(frame);health=frame.healthbar
+        PetFrameManaBar=M.bar(frame,70,8);power=PetFrameManaBar
+        PetFrameHealthBarMask=tex(frame,'healthMask');PetFrameManaBarMask=tex(frame,'powerMask')
+        PetPortrait=tex(frame,'portrait');portrait=PetPortrait;PetFrameTexture=tex(frame,'decoration');decoration=PetFrameTexture
+    else
+        frame.HealthBar=M.bar(frame);health=frame.HealthBar;portrait=tex(frame,'Portrait')
+        decoration=tex(frame,kind=='small' and 'FrameTexture' or 'Texture')
+        if kind=='small' then
+            frame.ManaBar=M.bar(frame,70,8);power=frame.ManaBar
+            tex(health,'HealthBarMask');tex(power,'ManaBarMask')
+        end
+    end
+    portrait:SetSize(50,50)
+    return frame,health,power,portrait,decoration
 end
 return M

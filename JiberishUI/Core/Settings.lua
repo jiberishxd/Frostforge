@@ -152,7 +152,7 @@ function S:Refresh()
     for _,control in ipairs(self.controls) do control:Refresh() end
     local config=self:Value()
     self.scopeLabel:SetText(self.scope=='global' and 'Global appearance' or J.GroupLabels[self.scope]..' overrides')
-    self.status:SetText(U.Combat() and 'Preview shows saved choices. Live changes wait until combat ends.' or (next(J.reloadGroups) and 'Module disabling is saved. Reload UI to restore Blizzard appearance.' or 'Changes apply immediately. Edit Mode controls position and size.'))
+    self.status:SetText(U.Combat() and 'Preview shows saved choices. Live changes wait until combat ends.' or (next(J.reloadGroups) and 'Module disabling is saved. Reload UI to restore Blizzard appearance.' or J:LiveStatus(self.scope)))
     self.enabled:SetChecked(config.enabled)
     self.inherit:SetShown(self.scope~='global')
     R.Apply(self.previewBorder,config)
