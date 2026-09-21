@@ -559,6 +559,21 @@
       ],
       "sha256": "ecc3a0e49655a43942b0cdca284e741ddd0593f418420568d0b328bec7987403",
       "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#warrior"
+    },
+    {
+      "path": "artwork/hub-console.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        0,
+        98,
+        2172,
+        724
+      ],
+      "sha256": "b1cc63ce41ff6130a19c798413841cada48df388a06bf6a628add88eda8471f2",
+      "origin": "original built-in image_gen artwork; artwork/hub-prompts.json#console"
     }
   ],
   "assets": [
@@ -2514,6 +2529,23 @@
         32
       ],
       "sha256": "2cc24415adcd7e3b7f406147b2c43edbea1a697271cc63c44431d69166b5aca3"
+    },
+    {
+      "file": "JiberishUI/Media/hub/console.tga",
+      "source": "artwork/hub-console.png",
+      "crop": null,
+      "transform": "resample to 2048x1024; preserve alpha; runtime nine-slice x=[0,.12,.88,1], y=[0,.43,.72,1]",
+      "size": [
+        2048,
+        1024
+      ],
+      "alphaBounds": [
+        0,
+        139,
+        2048,
+        1024
+      ],
+      "sha256": "10cabc5d1a7bbe377d3c19f8648207c17eb6d26befed19cca62a5eadcaf6f987"
     },
     {
       "file": "JiberishUI/Media/human/bl.tga",

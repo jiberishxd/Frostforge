@@ -17,10 +17,10 @@ def check_assets():
     generated={s['material'] for s in catalog['skins']}-{'human','orc','nightelf','undead'}
     fantasy=set(json.loads((ROOT/'artwork/fantasy-prompts.json').read_text())['prompts'])
     assert fantasy=={s['id'] for s in catalog['skins'] if s['category']=='class'}|{'halloween','christmas'}
-    assert len(manifest['sources'])==12+len(generated)+len(fantasy)
+    assert len(manifest['sources'])==13+len(generated)+len(fantasy)
     actual={p.relative_to(ROOT).as_posix() for p in (ROOT/'JiberishUI/Media').rglob('*.tga')}
     expected={a['file'] for a in manifest['assets']}
-    assert actual==expected and len(actual)==len(materials)*14+2+len(fantasy)
+    assert actual==expected and len(actual)==len(materials)*14+3+len(fantasy)
     assert {Path(p).stem for p in actual if Path(p).parent.name=='fantasy'}==fantasy
     for material in materials:
         required={'tl','tr','bl','br','top','bottom','left','right','portrait','ornament','button-normal','button-pushed','button-highlight','button-checked'}

@@ -40,7 +40,7 @@ function F.Portrait(record,config,layout)
         local w=region:GetWidth()
         if not U.Number(scale) or scale<=0 or not U.Number(ps) or ps<=0 or not U.Number(w) or w<=0 then texture:Hide();return false end
         local width=math.min(110,w*ps/scale*1.4)*(config.portraitScale or 0.8)
-        texture:ClearAllPoints();texture:SetPoint('BOTTOM',region,'TOP',0,1)
+        texture:ClearAllPoints();texture:SetPoint('BOTTOM',region,'TOP',config.portraitX or 0,1+(config.portraitY or 0))
         texture:SetSize(width,width/3);record.ready=true
     end
     texture:SetVertexColor(1,1,1,config.opacity*(config.portraitOpacity or 1))

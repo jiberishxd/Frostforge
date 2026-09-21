@@ -14,6 +14,8 @@ function methods:GetRegions() return unpack(self.regions) end
 function methods:GetWidth() return self.w end
 function methods:GetHeight() return self.h end
 function methods:GetEffectiveScale() return self.scale end
+function methods:GetScale() return self.scale end
+function methods:SetScale(scale) self.scale=scale;M.layoutWrites=M.layoutWrites+1 end
 function methods:GetRect() if self.rect then return unpack(self.rect) end end
 function methods:GetNumPoints() return #self.points end
 function methods:GetPoint(i) return unpack(self.points[i]) end

@@ -1,13 +1,13 @@
 # Offline test report — 2026-09-20
 
-Build: **0.1.0-alpha.7**. Status: **offline checks pass; gradients, independent portraits, and shared action surround await in-game validation; Forever reload settings loss remains unresolved**. Earlier builds' attachment successes and visual failures are recorded below.
+Build: **0.1.0-alpha.8**. Status: **offline checks pass; new console/docking and crest placement await in-game validation; alpha.7 applied but had fit failures; Forever reload settings loss remains unresolved**. Earlier builds' results are recorded below.
 
 | Check | Result |
 |---|---|
-| Lua 5.1 load/parse and behavioral harness | 60 test groups passed |
+| Lua 5.1 load/parse and behavioral harness | 65 test groups passed |
 | Saved-data recovery parser | 4 tests passed; executable Lua, malformed data, duplicate keys, and excessive input rejected |
 | Source manifest and safety boundary checks | Passed |
-| Asset hashes/dimensions/casing/alpha bounds | 227 of 227 passed, including 15 new transparent crests and the bar-interior exclusion mask |
+| Asset hashes/dimensions/casing/alpha bounds | 228 of 228 passed, including 15 crests, the new console, and the bar-interior exclusion mask |
 | Generated edge-tile repeat seams | All 44 generated edge tiles have matching endpoint pixels |
 | Catalog coverage | 52 presets / 15 materials; 13 classes, 26 race identities, 2 factions, 8 standard styles |
 | Fantasy artwork | 15 distinct masters and runtime crests; all 13 classes plus Halloween and Christmas |
@@ -67,4 +67,8 @@ The user's subsequent alpha.6 diagnostics on Forever 1.60.1 / 69913 / 16001 repo
 
 Nine new behavioral groups cover validated profile round trips and rejection limits; all 13 class identities, gradient orientation, native state priority and combat paint; power palette/class gradients and artwork refresh/restoration; independent portrait trim and crests, NPC auto-class fallback and missing art; browser scope and reusable previews; scale-aware surround geometry including micro menu/bags, hidden/restricted frames, missing art and conflicts; latest native button atlas/color restoration and click preservation; external-provider shape restoration; and latest-state combat queuing.
 
-All 60 Lua groups, 4 recovery-parser tests, and 227 asset integrity checks pass. Fifteen original transparent master images were generated with the built-in image_gen tool, inspected, and converted to TGA with preserved alpha. Their prompt set and hashes are retained. The contact sheet is an artwork reference only. The addon has not yet been live-tested for these new features on either client. The exact geometry, layering, visibility/fade transitions, native warning colors, and combat behavior must be checked in game before compatibility is claimed.
+All 60 Lua groups, 4 recovery-parser tests, and 227 asset integrity checks passed for alpha.7. Fifteen original transparent masters were generated with built-in image_gen, inspected, and converted to TGA with preserved alpha. The user then confirmed options apply but require fit adjustments. Screenshots showed a class crest floating above the portrait and an overly long, thin action surround. No alpha.7 build/client diagnostic accompanied that feedback; it is not a full client or combat pass.
+
+## Alpha.8 customizable crest placement and console
+
+Five new test groups cover crest X/Y and expanded size under differing effective scales, combat geometry deferral, profile round trips/rejection limits, stable Blizzard docking and native anchor/scale restoration, unchanged click/parent behavior, latest native layout refresh capture, Edit Mode handoff, provider/conflict exclusion, screen-clamped console geometry, reusable assets, missing-art fallback, and disabled mode behavior. All 65 Lua groups, 4 recovery-parser tests, and 228 asset integrity checks pass. One original transparent console master was generated with built-in image_gen; prompt, alpha bounds, dimensions and hashes are retained. In-game fit, secure runtime behavior, controller navigation, vehicles, and provider layering remain pending.

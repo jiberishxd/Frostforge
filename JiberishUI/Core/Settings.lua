@@ -307,20 +307,63 @@ function S:Create()
     button(portrait,'Portrait trim tint',420,-213,220,function() self:Color('portraitTint') end)
     self:Toggle(portrait,'portraitBorder','Decorate the portrait outline',-246)
     self:FantasyButton(portrait,'portraitStyle',-286)
-    self:Slider(portrait,'portraitScale','Artwork size',-333,0.35,1.5,0.05)
-    self:Slider(portrait,'portraitOpacity','Portrait opacity',-370,0,1,0.05)
-    label(portrait,'Crests sit above the portrait. Its native shape and functional indicators stay in place.\nAutomatic class art follows player units; choose a fixed style for NPCs.',200,-413,440)
+    self:Slider(portrait,'portraitScale','Artwork size',-327,0.1,3,0.05)
+    self:Slider(portrait,'portraitX','Artwork X (left / right)',-357,-250,250,1)
+    self:Slider(portrait,'portraitY','Artwork Y (down / up)',-387,-250,250,1)
+    self:Slider(portrait,'portraitOpacity','Portrait opacity',-417,0,1,0.05)
+    button(portrait,'Reset artwork position',200,-448,240,function() self:Set('portraitX',0);self:Set('portraitY',0);self:Set('portraitScale',0.8) end)
     self.controls[#self.controls+1]=cycle(actions,200,-178,440,function() return self:Value().actionMode end,
-        {{'surround','One surround / native buttons'},{'buttons','Individual button borders'},{'both','Surround + button borders'},{'native','Native action-bar artwork'}},function(value) self:Set('actionMode',value) end)
-    self:FantasyButton(actions,'hubStyle',-210)
-    self.controls[#self.controls+1]=cycle(actions,200,-242,440,function() return self:Value().hubScope end,
-        {{'cluster','Main cluster + micro menu and bags'},{'all','All visible action bars + menu and bags'}},function(value) self:Set('hubScope',value) end)
-    self:Toggle(actions,'hubMicro','Include micro menu',-273)
-    self:Toggle(actions,'hubBags','Include bag buttons',-304)
-    self:Slider(actions,'hubPadding','Surround padding',-344,2,32,1)
-    self:Slider(actions,'hubArtworkScale','Class artwork size',-375,0.25,1.5,0.05)
-    self:Slider(actions,'hubOpacity','Surround opacity',-406,0,1,0.05)
-    self:Slider(actions,'hubBackdrop','Backdrop opacity',-437,0,0.8,0.05)
+        {{'hub','Class fantasy hub'},{'surround','Simple surround / native buttons'},{'buttons','Individual button borders'},{'both','Simple surround + button borders'},{'native','Native action-bar artwork'}},function(value) self:Set('actionMode',value) end)
+    local actionPages={}
+    for i,name in ipairs({'Console','Position','Controls','Artwork'}) do
+        local page=CreateFrame('Frame',nil,actions);page:SetAllPoints();page:SetShown(i==1);actionPages[name]=page
+        button(actions,name,200+(i-1)*112,-211,108,function()
+            for id,p in pairs(actionPages) do p:SetShown(id==name) end
+        end)
+    end
+    local console,position,controls,art=actionPages.Console,actionPages.Position,actionPages.Controls,actionPages.Artwork
+    self:Slider(console,'hubWidth','Console width',-261,500,2000,10)
+    self:Slider(console,'hubHeight','Console height',-296,120,600,5)
+    self:Slider(console,'hubOpacity','Console opacity',-331,0,1,0.05)
+    self:Slider(console,'hubBackdrop','Backdrop opacity',-366,0,0.8,0.05)
+    self:Slider(console,'hubPadding','Simple surround padding',-401,2,32,1)
+    label(console,'Width and height resize the console artwork. Use Controls to fit the buttons inside it.',200,-446,440)
+    self:Slider(position,'hubX','Console X (left / right)',-261,-1200,1200,2)
+    self:Slider(position,'hubY','Console Y (up from bottom)',-296,0,700,2)
+    self:Toggle(position,'hubDock','Dock Blizzard bars into this hub',-330)
+    self.controls[#self.controls+1]=cycle(position,200,-371,440,function() return self:Value().hubScope end,
+        {{'cluster','Decorate the main cluster'},{'all','Decorate all visible action bars'}},function(value) self:Set('hubScope',value) end)
+    button(position,'Reset hub layout',200,-406,200,function()
+        local p=U.Copy(P:Current());p.groups.actionbars=p.groups.actionbars or {}
+        local defaults=J.Skins[self:Value().skin].defaults
+        for _,key in ipairs({'hubX','hubY','hubWidth','hubHeight','hubActionsX','hubActionsY','hubActionsScale','hubRowGap',
+            'hubBar2X','hubBar2Y','hubBar2Scale','hubBar3X','hubBar3Y','hubBar3Scale','hubMicroX','hubMicroY','hubMicroScale','hubBagsX','hubBagsY','hubBagsScale'}) do
+            p.groups.actionbars[key]=defaults[key]
+        end
+        P:Commit(p);self:Refresh()
+    end)
+    label(position,'Docking moves Blizzard bars 1–3, menu and bags outside combat; Edit Mode pauses it. ElvUI / Ellesmere keep their own layout controls.',200,-442,440)
+    local controlPages={};local controlGroup='Actions'
+    self.controls[#self.controls+1]=cycle(controls,200,-248,440,function() return controlGroup end,
+        {{'Actions','Action bars 1–3 (together)'},{'Bar2','Bar 2 adjustments'},{'Bar3','Bar 3 adjustments'},{'Micro','Micro menu'},{'Bags','Bag buttons'}},function(value)
+            controlGroup=value;for id,p in pairs(controlPages) do p:SetShown(id==value) end;self:Refresh()
+        end)
+    for _,name in ipairs({'Actions','Bar2','Bar3','Micro','Bags'}) do
+        local p=CreateFrame('Frame',nil,controls);p:SetAllPoints();p:SetShown(name=='Actions');controlPages[name]=p
+        local key='hub'..name
+        local adjustment=name=='Bar2' or name=='Bar3'
+        self:Slider(p,key..'X',adjustment and 'Extra X offset' or 'X (relative to hub center)',-295,-900,900,2)
+        self:Slider(p,key..'Y',adjustment and 'Extra Y offset' or 'Y (relative to hub bottom)',-330,adjustment and -400 or 0,adjustment and 400 or 500,2)
+        self:Slider(p,key..'Scale','Control size',-365,0.4,1.6,0.05)
+        if name=='Actions' then self:Slider(p,'hubRowGap','Gap between bars',-400,0,40,1)
+        elseif not adjustment then self:Toggle(p,'hub'..name,'Include in this hub',-396) end
+        label(p,'These controls require Blizzard docking. Button rows and spacing within a bar remain available in Edit Mode.',200,-440,440)
+    end
+    self:FantasyButton(art,'hubStyle',-248)
+    self:Slider(art,'hubArtworkScale','Crest size',-295,0.1,3,0.05)
+    self:Slider(art,'hubArtworkX','Crest X (left / right)',-330,-800,800,2)
+    self:Slider(art,'hubArtworkY','Crest Y (down / up)',-365,-400,400,2)
+    button(art,'Reset crest position',200,-408,240,function() self:Set('hubArtworkX',0);self:Set('hubArtworkY',0);self:Set('hubArtworkScale',0.8) end)
     local preview=CreateFrame('Frame',nil,appearance); preview:SetPoint('TOPLEFT',appearance,'TOPLEFT',220,-485); preview:SetSize(220,42)
     local health=CreateFrame('StatusBar',nil,preview); health:SetPoint('TOPLEFT'); health:SetSize(220,28); health:SetStatusBarTexture(J.Neutral); health:SetMinMaxValues(0,100); health:SetValue(75)
     local power=CreateFrame('StatusBar',nil,preview); power:SetPoint('TOPLEFT',0,-30); power:SetSize(220,10); power:SetStatusBarTexture(J.Neutral); power:SetMinMaxValues(0,100); power:SetValue(40)
