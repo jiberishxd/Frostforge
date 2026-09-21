@@ -2,7 +2,7 @@
 
 Status on 2026-09-20: **alpha implementation; not approved for production release**.
 
-Completed locally: classic WC3 source extraction/measurement, 11 original material masters, 52-choice catalog and synthetic preview sheets, complete relevant manifest/XML tracing at both pins, Lua 5.1 parsing and 51 mocked behavioral test groups, 4 saved-data recovery parser tests, 212 asset/manifests integrity checks, installed ElvUI/Ellesmere source inspection, and separate client packages. Mocked tests cannot reproduce combat lockdown, taint propagation, secret-value engine enforcement, real Settings layout, or Blizzard's renderer.
+Completed locally: classic WC3 source extraction/measurement, 11 original material masters, 15 new fantasy crest masters, 52-choice trim catalog and artwork sheets, relevant manifest/XML tracing at both pins, Lua 5.1 parsing and 60 mocked behavioral test groups, 4 saved-data recovery parser tests, 227 asset/manifests integrity checks, installed ElvUI/Ellesmere source inspection, and separate client packages. Mocked tests cannot reproduce combat lockdown, taint propagation, secret-value engine enforcement, real Settings layout, or Blizzard's renderer.
 
 Initial user testing on Retail 12.1.0 build 69875 confirmed action bars applying in alpha.2; diagnostics showed every portrait-unit attachment failed, while compact party members/pets and action-button families applied. Alpha.3 fixed the unsupported portrait-texture resize hook and applied all 155 discovered instances, but rectangular visual fit failed. Forever alpha.4 testing on 1.60.1 build 69913 applied all 169 discovered instances; screenshots showed material banding and a textured dead-target health backdrop. The user subsequently reproduced Forever settings loss on `/reload`, while read-only inspection found valid changed settings on disk. Alpha.6 live diagnostics confirmed that no saved table was supplied at initialization; all 169 discovered frames again applied with zero failures. This matches [first-hand build 69913 persistence reports](https://us.forums.blizzard.com/en/wow/t/uiaddon-settings-wiped-on-client-restart/2353992); the client's internal loading defect remains untraced. No blocked-action-free, fully compatible, seamless-fit, or restart-persistence claim is made.
 
@@ -47,6 +47,8 @@ Every row requires **Retail and Forever** testing, unless marked Forever-only. T
 - Disable each module, then reload; disable the addon entirely and reload. Native appearance, secure clicks, actions, and controller navigation must work. No taint or blocked-action errors are acceptable.
 
 ## Visual checks
+
+Alpha.7 adds gradients, independent portrait art, and one shared action-bar surround. Complete the live checklist in `FANTASY.md` on both clients, including all 13 class identities, changing power types, all 15 crests, micro menu and bags, grouped versus distant bars, provider fades, and switching back to native artwork. These features have no live pass recorded yet.
 
 Test all 15 material families at 1920 × 1080, 2560 × 1440, and 3840 × 2160, with representative UI scales (0.64, 0.8, 1.0) and frame scales (0.75, 1.0, 1.25) where supported. Spot-check all 52 presets for palette readability. Test the minimum and maximum thickness, inset, opacity, and ornament settings on rectangular layouts. Native silhouettes must retain the owning UI's geometry at every setting. Include narrow party frames, dense 40-member raid layouts, vertical/multiline action bars, portrait-off states, ElvUI portrait overlays, and Ellesmere shaped/inside portraits.
 

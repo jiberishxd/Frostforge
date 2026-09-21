@@ -21,6 +21,32 @@ function C.Unit(frame,field)
     if not U.Safe(unit) or type(unit)~='string' then return nil end
     return unit
 end
+function C.Class(owner,field)
+    local unit=C.Unit(owner,field)
+    if not unit or query(UnitIsPlayer,unit)~=true then return end
+    local _,class=query(UnitClass,unit)
+    if type(class)=='string' then return class end
+end
+-- The gradient changes color across the existing fill texture. No quantities,
+-- fill widths, or unit health/power values are read or calculated.
+function C.Paint(bar,color,gradient,direction,strength)
+    local texture=bar:GetStatusBarTexture()
+    if not texture then return end
+    if gradient and texture.SetGradient and CreateColor then
+        strength=U.Clamp(strength or 0.5,0,0.85)
+        local dark,light={},{}
+        for i=1,3 do
+            dark[i]=color[i]*(1-strength)
+            light[i]=color[i]+(1-color[i])*strength*0.4
+        end
+        bar:SetStatusBarColor(1,1,1,1)
+        texture:SetGradient(direction or 'HORIZONTAL',CreateColor(dark[1],dark[2],dark[3],1),CreateColor(light[1],light[2],light[3],1))
+    else
+        -- A uniform vertex color clears the prior per-vertex gradient.
+        texture:SetVertexColor(1,1,1,1)
+        bar:SetStatusBarColor(color[1],color[2],color[3],1)
+    end
+end
 function C.Resolve(owner,kind,config,field)
     local mode=config[kind..'Mode']; if mode=='native' then return nil end
     local unit=C.Unit(owner,field)
@@ -29,9 +55,9 @@ function C.Resolve(owner,kind,config,field)
     local dead=query(UnitIsDeadOrGhost,unit)
     if connected~=true or dead~=false then return nil end
     if UnitIsTapDenied then local tapped=query(UnitIsTapDenied,unit); if tapped~=false then return nil end end
-    if kind=='health' then
+    if kind=='health' or mode=='class' then
         local threat=owner.displayThreatHealthBarColor
-        if not U.Safe(threat) or threat then return nil end
+        if kind=='health' and (not U.Safe(threat) or threat) then return nil end
         if mode=='custom' then return config.healthColor end
         local player=query(UnitIsPlayer,unit)
         if player==true then
@@ -120,13 +146,11 @@ function C.Apply(record,override)
             record.bar:SetStatusBarTexture(J.Neutral)
             texture:SetTexCoord(0,1,0,1)
         end
-        local old=record.lastColor
-        if not old or old[1]~=color[1] or old[2]~=color[2] or old[3]~=color[3] then
-            record.bar:SetStatusBarColor(color[1],color[2],color[3],1)
-            record.lastColor={color[1],color[2],color[3]}
-        end
+        C.Paint(record.bar,color,config[record.kind..'Gradient'],config.gradientDirection,config.gradientStrength)
+        record.lastColor={color[1],color[2],color[3]}
         record.custom=true
     elseif record.custom then
+        texture:SetVertexColor(1,1,1,1)
         record.bar:SetStatusBarTexture(record.nativeTexture)
         if record.nativeCoords then texture:SetTexCoord(unpack(record.nativeCoords)) end
         if record.nativeColor then record.bar:SetStatusBarColor(unpack(record.nativeColor)) end
