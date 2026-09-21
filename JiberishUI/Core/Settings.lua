@@ -28,6 +28,15 @@ local function cycle(parent,x,y,width,get,choices,change)
     return f
 end
 function S:Value() return P:Resolve(self.scope) end
+function S:ExportProfile()
+    self:Dialog('Copy this export before reloading',P.Export(P:Current()))
+end
+function S:ImportProfile()
+    self:Dialog('Paste a JUI1 export. Apply replaces the active profile.','',function(text)
+        local value,err=P.Import(text);if not value then J:Print(err);return false end
+        return P:Commit(value)
+    end)
+end
 function S:UsesNativeShell()
     local groups={player=true,target=true,focus=true,pet=true,boss=true,targettarget=true,focustarget=true}
     return groups[self.scope] and not (J.Integrations and J.Integrations.providers[self.scope])
@@ -222,13 +231,10 @@ function S:Create()
     button(profiles,'Copy to new profile',24,-188,220,function() self:Dialog('Name the new profile','',function(name)
         local ok,err=P:Copy(name); if not ok then J:Print(err) end; return ok
     end) end)
-    button(profiles,'Export profile',24,-228,220,function() self:Dialog('Copy this export to a text file',P.Export(P:Current())) end)
-    button(profiles,'Import into active profile',24,-268,220,function() self:Dialog('Paste a JUI1 export. Apply replaces the active profile.','',function(text)
-        local value,err=P.Import(text); if not value then J:Print(err); return false end
-        return P:Commit(value)
-    end) end)
+    button(profiles,'Export profile',24,-228,220,function() self:ExportProfile() end)
+    button(profiles,'Import into active profile',24,-268,220,function() self:ImportProfile() end)
     button(profiles,'Reset active profile',24,-308,220,function() self:Dialog('Reset active profile? Apply restores Human defaults.','',function() return P:Reset() end) end)
-    label(profiles,'Profile selection is saved per character. Export/import transfers appearance choices between clients.\n\nForever beta: settings loss after a full restart has been reported for build 69913. Keep a profile export until persistence is verified locally.',24,-370,620)
+    label(profiles,'Profile selection is saved per character. Export/import transfers appearance choices between clients.\n\nForever build 69913: settings loss is reported after /reload, logout, or restart. Use /jui export before reloading and /jui import to restore. Keep an export until client persistence is verified.',24,-370,620)
     panel:SetScript('OnShow',function() self:Refresh() end)
     if Settings and Settings.RegisterCanvasLayoutCategory then
         self.category=Settings.RegisterCanvasLayoutCategory(panel,'JiberishUI'); Settings.RegisterAddOnCategory(self.category)

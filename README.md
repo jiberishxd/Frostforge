@@ -2,7 +2,7 @@
 
 Border skins for Blizzard's unit frames and action bars, with experimental ElvUI and Ellesmere integrations. The library has **52 choices across 15 material families**: race, class, faction, and standard styles. Human remains the default. Every style can be selected globally or per frame group.
 
-**Version 0.1.0-alpha.5 is an implementation for testing, not a compatibility-certified release.** Alpha.3's rectangular borders fit poorly; alpha.4's full-frame material also textured empty health backdrops during Forever testing. Alpha.5 keeps the native backdrop, uses edge-only bar trim, and bends portrait material around the portrait, clipped to native artwork. ElvUI and Ellesmere adapters use their registered frames instead of skipping those addons. The 48 mocked behavioral tests pass; the revised renderer and integrations still require in-game visual, combat, and persistence validation.
+**Version 0.1.0-alpha.6 is an implementation for testing, not a compatibility-certified release.** Alpha.5 keeps the native backdrop, uses edge-only bar trim, and bends portrait material around the portrait, clipped to native artwork. ElvUI and Ellesmere adapters use their registered frames instead of skipping those addons. Alpha.6 adds startup persistence diagnostics and direct export/import commands after a user reproduced Forever settings loss on reload. The 51 mocked behavioral groups and 4 recovery-parser tests pass; the renderer and integrations still require in-game visual, combat, and persistence validation.
 
 New highlights include Dwarf / Ironforge, Night Elf Moonwell / Ancient Grove / Sentinel, Mage Arcane Crystal, Warlock Fel Covenant, and standard Black Stone, Slate, Obsidian, Silver Steel, Aged Bronze, Ivory Gold, Forest Wood, and Frost Stone. There are presets for all 13 classes, 26 race identities, and Alliance/Horde. Related presets deliberately share artwork and use different palettes; the library contains 15 material families, not 52 independently painted sets. See `docs/SKIN-LIBRARY.md` for the full mapping.
 
@@ -16,7 +16,7 @@ New highlights include Dwarf / Ironforge, Night Elf Moonwell / Ancient Grove / S
 
 During combat, settings are saved and the synthetic preview updates; live changes apply afterward. Disabling a module requires **Reload UI**, which reconstructs the native frame state. Re-enable before reloading to cancel that disable request. To remove every customization, disable the addon and reload. Disabling Global can be overridden by explicitly enabled groups; use the addon checkbox to turn everything off.
 
-The Profiles page supports named copies, per-character selection, reset, export, and import. Imports replace the active profile; copy it first if you want a backup. Exports are bounded, plain data in the `JUI1` format and never execute Lua. Retail and Forever have separate saved-variable stores. Forever build 69913 has a reported restart-persistence problem, not reproduced here; retain an export until local restart testing succeeds.
+The Profiles page supports named copies, per-character selection, reset, export, and import. `/jui export` and `/jui import` open the transfer dialogs directly. Imports replace the active profile; copy it first if you want a backup. Exports are bounded, plain data in the `JUI1` format and never execute Lua. Retail and Forever have separate saved-variable stores. **Forever build 69913 can reset settings even on `/reload`: the user reproduced this while changed settings were still present on disk.** Keep an export before reload/logout and import it if needed. This is a recovery workflow, not a repair to the client loader. See [persistence evidence and recovery](docs/PERSISTENCE.md).
 
 ## Coverage
 
@@ -49,6 +49,7 @@ Run from the repository root with Python 3 and Lua 5.1:
 
 ```sh
 lua tests/run.lua
+python3 tests/test_recovery.py
 python3 tools/check.py
 python3 tools/package.py
 python3 tools/check.py --packages

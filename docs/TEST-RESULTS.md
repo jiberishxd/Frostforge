@@ -1,10 +1,11 @@
 # Offline test report — 2026-09-20
 
-Build: **0.1.0-alpha.5**. Status: **offline checks pass; revised curved trim and ElvUI/Ellesmere live validation pending**. Earlier builds' attachment successes and visual failures are recorded below.
+Build: **0.1.0-alpha.6**. Status: **offline checks pass; Forever reload settings loss user-reproduced; curved trim and ElvUI/Ellesmere live validation pending**. Earlier builds' attachment successes and visual failures are recorded below.
 
 | Check | Result |
 |---|---|
-| Lua 5.1 load/parse and behavioral harness | 48 test groups passed |
+| Lua 5.1 load/parse and behavioral harness | 51 test groups passed |
+| Saved-data recovery parser | 4 tests passed; executable Lua, malformed data, duplicate keys, and excessive input rejected |
 | Source manifest and safety boundary checks | Passed |
 | Asset hashes/dimensions/casing/alpha bounds | 212 of 212 passed, including the bar-interior exclusion mask |
 | Generated edge-tile repeat seams | All 44 generated edge tiles have matching endpoint pixels |
@@ -24,6 +25,7 @@ Commands used from the repository root:
 ```sh
 .tools/lua-5.1.5/src/lua tests/run.lua
 python3 tools/check.py
+python3 tests/test_recovery.py
 python3 tools/package.py
 python3 tools/check.py --packages
 ```
@@ -51,3 +53,9 @@ The mocked Lua host does not enforce WoW's protected/secret execution model or r
 Blizzard unit frames now retain their native decorative texture and backdrop. No whole-frame material fill is created for them. Bar textures occupy only the exterior perimeter; portrait material is mapped along a 32-segment arc and clipped to the native artwork. An additional generated rectangle-exclusion mask keeps every portrait segment outside the health/power interiors. Dedicated Ellesmere border-only textures retain the silhouette renderer.
 
 Two regression groups verify edge-only placement, arc vertex/UV setup, exclusion-mask geometry, unchanged native backdrop/opacity and fills in the dead state, combat refresh without geometry/allocation, and missing-exclusion-mask fallback. The mask's exact alpha pixels are also checked. All 48 test groups and 212 asset checks pass. Alpha.5 was installed into the existing Retail and Forever folders after backing up their alpha.4 copies; live results remain pending.
+
+## Alpha.6 Forever persistence investigation and recovery
+
+The user reported appearance and class-color settings resetting after `/reload` on Forever build 69913. Read-only inspection found valid changes in the current SavedVariables file and a different valid profile in its previous backup. Both were copied to private recovery storage, converted without executing Lua, accepted by the normal profile importer, and retained by a fresh profile-service initialization. Neither the installed SavedVariables file nor its backup was edited. See `PERSISTENCE.md` for the evidence and manual recovery procedure.
+
+Three new Lua groups cover restoration of serialized styles/color modes, startup diagnostics distinguishing absent data from rejected Default profiles, and direct export/import dialogs with malformed input rejection. Four Python tests exercise the saved-data recovery parser. All 51 Lua groups and 4 parser tests pass. This does not repair or prove the exact cause of the client's loading failure. The new startup diagnostic and restoration from exports still require in-game confirmation; renderer and provider validation remain pending.

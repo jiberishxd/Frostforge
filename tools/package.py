@@ -10,7 +10,7 @@ CLIENTS = {
     'Retail': (120100, '12.1.0.69875', '78282522143e25c3540583734fd192c3d69be910'),
     'Forever': (16001, '1.60.1.69913', '70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e'),
 }
-VERSION = '0.1.0-alpha.5'
+VERSION = '0.1.0-alpha.6'
 
 def package(destination):
     destination.mkdir(parents=True, exist_ok=True)
@@ -27,7 +27,7 @@ def package(destination):
             if source.name == 'Build.lua':
                 content = ("local _,J=...\nJ.Build={flavor='%s',interface=%d,baseline='%s',revision='%s'}\n" % (client.lower(), interface, baseline, revision)).encode()
             files[name] = content
-        for name in ('README.md', 'docs/ARTWORK.md', 'docs/ARCHITECTURE.md', 'docs/COMPATIBILITY.md', 'docs/integration-sources.json', 'docs/VALIDATION.md', 'docs/TEST-RESULTS.md', 'docs/assets.json', 'docs/source-load-order.json', 'docs/skin-catalog.json', 'docs/SKIN-LIBRARY.md'):
+        for name in ('README.md', 'docs/ARTWORK.md', 'docs/ARCHITECTURE.md', 'docs/COMPATIBILITY.md', 'docs/PERSISTENCE.md', 'docs/integration-sources.json', 'docs/VALIDATION.md', 'docs/TEST-RESULTS.md', 'docs/assets.json', 'docs/source-load-order.json', 'docs/skin-catalog.json', 'docs/SKIN-LIBRARY.md'):
             files['JiberishUI/' + name] = (ROOT / name).read_bytes()
         with zipfile.ZipFile(path, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
             for name, content in sorted(files.items()):

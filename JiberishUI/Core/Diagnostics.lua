@@ -5,7 +5,10 @@ function J:Diagnostics()
     local c=self.client or {}; lines[#lines+1]=string.format('Client %s / build %s / interface %s',tostring(c.version),tostring(c.build),tostring(c.interface))
     lines[#lines+1]='Adapter: '..(self.adapter and self.adapter.id or 'unsupported')
     if self.adapter then lines[#lines+1]='Source revision: '..self.adapter.source end
-    if self.Profiles.db then lines[#lines+1]='Profile: '..self.Profiles:Name() end
+    if self.Profiles.db then
+        lines[#lines+1]='Profile: '..self.Profiles:Name()
+        lines[#lines+1]='Settings at startup: '..self.Profiles:LoadStatus()
+    end
     local counts={}
     for _,record in pairs(self.records) do if record.owned~=false then
         local value=counts[record.group] or {count=0,failed=0,applied=0,geometry={}}
@@ -28,7 +31,7 @@ function J:Diagnostics()
     local failures={}; for key,message in pairs(self.failures) do failures[#failures+1]=key..': '..message end; table.sort(failures)
     if #failures>0 then lines[#lines+1]='Recorded notices (reload clears the history):' end
     for _,message in ipairs(failures) do lines[#lines+1]=message end
-    if self.adapter and self.adapter.id=='forever' then lines[#lines+1]='Forever beta: restart persistence issue reported for build 69913; not reproduced here. Keep a profile export.' end
+    if self.adapter and self.adapter.id=='forever' then lines[#lines+1]='Forever build 69913: settings loss after /reload has been reported even with valid saved files. Use /jui export before reloading and /jui import to restore.' end
     return table.concat(lines,'\n')
 end
 function J:LiveStatus(group)
