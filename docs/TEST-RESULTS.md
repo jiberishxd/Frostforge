@@ -1,17 +1,19 @@
-# Phase 1 test results
+# Validation record
 
-Build: **0.2.0-phase1.1**. Date: **2026-09-21**.
+Build: **0.4.0-art.1**. Date: **2026-09-21**.
 
-**34 Lua 5.1 behavior tests passed.** The host rejects writes to Blizzard frames and secure/native templates; no native-frame writes occurred. It also rejects native hooks, since this prototype requires none.
+**67 Lua 5.1 tests passed**, with zero writes to mocked native frames.
 
-Covered: four-module/one-theme ownership; mouse transparency; both compatibility paths; wrong-client and unsupported packages; missing/forbidden/restricted roots; effective-scale calculations and anchor-relative offsets; simulated 1080p/1440p/4K dimensions; Edit Mode events; all exposed settings; latest-state combat deferral; login and root replacement during combat; protected artwork; target/main-bar visibility and fading; individual hiding/reset; debug metadata; idle read-only polling; object reuse; missing-art fallback; theme immutability; retained legacy data; invalid/future profiles; simulated settings reload; atomic data-only backup import; invalid commands and repeated startup.
+The offline host checks five owned decorative roots, mouse transparency, separate Retail/Forever adapters, forbidden/restricted native reads, effective scale, anchors, repeated refresh reuse, combat deferral, profile/import validation and the movable classic options window.
 
-Source/media/package checks validate the required file layout, exact active modules/theme, absence of legacy code in the load manifest/packages, prohibited API use, data-only theme declarations, three TGA hashes/dimensions/alpha, and both client package manifests.
+Portrait tests cover 42 distinct assets, Player/Target/Focus independence, class changes during combat without geometry writes, restricted/missing/NPC identity fallback, race/faction/fixed modes, protected texture deferral, native portrait visibility, and conversion from old full-frame shells. Portrait fit version 4 uses a shared [8,8,210,244] registration envelope and primary portrait/teardrop/bar clearance. Natural hanging detail is retained; there is no secondary level-badge cutout or horizontal bottom crop. The class symbols are part of the artwork rather than pasted circular badges.
 
-The mocked resolution tests verify coordinate calculations and anchor references, not pixels. The host does not reproduce WoW's secure execution, restricted APIs, texture cache, renderer or SavedVariables loader.
+Hub tests cover 42 selections with identical geometry, player-only automatic identity, guarded fallback, combat deferral, atomic module-scoped export/import and a paginated gallery that assigns textures only to visible thumbnails. Width changes preserve endcaps and center ornament. A regression check at multiple width/height limits verifies that all five slices retain full vertical artwork, so hanging details cannot be cropped by their texture coordinates.
 
-## Live status
+Source/media/package checks verify 18 active Lua sources, the data-only registries, absence of native mutation APIs, 85 RGBA textures, power-of-two sizes, source/file hashes, and every pixel of the reserved portrait and hub opening regions. Packages contain 42 portraits, 42 hubs and the existing minimap; historical experiments and downloaded source PNGs are excluded.
 
-**This Phase 1 refactor has not yet been tested in Retail or Forever.** Prior alpha screenshots and diagnostics showed fit/layout problems in the replaced renderer and a missing saved table on Forever 69913. Their attachment counts are not evidence for this implementation.
+The release preparation rebuilt the media from repository-relative retained originals using the pinned Pillow/NumPy versions. All runtime texture and preview image hashes were unchanged. Generation records no longer depend on a local image-service cache. The PR workflow runs the Lua host, source/media checks and exact Retail/Forever archive verification.
 
-The four-component checklist in VALIDATION.md remains required. Pixel-perfect artwork, replacement-addon support and additional themes/components are not release claims.
+The local galleries use actual game-resolution pixels. All 42 portraits and all 42 sculpted hub compositions were visually reviewed, including alpha against dark backgrounds. Browser fitting checks covered the Player at 1440p, mirrored Mage Target at 4K, and Hunter Focus at 1080p/small scale. Hub previews were checked at widths 600 and 900, 1080p/1440p/4K, with unbroken seams, retained hanging ornament and a clear central guide. These are synthetic native-frame guides and estimated target pixel sizes, not live-client certification.
+
+**Live validation remains pending.** Check fit, target/focus switching, combat, Edit Mode changes and reload/logout persistence in both clients. Forever build 69913's previously reported missing saved table is not fixed by this change. Arbitrary native bar layouts and replacement-UI integration are not claimed.

@@ -21,10 +21,35 @@ function Themes:Register(id, theme)
     assert(type(theme.name) == "string", "Theme name required")
     for _, key in ipairs(J.Core.order) do
         local config = assert(theme[key], "Missing theme component: " .. key)
+        local units = {playerFrame="player",targetFrame="target",focusFrame="focus"}
+        assert(config.unit == units[key], "Invalid portrait unit token: " .. key)
         assert(type(config.texture) == "string", "Texture required")
+        assert(config.mirror == nil or type(config.mirror) == "boolean", "Invalid mirroring option")
+        if config.pieces then
+            assert(type(config.pieces) == "table" and next(config.pieces), "Artwork pieces required")
+            assert(J.Core:IsNumber(config.designHeight) and config.designHeight > 0, "Invalid design height")
+            assert(J.Core:IsNumber(config.minimumWidth) and config.minimumWidth > 0, "Invalid minimum width")
+            for name, piece in pairs(config.pieces) do
+                assert(type(piece) == "table", "Invalid artwork piece: " .. name)
+                for _, field in ipairs({"leftAnchor","rightAnchor","leftOffset","rightOffset","y","height","u1","u2","v1","v2","order"}) do
+                    assert(J.Core:IsNumber(piece[field]), "Invalid piece geometry: " .. name .. "." .. field)
+                end
+                assert(piece.leftAnchor >= 0 and piece.rightAnchor <= 1 and piece.rightAnchor >= piece.leftAnchor)
+                assert(piece.height > 0 and piece.y >= 0 and piece.y + piece.height <= config.designHeight + 0.01)
+                assert(piece.u1 >= 0 and piece.u2 <= 1 and piece.u2 > piece.u1)
+                assert(piece.v1 >= 0 and piece.v2 <= 1 and piece.v2 > piece.v1)
+                assert(piece.order >= 0 and piece.order <= 7 and piece.order == math.floor(piece.order))
+                local width = config.minimumWidth*(piece.rightAnchor-piece.leftAnchor)+piece.rightOffset-piece.leftOffset
+                assert(width > 0, "Piece collapses at minimum width: " .. name)
+            end
+        end
         for property in pairs(J.Core.properties) do
-            assert(J.Core:ValidateProperty(property, config[property]) ~= nil,
-                "Invalid theme property: " .. key .. "." .. property)
+            local portrait = property == "portraitMode" or property == "portrait"
+            local hub = property == "hubMode" or property == "hub"
+            if (not portrait or config.unit) and (not hub or key == "actionHub") then
+                assert(J.Core:ValidateProperty(property, config[property]) ~= nil,
+                    "Invalid theme property: " .. key .. "." .. property)
+            end
         end
     end
     self.registry[id] = J.Core:Copy(theme)

@@ -1,15 +1,39 @@
-# Phase 1 prototype media
+# Portrait artwork and fitting
 
-No new artwork is being commissioned or generated in this phase. Three existing local RGBA TGA assets are packaged as geometry fixtures:
+The active unit artwork is a portrait background only. There is no health/power border, rail, full-frame shell or bar endpoint. Player, Target and Focus each render one independent texture; Target and Focus mirror the artwork. The minimap retains its Paladin texture; the hub has 42 variants on the existing five-piece geometry.
 
-| Asset | Stored size | Use |
+The library includes 42 compositions from retained generated ornaments and the requested official emblems: 13 classes, 26 playable races, and three faction choices. `artwork/portraits/catalog.json` records the motifs and official roster sources. `generation-prompts.json` stores every complete built-in imagegen prompt. Original outputs are retained separately from processed assets. No generated character portraits are used: native Blizzard portraits stay visible.
+
+The visual brief is classic Warcraft III/original WoW: coarse hand-painted shading, weathered surfaces, broad silhouettes, restrained palettes and detail readable at 128 UI units. Final game textures are 256 × 256 RGBA TGA. The source and output hashes, dimensions, alpha bounds and processing method are recorded in phase1-assets.json and the artwork manifest. High-resolution originals are not installed in game.
+
+## Shared fit template
+
+Each portrait uses a canonical opening centered at (154,148) with radius 64 in a 256-square canvas. The squared lower-right teardrop corner and right corridor x>=214 stay clear. Full original silhouettes are registered to [8,8,210,244] before clearance; natural alpha bounds are allowed to differ within that envelope. There is no horizontal lower-band crop or separate level-circle cutout. Full side ornament and the main portrait's lower sweep stay behind native controls. Class symbols are part of the layered upper ornament and influence its side silhouette. There is no separate circular icon holder or downloaded badge pasted above the opening. Target/Focus mirror the same image.
+
+At the default 128 × 128 UI-unit size, Player uses LEFT-to-LEFT offset (−23,11) on the native 232 × 100 root. Target and Focus use RIGHT-to-RIGHT (22,12). These align the openings with the audited 60 × 60 player portrait and 58 × 58 target/focus portrait, while leaving the bars and their endpoint native. Effective scale follows each root. The offline checks inspect every pixel in the protected functional regions; manual resizing can change those relationships.
+
+`tools/build_portraits.py` retains generated alpha where present, uses the user's authorized neutral-background cleanup only when needed, downsamples, and applies the common clearance mask. Small disconnected fragments left by those cutouts are removed. Originals with real alpha retain it. Revised outputs with baked gray checker mattes use the user's authorized local cleanup, preserving dark outlines and enclosed painted details. Processing is reproducible, and original generations remain untouched. A PNG fit gallery shows all candidates against synthetic Blizzard geometry at selectable scale/resolution before installation. This preview is not a substitute for in-game screenshots.
+
+| Asset | Encoded size | Default artwork size |
 |---|---|---|
-| Media/sacred_gold/portrait.tga | 128 × 128 | Transparent gold surround for minimap/player/target artwork frames |
-| Media/fantasy/paladin.tga | 512 × 256 | Paladin crest, displayed at 3:1 |
-| Media/hub/console.tga | 2048 × 1024 | Single hub background texture |
+| Media/Portraits/*.tga (42 files) | 256 × 256 | 128 × 128 |
+| Media/PaladinRet/minimap.tga | 1024 × 1024 | 340 × 340 |
+| Media/Hubs/*.tga (42 files) | 1024 × 512 | 1480 × 240 |
 
-Each rendering frame has its own main texture and crest texture. The gold surround and console stretch to the configured dimensions; this is deliberately an attachment/layout prototype, not a claim of final ornament proportions or a fitted portrait mask. No native portrait, status-bar fill, backdrop, mask, or border is changed.
+The superseded unit-shell files and design experiments remain in research/history only and are excluded from packages. Native decorations never disappear when an asset fails to load.
 
-[phase1-assets.json](phase1-assets.json) records exact packaged hashes, dimensions, alpha bounds and source artwork references/hashes. The sources are existing generated artwork from earlier development. The full historical asset manifest remains in assets.json but is not packaged.
+The retained Paladin revision 2 first spread the armored wing upward and outward and removed its hanging cloth banner. The portrait opening, default dimensions and mirrored Target/Focus layout are unchanged. The previous artwork and generation record are retained under `artwork/portraits/revisions/`; `paladin-flared-edit.json` records the edit prompt and reference roles.
 
-Checks validate power-of-two dimensions, RGBA format, alpha bounds and hashes. These establish file integrity, not in-game rendering quality. Missing/failed texture loads hide owned artwork; Blizzard presentation remains intact. Some asynchronous missing-texture behavior can only be confirmed in WoW.
+Portrait.3 replaces the Mage crescent with a violet arcane eye and the Hunter paw badge with an antlered skull trophy, following the supplied references. `mage-hunter-emblem-edits.json` records both built-in imagegen edits. The previous assets are retained in `revisions/before-uniform-fit/`; that historical revision is shown in `uniform-fit-review.png` and is superseded by the current collection review.
+
+## Art.1 source and hub update
+
+`artwork/official-crests/sources.json` records 41 downloaded crest sources (13 classes, 26 races, Alliance and Horde), hashes and Blizzard credit. Neutral remains custom. `tools/fetch_official_crests.py` reads the published page crest references; no account data is accessed. Source availability and user direction are not represented as a separate license grant. See ARTWORK-CREDITS.md.
+
+All 13 class portraits and the Undead portrait have newly integrated motif artwork; the other 28 retain their original continuous ornaments with the pasted badge removed. `integrated-generation-prompts.json` records the new portrait briefs. Full side silhouettes are registered before the shared portrait clearance is applied. This is fit version 4.
+
+All 42 action hubs are complete sculpted compositions generated with `sculpted-generation-prompts.json`. One identifying motif is integrated into the left endcap. Its materials continue across the rail into a complementary right endcap; neither side is a repeated downloaded icon. Originals and result paths are retained separately from prepared atlases. Nine hubs with luminous effects or neutral stone use a recorded solid-color background edit before alpha extraction, to avoid retaining checker patterns or erasing gray sculpture. `alpha-background-revisions.json` records those edits.
+
+Hub atlases share a 2172 × 724 design canvas, encoded as 1024 × 512. Continuous vertical registration aligns the painted rail body to y=530..620. Shared seams are x=620,980,1210,1552. Every slice retains the full vertical image, so cloth and hanging ornament survive resizing. The renderer preserves endcap and center-detail size and stretches only connecting rails. The middle region x=620..1552, y<440 is transparent in every source atlas. Center ornament stays below that region. Only the five existing addon textures change. The preview uses PNGs exported from the exact game-resolution pixels.
+
+The prior portrait.3 lower-band crop was rejected in live feedback and is superseded. Current full collection sheets are `artwork/portraits/collection-review.png` and `artwork/hubs/collection-review.png`. Old revision sheets are retained for history only.

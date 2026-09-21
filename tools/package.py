@@ -1,4 +1,4 @@
-"""Package only the Phase 1 manifest and its three media references."""
+"""Package only the active manifest and its qualified media references."""
 import argparse
 import hashlib
 import json
@@ -15,7 +15,7 @@ TOC = ROOT / "JiberishUI/JiberishUI.toc"
 VERSION = re.search(r"^## Version: (.+)$", TOC.read_text(), re.M).group(1)
 DOCS = ("README.md", "docs/ARCHITECTURE.md", "docs/ARTWORK.md", "docs/COMPATIBILITY.md",
         "docs/PERSISTENCE.md", "docs/VALIDATION.md", "docs/TEST-RESULTS.md",
-        "docs/phase1-assets.json", "docs/phase1-sources.json")
+        "docs/phase1-assets.json", "docs/phase1-sources.json", "docs/ARTWORK-CREDITS.md", "docs/ARTWORK-SOURCES.json")
 
 
 def active_sources():
@@ -54,7 +54,7 @@ def package(destination):
                         "source_revision": revision, "version": VERSION, "file": path.name,
                         "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
                         "files": len(files), "themes": ["paladin_ret"],
-                        "modules": ["minimap", "playerFrame", "targetFrame", "actionHub"],
+                        "modules": ["minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub"],
                         "in_game_validated": False})
     (destination / "packages.json").write_text(json.dumps(reports, indent=2) + "\n")
     print(json.dumps(reports, indent=2))

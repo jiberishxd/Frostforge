@@ -1,0 +1,158 @@
+[
+  {
+    "id": "class_priest",
+    "path": "artwork/portraits/originals/class_priest.png"
+  },
+  {
+    "id": "class_rogue",
+    "path": "artwork/portraits/originals/class_rogue.png"
+  },
+  {
+    "id": "class_deathknight",
+    "path": "artwork/portraits/originals/class_deathknight.png"
+  },
+  {
+    "id": "class_shaman",
+    "path": "artwork/portraits/originals/class_shaman.png"
+  },
+  {
+    "id": "class_mage",
+    "path": "artwork/portraits/revisions/class_mage-emblem-v2-source.png"
+  },
+  {
+    "id": "class_warlock",
+    "path": "artwork/portraits/originals/class_warlock.png"
+  },
+  {
+    "id": "class_druid",
+    "path": "artwork/portraits/originals/class_druid.png"
+  },
+  {
+    "id": "class_monk",
+    "path": "artwork/portraits/originals/class_monk.png"
+  },
+  {
+    "id": "class_demonhunter",
+    "path": "artwork/portraits/originals/class_demonhunter.png"
+  },
+  {
+    "id": "race_dwarf",
+    "path": "artwork/portraits/originals/race_dwarf.png"
+  },
+  {
+    "id": "class_evoker",
+    "path": "artwork/portraits/originals/class_evoker.png"
+  },
+  {
+    "id": "race_human",
+    "path": "artwork/portraits/originals/race_human.png"
+  },
+  {
+    "id": "race_nightelf",
+    "path": "artwork/portraits/originals/race_nightelf.png"
+  },
+  {
+    "id": "race_gnome",
+    "path": "artwork/portraits/originals/race_gnome.png"
+  },
+  {
+    "id": "race_draenei",
+    "path": "artwork/portraits/originals/race_draenei.png"
+  },
+  {
+    "id": "race_worgen",
+    "path": "artwork/portraits/originals/race_worgen.png"
+  },
+  {
+    "id": "race_orc",
+    "path": "artwork/portraits/originals/race_orc.png"
+  },
+  {
+    "id": "race_scourge",
+    "path": "artwork/portraits/originals/race_scourge.png"
+  },
+  {
+    "id": "race_bloodelf",
+    "path": "artwork/portraits/originals/race_bloodelf.png"
+  },
+  {
+    "id": "race_tauren",
+    "path": "artwork/portraits/originals/race_tauren.png"
+  },
+  {
+    "id": "race_troll",
+    "path": "artwork/portraits/originals/race_troll.png"
+  },
+  {
+    "id": "race_goblin",
+    "path": "artwork/portraits/originals/race_goblin.png"
+  },
+  {
+    "id": "race_dracthyr",
+    "path": "artwork/portraits/originals/race_dracthyr.png"
+  },
+  {
+    "id": "race_pandaren",
+    "path": "artwork/portraits/originals/race_pandaren.png"
+  },
+  {
+    "id": "race_lightforgeddraenei",
+    "path": "artwork/portraits/originals/race_lightforgeddraenei.png"
+  },
+  {
+    "id": "race_darkirondwarf",
+    "path": "artwork/portraits/originals/race_darkirondwarf.png"
+  },
+  {
+    "id": "race_voidelf",
+    "path": "artwork/portraits/originals/race_voidelf.png"
+  },
+  {
+    "id": "race_kultiran",
+    "path": "artwork/portraits/originals/race_kultiran.png"
+  },
+  {
+    "id": "race_nightborne",
+    "path": "artwork/portraits/originals/race_nightborne.png"
+  },
+  {
+    "id": "race_mechagnome",
+    "path": "artwork/portraits/originals/race_mechagnome.png"
+  },
+  {
+    "id": "race_highmountaintauren",
+    "path": "artwork/portraits/originals/race_highmountaintauren.png"
+  },
+  {
+    "id": "race_magharorc",
+    "path": "artwork/portraits/originals/race_magharorc.png"
+  },
+  {
+    "id": "race_zandalaritroll",
+    "path": "artwork/portraits/originals/race_zandalaritroll.png"
+  },
+  {
+    "id": "race_earthendwarf",
+    "path": "artwork/portraits/originals/race_earthendwarf.png"
+  },
+  {
+    "id": "race_vulpera",
+    "path": "artwork/portraits/originals/race_vulpera.png"
+  },
+  {
+    "id": "race_haranir",
+    "path": "artwork/portraits/originals/race_haranir.png"
+  },
+  {
+    "id": "faction_horde",
+    "path": "artwork/portraits/originals/faction_horde.png"
+  },
+  {
+    "id": "faction_neutral",
+    "path": "artwork/portraits/originals/faction_neutral.png"
+  },
+  {
+    "id": "faction_alliance",
+    "path": "artwork/portraits/originals/faction_alliance.png"
+  }
+]

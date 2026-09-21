@@ -1,20 +1,26 @@
 ## Interface: 120100, 16001
 ## Title: JiberishUI
-## Notes: Phase 1: four non-interactive Retribution Paladin artwork surrounds. In-game validation pending.
+## Notes: Classic fantasy portrait backgrounds with automatic class, race and faction artwork. In-game validation pending.
 ## Author: JiberishUI
-## Version: 0.2.0-phase1.1
+## Version: 0.4.0-art.1
 ## SavedVariables: JiberishUIDB
 ## OptionalDeps: Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_Minimap
 
 Build.lua
 Core\Core.lua
 Core\Media.lua
+Themes\Portraits.lua
+Core\Portraits.lua
+Themes\Hubs.lua
+Core\Hubs.lua
 Core\ThemeManager.lua
 Core\ProfileManager.lua
+Core\Settings.lua
 Compatibility\Retail.lua
 Compatibility\Forever.lua
 Modules\Minimap.lua
 Modules\PlayerFrame.lua
 Modules\TargetFrame.lua
+Modules\FocusFrame.lua
 Modules\ActionHub.lua
 Themes\Paladin\Retribution.lua

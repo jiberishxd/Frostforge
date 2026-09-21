@@ -1,0 +1,28 @@
+name: Validate addon
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Lua 5.1
+        run: sudo apt-get update && sudo apt-get install -y lua5.1
+      - name: Check Lua behavior
+        run: lua5.1 tests/run.lua
+      - name: Check source, transparency and provenance
+        run: python3 tools/check.py
+      - name: Package both clients
+        run: python3 tools/package.py
+      - name: Verify exact package contents
+        run: python3 tools/check.py --packages

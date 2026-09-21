@@ -1,0 +1,223 @@
+{
+  "style": "Classic Warcraft III / original 2004 WoW hand-painted UI. Chunky weathered silhouettes, broad brush shading, matte surfaces, limited palettes, coarse game-texture detail. No glossy photorealism, no modern high-resolution micro-detail.",
+  "classes": [
+    [
+      "WARRIOR",
+      "Warrior",
+      "battered iron plates, russet leather straps, broad rivets, a small battle crest"
+    ],
+    [
+      "PALADIN",
+      "Paladin",
+      "aged gold and ivory, a sun crown and widely flared upward-swept armored wing, matte silver plate; no lion or weapons"
+    ],
+    [
+      "HUNTER",
+      "Hunter",
+      "antlered stag-skull trophy with ember-red eyes, leather bindings, forest feathers and wood; no paw print"
+    ],
+    [
+      "ROGUE",
+      "Rogue",
+      "dark leather, tarnished steel, a hood-shaped crest, muted ochre cloth folds"
+    ],
+    [
+      "PRIEST",
+      "Priest",
+      "ivory stone, old gold, folded white cloth, a small holy sun crest with restrained violet shadow"
+    ],
+    [
+      "DEATHKNIGHT",
+      "Death Knight",
+      "heavy dark iron, chipped icy blue runes, frost, a small skull crest"
+    ],
+    [
+      "SHAMAN",
+      "Shaman",
+      "rough carved wood, ochre bindings, turquoise elemental stones and a short totem crest"
+    ],
+    [
+      "MAGE",
+      "Mage",
+      "violet arcane eye with diamond pupil, bronze setting, blue crystals and purple cloth; no moon"
+    ],
+    [
+      "WARLOCK",
+      "Warlock",
+      "blackened iron, purple cloth, blunt demonic horn shapes and a restrained fel-green stone"
+    ],
+    [
+      "MONK",
+      "Monk",
+      "bamboo, jade stones, dark red wooden trim and a simple knotted cord crest"
+    ],
+    [
+      "DRUID",
+      "Druid",
+      "gnarled roots, chunky antlers, moss and broad dark-green leaves"
+    ],
+    [
+      "DEMONHUNTER",
+      "Demon Hunter",
+      "black leather, broad curved horns, dark violet metal and a restrained fel-green rune"
+    ],
+    [
+      "EVOKER",
+      "Evoker",
+      "broad weathered dragon scales in muted red and teal, bronze trim, small horn crest"
+    ]
+  ],
+  "races": [
+    [
+      "Human",
+      "Human",
+      "Stormwind blue cloth, battered silver stonework, a small old gold lion crest"
+    ],
+    [
+      "Dwarf",
+      "Dwarf",
+      "rough granite, stout bronze plates, a simple angular dwarven rune crest"
+    ],
+    [
+      "NightElf",
+      "Night Elf",
+      "ancient purple wood, broad silver crescent, dark teal leaves and owl feathers"
+    ],
+    [
+      "Gnome",
+      "Gnome",
+      "chunky copper gears, brass bolts, red leather and one simple blue lens"
+    ],
+    [
+      "Draenei",
+      "Draenei",
+      "worn lavender crystals, pale stone, muted gold naaru-inspired crest"
+    ],
+    [
+      "Worgen",
+      "Worgen",
+      "weathered Gilnean iron, dark blue cloth, broad wolf-ear silhouettes and old brass"
+    ],
+    [
+      "Orc",
+      "Orc",
+      "rough iron spikes, red hide bindings, broad tusks and brown wood"
+    ],
+    [
+      "Scourge",
+      "Undead",
+      "chipped tombstone, yellowed bone, torn purple cloth and small green plague accents"
+    ],
+    [
+      "Tauren",
+      "Tauren",
+      "carved brown wood, hide, broad white horns and simple ochre tribal paint"
+    ],
+    [
+      "Troll",
+      "Troll",
+      "carved blue wood, large tusks, muted orange feathers and simple voodoo mask crest"
+    ],
+    [
+      "BloodElf",
+      "Blood Elf",
+      "aged red and gold, sweeping angular sun shapes, a small emerald crystal"
+    ],
+    [
+      "Goblin",
+      "Goblin",
+      "rough brass, chunky bolts, green metal panels, a few red rivets"
+    ],
+    [
+      "Pandaren",
+      "Pandaren",
+      "dark red lacquered wood, broad bamboo leaves, ivory stone and a jade medallion"
+    ],
+    [
+      "Dracthyr",
+      "Dracthyr",
+      "weathered dragon-scale plates, bronze crests, muted red and teal, broad wing membrane accents"
+    ],
+    [
+      "VoidElf",
+      "Void Elf",
+      "tarnished silver, dark violet cloth and chunky purple void crystals"
+    ],
+    [
+      "LightforgedDraenei",
+      "Lightforged Draenei",
+      "ivory crystal, aged gold plates and a broad radiant sigil crest"
+    ],
+    [
+      "DarkIronDwarf",
+      "Dark Iron Dwarf",
+      "charcoal basalt, dark steel, broad orange magma seams and square dwarven runes"
+    ],
+    [
+      "KulTiran",
+      "Kul Tiran",
+      "salt-worn dark green wood, thick rope, brass and a compact anchor crest"
+    ],
+    [
+      "Mechagnome",
+      "Mechagnome",
+      "stout brass machinery, large gears, worn copper and a simple blue glass lens"
+    ],
+    [
+      "Nightborne",
+      "Nightborne",
+      "weathered dark violet stone, dull gold curves and a small arcane blue crystal"
+    ],
+    [
+      "HighmountainTauren",
+      "Highmountain Tauren",
+      "carved wood, broad moose antlers, hide wraps and red tribal paint"
+    ],
+    [
+      "MagharOrc",
+      "Mag'har Orc",
+      "rough brown hide, black iron, bone spikes and broad ochre clan markings"
+    ],
+    [
+      "ZandalariTroll",
+      "Zandalari Troll",
+      "blocky old gold, turquoise stone, broad stepped patterns and a small loa crest"
+    ],
+    [
+      "Vulpera",
+      "Vulpera",
+      "sun-worn red cloth, coarse rope, tan leather and broad fox-ear silhouettes"
+    ],
+    [
+      "EarthenDwarf",
+      "Earthen",
+      "rough slate stone, thick bronze bands, broad faceted blue crystal insets"
+    ],
+    [
+      "Haranir",
+      "Haranir",
+      "ancient roots, broad dark leaves, purple quills and restrained amber seed accents"
+    ]
+  ],
+  "factions": [
+    [
+      "Alliance",
+      "Alliance",
+      "weathered royal-blue cloth, silver stonework and an aged gold lion crest"
+    ],
+    [
+      "Horde",
+      "Horde",
+      "rough red hide, dark iron spikes, bone and a bold red Horde-inspired crest"
+    ],
+    [
+      "Neutral",
+      "Neutral",
+      "weathered gray stone, warm brown leather bindings, a modest bronze compass crest"
+    ]
+  ],
+  "sources": [
+    "https://worldofwarcraft.blizzard.com/en-gb/game/classes",
+    "https://worldofwarcraft.blizzard.com/en-gb/game/races"
+  ]
+}

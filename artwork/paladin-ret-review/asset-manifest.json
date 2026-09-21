@@ -1,0 +1,139 @@
+{
+  "status": "Phase1.5 unit v2 selected for testing after user-authorized local alpha extraction. Native game fit unqualified. Hub and minimap unchanged.",
+  "assets": [
+    {
+      "file": "assets/action-hub-v1.png",
+      "size": [
+        2163,
+        727
+      ],
+      "mode": "RGBA",
+      "sha256": "57f9567314445689ec2d5e3961f501eefbe16b26f14a91dba6b5811e2c9e888a",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        14,
+        7,
+        2151,
+        707
+      ],
+      "transparentFraction": 0.5937751390937113,
+      "qualification": "Superseded by v2; not selected"
+    },
+    {
+      "file": "assets/action-hub-v2.png",
+      "size": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "0f6a127c814bb3f3ea2b7489e73359fdad29c30954cd69c46b639ef0a4fc2858",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        14,
+        2172,
+        677
+      ],
+      "transparentFraction": 0.7022367805215551,
+      "qualification": "Real alpha; visual fit not qualified"
+    },
+    {
+      "file": "assets/minimap-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "45cf62b449f13f4599f8f17af767b63f007bf9e251d898f3c1722fb6ce97d345",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1224,
+        1254
+      ],
+      "transparentFraction": 0.6227631388170295,
+      "qualification": "Real alpha; visual fit not qualified"
+    },
+    {
+      "file": "assets/unit-shell-v1.png",
+      "size": [
+        1860,
+        846
+      ],
+      "mode": "RGBA",
+      "sha256": "061d45f5df74a53290e13aaefdd87979a8603aedc7181dc5e7b58fbf21d3f55e",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        14,
+        1,
+        1856,
+        846
+      ],
+      "transparentFraction": 0.7334915732479219,
+      "qualification": "Superseded by v2; retained for comparison only, not packaged"
+    },
+    {
+      "file": "design-edits/player-no-weapons.png",
+      "size": [
+        1859,
+        846
+      ],
+      "mode": "RGB",
+      "sha256": "bc992ada2ebb210bfdb55a555dd73c7a75be1283ca94e14ad66c98d845c3b20a",
+      "qualification": "Design reference only; baked checkerboard, not production transparency"
+    },
+    {
+      "file": "design-edits/target-no-weapons.png",
+      "size": [
+        1860,
+        846
+      ],
+      "mode": "RGB",
+      "sha256": "31e798a9a7eabe81da9491e8a631366e0832ace7fcd1c7ebccd60da93213447a",
+      "qualification": "Design reference only; baked checkerboard, not production transparency"
+    },
+    {
+      "file": "assets/unit-shell-v2.png",
+      "size": [
+        1859,
+        846
+      ],
+      "mode": "RGBA",
+      "sha256": "a867bd48fb262e1b96d90d75b1fa0364204e0a9e861aeae0efae8f26f8267199",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        17,
+        13,
+        1836,
+        839
+      ],
+      "qualification": "Real alpha extracted with explicit user authorization; standalone fitting checked, game fit pending"
+    },
+    {
+      "file": "design-edits/unit-continuous-joins-rgb.png",
+      "size": [
+        1859,
+        846
+      ],
+      "mode": "RGB",
+      "sha256": "89c22fe3c3728aa83914751f67dcae7904561dd518677a42b285700b5207efa3",
+      "qualification": "Generated RGB draft with baked checkerboard; not packaged"
+    }
+  ]
+}

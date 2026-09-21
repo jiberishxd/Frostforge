@@ -1,0 +1,20 @@
+{
+  "source": "artwork/paladin-ret-review/design-edits/unit-continuous-joins-rgb.png",
+  "output": "artwork/paladin-ret-review/assets/unit-shell-v2.png",
+  "source_sha256": "89c22fe3c3728aa83914751f67dcae7904561dd518677a42b285700b5207efa3",
+  "output_sha256": "a867bd48fb262e1b96d90d75b1fa0364204e0a9e861aeae0efae8f26f8267199",
+  "size": [
+    1859,
+    846
+  ],
+  "alpha_bounds": [
+    17,
+    13,
+    1836,
+    839
+  ],
+  "opaque_fraction": 0.2413045219919197,
+  "method": "Neutral-background flood from exterior and opening seeds, retaining the connected shell; RGB of retained art unchanged",
+  "authorization": "User explicitly requested local Python processing after built-in alpha extraction failed twice",
+  "visually_qualified": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "class_paladin",
+  "revision": "flared-wings-v2",
+  "mode": "built-in imagegen edit",
+  "references": [
+    "artwork/portraits/revisions/paladin-v1-originals.png",
+    "artwork/paladin-ret-review/assets/unit-shell-v2.png"
+  ],
+  "prompt": "Use case: precise-object-edit. Asset: revised Paladin portrait BACKGROUND for a classic Warcraft UI addon. Input 1 is the current Paladin portrait ornament to EDIT. Input 2 is an older design used ONLY as reference for its widely FLARED, UPWARD-SWEPT wing silhouette; do not copy its bar rails or endpoint. Change the drooping folded feather/banner silhouette into a bold, spread armored wing, like the LEFT wing in input 2: ivory feather-shaped silver armor plates fan OUTWARD to the left and UPWARD, separate broad pointed tips, aged gold rims, clearly swept wing shape. The wing should occupy the upper-left quadrant strongly, widest near the upper/middle left, with 5-7 distinct broad tips pointing upper-left/left, rather than feathers hanging straight down. Keep the compact sun crown above the portrait and matte silver/aged gold armor arc; remove the hanging cloth banner entirely. It must read as a martial Paladin wing and sun crown, clearly distinct from a priest's draped cloth ornament. Style: original Warcraft III / 2004 WoW painted UI, chunky shapes, broad brush shading, restrained ivory and aged gold, weathered matte surfaces, low-detail game asset readable at 128 UI units. No glossy CGI or tiny high-res filigree. Keep the same SQUARE canvas and transparent portrait opening positioned at 60% canvas width, 58% canvas height, diameter 50% canvas width. The squared lower-right corner and lower-left level-badge space must stay clear. All ornament must stay in the LEFT 83% of the square canvas; the rightmost 17% is entirely TRANSPARENT. Transparent outer margin around wing tips. No right wing crossing the bar/name area, no health-bar rails, no horizontal extension, no bar-end ornament, no lion, no sword, no hammer, no character or face, no cloth banner. One compact portrait ornament only, no full frame. Genuine transparent RGBA background and opening; do NOT paint checkerboard or solid background. Preserve this portrait's fitting location while changing ONLY the wing silhouette/cloth treatment and its associated platework.",
+  "generated_output": "artwork/portraits/originals/class_paladin.png",
+  "source": "artwork/portraits/revisions/paladin-flared-v2-source.png"
+}

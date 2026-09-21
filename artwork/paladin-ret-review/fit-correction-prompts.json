@@ -1,0 +1,13 @@
+{
+  "tool": "built-in image_gen",
+  "prompts": [
+    {
+      "key": "unit-clearance",
+      "prompt": "Transparent PNG cutout. Edit this single independent Paladin HUD shell: retain the silver wing, sun motifs, circular portrait rim, irregular silhouette and current real alpha background. There must be no weapons or lions. The long horizontal opening is too thin for BOTH health and power bars. Make that long bar opening about twice as tall, extending its LOWER edge downward while keeping its upper edge in place. Extend the opening a little to the left so it meets the portrait rim without a thick solid junction. Keep the outer support gracefully sculpted, relocating its lower silver/gold support below the enlarged opening. The name space ABOVE the long opening must remain completely transparent. Preserve the circular portrait aperture and wing geometry. Maintain landscape 2.2:1 dimensions. Clear opening should be approximately 45% of portrait aperture height. Keep true RGBA transparency throughout holes and background; do not add a checkerboard or backdrop."
+    },
+    {
+      "key": "hub-clean",
+      "prompt": "Create an isolated transparent PNG game HUD artwork asset, 3:1 wide landscape, true RGBA alpha with no backdrop. A sculpted World of Warcraft Retribution Paladin action-bar command hub in classic Warcraft III/early WoW hand-painted dimensional UI style. Silver plated armor, aged gold trim, ivory cathedral-stone buttresses, large readable feather wings, sun and Light-inspired symbols. NO weapons, swords, hammers, lion heads, other animal heads, or generic scrollwork. A sweeping low silver/gold lower shelf with irregular angled plate edges and a central sun emblem under the controls. Large sculpted silver-wing endcaps rise at the far left and far right, with small ivory cathedral arch inlays. Make the outer silhouette shaped by feathers and armor tips, never a rectangle or plain beveled box. Keep the entire middle 76% of the width from 15% to 75% of the canvas height an open genuinely transparent deck for two rows of action buttons, micro bar and bags. No top rail across that deck and no opaque backplate. Inner functional space completely empty with real alpha. Very restrained holy glow only along the sculpted metal edge. Strong material shadow and highlights. No buttons, labels, icons, grids, UI screenshots, checkerboards or scenes. Leave a transparent margin around all extremities."
+    }
+  ]
+}

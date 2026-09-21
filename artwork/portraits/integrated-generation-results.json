@@ -1,0 +1,58 @@
+[
+  {
+    "id": "class_warrior",
+    "path": "artwork/portraits/integrated-originals/class_warrior.png"
+  },
+  {
+    "id": "class_paladin",
+    "path": "artwork/portraits/integrated-originals/class_paladin.png"
+  },
+  {
+    "id": "class_hunter",
+    "path": "artwork/portraits/integrated-originals/class_hunter.png"
+  },
+  {
+    "id": "class_rogue",
+    "path": "artwork/portraits/integrated-originals/class_rogue.png"
+  },
+  {
+    "id": "class_priest",
+    "path": "artwork/portraits/integrated-originals/class_priest.png"
+  },
+  {
+    "id": "class_deathknight",
+    "path": "artwork/portraits/integrated-originals/class_deathknight.png"
+  },
+  {
+    "id": "class_shaman",
+    "path": "artwork/portraits/integrated-originals/class_shaman.png"
+  },
+  {
+    "id": "class_mage",
+    "path": "artwork/portraits/integrated-originals/class_mage.png"
+  },
+  {
+    "id": "class_warlock",
+    "path": "artwork/portraits/integrated-originals/class_warlock.png"
+  },
+  {
+    "id": "class_monk",
+    "path": "artwork/portraits/integrated-originals/class_monk.png"
+  },
+  {
+    "id": "class_druid",
+    "path": "artwork/portraits/integrated-originals/class_druid.png"
+  },
+  {
+    "id": "class_demonhunter",
+    "path": "artwork/portraits/integrated-originals/class_demonhunter.png"
+  },
+  {
+    "id": "class_evoker",
+    "path": "artwork/portraits/integrated-originals/class_evoker.png"
+  },
+  {
+    "id": "race_scourge",
+    "path": "artwork/portraits/integrated-originals/race_scourge.png"
+  }
+]

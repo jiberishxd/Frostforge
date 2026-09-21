@@ -1,0 +1,1 @@
+JF1;paladin_ret;playerFrame.anchor=FRAME;playerFrame.strata=BACKGROUND;playerFrame.level=128;playerFrame.layer=ARTWORK;actionHub.y=-24;actionHub.strata=HIGH;actionHub.shown=false;actionHub.scale=1.5

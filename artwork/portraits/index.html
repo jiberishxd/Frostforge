@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JiberishUI · Classic portrait backgrounds</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#181b20;color:#e9e1d2;font:15px/1.5 system-ui}main{max-width:1500px;margin:auto;padding:26px}h1{font-size:25px;margin:0}p{color:#b8b5ad;max-width:1000px}label{display:inline-flex;gap:8px;align-items:center;margin:8px 18px 8px 0}select,input,button{font:inherit;color:inherit;background:#252b32;border:1px solid #666256;border-radius:4px;padding:7px}input[type=number]{width:80px}a{color:#dbbc72}.toolbar{position:sticky;top:0;z-index:10;background:#181b20f2;padding:12px 0}#detail{overflow:auto;border:1px solid #53534e;min-height:350px;background:#292d30;position:relative}.scene{position:relative;margin:55px;transform-origin:top left}.art{position:absolute;width:128px;height:128px;pointer-events:none;z-index:0}.root{position:absolute;width:232px;height:100px;z-index:1;transform-origin:top left}.portrait{position:absolute;border:2px solid #af8844;border-radius:50% 50% 0 50%;width:60px;height:60px;left:24px;top:19px;background:linear-gradient(140deg,#74808c,#282c32);display:grid;place-items:center;color:#f0dfbb;font-size:7px}.name{position:absolute;left:88px;top:26px;color:#f4db23;font:9px Georgia}.health,.power{position:absolute;left:85px;width:124px;border:1px solid #393a31;border-radius:2px}.health{top:41px;height:20px;background:linear-gradient(#8cdc26,#389f08)}.power{top:61px;height:10px;background:linear-gradient(#2369e0,#003882)}.badge{position:absolute;left:13px;top:65px;width:28px;height:28px;border:2px solid #9b783c;border-radius:50%;background:#141617;color:#fff;text-align:center;font:16px/24px Georgia}.target .portrait{left:148px;width:58px;height:58px;border-radius:50%}.target .name{left:23px}.target .health{left:23px;top:40px;width:126px}.target .power{left:23px;width:134px}.target .badge{left:191px}.bounds .root{outline:1px dashed #64bcce}.bounds .art{outline:1px solid #cb7fab}.checker{background-color:#30353b!important;background-image:linear-gradient(45deg,#3a4149 25%,transparent 25%),linear-gradient(-45deg,#3a4149 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#3a4149 75%),linear-gradient(-45deg,transparent 75%,#3a4149 75%)!important;background-size:24px 24px!important;background-position:0 0,0 12px,12px -12px,-12px 0!important}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;margin:25px 0}.card{padding:12px;text-align:center;cursor:pointer}.card img{width:128px;height:128px;display:block;margin:auto}.card strong{display:block}#metrics{color:#e6c984}.note{border-left:3px solid #b79b57;padding:10px 15px;background:#292820}footer{color:#aaa;font-size:12px;padding:25px 0}
+</style>
+<main>
+<h1>Classic portrait backgrounds</h1>
+<p>One compact decoration behind each Blizzard portrait. No health-bar rails or endpoint artwork. Class-first automatic selection, with race, faction and fixed choices.</p>
+<div class="toolbar">
+<label>Collection <select id="collection"><option value="class">Classes</option><option value="race">Races</option><option value="faction">Factions</option></select></label>
+<label>Artwork <select id="artwork"></select></label>
+<label>Frame <select id="unit"><option value="player">Player</option><option value="target">Target</option><option value="focus">Focus</option></select></label>
+<label>Resolution <select id="resolution"><option value="1080">1080p</option><option value="1440" selected>1440p</option><option value="2160">4K</option></select></label>
+<label>Effective scale <input id="scale" type="number" value="0.832" min="0.4" max="1.5" step="0.016"></label>
+<label><input id="bounds" type="checkbox">Debug bounds</label>
+<label><input id="checker" type="checkbox" checked>Transparency grid</label>
+</div>
+<div id="metrics" aria-live="polite"></div><div id="detail" class="checker"></div>
+<p class="note">Preview guides use the pinned Blizzard geometry, including the player’s squared lower corner and Forever’s level badge. Pixel-size estimate uses the existing screenshot scale model (UI units × effective scale × height / 768). These are synthetic guides; actual client screenshots and combat tests remain required.</p>
+<p><a href="../hubs/">Action hub collection and fitting preview</a></p>
+<div id="grid" class="grid"></div>
+<footer>Class symbols are sculpted into the armor, cloth and side drapes, with no pasted circular badges. All artwork is reduced to a 256-pixel game texture. All 42 assets share a canvas, registration box and fixed portrait opening. Full hanging side details are retained; there is no separate level-badge cutout. Official emblem references are credited to Blizzard Entertainment. <a href="integrated-generation-prompts.json">Revision prompts</a> · <a href="manifest.json">Assets and processing</a> · <a href="catalog.json">Library catalog and sources</a></footer>
+</main>
+<script src="gallery-data.js"></script><script>
+const $=id=>document.getElementById(id);
+function choose(){
+ const assets=portraitAssets.filter(a=>a.group===$('collection').value);$('artwork').replaceChildren();$('grid').replaceChildren();
+ for(const a of assets){const opt=document.createElement('option');opt.value=a.id;opt.textContent=a.label;$('artwork').append(opt);
+  const b=document.createElement('button');b.className='card';const im=document.createElement('img');im.src='assets/'+a.id+'.png';im.alt=a.label+' portrait background';const name=document.createElement('strong');name.textContent=a.label;b.append(im,name);b.onclick=()=>{$('artwork').value=a.id;render();};$('grid').append(b);
+ }if(assets.some(a=>a.id==='class_paladin'))$('artwork').value='class_paladin';render();
+}
+function render(){
+ const id=$('artwork').value,unit=$('unit').value,mirror=unit!=='player';
+ const factor=Number($('scale').value)*Number($('resolution').value)/768;
+ if(!id||!Number.isFinite(factor)||factor<=0)return;
+ const d=$('detail');d.replaceChildren();d.classList.toggle('checker',$('checker').checked);d.classList.toggle('bounds',$('bounds').checked);
+ const scene=document.createElement('div');scene.className='scene';scene.style.transform=`scale(${factor})`;scene.style.width='300px';scene.style.height='170px';
+ const root=document.createElement('div');root.className='root '+(mirror?'target':'player');root.style.left='30px';root.style.top='28px';
+ for(const [cls,txt] of [['portrait','PORTRAIT'],['name',unit+' name'],['health',''],['power',''],['badge','12']]){const e=document.createElement('div');e.className=cls;e.textContent=txt;root.append(e);}
+ const art=document.createElement('img');art.className='art';art.alt=id+' native fitting';art.src='assets/'+id+'.png';art.style.left=(30+(mirror?126:-23))+'px';art.style.top=(28+(mirror?-26:-25))+'px';art.style.transform=mirror?'scaleX(-1)':'none';
+ scene.append(art,root);d.append(scene);d.style.height=Math.max(350,170*factor+110)+'px';scene.style.marginRight=(300*factor)+'px';
+ $('metrics').textContent=`${id} · ${unit} · 128 × 128 artwork UI units · approximately ${Math.round(128*factor)} × ${Math.round(128*factor)} target pixels · shared 101 × 118 UI-unit fitting envelope · Background strata`;
+}
+$('collection').onchange=choose;for(const id of ['artwork','unit','resolution','scale','bounds','checker'])$(id).oninput=render;choose();
+</script></html>

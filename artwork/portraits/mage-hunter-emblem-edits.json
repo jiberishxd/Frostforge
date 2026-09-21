@@ -1,0 +1,23 @@
+{
+  "mode": "built-in imagegen edit",
+  "jobs": [
+    {
+      "id": "class_mage",
+      "refs": [
+        "artwork/portraits/revisions/class_mage-v1-original.png",
+        "artwork/portraits/revisions/class_mage-user-reference.png"
+      ],
+      "prompt": " Use case: precise-object-edit. This is a transparent portrait BACKGROUND for the JiberishUI Warcraft addon. Image 1 is the current asset to EDIT; Image 2 is the user's emblem reference only. Keep Image 1's square canvas, ornament placement and empty opening at approximately 60% width / 58% height. Preserve the left-side decoration and arc layout. Keep all art within the left 83% of the canvas; completely transparent right corridor, no bars or endpoints. Preserve classic Warcraft III / early WoW hand-painted game-texture style: matte weathered materials, chunky readable forms, limited palette, no high-res glossy render. No text, face inside the portrait opening, checkerboard or solid background. Output genuine RGBA transparency. Change ONLY the upper crest emblem: remove the crescent moon completely and replace it with an unmistakable horizontal ARCANE EYE inspired by Image 2, with a violet luminous diamond pupil in an almond-shaped purple eye, aged bronze angular eyelids/setting. Simplify to remain legible at small gameplay size. Retain the purple cloth, blue crystals and weathered bronze of the current portrait surround. No moon or crescent anywhere. Do not add the reference's entire book or change the surrounding composition.",
+      "output": "artwork/portraits/revisions/class_mage-emblem-v2-source.png"
+    },
+    {
+      "id": "class_hunter",
+      "refs": [
+        "artwork/portraits/revisions/class_hunter-v1-original.png",
+        "artwork/portraits/revisions/class_hunter-user-reference.png"
+      ],
+      "prompt": " Use case: precise-object-edit. This is a transparent portrait BACKGROUND for the JiberishUI Warcraft addon. Image 1 is the current asset to EDIT; Image 2 is the user's emblem reference only. Keep Image 1's square canvas, ornament placement and empty opening at approximately 60% width / 58% height. Preserve the left-side decoration and arc layout. Keep all art within the left 83% of the canvas; completely transparent right corridor, no bars or endpoints. Preserve classic Warcraft III / early WoW hand-painted game-texture style: matte weathered materials, chunky readable forms, limited palette, no high-res glossy render. No text, face inside the portrait opening, checkerboard or solid background. Output genuine RGBA transparency. Change ONLY the top crest: remove the circular bear paw badge and replace it with a compact elongated STAG SKULL TROPHY with broad antlers, inspired by the second image. The bone skull has small muted ember-red eye sockets, weathered steel framing, leather bindings and short hunting-trophy tassels. Integrate its antlers into the existing top antler silhouette. Keep the skull completely ABOVE the functional portrait opening, with no long snout hanging into that opening. Preserve current green feathers, wood, leather and moss on the left. Old-school HUNTER trophy identity; no bear paw, paw print, moon, or druid symbol. Do not add the entire large weapons assembly from the reference; the emblem must remain compact and readable.",
+      "output": "artwork/portraits/revisions/class_hunter-emblem-v2-source.png"
+    }
+  ]
+}
