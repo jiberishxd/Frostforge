@@ -2,9 +2,9 @@
 
 Status on 2026-09-20: **alpha implementation; not approved for production release**.
 
-Completed locally: classic WC3 source extraction/measurement, 11 original material masters, 52-choice catalog and synthetic preview sheets, complete relevant manifest/XML tracing at both pins, Lua 5.1 parsing and 30 mocked behavioral test groups, 211 asset/manifests integrity checks, and separate client packages. Mocked tests cannot reproduce combat lockdown, taint propagation, secret-value engine enforcement, real Settings layout, or Blizzard's renderer.
+Completed locally: classic WC3 source extraction/measurement, 11 original material masters, 52-choice catalog and synthetic preview sheets, complete relevant manifest/XML tracing at both pins, Lua 5.1 parsing and 33 mocked behavioral test groups, 211 asset/manifests integrity checks, and separate client packages. Mocked tests cannot reproduce combat lockdown, taint propagation, secret-value engine enforcement, real Settings layout, or Blizzard's renderer.
 
-No in-game test has been run on either client. No blocked-action-free, fully compatible, seamless-fit, or restart-persistence claim is made. No Forever persistence defect was reproduced. The [build 69913 persistence report](https://us.forums.blizzard.com/en/wow/t/uiaddon-settings-wiped-on-client-restart/2353992) is a report to investigate, not an established local finding.
+Initial user testing on Retail 12.1.0 build 69875 confirmed action bars applying in alpha.2; diagnostics showed every portrait-unit attachment failed, while compact party members/pets and action-button families applied. Alpha.3 fixes the unsupported portrait-texture resize hook. The user's alpha.3 screenshot confirms visible borders around the live player portrait, health bar, and power bar. This is partial evidence, not a pass of the coverage matrix. No Forever live test has been recorded. No blocked-action-free, fully compatible, seamless-fit, or restart-persistence claim is made. No Forever persistence defect was reproduced. The [build 69913 persistence report](https://us.forums.blizzard.com/en/wow/t/uiaddon-settings-wiped-on-client-restart/2353992) is a report to investigate, not an established local finding.
 
 ## Gate 1: Human feasibility — required before wider rollout
 
@@ -12,11 +12,11 @@ On both clients, begin with only JiberishUI enabled and an exported backup of an
 
 ## Coverage matrix
 
-Every row requires **Retail and Forever** testing, unless marked Forever-only. Implementation means discovery/rendering is present; every live-test status below is pending.
+Every row requires **Retail and Forever** testing, unless marked Forever-only. The Retail alpha.3 user diagnostics reported 155/155 discovered frames applied, zero failed, and no recorded notices. This confirms attachment of all present families, including every previously failing portrait variant; raid, flyout, and totem instances were absent. Full behavior and visual scenarios below remain pending unless explicitly recorded.
 
 | Family | Required cases | Live status |
 |---|---|---|
-| Player | Normal; vehicle; alternate resources; portrait/class icon choices | Pending |
+| Player | Normal; vehicle; alternate resources; portrait/class icon choices | Retail alpha.3: basic live borders visible in user screenshot; remaining cases and Forever pending |
 | Target/focus | Player/NPC; minus/normal/elite/rare/boss; tapped, dead, disconnected where applicable | Pending |
 | Boss | Multiple bosses; appearance/removal; classification overlays | Pending |
 | Pet | Summon/dismiss; possession; attack flash; health/power/masks | Pending |

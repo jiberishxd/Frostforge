@@ -2,7 +2,7 @@
 ## Title: JiberishUI
 ## Notes: Race, class, faction, and standard border styles for Blizzard frames. Alpha; in-game validation pending.
 ## Author: JiberishUI
-## Version: 0.1.0-alpha.2
+## Version: 0.1.0-alpha.3
 ## SavedVariables: JiberishUIDB
 ## OptionalDeps: Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_CompactRaidFrames, Blizzard_OverrideActionBar, Blizzard_ZoneAbility, Blizzard_Settings
 

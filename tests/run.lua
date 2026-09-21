@@ -163,6 +163,47 @@ test('choosing a library preset during combat defers the live skin',function()
     equal(P:Resolve('target').skin,'nightelf_moonwell');equal(J.active.target.skin,old)
     M.combat=false;J:RefreshAll();equal(J.active.target.skin,'nightelf_moonwell')
 end)
+test('portrait unit variants attach on both clients without unsupported texture scripts',function()
+    for _,adapter in ipairs({J.Adapters.retail,J.Adapters.forever}) do
+        for _,entry in ipairs({{'player','player'},{'target','target'},{'party','party'},{'pet','pet'},{'small','targettarget'},{'partypet','partypet'}}) do
+            local variant,group=entry[1],entry[2]
+            local frame,health,power,portrait,decoration=M.portraitUnit(variant)
+            local before=J.active[group];local cfg=P:Resolve(group);cfg.skin='human';J.active[group]=cfg
+            local ok=J:Protect(group,J.Attach,J,{frame=frame,group=group,kind='unit',definition=adapter.units[variant]})
+            assert(ok,adapter.id..' '..variant);local record=assert(J.records[frame]);assert(record.applied and not record.failed)
+            equal(decoration:GetAlpha(),0);assert(not portrait.scripts.OnSizeChanged)
+            local textures,hooks=M.textures,M.hooks
+            cfg.skin='mage';cfg.healthMode='custom';cfg.powerMode='custom'
+            for i=1,5 do J:RefreshSafely(record,true) end
+            assert(record.applied and not record.failed);equal(M.textures,textures);equal(M.hooks,hooks)
+            equal(health:GetStatusBarTexture():GetTexture(),J.Neutral)
+            if power then equal(power:GetStatusBarTexture():GetTexture(),J.Neutral) end
+            assert(record.borders[1].pieces.top:GetTexture():find('arcane_crystal',1,true))
+            J.active[group]=before
+        end
+    end
+end)
+test('runtime error reports retain code locations without exposing payloads',function()
+    local old=geterrorhandler;local captured={}
+    geterrorhandler=function() return function(message) captured[#captured+1]=message end end
+    local function fail() error('Interface/AddOns/JiberishUI/Core/Main.lua:123: attempt to call a nil value PRIVATE_UNIT_DATA',0) end
+    assert(not J:Protect('diagnostic-test',fail));assert(not J:Protect('diagnostic-test',fail))
+    equal(#captured,1);assert(captured[1]:find('Core/Main.lua:123',1,true));assert(not captured[1]:find('PRIVATE_UNIT_DATA',1,true))
+    equal(J.Util.ErrorSummary(M.secret),'Runtime error (details unavailable).')
+    equal(J.Util.ErrorSummary('Texture:HookScript(): Doesn\'t have a script. PRIVATE_UNIT_DATA','[JiberishUI/Core/Main.lua]:132: in function Attach'),
+        'Unsupported widget script at Core/Main.lua:132.')
+    J.failures['diagnostic-test']=nil;geterrorhandler=old
+end)
+test('live status distinguishes applied frames from failed attachments and empty groups',function()
+    local old=J.records;local oldFailures=J.failures;J.records={};J.failures={}
+    assert(J:LiveStatus('player'):find('No supported frames',1,true))
+    J.records[{}]={group='player',applied=false,failed=true}
+    assert(J:LiveStatus('player'):find('failed',1,true))
+    J.records={};J.records[{}]={group='player',applied=true}
+    assert(J:LiveStatus('player'):find('1 of 1',1,true))
+    J.records=old;J.failures=oldFailures
+    local output=J:Diagnostics();assert(output:find(' applied',1,true));assert(output:find(' failed',1,true))
+end)
 test('both adapters are independent and unknown clients fail closed',function()
     assert(J.Adapters.retail.units~=J.Adapters.forever.units);equal(J.Adapters.forever.interface,16001)
     J.ready=false;M.interface=16001;J:Initialize();equal(J.adapter.id,'forever');M.flush()
