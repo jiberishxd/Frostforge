@@ -30,5 +30,5 @@ function J:FindSkins(category,query)
 end
 J.Variants = {
     portrait={min=3,max=12,ornament=true}, bar={min=2,max=6}, compact={min=2,max=5},
-    small={min=2,max=5}, button={min=3,max=10}, rail={min=3,max=12,ornament=true},
+    small={min=2,max=5}, button={min=3,max=10}, rail={min=3,max=12,ornament=true}, external={min=1,max=3}, nativebar={min=2,max=2},
 }

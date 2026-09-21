@@ -2,6 +2,185 @@ local _, J = ...
 local U = J.Util
 local R={}; J.Renderer=R
 local names={'tl','tr','bl','br','top','bottom','left','right'}
+-- Reuse the native shell's alpha silhouette. Its anchors include the actual
+-- portrait cutout, curved bar ends, and portrait-off/vehicle variants.
+function R.CreateSilhouette(source)
+    local owner=source:GetParent()
+    local layer,level=source:GetDrawLayer()
+    local mask=owner:CreateMaskTexture(nil,'BACKGROUND')
+    local base=owner:CreateTexture(nil,layer,nil,math.min(level or 0,7))
+    local material=owner:CreateTexture(nil,layer,nil,math.min(level or 0,7))
+    base:AddMaskTexture(mask);material:AddMaskTexture(mask)
+    base:Hide();material:Hide()
+    return {owner=owner,region=source,variant='silhouette',mode='silhouette',mask=mask,
+        pieces={base=base,material=material},extraMasks={},maskPool={}}
+end
+local function copyMask(mask,source,layout)
+    local atlas=source.GetAtlas and source:GetAtlas()
+    local path=source:GetTexture()
+    if not U.Safe(atlas) or not U.Safe(path) then return false end
+    if type(atlas)=='string' then mask:SetAtlas(atlas,false,nil,false,'CLAMPTOBLACKADDITIVE','CLAMPTOBLACKADDITIVE')
+    elseif type(path)=='string' or U.Number(path) then
+        if mask:SetTexture(path,'CLAMPTOBLACKADDITIVE','CLAMPTOBLACKADDITIVE')==false then return false end
+    else return false end
+    local coords={source:GetTexCoord()}
+    for _,v in ipairs(coords) do if not U.Number(v) then return false end end
+    if #coords~=4 and #coords~=8 then return false end
+    mask:SetTexCoord(unpack(coords))
+    if mask.SetSnapToPixelGrid then mask:SetSnapToPixelGrid(false);mask:SetTexelSnappingBias(0) end
+    if layout then mask:ClearAllPoints();mask:SetAllPoints(source) end
+    return true
+end
+local function syncMasks(record,source,layout)
+    if not copyMask(record.mask,source,layout) then R.Hide(record);return false end
+    local maskCount=source.GetNumMaskTextures and source:GetNumMaskTextures() or 0
+    if not U.Number(maskCount) or maskCount<0 or maskCount>4 then return false end
+    for i=1,maskCount do
+        local native=source:GetMaskTexture(i)
+        if not record.extraMasks[i] then
+            if not layout then return false end
+            local mask=record.maskPool[i] or record.owner:CreateMaskTexture(nil,'BACKGROUND')
+            record.maskPool[i]=mask;record.extraMasks[i]=mask
+            for _,piece in pairs(record.pieces) do piece:AddMaskTexture(mask) end
+        end
+        if not copyMask(record.extraMasks[i],native,layout) then return false end
+    end
+    if #record.extraMasks>maskCount then
+        if not layout then return false end
+        for i=#record.extraMasks,maskCount+1,-1 do
+            for _,piece in pairs(record.pieces) do piece:RemoveMaskTexture(record.extraMasks[i]) end
+            record.extraMasks[i]=nil
+        end
+    end
+    return true
+end
+function R.Silhouette(record,config,layout)
+    local source=record.region
+    local shown=source:IsShown()
+    if not U.Safe(shown) then return false end
+    if not shown then R.Hide(record);return true end
+    local skin=J.Skins[config.skin]
+    if not skin or not skin.qualified then return false end
+    if not syncMasks(record,source,layout) then return false end
+    local w,h=source:GetWidth(),source:GetHeight()
+    if not U.Number(w) or not U.Number(h) or w<=0 or h<=0 then return false end
+    local material=record.pieces.material
+    if material:SetTexture(skin.path..'top.tga','REPEAT','REPEAT')==false then return false end
+    -- Tile the racial/class material over the shell; geometry stays native.
+    if layout then
+        for _,piece in pairs(record.pieces) do
+            piece:ClearAllPoints();piece:SetAllPoints(source)
+            if piece.SetSnapToPixelGrid then piece:SetSnapToPixelGrid(false);piece:SetTexelSnappingBias(0) end
+        end
+        local repeatSize=24
+        material:SetTexCoord(0,w/repeatSize,0,h/repeatSize)
+    end
+    local alpha=config.opacity*(record.nativeAlpha and record.nativeAlpha() or 1)
+    record.pieces.base:SetColorTexture(config.tint[1]*0.22,config.tint[2]*0.22,config.tint[3]*0.22,alpha)
+    material:SetVertexColor(config.tint[1],config.tint[2],config.tint[3],alpha)
+    for _,piece in pairs(record.pieces) do piece:SetShown(shown) end
+    record.config=config
+    return true
+end
+-- Blizzard's decorative atlas also contains bar backdrops. Never paint its full
+-- rectangle or hide it: place edge-only pieces over it and clip to its silhouette.
+function R.CreateContour(source,regions)
+    local owner=source:GetParent()
+    local layer,level=source:GetDrawLayer()
+    local record={owner=owner,region=source,mode='contour',pieces={},arcs={},bars={},blockers={},
+        portrait=regions.portrait,extraMasks={},maskPool={},mask=owner:CreateMaskTexture(nil,'BACKGROUND')}
+    for _,bar in ipairs({regions.health,regions.power}) do
+        if bar then
+            local border=R.Create(owner,bar,'nativebar');record.bars[#record.bars+1]=border
+            for _,piece in pairs(border.pieces) do
+                piece:SetDrawLayer(layer,level);piece:AddMaskTexture(record.mask)
+                record.pieces[#record.pieces+1]=piece
+            end
+            local mask=owner:CreateMaskTexture(nil,'BACKGROUND')
+            record.blockers[#record.blockers+1]={mask=mask,bar=bar}
+        end
+    end
+    if record.portrait then
+        for i=1,32 do
+            local piece=owner:CreateTexture(nil,layer,nil,level)
+            piece:AddMaskTexture(record.mask)
+            for _,entry in ipairs(record.blockers) do piece:AddMaskTexture(entry.mask) end
+            piece:Hide();record.arcs[i]=piece;record.pieces[#record.pieces+1]=piece
+        end
+    end
+    R.Hide(record)
+    return record
+end
+function R.Contour(record,config,layout)
+    local source=record.region
+    local shown=source:IsShown()
+    if not U.Safe(shown) then return false end
+    if not shown then R.Hide(record);return true end
+    local skin=J.Skins[config.skin]
+    if not skin or not skin.qualified or not syncMasks(record,source,layout) then return false end
+    local nativeAlpha=source:GetAlpha()
+    local _,_,_,vertexAlpha=source:GetVertexColor()
+    if not U.Number(nativeAlpha) or not U.Number(vertexAlpha) then return false end
+    local cfg=U.Copy(config);cfg.opacity=config.opacity*nativeAlpha*vertexAlpha
+    cfg.thickness=2;cfg.inset=0;cfg.ornament=0
+    for _,border in ipairs(record.bars) do
+        local visible=border.region:IsShown()
+        if not U.Safe(visible) then return false end
+        if visible then
+            local ok=layout and R.Apply(border,cfg) or (not layout and R.Refresh(border,cfg))
+            if not ok then return false end
+        else R.Hide(border) end
+    end
+    local portrait=record.portrait
+    local visible=portrait and portrait:IsShown()
+    if not U.Safe(visible) then return false end
+    if visible then
+        if layout then
+            local scale,ps=record.owner:GetEffectiveScale(),portrait:GetEffectiveScale()
+            local w,h=portrait:GetWidth(),portrait:GetHeight()
+            local sourceHeight=source:GetHeight()
+            if not U.Number(scale) or scale<=0 or not U.Number(ps) or ps<=0 or not U.Number(w) or not U.Number(h) or
+                w<=0 or h<=0 or not U.Number(sourceHeight) or sourceHeight<=0 then return false end
+            local rx,ry=w*ps/scale/2,h*ps/scale/2
+            -- Preserve every bar interior, including empty/dead areas beneath the portrait junction.
+            for _,entry in ipairs(record.blockers) do
+                local barShown=entry.bar:IsShown()
+                if not U.Safe(barShown) then return false end
+                entry.mask:ClearAllPoints();entry.mask:SetPoint('CENTER',entry.bar,'CENTER')
+                if barShown then
+                    local bw,bs=entry.bar:GetWidth(),entry.bar:GetEffectiveScale()
+                    if not U.Number(bw) or bw<=0 or not U.Number(bs) or bs<=0 then return false end
+                    if entry.mask:SetTexture(J.MediaRoot..'outside-rect.tga','CLAMP','CLAMP','NEAREST')==false then return false end
+                    entry.mask:SetSize(bw*bs/scale*2,sourceHeight*8)
+                else
+                    if entry.mask:SetTexture(J.Neutral,'CLAMP','CLAMP')==false then return false end
+                    entry.mask:SetSize(1,1)
+                end
+            end
+            local bases={{-0.5,0.5},{-0.5,-0.5},{0.5,0.5},{0.5,-0.5}}
+            local repeats=math.pi*(rx+ry)/24
+            for i,piece in ipairs(record.arcs) do
+                piece:ClearAllPoints();piece:SetPoint('CENTER',portrait,'CENTER');piece:SetSize(1,1)
+                local a,b=-(i-1)*2*math.pi/#record.arcs,-i*2*math.pi/#record.arcs
+                local vertices={{math.cos(a)*(rx+12),math.sin(a)*(ry+12)},
+                    {math.cos(a)*math.max(1,rx-6),math.sin(a)*math.max(1,ry-6)},
+                    {math.cos(b)*(rx+12),math.sin(b)*(ry+12)},
+                    {math.cos(b)*math.max(1,rx-6),math.sin(b)*math.max(1,ry-6)}}
+                for k,v in ipairs(vertices) do piece:SetVertexOffset(k,v[1]-bases[k][1],v[2]-bases[k][2]) end
+                piece:SetTexCoord((i-1)*repeats/#record.arcs,i*repeats/#record.arcs,0,1)
+                if piece.SetSnapToPixelGrid then piece:SetSnapToPixelGrid(false);piece:SetTexelSnappingBias(0) end
+            end
+            record.arcReady=true
+        end
+        if not record.arcReady then return false end
+        for _,piece in ipairs(record.arcs) do
+            if piece:SetTexture(skin.path..'top.tga','REPEAT','CLAMP')==false then return false end
+            piece:SetVertexColor(config.tint[1],config.tint[2],config.tint[3],cfg.opacity);piece:Show()
+        end
+    else for _,piece in ipairs(record.arcs) do piece:Hide() end end
+    record.config=config
+    return true
+end
 function R.Create(owner, region, variant)
     local layer=owner:CreateTexture(nil,'BORDER',nil,0)
     layer:Hide()
@@ -11,6 +190,8 @@ function R.Create(owner, region, variant)
     return record
 end
 function R.Apply(record,config)
+    if record.mode=='contour' then return R.Contour(record,config,true) end
+    if record.mode=='silhouette' then return R.Silhouette(record,config,true) end
     local region,p=record.region,record.pieces
     local w,h=region:GetWidth(),region:GetHeight()
     if not U.Number(w) or not U.Number(h) or w<=0 or h<=0 then return false end
@@ -56,6 +237,8 @@ function R.Apply(record,config)
     return true
 end
 function R.Refresh(record,config)
+    if record.mode=='contour' then return R.Contour(record,config,false) end
+    if record.mode=='silhouette' then return R.Silhouette(record,config,false) end
     -- Combat refresh changes only artwork and color; geometry waits until combat ends.
     local skin=J.Skins[config.skin]; if not skin or not skin.qualified then return false end
     for key,texture in pairs(record.pieces) do

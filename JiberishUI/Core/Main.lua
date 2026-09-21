@@ -51,12 +51,14 @@ function J:NativeDecoration(record,region)
     hooksecurefunc(region,'SetAlpha',function(_,alpha)
         if item.busy then return end
         if U.Number(alpha) then item.alpha=alpha end
-        if record.applied then item.busy=true; region:SetAlpha(0); item.busy=false end
+        if record.applied and item.active~=false then item.busy=true; region:SetAlpha(0); item.busy=false end
+        self:Schedule()
     end)
+    return item
 end
 function J:Decorations(record,hidden)
     for _,item in ipairs(record.decorations) do
-        item.busy=true; item.region:SetAlpha(hidden and 0 or (U.Number(item.alpha) and item.alpha or 1)); item.busy=false
+        item.busy=true; item.region:SetAlpha(hidden and item.active~=false and 0 or (U.Number(item.alpha) and item.alpha or 1)); item.busy=false
     end
 end
 function J:Refresh(record,layout)
@@ -79,7 +81,8 @@ function J:Refresh(record,layout)
     else
         for _,border in ipairs(record.borders) do
             local fitted
-            if layout then fitted=R.Apply(border,config) else fitted=R.Refresh(border,config) end
+            if border.active==false then R.Hide(border);fitted=true
+            elseif layout then fitted=R.Apply(border,config) else fitted=R.Refresh(border,config) end
             if border.region.GetObjectType and border.region:GetObjectType()=='Texture' and not border.region:IsShown() then R.Hide(border) end
             -- Hidden power bars can have zero geometry; they do not invalidate the main border.
             if border.required and not fitted then success=false end
@@ -116,14 +119,84 @@ function J:RefreshSafely(record,layout)
         for _,border in ipairs(record.borders) do R.Hide(border) end
     end
 end
+function J:AddSilhouette(record,source)
+    local value=R.CreateSilhouette(source);value.required=true
+    record.borders[#record.borders+1]=value
+    local item=self:NativeDecoration(record,source);value.decoration=item
+    value.nativeAlpha=function()
+        local _,_,_,vertexAlpha=source:GetVertexColor()
+        return (U.Number(item.alpha) and item.alpha or 1)*(U.Number(vertexAlpha) and vertexAlpha or 1)
+    end
+    for _,method in ipairs({'SetAtlas','SetTexture','SetTexCoord','SetVertexColor','SetShown','Show','Hide'}) do
+        if source[method] then hooksecurefunc(source,method,function() self:Schedule() end) end
+    end
+    return value
+end
+function J:AddContour(record,source,regions)
+    local value=R.CreateContour(source,regions);value.required=true
+    record.borders[#record.borders+1]=value
+    for _,method in ipairs({'SetAtlas','SetTexture','SetTexCoord','SetAlpha','SetVertexColor','SetShown','Show','Hide'}) do
+        if source[method] then hooksecurefunc(source,method,function() self:Schedule() end) end
+    end
+    return value
+end
+function J:SyncExternal(record,descriptor)
+    record.regions=descriptor.regions or {}
+    record.externalBorders=record.externalBorders or {};record.colorMap=record.colorMap or {}
+    for bar,color in pairs(record.colorMap) do
+        if record.regions[color.kind]~=bar then C.Apply(color,{healthMode='native',powerMode='native'}) end
+    end
+    for _,value in pairs(record.externalBorders) do
+        value.active=false;if value.decoration then value.decoration.active=false end
+    end
+    local function edge(owner,region,shell)
+        local key=shell or region
+        local value=record.externalBorders[key]
+        if not value then
+            if shell then value=self:AddSilhouette(record,shell)
+            else
+                value=R.Create(owner,region,'external');record.borders[#record.borders+1]=value
+            end
+            record.externalBorders[key]=value
+        end
+        value.active=true;if value.decoration then value.decoration.active=true end
+        return value
+    end
+    edge(record.frame,record.frame,record.regions.shell).required=true
+    for _,p in ipairs(record.regions.portraits or {}) do edge(p.region,p.region,p.shell) end
+    for _,kind in ipairs({'health','power'}) do
+        local bar=record.regions[kind]
+        if bar and bar.GetStatusBarTexture and not record.colorMap[bar] then
+            local function config()
+                if record.applied and record.owned and not record.failed and not self.conflicts[record.group] and record.regions[kind]==bar then
+                    return self.active[record.group]
+                end
+            end
+            local color=C.Attach(record.frame,bar,kind,nil,config,record.regions.unitField)
+            if color then
+                record.colorMap[bar]=color;record.colors[#record.colors+1]=color;self.regionOwners[bar]=record
+            end
+        end
+    end
+end
 function J:Attach(descriptor)
-    if U.Combat() or self.records[descriptor.frame] then return end
+    if U.Combat() then return end
+    local existing=self.records[descriptor.frame]
+    if existing then
+        if existing.kind~=descriptor.kind or existing.provider~=(descriptor.provider or 'blizzard') then
+            existing.owned=false
+            self:Failure(descriptor.group,'Frame provider changed. Reload UI to finish switching providers.')
+            return
+        end
+        if existing.kind=='external' or existing.kind=='externalbutton' then self:SyncExternal(existing,descriptor) end
+        return
+    end
     local frame,group=descriptor.frame,descriptor.group
     local config=self.active[group]
     if not config or not config.enabled then return end
     local conflict=A.Conflict(group)
     if conflict then self:Failure(group,conflict..' Module skipped.'); return end
-    local record={frame=frame,group=group,kind=descriptor.kind,owned=true,borders={},colors={},decorations={}}
+    local record={frame=frame,group=group,kind=descriptor.kind,provider=descriptor.provider or 'blizzard',owned=true,borders={},colors={},decorations={}}
     local regions
     if descriptor.kind=='unit' or descriptor.kind=='compact' then
         local err; regions,err=A.Resolve(frame,descriptor.definition)
@@ -139,14 +212,15 @@ function J:Attach(descriptor)
             U.HookScript(owner,'OnSizeChanged',resize)
         end
     end
-    if regions then
+    if descriptor.kind=='external' or descriptor.kind=='externalbutton' then
+        self:SyncExternal(record,descriptor)
+    elseif regions then
         if descriptor.kind=='compact' then border(frame,frame,'compact',true)
         else
-            border(regions.health,regions.health,descriptor.definition.variant,true)
-            if regions.power then border(regions.power,regions.power,'bar',false) end
-            if regions.portrait then border(regions.portrait:GetParent(),regions.portrait,'portrait',true) end
+            for _,source in ipairs(regions.decorations) do
+                self:AddContour(record,source,regions)
+            end
         end
-        for _,region in ipairs(regions.decorations) do self:NativeDecoration(record,region) end
         local function getConfig() return record.applied and record.owned and not self.conflicts[group] and not record.failed and self.active[group] or nil end
         local health=C.Attach(frame,regions.health,'health',regions.healthMask,getConfig)
         if health then record.colors[#record.colors+1]=health; self.regionOwners[regions.health]=record end
@@ -187,6 +261,7 @@ function J:Attach(descriptor)
     self:RefreshSafely(record,true)
 end
 function J:InstallHooks()
+    if self.Integrations then self.Integrations:InstallHooks() end
     for _,name in ipairs(A.NativeFunctions) do
         if type(_G[name])=='function' and not self.hooks[name] then
             self.hooks[name]=true
@@ -218,12 +293,14 @@ function J:InstallHooks()
 end
 function J:RefreshAll()
     if not self.ready or not self.adapter then return end
+    if IsLoggedIn and not IsLoggedIn() then return end
     local layout=not U.Combat()
     local discovered=A.Discover(self.adapter)
     for _,group in ipairs(self.Groups) do self.conflicts[group]=A.Conflict(group) end
     for _,record in pairs(self.records) do record.owned=false end
     for _,descriptor in ipairs(discovered) do
-        if self.records[descriptor.frame] then self.records[descriptor.frame].owned=true end
+        local record=self.records[descriptor.frame]
+        if record then record.owned=record.kind==descriptor.kind and record.provider==(descriptor.provider or 'blizzard') end
     end
     if layout then
         self:ResolveRequested(); self:InstallHooks()
