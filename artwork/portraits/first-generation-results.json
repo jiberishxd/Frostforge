@@ -1,0 +1,14 @@
+[
+  {
+    "id": "class_warrior",
+    "path": "artwork/portraits/originals/class_warrior.png"
+  },
+  {
+    "id": "class_paladin",
+    "path": "artwork/portraits/revisions/paladin-flared-v2-source.png"
+  },
+  {
+    "id": "class_hunter",
+    "path": "artwork/portraits/revisions/class_hunter-emblem-v2-source.png"
+  }
+]

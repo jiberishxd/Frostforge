@@ -1,0 +1,14 @@
+[
+  {
+    "id": "class_warrior",
+    "path": "artwork/hubs/originals/class_warrior.png"
+  },
+  {
+    "id": "class_hunter",
+    "path": "artwork/hubs/originals/class_hunter.png"
+  },
+  {
+    "id": "class_mage",
+    "path": "artwork/hubs/originals/class_mage.png"
+  }
+]

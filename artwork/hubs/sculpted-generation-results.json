@@ -1,0 +1,221 @@
+[
+  {
+    "id": "class_warrior",
+    "path": "artwork/hubs/sculpted-originals/class_warrior.png",
+    "integrated": true
+  },
+  {
+    "id": "class_hunter",
+    "path": "artwork/hubs/sculpted-originals/class_hunter.png",
+    "integrated": true
+  },
+  {
+    "id": "class_rogue",
+    "path": "artwork/hubs/sculpted-originals/class_rogue.png",
+    "integrated": true,
+    "matte": "magenta"
+  },
+  {
+    "id": "class_priest",
+    "path": "artwork/hubs/sculpted-originals/class_priest.png",
+    "integrated": true,
+    "matte": "green"
+  },
+  {
+    "id": "class_deathknight",
+    "path": "artwork/hubs/sculpted-originals/class_deathknight.png",
+    "integrated": true,
+    "matte": "green"
+  },
+  {
+    "id": "class_shaman",
+    "path": "artwork/hubs/sculpted-originals/class_shaman.png",
+    "integrated": true,
+    "matte": "magenta"
+  },
+  {
+    "id": "class_mage",
+    "path": "artwork/hubs/sculpted-originals/class_mage.png",
+    "integrated": true,
+    "matte": "green"
+  },
+  {
+    "id": "class_warlock",
+    "path": "artwork/hubs/sculpted-originals/class_warlock.png",
+    "integrated": true,
+    "matte": "magenta"
+  },
+  {
+    "id": "class_monk",
+    "path": "artwork/hubs/sculpted-originals/class_monk.png",
+    "integrated": true
+  },
+  {
+    "id": "class_druid",
+    "path": "artwork/hubs/sculpted-originals/class_druid.png",
+    "integrated": true
+  },
+  {
+    "id": "class_demonhunter",
+    "path": "artwork/hubs/sculpted-originals/class_demonhunter.png",
+    "integrated": true,
+    "matte": "magenta"
+  },
+  {
+    "id": "class_evoker",
+    "path": "artwork/hubs/sculpted-originals/class_evoker.png",
+    "integrated": true
+  },
+  {
+    "id": "race_human",
+    "path": "artwork/hubs/sculpted-originals/race_human.png",
+    "integrated": true
+  },
+  {
+    "id": "race_dwarf",
+    "path": "artwork/hubs/sculpted-originals/race_dwarf.png",
+    "integrated": true
+  },
+  {
+    "id": "race_nightelf",
+    "path": "artwork/hubs/sculpted-originals/race_nightelf.png",
+    "integrated": true
+  },
+  {
+    "id": "race_gnome",
+    "path": "artwork/hubs/sculpted-originals/race_gnome.png",
+    "integrated": true
+  },
+  {
+    "id": "race_draenei",
+    "path": "artwork/hubs/sculpted-originals/race_draenei.png",
+    "integrated": true
+  },
+  {
+    "id": "race_worgen",
+    "path": "artwork/hubs/sculpted-originals/race_worgen.png",
+    "integrated": true
+  },
+  {
+    "id": "race_orc",
+    "path": "artwork/hubs/sculpted-originals/race_orc.png",
+    "integrated": true
+  },
+  {
+    "id": "race_scourge",
+    "path": "artwork/hubs/sculpted-originals/race_scourge.png",
+    "integrated": true
+  },
+  {
+    "id": "race_tauren",
+    "path": "artwork/hubs/sculpted-originals/race_tauren.png",
+    "integrated": true
+  },
+  {
+    "id": "race_troll",
+    "path": "artwork/hubs/sculpted-originals/race_troll.png",
+    "integrated": true
+  },
+  {
+    "id": "race_bloodelf",
+    "path": "artwork/hubs/sculpted-originals/race_bloodelf.png",
+    "integrated": true
+  },
+  {
+    "id": "race_goblin",
+    "path": "artwork/hubs/sculpted-originals/race_goblin.png",
+    "integrated": true
+  },
+  {
+    "id": "race_pandaren",
+    "path": "artwork/hubs/sculpted-originals/race_pandaren.png",
+    "integrated": true
+  },
+  {
+    "id": "race_dracthyr",
+    "path": "artwork/hubs/sculpted-originals/race_dracthyr.png",
+    "integrated": true
+  },
+  {
+    "id": "race_voidelf",
+    "path": "artwork/hubs/sculpted-originals/race_voidelf.png",
+    "integrated": true
+  },
+  {
+    "id": "race_lightforgeddraenei",
+    "path": "artwork/hubs/sculpted-originals/race_lightforgeddraenei.png",
+    "integrated": true
+  },
+  {
+    "id": "race_darkirondwarf",
+    "path": "artwork/hubs/sculpted-originals/race_darkirondwarf.png",
+    "integrated": true
+  },
+  {
+    "id": "race_kultiran",
+    "path": "artwork/hubs/sculpted-originals/race_kultiran.png",
+    "integrated": true
+  },
+  {
+    "id": "race_mechagnome",
+    "path": "artwork/hubs/sculpted-originals/race_mechagnome.png",
+    "integrated": true,
+    "matte": "green"
+  },
+  {
+    "id": "race_nightborne",
+    "path": "artwork/hubs/sculpted-originals/race_nightborne.png",
+    "integrated": true
+  },
+  {
+    "id": "race_highmountaintauren",
+    "path": "artwork/hubs/sculpted-originals/race_highmountaintauren.png",
+    "integrated": true
+  },
+  {
+    "id": "race_magharorc",
+    "path": "artwork/hubs/sculpted-originals/race_magharorc.png",
+    "integrated": true
+  },
+  {
+    "id": "race_zandalaritroll",
+    "path": "artwork/hubs/sculpted-originals/race_zandalaritroll.png",
+    "integrated": true
+  },
+  {
+    "id": "race_vulpera",
+    "path": "artwork/hubs/sculpted-originals/race_vulpera.png",
+    "integrated": true
+  },
+  {
+    "id": "race_earthendwarf",
+    "path": "artwork/hubs/sculpted-originals/race_earthendwarf.png",
+    "integrated": true,
+    "matte": "magenta"
+  },
+  {
+    "id": "race_haranir",
+    "path": "artwork/hubs/sculpted-originals/race_haranir.png",
+    "integrated": true
+  },
+  {
+    "id": "faction_alliance",
+    "path": "artwork/hubs/sculpted-originals/faction_alliance.png",
+    "integrated": true
+  },
+  {
+    "id": "faction_horde",
+    "path": "artwork/hubs/sculpted-originals/faction_horde.png",
+    "integrated": true
+  },
+  {
+    "id": "faction_neutral",
+    "path": "artwork/hubs/sculpted-originals/faction_neutral.png",
+    "integrated": true
+  },
+  {
+    "id": "class_paladin",
+    "path": "artwork/hubs/sculpted-originals/class_paladin.png",
+    "integrated": true
+  }
+]

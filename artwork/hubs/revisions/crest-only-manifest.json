@@ -1,0 +1,2937 @@
+{
+  "assets": [
+    {
+      "id": "class_warrior",
+      "label": "Warrior",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_warrior.tga",
+      "source": "artwork/hubs/assets/class_warrior.png",
+      "source_sha256": "1f26463617515e45b2f389e8cc211cccc8b75064476d6e3de757ab177773c957",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "06d08e01bd36297ce12d702fdac9a93d50aa082c6392c02a8ed35bf7fec2a851",
+      "alphaBounds": [
+        20,
+        6,
+        1007,
+        482
+      ],
+      "official_crest": {
+        "id": "class_warrior",
+        "label": "Warrior",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/warrior",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blte5777795e548c8c9/5ee3e476fc5bec085f1e6551/RPOZRXV8MCMC1457037487166.png",
+        "file": "artwork/official-crests/originals/class_warrior.png",
+        "sha256": "f8d92945ec9cf7751fddaa8ab39218967c492f36e4c7d81cbfd26b1722e003fa",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_warrior",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_paladin",
+      "label": "Paladin",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_paladin.tga",
+      "source": "artwork/hubs/assets/class_paladin.png",
+      "source_sha256": "99371fd61264be78c2cfc5897608209186d4a697f091ce1c930fdf6a25e40c54",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "aadafb98411080ee5dbfe95a8855535e4443c230f8d10c73c0bd07d9c0dfba46",
+      "alphaBounds": [
+        0,
+        10,
+        1024,
+        471
+      ],
+      "official_crest": {
+        "id": "class_paladin",
+        "label": "Paladin",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/paladin",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt1da73d925b189bce/5ee790ae418a3c077bb238d7/19XLRJMFTB881457037521481.png",
+        "file": "artwork/official-crests/originals/class_paladin.png",
+        "sha256": "a71c9da0ad891dcc699ae350838e4fb1d7add21cd707a9fd04b0a610ec3d851f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_hunter",
+      "label": "Hunter",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_hunter.tga",
+      "source": "artwork/hubs/assets/class_hunter.png",
+      "source_sha256": "e6aa53f9cd01e0913ab7a751501e01a4c9b0b37311573e4b0534650f24b327fa",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "3d96d366f61780cea49cfbab5dcd5e16b8c0caf36614aa5b7c6f0751cfda3960",
+      "alphaBounds": [
+        6,
+        18,
+        1021,
+        476
+      ],
+      "official_crest": {
+        "id": "class_hunter",
+        "label": "Hunter",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/hunter",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8fbac30a6c1af9f1/5ee3e4153a8621077a04a306/PHD55VWE4ZG71457037542377.png",
+        "file": "artwork/official-crests/originals/class_hunter.png",
+        "sha256": "22bd70d124a09032e2d71af0d0d8ed372195c68a45dfb9b62718d90a51b7100a",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_rogue",
+      "label": "Rogue",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_rogue.tga",
+      "source": "artwork/hubs/assets/class_rogue.png",
+      "source_sha256": "cba13903e8f3549ce4f24b23412b5df5960a4f8bc535fdeb6ccf0778e31f3889",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "9f0d9a2e908261dd8c8a16ede1f2f2bbb96fffc93d81c11741e2a6db345687a8",
+      "alphaBounds": [
+        5,
+        58,
+        1019,
+        461
+      ],
+      "official_crest": {
+        "id": "class_rogue",
+        "label": "Rogue",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/rogue",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt7921da4f7d709b4e/5ee3e4a614a7bc718bab5fc2/ORHZR0HIQOW81457037509031.png",
+        "file": "artwork/official-crests/originals/class_rogue.png",
+        "sha256": "e3d1c110dd90c1c0731ea5984ace781b945e229901abe46714005f255da2860c",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_priest",
+      "label": "Priest",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_priest.tga",
+      "source": "artwork/hubs/assets/class_priest.png",
+      "source_sha256": "6c62139e13d4101c513389658e21435232b261463aaa12e203eb4a42671ec7c9",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "7c666555fbd7e6727151981f3c49fe453913e5703904472dfc91b78cb8e682fb",
+      "alphaBounds": [
+        3,
+        21,
+        1021,
+        474
+      ],
+      "official_crest": {
+        "id": "class_priest",
+        "label": "Priest",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/priest",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt11fabe7dc7912ba9/5ee78c0263a2d9709383090d/XZAE7Z08UVZM1457037515730.png",
+        "file": "artwork/official-crests/originals/class_priest.png",
+        "sha256": "95693eae3ef0d05b8c0513e114116c9769bbc75b4f2081d75a3c4d228fb89c9c",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_deathknight",
+      "label": "Death Knight",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_deathknight.tga",
+      "source": "artwork/hubs/assets/class_deathknight.png",
+      "source_sha256": "5bb330ddec4198ace942408b3a84767b6a43dce113d86cd035a3dc8291116389",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "8235d29d508ac1f151b46b6e947aaeab0da4e647d07fd8c499cd139115e96adb",
+      "alphaBounds": [
+        5,
+        66,
+        1019,
+        456
+      ],
+      "official_crest": {
+        "id": "class_deathknight",
+        "label": "Death Knight",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/death-knight",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8bfa36196bf61105/5ee3e3d7889f917094610ea0/IMLWRYPWBRYL1457037563416.png",
+        "file": "artwork/official-crests/originals/class_deathknight.png",
+        "sha256": "cb806391e36ae1cdfcb01c2fcce038a095387f260d22a4a2514f11c3f22d9648",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_shaman",
+      "label": "Shaman",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_shaman.tga",
+      "source": "artwork/hubs/assets/class_shaman.png",
+      "source_sha256": "546129a911b9538756b2657a8fa642819166e3afd08720741870e25f55caa00c",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "626b55a7d115cabe29f41d747cbb396ebb9ee3c66d29b20f209703141f9e9b99",
+      "alphaBounds": [
+        6,
+        28,
+        1018,
+        472
+      ],
+      "official_crest": {
+        "id": "class_shaman",
+        "label": "Shaman",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/shaman",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt4f1234eeda8832a3/5ee7928563a2d9709383092b/IJFM2IEVGM6N1457037501982.png",
+        "file": "artwork/official-crests/originals/class_shaman.png",
+        "sha256": "e779f715615a4fa4db0d4757fb4d7d67b18686e8edab07488344316eaa35dce3",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_mage",
+      "label": "Mage",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_mage.tga",
+      "source": "artwork/hubs/assets/class_mage.png",
+      "source_sha256": "6cca464f4ee7fe7b6f16e2ed16bc92ae08af1a8d0f11789776bec9f3a13befb0",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "36dcccef4bcb1cbbc97ccebc64c8c6b8bfbddb91ae9504407921ff2666f349cd",
+      "alphaBounds": [
+        6,
+        33,
+        1018,
+        470
+      ],
+      "official_crest": {
+        "id": "class_mage",
+        "label": "Mage",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/mage",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt56494dcd20feee74/5ee3e450e8f74907ecce0124/OGQYW3GHV8RL1457037534068.png",
+        "file": "artwork/official-crests/originals/class_mage.png",
+        "sha256": "aace0842705706a569d8c34282b203845cf085cc6820366392137084df918e99",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_mage",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_warlock",
+      "label": "Warlock",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_warlock.tga",
+      "source": "artwork/hubs/assets/class_warlock.png",
+      "source_sha256": "69d3993887e4524bea205f43ae72d347ad0ff96de42c196835b14cea3b962df7",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "4ce7149fb81f1f3518fe1172b37c74629c3f3d86949ce8e5cb906fe3b6585aa0",
+      "alphaBounds": [
+        3,
+        50,
+        1021,
+        466
+      ],
+      "official_crest": {
+        "id": "class_warlock",
+        "label": "Warlock",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/warlock",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8cee1118340e0529/5ee3e8c5a9170407eeb4b79d/ODSDYFWLT9B01457037493681.png",
+        "file": "artwork/official-crests/originals/class_warlock.png",
+        "sha256": "cd0f2b442ebdd267bde8d1a62d86e9ec7b6fbdbb6b21f9012156dedc4381468f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_mage",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_monk",
+      "label": "Monk",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_monk.tga",
+      "source": "artwork/hubs/assets/class_monk.png",
+      "source_sha256": "ee3afc8ee04a020b0b9b02b638c2fba68b1685ad74144e9c1117086cc6175142",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "d9fa6ee18889cb4f88391fa7e8db38f859db2f7b673e75bd4a0981de71d4fd5c",
+      "alphaBounds": [
+        11,
+        6,
+        1012,
+        482
+      ],
+      "official_crest": {
+        "id": "class_monk",
+        "label": "Monk",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/monk",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt63e4488784925447/5ee793cfa9170407eeb4b917/7Y1OJFSCMOHZ1457037527905.png",
+        "file": "artwork/official-crests/originals/class_monk.png",
+        "sha256": "cbb26a20b1651783c9828480a7cd9dea6cf2f025cb59b0f5a01e1ccbb2ef0a2e",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_druid",
+      "label": "Druid",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_druid.tga",
+      "source": "artwork/hubs/assets/class_druid.png",
+      "source_sha256": "2b8bf58e728ea76564b8f054db09c0b52fe1675b5615fb8f19e48bc1805dd7f7",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "c941be80fb85d3a88fc41b53bdec07aac0df79be633594e2797cd0c370216d7d",
+      "alphaBounds": [
+        3,
+        18,
+        1021,
+        476
+      ],
+      "official_crest": {
+        "id": "class_druid",
+        "label": "Druid",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/druid",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltbf5a772e934ff371/5ee3e39dfc5bec085f1e6533/LI82P1DRVSNA1447154373009.png",
+        "file": "artwork/official-crests/originals/class_druid.png",
+        "sha256": "04065878ab13f8cf57c470da9c6beb8e22b23b9a05c875712a74ba70bc22d191",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_demonhunter",
+      "label": "Demon Hunter",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_demonhunter.tga",
+      "source": "artwork/hubs/assets/class_demonhunter.png",
+      "source_sha256": "524a9a0a5d373a923522d55aba13a2deb044ec530edb141ffd86a017060721a2",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "76d27b6bb60115b018dddb1a82a9e28dd0361c9b2d40f9c5cbfd8304d3bb67e4",
+      "alphaBounds": [
+        11,
+        5,
+        1013,
+        479
+      ],
+      "official_crest": {
+        "id": "class_demonhunter",
+        "label": "Demon Hunter",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/demon-hunter",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2490a2c648b86219/5ee79636d217327180733e7d/4B35S4Z5N11X1457037556292.png",
+        "file": "artwork/official-crests/originals/class_demonhunter.png",
+        "sha256": "b1d8e9a7d600c68ac3af1e46ce2b889f1bc1506f8509f1bd2e04c092cb6ae828",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_evoker",
+      "label": "Evoker",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_evoker.tga",
+      "source": "artwork/hubs/assets/class_evoker.png",
+      "source_sha256": "bfcc613209c353939737238e235e2d82c99df4129c71eaed8654f15f6c33f239",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "2ea2fa3befcea11ebd8d178d777d9deac928eb475ae1f665c1ec7dd36572604d",
+      "alphaBounds": [
+        7,
+        5,
+        1017,
+        480
+      ],
+      "official_crest": {
+        "id": "class_evoker",
+        "label": "Evoker",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/evoker",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3d327163a476f786/632b91c5251b540e0aea7b81/Crest_Dracthyr_RacePage.png",
+        "file": "artwork/official-crests/originals/class_evoker.png",
+        "sha256": "932922fa67b480dec97b627a60ba8f76c40dfc9ef71447c498d3bf905079ae98",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_human",
+      "label": "Human",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_human.tga",
+      "source": "artwork/hubs/assets/race_human.png",
+      "source_sha256": "aab4de3cec3d1eca09373d4dfbf0f4de0da80c7a40b43e25e43b0fc74b65f748",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "55ad8ddcfd7e92ea3d1d1288a16910062b57175b854731231f6a9d93c7460a6f",
+      "alphaBounds": [
+        14,
+        6,
+        1010,
+        479
+      ],
+      "official_crest": {
+        "id": "race_human",
+        "label": "Human",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/human",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt29feb655ea50fba6/616a0018363f00106eda3f08/2YEP8WEMJ5771603122326566.png",
+        "file": "artwork/official-crests/originals/race_human.png",
+        "sha256": "acc78b40ea8c8506cf68f77cbd6cbead92f3b57318ae4f2688ad3e27b5fd4370",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_dwarf",
+      "label": "Dwarf",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_dwarf.tga",
+      "source": "artwork/hubs/assets/race_dwarf.png",
+      "source_sha256": "7fc8ff6bf88c1a9f321d9158ca0a874f8145cb58b286f29a47f1e73a11f107b0",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "534cf23b3cfa587c7cb398a960a19d6ba9c6c2a47b73ab875ae50af0c5e2396a",
+      "alphaBounds": [
+        9,
+        6,
+        1014,
+        479
+      ],
+      "official_crest": {
+        "id": "race_dwarf",
+        "label": "Dwarf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dwarf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2c2df67600500bdc/616a002ece267e66ae2fe944/06NIF1RURDOL1603475082437.png",
+        "file": "artwork/official-crests/originals/race_dwarf.png",
+        "sha256": "b4fbce9e299b0065c680eb12673e93b0c72d746c83d23ff17603f42bd9fe8fac",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_nightelf",
+      "label": "Night Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_nightelf.tga",
+      "source": "artwork/hubs/assets/race_nightelf.png",
+      "source_sha256": "592e34a8de8c6f12cac2e0fbebd2f78f2f743811215a879450b3607b3da60b89",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "291ba38522b3a4eddc1a0aba94a16bc4277badf243e7e380f110d6ddf877c0d3",
+      "alphaBounds": [
+        17,
+        6,
+        1007,
+        479
+      ],
+      "official_crest": {
+        "id": "race_nightelf",
+        "label": "Night Elf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/night-elf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta47b70b74bf269e7/616a00454d5a4b1063b37382/0LY5ZCA0SV371603901805832.png",
+        "file": "artwork/official-crests/originals/race_nightelf.png",
+        "sha256": "0a5d430f7aa534ea67ff6fa85e7841692b738f3b271667b33cc2939653146a5a",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_gnome",
+      "label": "Gnome",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_gnome.tga",
+      "source": "artwork/hubs/assets/race_gnome.png",
+      "source_sha256": "8cbaacff550613f898003deef1fd4ad6beb40209c2bc502208a87e5c626cdfe6",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "4f245f728afd9bf642f2bc2e47cccba6876a053969e2a5a0593f1e1b6bb16ef2",
+      "alphaBounds": [
+        17,
+        6,
+        1007,
+        479
+      ],
+      "official_crest": {
+        "id": "race_gnome",
+        "label": "Gnome",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/gnome",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2443ee39caa44a89/616a0060ce267e66ae2fe94c/BW9K7DDHZTRE1605545652498.png",
+        "file": "artwork/official-crests/originals/race_gnome.png",
+        "sha256": "4cddcec5bf83c25d8ec3ad77d94c2044df506b000f8f342b147e5e2508492155",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_draenei",
+      "label": "Draenei",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_draenei.tga",
+      "source": "artwork/hubs/assets/race_draenei.png",
+      "source_sha256": "83e3420c6545edbfcbddc4cc366850af4473425148df77eda1dbd4d8c2873e00",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "d7e6ffe87038d3494e35c9a12dfc86eb228ee9d42dfa2ca1a2cda2a0cd2f1e88",
+      "alphaBounds": [
+        6,
+        14,
+        1018,
+        474
+      ],
+      "official_crest": {
+        "id": "race_draenei",
+        "label": "Draenei",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/draenei",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltc12b719e2ffc2f52/616a007af8fe091054181e8a/USXSJEJ6B6Z21605557059834.png",
+        "file": "artwork/official-crests/originals/race_draenei.png",
+        "sha256": "91afd003bc19fef0ed6d9207df9138a10f7176174c465af8554ee795e7595e01",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_mage",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_worgen",
+      "label": "Worgen",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_worgen.tga",
+      "source": "artwork/hubs/assets/race_worgen.png",
+      "source_sha256": "2ef4f21479b9e2982e98acce16fa39da7994b7e36a8570b3904c565758c1e11b",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "96218016070403e246479ba7cf126c10806250e8e5fa77444ed0484df98659f8",
+      "alphaBounds": [
+        15,
+        6,
+        1009,
+        479
+      ],
+      "official_crest": {
+        "id": "race_worgen",
+        "label": "Worgen",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/worgen",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf902343d6339c091/616a009cfb74964cc74d15e7/A6Y10KJ2VFYJ1605723863532.png",
+        "file": "artwork/official-crests/originals/race_worgen.png",
+        "sha256": "9df69c23e56d45420e3ae77e1413c6f5e635896a221a41fd66341dc6aeafbd12",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_orc",
+      "label": "Orc",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_orc.tga",
+      "source": "artwork/hubs/assets/race_orc.png",
+      "source_sha256": "50a2c899ee69dae103053748b7dae5c882f4fe31987f5a683fede4fd10f2436b",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "2e347a593e5b5f504760bd2dcc29f71a5ad4643e48660ff0ec1e774db39fdbdf",
+      "alphaBounds": [
+        5,
+        42,
+        1019,
+        468
+      ],
+      "official_crest": {
+        "id": "race_orc",
+        "label": "Orc",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/orc",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt0f02f3cbfdeafa88/616da56f9f3ef74e02a20dcc/6MSKYPAWWSUH1607641013386.png",
+        "file": "artwork/official-crests/originals/race_orc.png",
+        "sha256": "a2aa50b4ea7c9c1f33d535cf2b7bfddabfde4be6daa8f3a0d54483bf539e2953",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_warrior",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_scourge",
+      "label": "Undead",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_scourge.tga",
+      "source": "artwork/hubs/assets/race_scourge.png",
+      "source_sha256": "1b676b45690131eb26d211d114204912e9a775ef3b5523dd9a9a31b85edc7b5c",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "8b37ccea4e5beb8fff4650b89e8bc91e7579c28fbb143415d693901334d92ae7",
+      "alphaBounds": [
+        32,
+        5,
+        994,
+        479
+      ],
+      "official_crest": {
+        "id": "race_scourge",
+        "label": "Undead",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/undead",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt238a2c5d3db4f8f1/6169fc52fb74964cc74d15b7/OG6OH5SWHPZJ1559260730605.png",
+        "file": "artwork/official-crests/originals/race_scourge.png",
+        "sha256": "9dd09370a4bdd3ecafdfbca1e4d698b91d1b97369f2c99850fc3c42b3f921a36",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_tauren",
+      "label": "Tauren",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_tauren.tga",
+      "source": "artwork/hubs/assets/race_tauren.png",
+      "source_sha256": "5dcf9ecd4d1686bf37841bd1e1b0817a35ea9b9657f0111fb43315f2fa317509",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "f5eae7b56eeae097c2dcbc2399dfc1e3255c8c29a38e3cac1335a468a8e909b9",
+      "alphaBounds": [
+        18,
+        6,
+        1006,
+        479
+      ],
+      "official_crest": {
+        "id": "race_tauren",
+        "label": "Tauren",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/tauren",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf51ca4462a828005/616a01d19f3ef74e02a20d28/VNKFQWE588461557349783879.png",
+        "file": "artwork/official-crests/originals/race_tauren.png",
+        "sha256": "ed773f7cda8164bbafa50d0f43eb610a44a508a1b79c45ba31fe8f57751e5cee",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_troll",
+      "label": "Troll",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_troll.tga",
+      "source": "artwork/hubs/assets/race_troll.png",
+      "source_sha256": "f26edec7f47428d102965a85c86f8afc287100e93ff5b0d0957d2b453601bdad",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "159e77102038e8be04ff664e50ff3612d4e7f1e574c47959cf35e69ae81e65a2",
+      "alphaBounds": [
+        6,
+        30,
+        1018,
+        471
+      ],
+      "official_crest": {
+        "id": "race_troll",
+        "label": "Troll",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/troll",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltc7bd33d3398b1d89/616a01e6a617d74bae3180ee/XQIZERDAIV2T1614277942195.png",
+        "file": "artwork/official-crests/originals/race_troll.png",
+        "sha256": "55dc635dac717aa14c1973f7bb36abf40b55766d87c708b05c85c6ea789a3d6e",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_bloodelf",
+      "label": "Blood Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_bloodelf.tga",
+      "source": "artwork/hubs/assets/race_bloodelf.png",
+      "source_sha256": "d7ac1f1b9db9853fb6ae506ecd30bf68b5a09f8d85e9dfd47213e85d67a2b89e",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "c7e554cdd98653570ce41eaf6d001e1c25a6765923d55065e543da52d9938207",
+      "alphaBounds": [
+        22,
+        5,
+        1002,
+        480
+      ],
+      "official_crest": {
+        "id": "race_bloodelf",
+        "label": "Blood Elf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/blood-elf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf98f9b287fd259db/616a0201bdc5454d581ba20f/1S1T3ZP0XYGV1552513933946.png",
+        "file": "artwork/official-crests/originals/race_bloodelf.png",
+        "sha256": "c2b815008d0581c6ac492f141777df69d0684467c129e41fc62ce33dd3b03e78",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_goblin",
+      "label": "Goblin",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_goblin.tga",
+      "source": "artwork/hubs/assets/race_goblin.png",
+      "source_sha256": "2c21578f3dddb225dfcec21760e2f523f6839cda02fb3ced74094146a21de031",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "e60a74294d52ac9fdba3260e16bc8ba586280f5ed844e0fd2699e9dc6e29fea3",
+      "alphaBounds": [
+        6,
+        34,
+        1018,
+        470
+      ],
+      "official_crest": {
+        "id": "race_goblin",
+        "label": "Goblin",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/goblin",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt5a20ef2a98398062/616a023f70b75d5011e406d0/KNUS13FCMRZ31614290111339.png",
+        "file": "artwork/official-crests/originals/race_goblin.png",
+        "sha256": "9f61c372738dc93aee953e1da4265ff1e21054bf3d2b041e719a76bac0c8e929",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_pandaren",
+      "label": "Pandaren",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_pandaren.tga",
+      "source": "artwork/hubs/assets/race_pandaren.png",
+      "source_sha256": "6c3c06a5b6297fcb595e9b004d38bf79bb53e0a62b00fc0957e72c04cc7fd1e1",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "312b63ec96f2198cfeab7a5bcc9732d0e187c25019e194806e6f69071854e506",
+      "alphaBounds": [
+        7,
+        6,
+        1017,
+        479
+      ],
+      "official_crest": {
+        "id": "race_pandaren",
+        "label": "Pandaren",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/pandaren-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta264a9ee426a126d/616a018c0e274669d2eec130/K808NK3EW6TS1605905313557.png",
+        "file": "artwork/official-crests/originals/race_pandaren.png",
+        "sha256": "6bc0b3fe0747620ce1baeacdc8f56d939fd225b521ab9be4f5483398eed61441",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_dracthyr",
+      "label": "Dracthyr",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_dracthyr.tga",
+      "source": "artwork/hubs/assets/race_dracthyr.png",
+      "source_sha256": "bfcc613209c353939737238e235e2d82c99df4129c71eaed8654f15f6c33f239",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "2ea2fa3befcea11ebd8d178d777d9deac928eb475ae1f665c1ec7dd36572604d",
+      "alphaBounds": [
+        7,
+        5,
+        1017,
+        480
+      ],
+      "official_crest": {
+        "id": "race_dracthyr",
+        "label": "Dracthyr",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dracthyr-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3d327163a476f786/632b91c5251b540e0aea7b81/Crest_Dracthyr_RacePage.png",
+        "file": "artwork/official-crests/originals/race_dracthyr.png",
+        "sha256": "932922fa67b480dec97b627a60ba8f76c40dfc9ef71447c498d3bf905079ae98",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_voidelf",
+      "label": "Void Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_voidelf.tga",
+      "source": "artwork/hubs/assets/race_voidelf.png",
+      "source_sha256": "926a6fe4daf6bdde9ad50d7753a18d7e83bd6d4be8e597bc84b60ce10280c20d",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "9194f019a78be6fb8975c0387a7fe38e931d6fb9426be622d312b0bbe7b7eae1",
+      "alphaBounds": [
+        21,
+        6,
+        1002,
+        480
+      ],
+      "official_crest": {
+        "id": "race_voidelf",
+        "label": "Void Elf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/void-elf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt1d65f09cc7f2072b/6169fdb84d5a4b1063b3735d/5V5FC0JM7EZ21532560495721.png",
+        "file": "artwork/official-crests/originals/race_voidelf.png",
+        "sha256": "5f4378d0f618f9ff47476a8277b1240238930d2d56af190ebff29653881ed813",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_mage",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_lightforgeddraenei",
+      "label": "Lightforged Draenei",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_lightforgeddraenei.tga",
+      "source": "artwork/hubs/assets/race_lightforgeddraenei.png",
+      "source_sha256": "94d1b8041cdaebaf4be3efb355c6058103d2eed5312aff6137f770fa2d75b735",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "09c43a464460c83aa84738e1911ffd5d609313879f098a262d23fca5d6952bb7",
+      "alphaBounds": [
+        9,
+        6,
+        1015,
+        480
+      ],
+      "official_crest": {
+        "id": "race_lightforgeddraenei",
+        "label": "Lightforged Draenei",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/lightforged-draenei",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt5a883c594e2d4a2d/6169fdfdc7bf1d4cc89fdb2e/CKSTMP0F3JR31531430144751.png",
+        "file": "artwork/official-crests/originals/race_lightforgeddraenei.png",
+        "sha256": "8aca1bb138c48d7aed93f29b2b6891381f52b6e1ca512f9ee9d75d3cd46f0022",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_mage",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_darkirondwarf",
+      "label": "Dark Iron Dwarf",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_darkirondwarf.tga",
+      "source": "artwork/hubs/assets/race_darkirondwarf.png",
+      "source_sha256": "b3f6718fe48bca98954f73e0ed39a778a9a4207e7eff62b10647a76465a9ca36",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "b884abd96307cb4161ddf04f9b74c9e63ab0e2377497e6d25f147bf518bb292a",
+      "alphaBounds": [
+        6,
+        17,
+        1018,
+        474
+      ],
+      "official_crest": {
+        "id": "race_darkirondwarf",
+        "label": "Dark Iron Dwarf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dark-iron-dwarf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltcf425cb329c55845/6169fd7b4d5a4b1063b37359/22ZEQWWUAUV01532560489298.png",
+        "file": "artwork/official-crests/originals/race_darkirondwarf.png",
+        "sha256": "4a121554a5b465cd90376752e0ce06e8ed1226c03536558fd34258400698131b",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_kultiran",
+      "label": "Kul Tiran",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_kultiran.tga",
+      "source": "artwork/hubs/assets/race_kultiran.png",
+      "source_sha256": "561fa85a6c1bc7ed868bda346ad95a94e6d7247827df045e7524ddda62eb1249",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "9ff09a9feda2e7c31c3745443ee7fc0e6fd84708dbf3c191961ea684d0161aaa",
+      "alphaBounds": [
+        25,
+        5,
+        999,
+        479
+      ],
+      "official_crest": {
+        "id": "race_kultiran",
+        "label": "Kul Tiran",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/kul-tiran",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt53389d72e99677fc/6169fe6f25b12a4a14b3a861/GH79ETP3YC4X1549479455375.png",
+        "file": "artwork/official-crests/originals/race_kultiran.png",
+        "sha256": "9017f58ee455a3dc9b677f3294ca640b91cd533e0ace0d10df7a256fa8f6a680",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_mechagnome",
+      "label": "Mechagnome",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_mechagnome.tga",
+      "source": "artwork/hubs/assets/race_mechagnome.png",
+      "source_sha256": "0dd5a92b6db7be71bee1dea065889aed4222fb3646d1491e1a0661321e98923d",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "c44ebbd91bac0a0fe878ddeb6a6edf5a1d2127f6da040f07fa9a6a08feadb841",
+      "alphaBounds": [
+        16,
+        6,
+        1008,
+        479
+      ],
+      "official_crest": {
+        "id": "race_mechagnome",
+        "label": "Mechagnome",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/mechagnome",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt94b7b0c81fc1c536/6169fe9e47c23d6a01ffe025/XBBR586Y07TM1578532685694.png",
+        "file": "artwork/official-crests/originals/race_mechagnome.png",
+        "sha256": "786327c17c501a2cbe22f31fce4c668ae3aed332912a3d3fc1829de5fdcf028f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_nightborne",
+      "label": "Nightborne",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_nightborne.tga",
+      "source": "artwork/hubs/assets/race_nightborne.png",
+      "source_sha256": "610b8da459c7dd978b51a90086253d61aaa5da13d0ede8443f36e9151e0c5f69",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "caa07ee1a0b565761fb209d849ae3ee96dbb927c36d88aff3b825d4e2c5e94be",
+      "alphaBounds": [
+        23,
+        6,
+        1001,
+        480
+      ],
+      "official_crest": {
+        "id": "race_nightborne",
+        "label": "Nightborne",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/nightborne",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3918dc28e826ae39/6169fee42f01594a0e0416e4/TKPBMPZUSU7U1532560494019.png",
+        "file": "artwork/official-crests/originals/race_nightborne.png",
+        "sha256": "5e48c334747a0db4efc5e449e87b4e598e4efd142d258077bfa77d0feb2e79a4",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_mage",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_highmountaintauren",
+      "label": "Highmountain Tauren",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_highmountaintauren.tga",
+      "source": "artwork/hubs/assets/race_highmountaintauren.png",
+      "source_sha256": "793e070abdfecea75c2ae6cc5d21998daf37b2727edb81d35a2289fb9612ed5b",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "4bc60c13ddccf6a77050a9337fd8a22771e5f71bced0777be03d10b5d5ee985b",
+      "alphaBounds": [
+        6,
+        13,
+        1018,
+        474
+      ],
+      "official_crest": {
+        "id": "race_highmountaintauren",
+        "label": "Highmountain Tauren",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/highmountain-tauren",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt854c9c9350ea3541/6169ff3f0e274669d2eec112/CKA8GU31B1FO1532560490496.png",
+        "file": "artwork/official-crests/originals/race_highmountaintauren.png",
+        "sha256": "2a32a3a889ff6b31a95f1816310df9526f697681c33c3bc2be0e81338b113f5d",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_magharorc",
+      "label": "Mag'har Orc",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_magharorc.tga",
+      "source": "artwork/hubs/assets/race_magharorc.png",
+      "source_sha256": "37f2a03bd19ed15511d48764194fcf4b7b173474bc2c423eff14dc3f85dd04d5",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "a03b129ccd82cc2adec45efbd5389c0066583c98e8173a60c266738f155106d1",
+      "alphaBounds": [
+        6,
+        6,
+        1018,
+        478
+      ],
+      "official_crest": {
+        "id": "race_magharorc",
+        "label": "Mag'har Orc",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/maghar-orc",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt13e51203596562d1/6169d276bdc5454d581ba1d0/QZWDD8TUMEEX1532560493080.png",
+        "file": "artwork/official-crests/originals/race_magharorc.png",
+        "sha256": "d36b8394da31a02728d103c45530c090f5c8aea9d0750556bff7da869498f163",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_warrior",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_zandalaritroll",
+      "label": "Zandalari Troll",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_zandalaritroll.tga",
+      "source": "artwork/hubs/assets/race_zandalaritroll.png",
+      "source_sha256": "a9befe4131d8511e57765a823a1b156a52e3760dcbed28983024f62c11e7045f",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "6e1a6b7537aee58abac8786990c50bd129c4ecfdfbd923edfb206849fbd9dde4",
+      "alphaBounds": [
+        14,
+        5,
+        1010,
+        480
+      ],
+      "official_crest": {
+        "id": "race_zandalaritroll",
+        "label": "Zandalari Troll",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/zandalari-troll",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltbdd6b9b51b14fdec/6169ff779f3ef74e02a20d04/J7ETJWJQGK5E1549412561820.png",
+        "file": "artwork/official-crests/originals/race_zandalaritroll.png",
+        "sha256": "ef6e5291530a984295515773972666c54de88a23cdd469cb81d404a78f642f3a",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_vulpera",
+      "label": "Vulpera",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_vulpera.tga",
+      "source": "artwork/hubs/assets/race_vulpera.png",
+      "source_sha256": "9cbfde4ba4c0c7413904b69dbdb53aaf258b5d5b9f3ac8dbd140e42dbc06209d",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "561f5d5acc68b892ceceee66ee5707f880fb2316ab1e92f84ded2b51e8cd2f60",
+      "alphaBounds": [
+        41,
+        6,
+        983,
+        479
+      ],
+      "official_crest": {
+        "id": "race_vulpera",
+        "label": "Vulpera",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/vulpera",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt7e38ae72c707eee3/6169ffd235f1b36b742c74a8/VHQCKU8JYDEU1578424645765.png",
+        "file": "artwork/official-crests/originals/race_vulpera.png",
+        "sha256": "b1c84f68d6cd75cb12a3bf26d6b9d759f7d99abc1ce0eed8582e0e16a6bb08f8",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_earthendwarf",
+      "label": "Earthen",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_earthendwarf.tga",
+      "source": "artwork/hubs/assets/race_earthendwarf.png",
+      "source_sha256": "65aa23c171d500cc4304caf9b802aef04d3bd472fded39d2b14af520c63541a9",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "290c62de1d0eef831be2eac8da71294beb3d3fda7d1eefdc8762762ed79df582",
+      "alphaBounds": [
+        3,
+        20,
+        1021,
+        476
+      ],
+      "official_crest": {
+        "id": "race_earthendwarf",
+        "label": "Earthen",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/earthen-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta1913351187b20e3/66b2885b518bb26230883de1/Earthen_Crest.png",
+        "file": "artwork/official-crests/originals/race_earthendwarf.png",
+        "sha256": "89d60b455101adc079c80a78ebaf601903990b785b09264daf85503b0568a503",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_haranir",
+      "label": "Haranir",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_haranir.tga",
+      "source": "artwork/hubs/assets/race_haranir.png",
+      "source_sha256": "b830852480161dbf1335b4f14d41fb5305c8b271af95531736e92dc5b48a2fb4",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "9292bb8bd17b355a368547daf66b9e3c4b19993948a2f1079720715ae20b16a9",
+      "alphaBounds": [
+        5,
+        6,
+        1019,
+        477
+      ],
+      "official_crest": {
+        "id": "race_haranir",
+        "label": "Haranir",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/haranir-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt27ff53c174cc3ddb/69a0d7dea9cfc4b81223339d/Haranir_Crest.png",
+        "file": "artwork/official-crests/originals/race_haranir.png",
+        "sha256": "35155afc81b439513d52b91e61fad480140de31557de7c6802d7f9ec5cb90a8f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_hunter",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_alliance",
+      "label": "Alliance",
+      "group": "faction",
+      "file": "JiberishUI/Media/Hubs/faction_alliance.tga",
+      "source": "artwork/hubs/assets/faction_alliance.png",
+      "source_sha256": "00b38beaa659ad85ddaecc76222b28820cd7cc88d9b52f4d723e60072bda1abf",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "4fc3f486ac9f4c0d73936a1c81f5cad113df198e8dc652ae72d4ce20bf6bcece",
+      "alphaBounds": [
+        5,
+        31,
+        1019,
+        471
+      ],
+      "official_crest": {
+        "id": "faction_alliance",
+        "label": "Alliance",
+        "group": "faction",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/human",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt07958d4a50c867ac/616a00180e274669d2eec122/W4EX9UNJV8OB1531430144879.png",
+        "file": "artwork/official-crests/originals/faction_alliance.png",
+        "sha256": "30ae0e592177665eecaaca0f8cf3dc6bca2bad1055ae682702c37dbd570f57bb",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_horde",
+      "label": "Horde",
+      "group": "faction",
+      "file": "JiberishUI/Media/Hubs/faction_horde.tga",
+      "source": "artwork/hubs/assets/faction_horde.png",
+      "source_sha256": "de021fcd6447ccc5ccc1d63d176c401083cdd4d894ae7c968ef34ec7b5c0cd02",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "48581301649c0dcb227ab43909f55e7888fbb1537cb709f6db1b93bc4d738275",
+      "alphaBounds": [
+        5,
+        31,
+        1019,
+        471
+      ],
+      "official_crest": {
+        "id": "faction_horde",
+        "label": "Horde",
+        "group": "faction",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/undead",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt269b19b0f00cc872/6169fc515e87796834fb5acd/VGJ2XT8PAJL31531171276190.png",
+        "file": "artwork/official-crests/originals/faction_horde.png",
+        "sha256": "e596a8fbbd0e542ad8496a1a87c4f91147070853be029f1cf9966f0004d6c011",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "rail_source": "class_warrior",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_neutral",
+      "label": "Neutral",
+      "group": "faction",
+      "file": "JiberishUI/Media/Hubs/faction_neutral.tga",
+      "source": "artwork/hubs/assets/faction_neutral.png",
+      "source_sha256": "1861c5dfa58590550d532579dc1672448614067e19ddece74fb08a53641861f3",
+      "source_size": [
+        2172,
+        724
+      ],
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "9f4b7916d6e7c697b646d692f919b88bd88b861a12e0cb04f3aa1fb6aa133a35",
+      "alphaBounds": [
+        3,
+        40,
+        1021,
+        465
+      ],
+      "official_crest": null,
+      "rail_source": "class_paladin",
+      "registration": {
+        "left": [
+          12,
+          8,
+          596,
+          670
+        ],
+        "right": [
+          1564,
+          8,
+          596,
+          670
+        ],
+        "center": [
+          986,
+          444,
+          218,
+          226
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    }
+  ],
+  "geometry": "Shared five-piece atlas; 2172 x 724 design; 1024 x 512 texture",
+  "credit": "Crests: Blizzard Entertainment. Surround/rail compositions: JiberishUI.",
+  "in_game_qualified": false
+}

@@ -1,0 +1,13 @@
+{
+  "result": {
+    "id": "class_paladin",
+    "path": "artwork/portraits/revisions/paladin-v1-originals.png"
+  },
+  "job": {
+    "id": "class_paladin",
+    "group": "class",
+    "token": "PALADIN",
+    "label": "Paladin",
+    "prompt": "Use case: stylized-concept. Asset: one Paladin class portrait BACKGROUND ornament for a classic Warcraft UI addon. Classic Warcraft III / original 2004 WoW hand-painted UI. Chunky weathered silhouettes, broad brush shading, matte surfaces, limited palettes, coarse game-texture detail. No glossy photorealism, no modern high-resolution micro-detail. Design for display at only 128 pixels. Subject motifs: aged gold and ivory, a small sun crown and broad feather wing, matte silver plate; no lion or weapons. Composition: a COMPACT ASYMMETRIC PORTRAIT SURROUND, one bold ornamental crest above and one broad ornament on the LEFT only, a thin broken stone/metal arc below. Right edge must be quiet and short: absolutely NO horizontal health-bar rails, no bar openings, no side sun/endcap, no wide rectangular frame, no face or figure, no text. Square canvas, generous transparent margins. Reserve an EMPTY opening at 60% canvas width and 58% canvas height, approximately 44% of canvas width in diameter. The lower-right quadrant of that opening must be squared outward (Blizzard's teardrop portrait). Keep the rightmost 22% of the canvas empty at portrait height so adjacent health bars have clearance. Keep the lower-left of the portrait opening clear for the small level badge. All art stays compact around the head and left side. Matte hand-painted old game texture, thick contours, roughly hewn forms, limited colors, no glass-like polish, no high-frequency filigree, no high-res CGI. Real transparent alpha background including the portrait opening; do NOT paint checkerboard. ONE Paladin ornament only."
+  }
+}

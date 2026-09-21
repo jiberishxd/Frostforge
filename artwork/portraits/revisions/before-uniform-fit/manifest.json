@@ -1,0 +1,1895 @@
+{
+  "assets": [
+    {
+      "id": "class_warrior",
+      "label": "Warrior",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_warrior.tga",
+      "source": "artwork/portraits/assets/class_warrior.png",
+      "source_sha256": "5f9ff725383455492370da798a7db9e2258b1efc24327ea136913c6cce224d92",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_warrior.png",
+      "original_sha256": "952b6d23f3151d6aa88c906d55cff008ede377998762a74249b6cd639f33fea6",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        4,
+        10,
+        188,
+        240
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "3b93863a14f77ca73b88efe93f9f811dd0f38a30a0a752d06842ad9aa4f3abcd",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_paladin",
+      "label": "Paladin",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_paladin.tga",
+      "source": "artwork/portraits/assets/class_paladin.png",
+      "source_sha256": "1d81038d23b74f36242dfc5184007cb6173ac0bd04a9168f8415b6effb3ab44f",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_paladin.png",
+      "original_sha256": "31633605725f9ab967b7e73b8f42ab80d5daaaae265f7e8afbb1d963b4695390",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        2,
+        3,
+        213,
+        212
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "e319419958bb376a01b479bf4b64f7fa351540fd5a298ca0cf5ce87af7df0e1a",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_hunter",
+      "label": "Hunter",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_hunter.tga",
+      "source": "artwork/portraits/assets/class_hunter.png",
+      "source_sha256": "68463c93a95bc2bb3879215d2cc88b82c8356c1dcbc9790fd5833194c93e78bf",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_hunter.png",
+      "original_sha256": "ce047217789786939b963fe0342cdf1896a14a62e5c41e67dcf2257fa39b4ad3",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        3,
+        7,
+        195,
+        229
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "906e27a058fb15fd65bed72063c127b562bc014dff70318f2b36f509de452813",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_rogue",
+      "label": "Rogue",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_rogue.tga",
+      "source": "artwork/portraits/assets/class_rogue.png",
+      "source_sha256": "8d9702e0477dd71f6d073a2a10d8b0985bd3667ec778eb3680c5ccef2d74dc6b",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_rogue.png",
+      "original_sha256": "7c4decfc9230212074dae10a9c3801b408abf5d83bea0c760ea99df8bc3f07c9",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        11,
+        17,
+        211,
+        235
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "d9cfa09f2bcc62204eaccc85d575bff862c1460965b682730e528245f97696ee",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_priest",
+      "label": "Priest",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_priest.tga",
+      "source": "artwork/portraits/assets/class_priest.png",
+      "source_sha256": "4cedd19d1d6823fbafe1a5753978e2cc8a9923b954e9de352d8502508c3257db",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_priest.png",
+      "original_sha256": "cae8a0a4e105dba6eae82eb62e6821828b9954fa5d060e1b0d1ee86d886d9ad0",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        1,
+        2,
+        187,
+        253
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "0631d0412d3795c08ca53879ee66e2b4bb8ed5ad71f4e0059be8660670a2197c",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_deathknight",
+      "label": "Death Knight",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_deathknight.tga",
+      "source": "artwork/portraits/assets/class_deathknight.png",
+      "source_sha256": "e049d7e66cf7c8870ea70fe3a781ffccec5ceab11f54255e44c28e9aacc2361f",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_deathknight.png",
+      "original_sha256": "4e782b455d447f43360ebf3ec43ac07e845e7c170a948b411d62d78e78788665",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        4,
+        8,
+        197,
+        246
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "3289516843e1c464b8c64b725a3760e1f6e11eddc91569c0fb81a35ad68de1a5",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_shaman",
+      "label": "Shaman",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_shaman.tga",
+      "source": "artwork/portraits/assets/class_shaman.png",
+      "source_sha256": "cd03eb48b83ca9619af0cefbf41cff3b410b42a31a8e82ea0c84a401d087b80f",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_shaman.png",
+      "original_sha256": "6127ef1e8b9a357b8702e183453c2a8d49d78bad3f76a51fa80ac66ed7a8ba08",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        1,
+        3,
+        191,
+        253
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "a81349d1a6e61ab63b5ee27b70f6c429207bede6b9fb85fc86c613d67e958a98",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_mage",
+      "label": "Mage",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_mage.tga",
+      "source": "artwork/portraits/assets/class_mage.png",
+      "source_sha256": "e071d6a6903a60678d9399c7b456fba1c1d10c4477788ff5e05cb1dc982ecee8",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_mage.png",
+      "original_sha256": "9d3ce6f1d7dcd287472ebf770b85a74f38e55a9e1e9cd3c49ead349252055579",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        13,
+        0,
+        197,
+        253
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "f1da34fa0fe382658b38616a50fad04e2ca0b5e2bfbc3ce5dd6824349f984d88",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_warlock",
+      "label": "Warlock",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_warlock.tga",
+      "source": "artwork/portraits/assets/class_warlock.png",
+      "source_sha256": "92a31dfc81d6e57a1a6c18ef66b7ff32f648aa22aa282c60ff98c889d3b4a31b",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_warlock.png",
+      "original_sha256": "1de7782e8d000a70cf3c32ad1945cb939ab01cac4dbec637edcb020a979ddcfe",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        7,
+        2,
+        196,
+        247
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "0899b94e06f67d36cb89d94ddbe59f6a55235673f75fbb70a9a595afbd31891e",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_monk",
+      "label": "Monk",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_monk.tga",
+      "source": "artwork/portraits/assets/class_monk.png",
+      "source_sha256": "cc845893e2733361bce31bbf809525499f4060aa3ab19d25c71b104e7bc67dce",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_monk.png",
+      "original_sha256": "8b5c6f5d4aa82315a3bb6ae79a642b1abcf41780822fa6c24cde630be0fe5099",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        9,
+        212,
+        240
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "2ae62372167b0579d0cf3c162d81dcd623194e0f6451170ee26ded678f151457",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_druid",
+      "label": "Druid",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_druid.tga",
+      "source": "artwork/portraits/assets/class_druid.png",
+      "source_sha256": "b233a14155156b4237bd26aebb4fe21e0113a88ad33f2ff7ea24a9931ae9a7d0",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_druid.png",
+      "original_sha256": "0a1a8ff30706aaaa193a50db055cc867983010bfd1c01a2ae1401fbd8ca12d2d",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        6,
+        11,
+        200,
+        248
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "ac7c0c27a87c0f10431b7e3c0eb258520ffc89891c58da0e53ad0855ffd22152",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_demonhunter",
+      "label": "Demon Hunter",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_demonhunter.tga",
+      "source": "artwork/portraits/assets/class_demonhunter.png",
+      "source_sha256": "8687ae5250cf2d646be5d06320e1fb05e730afd619a2c54e50eadbda697297a9",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_demonhunter.png",
+      "original_sha256": "7691f5990c48d42d6a087c216e4731cc066cfa27b8d852db59ebb698d87d0b95",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        14,
+        6,
+        208,
+        249
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "1f308721e9e003f6c3afcec5d2aef63ec2fca0fbf8a6c9cd6eaaee8604502ab8",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_evoker",
+      "label": "Evoker",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_evoker.tga",
+      "source": "artwork/portraits/assets/class_evoker.png",
+      "source_sha256": "df991bcc0ffa1e897621aef7ce0000095fad14a1f271659dc68c71fd9826035f",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_evoker.png",
+      "original_sha256": "500ea0c936208c9c72ae48afc5f7cc4188c81891ea97d5a0ca5010a2e4e3c6c0",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        4,
+        5,
+        185,
+        248
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "5f7da9f4e511660f26a975e887c6fb671422818eecb1538ca079c87f05ac4d68",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_human",
+      "label": "Human",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_human.tga",
+      "source": "artwork/portraits/assets/race_human.png",
+      "source_sha256": "6600b1f9f378066a26d05a1192402dde5439bf6d8c2eebbfc749c97daa2333bb",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_human.png",
+      "original_sha256": "010c06975b0b8f402f5183e62171b0ff229bd38938ffa2ac9fb2dbca79b2e7ed",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        18,
+        11,
+        203,
+        234
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "aa6b46fd2adb6637929fee70d43852be16e87ad63a55f50cc8fc635286169426",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_dwarf",
+      "label": "Dwarf",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_dwarf.tga",
+      "source": "artwork/portraits/assets/race_dwarf.png",
+      "source_sha256": "e9e2a03de3df1ab330806f04a971039f97a0cf46be5d59c55c6332dab4f4c339",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_dwarf.png",
+      "original_sha256": "6351247007a93d7f9aa7cf1a8e1aba4a3d6359ef8d208dd42bb08d62aecad9cc",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        0,
+        8,
+        195,
+        238
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "9d78d118b1dd618023be5e6e65b54f7ab6713da1fe48c06af86b6136118dbed3",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_nightelf",
+      "label": "Night Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_nightelf.tga",
+      "source": "artwork/portraits/assets/race_nightelf.png",
+      "source_sha256": "ed19b1f6b50671114297806e0e1e850eec399d5d98406fb1ad1b2f3cc972e19f",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_nightelf.png",
+      "original_sha256": "f19c1a4f43f8cf6c0635a90622458c074972c2cd48d1eebf41da00c46e79eac8",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        5,
+        5,
+        214,
+        242
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "ee784a54a99d6cde6a3a074b8d918b30581cfe5a1530e5ddc4e01275a8ebeb75",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_gnome",
+      "label": "Gnome",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_gnome.tga",
+      "source": "artwork/portraits/assets/race_gnome.png",
+      "source_sha256": "1bd5edd0a1990d47774db5b554040c5d1d4780900603ca319b83e1e9f18ff333",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_gnome.png",
+      "original_sha256": "5cee0b3546a5ea483bca646ed0ba5dab771b04f764b976277691a962905c752e",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        12,
+        16,
+        210,
+        232
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "ec70d106422cf8b0b9cb677699a80f261da6a2dd276ca0afa4d2498d8cb7e7e8",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_draenei",
+      "label": "Draenei",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_draenei.tga",
+      "source": "artwork/portraits/assets/race_draenei.png",
+      "source_sha256": "3bd14122f3c75e75402420daf95efe4b48fee9445b7414429c50a035cfe94acd",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_draenei.png",
+      "original_sha256": "8da115b08e8d6e78cd208f6a7cb98353863ac6fb10e03bc6e643814d71979c5c",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        1,
+        203,
+        249
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "2ee083f45a9ccc65315a63e1f4bc37c7e98dc52d5cfcb8947c0606ffc92cdcc0",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_worgen",
+      "label": "Worgen",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_worgen.tga",
+      "source": "artwork/portraits/assets/race_worgen.png",
+      "source_sha256": "8d9ef8dfa63a5290e59400a2108b4cc8974b51856fd65a8f12265164c3ff20f5",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_worgen.png",
+      "original_sha256": "f61a4ce5b058efb8aa1ff523daf579e99a1453530914507d3563820a7028dfeb",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        11,
+        3,
+        200,
+        237
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "5295f0b41d4e29e870e9b2ab2bde086fbf1e6f65f35c50638c99096c9b86e3f8",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_orc",
+      "label": "Orc",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_orc.tga",
+      "source": "artwork/portraits/assets/race_orc.png",
+      "source_sha256": "686f8f1a553b7093c46baa08330bc17de9b98bd77b09c51065a74e588fe2a361",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_orc.png",
+      "original_sha256": "44adb3e8002af3cc184f9373aa2eff4bb6c44ab9a501be19fb98679575159993",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        5,
+        8,
+        201,
+        238
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "7c71c902b0859dfdb631b83d09f28bc2212309da1f92c3c7636f5e90072b62dd",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_scourge",
+      "label": "Undead",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_scourge.tga",
+      "source": "artwork/portraits/assets/race_scourge.png",
+      "source_sha256": "d79ed6b9cebb2b0f016b799cd904de736b5a4d8e92569d0d8afaa62767f1d621",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_scourge.png",
+      "original_sha256": "d6d28d64b44c8124274016c48262fb5dbf5f4d510735e34eecfb41c015b2cd27",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        4,
+        12,
+        200,
+        242
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "95cebf38eb9b7b0659899be99847a3ec99ba4cd038ee7036126fa257aa750dfa",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_tauren",
+      "label": "Tauren",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_tauren.tga",
+      "source": "artwork/portraits/assets/race_tauren.png",
+      "source_sha256": "37b92bb0a530e0855a7fe6c8267236229491d843b7a2f2ed66d1a3c20e2f8e3d",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_tauren.png",
+      "original_sha256": "5eba8482b3250ba48b437b288676efcc7063c114ce41e8be61197343092bd49b",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        5,
+        6,
+        214,
+        243
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "34a7b1084e8093b85cac5bc8ac4675a84c801ee6d9d37a074fc79a6e9ed577a9",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_troll",
+      "label": "Troll",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_troll.tga",
+      "source": "artwork/portraits/assets/race_troll.png",
+      "source_sha256": "99b08070e780637f6ec4906c3b8187bd5c0e1db4ae00be30959272d3dc56aa06",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_troll.png",
+      "original_sha256": "d21aea27a29324826ac7ca23073cbde35d99581cbf335a88291371895faea609",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        9,
+        2,
+        182,
+        240
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "7ef0aa72b76d8a6bd9e37d573628f34ea40ae7b9ba1122df4e0f45c81e16e5fc",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_bloodelf",
+      "label": "Blood Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_bloodelf.tga",
+      "source": "artwork/portraits/assets/race_bloodelf.png",
+      "source_sha256": "716bb15200743ea5f70352600dde23ee979705d5c7a6d7b83549564d88496155",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_bloodelf.png",
+      "original_sha256": "bbb0428d7bf8619d30ba5821908a6ac3e661658e43fa1bc1ae39e18fe6ebacaa",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        10,
+        2,
+        192,
+        240
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "c693763e92f2cc004a7eafa1e69dcf86f826e0ca3dc4c4e9e651b9d76a462482",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_goblin",
+      "label": "Goblin",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_goblin.tga",
+      "source": "artwork/portraits/assets/race_goblin.png",
+      "source_sha256": "9cefc315ed6c0a0361a031ac5fd9a93c662f8e3435ea66832862c25e1cf46161",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_goblin.png",
+      "original_sha256": "0a241bd5cb60b93076992667b37b4f215acd8c55bc90e7795a49512fc8faa174",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        6,
+        11,
+        214,
+        246
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "160b7c0c9a518ee498ebfdacd4402171f0ffc957d6f3c79ca832d8ef059e9bbf",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_pandaren",
+      "label": "Pandaren",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_pandaren.tga",
+      "source": "artwork/portraits/assets/race_pandaren.png",
+      "source_sha256": "9643688b34ed3ff31998817e266c31de9d304eb17a0e9440405ce8a694dc25c5",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_pandaren.png",
+      "original_sha256": "7cb64da6f71dec63a7c1ae869c4b41d9247a60fa26d17208420933ac6131e64c",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        3,
+        23,
+        206,
+        237
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "49b2e4e8a23b1ff92a73ef8da5e6fac9a8d5807a11516f09127029fbb6878f37",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_dracthyr",
+      "label": "Dracthyr",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_dracthyr.tga",
+      "source": "artwork/portraits/assets/race_dracthyr.png",
+      "source_sha256": "a2edb8ead1733e2cb6ebb9cf907fad8cd3dcaadec784593537dddcc7b72d7c13",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_dracthyr.png",
+      "original_sha256": "3b4240fe48110fb7d38841b76c2298e986ac1d552cd18506ee4e9e1577bc1d12",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        5,
+        5,
+        176,
+        217
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "f4ff3544d7422c2d61b28ade01cecb6a5dd4953bbf2c3aab0e9515ccd766e68c",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_voidelf",
+      "label": "Void Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_voidelf.tga",
+      "source": "artwork/portraits/assets/race_voidelf.png",
+      "source_sha256": "157c7caa42954613b0b1a1966518d983996c795af2a13994f64d600047f3477b",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_voidelf.png",
+      "original_sha256": "9f733e87d0db797c8dd72505763dba72c571d9a374a8cc5ba298895519bc3dec",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        6,
+        2,
+        198,
+        243
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "5452730d8102a3ec9b622e1d76ebcbe6da831a35ff86fe40ff817afc81f8a299",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_lightforgeddraenei",
+      "label": "Lightforged Draenei",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_lightforgeddraenei.tga",
+      "source": "artwork/portraits/assets/race_lightforgeddraenei.png",
+      "source_sha256": "1ba90be376fecae81576ddcbb2eecf49af1bc5ec645984cb62cd966f9948f88c",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_lightforgeddraenei.png",
+      "original_sha256": "7a68e31be2fdef0e187230e68352a03d974835a3074b24af812320b5d9db1857",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        4,
+        1,
+        174,
+        252
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "ccb51bc1bb00d20d0080742c774b6255827067d4df63aaec12f6bdce4a5d4c4b",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_darkirondwarf",
+      "label": "Dark Iron Dwarf",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_darkirondwarf.tga",
+      "source": "artwork/portraits/assets/race_darkirondwarf.png",
+      "source_sha256": "ec9c3fecc9af0b2dd83c9e7bf11dc4b72122176e572226df2e4f5c504794b7ae",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_darkirondwarf.png",
+      "original_sha256": "ad876551a7049de72cbb5f1d6b9c9377828e1a58965981c4473d234a0c65142a",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        4,
+        10,
+        190,
+        239
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "32cc7ef79273f6f84e2c24ea96aec827a310d816029bf5449a9efc07c9d5d2f8",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_kultiran",
+      "label": "Kul Tiran",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_kultiran.tga",
+      "source": "artwork/portraits/assets/race_kultiran.png",
+      "source_sha256": "c18945ae420ff6721bd68a4be6e58cf0a77b8ba1a8b099bd256e03db37deffea",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_kultiran.png",
+      "original_sha256": "d4305bf14c8d038f17f0455301a371f4356b072d00b001e8f9cbf15afb2af0b1",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        11,
+        11,
+        214,
+        230
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "97029afe0af707ee871a26e0139087445fc0187c9115cfe61b3705deae8c7b11",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_mechagnome",
+      "label": "Mechagnome",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_mechagnome.tga",
+      "source": "artwork/portraits/assets/race_mechagnome.png",
+      "source_sha256": "5b929a4d1fd778c0bbc1bfbb2f7bc8745ac5d23c54cf0445b7c3751a3f440f13",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_mechagnome.png",
+      "original_sha256": "49131ce2ea2e7930d4632c8939f702bba6a464dbaecefd7eb7e5c1d6aabf22eb",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        1,
+        20,
+        186,
+        217
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "1df2a0be7e6832ae38e430f543bb02dd0e956b1fc110087ba8aac62d1e7775c5",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_nightborne",
+      "label": "Nightborne",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_nightborne.tga",
+      "source": "artwork/portraits/assets/race_nightborne.png",
+      "source_sha256": "ef3e21d19024572b513873a2d38ebef700d0f697d00d66b8f6559e9829b89575",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_nightborne.png",
+      "original_sha256": "d055766cb47f3d9987800445f7c676a7d5817eedc4f0a003826f2c3e362eb663",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        9,
+        214,
+        236
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "6e4dbcf0b7d8725fb7b7830bf3c4d1e729f905d1e967305468bc78c277257617",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_highmountaintauren",
+      "label": "Highmountain Tauren",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_highmountaintauren.tga",
+      "source": "artwork/portraits/assets/race_highmountaintauren.png",
+      "source_sha256": "99a120a2dfb4e469148d7bdd69c32b41df0761f72f13bffe587fcbefa9d34eb8",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_highmountaintauren.png",
+      "original_sha256": "469c799c19f6c2dbd2c5c6a07966f43d29159077a113d1d3fa0896afe469ad86",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        6,
+        2,
+        206,
+        239
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "b8e25668ee78d421de7abf653ae63fe54758990d26cdc50154e1623d12b27ccc",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_magharorc",
+      "label": "Mag'har Orc",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_magharorc.tga",
+      "source": "artwork/portraits/assets/race_magharorc.png",
+      "source_sha256": "582d15a2a625456a00a1bd0c122c9925ea5a37c95b0cdc5fdfdc0c9bd97fbc4b",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_magharorc.png",
+      "original_sha256": "e10dde150a7a2c9a31101dfd9ad5acbea9829d9b5249dae00a8bfe21ac17cbff",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        0,
+        3,
+        202,
+        234
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "ae7514402f45ac42fb6fbc7dccb2183dfa8f751dc11739f85bf269a5e2d0dbf2",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_zandalaritroll",
+      "label": "Zandalari Troll",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_zandalaritroll.tga",
+      "source": "artwork/portraits/assets/race_zandalaritroll.png",
+      "source_sha256": "fb5afb95f6cbbe7f6e99f5c7a829f9b40cd522d62eb47db5f5df73b5b950fa62",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_zandalaritroll.png",
+      "original_sha256": "8cd7083b3beaea892239d1cb913c00d99b1c1b05ca26e76e26b51ca551a25dac",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        3,
+        4,
+        201,
+        239
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "4ceb1e92128761865c015519575a3afa6cbf41a3befe18d0e9a5e8d2491ee786",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_vulpera",
+      "label": "Vulpera",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_vulpera.tga",
+      "source": "artwork/portraits/assets/race_vulpera.png",
+      "source_sha256": "f7994669a3e7f8581c043179bb80a3c4c542a2f5de3ec4b91a53b2d3c6766cef",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_vulpera.png",
+      "original_sha256": "45fd4bf8da09f013c8dffa32616c6948bc68d1dd4f614cfd0300c78ab0831296",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        6,
+        4,
+        189,
+        230
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "ff7e60a722ac569f78d12026432f97bc932fa2bc0533d727d5b85dda7f2d6f2d",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_earthendwarf",
+      "label": "Earthen",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_earthendwarf.tga",
+      "source": "artwork/portraits/assets/race_earthendwarf.png",
+      "source_sha256": "55ceead75f9775e8c0ea75b8d3f56f637d4dbede42dae14f6efe1501fda468d8",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_earthendwarf.png",
+      "original_sha256": "d637d7baa7b5e4dd2ac0b303d4a6e045fbf55845f177dc8a78fb8f719fd3c76f",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        4,
+        12,
+        200,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "371bc9dc4b5ab75ec9e02e58cfe65369abfd191c6f49c6edafe6856f07545775",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_haranir",
+      "label": "Haranir",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_haranir.tga",
+      "source": "artwork/portraits/assets/race_haranir.png",
+      "source_sha256": "4ffdc998ac51b42cd38d550055ded9be830c7b494d0de23850b5dd3ce954819a",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_haranir.png",
+      "original_sha256": "412645a8fb54cf4fa301ed674824a261ef7f48e9c7aa1ec7f8a1481a8bdeff6f",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        0,
+        2,
+        214,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "d4fd7fb9a985d0be9c98435118ff3de69c0014f7a625dbf2b8dc91f91a683d40",
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_alliance",
+      "label": "Alliance",
+      "group": "faction",
+      "file": "JiberishUI/Media/Portraits/faction_alliance.tga",
+      "source": "artwork/portraits/assets/faction_alliance.png",
+      "source_sha256": "b28f3410cfd63bae4df3c0b841cd18cff1bcd2762507d9962606eec641be5158",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/faction_alliance.png",
+      "original_sha256": "d0d301a7eb488bdfc06db10f0046d70a6bad4e2592affe05194f2bb34fa29b93",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        2,
+        1,
+        179,
+        256
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "df8f8be2b7dd6b9ce2825e8cad324072aa78ba7a2d7bf4f76daca5dd7cceb8e5",
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_horde",
+      "label": "Horde",
+      "group": "faction",
+      "file": "JiberishUI/Media/Portraits/faction_horde.tga",
+      "source": "artwork/portraits/assets/faction_horde.png",
+      "source_sha256": "a8f8cb4c93abce9ec3fcf271476732963a659c16c28cca00eaf807e027d3faa0",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/faction_horde.png",
+      "original_sha256": "66d39a0e1bd11140e50bef49d88cafc42ef0edc717b23a2100b54db6b0cfd1ed",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        3,
+        9,
+        188,
+        246
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "0622be71c1635242cb204d283b3aea5731525719cd392ea172daa67c25c0ce84",
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_neutral",
+      "label": "Neutral",
+      "group": "faction",
+      "file": "JiberishUI/Media/Portraits/faction_neutral.tga",
+      "source": "artwork/portraits/assets/faction_neutral.png",
+      "source_sha256": "fdfc111c6949a0b9f6e719d9b8530f04d3312d753b2950481692a5d9a0dbf268",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/faction_neutral.png",
+      "original_sha256": "b6f9a75a718367e8eed4039a2d764ea768e1dac08232592e2ef4e144efd842dc",
+      "transform": "Generated RGBA retained; downsample to 256px; clear native portrait, badge and bar regions; discard detached fragments below 10% of the largest ornament",
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        10,
+        194,
+        242
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.390625,
+          0.8125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "2b809385773723295ad37f91bd2a91010fa3343323c47e6b9671cf351403a4f1",
+      "in_game_qualified": false
+    }
+  ],
+  "in_game_qualified": false
+}

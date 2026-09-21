@@ -1,0 +1,56 @@
+[
+  {
+    "id": "class_rogue",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: finished Rogue game UI artwork. Replace ONLY the gray checkerboard background (including every gap between the ornaments) with a perfectly solid flat pure magenta #FF00FF chroma-key backdrop. Do not paint any checkerboard pattern anywhere, especially not inside or around the glowing lights. Preserve the exact sculpted artwork, silhouette, colors, composition, proportions and canvas 2172 x 724. ALL metal, stone, feathers and cloth remain intact, including neutral gray and white surfaces. Preserve the magical lights with a crisp clean edge that contains no checkerboard texture. No shadows on the solid backdrop. No new motifs, letters, borders or circular badges. We will remove the chroma background digitally after this step. This is a background replacement, not a redesign.",
+    "prior": "artwork/hubs/revisions/class_rogue-before-alpha.png",
+    "output": "artwork/hubs/sculpted-originals/class_rogue.png"
+  },
+  {
+    "id": "class_priest",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: finished Priest game UI artwork. Replace ONLY the gray checkerboard background (including every gap between the ornaments) with a perfectly solid flat pure green #00FF00 chroma-key backdrop. Do not paint any checkerboard pattern anywhere, especially not inside or around the glowing lights. Preserve the exact sculpted artwork, silhouette, colors, composition, proportions and canvas 2172 x 724. ALL metal, stone, feathers and cloth remain intact, including neutral gray and white surfaces. Preserve the magical lights with a crisp clean edge that contains no checkerboard texture. No shadows on the solid backdrop. No new motifs, letters, borders or circular badges. We will remove the chroma background digitally after this step. This is a background replacement, not a redesign.",
+    "prior": "artwork/hubs/revisions/class_priest-before-alpha.png",
+    "output": "artwork/hubs/sculpted-originals/class_priest.png"
+  },
+  {
+    "id": "class_deathknight",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: finished Death Knight game UI artwork. Replace ONLY the gray checkerboard background (including every gap between the ornaments) with a perfectly solid flat pure green #00FF00 chroma-key backdrop. Do not paint any checkerboard pattern anywhere, especially not inside or around the glowing lights. Preserve the exact sculpted artwork, silhouette, colors, composition, proportions and canvas 2172 x 724. ALL metal, stone, feathers and cloth remain intact, including neutral gray and white surfaces. Preserve the magical lights with a crisp clean edge that contains no checkerboard texture. No shadows on the solid backdrop. No new motifs, letters, borders or circular badges. We will remove the chroma background digitally after this step. This is a background replacement, not a redesign.",
+    "prior": "artwork/hubs/revisions/class_deathknight-before-alpha.png",
+    "output": "artwork/hubs/sculpted-originals/class_deathknight.png"
+  },
+  {
+    "id": "class_shaman",
+    "prompt": "Use case: precise-object-edit. Edit this supplied finished game UI artwork for clean production transparency preparation. Replace ONLY the gray checkerboard background (including every gap between the ornaments) with a perfectly solid flat pure magenta #FF00FF chroma-key backdrop. Do not paint any checkerboard pattern anywhere. Preserve the exact Shaman sculpted artwork, silhouette, colors, composition, proportions and canvas 2172 x 724. ALL stone, silver, gold, feather, cloth and weapon surfaces remain intact; do not erase neutral gray or white parts of the sculpture. Preserve the blue lightning/rune light, but keep its edge crisp and remove any checkerboard visible through the light. No shadows on the magenta. No new motifs, letters, borders or circular badges. We will remove the magenta digitally after this step. This is a background replacement, not a redesign.",
+    "prior": "artwork/hubs/revisions/class_shaman-before-alpha.png",
+    "output": "artwork/hubs/sculpted-originals/class_shaman.png"
+  },
+  {
+    "id": "class_mage",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: finished Mage game UI artwork. Replace ONLY the gray checkerboard background (including every gap between the ornaments) with a perfectly solid flat pure green #00FF00 chroma-key backdrop. Do not paint any checkerboard pattern anywhere, especially not inside or around the glowing lights. Preserve the exact sculpted artwork, silhouette, colors, composition, proportions and canvas 2172 x 724. ALL metal, stone, feathers and cloth remain intact, including neutral gray and white surfaces. Preserve the magical lights with a crisp clean edge that contains no checkerboard texture. No shadows on the solid backdrop. No new motifs, letters, borders or circular badges. We will remove the chroma background digitally after this step. This is a background replacement, not a redesign.",
+    "prior": "artwork/hubs/revisions/class_mage-before-alpha.png",
+    "output": "artwork/hubs/sculpted-originals/class_mage.png"
+  },
+  {
+    "id": "class_warlock",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: finished Warlock game UI artwork. Replace ONLY the gray checkerboard background (including every gap between the ornaments) with a perfectly solid flat pure magenta #FF00FF chroma-key backdrop. Do not paint any checkerboard pattern anywhere, especially not inside or around the glowing lights. Preserve the exact sculpted artwork, silhouette, colors, composition, proportions and canvas 2172 x 724. ALL metal, stone, feathers and cloth remain intact, including neutral gray and white surfaces. Preserve the magical lights with a crisp clean edge that contains no checkerboard texture. No shadows on the solid backdrop. No new motifs, letters, borders or circular badges. We will remove the chroma background digitally after this step. This is a background replacement, not a redesign.",
+    "prior": "artwork/hubs/revisions/class_warlock-before-alpha.png",
+    "output": "artwork/hubs/sculpted-originals/class_warlock.png"
+  },
+  {
+    "id": "class_demonhunter",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: finished Demon Hunter game UI artwork. Replace ONLY the gray checkerboard background (including every gap between the ornaments) with a perfectly solid flat pure magenta #FF00FF chroma-key backdrop. Do not paint any checkerboard pattern anywhere, especially not inside or around the glowing lights. Preserve the exact sculpted artwork, silhouette, colors, composition, proportions and canvas 2172 x 724. ALL metal, stone, feathers and cloth remain intact, including neutral gray and white surfaces. Preserve the magical lights with a crisp clean edge that contains no checkerboard texture. No shadows on the solid backdrop. No new motifs, letters, borders or circular badges. We will remove the chroma background digitally after this step. This is a background replacement, not a redesign.",
+    "prior": "artwork/hubs/revisions/class_demonhunter-before-alpha.png",
+    "output": "artwork/hubs/sculpted-originals/class_demonhunter.png"
+  },
+  {
+    "id": "race_mechagnome",
+    "prompt": "Use case: precise-object-edit. Input image is the edit target: finished Mechagnome game UI artwork. Replace ONLY the gray checkerboard background (including every gap between the ornaments) with a perfectly solid flat pure green #00FF00 chroma-key backdrop. Do not paint any checkerboard pattern anywhere, especially not inside or around the glowing lights. Preserve the exact sculpted artwork, silhouette, colors, composition, proportions and canvas 2172 x 724. ALL metal, stone, feathers and cloth remain intact, including neutral gray and white surfaces. Preserve the magical lights with a crisp clean edge that contains no checkerboard texture. No shadows on the solid backdrop. No new motifs, letters, borders or circular badges. We will remove the chroma background digitally after this step. This is a background replacement, not a redesign.",
+    "prior": "artwork/hubs/revisions/race_mechagnome-before-alpha.png",
+    "output": "artwork/hubs/sculpted-originals/race_mechagnome.png"
+  },
+  {
+    "id": "race_earthendwarf",
+    "prompt": "Use case: precise-object-edit. Edit this supplied finished game UI artwork for clean production transparency preparation. Replace ONLY the gray checkerboard background (including every gap between the ornaments) with a perfectly solid flat pure magenta #FF00FF chroma-key backdrop. Do not paint any checkerboard pattern anywhere. Preserve the exact Earthen sculpted artwork, silhouette, colors, composition, proportions and canvas 2172 x 724. ALL stone, silver, gold, feather, cloth and weapon surfaces remain intact; do not erase neutral gray or white parts of the sculpture. Preserve the blue lightning/rune light, but keep its edge crisp and remove any checkerboard visible through the light. No shadows on the magenta. No new motifs, letters, borders or circular badges. We will remove the magenta digitally after this step. This is a background replacement, not a redesign.",
+    "prior": "artwork/hubs/revisions/race_earthendwarf-before-alpha.png",
+    "output": "artwork/hubs/sculpted-originals/race_earthendwarf.png"
+  }
+]

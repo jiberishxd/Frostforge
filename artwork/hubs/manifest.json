@@ -1,0 +1,4072 @@
+{
+  "assets": [
+    {
+      "id": "class_warrior",
+      "label": "Warrior",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_warrior.tga",
+      "source": "artwork/hubs/assets/class_warrior.png",
+      "source_sha256": "c30c88f8ff7aa56381451d385f17134cef562b0fa7169150415067e8f2be8e70",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_warrior.png",
+      "original_sha256": "b46624306632e79059ff5832d93cdbf8a08c874eb41fceafdcecab40c9278c17",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "897c5a7e804dd9517dbf752296fe0305acc4ac5c1ac286a32e7278fc30e96f1e",
+      "alphaBounds": [
+        0,
+        16,
+        1024,
+        509
+      ],
+      "emblem_reference": {
+        "id": "class_warrior",
+        "label": "Warrior",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/warrior",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blte5777795e548c8c9/5ee3e476fc5bec085f1e6551/RPOZRXV8MCMC1457037487166.png",
+        "file": "artwork/official-crests/originals/class_warrior.png",
+        "sha256": "f8d92945ec9cf7751fddaa8ab39218967c492f36e4c7d81cbfd26b1722e003fa",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          444,
+          444
+        ],
+        [
+          527,
+          530
+        ],
+        [
+          610,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_paladin",
+      "label": "Paladin",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_paladin.tga",
+      "source": "artwork/hubs/assets/class_paladin.png",
+      "source_sha256": "bd64a27fa31386e0fdbc937f2f8f159bd972a8216055f1a3c38c5c35fac97687",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_paladin.png",
+      "original_sha256": "878cfb4f0ed54f4b9877e33da6ccb2078b3e2053b0cbbcd9f88df7d7dfe43ae0",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "0df088856fdbe1b712f9e9b14e0e65f49d33e7997ea16e493cf75c1110e1f639",
+      "alphaBounds": [
+        2,
+        10,
+        1022,
+        492
+      ],
+      "emblem_reference": {
+        "id": "class_paladin",
+        "label": "Paladin",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/paladin",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt1da73d925b189bce/5ee790ae418a3c077bb238d7/19XLRJMFTB881457037521481.png",
+        "file": "artwork/official-crests/originals/class_paladin.png",
+        "sha256": "a71c9da0ad891dcc699ae350838e4fb1d7add21cd707a9fd04b0a610ec3d851f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          451,
+          444
+        ],
+        [
+          527,
+          530
+        ],
+        [
+          617,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_hunter",
+      "label": "Hunter",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_hunter.tga",
+      "source": "artwork/hubs/assets/class_hunter.png",
+      "source_sha256": "c8677af450bfdf7d8f091315d565e1e1b2ff364cc7b1093dd1dd9730b842473d",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_hunter.png",
+      "original_sha256": "59bd79da272ef691af75a176d3302d0a391234f2998577563dc7b7cd81c618eb",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "3090dbe76239dec9cf253a40cb0fecbaa062fc51573ce8ac0adfd9c6d126abad",
+      "alphaBounds": [
+        4,
+        11,
+        1018,
+        496
+      ],
+      "emblem_reference": {
+        "id": "class_hunter",
+        "label": "Hunter",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/hunter",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8fbac30a6c1af9f1/5ee3e4153a8621077a04a306/PHD55VWE4ZG71457037542377.png",
+        "file": "artwork/official-crests/originals/class_hunter.png",
+        "sha256": "22bd70d124a09032e2d71af0d0d8ed372195c68a45dfb9b62718d90a51b7100a",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          469,
+          444
+        ],
+        [
+          549,
+          530
+        ],
+        [
+          636,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_rogue",
+      "label": "Rogue",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_rogue.tga",
+      "source": "artwork/hubs/assets/class_rogue.png",
+      "source_sha256": "cd857589dffc063cf9cf88768aa5d734d9320e7d5f7d3e805c2594625c16876c",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_rogue.png",
+      "original_sha256": "1c1442767fa82a585117a887676a01acb2b6cc010f37969bc356fbc5da46c98f",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "8784c22494ba4d9046f92762a7b2d12b7fbec68888fd19dc8ddabdba38f0375d",
+      "alphaBounds": [
+        3,
+        11,
+        1020,
+        498
+      ],
+      "emblem_reference": {
+        "id": "class_rogue",
+        "label": "Rogue",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/rogue",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt7921da4f7d709b4e/5ee3e4a614a7bc718bab5fc2/ORHZR0HIQOW81457037509031.png",
+        "file": "artwork/official-crests/originals/class_rogue.png",
+        "sha256": "e3d1c110dd90c1c0731ea5984ace781b945e229901abe46714005f255da2860c",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Magenta backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          469,
+          444
+        ],
+        [
+          545,
+          530
+        ],
+        [
+          630,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_priest",
+      "label": "Priest",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_priest.tga",
+      "source": "artwork/hubs/assets/class_priest.png",
+      "source_sha256": "22f0c96a0cca762a682a7095dfac1070e08ca5d27f2a0c89a588f9d030ace614",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_priest.png",
+      "original_sha256": "1c3ebc6c8f8173735483e9b7ee2961a1fa9216c9edb84e0f38e939e618846d8c",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "8ad5f3f4fdaf22328eb9c9862f207ddeb0fb4197413be19d3ea3f4e2e14eb1e2",
+      "alphaBounds": [
+        1,
+        13,
+        1004,
+        501
+      ],
+      "emblem_reference": {
+        "id": "class_priest",
+        "label": "Priest",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/priest",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt11fabe7dc7912ba9/5ee78c0263a2d9709383090d/XZAE7Z08UVZM1457037515730.png",
+        "file": "artwork/official-crests/originals/class_priest.png",
+        "sha256": "95693eae3ef0d05b8c0513e114116c9769bbc75b4f2081d75a3c4d228fb89c9c",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Green backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          437,
+          444
+        ],
+        [
+          532,
+          530
+        ],
+        [
+          613,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_deathknight",
+      "label": "Death Knight",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_deathknight.tga",
+      "source": "artwork/hubs/assets/class_deathknight.png",
+      "source_sha256": "c05d5ce90dd15e552e066d5640ae5b6e5db78241eec39e4d90fd6933696e40eb",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_deathknight.png",
+      "original_sha256": "d40da098489d641fe0606a75949df387e2f592f862651e60ff9bfabf42fe43be",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "3842e0d1d96acce605998aaeb3272817d72c2f6a06ea4707562b72812f4e93d0",
+      "alphaBounds": [
+        0,
+        9,
+        1023,
+        501
+      ],
+      "emblem_reference": {
+        "id": "class_deathknight",
+        "label": "Death Knight",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/death-knight",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8bfa36196bf61105/5ee3e3d7889f917094610ea0/IMLWRYPWBRYL1457037563416.png",
+        "file": "artwork/official-crests/originals/class_deathknight.png",
+        "sha256": "cb806391e36ae1cdfcb01c2fcce038a095387f260d22a4a2514f11c3f22d9648",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Green backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          458,
+          444
+        ],
+        [
+          539,
+          530
+        ],
+        [
+          614,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_shaman",
+      "label": "Shaman",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_shaman.tga",
+      "source": "artwork/hubs/assets/class_shaman.png",
+      "source_sha256": "950a04b43ec66edde573b16ba57c086c241d8128c94d2b5c413e958023693b32",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_shaman.png",
+      "original_sha256": "bf05dfebd6569cedb7b622bd80d7bce3cdda15b702c0587b1fdbc1586647c354",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "c413f3a1e5f2336be6c1f2a40603177156688c454ba1354746287c6841748186",
+      "alphaBounds": [
+        0,
+        13,
+        1006,
+        507
+      ],
+      "emblem_reference": {
+        "id": "class_shaman",
+        "label": "Shaman",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/shaman",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt4f1234eeda8832a3/5ee7928563a2d9709383092b/IJFM2IEVGM6N1457037501982.png",
+        "file": "artwork/official-crests/originals/class_shaman.png",
+        "sha256": "e779f715615a4fa4db0d4757fb4d7d67b18686e8edab07488344316eaa35dce3",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Magenta backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          444,
+          444
+        ],
+        [
+          543,
+          530
+        ],
+        [
+          625,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_mage",
+      "label": "Mage",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_mage.tga",
+      "source": "artwork/hubs/assets/class_mage.png",
+      "source_sha256": "76f6fc47e3dc7bf7168f5a179c71237b92bec68cf538148c39dbfcdf7a764d3f",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_mage.png",
+      "original_sha256": "dfed73133baaf05e5c9a0ecd1db27f9f9c0ab46837c9b247ebcda1b704ae0464",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "d9cc66b20f5514e61f4d0096c8abb857ecec2a3ea67cf31208dba9f3c596fca4",
+      "alphaBounds": [
+        1,
+        12,
+        1003,
+        481
+      ],
+      "emblem_reference": {
+        "id": "class_mage",
+        "label": "Mage",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/mage",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt56494dcd20feee74/5ee3e450e8f74907ecce0124/OGQYW3GHV8RL1457037534068.png",
+        "file": "artwork/official-crests/originals/class_mage.png",
+        "sha256": "aace0842705706a569d8c34282b203845cf085cc6820366392137084df918e99",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Green backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          465,
+          444
+        ],
+        [
+          543,
+          530
+        ],
+        [
+          626,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_warlock",
+      "label": "Warlock",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_warlock.tga",
+      "source": "artwork/hubs/assets/class_warlock.png",
+      "source_sha256": "f229e0cf3677eb0fa0755d72ca012c32dcb1990b5c37aaea387a1d0aabadc79d",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_warlock.png",
+      "original_sha256": "b25e9666bd07fd250770d4c69e84dbb8243453fdce4724d428e756790cb86cba",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "a2a7a33fa94ddd53dd67e3b004639f0434eed5cfc409336b9937af6cff6a4cd2",
+      "alphaBounds": [
+        2,
+        5,
+        1008,
+        507
+      ],
+      "emblem_reference": {
+        "id": "class_warlock",
+        "label": "Warlock",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/warlock",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8cee1118340e0529/5ee3e8c5a9170407eeb4b79d/ODSDYFWLT9B01457037493681.png",
+        "file": "artwork/official-crests/originals/class_warlock.png",
+        "sha256": "cd0f2b442ebdd267bde8d1a62d86e9ec7b6fbdbb6b21f9012156dedc4381468f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Magenta backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          443,
+          444
+        ],
+        [
+          530,
+          530
+        ],
+        [
+          594,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_monk",
+      "label": "Monk",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_monk.tga",
+      "source": "artwork/hubs/assets/class_monk.png",
+      "source_sha256": "4cca3d987b19d30a6afdf45002cfa2b6553a7809dd08a34ebfac1353eb4e7971",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_monk.png",
+      "original_sha256": "07470800a00366947776256fecd889f660aa0a6e62d33ae075d275aa15cf0d0e",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "c8806bfe46406967c52b0c80ecea013c19bb7fe270e10d49367b524debb007c9",
+      "alphaBounds": [
+        0,
+        14,
+        1024,
+        503
+      ],
+      "emblem_reference": {
+        "id": "class_monk",
+        "label": "Monk",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/monk",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt63e4488784925447/5ee793cfa9170407eeb4b917/7Y1OJFSCMOHZ1457037527905.png",
+        "file": "artwork/official-crests/originals/class_monk.png",
+        "sha256": "cbb26a20b1651783c9828480a7cd9dea6cf2f025cb59b0f5a01e1ccbb2ef0a2e",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          494,
+          444
+        ],
+        [
+          524,
+          530
+        ],
+        [
+          597,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_druid",
+      "label": "Druid",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_druid.tga",
+      "source": "artwork/hubs/assets/class_druid.png",
+      "source_sha256": "718c7ba1c3e7b9036f80da66bc9d7c5f8f935a522f5cac74d657c57074f5fc79",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_druid.png",
+      "original_sha256": "95b92ade1c59c2e50df9a2a6367e5e0752d2826cdaff61a5f2ef8377ab84adb7",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "bfd13d1893d6214f79277b0c5fd4f53eea48eca1ba424aeb01b7c35af8a9d443",
+      "alphaBounds": [
+        1,
+        13,
+        1022,
+        498
+      ],
+      "emblem_reference": {
+        "id": "class_druid",
+        "label": "Druid",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/druid",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltbf5a772e934ff371/5ee3e39dfc5bec085f1e6533/LI82P1DRVSNA1447154373009.png",
+        "file": "artwork/official-crests/originals/class_druid.png",
+        "sha256": "04065878ab13f8cf57c470da9c6beb8e22b23b9a05c875712a74ba70bc22d191",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          479,
+          444
+        ],
+        [
+          548,
+          530
+        ],
+        [
+          634,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_demonhunter",
+      "label": "Demon Hunter",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_demonhunter.tga",
+      "source": "artwork/hubs/assets/class_demonhunter.png",
+      "source_sha256": "b674f5e9d0cd6f800d9cc963287afcfd4b30d4e1b8c0a480b83a0c14ee3ce235",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_demonhunter.png",
+      "original_sha256": "85ade76a9b7ef500f84c867c7383a8058ca295658a09b3cc547503430f73d355",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "dda94ae2eb9667017a06dd10212c6d9a420e6b23598886b916f5b10e8e380a3d",
+      "alphaBounds": [
+        1,
+        10,
+        1009,
+        502
+      ],
+      "emblem_reference": {
+        "id": "class_demonhunter",
+        "label": "Demon Hunter",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/demon-hunter",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2490a2c648b86219/5ee79636d217327180733e7d/4B35S4Z5N11X1457037556292.png",
+        "file": "artwork/official-crests/originals/class_demonhunter.png",
+        "sha256": "b1d8e9a7d600c68ac3af1e46ce2b889f1bc1506f8509f1bd2e04c092cb6ae828",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Magenta backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          458,
+          444
+        ],
+        [
+          540,
+          530
+        ],
+        [
+          625,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_evoker",
+      "label": "Evoker",
+      "group": "class",
+      "file": "JiberishUI/Media/Hubs/class_evoker.tga",
+      "source": "artwork/hubs/assets/class_evoker.png",
+      "source_sha256": "d2fbcf867a75d82bfced4b22f9928ca52379df5b3f3ad004079f75b0563ca3bf",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/class_evoker.png",
+      "original_sha256": "822148431a9d0fbce2841114c3590ad6470e758cdecc738bab7361af930e79d3",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "1eb95e5ec8b73f556e241b5a6bf7ef39eb3ab4c830824e516580cc1c595f57d7",
+      "alphaBounds": [
+        0,
+        5,
+        1023,
+        501
+      ],
+      "emblem_reference": {
+        "id": "class_evoker",
+        "label": "Evoker",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/evoker",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3d327163a476f786/632b91c5251b540e0aea7b81/Crest_Dracthyr_RacePage.png",
+        "file": "artwork/official-crests/originals/class_evoker.png",
+        "sha256": "932922fa67b480dec97b627a60ba8f76c40dfc9ef71447c498d3bf905079ae98",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          438,
+          444
+        ],
+        [
+          531,
+          530
+        ],
+        [
+          618,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_human",
+      "label": "Human",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_human.tga",
+      "source": "artwork/hubs/assets/race_human.png",
+      "source_sha256": "632a131a552d0bef35ab496b5af308dee034de87d29dde7fa94c5ab173af4ebc",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_human.png",
+      "original_sha256": "2c68070f01fa04dba94d69cabe6134081f7a2cd4ac5c67894e938a4c8f2dacbc",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "399131b955353620f6ad4fc28c524e144acf3c87dcfc3502457761b1415a3fe7",
+      "alphaBounds": [
+        0,
+        12,
+        1022,
+        499
+      ],
+      "emblem_reference": {
+        "id": "race_human",
+        "label": "Human",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/human",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt29feb655ea50fba6/616a0018363f00106eda3f08/2YEP8WEMJ5771603122326566.png",
+        "file": "artwork/official-crests/originals/race_human.png",
+        "sha256": "acc78b40ea8c8506cf68f77cbd6cbead92f3b57318ae4f2688ad3e27b5fd4370",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          441,
+          444
+        ],
+        [
+          535,
+          530
+        ],
+        [
+          624,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_dwarf",
+      "label": "Dwarf",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_dwarf.tga",
+      "source": "artwork/hubs/assets/race_dwarf.png",
+      "source_sha256": "3bd1049ed91b34a1c814c89a892aba1506095a6cbe22cfed405e234f7b3559b8",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_dwarf.png",
+      "original_sha256": "a489b7eeeec1f7e5076f98095972e23bf0a54ceb8e205e39d2e330bc4ed392bd",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "1173a33025948d1e600de14474027c720b4c111fd0600cb0c87c3f8c76099367",
+      "alphaBounds": [
+        0,
+        14,
+        1023,
+        502
+      ],
+      "emblem_reference": {
+        "id": "race_dwarf",
+        "label": "Dwarf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dwarf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2c2df67600500bdc/616a002ece267e66ae2fe944/06NIF1RURDOL1603475082437.png",
+        "file": "artwork/official-crests/originals/race_dwarf.png",
+        "sha256": "b4fbce9e299b0065c680eb12673e93b0c72d746c83d23ff17603f42bd9fe8fac",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          467,
+          444
+        ],
+        [
+          519,
+          530
+        ],
+        [
+          611,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_nightelf",
+      "label": "Night Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_nightelf.tga",
+      "source": "artwork/hubs/assets/race_nightelf.png",
+      "source_sha256": "cb81ae7d26ea1c16bd25022db19ab1418d5e2ace5aa169fdd50387feeeadfc86",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_nightelf.png",
+      "original_sha256": "5d456489b40abeaa9cc30b8519b2ef7bded4b66b7199576c86de3ca680693eb0",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "9522e66db7e98392070b5e18d5bbe237b0ed2e47da96fcb6d495158dec13c30a",
+      "alphaBounds": [
+        1,
+        8,
+        1022,
+        498
+      ],
+      "emblem_reference": {
+        "id": "race_nightelf",
+        "label": "Night Elf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/night-elf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta47b70b74bf269e7/616a00454d5a4b1063b37382/0LY5ZCA0SV371603901805832.png",
+        "file": "artwork/official-crests/originals/race_nightelf.png",
+        "sha256": "0a5d430f7aa534ea67ff6fa85e7841692b738f3b271667b33cc2939653146a5a",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          455,
+          444
+        ],
+        [
+          513,
+          530
+        ],
+        [
+          596,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_gnome",
+      "label": "Gnome",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_gnome.tga",
+      "source": "artwork/hubs/assets/race_gnome.png",
+      "source_sha256": "aeff6d116ae118fd98fe278c701d531546c78848ad23366aedcf739fe13d20fa",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_gnome.png",
+      "original_sha256": "d0d3bc0952ababd03755199e860c5c973e648794cea5fcded60cbc94f5983118",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "ccff30c21a86f98c85fa56290549d7526e3f6822db3c17bfe3c98a4a64aa8365",
+      "alphaBounds": [
+        0,
+        9,
+        1024,
+        481
+      ],
+      "emblem_reference": {
+        "id": "race_gnome",
+        "label": "Gnome",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/gnome",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2443ee39caa44a89/616a0060ce267e66ae2fe94c/BW9K7DDHZTRE1605545652498.png",
+        "file": "artwork/official-crests/originals/race_gnome.png",
+        "sha256": "4cddcec5bf83c25d8ec3ad77d94c2044df506b000f8f342b147e5e2508492155",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          497,
+          444
+        ],
+        [
+          545,
+          530
+        ],
+        [
+          622,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_draenei",
+      "label": "Draenei",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_draenei.tga",
+      "source": "artwork/hubs/assets/race_draenei.png",
+      "source_sha256": "610f006b1ddbe93f055296f0c9f18d75e39a9369c9f5e75409b05e38cec1f537",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_draenei.png",
+      "original_sha256": "d21ae75f1da99aa6eb10b07829e4ea9ffcbc68a44ea26e34b8493f85d43f3720",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "039a2474775244a9236285772fd78dc146a813d7db249dee85a4e1de0f16b14e",
+      "alphaBounds": [
+        0,
+        9,
+        1024,
+        501
+      ],
+      "emblem_reference": {
+        "id": "race_draenei",
+        "label": "Draenei",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/draenei",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltc12b719e2ffc2f52/616a007af8fe091054181e8a/USXSJEJ6B6Z21605557059834.png",
+        "file": "artwork/official-crests/originals/race_draenei.png",
+        "sha256": "91afd003bc19fef0ed6d9207df9138a10f7176174c465af8554ee795e7595e01",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          467,
+          444
+        ],
+        [
+          547,
+          530
+        ],
+        [
+          632,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_worgen",
+      "label": "Worgen",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_worgen.tga",
+      "source": "artwork/hubs/assets/race_worgen.png",
+      "source_sha256": "bd69d899ed46fccada9aba1e0b2bf2ce47f804afaf6b88307e306914d9672e75",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_worgen.png",
+      "original_sha256": "0302206eb5a2b92b24895279552f975b829cee2751659428dbb9df1b0e4db646",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "b1ac23cdab33a4e04056b782975f9b222ff03a2fd8cfb062eef801e0fa981d5b",
+      "alphaBounds": [
+        0,
+        8,
+        1022,
+        496
+      ],
+      "emblem_reference": {
+        "id": "race_worgen",
+        "label": "Worgen",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/worgen",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf902343d6339c091/616a009cfb74964cc74d15e7/A6Y10KJ2VFYJ1605723863532.png",
+        "file": "artwork/official-crests/originals/race_worgen.png",
+        "sha256": "9df69c23e56d45420e3ae77e1413c6f5e635896a221a41fd66341dc6aeafbd12",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          458,
+          444
+        ],
+        [
+          545,
+          530
+        ],
+        [
+          631,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_orc",
+      "label": "Orc",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_orc.tga",
+      "source": "artwork/hubs/assets/race_orc.png",
+      "source_sha256": "0b16cf59d981f1e7f42ecd986dadc823d1189065c5f37958463abf5c6d1a1fb8",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_orc.png",
+      "original_sha256": "378b4f94d35600b62d6f4971fc406eac7f68d57b2d62020a6f35c2589c581c08",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "8c21a1db57eaae3127bf2119a0a9b5d80d64e1a19b19bb0343861029fdc815dd",
+      "alphaBounds": [
+        2,
+        7,
+        1024,
+        502
+      ],
+      "emblem_reference": {
+        "id": "race_orc",
+        "label": "Orc",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/orc",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt0f02f3cbfdeafa88/616da56f9f3ef74e02a20dcc/6MSKYPAWWSUH1607641013386.png",
+        "file": "artwork/official-crests/originals/race_orc.png",
+        "sha256": "a2aa50b4ea7c9c1f33d535cf2b7bfddabfde4be6daa8f3a0d54483bf539e2953",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          470,
+          444
+        ],
+        [
+          547,
+          530
+        ],
+        [
+          618,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_scourge",
+      "label": "Undead",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_scourge.tga",
+      "source": "artwork/hubs/assets/race_scourge.png",
+      "source_sha256": "d5ec894a863cfe3411e12c8541b57322ebc8e04ad8f1d19cbc262be834f9b1bb",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_scourge.png",
+      "original_sha256": "c0d21b6f687fcff65f88f608c60a182e14ddb62887921978509bc0047d69751f",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "e1f6ed381557d123e7c6050ec4cabcda2153be7d20655f12a807e67d83cab09a",
+      "alphaBounds": [
+        1,
+        4,
+        1021,
+        503
+      ],
+      "emblem_reference": {
+        "id": "race_scourge",
+        "label": "Undead",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/undead",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt238a2c5d3db4f8f1/6169fc52fb74964cc74d15b7/OG6OH5SWHPZJ1559260730605.png",
+        "file": "artwork/official-crests/originals/race_scourge.png",
+        "sha256": "9dd09370a4bdd3ecafdfbca1e4d698b91d1b97369f2c99850fc3c42b3f921a36",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          442,
+          444
+        ],
+        [
+          545,
+          530
+        ],
+        [
+          624,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_tauren",
+      "label": "Tauren",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_tauren.tga",
+      "source": "artwork/hubs/assets/race_tauren.png",
+      "source_sha256": "e31d5401eff48cbb1e1d5d0a563abc70ad2c9bae6cca813490b27f3d411beab7",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_tauren.png",
+      "original_sha256": "0ea41e726127258205df7fd135ef7a2a29709f4b88d772e7c74e9f0ce54768a0",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "2e4551f86a079b3aedbd284113ed82bde661ca24e68f9b15615301314f52f459",
+      "alphaBounds": [
+        4,
+        14,
+        1019,
+        498
+      ],
+      "emblem_reference": {
+        "id": "race_tauren",
+        "label": "Tauren",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/tauren",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf51ca4462a828005/616a01d19f3ef74e02a20d28/VNKFQWE588461557349783879.png",
+        "file": "artwork/official-crests/originals/race_tauren.png",
+        "sha256": "ed773f7cda8164bbafa50d0f43eb610a44a508a1b79c45ba31fe8f57751e5cee",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          476,
+          444
+        ],
+        [
+          543,
+          530
+        ],
+        [
+          641,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_troll",
+      "label": "Troll",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_troll.tga",
+      "source": "artwork/hubs/assets/race_troll.png",
+      "source_sha256": "7247dea4f0e7aed1fb7de18a58665c63caa7a5f5148d9ee2898d4f5b145440e0",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_troll.png",
+      "original_sha256": "aee8c3fb8cc5c277e2909f407296ef07bf4a4dfcfa6ff9a172040e999b176d9f",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "f88dc0e47b461f0d36ab9df946b163e158813552677c760871a306866344d372",
+      "alphaBounds": [
+        5,
+        10,
+        1018,
+        500
+      ],
+      "emblem_reference": {
+        "id": "race_troll",
+        "label": "Troll",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/troll",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltc7bd33d3398b1d89/616a01e6a617d74bae3180ee/XQIZERDAIV2T1614277942195.png",
+        "file": "artwork/official-crests/originals/race_troll.png",
+        "sha256": "55dc635dac717aa14c1973f7bb36abf40b55766d87c708b05c85c6ea789a3d6e",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          475,
+          444
+        ],
+        [
+          521,
+          530
+        ],
+        [
+          594,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_bloodelf",
+      "label": "Blood Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_bloodelf.tga",
+      "source": "artwork/hubs/assets/race_bloodelf.png",
+      "source_sha256": "3c1cd3bb0b5c8f23758689c3aa01080c2c54c4f0a47bb51b0fe6186bf9e8ab05",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_bloodelf.png",
+      "original_sha256": "ad72cc85e00d0effbb754894a1e076f90b9f08c4fbd5fb39a8012f66fe728b85",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "0c4fd44761bfe448b79ea94288985ff01b9eff8241fac6372be076dc690df3cb",
+      "alphaBounds": [
+        5,
+        7,
+        1020,
+        503
+      ],
+      "emblem_reference": {
+        "id": "race_bloodelf",
+        "label": "Blood Elf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/blood-elf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf98f9b287fd259db/616a0201bdc5454d581ba20f/1S1T3ZP0XYGV1552513933946.png",
+        "file": "artwork/official-crests/originals/race_bloodelf.png",
+        "sha256": "c2b815008d0581c6ac492f141777df69d0684467c129e41fc62ce33dd3b03e78",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          473,
+          444
+        ],
+        [
+          549,
+          530
+        ],
+        [
+          630,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_goblin",
+      "label": "Goblin",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_goblin.tga",
+      "source": "artwork/hubs/assets/race_goblin.png",
+      "source_sha256": "d70679ef8d55d37c7748455fcc711e86d6adc0a74c519083c751a7518814e156",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_goblin.png",
+      "original_sha256": "875ccdd4fd64af1692c0ff3bec62791b39f0de63c6f94a8809b4d358e5f0e304",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "91b4f08cd82880b34141bb7eb4da9bdfa997b578300ccc544999abe835c0c40a",
+      "alphaBounds": [
+        0,
+        3,
+        1022,
+        497
+      ],
+      "emblem_reference": {
+        "id": "race_goblin",
+        "label": "Goblin",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/goblin",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt5a20ef2a98398062/616a023f70b75d5011e406d0/KNUS13FCMRZ31614290111339.png",
+        "file": "artwork/official-crests/originals/race_goblin.png",
+        "sha256": "9f61c372738dc93aee953e1da4265ff1e21054bf3d2b041e719a76bac0c8e929",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          488,
+          444
+        ],
+        [
+          518,
+          530
+        ],
+        [
+          616,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_pandaren",
+      "label": "Pandaren",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_pandaren.tga",
+      "source": "artwork/hubs/assets/race_pandaren.png",
+      "source_sha256": "2bb1fbc9a15e79d65e6e7ecc6ad4e070a78e4a64001f61c5a4427eb93e550b74",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_pandaren.png",
+      "original_sha256": "995ed53dd1e23377fc4491d1e6c66ea9e663cf36c4d16fc97f4b7ed3c194e827",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "7a4d98bb2107dde7dedc381cc229be106ce63363cdef149f8ffd1e8a67ead620",
+      "alphaBounds": [
+        3,
+        10,
+        1021,
+        487
+      ],
+      "emblem_reference": {
+        "id": "race_pandaren",
+        "label": "Pandaren",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/pandaren-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta264a9ee426a126d/616a018c0e274669d2eec130/K808NK3EW6TS1605905313557.png",
+        "file": "artwork/official-crests/originals/race_pandaren.png",
+        "sha256": "6bc0b3fe0747620ce1baeacdc8f56d939fd225b521ab9be4f5483398eed61441",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          527,
+          444
+        ],
+        [
+          550,
+          530
+        ],
+        [
+          642,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_dracthyr",
+      "label": "Dracthyr",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_dracthyr.tga",
+      "source": "artwork/hubs/assets/race_dracthyr.png",
+      "source_sha256": "c206901a5f7e65da9fb5132f8e81105ba01ce833c86c83997a3e477a9215a32d",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_dracthyr.png",
+      "original_sha256": "e3a886d7fe6139f45f9f6b311a0ca5aa17a99c32253e7fd7b87a8b5c469e3c4f",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "583ccb77c0dd91d2968672cbf110df9dcd2833a65d582ae42b945b3a5ce5a19d",
+      "alphaBounds": [
+        0,
+        6,
+        1024,
+        500
+      ],
+      "emblem_reference": {
+        "id": "race_dracthyr",
+        "label": "Dracthyr",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dracthyr-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3d327163a476f786/632b91c5251b540e0aea7b81/Crest_Dracthyr_RacePage.png",
+        "file": "artwork/official-crests/originals/race_dracthyr.png",
+        "sha256": "932922fa67b480dec97b627a60ba8f76c40dfc9ef71447c498d3bf905079ae98",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          463,
+          444
+        ],
+        [
+          538,
+          530
+        ],
+        [
+          621,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_voidelf",
+      "label": "Void Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_voidelf.tga",
+      "source": "artwork/hubs/assets/race_voidelf.png",
+      "source_sha256": "4a29dd7517f42b92fa5a6fc33e4975511a62b15207a306917307a0d94af360a5",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_voidelf.png",
+      "original_sha256": "89bdab99337a6c5a5423d50d0dbce8b9a2417291546bb8da353e7c90562494fe",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "c56839578331166c8c0eb3d940bbc0260105991d1657213eaa22432046237334",
+      "alphaBounds": [
+        5,
+        20,
+        1020,
+        498
+      ],
+      "emblem_reference": {
+        "id": "race_voidelf",
+        "label": "Void Elf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/void-elf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt1d65f09cc7f2072b/6169fdb84d5a4b1063b3735d/5V5FC0JM7EZ21532560495721.png",
+        "file": "artwork/official-crests/originals/race_voidelf.png",
+        "sha256": "5f4378d0f618f9ff47476a8277b1240238930d2d56af190ebff29653881ed813",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          475,
+          444
+        ],
+        [
+          552,
+          530
+        ],
+        [
+          615,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_lightforgeddraenei",
+      "label": "Lightforged Draenei",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_lightforgeddraenei.tga",
+      "source": "artwork/hubs/assets/race_lightforgeddraenei.png",
+      "source_sha256": "db61f8ef8257fa7eeaa9dc9cf4df42c1772da7ad7e1691c3b44bf793e13bda06",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_lightforgeddraenei.png",
+      "original_sha256": "d17ad0a03ccf368e8ec6870f0708dbbd2a56759c6411bb3333fac8a9918711b2",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "ce072f823555b36d88362d703826b2250f07a569c8ad6898236247683951cb7c",
+      "alphaBounds": [
+        4,
+        11,
+        1019,
+        488
+      ],
+      "emblem_reference": {
+        "id": "race_lightforgeddraenei",
+        "label": "Lightforged Draenei",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/lightforged-draenei",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt5a883c594e2d4a2d/6169fdfdc7bf1d4cc89fdb2e/CKSTMP0F3JR31531430144751.png",
+        "file": "artwork/official-crests/originals/race_lightforgeddraenei.png",
+        "sha256": "8aca1bb138c48d7aed93f29b2b6891381f52b6e1ca512f9ee9d75d3cd46f0022",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          454,
+          444
+        ],
+        [
+          534,
+          530
+        ],
+        [
+          606,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_darkirondwarf",
+      "label": "Dark Iron Dwarf",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_darkirondwarf.tga",
+      "source": "artwork/hubs/assets/race_darkirondwarf.png",
+      "source_sha256": "73bd0cb118c887557feb530924e4098b65f1b5cf749240a1976e5ffb9540193f",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_darkirondwarf.png",
+      "original_sha256": "4af652c8dbcbebe06b80241e458d4f9fa13da4549cfaa7f888a48ade44dd386e",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "a23a5e7ab8a4bcafb2b94bc3ffdbcfe32e25c9b1b96c225d48d56589c962bc49",
+      "alphaBounds": [
+        0,
+        10,
+        1023,
+        490
+      ],
+      "emblem_reference": {
+        "id": "race_darkirondwarf",
+        "label": "Dark Iron Dwarf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dark-iron-dwarf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltcf425cb329c55845/6169fd7b4d5a4b1063b37359/22ZEQWWUAUV01532560489298.png",
+        "file": "artwork/official-crests/originals/race_darkirondwarf.png",
+        "sha256": "4a121554a5b465cd90376752e0ce06e8ed1226c03536558fd34258400698131b",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          480,
+          444
+        ],
+        [
+          538,
+          530
+        ],
+        [
+          621,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_kultiran",
+      "label": "Kul Tiran",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_kultiran.tga",
+      "source": "artwork/hubs/assets/race_kultiran.png",
+      "source_sha256": "89d97b769163ea045f14a3bd0b6380416a9b94ad1ff38bf6a16730de0ee38de2",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_kultiran.png",
+      "original_sha256": "3f859c994a48b33436d2f9f003b15b478ee6b0bb0c0146566432ad8bf749274e",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "f0b4fb22899d4240df393d19a5fd50b11a42806d9641a5ea4dd44f188dab3d8e",
+      "alphaBounds": [
+        2,
+        12,
+        1020,
+        497
+      ],
+      "emblem_reference": {
+        "id": "race_kultiran",
+        "label": "Kul Tiran",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/kul-tiran",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt53389d72e99677fc/6169fe6f25b12a4a14b3a861/GH79ETP3YC4X1549479455375.png",
+        "file": "artwork/official-crests/originals/race_kultiran.png",
+        "sha256": "9017f58ee455a3dc9b677f3294ca640b91cd533e0ace0d10df7a256fa8f6a680",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          472,
+          444
+        ],
+        [
+          548,
+          530
+        ],
+        [
+          627,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_mechagnome",
+      "label": "Mechagnome",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_mechagnome.tga",
+      "source": "artwork/hubs/assets/race_mechagnome.png",
+      "source_sha256": "31cc121d626bcc06c275965252e3ac545771253dc57e8640000c12e20e0eda85",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_mechagnome.png",
+      "original_sha256": "3283a52046df8281cd18a03a63c8d93a63ac175a8d49227c83f65674a9b018fc",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "32943f6b2f50244c2c2d2ec0c43ec37dc3f53b1b38d7704ed231adce84e3b7f8",
+      "alphaBounds": [
+        1,
+        17,
+        1008,
+        497
+      ],
+      "emblem_reference": {
+        "id": "race_mechagnome",
+        "label": "Mechagnome",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/mechagnome",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt94b7b0c81fc1c536/6169fe9e47c23d6a01ffe025/XBBR586Y07TM1578532685694.png",
+        "file": "artwork/official-crests/originals/race_mechagnome.png",
+        "sha256": "786327c17c501a2cbe22f31fce4c668ae3aed332912a3d3fc1829de5fdcf028f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Green backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          482,
+          444
+        ],
+        [
+          537,
+          530
+        ],
+        [
+          626,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_nightborne",
+      "label": "Nightborne",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_nightborne.tga",
+      "source": "artwork/hubs/assets/race_nightborne.png",
+      "source_sha256": "46cfa7760bc97369cf03e3165771ffaba9fec381d21822f12d4c699f2d3037f4",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_nightborne.png",
+      "original_sha256": "0da2ad2607caa143bbe9c02afa111a95602b7756d883cc5ea114541128f9576f",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "c7311ee277ad56d48eca9edd33498fc866e5444249f637015c9ffde6dc89871f",
+      "alphaBounds": [
+        0,
+        8,
+        1024,
+        506
+      ],
+      "emblem_reference": {
+        "id": "race_nightborne",
+        "label": "Nightborne",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/nightborne",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3918dc28e826ae39/6169fee42f01594a0e0416e4/TKPBMPZUSU7U1532560494019.png",
+        "file": "artwork/official-crests/originals/race_nightborne.png",
+        "sha256": "5e48c334747a0db4efc5e449e87b4e598e4efd142d258077bfa77d0feb2e79a4",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          470,
+          444
+        ],
+        [
+          543,
+          530
+        ],
+        [
+          619,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_highmountaintauren",
+      "label": "Highmountain Tauren",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_highmountaintauren.tga",
+      "source": "artwork/hubs/assets/race_highmountaintauren.png",
+      "source_sha256": "f903b44bc554626c84ffd707b96b3fc6d0bb48736f69d90973cd57324853e059",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_highmountaintauren.png",
+      "original_sha256": "323b739aa1c5b68b849fb3a1b68915dd252cc2aded529ecaa50d79f5cb99461d",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "4d24c553b95414c7f4a8af01ffe1d47d95e1039691da8f42c4a82fce312c3464",
+      "alphaBounds": [
+        7,
+        22,
+        1020,
+        487
+      ],
+      "emblem_reference": {
+        "id": "race_highmountaintauren",
+        "label": "Highmountain Tauren",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/highmountain-tauren",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt854c9c9350ea3541/6169ff3f0e274669d2eec112/CKA8GU31B1FO1532560490496.png",
+        "file": "artwork/official-crests/originals/race_highmountaintauren.png",
+        "sha256": "2a32a3a889ff6b31a95f1816310df9526f697681c33c3bc2be0e81338b113f5d",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          425,
+          444
+        ],
+        [
+          506,
+          530
+        ],
+        [
+          590,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_magharorc",
+      "label": "Mag'har Orc",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_magharorc.tga",
+      "source": "artwork/hubs/assets/race_magharorc.png",
+      "source_sha256": "b99f4e634cc1fa305dafea4875994059afe68cfbc6f4ec71f3d8ab5824bf0cb8",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_magharorc.png",
+      "original_sha256": "e2546f08dd5911a79a2f6908c85916b0fedd3eb10114dcb79897e0b792c5ebda",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "f4b781d1e583587c65bd41fdb6d59bf0bfce7655a9aaf1d577669cb39b8b2153",
+      "alphaBounds": [
+        4,
+        6,
+        1024,
+        495
+      ],
+      "emblem_reference": {
+        "id": "race_magharorc",
+        "label": "Mag'har Orc",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/maghar-orc",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt13e51203596562d1/6169d276bdc5454d581ba1d0/QZWDD8TUMEEX1532560493080.png",
+        "file": "artwork/official-crests/originals/race_magharorc.png",
+        "sha256": "d36b8394da31a02728d103c45530c090f5c8aea9d0750556bff7da869498f163",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          445,
+          444
+        ],
+        [
+          543,
+          530
+        ],
+        [
+          636,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_zandalaritroll",
+      "label": "Zandalari Troll",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_zandalaritroll.tga",
+      "source": "artwork/hubs/assets/race_zandalaritroll.png",
+      "source_sha256": "adbe7849d0b2e243a54250430d852fb8a483713587b234a7ed89df75aec5d46e",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_zandalaritroll.png",
+      "original_sha256": "a7516d7271ee44c84981571998a33cc8b1b786da4180e7ba439ca5a13f5466ca",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "af043dc314cb4641161949ed89e645d9115fbecbee6ad5b083607f3cdf801662",
+      "alphaBounds": [
+        1,
+        10,
+        1022,
+        502
+      ],
+      "emblem_reference": {
+        "id": "race_zandalaritroll",
+        "label": "Zandalari Troll",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/zandalari-troll",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltbdd6b9b51b14fdec/6169ff779f3ef74e02a20d04/J7ETJWJQGK5E1549412561820.png",
+        "file": "artwork/official-crests/originals/race_zandalaritroll.png",
+        "sha256": "ef6e5291530a984295515773972666c54de88a23cdd469cb81d404a78f642f3a",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          492,
+          444
+        ],
+        [
+          536,
+          530
+        ],
+        [
+          622,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_vulpera",
+      "label": "Vulpera",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_vulpera.tga",
+      "source": "artwork/hubs/assets/race_vulpera.png",
+      "source_sha256": "c4e55119078bc614cad06851db3a85ae55878c3bd41772545e81fc287306299a",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_vulpera.png",
+      "original_sha256": "f7684b1b1393ab8a5207312910800c9d5b6a4806b0f8303d49ef857fde6149b6",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "6b027b74c9d77c5f56ca52fb550f91e34411dfe42203e0b8f491f8c6fe7b17fb",
+      "alphaBounds": [
+        2,
+        11,
+        1023,
+        500
+      ],
+      "emblem_reference": {
+        "id": "race_vulpera",
+        "label": "Vulpera",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/vulpera",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt7e38ae72c707eee3/6169ffd235f1b36b742c74a8/VHQCKU8JYDEU1578424645765.png",
+        "file": "artwork/official-crests/originals/race_vulpera.png",
+        "sha256": "b1c84f68d6cd75cb12a3bf26d6b9d759f7d99abc1ce0eed8582e0e16a6bb08f8",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          499,
+          444
+        ],
+        [
+          539,
+          530
+        ],
+        [
+          620,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_earthendwarf",
+      "label": "Earthen",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_earthendwarf.tga",
+      "source": "artwork/hubs/assets/race_earthendwarf.png",
+      "source_sha256": "d70cecb7f2768606f5fcaae69c9b27140d8e1efe2086d7cfaeb073e1fbcd6f50",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_earthendwarf.png",
+      "original_sha256": "95d3d106d565e1cdb02e8b2a8569d505357aa169f711de88b2d1ad0a157adc91",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "b0afa9a4cd0ac9cf5973174e0997f13271fbd6bf9941bb8f0e65c2eb8ec6378a",
+      "alphaBounds": [
+        1,
+        3,
+        1005,
+        497
+      ],
+      "emblem_reference": {
+        "id": "race_earthendwarf",
+        "label": "Earthen",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/earthen-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta1913351187b20e3/66b2885b518bb26230883de1/Earthen_Crest.png",
+        "file": "artwork/official-crests/originals/race_earthendwarf.png",
+        "sha256": "89d60b455101adc079c80a78ebaf601903990b785b09264daf85503b0568a503",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Magenta backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          459,
+          444
+        ],
+        [
+          542,
+          530
+        ],
+        [
+          630,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_haranir",
+      "label": "Haranir",
+      "group": "race",
+      "file": "JiberishUI/Media/Hubs/race_haranir.tga",
+      "source": "artwork/hubs/assets/race_haranir.png",
+      "source_sha256": "e27ebdb1865e61c1850c19052863712957b3ba217e783d2e91252b902741140d",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/race_haranir.png",
+      "original_sha256": "e2c62441e600b54707312f9aaac9b51b20fad401535ea5e97068d7869c64934a",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "9d6ca3f03cd9bd5835231a6812c4594e348ea55178135c0a8afa79e8a46de1c6",
+      "alphaBounds": [
+        2,
+        19,
+        1023,
+        492
+      ],
+      "emblem_reference": {
+        "id": "race_haranir",
+        "label": "Haranir",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/haranir-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt27ff53c174cc3ddb/69a0d7dea9cfc4b81223339d/Haranir_Crest.png",
+        "file": "artwork/official-crests/originals/race_haranir.png",
+        "sha256": "35155afc81b439513d52b91e61fad480140de31557de7c6802d7f9ec5cb90a8f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          456,
+          444
+        ],
+        [
+          540,
+          530
+        ],
+        [
+          631,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_alliance",
+      "label": "Alliance",
+      "group": "faction",
+      "file": "JiberishUI/Media/Hubs/faction_alliance.tga",
+      "source": "artwork/hubs/assets/faction_alliance.png",
+      "source_sha256": "23c5dbcff607aaee765a0dfce1422e1a96a8930b2fa0f7d3f35d7b2d32f0acc0",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/faction_alliance.png",
+      "original_sha256": "75dd6caef3bfce52db07bc0f9d34728e7df3ed3da5d4537916c7fb52efc864e6",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "b290f480b71949e7b2d1433ce503c6c85d76fea6555af8832f03a68a56d5eefe",
+      "alphaBounds": [
+        1,
+        10,
+        1022,
+        498
+      ],
+      "emblem_reference": {
+        "id": "faction_alliance",
+        "label": "Alliance",
+        "group": "faction",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/human",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt07958d4a50c867ac/616a00180e274669d2eec122/W4EX9UNJV8OB1531430144879.png",
+        "file": "artwork/official-crests/originals/faction_alliance.png",
+        "sha256": "30ae0e592177665eecaaca0f8cf3dc6bca2bad1055ae682702c37dbd570f57bb",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          444,
+          444
+        ],
+        [
+          535,
+          530
+        ],
+        [
+          627,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_horde",
+      "label": "Horde",
+      "group": "faction",
+      "file": "JiberishUI/Media/Hubs/faction_horde.tga",
+      "source": "artwork/hubs/assets/faction_horde.png",
+      "source_sha256": "953e06dbe38b8623e5bc1ce35018ed9ae7822de9c5c121704f908e9f386fc729",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/faction_horde.png",
+      "original_sha256": "c84cda725cc820cd183aac4e53b72ab267a0196255d2d9b9ad1d8a4e1292efa1",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "2a6d9ce84adf78f41700d43e7545c68e77e22cda403801b8cab6f497f08eb6cc",
+      "alphaBounds": [
+        2,
+        8,
+        1021,
+        505
+      ],
+      "emblem_reference": {
+        "id": "faction_horde",
+        "label": "Horde",
+        "group": "faction",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/undead",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt269b19b0f00cc872/6169fc515e87796834fb5acd/VGJ2XT8PAJL31531171276190.png",
+        "file": "artwork/official-crests/originals/faction_horde.png",
+        "sha256": "e596a8fbbd0e542ad8496a1a87c4f91147070853be029f1cf9966f0004d6c011",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          462,
+          444
+        ],
+        [
+          526,
+          530
+        ],
+        [
+          598,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_neutral",
+      "label": "Neutral",
+      "group": "faction",
+      "file": "JiberishUI/Media/Hubs/faction_neutral.tga",
+      "source": "artwork/hubs/assets/faction_neutral.png",
+      "source_sha256": "5cfba11f417ea0cd981305293d2506e562f47c1b6aa7ad963baecaf0518d1215",
+      "source_size": [
+        2172,
+        724
+      ],
+      "original": "artwork/hubs/sculpted-originals/faction_neutral.png",
+      "original_sha256": "2c944ec1caa32c1b241e8883f829a10d60d653ee35eb7242d2e3e6687d48e6bf",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "95fa6c3799f5590c77f3241ef818ad96abf26cc8ae7d584ddf193b400956b799",
+      "alphaBounds": [
+        2,
+        12,
+        1021,
+        488
+      ],
+      "emblem_reference": null,
+      "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          466,
+          444
+        ],
+        [
+          542,
+          530
+        ],
+        [
+          624,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "in_game_qualified": false
+    }
+  ],
+  "geometry": "Shared full-height five-piece atlas; 2172 x 724 design; 1024 x 512 texture",
+  "credit": "Official emblem references: Blizzard Entertainment. Sculpted compositions: JiberishUI.",
+  "complete": true,
+  "in_game_qualified": false
+}

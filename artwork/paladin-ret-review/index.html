@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JiberishUI · Paladin artwork review</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#11151a;color:#edf0f4;font:15px/1.5 system-ui,sans-serif}header,main{max-width:1800px;margin:auto;padding:24px}h1{font:600 25px/1.2 system-ui;margin:5px 0 12px}p{margin:8px 0;color:#b8c1cd}.eyebrow{color:#e9c777;font-size:12px;letter-spacing:.16em;text-transform:uppercase}.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:20px 0}button,select,input{font:inherit;color:inherit;background:#222a35;border:1px solid #526071;border-radius:5px;padding:7px 10px}button{cursor:pointer}button[aria-pressed=true]{border-color:#f1ce86;background:#504029}label{display:inline-flex;align-items:center;gap:7px}input[type=number]{width:90px}input[type=checkbox]{accent-color:#e6bf73}.notice{padding:12px 16px;border-left:3px solid #e6bf73;background:#29251d;color:#ead7af}a{color:#a7d7fd}.stage-scroll{overflow:auto;border:1px solid #374555;border-radius:6px;margin-top:18px}.stage{position:relative;min-width:100%;overflow:hidden;background:#182126}.stage.checker{background-color:#252a30;background-image:linear-gradient(45deg,#333b43 25%,transparent 25%),linear-gradient(-45deg,#333b43 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#333b43 75%),linear-gradient(-45deg,transparent 75%,#333b43 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}.shell{position:absolute;transform-origin:top left}.art{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;z-index:1}.target .art{transform:scaleX(-1)}.native{position:absolute;z-index:2;outline:1px dashed #66cfec}.portrait{position:absolute;border-radius:50%;border:1px solid #99f0ff;background:#132530dd;display:flex;align-items:center;justify-content:center;font-size:8px;color:#c4f6ff}.bar{position:absolute;border:1px solid #7be9fd;background:#152d38cc;font-size:8px;padding:1px 4px;white-space:nowrap;overflow:hidden}.name{position:absolute;color:#f3df87;font-size:9px;white-space:nowrap}.power{background:#16416cdd}.health{background:#327142dd}.root-label{position:absolute;bottom:-17px;left:0;color:#9adef4;font-size:8px;white-space:nowrap}.bounds .shell{outline:1px solid #e792ff}.bounds .shell:after{content:'Artwork bounds';position:absolute;left:0;top:-21px;color:#edb6ff;font-size:12px}.no-guides .native,.no-guides .hub-guide{display:none}.hub-guide{position:absolute;left:24%;top:30%;width:52%;height:38%;z-index:2;border:1px dashed #66cfec;background:#1b42434d;color:#b6e7e9;font-size:14px;text-align:center;display:flex;align-items:center;justify-content:center}.readout{display:flex;gap:24px;flex-wrap:wrap;margin:12px 0;font-size:13px;color:#c7d2df}.detail{max-width:950px;margin-top:26px}.design-edits{display:flex;gap:20px;flex-wrap:wrap}.design-edits a{flex:1;min-width:280px}.design-edits img{width:100%;height:auto;border-radius:5px}footer{padding:24px 0;font-size:12px;color:#97a6b6}h2{font-size:18px;margin-top:25px}
+</style>
+<style>.piece{position:absolute;overflow:hidden;pointer-events:none}.native,.hub-guide{z-index:20}.native{transform-origin:top left}.player .portrait{border-radius:50% 50% 0 50%}.badge{position:absolute;border:1px solid #b99a66;border-radius:50%;background:#182126;color:#fff;text-align:center;font:14px/28px system-ui}.stage.raised-art .piece{z-index:30!important}.stage.raised-art .art{z-index:30}</style>
+<header>
+  <div class="eyebrow">JiberishUI / Retribution / game fit test</div>
+  <h1>Independent Paladin HUD shells</h1>
+  <p>Lion and weapons removed. Player and target remain separate; either can move independently in Blizzard Edit Mode.</p>
+  <div class="notice">Phase1.5 fitting preview: continuous unit-shell joins, a shaped portrait opening, and real alpha transparency. Your exported layering and hub settings can be reproduced below. Hub and minimap artwork are unchanged. Use “Previous fitting” to compare the older phase1.2 full image.</div>
+</header>
+<main>
+  <div class="toolbar" id="components" aria-label="Component">
+    <button data-component="player" aria-pressed="true">Player</button><button data-component="target" aria-pressed="false">Target</button><button data-component="minimap" aria-pressed="false">Minimap</button><button data-component="hub" aria-pressed="false">Action hub</button>
+  </div>
+  <div class="toolbar">
+    <label>Settings <select id="profile"><option value="reported" selected>Your exported settings</option><option value="defaults">Theme defaults</option></select></label>
+    <label>Target resolution <select id="resolution"><option value="1080">1080p</option><option value="1440" selected>1440p</option><option value="2160">4K</option></select></label>
+    <label>Effective UI scale <input id="effective" type="number" value="0.832" min="0.4" max="1.5" step="0.016"></label>
+    <label>View <select id="view"><option value="actual">1:1 target pixels</option><option value="fit">Fit window</option></select></label>
+    <label><input id="checker" type="checkbox" checked>Checkerboard</label>
+    <label><input id="guides" type="checkbox" checked>Functional guides</label>
+    <label><input id="bounds" type="checkbox" checked>Artwork bounds</label>
+    <label><input id="previous" type="checkbox">Previous fitting</label>
+  </div>
+  <div class="readout" id="readout" aria-live="polite"></div>
+  <div class="stage-scroll"><div class="stage checker bounds" id="stage"></div></div>
+  <p id="finding" class="notice" aria-live="polite"></p>
+  <div class="detail">
+    <p>Size model: UI units × effective scale × target height / 768. The default scale comes from your Forever diagnostic report; the conversion is an estimate from the screenshot. Runtime calibration is still required. At 1:1, one preview CSS pixel represents one target screenshot pixel; use 100% browser zoom.</p>
+    <p>Blue guides represent functional regions, not replacement controls. Background artwork stays behind them; higher strata are previewed above the guides. Unit guides use the pinned native 232 × 100 layout; the level badge and portrait shape are approximate Forever guides. Target uses the ordinary classification. The hub guide is a reserved space, not a claim that every Edit Mode layout will fit.</p>
+    <h2>Your requested artwork edits</h2>
+    <p>These preserve the supplied design most closely. Their checkerboard is baked into the exported image, so they are design references only. The fit preview above uses separate RGBA candidates; those candidates also need refinement.</p>
+  </div>
+  <div class="design-edits">
+    <a href="design-edits/player-no-weapons.png"><img src="design-edits/player-no-weapons.png" alt="Edited player shell, with the lower-left hammer and lion removed">Player · hammer and lion removed</a>
+    <a href="design-edits/target-no-weapons.png"><img src="design-edits/target-no-weapons.png" alt="Edited target shell, with sword and hammer removed">Target · sword and hammer removed</a>
+  </div>
+  <footer>Built-in image generation with user-authorized local alpha extraction for unit v2. <a href="asset-manifest.json">Asset qualification</a> · <a href="unit-fit-correction.json">Unit revision prompts</a> · <a href="unit-alpha-report.json">Alpha extraction</a> · <a href="reported-fit-profile.txt">Your supplied profile</a>. No cast bar or additional components are included.</footer>
+</main>
+<script src="runtime-layout.js"></script>
+<script>
+'use strict';
+const spec={
+ player:{key:'playerFrame',file:'unit-shell-v1.png',w:330,h:150,scale:.832,kind:'unit',finding:'Three full-height columns keep both rails joined to the portrait and sun endcap. The portrait opening now includes a squared lower-right corner. Native controls remain above Background artwork. Live fit still needs checking.'},
+ target:{key:'targetFrame',file:'unit-shell-v1.png',w:330,h:150,scale:.832,kind:'unit',finding:'Independent mirrored columns keep both rail joins continuous. This guide uses the ordinary target classification; elite/boss variants still need live checking.'},
+ minimap:{file:'minimap-v1.png',w:340,h:340,scale:.64,kind:'map',finding:'Radial surround with a transparent center. Ring clearance is a draft; tracking buttons, clock, zone text, and native decorations still need in-game inspection.'},
+ hub:{key:'actionHub',file:'action-hub-v2.png',w:1480,h:493.333,scale:.64,kind:'hub',finding:'The hub keeps its width while the wing height drops from 493 to 240 UI units. Rails stretch between independently sized endcaps and sun crest. Native action-bar artwork remains intact.'}
+};
+let selected='player';
+const $=id=>document.getElementById(id);
+function box(cls,x,y,w,h,text){const el=document.createElement('div');el.className=cls;Object.assign(el.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'});el.textContent=text||'';return el;}
+function drawArtwork(shell,s,config){
+ if(!config.pieces){const art=document.createElement('img');art.src='assets/'+s.file;art.className='art';art.alt=selected+' artwork';shell.append(art);return;}
+ const sy=Math.min(config.height/config.designHeight,config.width/config.minimumWidth);
+ for(const p of Object.values(config.pieces)){
+  let x=config.width*p.leftAnchor+p.leftOffset*sy;
+  const right=config.width*p.rightAnchor+p.rightOffset*sy,w=right-x;
+  const y=p.y*sy+(config.height-config.designHeight*sy),h=p.height*sy;
+  if(config.mirror)x=config.width-x-w;
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.classList.add('piece');
+  svg.setAttribute('viewBox',`${p.u1} ${p.v1} ${p.u2-p.u1} ${p.v2-p.v1}`);svg.setAttribute('preserveAspectRatio','none');
+  Object.assign(svg.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px',zIndex:String(p.order+1),transform:config.mirror?'scaleX(-1)':'none'});
+  const img=document.createElementNS('http://www.w3.org/2000/svg','image');img.setAttribute('href','assets/'+s.file);img.setAttribute('width','1');img.setAttribute('height','1');img.setAttribute('preserveAspectRatio','none');svg.append(img);shell.append(svg);
+ }
+}
+function render(){
+ const original=spec[selected],previous=$('previous').checked;
+ const theme=$('profile').value==='reported'?reportedTheme:runtimeTheme;
+ const config=previous?{width:original.w,height:original.h,scale:1}:theme[original.key||selected];
+ const s={...original,w:config.width,h:config.height};
+ if(!previous&&s.kind==='unit')s.file='unit-shell-v2.png';
+ const resolution=Number($('resolution').value), eff=Number($('effective').value);
+ if(!Number.isFinite(eff)||eff<.4||eff>1.5)return;
+ const artScale=config.scale||1;
+ const factor=eff*artScale*resolution/768, actualW=s.w*factor,actualH=s.h*factor;
+ const available=$('stage').parentElement.clientWidth-80;
+ const zoom=$('view').value==='fit'?Math.min(1,available/actualW):1;
+ const factorShown=factor*zoom, padding=48;
+ const stage=$('stage');stage.replaceChildren();
+ stage.classList.toggle('checker',$('checker').checked);stage.classList.toggle('bounds',$('bounds').checked);stage.classList.toggle('no-guides',!$('guides').checked);
+ stage.classList.toggle('raised-art',!previous&&['MEDIUM','HIGH','DIALOG','FULLSCREEN','FULLSCREEN_DIALOG','TOOLTIP'].includes(config.strata));
+ stage.style.width=Math.max(stage.parentElement.clientWidth,actualW*zoom+padding*2)+'px';stage.style.height=(actualH*zoom+padding*2)+'px';
+ const shell=box('shell '+selected,padding,padding,s.w,s.h);shell.style.transform='scale('+factorShown+')';
+ if(config.shown!==false)drawArtwork(shell,s,config);
+ if(s.kind==='unit'){
+  const nativeX=previous?49:(selected==='player'?-config.x/artScale:s.w-(232+config.x)/artScale);
+  const nativeY=previous?41:s.h/2+(config.y-50)/artScale;
+  const native=box('native',nativeX,nativeY,232,100);native.style.transform='scale('+1/artScale+')';
+  if(selected==='player'){
+   native.append(box('portrait',24,19,60,60,'PORTRAIT'),box('health bar',85,41,124,20,'HEALTH'),box('power bar',85,61,124,10,'POWER'),box('name',88,27,96,12,'Player name'),box('badge',13,65,28,28,'12'));
+  }else{
+   native.append(box('portrait',148,19,58,58,'PORTRAIT'),box('health bar',23,40,126,20,'HEALTH'),box('power bar',23,61,134,10,'POWER'),box('name',23,27,124,12,'Target name'),box('badge',191,65,28,28,'12'));
+  }
+  const label=document.createElement('span');label.className='root-label';label.textContent='Native 232 × 100 · unchanged';native.append(label);shell.append(native);
+ }else if(s.kind==='map'){
+  shell.append(box('native portrait',71,74,198,198,'NATIVE MINIMAP · 198 × 198'));
+ }else{
+  const deck=document.createElement('div');deck.className='hub-guide';deck.textContent='Reserved control space · layout still to be measured';shell.append(deck);
+ }
+ stage.append(shell);
+ $('readout').textContent=s.w.toFixed(0)+' × '+s.h.toFixed(0)+' UI units  |  '+actualW.toFixed(0)+' × '+actualH.toFixed(0)+' target pixels  |  preview '+(zoom*100).toFixed(0)+'%  |  '+s.file+(previous?'':'  |  '+config.strata+' / level '+config.level+' / '+config.layer);
+ $('finding').textContent=config.shown===false?'This component is hidden in your exported settings. Choose Theme defaults to preview it.':previous?'Previous full-image fitting (0.2.0-phase1.2).':s.finding;
+}
+$('components').addEventListener('click',e=>{const id=e.target.dataset.component;if(!spec[id])return;selected=id;$('effective').value=spec[id].scale;document.querySelectorAll('[data-component]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.component===id)));render();});
+for(const id of ['profile','resolution','effective','view','checker','guides','bounds','previous'])$(id).addEventListener('input',render);
+window.addEventListener('resize',render);render();
+</script>
+</html>

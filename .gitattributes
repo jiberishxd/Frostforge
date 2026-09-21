@@ -1,2 +1,8 @@
-# Auto detect text files and perform LF normalization
 * text=auto
+*.png binary
+*.tga binary
+JiberishUI/Media/** linguist-generated=true
+artwork/**/gallery-data.js linguist-generated=true
+artwork/**/runtime-layout.js linguist-generated=true
+artwork/**/manifest.json linguist-generated=true
+docs/phase1-assets.json linguist-generated=true

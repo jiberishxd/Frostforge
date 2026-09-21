@@ -1,0 +1,2935 @@
+{
+  "assets": [
+    {
+      "id": "class_warrior",
+      "label": "Warrior",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_warrior.tga",
+      "source": "artwork/portraits/assets/class_warrior.png",
+      "source_sha256": "aca33641860289257f2fdf9a2811d6a726551ce921f5c81ea28416488d60169b",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_warrior.png",
+      "original_sha256": "952b6d23f3151d6aa88c906d55cff008ede377998762a74249b6cd639f33fea6",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        4,
+        11,
+        187,
+        239
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_warrior",
+        "label": "Warrior",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/warrior",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blte5777795e548c8c9/5ee3e476fc5bec085f1e6551/RPOZRXV8MCMC1457037487166.png",
+        "file": "artwork/official-crests/originals/class_warrior.png",
+        "sha256": "f8d92945ec9cf7751fddaa8ab39218967c492f36e4c7d81cbfd26b1722e003fa",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        195,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "3f312a7914f3208f107e5d6bca172d5f8f0b8f31d53fc77058497f2830f88429",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_paladin",
+      "label": "Paladin",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_paladin.tga",
+      "source": "artwork/portraits/assets/class_paladin.png",
+      "source_sha256": "dddc1cc5956d61aacf26479ba455b1f6292235d94acd4b5bd9e5fd91f14517c9",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_paladin.png",
+      "original_sha256": "31633605725f9ab967b7e73b8f42ab80d5daaaae265f7e8afbb1d963b4695390",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        4,
+        3,
+        211,
+        240
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_paladin",
+        "label": "Paladin",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/paladin",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt1da73d925b189bce/5ee790ae418a3c077bb238d7/19XLRJMFTB881457037521481.png",
+        "file": "artwork/official-crests/originals/class_paladin.png",
+        "sha256": "a71c9da0ad891dcc699ae350838e4fb1d7add21cd707a9fd04b0a610ec3d851f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        183,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "5e75b0584c80cafc810242994620f8340135bd28d41fe5961d728bf78021de80",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_hunter",
+      "label": "Hunter",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_hunter.tga",
+      "source": "artwork/portraits/assets/class_hunter.png",
+      "source_sha256": "b48f36e04ab8fbdff6e186a950dc55a27573a7d1826f05248774336f7a68143c",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_hunter.png",
+      "original_sha256": "ce9b4a2e7daea26f24947581b9c24414234bbcaace73cc528598aa62d1934fd8",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        4,
+        4,
+        203,
+        248
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_hunter",
+        "label": "Hunter",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/hunter",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8fbac30a6c1af9f1/5ee3e4153a8621077a04a306/PHD55VWE4ZG71457037542377.png",
+        "file": "artwork/official-crests/originals/class_hunter.png",
+        "sha256": "22bd70d124a09032e2d71af0d0d8ed372195c68a45dfb9b62718d90a51b7100a",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        164,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "1343cc2e72dc181a2ab0b1a9eee6fe2d24c83b8a6ffcbf9677954dc261f7074c",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_rogue",
+      "label": "Rogue",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_rogue.tga",
+      "source": "artwork/portraits/assets/class_rogue.png",
+      "source_sha256": "e71d9bf15336cf1b2304766bf847d87b72af93e948c9c04db5124a9b6b20fa02",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_rogue.png",
+      "original_sha256": "7c4decfc9230212074dae10a9c3801b408abf5d83bea0c760ea99df8bc3f07c9",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        12,
+        17,
+        210,
+        234
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_rogue",
+        "label": "Rogue",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/rogue",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt7921da4f7d709b4e/5ee3e4a614a7bc718bab5fc2/ORHZR0HIQOW81457037509031.png",
+        "file": "artwork/official-crests/originals/class_rogue.png",
+        "sha256": "e3d1c110dd90c1c0731ea5984ace781b945e229901abe46714005f255da2860c",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        187,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "9c91ddfd21ce34709026e83c1df1a6324dac009edbd7c371c656ee584d699fef",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_priest",
+      "label": "Priest",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_priest.tga",
+      "source": "artwork/portraits/assets/class_priest.png",
+      "source_sha256": "f7ffc51bbd9cd980330b69a0ed71e32744647d4baaf38a1116252c9b86ab52f4",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_priest.png",
+      "original_sha256": "cae8a0a4e105dba6eae82eb62e6821828b9954fa5d060e1b0d1ee86d886d9ad0",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        2,
+        2,
+        186,
+        252
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_priest",
+        "label": "Priest",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/priest",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt11fabe7dc7912ba9/5ee78c0263a2d9709383090d/XZAE7Z08UVZM1457037515730.png",
+        "file": "artwork/official-crests/originals/class_priest.png",
+        "sha256": "95693eae3ef0d05b8c0513e114116c9769bbc75b4f2081d75a3c4d228fb89c9c",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        183,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "35210e8248a4a32269ac315f001d494d367c0527a147713c46632b72bb776b00",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_deathknight",
+      "label": "Death Knight",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_deathknight.tga",
+      "source": "artwork/portraits/assets/class_deathknight.png",
+      "source_sha256": "bf67c8b97caea5962f28dd563f4ecef69a83d982834b9e6624ca5996e9faa874",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_deathknight.png",
+      "original_sha256": "4e782b455d447f43360ebf3ec43ac07e845e7c170a948b411d62d78e78788665",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        5,
+        9,
+        197,
+        245
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_deathknight",
+        "label": "Death Knight",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/death-knight",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8bfa36196bf61105/5ee3e3d7889f917094610ea0/IMLWRYPWBRYL1457037563416.png",
+        "file": "artwork/official-crests/originals/class_deathknight.png",
+        "sha256": "cb806391e36ae1cdfcb01c2fcce038a095387f260d22a4a2514f11c3f22d9648",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        169,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "b4c9c373c471a6561cb2c38102a739842ad805547bd8ac048635adb7bf0fc5f3",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_shaman",
+      "label": "Shaman",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_shaman.tga",
+      "source": "artwork/portraits/assets/class_shaman.png",
+      "source_sha256": "afe3784b94d03cf2ed23c1ec63a44785f91b2505036bde730d09c7feed16e9cd",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_shaman.png",
+      "original_sha256": "6127ef1e8b9a357b8702e183453c2a8d49d78bad3f76a51fa80ac66ed7a8ba08",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        3,
+        4,
+        189,
+        253
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_shaman",
+        "label": "Shaman",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/shaman",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt4f1234eeda8832a3/5ee7928563a2d9709383092b/IJFM2IEVGM6N1457037501982.png",
+        "file": "artwork/official-crests/originals/class_shaman.png",
+        "sha256": "e779f715615a4fa4db0d4757fb4d7d67b18686e8edab07488344316eaa35dce3",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        147,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "a253ff4a18d7872a8b0dc1334693ee898a4595b7eb7d7cf69e83dff307ce440e",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_mage",
+      "label": "Mage",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_mage.tga",
+      "source": "artwork/portraits/assets/class_mage.png",
+      "source_sha256": "f6d0ff3bcd1ee5df9b92d64c6db91fdd0d6f53dace7eda93012a3451abff6df4",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_mage.png",
+      "original_sha256": "320e8935e8a1a1b2008070c4cddffaab39ebbdd4fb5f45c094252af4f153fdbc",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        14,
+        0,
+        196,
+        254
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_mage",
+        "label": "Mage",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/mage",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt56494dcd20feee74/5ee3e450e8f74907ecce0124/OGQYW3GHV8RL1457037534068.png",
+        "file": "artwork/official-crests/originals/class_mage.png",
+        "sha256": "aace0842705706a569d8c34282b203845cf085cc6820366392137084df918e99",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        198,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "41d497dd7f159018c258af6314142f1580573b62055f2dea7141886618feb437",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_warlock",
+      "label": "Warlock",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_warlock.tga",
+      "source": "artwork/portraits/assets/class_warlock.png",
+      "source_sha256": "6b11f9641819f6dff154f757f37864e6b1ba1216341b330814f7cef430f1e8cb",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_warlock.png",
+      "original_sha256": "1de7782e8d000a70cf3c32ad1945cb939ab01cac4dbec637edcb020a979ddcfe",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        9,
+        2,
+        194,
+        252
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_warlock",
+        "label": "Warlock",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/warlock",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8cee1118340e0529/5ee3e8c5a9170407eeb4b79d/ODSDYFWLT9B01457037493681.png",
+        "file": "artwork/official-crests/originals/class_warlock.png",
+        "sha256": "cd0f2b442ebdd267bde8d1a62d86e9ec7b6fbdbb6b21f9012156dedc4381468f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        195,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "9a45c0a4fb134867e1efaff6a71ac330f80a4006700268aa9ebf6168577d38d3",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_monk",
+      "label": "Monk",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_monk.tga",
+      "source": "artwork/portraits/assets/class_monk.png",
+      "source_sha256": "b23049d2c7129749ae9ba2d98a96053e849667945aec71322f976b0075764a0f",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_monk.png",
+      "original_sha256": "8b5c6f5d4aa82315a3bb6ae79a642b1abcf41780822fa6c24cde630be0fe5099",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        10,
+        9,
+        210,
+        249
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_monk",
+        "label": "Monk",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/monk",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt63e4488784925447/5ee793cfa9170407eeb4b917/7Y1OJFSCMOHZ1457037527905.png",
+        "file": "artwork/official-crests/originals/class_monk.png",
+        "sha256": "cbb26a20b1651783c9828480a7cd9dea6cf2f025cb59b0f5a01e1ccbb2ef0a2e",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        162,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "313142a9828ddbcc1af268fc75c0725fd3e12591e0afb35b26bb7066182f6144",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_druid",
+      "label": "Druid",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_druid.tga",
+      "source": "artwork/portraits/assets/class_druid.png",
+      "source_sha256": "6004f351ca14752ed073f26d1bf5937a9994c3430ebba3b60f9f52f924b8f4a8",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_druid.png",
+      "original_sha256": "0a1a8ff30706aaaa193a50db055cc867983010bfd1c01a2ae1401fbd8ca12d2d",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        8,
+        11,
+        198,
+        248
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_druid",
+        "label": "Druid",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/druid",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltbf5a772e934ff371/5ee3e39dfc5bec085f1e6533/LI82P1DRVSNA1447154373009.png",
+        "file": "artwork/official-crests/originals/class_druid.png",
+        "sha256": "04065878ab13f8cf57c470da9c6beb8e22b23b9a05c875712a74ba70bc22d191",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        178,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "13e36c8f503da31bbade435397056329fa77ed8272bfbbebe2dacf59d2a67308",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_demonhunter",
+      "label": "Demon Hunter",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_demonhunter.tga",
+      "source": "artwork/portraits/assets/class_demonhunter.png",
+      "source_sha256": "1a27ed6a9e81037b0c76d613f1a611a7c55f55af49177f41efc5fc07bece92db",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_demonhunter.png",
+      "original_sha256": "7691f5990c48d42d6a087c216e4731cc066cfa27b8d852db59ebb698d87d0b95",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        14,
+        6,
+        207,
+        248
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_demonhunter",
+        "label": "Demon Hunter",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/demon-hunter",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2490a2c648b86219/5ee79636d217327180733e7d/4B35S4Z5N11X1457037556292.png",
+        "file": "artwork/official-crests/originals/class_demonhunter.png",
+        "sha256": "b1d8e9a7d600c68ac3af1e46ce2b889f1bc1506f8509f1bd2e04c092cb6ae828",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        144,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "1bb8ec7de7a66ffd9172b69c9a31d2a6b136facce24f496006f5788ba131514b",
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_evoker",
+      "label": "Evoker",
+      "group": "class",
+      "file": "JiberishUI/Media/Portraits/class_evoker.tga",
+      "source": "artwork/portraits/assets/class_evoker.png",
+      "source_sha256": "bd31b3b5a9ee3d5e8bca5520f3033ec92481329327dfff50a19e90445ed7cab7",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/class_evoker.png",
+      "original_sha256": "500ea0c936208c9c72ae48afc5f7cc4188c81891ea97d5a0ca5010a2e4e3c6c0",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        5,
+        5,
+        201,
+        247
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "class_evoker",
+        "label": "Evoker",
+        "group": "class",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/evoker",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3d327163a476f786/632b91c5251b540e0aea7b81/Crest_Dracthyr_RacePage.png",
+        "file": "artwork/official-crests/originals/class_evoker.png",
+        "sha256": "932922fa67b480dec97b627a60ba8f76c40dfc9ef71447c498d3bf905079ae98",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        11,
+        124,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "874fecec2a422205dd612a2da725d85d3773a78c6def76a8a56438c8e8d85abb",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_human",
+      "label": "Human",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_human.tga",
+      "source": "artwork/portraits/assets/race_human.png",
+      "source_sha256": "524b27fc646f5c6438af1ca309fdb7dc6c4cae37f0948d0c828f3d26458a2ee0",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_human.png",
+      "original_sha256": "010c06975b0b8f402f5183e62171b0ff229bd38938ffa2ac9fb2dbca79b2e7ed",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        18,
+        11,
+        203,
+        234
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_human",
+        "label": "Human",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/human",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt29feb655ea50fba6/616a0018363f00106eda3f08/2YEP8WEMJ5771603122326566.png",
+        "file": "artwork/official-crests/originals/race_human.png",
+        "sha256": "acc78b40ea8c8506cf68f77cbd6cbead92f3b57318ae4f2688ad3e27b5fd4370",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        186,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "9448c08aaac7642650078b52bbf0a435da623e7c59997e12b6c5815006c7e76f",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_dwarf",
+      "label": "Dwarf",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_dwarf.tga",
+      "source": "artwork/portraits/assets/race_dwarf.png",
+      "source_sha256": "890444643b5cff638814684d43e5ce6c8d6b4657cfd635a318ad0bfe66a564d0",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_dwarf.png",
+      "original_sha256": "6351247007a93d7f9aa7cf1a8e1aba4a3d6359ef8d208dd42bb08d62aecad9cc",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        1,
+        8,
+        197,
+        238
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_dwarf",
+        "label": "Dwarf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dwarf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2c2df67600500bdc/616a002ece267e66ae2fe944/06NIF1RURDOL1603475082437.png",
+        "file": "artwork/official-crests/originals/race_dwarf.png",
+        "sha256": "b4fbce9e299b0065c680eb12673e93b0c72d746c83d23ff17603f42bd9fe8fac",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        178,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "6ed1fdebb25155629355734b825609316216d6b68be14b983433575f1235c31b",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_nightelf",
+      "label": "Night Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_nightelf.tga",
+      "source": "artwork/portraits/assets/race_nightelf.png",
+      "source_sha256": "280a5801f137fb01481055790025a4d69031e533ff49b2cd57de148a34266e25",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_nightelf.png",
+      "original_sha256": "f19c1a4f43f8cf6c0635a90622458c074972c2cd48d1eebf41da00c46e79eac8",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        7,
+        5,
+        215,
+        249
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_nightelf",
+        "label": "Night Elf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/night-elf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta47b70b74bf269e7/616a00454d5a4b1063b37382/0LY5ZCA0SV371603901805832.png",
+        "file": "artwork/official-crests/originals/race_nightelf.png",
+        "sha256": "0a5d430f7aa534ea67ff6fa85e7841692b738f3b271667b33cc2939653146a5a",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        171,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "ef09f0957032c4d501afc0bbb7be900b850d09087a6c975102eaf0125715782f",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_gnome",
+      "label": "Gnome",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_gnome.tga",
+      "source": "artwork/portraits/assets/race_gnome.png",
+      "source_sha256": "5cf5a049adcb317f5f72cbaca84afa6d00ad374a08235cacf95494b4166106dd",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_gnome.png",
+      "original_sha256": "5cee0b3546a5ea483bca646ed0ba5dab771b04f764b976277691a962905c752e",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        13,
+        16,
+        208,
+        231
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_gnome",
+        "label": "Gnome",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/gnome",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2443ee39caa44a89/616a0060ce267e66ae2fe94c/BW9K7DDHZTRE1605545652498.png",
+        "file": "artwork/official-crests/originals/race_gnome.png",
+        "sha256": "4cddcec5bf83c25d8ec3ad77d94c2044df506b000f8f342b147e5e2508492155",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        172,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "334bc4337500a630a6346fd4172e445775766c64ed047715af094b2165390b9a",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_draenei",
+      "label": "Draenei",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_draenei.tga",
+      "source": "artwork/portraits/assets/race_draenei.png",
+      "source_sha256": "cb2b624e74735fdc878db38fd8455a697f956ac9b00b4f931efe2a501a14934c",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_draenei.png",
+      "original_sha256": "8da115b08e8d6e78cd208f6a7cb98353863ac6fb10e03bc6e643814d71979c5c",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        9,
+        1,
+        202,
+        249
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_draenei",
+        "label": "Draenei",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/draenei",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltc12b719e2ffc2f52/616a007af8fe091054181e8a/USXSJEJ6B6Z21605557059834.png",
+        "file": "artwork/official-crests/originals/race_draenei.png",
+        "sha256": "91afd003bc19fef0ed6d9207df9138a10f7176174c465af8554ee795e7595e01",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        192,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "3711d9534893eb2dda60cc32dc4de717f37a5cdfb78b0adde85c72e19fbdcc35",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_worgen",
+      "label": "Worgen",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_worgen.tga",
+      "source": "artwork/portraits/assets/race_worgen.png",
+      "source_sha256": "ec621a1498b86f07418e7ab5e2dab74ab11514c875f7ce4c8ba2e403e7e28736",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_worgen.png",
+      "original_sha256": "f61a4ce5b058efb8aa1ff523daf579e99a1453530914507d3563820a7028dfeb",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        12,
+        3,
+        199,
+        237
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_worgen",
+        "label": "Worgen",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/worgen",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf902343d6339c091/616a009cfb74964cc74d15e7/A6Y10KJ2VFYJ1605723863532.png",
+        "file": "artwork/official-crests/originals/race_worgen.png",
+        "sha256": "9df69c23e56d45420e3ae77e1413c6f5e635896a221a41fd66341dc6aeafbd12",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        182,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "9107997e7d97484a25c4b508165a16c47c992e8214f698046351e63dfd5df9d1",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_orc",
+      "label": "Orc",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_orc.tga",
+      "source": "artwork/portraits/assets/race_orc.png",
+      "source_sha256": "53309e6a417273c4721dbbddbae12fa6400e8ad71aa825be82e3d41d5fa1e725",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_orc.png",
+      "original_sha256": "44adb3e8002af3cc184f9373aa2eff4bb6c44ab9a501be19fb98679575159993",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        5,
+        8,
+        210,
+        248
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_orc",
+        "label": "Orc",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/orc",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt0f02f3cbfdeafa88/616da56f9f3ef74e02a20dcc/6MSKYPAWWSUH1607641013386.png",
+        "file": "artwork/official-crests/originals/race_orc.png",
+        "sha256": "a2aa50b4ea7c9c1f33d535cf2b7bfddabfde4be6daa8f3a0d54483bf539e2953",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        209,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "6db3edbf0cf30c37fbe7d0f14daf71ad1744984d522b1fb7c4585850c03b9d7d",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_scourge",
+      "label": "Undead",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_scourge.tga",
+      "source": "artwork/portraits/assets/race_scourge.png",
+      "source_sha256": "9c29b6db227e0d316d063921782f47462739056145b30b4f784b46a27e2fb8fa",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_scourge.png",
+      "original_sha256": "d6d28d64b44c8124274016c48262fb5dbf5f4d510735e34eecfb41c015b2cd27",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        6,
+        13,
+        198,
+        242
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_scourge",
+        "label": "Undead",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/undead",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt238a2c5d3db4f8f1/6169fc52fb74964cc74d15b7/OG6OH5SWHPZJ1559260730605.png",
+        "file": "artwork/official-crests/originals/race_scourge.png",
+        "sha256": "9dd09370a4bdd3ecafdfbca1e4d698b91d1b97369f2c99850fc3c42b3f921a36",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        192,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "c39ed141dfe7295e1b2d540c57f2dfb7f5e538d18c394d9c1fed86c3346611dd",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_tauren",
+      "label": "Tauren",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_tauren.tga",
+      "source": "artwork/portraits/assets/race_tauren.png",
+      "source_sha256": "f2ce5be1606e0d8c4662269df4c523064de82ac2315165b1f12a4a1859bd613d",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_tauren.png",
+      "original_sha256": "5eba8482b3250ba48b437b288676efcc7063c114ce41e8be61197343092bd49b",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        7,
+        6,
+        224,
+        243
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_tauren",
+        "label": "Tauren",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/tauren",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf51ca4462a828005/616a01d19f3ef74e02a20d28/VNKFQWE588461557349783879.png",
+        "file": "artwork/official-crests/originals/race_tauren.png",
+        "sha256": "ed773f7cda8164bbafa50d0f43eb610a44a508a1b79c45ba31fe8f57751e5cee",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        135,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "6f059e563372038e7c69898a68fb229462643f6a8211c67588015c56ddd6ae21",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_troll",
+      "label": "Troll",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_troll.tga",
+      "source": "artwork/portraits/assets/race_troll.png",
+      "source_sha256": "d2836550056d7dd306e8c48f75f71238f06ec7c4a0bd7cb9e24a83031f81811e",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_troll.png",
+      "original_sha256": "d21aea27a29324826ac7ca23073cbde35d99581cbf335a88291371895faea609",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        9,
+        3,
+        186,
+        240
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_troll",
+        "label": "Troll",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/troll",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltc7bd33d3398b1d89/616a01e6a617d74bae3180ee/XQIZERDAIV2T1614277942195.png",
+        "file": "artwork/official-crests/originals/race_troll.png",
+        "sha256": "55dc635dac717aa14c1973f7bb36abf40b55766d87c708b05c85c6ea789a3d6e",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "6f27b93c4d9a15b1143280ba72856e87c02e158ac9f86dacbc6ab8601f4ded85",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_bloodelf",
+      "label": "Blood Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_bloodelf.tga",
+      "source": "artwork/portraits/assets/race_bloodelf.png",
+      "source_sha256": "97af3fe53be08c5f647cf816ae962ee2cfa26e2e78acd615a079358cf1e80b6a",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_bloodelf.png",
+      "original_sha256": "bbb0428d7bf8619d30ba5821908a6ac3e661658e43fa1bc1ae39e18fe6ebacaa",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        10,
+        2,
+        197,
+        252
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_bloodelf",
+        "label": "Blood Elf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/blood-elf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf98f9b287fd259db/616a0201bdc5454d581ba20f/1S1T3ZP0XYGV1552513933946.png",
+        "file": "artwork/official-crests/originals/race_bloodelf.png",
+        "sha256": "c2b815008d0581c6ac492f141777df69d0684467c129e41fc62ce33dd3b03e78",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        167,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "8ef70c238422333575ac0dc207cfa5c315c0dcc181e5e1c1cd1a1c15b7b98885",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_goblin",
+      "label": "Goblin",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_goblin.tga",
+      "source": "artwork/portraits/assets/race_goblin.png",
+      "source_sha256": "622c3876562286fd5620ef8cb983b1a9dfa7039c4fd3061c9e80db1ce52b6da0",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_goblin.png",
+      "original_sha256": "0a241bd5cb60b93076992667b37b4f215acd8c55bc90e7795a49512fc8faa174",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        6,
+        11,
+        221,
+        246
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_goblin",
+        "label": "Goblin",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/goblin",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt5a20ef2a98398062/616a023f70b75d5011e406d0/KNUS13FCMRZ31614290111339.png",
+        "file": "artwork/official-crests/originals/race_goblin.png",
+        "sha256": "9f61c372738dc93aee953e1da4265ff1e21054bf3d2b041e719a76bac0c8e929",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        188,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "515122fd8568f1ee52ea52052c15fee5ce5b00593c5e9a2854b97695a9b42fc2",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_pandaren",
+      "label": "Pandaren",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_pandaren.tga",
+      "source": "artwork/portraits/assets/race_pandaren.png",
+      "source_sha256": "e714648b9299b3378bb5d5169a71e5b960e3da6f35f9db119573a3f469c390be",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_pandaren.png",
+      "original_sha256": "7cb64da6f71dec63a7c1ae869c4b41d9247a60fa26d17208420933ac6131e64c",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        4,
+        24,
+        204,
+        237
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_pandaren",
+        "label": "Pandaren",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/pandaren-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta264a9ee426a126d/616a018c0e274669d2eec130/K808NK3EW6TS1605905313557.png",
+        "file": "artwork/official-crests/originals/race_pandaren.png",
+        "sha256": "6bc0b3fe0747620ce1baeacdc8f56d939fd225b521ab9be4f5483398eed61441",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        187,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "e08b198d89c87b641a35259c952bb3a5fed827fc31238fe4388d44b3782367c8",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_dracthyr",
+      "label": "Dracthyr",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_dracthyr.tga",
+      "source": "artwork/portraits/assets/race_dracthyr.png",
+      "source_sha256": "7deb62c9c8e96a0cdb1b59497a659504e947922128c2900e0603ca593b8ef751",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_dracthyr.png",
+      "original_sha256": "3b4240fe48110fb7d38841b76c2298e986ac1d552cd18506ee4e9e1577bc1d12",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        5,
+        5,
+        197,
+        242
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_dracthyr",
+        "label": "Dracthyr",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dracthyr-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3d327163a476f786/632b91c5251b540e0aea7b81/Crest_Dracthyr_RacePage.png",
+        "file": "artwork/official-crests/originals/race_dracthyr.png",
+        "sha256": "932922fa67b480dec97b627a60ba8f76c40dfc9ef71447c498d3bf905079ae98",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        192,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "a3aad6432d3848895959efbe0f5e4b6fb16ce426a9ef5deff66b74100ee4b31e",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_voidelf",
+      "label": "Void Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_voidelf.tga",
+      "source": "artwork/portraits/assets/race_voidelf.png",
+      "source_sha256": "48a9b20bb45ab75319bad6583b344547860168ebf85603b8b8fa9d96a39d5d85",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_voidelf.png",
+      "original_sha256": "9f733e87d0db797c8dd72505763dba72c571d9a374a8cc5ba298895519bc3dec",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        7,
+        2,
+        198,
+        243
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_voidelf",
+        "label": "Void Elf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/void-elf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt1d65f09cc7f2072b/6169fdb84d5a4b1063b3735d/5V5FC0JM7EZ21532560495721.png",
+        "file": "artwork/official-crests/originals/race_voidelf.png",
+        "sha256": "5f4378d0f618f9ff47476a8277b1240238930d2d56af190ebff29653881ed813",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        175,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "76cb6576a9c2cf33aba43c6d027cdddca687cedf1867ad9ba330bf34618a017e",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_lightforgeddraenei",
+      "label": "Lightforged Draenei",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_lightforgeddraenei.tga",
+      "source": "artwork/portraits/assets/race_lightforgeddraenei.png",
+      "source_sha256": "5ea51509e24d43ce81b2faf7ef4fa0fbd0a8f8a7e5aedd589335628f0e70669b",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_lightforgeddraenei.png",
+      "original_sha256": "7a68e31be2fdef0e187230e68352a03d974835a3074b24af812320b5d9db1857",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        5,
+        1,
+        194,
+        252
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_lightforgeddraenei",
+        "label": "Lightforged Draenei",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/lightforged-draenei",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt5a883c594e2d4a2d/6169fdfdc7bf1d4cc89fdb2e/CKSTMP0F3JR31531430144751.png",
+        "file": "artwork/official-crests/originals/race_lightforgeddraenei.png",
+        "sha256": "8aca1bb138c48d7aed93f29b2b6891381f52b6e1ca512f9ee9d75d3cd46f0022",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        160,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "12df493301dbb3c009d530b5d53eb83db00616ca84e4fb8c13b11b03c57938cf",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_darkirondwarf",
+      "label": "Dark Iron Dwarf",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_darkirondwarf.tga",
+      "source": "artwork/portraits/assets/race_darkirondwarf.png",
+      "source_sha256": "b30dd85b059bf85eda22c6910bc5d44ae68d980084c20721896e3fb444b79929",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_darkirondwarf.png",
+      "original_sha256": "ad876551a7049de72cbb5f1d6b9c9377828e1a58965981c4473d234a0c65142a",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        5,
+        10,
+        190,
+        239
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_darkirondwarf",
+        "label": "Dark Iron Dwarf",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dark-iron-dwarf",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltcf425cb329c55845/6169fd7b4d5a4b1063b37359/22ZEQWWUAUV01532560489298.png",
+        "file": "artwork/official-crests/originals/race_darkirondwarf.png",
+        "sha256": "4a121554a5b465cd90376752e0ce06e8ed1226c03536558fd34258400698131b",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        188,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "9555421d771debecd9025725393452b45d4e721d5c107c19340aa5755783490f",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_kultiran",
+      "label": "Kul Tiran",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_kultiran.tga",
+      "source": "artwork/portraits/assets/race_kultiran.png",
+      "source_sha256": "9738096c952cbb086c21db09e4a2448b5825111db845a3a63ad92a22bf737aff",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_kultiran.png",
+      "original_sha256": "d4305bf14c8d038f17f0455301a371f4356b072d00b001e8f9cbf15afb2af0b1",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        13,
+        11,
+        214,
+        244
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_kultiran",
+        "label": "Kul Tiran",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/kul-tiran",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt53389d72e99677fc/6169fe6f25b12a4a14b3a861/GH79ETP3YC4X1549479455375.png",
+        "file": "artwork/official-crests/originals/race_kultiran.png",
+        "sha256": "9017f58ee455a3dc9b677f3294ca640b91cd533e0ace0d10df7a256fa8f6a680",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        180,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "03bd110cf92b4d5a3066ac215aee56f291d1d1cc7c885a6741ca8e160778f135",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_mechagnome",
+      "label": "Mechagnome",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_mechagnome.tga",
+      "source": "artwork/portraits/assets/race_mechagnome.png",
+      "source_sha256": "e825e38237d258367c952e4172f72f79927bc20597240cc92fd5f70fa4283540",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_mechagnome.png",
+      "original_sha256": "49131ce2ea2e7930d4632c8939f702bba6a464dbaecefd7eb7e5c1d6aabf22eb",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        2,
+        20,
+        194,
+        220
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_mechagnome",
+        "label": "Mechagnome",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/mechagnome",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt94b7b0c81fc1c536/6169fe9e47c23d6a01ffe025/XBBR586Y07TM1578532685694.png",
+        "file": "artwork/official-crests/originals/race_mechagnome.png",
+        "sha256": "786327c17c501a2cbe22f31fce4c668ae3aed332912a3d3fc1829de5fdcf028f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        198,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "9fdfc5d0f3651b559fcbc3bc4d913d192ab2837c2996c584a8297616f8d6751a",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_nightborne",
+      "label": "Nightborne",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_nightborne.tga",
+      "source": "artwork/portraits/assets/race_nightborne.png",
+      "source_sha256": "fdcb07320dd0484cd3fd3f92ea8af8bcb7d641746191c4f7718e9d74b22de663",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_nightborne.png",
+      "original_sha256": "d055766cb47f3d9987800445f7c676a7d5817eedc4f0a003826f2c3e362eb663",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        11,
+        9,
+        212,
+        236
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_nightborne",
+        "label": "Nightborne",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/nightborne",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3918dc28e826ae39/6169fee42f01594a0e0416e4/TKPBMPZUSU7U1532560494019.png",
+        "file": "artwork/official-crests/originals/race_nightborne.png",
+        "sha256": "5e48c334747a0db4efc5e449e87b4e598e4efd142d258077bfa77d0feb2e79a4",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        174,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "266bb2bc330b00c35e49812f1a6253fbc6a148adba03d4c2b7c8970779847391",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_highmountaintauren",
+      "label": "Highmountain Tauren",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_highmountaintauren.tga",
+      "source": "artwork/portraits/assets/race_highmountaintauren.png",
+      "source_sha256": "93a43a47d747021c89b896baf71f95af8481da2a45d0670014ca5cdfd7447adb",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_highmountaintauren.png",
+      "original_sha256": "469c799c19f6c2dbd2c5c6a07966f43d29159077a113d1d3fa0896afe469ad86",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        8,
+        2,
+        204,
+        239
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_highmountaintauren",
+        "label": "Highmountain Tauren",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/highmountain-tauren",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt854c9c9350ea3541/6169ff3f0e274669d2eec112/CKA8GU31B1FO1532560490496.png",
+        "file": "artwork/official-crests/originals/race_highmountaintauren.png",
+        "sha256": "2a32a3a889ff6b31a95f1816310df9526f697681c33c3bc2be0e81338b113f5d",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        182,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "7fc35fdc40f9900ca40292f733b062b3a83c6716b0da5a5cfd989da0fb5b271d",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_magharorc",
+      "label": "Mag'har Orc",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_magharorc.tga",
+      "source": "artwork/portraits/assets/race_magharorc.png",
+      "source_sha256": "6ef31decdcb9bd0a5134bc851e0d321e6a60568156c4a7d3a90bbb6315f93cc9",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_magharorc.png",
+      "original_sha256": "e10dde150a7a2c9a31101dfd9ad5acbea9829d9b5249dae00a8bfe21ac17cbff",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        2,
+        3,
+        202,
+        234
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_magharorc",
+        "label": "Mag'har Orc",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/maghar-orc",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt13e51203596562d1/6169d276bdc5454d581ba1d0/QZWDD8TUMEEX1532560493080.png",
+        "file": "artwork/official-crests/originals/race_magharorc.png",
+        "sha256": "d36b8394da31a02728d103c45530c090f5c8aea9d0750556bff7da869498f163",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        181,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "197d8aa5b24aa43bde80708205b4434321d18ab152f9e1b0ffb4bb55df3ae8f0",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_zandalaritroll",
+      "label": "Zandalari Troll",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_zandalaritroll.tga",
+      "source": "artwork/portraits/assets/race_zandalaritroll.png",
+      "source_sha256": "b4984da59746fc58bbd7845a86422900392a4cbea5ae98119a05c938b4b122a3",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_zandalaritroll.png",
+      "original_sha256": "8cd7083b3beaea892239d1cb913c00d99b1c1b05ca26e76e26b51ca551a25dac",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        3,
+        4,
+        200,
+        239
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_zandalaritroll",
+        "label": "Zandalari Troll",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/zandalari-troll",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltbdd6b9b51b14fdec/6169ff779f3ef74e02a20d04/J7ETJWJQGK5E1549412561820.png",
+        "file": "artwork/official-crests/originals/race_zandalaritroll.png",
+        "sha256": "ef6e5291530a984295515773972666c54de88a23cdd469cb81d404a78f642f3a",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        188,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "be92096cc9bef9b3b4f9932052ce06804b3e2eb67dd1f17df9a8b94b45c6b393",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_vulpera",
+      "label": "Vulpera",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_vulpera.tga",
+      "source": "artwork/portraits/assets/race_vulpera.png",
+      "source_sha256": "d78a625d8e65017e67e66826ad72b763f900fa7b32e6dea4aa41f232d8ac7ae1",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_vulpera.png",
+      "original_sha256": "45fd4bf8da09f013c8dffa32616c6948bc68d1dd4f614cfd0300c78ab0831296",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        8,
+        4,
+        188,
+        237
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_vulpera",
+        "label": "Vulpera",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/vulpera",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt7e38ae72c707eee3/6169ffd235f1b36b742c74a8/VHQCKU8JYDEU1578424645765.png",
+        "file": "artwork/official-crests/originals/race_vulpera.png",
+        "sha256": "b1c84f68d6cd75cb12a3bf26d6b9d759f7d99abc1ce0eed8582e0e16a6bb08f8",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        201,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "5a3c9b30dfafdf29edf11659c418b1d18fd79a472d63fa9a8a82414935370cad",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_earthendwarf",
+      "label": "Earthen",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_earthendwarf.tga",
+      "source": "artwork/portraits/assets/race_earthendwarf.png",
+      "source_sha256": "3edd7055e85258056f49ea7d5f096f9a0d0e98aa6b579f8121cd2946ee22420a",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_earthendwarf.png",
+      "original_sha256": "d637d7baa7b5e4dd2ac0b303d4a6e045fbf55845f177dc8a78fb8f719fd3c76f",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        6,
+        12,
+        198,
+        244
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_earthendwarf",
+        "label": "Earthen",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/earthen-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta1913351187b20e3/66b2885b518bb26230883de1/Earthen_Crest.png",
+        "file": "artwork/official-crests/originals/race_earthendwarf.png",
+        "sha256": "89d60b455101adc079c80a78ebaf601903990b785b09264daf85503b0568a503",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        198,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "f566ecc6ef87bd28567af2ed6a62a6d9eea53aebde7d9bae53088be23e98159e",
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_haranir",
+      "label": "Haranir",
+      "group": "race",
+      "file": "JiberishUI/Media/Portraits/race_haranir.tga",
+      "source": "artwork/portraits/assets/race_haranir.png",
+      "source_sha256": "f137b1bd01fb6ca872285fed1211d6d0860df86ab2b987ee9c417c293fc648a7",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/race_haranir.png",
+      "original_sha256": "412645a8fb54cf4fa301ed674824a261ef7f48e9c7aa1ec7f8a1481a8bdeff6f",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        1,
+        3,
+        221,
+        252
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "race_haranir",
+        "label": "Haranir",
+        "group": "race",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/haranir-alliance",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt27ff53c174cc3ddb/69a0d7dea9cfc4b81223339d/Haranir_Crest.png",
+        "file": "artwork/official-crests/originals/race_haranir.png",
+        "sha256": "35155afc81b439513d52b91e61fad480140de31557de7c6802d7f9ec5cb90a8f",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        156,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "b70f5e05c11da0c4ba9445f5bdc83e51a3ef7b4ed0b0edb802eb94e566e5230b",
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_alliance",
+      "label": "Alliance",
+      "group": "faction",
+      "file": "JiberishUI/Media/Portraits/faction_alliance.tga",
+      "source": "artwork/portraits/assets/faction_alliance.png",
+      "source_sha256": "8c1aea6a4d7b5ecbe95d0ed307a7ef6aed6e0587d7af6694c1fa8985a3ed9fdd",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/faction_alliance.png",
+      "original_sha256": "d0d301a7eb488bdfc06db10f0046d70a6bad4e2592affe05194f2bb34fa29b93",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        2,
+        1,
+        178,
+        255
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "faction_alliance",
+        "label": "Alliance",
+        "group": "faction",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/human",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt07958d4a50c867ac/616a00180e274669d2eec122/W4EX9UNJV8OB1531430144879.png",
+        "file": "artwork/official-crests/originals/faction_alliance.png",
+        "sha256": "30ae0e592177665eecaaca0f8cf3dc6bca2bad1055ae682702c37dbd570f57bb",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        149,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "9ad14a0f114d290be802281daaec7fbdb1b437929b81d5a08f926505c02de208",
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_horde",
+      "label": "Horde",
+      "group": "faction",
+      "file": "JiberishUI/Media/Portraits/faction_horde.tga",
+      "source": "artwork/portraits/assets/faction_horde.png",
+      "source_sha256": "1623c0a83da5207305eb3a5d64d67ad878ce862f2e3763792c9b1c1fa5250adb",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/faction_horde.png",
+      "original_sha256": "66d39a0e1bd11140e50bef49d88cafc42ef0edc717b23a2100b54db6b0cfd1ed",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        4,
+        9,
+        188,
+        245
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": {
+        "id": "faction_horde",
+        "label": "Horde",
+        "group": "faction",
+        "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/undead",
+        "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt269b19b0f00cc872/6169fc515e87796834fb5acd/VGJ2XT8PAJL31531171276190.png",
+        "file": "artwork/official-crests/originals/faction_horde.png",
+        "sha256": "e596a8fbbd0e542ad8496a1a87c4f91147070853be029f1cf9966f0004d6c011",
+        "credit": "Blizzard Entertainment",
+        "permission_status": "No separate permission obtained"
+      },
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        198,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "1336a2b3e236c274ded34cbf5526331bbb47bfdac8beea7546c865df2e49ec86",
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_neutral",
+      "label": "Neutral",
+      "group": "faction",
+      "file": "JiberishUI/Media/Portraits/faction_neutral.tga",
+      "source": "artwork/portraits/assets/faction_neutral.png",
+      "source_sha256": "2b3e2cd5def906fd6ce00ab505929ea9883f3f7b50891b37b1147b624496e8f9",
+      "source_size": [
+        256,
+        256
+      ],
+      "original": "artwork/portraits/originals/faction_neutral.png",
+      "original_sha256": "b6f9a75a718367e8eed4039a2d764ea768e1dac08232592e2ef4e144efd842dc",
+      "transform": "Generated RGBA retained; register full silhouette in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; official crest above opening; no level-badge cutout",
+      "fit_version": 3,
+      "registration_source_bounds": [
+        8,
+        10,
+        193,
+        242
+      ],
+      "registration_box": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 64,
+      "official_crest": null,
+      "size": [
+        256,
+        256
+      ],
+      "default_display_size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        8,
+        8,
+        210,
+        244
+      ],
+      "clear_points": [
+        [
+          0.6015625,
+          0.578125
+        ],
+        [
+          0.9,
+          0.5
+        ]
+      ],
+      "sha256": "ef4e603ae76ef6dc122fe37215f9817558515aa1d893c46725a02e0b47e98d48",
+      "in_game_qualified": false
+    }
+  ],
+  "in_game_qualified": false
+}
