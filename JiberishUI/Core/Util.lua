@@ -1,5 +1,5 @@
 local addon, J = ...
-J.name, J.version = addon, '0.1.0-alpha.7'
+J.name, J.version = addon, '0.1.0-alpha.8'
 J.Util = {}
 local U = J.Util
 function U.Safe(value)
