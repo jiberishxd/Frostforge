@@ -1,72 +1,53 @@
-# Implementation contract
+# Phase 1 rendering architecture
 
-Blizzard or the selected frame provider retains secure buttons, attributes, parentage, internal button layout, frame dimensions, frame levels, and event scripts. Alpha.8's optional Blizzard hub docking is the sole layout exception: five explicitly named bottom-bar/menu/bag containers can receive new anchors and scale outside combat. Other layout stays with its owner. No global native function is replaced by addon code. Post-hooks are registered once, and ownership/lifecycle records live in addon-owned tables.
+The active manifest loads one data-only Retribution Paladin theme, four modules, and shared services. No legacy renderer, colors, secure layout/docking code, provider adapters, settings skin, or native decoration hooks are loaded.
 
-## Layers
+## Files and responsibilities
 
-| Component | Responsibility |
+| File | Responsibility |
 |---|---|
-| `Build.lua` | Packaging flavor and audited interface |
-| `SkinCatalog.lua` / `Skins.lua` | 52 stable profile IDs, category/search metadata, shared material paths, palette defaults |
-| `Adapters/Common.lua` | Explicit containers, texture allowlists, shared field paths, conflicts |
-| `Adapters/Retail.lua` | Retail descriptor, interface 120100, independent definitions |
-| `Adapters/Forever.lua` | Forever descriptor, interface 16001, Camelot medallion preservation, multicast coverage |
-| `Adapters/Integrations.lua` | ElvUI/Ellesmere registry discovery, ownership selection, optional refresh hooks |
-| `Core/Main.lua` | Discovery, ownership, lifecycle, coalesced events, combat deferral, reload rules |
-| `Core/Renderer.lua` | Native artwork silhouette masks, addon-owned corner/edge textures, bounded geometry, Blizzard button-state textures |
-| `Core/Colors.lua` | Neutral status-bar fills, optional class/resource gradients, mask ownership, native-priority fallback, no quantity reads |
-| `Core/Fantasy.lua` | Independent portrait material/tint/opacity and 15 class/holiday crest definitions |
-| `Core/ActionHub.lua` | Flexible nine-slice console, three decorative bays, configurable crest; legacy simple surround |
-| `Core/HubLayout.lua` | Optional out-of-combat docking of named Blizzard containers; native anchor/scale capture, restoration, provider exclusion, Edit Mode handoff |
-| `Core/Profiles.lua` | Schema validation, precedence, character assignments, bounded data-only import/export |
-| `Core/Settings.lua` | Native Settings canvas, searchable/paged visual skin browser, synthetic preview, profile controls |
-| `Core/Diagnostics.lua` | Build, geometry, attachment count, compatibility failures |
+| Core/Core.lua | Module registry, lifecycle, input validation, safe frame reads, geometry, visibility, debug and commands |
+| Core/ThemeManager.lua | Configuration-only theme registry; defaults plus per-component overrides |
+| Core/ProfileManager.lua | Versioned Phase 1 namespace, sanitization, reset and bounded data-only backup |
+| Core/Media.lua | Three packaged local texture paths |
+| Compatibility/Retail.lua | Retail 12.x root discovery with forbidden-frame checks |
+| Compatibility/Forever.lua | Separate Forever 16001 root discovery, acknowledging Camelot overrides |
+| Modules/Minimap.lua | Own frame and textures for the Minimap anchor |
+| Modules/PlayerFrame.lua | Own frame and textures for the PlayerFrame anchor |
+| Modules/TargetFrame.lua | Own frame and textures for the TargetFrame anchor |
+| Modules/ActionHub.lua | Own frame and textures for the MainActionBar anchor |
+| Themes/Paladin/Retribution.lua | paladin_ret data and asset references only |
 
-Skin choice resolves group skin → explicit global skin → profile skin. The resulting skin defaults are merged with explicit global options and group options. Settings schema version 1 preserves unknown future versions without modifying them. An invalid default profile is retained as recovery data and replaced with a valid default; invalid named profiles are excluded from selection.
+Each module creates an ordinary Frame directly under UIParent and two Texture objects. Core records ownership, configures those objects, and adds four debug line textures plus a FontString. No secure template, native child, parent write, attribute write, native function replacement, native texture setter, or native script hook is used.
 
-Blizzard decorative textures contain both trim and bar backdrops; alpha.4 incorrectly painted the whole silhouette. Alpha.5 keeps the native texture and its opacity intact. Health/power trim is restricted to edge-only pieces outside each status bar. Portrait material follows 32 curved quadrilaterals around the portrait, with continuous texture coordinates along the arc. Addon-owned masks clip both to the native decorative texture's atlas/file and any extra native clipping masks. Additional opaque-outside/transparent-inside masks prevent portrait trim from entering either bar's horizontal span, including dead and partially empty bars. No whole-frame material or undercoat is used for Blizzard units. Native geometry and functional indicators remain unchanged, and native artwork stays visible if qualification fails. Mask pools are reused; creation, anchors, and vertex offsets wait until outside combat.
+The nonvisual event driver has no rendering regions and disables mouse input. Debug outlines cover the four rendering frames; no separate interactive debug UI is created.
 
-The separate full-silhouette renderer is used only for Ellesmere's dedicated border-only portrait/button artwork. Its material and undercoat follow that source's exact bounds and visibility. Both renderers use the source's draw layer and sublevel.
+## Coordinates and layering
 
-External providers are discovered only through their specific registries and known containers. Their rectangular frames receive an outer border limited to 3 UI units. Ellesmere shaped portraits/buttons use the same silhouette renderer where native border artwork exists. Button state textures are never replaced on external-provider buttons, including the special Blizzard buttons those addons style. Unit colors use ElvUI's existing unit field, Ellesmere unit frames' `_euiUnit`, or Ellesmere raid/party buttons' read-only `unit` attribute. Replaced bars restore their previous fill before being retired. Provider selection is recalculated on discovery, old ownership is revoked, and attachment waits until login and until outside combat. See `COMPATIBILITY.md` for coverage and limitations.
+Width and height are explicit artwork dimensions. An artwork frame's local scale is:
 
-The expanded library keeps all four original profile IDs unchanged. Category membership is descriptive: any preset can be selected on either client regardless of the player's actual race/class. Presets reuse 15 shared material directories; palette/default differences are explicit catalog data. Browser previews show the skin's defaults and disclose that saved appearance overrides still apply. Browsing and synthetic preview creation touch only addon-owned frames, including during combat; selecting a style uses the existing deferred application path.
+`anchor effective scale / UIParent effective scale * configured scale`
 
-Alpha.7 adds independent portrait configuration without changing the unit-bar material. Portrait crests are transparent textures anchored above the portrait; the native curved outline renderer remains in use for trim. Gradient color endpoints derive only from configured/class/resource colors and use `SetGradient` on the existing fill; the addon never derives gradients from unit quantities. The action surround unions visible registered main/additional button rectangles in UIParent coordinates, optionally including the micro menu and bag bar. A 0.25-second addon-owned driver follows movement outside combat, freezes geometry in combat, and detects hidden/faded controls. It does not reparent or move native frames. Its frame ignores mouse input, and its header art stays outside the button rectangle. See `FANTASY.md` for modes, limitations, provenance, and live gates.
+This accounts for native scaling and UIParent scaling exactly once. Its anchor references the live Blizzard root, so native movement follows automatically. X/Y are expressed in native-anchor units; dividing SetPoint offsets by configured scale keeps the requested offset stable when decorative size changes. Dimensions and native scale are polled, but artwork width/height do not automatically expand to wrap a resized, rotated, or rearranged bar group.
 
-Alpha.8 keeps that simple-surround mode and adds a configurable console with optional Blizzard docking at the user's request. Crest offsets can now move artwork relative to its original anchor, including over other UI. Docking captures native anchors/scale before attachment and tracks subsequent native SetPoint/SetScale calls independently, ignoring its own writes. Combat blocks all dock/restore writes. Edit Mode releases docking; the next attachment captures the edited layout. Providers are never docked, and no button parent, click attribute, event handler, visibility driver, or binding is changed. New profile defaults select the hub; explicit previous action modes remain valid. Console geometry has independent width/height and screen-clamped placement; component/crest offsets are bounded and exported. Native unit-frame geometry is unchanged.
+The default frame strata and texture layer are BACKGROUND, with frame level zero. Native art and controls remain untouched above the decoration. Users can change strata/layer independently. The crest is constrained within the owned frame rectangle and displayed at its intended 3:1 aspect. The main artwork is stretched to the configured footprint as a prototype fixture.
 
-## Source evidence and load order
+## Lifecycle and safety
 
-All research is pinned to these revisions of the Blizzard UI source mirror:
+At player login (or a load-on-demand login already in progress), Core initializes the profile, selects a compatible client path, discovers roots, and attaches only outside combat. ADDON_LOADED, PLAYER_ENTERING_WORLD, PLAYER_TARGET_CHANGED, PLAYER_REGEN_ENABLED, scale/display changes, and Edit Mode layout events request refreshes. Optional event-registration failures are reported, not fatal.
 
-- [Retail `7828252`](https://github.com/Gethe/wow-ui-source/tree/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns): 12.1.0.69875.
-- [Forever `70ef1b2`](https://github.com/Gethe/wow-ui-source/tree/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns): 1.60.1.69913.
+A 0.2-second read-only scan of four explicitly named roots catches visibility, effective scale, late loads and root replacement without native hooks or overrides. Stable polling performs no writes. Refreshes reuse frames, textures, labels and points.
 
-`source-load-order.json` records 146 Retail and 110 Forever files for the five frame-owning addons: UnitFrame, ActionBar, CompactRaidFrames, OverrideActionBar, and ZoneAbility. It records their declared dependencies, excluded game-type lines, ordered manifest entries, recursively expanded XML Includes and Script files, and SHA-256 hashes. It does not claim to trace every unrelated Blizzard addon or every dependency's internal implementation.
+Every discovery checks IsForbidden before native geometry/visibility reads, in both client paths. Missing, forbidden, zero-sized, or restricted geometry is skipped without accessing unit data. Unexpected errors are isolated per module, reported in status, and stale artwork is hidden when safe.
 
-Retail uses Mainline-specific TOCs for UnitFrame, ActionBar, and ZoneAbility. Forever uses unified TOCs with Mainline family files and Camelot game overrides. In Forever, the Camelot player/target methods and templates load after shared/Mainline behavior, and Camelot MainMenuBarEndCaps provides independently editable endcap children. Those differences must not be flattened into a Retail-only adapter.
+Configuration is saved immediately; a single dirty flag defers all geometry, new attachment, texture and debug changes through combat. PLAYER_REGEN_ENABLED applies the latest profile state. Existing artwork visibility/alpha follows the native anchor only if the owned root is unprotected; otherwise even those writes wait. New roots encountered in combat remain native. A replaced root cannot display old artwork at a stale anchor.
 
-| Frame family | Geometry/discovery evidence | Decorations intentionally preserved |
-|---|---|---|
-| Player | Mainline `PlayerFrame.xml`; `PlayerFrameContentMain.HealthBarsContainer.HealthBar`, `ManaBarArea.ManaBar` | Class resources, status indicators, Forever level/PvP medallions |
-| Target/focus/boss | Mainline `TargetFrame.xml`; target content health/power regions; `BossTargetFrameContainer.BossTargetFrames` | Boss/elite classification art, selection/threat, level/PvP, auras |
-| Pet | Mainline `PetFrame.xml/lua`; initialized `healthbar`, named power/mask regions | Attack/status flash, happiness when present, predictions |
-| Small targets | `TargetofTargetFrameTemplate`; health, mana, portrait | Aura/functional regions |
-| Portrait party/pets | Mainline `PartyFrameTemplates.xml`; `PartyFrame.MemberFrame1..4` and their `PetFrame` | PartyMemberOverlay, role/leader/ready/disconnect/threat signals |
-| Compact party/pets | Shared `CompactPartyFrame.lua/xml`; member/pet arrays | Every functional compact indicator |
-| Raid | Raid container descendants only, including reserved/pet/flagged frames | Same compact indicators; native threat-health mode |
-| Buttons | Explicit bar arrays, verified named special buttons, zone container and flyout lists | Icon, cooldown, count/key text, proc/selection/threat overlays |
-| Main-bar art | `MainActionBar.BorderArt`, `EndCaps.LeftEndCap.Texture`, `RightEndCap.Texture` | Native endcap containers, visibility and layout |
+There are no native hooks to duplicate. If future redraw requirements justify hooksecurefunc, its callback must gate any received Blizzard frame through IsUsableFrame before access. This prototype requires no redraw hooks because it never modifies native artwork.
 
-Source dimensions such as 232 × 100 describe the initial player/target frame in UI units. The renderer reads each region's runtime size/effective scale. No 232 × 100 asset is stretched across every frame. Power-bar artwork can change with power type, vehicle, or classification; post-hooks retain the latest native texture/color and reapply a neutral fill only when the requested color can be resolved safely.
+## Theme and profile boundaries
 
-## Lifecycle and failure behavior
+Theme registration rejects executable values, duplicate IDs, missing components and invalid exposed properties. The registered table is copied. Theme resolution copies defaults and adds only validated per-component overrides.
 
-Initial attachment, texture creation, masks, and geometry writes occur outside combat. During combat, attached frames may refresh texture/color only; newly discovered frames remain native. Settings resolve into an applied snapshot only after combat, with the latest requested values winning. No health/power quantities are read, compared, calculated, or logged.
+JiberishUIDB.phase1 version 1 contains theme, debug and modules. Previous top-level profiles/character assignments are preserved. A future Phase 1 version or an unknown database format is preserved read-only. Malformed property overrides fall back to theme defaults. Backups are length-limited JF1 data; imports validate the complete candidate before any mutation and never execute Lua.
 
-Discovery runs after initialization, relevant addon loads, group/target/pet/vehicle changes, Edit Mode/layout changes, and special-bar refreshes. Repeated discovery reuses records and textures. Shared compact/unit helpers only act on registered owners. Each discovery verifies current ownership; removed frames stop receiving updates. A conflict or ownership change restores addon-owned borders/native decoration alpha and stops hooks from applying custom art; a reload completes restoration of button artwork. Ordinary module disabling retains the current live appearance until reload to avoid applying stale native snapshots.
-
-Suppressed decorations are a small texture allowlist, not all regions under a frame. A failed/unqualified border does not suppress its native decoration. Mask removal only removes masks added by JiberishUI. Native masks that were already present remain attached. Function hooks are not removable in WoW, so disabled modules are excluded from attachment after reload.
-
-Compact/rectangular border pieces use the border layer; native-shaped trim retains the source decoration's layer and sublevel. Endcaps inherit the visibility and positioning of their native decorative child. Dense layouts, unusual scaling, gamepad modes, and relative frame levels still require in-game verification; an offline host cannot certify those engine behaviors.
+All four components can be hidden immediately outside combat because no native snapshots need restoration. Reloading without the addon simply removes its artwork. A full restart is required for the initial transition from the older addon/file list.

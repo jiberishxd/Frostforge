@@ -1,0 +1,44 @@
+{
+  "retail": {
+    "revision": "78282522143e25c3540583734fd192c3d69be910",
+    "files": {
+      "Blizzard_UnitFrame/Mainline/PlayerFrame.xml": {
+        "sha256": "592d2577ed2c6c3c2a134d13d9dcfe7fde5890e06271dcbfbaad19f7859d678b",
+        "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UnitFrame/Mainline/PlayerFrame.xml"
+      },
+      "Blizzard_UnitFrame/Mainline/TargetFrame.xml": {
+        "sha256": "99a851903dba4f2a8521080548f4e3ddeab9f467472327785d9aac1773ef78bd",
+        "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UnitFrame/Mainline/TargetFrame.xml"
+      },
+      "Blizzard_ActionBar/Mainline/MainActionBar.xml": {
+        "sha256": "a109f3779e6d41243bafb5c82885193cc3b3c8d8dbd8014ebbbb75f8bcd8da15",
+        "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_ActionBar/Mainline/MainActionBar.xml"
+      },
+      "Blizzard_Minimap/Mainline/Minimap.xml": {
+        "sha256": "2c8d4619402cf08f2e48cd01caa3c43175878d409568d80e4e3ffedc582a16bb",
+        "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_Minimap/Mainline/Minimap.xml"
+      }
+    }
+  },
+  "forever": {
+    "revision": "70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e",
+    "files": {
+      "Blizzard_UnitFrame/Mainline/PlayerFrame.xml": {
+        "sha256": "8b79ef56654d1a652f6c73d54899cb42ed872211567fc704f6c26f0a991e763d",
+        "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UnitFrame/Mainline/PlayerFrame.xml"
+      },
+      "Blizzard_UnitFrame/Mainline/TargetFrame.xml": {
+        "sha256": "b74a7046542df1f918191e6e584e66a3e46b3989f8b9081dfd0f77ad07938afb",
+        "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UnitFrame/Mainline/TargetFrame.xml"
+      },
+      "Blizzard_ActionBar/Mainline/MainActionBar.xml": {
+        "sha256": "b3e291870ffd16773eac1a9af21324778530b17a7d786465145c5c0414d1f899",
+        "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_ActionBar/Mainline/MainActionBar.xml"
+      },
+      "Blizzard_Minimap/Mainline/Minimap.xml": {
+        "sha256": "8ea708e6154fc013202fbc833e5ef922de25f19175f30b8ba947d1aeedb1fe42",
+        "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_Minimap/Mainline/Minimap.xml"
+      }
+    }
+  }
+}
