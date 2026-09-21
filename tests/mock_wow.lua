@@ -1,161 +1,136 @@
--- A deliberately small Lua 5.1 host, not a substitute for WoW's secure runtime.
-local M={timers={},textures=0,hooks=0,layoutWrites=0,combat=false,loaded={},messages={}}
-local methods={}
-local function object(kind,parent)
-    local o=setmetatable({kind=kind,parent=parent,w=100,h=30,scale=1,shown=true,alpha=1,children={},regions={},scripts={},points={},coords={0,1,0,1},masks={}}, {__index=methods})
-    if parent then local list=(kind=='Texture' or kind=='FontString') and parent.regions or parent.children; list[#list+1]=o end
-    return o
+-- Deliberately limited offline host. This does not simulate WoW's secure engine.
+local M = {frames={},textures=0,fonts=0,nativeWrites=0,geometryWrites=0,writes=0,combat=false,messages={}}
+local methods = {}
+local function object(kind,parent,name)
+    local self = setmetatable({kind=kind,parent=parent,name=name,w=100,h=30,scale=1,alpha=1,
+        shown=true,points={},scripts={},events={},regions={}}, {__index=methods})
+    if kind == "Frame" then M.frames[#M.frames+1]=self end
+    return self
 end
-M.object=object
-function methods:GetObjectType() return self.kind end
-function methods:GetParent() return self.parent end
-function methods:GetChildren() return unpack(self.children) end
-function methods:GetRegions() return unpack(self.regions) end
-function methods:GetWidth() return self.w end
-function methods:GetHeight() return self.h end
-function methods:GetEffectiveScale() return self.scale end
-function methods:GetScale() return self.scale end
-function methods:SetScale(scale) self.scale=scale;M.layoutWrites=M.layoutWrites+1 end
-function methods:GetRect() if self.rect then return unpack(self.rect) end end
-function methods:GetNumPoints() return #self.points end
-function methods:GetPoint(i) return unpack(self.points[i]) end
-function methods:IsVisible() return self.shown and (not self.parent or self.parent:IsVisible()) end
-function methods:SetSize(w,h) self.w=w;self.h=h; M.layoutWrites=M.layoutWrites+1 end
-function methods:SetWidth(w) self.w=w end
-function methods:SetHeight(h) self.h=h end
-function methods:SetPoint(...) self.points[#self.points+1]={...}; M.layoutWrites=M.layoutWrites+1 end
-function methods:ClearAllPoints() self.points={} end
-function methods:SetAllPoints(region) self.allPoints=region or self.parent; M.layoutWrites=M.layoutWrites+1 end
-function methods:CreateTexture(_,layer,_,level) M.textures=M.textures+1;local t=object('Texture',self);t.drawLayer=layer or 'ARTWORK';t.subLevel=level or 0;return t end
-function methods:CreateMaskTexture() M.textures=M.textures+1;return object('MaskTexture',self) end
-function methods:GetDrawLayer() return self.drawLayer or 'ARTWORK',self.subLevel or 0 end
-function methods:SetDrawLayer(layer,level) self.drawLayer=layer;self.subLevel=level end
-function methods:SetVertexOffset(index,x,y) self.vertices=self.vertices or {};self.vertices[index]={x,y};M.layoutWrites=M.layoutWrites+1 end
-function methods:CreateFontString() return object('FontString',self) end
-function methods:SetTexture(path) if M.missing and type(path)=='string' and path:find(M.missing,1,true) then return false end; self.texture=path;self.atlas=nil; return true end
-function methods:GetTexture() return self.texture end
-function methods:SetAtlas(atlas) self.atlas=atlas;self.texture=42; self.coords={0,1,0,1} end
-function methods:GetAtlas() return self.atlas end
-function methods:SetTexCoord(...) self.coords={...} end
-function methods:GetTexCoord() return unpack(self.coords) end
-function methods:SetVertexColor(...) self.vertex={...};self.gradient=nil end
-function methods:SetGradient(direction,low,high) self.gradient={direction=direction,low=low,high=high} end
-function methods:GetVertexColor() return unpack(self.vertex or {1,1,1,1}) end
-function methods:SetColorTexture(...) self.vertex={...} end
-function methods:SetAlpha(a) self.alpha=a end
-function methods:GetAlpha() return self.alpha end
-function methods:Show() self.shown=true end
-function methods:Hide() self.shown=false end
-function methods:SetShown(v) self.shown=v end
-function methods:IsShown() return self.shown end
-function methods:SetStatusBarTexture(path)
-    if not self.fill then self.fill=self:CreateTexture() end; self.fill:SetTexture(path)
+local function readable(self)
+    if self.forbidden then error("Forbidden frame inspected before gate") end
+    M.reads = (M.reads or 0) + 1
 end
-function methods:GetStatusBarTexture() return self.fill end
-function methods:SetStatusBarColor(...) self.color={...};if self.fill then self.fill:SetVertexColor(...) end end
-function methods:GetStatusBarColor() return unpack(self.color or {1,1,1,1}) end
-function methods:AddMaskTexture(mask) self.masks[#self.masks+1]=mask end
-function methods:RemoveMaskTexture(mask) for i=#self.masks,1,-1 do if self.masks[i]==mask then table.remove(self.masks,i) end end end
-function methods:GetNumMaskTextures() return #self.masks end
-function methods:GetMaskTexture(i) return self.masks[i] end
-function methods:SetScript(name,fn) self.scripts[name]=fn end
-function methods:HasScript(name)
-    if name=='OnSizeChanged' and (self.kind=='Texture' or self.kind=='MaskTexture' or self.kind=='FontString') then return false end
-    return true
+local function writable(self,geometry)
+    if self.native then M.nativeWrites=M.nativeWrites+1; error("Attempt to mutate Blizzard frame") end
+    if M.combat and self.protected then error("Protected artwork changed during combat") end
+    M.writes=M.writes+1
+    if geometry then M.geometryWrites=M.geometryWrites+1 end
 end
-function methods:HookScript(name,fn)
-    assert(self:HasScript(name),'Usage: HookScript: unsupported script '..name)
-    local old=self.scripts[name]; self.scripts[name]=function(...) if old then old(...) end; fn(...) end
+function methods:IsForbidden() return self.forbidden or false end
+function methods:IsProtected() return self.protected or false end
+function methods:GetParent() readable(self); return self.parent end
+function methods:GetWidth() readable(self); return self.w end
+function methods:GetHeight() readable(self); return self.h end
+function methods:GetScale() readable(self); return self.scale end
+function methods:GetEffectiveScale()
+    readable(self)
+    if self.secretScale then return M.secret end
+    return self.scale * (self.parent and self.parent:GetEffectiveScale() or 1)
 end
-function methods:RegisterEvent() end
-function methods:SetText(v) self.text=v end
-function methods:GetText() return self.text or '' end
-function methods:SetChecked(v) self.checked=v end
-function methods:GetChecked() return self.checked end
-function methods:SetValue(v) self.value=v; if self.scripts.OnValueChanged then self.scripts.OnValueChanged(self,v) end end
-function methods:SetMinMaxValues(a,b) self.min=a;self.max=b end
-for _,name in ipairs({'SetAutoFocus','SetMultiLine','SetFontObject','SetMaxLetters','SetJustifyH','SetFrameStrata','EnableMouse','SetBackdrop','SetBackdropColor','SetScrollChild','SetFocus','HighlightText','SetOrientation','SetValueStep','SetObeyStepOnDrag','SetThumbTexture'}) do methods[name]=function() end end
-for _,state in ipairs({'Normal','Pushed','Highlight','Checked'}) do
-    methods['Get'..state..'Texture']=function(self) return self[state] end
-    methods['Set'..state..'Texture']=function(self,path) self[state]=self[state] or self:CreateTexture(); self[state]:SetTexture(path) end
-    methods['Set'..state..'Atlas']=function(self,path) self[state]=self[state] or self:CreateTexture(); self[state]:SetAtlas(path) end
+function methods:IsShown() readable(self); return self.shown end
+function methods:IsVisible() readable(self); return self.shown and (not self.parent or self.parent:IsVisible()) end
+function methods:GetAlpha() readable(self); return self.alpha end
+function methods:GetEffectiveAlpha()
+    readable(self)
+    if self.secretAlpha then return M.secret end
+    return self.alpha * (self.parent and self.parent:GetEffectiveAlpha() or 1)
 end
-function CreateFrame(kind,name,parent) local frame=object(kind,parent); if name then _G[name]=frame end; return frame end
-UIParent=CreateFrame('Frame'); SlashCmdList={}
+function methods:SetSize(w,h) writable(self,true); self.w,self.h=w,h end
+function methods:SetWidth(w) writable(self,true); self.w=w end
+function methods:SetHeight(h) writable(self,true); self.h=h end
+function methods:SetScale(scale) writable(self,true); self.scale=scale end
+function methods:SetPoint(...) writable(self,true); self.points[#self.points+1]={...} end
+function methods:GetPoint(i) return unpack(self.points[i or 1]) end
+function methods:ClearAllPoints() writable(self,true); self.points={} end
+function methods:SetAllPoints(relative) writable(self,true); self.allPoints=relative end
+function methods:SetFrameStrata(value) writable(self); self.strata=value end
+function methods:SetFrameLevel(value) writable(self); self.level=value end
+function methods:EnableMouse(value) writable(self); self.mouse=value end
+function methods:EnableMouseWheel(value) writable(self); self.wheel=value end
+function methods:EnableKeyboard(value) writable(self); self.keyboard=value end
+function methods:SetDrawLayer(value,sub) writable(self); self.layer,self.sub=value,sub end
+function methods:SetTexture(value)
+    writable(self)
+    self.path=value
+    return not M.missingTexture
+end
+function methods:SetColorTexture(...) writable(self); self.color={...} end
+function methods:SetShown(value) writable(self); self.shown=value end
+function methods:Show() self:SetShown(true) end
+function methods:Hide() self:SetShown(false) end
+function methods:SetAlpha(value) writable(self); self.alpha=value end
+function methods:CreateTexture(_,layer)
+    writable(self)
+    M.textures=M.textures+1
+    local texture=object("Texture",self)
+    texture.layer=layer
+    self.regions[#self.regions+1]=texture
+    return texture
+end
+function methods:CreateFontString()
+    writable(self)
+    M.fonts=M.fonts+1
+    local font=object("FontString",self)
+    self.regions[#self.regions+1]=font
+    return font
+end
+function methods:SetText(text) writable(self); self.text=text end
+function methods:GetText() return self.text end
+function methods:SetTextColor(...) writable(self); self.color={...} end
+function methods:SetJustifyH(value) writable(self); self.justify=value end
+function methods:RegisterEvent(event) writable(self); self.events[event]=true end
+function methods:SetScript(event,callback) writable(self); self.scripts[event]=callback end
+-- These APIs must never be used by the prototype, even on unprotected native UI.
+function methods:SetParent() error("No reparenting permitted") end
+function methods:SetAttribute() error("No secure attribute writes permitted") end
+function hooksecurefunc() error("No native hooks are needed by Phase 1") end
+function CreateFrame(kind,name,parent,template)
+    assert(not template,"No secure or native templates")
+    local frame=object(kind,parent,name)
+    if name then _G[name]=frame end
+    return frame
+end
 function InCombatLockdown() return M.combat end
-function issecretvalue(value) return value==M.secret end
-M.secret=setmetatable({}, {__index=function() error('secret indexed') end,__tostring=function() error('secret formatted') end})
-function hooksecurefunc(objectOrName,methodOrCallback,callback)
-    local owner,key,fn
-    if type(objectOrName)=='string' then owner,key,fn=_G,objectOrName,methodOrCallback else owner,key,fn=objectOrName,methodOrCallback,callback end
-    local original=assert(owner[key],key); M.hooks=M.hooks+1
-    owner[key]=function(...) local result={original(...)}; fn(...); return unpack(result) end
+function issecretvalue(value) return rawequal(value,M.secret) end
+M.secret=setmetatable({}, {__tostring=function() error("Secret formatted") end, __index=function() error("Secret indexed") end})
+function GetBuildInfo() return M.interface==16001 and "1.60.1" or "12.1.0","test","",M.interface or 120100 end
+function IsLoggedIn() return M.loggedIn or false end
+function UnitHealth() error("Unit data is out of scope") end
+function UnitPower() error("Unit data is out of scope") end
+function UnitClass() error("Unit data is out of scope") end
+DEFAULT_CHAT_FRAME={AddMessage=function(_,text) M.messages[#M.messages+1]=text end}
+SlashCmdList={}
+UIParent=object("Frame",nil,"UIParent")
+UIParent.w,UIParent.h,UIParent.scale=1920,1080,0.64
+UIParent.native=true
+function M.native(name,w,h,scale)
+    local frame=object("Frame",UIParent,name)
+    frame.w,frame.h,frame.scale=w,h,scale or 1
+    frame.native=true
+    _G[name]=frame
+    return frame
 end
-C_Timer={After=function(_,fn) M.timers[#M.timers+1]=fn end}
-function M.flush()
-    local rounds=0
-    while #M.timers>0 do rounds=rounds+1; assert(rounds<20,'unbounded refresh loop'); local timers=M.timers; M.timers={}; for _,fn in ipairs(timers) do fn() end end
-end
-function GetBuildInfo() return '12.1.0','69875','',M.interface or 120100 end
-function UnitFullName() return 'Test','Realm' end
-function GetRealmName() return 'Realm' end
-function UnitIsConnected() if M.restricted then return M.secret end; return M.connected~=false end
-function UnitIsDeadOrGhost() return M.dead or false end
-function UnitIsTapDenied() return M.tapped or false end
-function UnitIsPlayer() return M.player~=false end
-function UnitClass() return 'Mage',M.class or 'MAGE',8 end
-function CreateColor(r,g,b,a) return {r=r,g=g,b=b,a=a} end
-function UnitSelectionColor() return 1,0.5,0 end
-function UnitPowerType() if M.restrictedPower then return 0,M.secret end; return 0,'MANA' end
-function UnitHealth() error('UnitHealth must never be queried') end
-function UnitPower() error('UnitPower must never be queried') end
-RAID_CLASS_COLORS={MAGE={r=0.4,g=0.8,b=1}}; PowerBarColor={MANA={r=0,g=0,b=1}}
-C_AddOns={IsAddOnLoaded=function(name) return M.loaded[name] end}
-DEFAULT_CHAT_FRAME={AddMessage=function(_,msg) M.messages[#M.messages+1]=msg end}
-Settings={RegisterCanvasLayoutCategory=function() return {GetID=function() return 123 end} end,RegisterAddOnCategory=function() end,OpenToCategory=function(id) M.category=id end}
-function ReloadUI() M.reload=true end
-function CompactUnitFrame_UpdateAll() end
-function CompactUnitFrame_SetUpFrame() end
-function UnitFrameManaBar_UpdateType() end
-function UnitFrameHealthBar_Update() end
-function M.bar(parent,w,h)
-    local bar=CreateFrame('StatusBar',nil,parent);bar:SetSize(w or 126,h or 20);bar:SetStatusBarTexture('native');bar:SetStatusBarColor(1,1,1,1);return bar
-end
-function M.compact(parent)
-    local frame=CreateFrame('Button',nil,parent); frame.unit='raid1';frame.healthBar=M.bar(frame);frame.powerBar=M.bar(frame,126,8);return frame
-end
--- Widget hierarchy from the pinned Blizzard XML, independent of adapter field paths.
-function M.portraitUnit(kind)
-    local frame=CreateFrame('Button',nil,UIParent);frame.unit='player'
-    local function child(parent,key) local f=CreateFrame('Frame',nil,parent);parent[key]=f;return f end
-    local function tex(parent,key) local t=parent:CreateTexture();parent[key]=t;t:SetTexture('native');return t end
-    local health,power,portrait,decoration
-    if kind=='player' or kind=='target' then
-        local prefix=kind=='player' and 'PlayerFrame' or 'TargetFrame'
-        local container=child(frame,prefix..'Container')
-        portrait=tex(container,kind=='player' and 'PlayerPortrait' or 'Portrait');decoration=tex(container,'FrameTexture')
-        local content=child(frame,prefix..'Content');local main=child(content,prefix..'ContentMain')
-        local bars=child(main,'HealthBarsContainer');bars.HealthBar=M.bar(bars);health=bars.HealthBar;tex(bars,'HealthBarMask')
-        local area=kind=='player' and child(main,'ManaBarArea') or main
-        area.ManaBar=M.bar(area,124,10);power=area.ManaBar;tex(power,'ManaBarMask')
-    elseif kind=='party' then
-        local bars=child(frame,'HealthBarContainer');bars.HealthBar=M.bar(bars);health=bars.HealthBar;tex(bars,'HealthBarMask')
-        frame.ManaBar=M.bar(frame,70,8);power=frame.ManaBar;tex(power,'ManaBarMask')
-        portrait=tex(frame,'Portrait');decoration=tex(frame,'Texture')
-    elseif kind=='pet' then
-        frame.healthbar=M.bar(frame);health=frame.healthbar
-        PetFrameManaBar=M.bar(frame,70,8);power=PetFrameManaBar
-        PetFrameHealthBarMask=tex(frame,'healthMask');PetFrameManaBarMask=tex(frame,'powerMask')
-        PetPortrait=tex(frame,'portrait');portrait=PetPortrait;PetFrameTexture=tex(frame,'decoration');decoration=PetFrameTexture
-    else
-        frame.HealthBar=M.bar(frame);health=frame.HealthBar;portrait=tex(frame,'Portrait')
-        decoration=tex(frame,kind=='small' and 'FrameTexture' or 'Texture')
-        if kind=='small' then
-            frame.ManaBar=M.bar(frame,70,8);power=frame.ManaBar
-            tex(health,'HealthBarMask');tex(power,'ManaBarMask')
+M.native("Minimap",198,198)
+M.native("PlayerFrame",232,100,1.3)
+M.native("TargetFrame",232,100)
+M.native("MainActionBar",562,45)
+function M.event(core,event,name) core.driver.scripts.OnEvent(core.driver,event,name) end
+function M.tick(core) core.driver.scripts.OnUpdate(core.driver,0.21) end
+function M.load(options)
+    options=options or {}
+    M.interface=options.interface or 120100
+    JiberishUIDB=options.db
+    local J={}
+    local toc=assert(io.open("JiberishUI/JiberishUI.toc")):read("*a")
+    for path in toc:gmatch("[^\r\n]+") do
+        if path:match("%.lua$") then
+            local chunk=assert(loadfile("JiberishUI/"..path:gsub("\\","/")))
+            chunk("JiberishUI",J)
         end
     end
-    portrait:SetSize(50,50)
-    return frame,health,power,portrait,decoration
+    if options.flavor then J.Build.flavor=options.flavor end
+    if not options.noStart then M.event(J.Core,"PLAYER_LOGIN") end
+    return J
 end
 return M

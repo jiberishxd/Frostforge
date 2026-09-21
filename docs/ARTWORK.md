@@ -1,53 +1,15 @@
-# Artwork provenance and rebuilding
+# Phase 1 prototype media
 
-The original four race families are adapted from Blizzard's installed classic Warcraft III UI data, build **3.0.0.24268**. Those four families contain Blizzard artwork; no ownership of that source artwork is claimed. The expanded library also includes **11 original generated material families**, described below. JiberishUI is not an official Blizzard product.
+No new artwork is being commissioned or generated in this phase. Three existing local RGBA TGA assets are packaged as geometry fixtures:
 
-The source CASC storage was read from `/Applications/Warcraft III`. The game installation was not modified. Classic `war3.w3mod` files were selected explicitly; `_hd.w3mod` and `_de.w3mod` overrides were not used.
-
-For each of `human`, `orc`, `nightelf`, and `undead`:
-
-| Source pattern inside CASC | Dimensions | Use |
+| Asset | Stored size | Use |
 |---|---|---|
-| `war3.w3mod:ui\widgets\escmenu\RACE\RACE-options-menu-border.dds` | 512 × 64 | Eight-cell source strip for normalized corners and repeatable edges |
-| `war3.w3mod:ui\console\RACE\RACEuitile-timeindicatorframe.dds` | 256 × 128 | Portrait/bar ornaments and endcaps |
-| `war3.w3mod:ui\console\RACE\RACEuitile01.dds` | 512 × 512 | Inspected as console context, not resized into frame textures |
+| Media/sacred_gold/portrait.tga | 128 × 128 | Transparent gold surround for minimap/player/target artwork frames |
+| Media/fantasy/paladin.tga | 512 × 256 | Paladin crest, displayed at 3:1 |
+| Media/hub/console.tga | 2048 × 1024 | Single hub background texture |
 
-The first four strip cells are vertically stored edge sections. Top/bottom sections are cropped and rotated 90 degrees clockwise. Corners are cropped from their 64 × 64 cells to 32 × 32 usable regions. Separate 32 × 64 / 64 × 32 edge files ensure repetition never samples another atlas cell. Native WoW portraits/masks remain intact; the portrait surround is decorative.
+Each rendering frame has its own main texture and crest texture. The gold surround and console stretch to the configured dimensions; this is deliberately an attachment/layout prototype, not a claim of final ornament proportions or a fitted portrait mask. No native portrait, status-bar fill, backdrop, mask, or border is changed.
 
-Each theme includes eight normalized pieces, a composed 128 × 128 portrait surround, four 64 × 64 button states, and a 256 × 128 ornament. A shared opaque white 8 × 8 fill permits accurate tinting. Alpha.4's full-frame material application failed live Forever checks: the native atlas also includes the bar backdrop, and repeating a rail vertically caused bands around the portrait. Alpha.5 uses narrow pieces only around bar edges and 32 quadrilaterals that carry the top-edge material along the portrait arc. All pieces are clipped to the native decorative artwork; the original backdrop remains visible beneath them. Native additional clipping masks are retained through addon-owned copies. Insets, thickness, and ornaments do not reshape these native outlines. This revised rendering method requires live visual qualification on both clients.
+[phase1-assets.json](phase1-assets.json) records exact packaged hashes, dimensions, alpha bounds and source artwork references/hashes. The sources are existing generated artwork from earlier development. The full historical asset manifest remains in assets.json but is not packaged.
 
-The eight separate pieces remain in use for compact and external rectangular frames, and the composed portrait remains an asset reference. Existing rectangular preview sheets illustrate material and palette, not the live curved trim. Shaped Ellesmere portraits and action buttons reuse the provider's dedicated border-only outline; rectangular external borders are capped at 3 UI units. External button state textures are preserved. Blizzard button pressed/highlight/checked states use distinct brightness levels while preserving Blizzard's state visibility and blending.
-
-`tools/build_geometry_mask.js` creates an 8 × 8 engineering mask with an opaque perimeter and transparent central rectangle. Nearest filtering and CLAMP sampling extend the opaque perimeter outside its bounds; sizing it to twice a bar's width excludes exactly that horizontal bar span from portrait trim. It contains no decorative artwork. This adds one mask to the unchanged 211 existing textures, for **212 TGAs**. Run `node tools/build_geometry_mask.js` to rebuild it and its asset-manifest entry.
-
-The classic families contribute 57 textures including the shared white fill. With the expanded library and geometry mask, `assets.json` records all **212** output dimensions, nonzero-alpha bounds, exact source path/crop, transformation, and SHA-256. Outputs are uncompressed 32-bit RGBA TGA with power-of-two dimensions and lowercase paths. `skin-reference.png` retains the four original themes; `border-showcase.png` and `skin-library-*.png` show the expanded catalog. These are offline qualifications; seamless appearance at every runtime UI scale remains an in-game gate.
-
-## Original material library
-
-Eleven material masters were made with the **built-in image_gen tool**: Dwarven Forge, Moonstone, Arcane Crystal, Fel Obsidian, Black Basalt, Clockwork, Shadow Steel, Jade Bamboo, Dragon Scale, Tribal Totem, and Sacred Gold. This is original Warcraft-inspired fantasy artwork, not extracted official race/class emblems.
-
-The original transparent PNGs are preserved in `artwork/masters/`; exact generation prompts are in `artwork/prompts.json`. Each master is a square perimeter frame with a transparent center. The masters are source assets in the repository, not large runtime textures in the addon ZIPs. No generated file is referenced from an external cache.
-
-`tools/build_library.py` performs deterministic production conversion: measured corner crops; perpendicular alpha-bound normalization for rails; 32 × 32 corners; 64 × 32 / 32 × 64 edge tiles with mirrored periods; composed portrait and button states; and a central rail ornament. Mirrored periods have identical endpoint pixels to avoid discontinuities where a tile repeats. Masks and alpha are retained, and the original masters are unchanged. Small-frame visual suitability is still subject to in-game checks.
-
-The 52 catalog presets share 15 material families (the original four plus these eleven). Race/class/faction variants use runtime tint and appearance defaults; they do not duplicate or claim unique artwork for each identity. Standard styles default to no ornaments. Selecting a preset preserves explicit global/group overrides and does not automatically change health/power color modes.
-
-To rebuild the expanded library from the included source files:
-
-```sh
-python3 tools/build_library.py
-python3 tools/check.py
-```
-
-This requires Pillow but no game installation. `tools/skin_catalog.py` is the canonical catalog; it writes the Lua catalog and JSON reference. Rebuilding the original four families with `tools/build_art.py` preserves expanded-family manifest entries, and rebuilding the expanded library preserves the original game-derived entries.
-
-Rebuilding requires a local Warcraft III installation, a C++ compiler, CascLib, and Python with Pillow. The development tools used [CascLib revision `2a280f5`](https://github.com/ladislav-zezula/CascLib/tree/2a280f5a231966dc5d1b534978dd9f9f04a374cd), which stays outside the addon package.
-
-```sh
-python3 tools/build_casc.py
-python3 tools/extract_art.py '/Applications/Warcraft III'
-python3 tools/build_art.py
-python3 tools/check.py
-```
-
-The extraction helper is a read/list/export utility. CascLib's local storage reader requests read/write file handles internally, which required sandbox escalation on this workstation even though extraction did not write into the game. The raw DDS and build tools remain in ignored local caches and are not shipped.
+Checks validate power-of-two dimensions, RGBA format, alpha bounds and hashes. These establish file integrity, not in-game rendering quality. Missing/failed texture loads hide owned artwork; Blizzard presentation remains intact. Some asynchronous missing-texture behavior can only be confirmed in WoW.

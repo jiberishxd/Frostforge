@@ -1,0 +1,62 @@
+{
+  "assets": [
+    {
+      "file": "JiberishUI/Media/fantasy/paladin.tga",
+      "source": "artwork/fantasy/paladin.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        0,
+        4,
+        512,
+        248
+      ],
+      "sha256": "4dd71c73ea2d830a7e3a834d26669c14cf02d622cea5d50bef07f003abf26aeb",
+      "source_sha256": "5e62c7c6e23975f2c64239e1e18a25582a86b07bcf7c59cfed5ec8d013b626d2",
+      "phase1_usage": "Existing prototype artwork; whole texture on an owned frame, no native masks or replacements"
+    },
+    {
+      "file": "JiberishUI/Media/hub/console.tga",
+      "source": "artwork/hub-console.png",
+      "crop": null,
+      "transform": "resample to 2048x1024; preserve alpha",
+      "size": [
+        2048,
+        1024
+      ],
+      "alphaBounds": [
+        0,
+        139,
+        2048,
+        1024
+      ],
+      "sha256": "10cabc5d1a7bbe377d3c19f8648207c17eb6d26befed19cca62a5eadcaf6f987",
+      "source_sha256": "b1cc63ce41ff6130a19c798413841cada48df388a06bf6a628add88eda8471f2",
+      "phase1_usage": "Existing prototype artwork; whole texture on an owned frame, no native masks or replacements"
+    },
+    {
+      "file": "JiberishUI/Media/sacred_gold/portrait.tga",
+      "source": "artwork/masters/sacred_gold.png",
+      "crop": null,
+      "transform": "eight-piece portrait composition",
+      "size": [
+        128,
+        128
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "sha256": "36103096ea562754d282a9d0c12b1d479d3b3ebaa30664fe2e4fc0c56b1410f4",
+      "source_sha256": "89f7a18a9a72a250c1af17cfa7eb7bd72c0bf34b22cb7535c4b6aa5b69c7be53",
+      "phase1_usage": "Existing prototype artwork; whole texture on an owned frame, no native masks or replacements"
+    }
+  ],
+  "in_game_qualified": false
+}
