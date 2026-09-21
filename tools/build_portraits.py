@@ -10,7 +10,8 @@ import shutil
 from collections import deque
 from pathlib import Path
 import numpy as np
-from PIL import Image, ImageDraw, ImageChops, ImageOps
+from PIL import Image, ImageDraw
+from fit_portraits import conform
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'artwork/portraits'
@@ -26,18 +27,6 @@ def retain_source(record, destination):
     source = ROOT / record['path']
     if source.resolve() != destination.resolve():
         shutil.copyfile(source, destination)
-
-
-def clearances():
-    mask = Image.new('L', (SIZE, SIZE), 255)
-    d = ImageDraw.Draw(mask)
-    # Shared primary portrait opening. Preserve the full side silhouette and
-    # lower sweep: a separate circular level-badge cutout would turn the side
-    # ornament into a second ring. Native badges stay above our BACKGROUND art.
-    d.ellipse((90, 84, 218, 212), fill=0)
-    d.rectangle((154, 148, 218, 212), fill=0)
-    d.rectangle((214, 0, 255, 255), fill=0)
-    return mask
 
 
 def normalize_footprint(source):
@@ -104,7 +93,7 @@ def main(partial=False):
         assert set(records)=={j['id'] for j in jobs}, 'All requested artwork must be present'
     integrated_path=ART/'integrated-generation-results.json'
     integrated={r['id']:r for r in json.loads(integrated_path.read_text())} if integrated_path.exists() else {}
-    for folder in ('originals','integrated-originals','assets'):
+    for folder in ('originals','integrated-originals','assets','round','atlases'):
         (ART/folder).mkdir(exist_ok=True)
     output=ROOT/'JiberishUI/Media/Portraits'; output.mkdir(parents=True,exist_ok=True)
     official={a['id']:a for a in json.loads((ROOT/'artwork/official-crests/sources.json').read_text())}
@@ -117,28 +106,33 @@ def main(partial=False):
             original=ART/'integrated-originals'/f"{job['id']}.png"
             retain_source(integrated[job['id']],original)
         source,method=extract_alpha(Image.open(original))
-        result,registration_bounds=normalize_footprint(source)
-        result.putalpha(ImageChops.darker(result.getchannel('A'),clearances()))
-        result=remove_fragments(result)
+        registered,registration_bounds=normalize_footprint(source)
+        result=remove_fragments(conform(registered,'player'))
+        round_result=remove_fragments(conform(registered,'round'))
         a=np.asarray(result.getchannel('A'))
         assert .025 < (a>0).mean() < .65, job['id']
         assert not a[:,214:].any()
         assert result.getpixel((154,148))[3]==0
-        png=ART/'assets'/f"{job['id']}.png"; result.save(png)
-        tga=output/f"{job['id']}.tga"; result.save(tga,format='TGA',compression=None)
-        assert Image.open(tga).tobytes()==result.tobytes()
+        preview=ART/'assets'/f"{job['id']}.png"; result.save(preview)
+        round_preview=ART/'round'/f"{job['id']}.png"; round_result.save(round_preview)
+        atlas=Image.new('RGBA',(SIZE*2,SIZE),(0,0,0,0))
+        atlas.paste(result,(0,0));atlas.paste(round_result,(SIZE,0))
+        png=ART/'atlases'/f"{job['id']}.png"; atlas.save(png)
+        tga=output/f"{job['id']}.tga"; atlas.save(tga,format='TGA',compression=None)
+        assert Image.open(tga).tobytes()==atlas.tobytes()
         reports.append({
             'id':job['id'],'label':job['label'],'group':job['group'],
             'file':str(tga.relative_to(ROOT)),'source':str(png.relative_to(ROOT)),
-            'source_sha256':digest(png),'source_size':[SIZE,SIZE],
+            'source_sha256':digest(png),'source_size':[SIZE*2,SIZE],
+            'previews':{'player':str(preview.relative_to(ROOT)),'round':str(round_preview.relative_to(ROOT))},
             'original':str(original.relative_to(ROOT)),'original_sha256':digest(original),
-            'transform':method+'; register complete layered ornament in [8,8,210,244]; retain natural side details and lower sweep; shared primary portrait/bar clearance; no pasted badge, icon ring or level-badge cutout',
-            'fit_version':4,'registration_source_bounds':list(registration_bounds),
-            'registration_box':[8,8,210,244],'portrait_center':[154,148],'portrait_radius':64,
+            'transform':method+'; register silhouette then smoothly conform its inner contour to the native portrait; retain distant side details; left atlas half is Player teardrop, right half round Target/Focus; no level-badge cutout',
+            'fit_version':5,'registration_source_bounds':list(registration_bounds),
+            'registration_box':[8,8,214,244],'portrait_center':[154,148],'portrait_radius':60,'round_portrait_radius':58,
             'emblem_reference':official.get(job['id']) if job['id'] in integrated else None,
             'emblem_treatment':'motif integrated into generated sculpted ornament; no downloaded circular badge' if job['id'] in integrated else 'original continuous themed ornament; pasted badge removed',
-            'size':[SIZE,SIZE],'default_display_size':[128,128],
-            'alphaBounds':list(result.getchannel('A').getbbox()),'clear_points':[[154/256,148/256],[.9,.5]],
+            'size':[SIZE*2,SIZE],'default_display_size':[128,128],
+            'alphaBounds':list(atlas.getchannel('A').getbbox()),'clear_points':[[154/512,148/256],[410/512,148/256],[.45,.5],[.95,.5]],
             'sha256':digest(tga),'in_game_qualified':False,
         })
     (ART/'manifest.json').write_text(json.dumps({'assets':reports,'in_game_qualified':False},indent=2)+'\n')
@@ -148,7 +142,7 @@ def main(partial=False):
         manifest['assets']=[a for a in manifest['assets'] if '/Portraits/' not in a['file'] and 'unit-shell' not in a['file']]+reports
         manifest['portrait_prompts']='artwork/portraits/generation-prompts.json'
         (ROOT/'docs/phase1-assets.json').write_text(json.dumps(manifest,indent=2)+'\n')
-    print(f'Prepared {len(reports)} portrait backgrounds at 256 pixels with verified native openings.')
+    print(f'Prepared {len(reports)} dual-fit portrait atlases with independent Player and Target/Focus openings.')
 
 
 if __name__=='__main__':

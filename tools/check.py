@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 import struct
 import zipfile
+import math
 
 from package import ROOT, CLIENTS, VERSION, active_sources, payload
 
@@ -91,23 +92,39 @@ def asset_checks():
                 y = h - 1 - y
             assert pixels[(y*w+x)*4+3] == 0, "Functional opening must remain transparent"
         if "/Portraits/" in asset["file"]:
-            assert [w,h] == [256,256]
-            assert asset['fit_version']==4 and asset['registration_box']==[8,8,210,244]
-            assert asset['portrait_center']==[154,148] and asset['portrait_radius']==64
-            assert bounds[0]>=8 and bounds[1]>=8 and bounds[2]<=214 and bounds[3]<=244
+            assert [w,h] == [512,256]
+            assert asset['fit_version']==5 and asset['registration_box']==[8,8,214,244]
+            assert asset['portrait_center']==[154,148] and asset['portrait_radius']==60 and asset['round_portrait_radius']==58
+            assert bounds[0]>=8 and bounds[1]>=8 and bounds[2]<=470 and bounds[3]<=244
             assert any(y>=190 for x,y in visible), 'Natural side flare must not be chopped off'
             if asset.get('official_crest') or asset.get('emblem_reference'):
                 crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
             for y in range(h):
                 for x in range(w):
-                    # Exact default player silhouette and the native bar corridor;
-                    # mirrored target/focus portraits fit inside the same hole.
-                    clear = ((x-154)**2+(y-148)**2 <= 60**2 or
-                             (154 <= x <= 214 and 148 <= y <= 208) or
-                             x >= 214)
+                    # Separate Player and round Target/Focus atlas halves, with
+                    # the bar corridor clear in both before runtime mirroring.
+                    local_x=x%256
+                    radius=60 if x<256 else 58
+                    clear = ((local_x-154)**2+(y-148)**2 <= radius**2 or
+                             (x<256 and 154 <= local_x <= 214 and 148 <= y <= 208) or
+                             local_x >= 214)
                     row = y if descriptor & 32 else h-1-y
                     if clear:
                         assert pixels[(row*w+x)*4+3] == 0, asset["file"]
+            # A painted lower wrap must hug the native edge, rather than only
+            # passing the empty-center test while floating below it.
+            for start,radius in ((0,60),(256,58)):
+                for degrees in (90,100,110):
+                    angle=math.radians(degrees)
+                    hits=[]
+                    for distance in range(radius+1,100):
+                        x=start+round(154+math.cos(angle)*distance)
+                        y=round(148+math.sin(angle)*distance)
+                        if y>=h:continue
+                        row=y if descriptor & 32 else h-1-y
+                        if pixels[(row*w+x)*4+3]>96:hits.append(distance-radius)
+                    if hits:
+                        assert min(hits)<=4, (asset['file'],start,degrees,'Lower wrap floats away',min(hits))
         if "/Hubs/" in asset["file"]:
             assert [w,h]==[1024,512]
             assert asset['registration']=={'canvas':[2172,724],'seams':[620,980,1210,1552],
