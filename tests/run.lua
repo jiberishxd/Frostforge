@@ -88,11 +88,11 @@ test('native masks retained and addon mask removal deferred through combat',func
 end)
 test('missing artwork retains native decoration',function()
     local frame=CreateFrame('Button',nil,UIParent);frame.HealthBar=M.bar(frame);frame.Portrait=frame:CreateTexture();frame.FrameTexture=frame:CreateTexture();frame.unit='targettarget'
-    frame.ManaBar=M.bar(frame);frame.HealthBar.HealthBarMask=frame.HealthBar:CreateTexture();frame.ManaBar.ManaBarMask=frame.ManaBar:CreateTexture()
+    frame.ManaBar=M.bar(frame);frame.HealthBar.HealthBarMask=frame.HealthBar:CreateTexture();frame.ManaBar.ManaBarMask=frame.ManaBar:CreateTexture();frame.FrameTexture:SetAtlas('native-small-shell')
     TargetFrameToT=frame
     M.missing='human';J.active.targettarget=P:Resolve('targettarget');J.active.targettarget.skin='human'
     J:Attach({frame=frame,group='targettarget',kind='unit',definition=J.AdapterCommon.Units.small});equal(frame.FrameTexture:GetAlpha(),1);assert(not J.records[frame].applied);M.missing=nil
-    J:RefreshAll();equal(frame.FrameTexture:GetAlpha(),0)
+    J:RefreshAll();equal(frame.FrameTexture:GetAlpha(),1);assert(J.records[frame].applied)
 end)
 test('missing required regions fail closed before decoration suppression',function()
     local frame=CreateFrame('Button',nil,UIParent);frame.HealthBar=M.bar(frame);frame.FrameTexture=frame:CreateTexture()
@@ -171,14 +171,16 @@ test('portrait unit variants attach on both clients without unsupported texture 
             local before=J.active[group];local cfg=P:Resolve(group);cfg.skin='human';J.active[group]=cfg
             local ok=J:Protect(group,J.Attach,J,{frame=frame,group=group,kind='unit',definition=adapter.units[variant]})
             assert(ok,adapter.id..' '..variant);local record=assert(J.records[frame]);assert(record.applied and not record.failed)
-            equal(decoration:GetAlpha(),0);assert(not portrait.scripts.OnSizeChanged)
+            equal(decoration:GetAlpha(),1);assert(not portrait.scripts.OnSizeChanged)
             local textures,hooks=M.textures,M.hooks
             cfg.skin='mage';cfg.healthMode='custom';cfg.powerMode='custom'
             for i=1,5 do J:RefreshSafely(record,true) end
             assert(record.applied and not record.failed);equal(M.textures,textures);equal(M.hooks,hooks)
             equal(health:GetStatusBarTexture():GetTexture(),J.Neutral)
             if power then equal(power:GetStatusBarTexture():GetTexture(),J.Neutral) end
-            assert(record.borders[1].pieces.top:GetTexture():find('arcane_crystal',1,true))
+            assert(record.borders[1].arcs[1]:GetTexture():find('arcane_crystal',1,true))
+            equal(record.borders[1].arcs[1].points[1][2],portrait)
+            equal(record.borders[1].mask:GetTexture(),decoration:GetTexture())
             J.active[group]=before
         end
     end
@@ -203,6 +205,199 @@ test('live status distinguishes applied frames from failed attachments and empty
     assert(J:LiveStatus('player'):find('1 of 1',1,true))
     J.records=old;J.failures=oldFailures
     local output=J:Diagnostics();assert(output:find(' applied',1,true));assert(output:find(' failed',1,true))
+end)
+test('native silhouettes keep exact artwork bounds, atlas coordinates, and masks',function()
+    local f=CreateFrame('Frame',nil,UIParent);local source=f:CreateTexture(nil,'BACKGROUND',nil,2)
+    source:SetAtlas('native-teardrop-shell');source:SetTexCoord(0.1,0.8,0.2,0.9)
+    local clip=f:CreateMaskTexture();clip:SetTexture('native-clip');source:AddMaskTexture(clip)
+    local r=J.Renderer.CreateSilhouette(source);local cfg=P:Resolve('player')
+    assert(J.Renderer.Apply(r,cfg));equal(r.mask:GetAtlas(),'native-teardrop-shell')
+    equal(r.mask.coords[1],0.1);equal(r.mask.allPoints,source);equal(r.pieces.material.allPoints,source)
+    equal(source:GetNumMaskTextures(),1);equal(r.pieces.material:GetNumMaskTextures(),2)
+    equal(r.extraMasks[1].allPoints,clip)
+    cfg.thickness=12;cfg.inset=12;assert(J.Renderer.Apply(r,cfg));equal(r.pieces.material.allPoints,source)
+    local textures=M.textures;local writes=M.layoutWrites;M.combat=true
+    source:SetAtlas('native-portrait-off-shell');assert(J.Renderer.Refresh(r,cfg))
+    equal(r.mask:GetAtlas(),'native-portrait-off-shell');equal(M.textures,textures);equal(M.layoutWrites,writes);M.combat=false
+    source:Hide();assert(J.Renderer.Apply(r,cfg));assert(not r.pieces.material.shown)
+    source:Show();assert(J.Renderer.Apply(r,cfg));assert(r.pieces.material.shown)
+    textures=M.textures
+    for i=1,4 do
+        source:RemoveMaskTexture(clip);assert(J.Renderer.Apply(r,cfg))
+        equal(r.pieces.material:GetNumMaskTextures(),1)
+        source:AddMaskTexture(clip);assert(J.Renderer.Apply(r,cfg))
+    end
+    equal(M.textures,textures)
+end)
+test('Blizzard contours preserve the native backdrop and exclude bar interiors',function()
+    local frame,health,power,portrait,source=M.portraitUnit('player')
+    local cfg=P:Resolve('player');cfg.healthMode='native';cfg.powerMode='native'
+    local record=J.Renderer.CreateContour(source,{health=health,power=power,portrait=portrait})
+    assert(J.Renderer.Apply(record,cfg));equal(source:GetAlpha(),1);equal(source:GetTexture(),'native')
+    equal(#record.arcs,32);equal(#record.bars,2);equal(#record.blockers,2)
+    for i,entry in ipairs(record.blockers) do
+        equal(entry.mask:GetTexture(),J.MediaRoot..'outside-rect.tga')
+        equal(entry.mask:GetWidth(),entry.bar:GetWidth()*2)
+        equal(entry.mask.points[1][2],entry.bar)
+    end
+    for _,arc in ipairs(record.arcs) do
+        equal(arc:GetNumMaskTextures(),3);assert(arc.vertices and #arc.vertices==4)
+        assert(arc.allPoints~=source) -- No full-frame material fill.
+        local v=arc.vertices
+        local ax,ay=v[1][1]-0.5,v[1][2]+0.5
+        local bx,by=v[2][1]-0.5,v[2][2]-0.5
+        local cx,cy=v[3][1]+0.5,v[3][2]+0.5
+        assert((bx-ax)*(cy-ay)-(by-ay)*(cx-ax)>0) -- Same vertex winding as an ordinary texture quad.
+    end
+    for _,border in ipairs(record.bars) do
+        equal(border.pieces.top.points[1][2],border.pieces.tl)
+        equal(border.pieces.tl.points[1][2],border.region)
+        equal(border.pieces.tl.points[1][4],-2);equal(border.pieces.tl.points[1][5],2)
+    end
+    M.dead=true;assert(J.Renderer.Apply(record,cfg));equal(source:GetAlpha(),1);equal(health:GetStatusBarTexture():GetTexture(),'native');M.dead=false
+    power:Hide();power:SetWidth(0);assert(J.Renderer.Apply(record,cfg))
+    equal(record.blockers[2].mask:GetTexture(),J.Neutral)
+    power:SetWidth(124);power:Show();assert(J.Renderer.Apply(record,cfg))
+    local textures,writes=M.textures,M.layoutWrites;M.combat=true
+    source:SetAtlas('native-vehicle');assert(J.Renderer.Refresh(record,cfg))
+    equal(record.mask:GetAtlas(),'native-vehicle');equal(M.textures,textures);equal(M.layoutWrites,writes);M.combat=false
+    source:Hide();assert(J.Renderer.Apply(record,cfg));assert(not record.arcs[1].shown)
+end)
+test('missing contour exclusion mask fails closed without losing the native backdrop',function()
+    local frame,health,power,portrait,source=M.portraitUnit('target')
+    M.missing='outside-rect.tga'
+    J:Attach({frame=frame,group='target',kind='unit',definition=J.AdapterCommon.Units.target})
+    assert(not J.records[frame].applied);equal(source:GetAlpha(),1)
+    for _,piece in pairs(J.records[frame].borders[1].pieces) do assert(not piece.shown) end
+    M.missing=nil
+end)
+local function externalUnit()
+    local f=CreateFrame('Button',nil,UIParent);f.Health=M.bar(f);f.Power=M.bar(f,126,8);f.unit='player';return f
+end
+local function resetProviders()
+    M.loaded.ElvUI=nil;M.loaded.EllesmereUIUnitFrames=nil;M.loaded.EllesmereUIRaidFrames=nil;M.loaded.EllesmereUIActionBars=nil
+    ElvUI=nil;EllesmereUI=nil;ElvUI_BarPet=nil;J.Integrations:Discover({})
+    for _,group in ipairs(J.Groups) do J.conflicts[group]=nil end
+end
+test('ElvUI discovers registered unit frames and bars without touching native or nameplate instances',function()
+    local player=externalUnit();local outsider=externalUnit();local native=externalUnit()
+    local header=CreateFrame('Frame',nil,UIParent);local party=externalUnit();header.children={party}
+    local b=CreateFrame('Button',nil,UIParent);b:SetNormalTexture('elv-native-button')
+    local uf={units={player=player},headers={party=header}}
+    local ab={handledBars={bar1={buttons={b}}}}
+    M.loaded.ElvUI=true;ElvUI={{private={unitframe={enable=true},actionbar={enable=true}},GetModule=function(_,name) return name=='UnitFrames' and uf or ab end}}
+    local found=J.Integrations:Discover({{frame=native,group='player'}});local set={}
+    for _,d in ipairs(found) do set[d.frame]=d;J:Attach(d) end
+    assert(set[player] and set[party] and set[b]);assert(not set[native] and not set[outsider])
+    equal(J.records[player].provider,'elvui');assert(J.records[player].applied)
+    equal(b:GetNormalTexture():GetTexture(),'elv-native-button');equal(J.records[b].kind,'externalbutton')
+    local textures,hooks=M.textures,M.hooks
+    for i=1,5 do for _,d in ipairs(J.Integrations:Discover({})) do J:Attach(d);J:RefreshSafely(J.records[d.frame],true) end end
+    equal(textures,M.textures);equal(hooks,M.hooks);resetProviders()
+end)
+test('Ellesmere unit source selection preserves Blizzard choices and uses its existing unit field',function()
+    local native=externalUnit();local target=externalUnit();target.unit=nil;target._euiUnit='target'
+    local backdrop=CreateFrame('Frame',nil,target);local shell=backdrop:CreateTexture();shell:SetTexture('ellesmere-teardrop-border')
+    target.Portrait={backdrop=backdrop};backdrop._shapeBorderTex=shell
+    local ns={_eufEnabled=true,db={profile={}},frames={target=target},GetUnitFrameSource=function(group) return group=='player' and 'blizzard' or 'eui' end}
+    M.loaded.EllesmereUIUnitFrames=true;EllesmereUI={_ModuleNS={EllesmereUIUnitFrames=ns}}
+    local found=J.Integrations:Discover({{frame=native,group='player',kind='compact'}});local desc
+    for _,d in ipairs(found) do if d.frame==target then desc=d end end
+    assert(desc);equal(found[1].frame,native);equal(J.Colors.Unit(target,'_euiUnit'),'target')
+    shell:SetVertexColor(1,1,1,0.5)
+    J:Attach(desc);assert(J.records[target].applied);equal(shell:GetAlpha(),0);equal(target.unit,nil)
+    local shape=J.records[target].externalBorders[shell];equal(shape.mask:GetTexture(),'ellesmere-teardrop-border')
+    equal(shape.nativeAlpha(),0.5)
+    local fresh=CreateFrame('Frame',nil,target);target.Portrait={backdrop=fresh}
+    for _,d in ipairs(J.Integrations:Discover({})) do J:Attach(d) end
+    J:RefreshSafely(J.records[target],true);assert(not shape.active);equal(shell:GetAlpha(),1)
+    resetProviders()
+end)
+test('Ellesmere party and raid discovery reads its external frame-data registry',function()
+    local raid=CreateFrame('Button',nil,UIParent);local party=CreateFrame('Button',nil,UIParent)
+    local data={[raid]={health=M.bar(raid),power=M.bar(raid)},[party]={health=M.bar(party),power=M.bar(party),_isParty=true}}
+    raid.GetAttribute=function(_,key) assert(key=='unit');return 'raid1' end
+    local ns={db={profile={}},_allButtons={raid},_partyAllButtons={party},GetFFD=function(f) return data[f] end}
+    M.loaded.EllesmereUIRaidFrames=true;EllesmereUI={_ModuleNS={EllesmereUIRaidFrames=ns}}
+    local found=J.Integrations:Discover({});equal(#found,2)
+    for _,d in ipairs(found) do J:Attach(d);assert(J.records[d.frame].applied) end
+    equal(J.records[raid].group,'raid');equal(J.records[party].group,'party')
+    equal(J.Colors.Unit(raid,'attribute'),'raid1');equal(raid.unit,nil);equal(raid.Health,nil)
+    resetProviders()
+end)
+test('Ellesmere action borders preserve native button state textures',function()
+    local b=CreateFrame('Button',nil,UIParent);b:SetNormalTexture('eui-normal');b:SetHighlightTexture('eui-hover')
+    M.loaded.EllesmereUIActionBars=true;EllesmereUI={_ModuleNS={EllesmereUIActionBars={EAB={db={profile={}}},barButtons={MainBar={b}}}}}
+    local found=J.Integrations:Discover({});equal(#found,1);J:Attach(found[1]);assert(J.records[b].applied)
+    equal(b:GetNormalTexture():GetTexture(),'eui-normal');equal(b:GetHighlightTexture():GetTexture(),'eui-hover')
+    resetProviders()
+end)
+test('competing providers fail closed per group while mixed module providers work',function()
+    local player=externalUnit();local target=externalUnit();local button=CreateFrame('Button',nil,UIParent)
+    M.loaded.ElvUI=true;ElvUI={{private={unitframe={enable=true}},GetModule=function() return {units={player=player}} end}}
+    M.loaded.EllesmereUIUnitFrames=true;M.loaded.EllesmereUIActionBars=true
+    EllesmereUI={_ModuleNS={EllesmereUIUnitFrames={_eufEnabled=true,db={},frames={target=target}},
+        EllesmereUIActionBars={EAB={db={}},barButtons={MainBar={button}}}}}
+    local found=J.Integrations:Discover({});assert(J.AdapterCommon.Conflict('player'))
+    equal(#found,1);equal(found[1].frame,button)
+    M.loaded.EllesmereUIUnitFrames=nil;found=J.Integrations:Discover({});assert(not J.AdapterCommon.Conflict('player'))
+    equal(J.Integrations.providers.player,'elvui');equal(J.Integrations.providers.actionbars,'ellesmere');equal(#found,2)
+    resetProviders()
+end)
+test('external frames first discovered in combat remain native until combat ends',function()
+    local f=externalUnit();local d={frame=f,group='player',kind='external',provider='elvui',regions={health=f.Health,power=f.Power}}
+    M.combat=true;local textures=M.textures;J:Attach(d);assert(not J.records[f]);equal(M.textures,textures)
+    M.combat=false;J:Attach(d);assert(J.records[f].applied)
+end)
+test('shared special buttons retain provider state textures and shapes',function()
+    local b=CreateFrame('Button',nil,UIParent);b:SetNormalTexture('native-extra')
+    local native={{frame=b,group='extrabar',kind='button'}}
+    M.loaded.ElvUI=true;ElvUI={{private={actionbar={enable=true}}}}
+    local found=J.Integrations:Discover(native);equal(#found,1);equal(found[1].kind,'externalbutton')
+    equal(found[1].provider,'elvui');resetProviders()
+    local shell=b:CreateTexture();shell:SetTexture('ellesmere-shaped-button')
+    local data={[b]={shapeApplied=true,shapeBorder=shell}}
+    M.loaded.EllesmereUIActionBars=true
+    EllesmereUI={_ModuleNS={EllesmereUIActionBars={EAB={db={}},_eabFD=data,barButtons={}}}}
+    found=J.Integrations:Discover(native);equal(#found,1);J:Attach(found[1])
+    local record=J.records[b];local shaped=record.externalBorders[shell]
+    assert(record.applied and shaped.active);equal(shell:GetAlpha(),0);equal(b:GetNormalTexture():GetTexture(),'native-extra')
+    data[b].shapeApplied=false;found=J.Integrations:Discover(native);J:Attach(found[1]);J:RefreshSafely(record,true)
+    assert(not shaped.active);equal(shell:GetAlpha(),1);assert(record.externalBorders[b].active)
+    local textures,hooks=M.textures,M.hooks
+    data[b].shapeApplied=true;found=J.Integrations:Discover(native);J:Attach(found[1]);J:RefreshSafely(record,true)
+    equal(M.textures,textures);equal(M.hooks,hooks);resetProviders()
+end)
+test('external replacement bars restore old fills and hook each new bar once',function()
+    local f=externalUnit();local d={frame=f,group='player',kind='external',provider='elvui',regions={health=f.Health,power=f.Power}}
+    local old=J.active.player;J.active.player=J.Util.Copy(old);J.active.player.healthMode='custom'
+    J:Attach(d);local previous=f.Health;equal(previous:GetStatusBarTexture():GetTexture(),J.Neutral)
+    f.Health=M.bar(f);d.regions={health=f.Health,power=f.Power};J:Attach(d);J:RefreshSafely(J.records[f],true)
+    equal(previous:GetStatusBarTexture():GetTexture(),'native');equal(f.Health:GetStatusBarTexture():GetTexture(),J.Neutral)
+    previous:SetStatusBarColor(0.2,0.3,0.4,1);equal(previous.color[1],0.2)
+    local hooks=M.hooks;J:Attach(d);equal(M.hooks,hooks);J.active.player=old
+end)
+test('missing external artwork does not report successful application',function()
+    local f=externalUnit();M.missing='top.tga'
+    J:Attach({frame=f,group='player',kind='external',provider='elvui',regions={health=f.Health}})
+    assert(not J.records[f].applied);equal(f.Health:GetStatusBarTexture():GetTexture(),'native');M.missing=nil
+end)
+test('external hooks coalesce updates and are installed once',function()
+    local uf={units={player=externalUnit()},Update_AllFrames=function() end}
+    M.loaded.ElvUI=true;ElvUI={{private={unitframe={enable=true}},GetModule=function() return uf end}}
+    J.Integrations:Discover({});J.Integrations:InstallHooks();local hooks=M.hooks
+    J.Integrations:InstallHooks();equal(M.hooks,hooks)
+    uf:Update_AllFrames();assert(J.scheduled);M.flush();assert(not J.scheduled);resetProviders()
+end)
+test('startup waits for login before attaching provider or native frames',function()
+    IsLoggedIn=function() return false end
+    local textures,hooks=M.textures,M.hooks;J:RefreshAll();equal(M.textures,textures);equal(M.hooks,hooks)
+    IsLoggedIn=nil
+end)
+test('missing provider registries suppress native replacements with a diagnostic',function()
+    local f=externalUnit();M.loaded.EllesmereUIUnitFrames=true;EllesmereUI={}
+    local found=J.Integrations:Discover({{frame=f,group='player',kind='unit'}})
+    equal(#found,0);assert(J.AdapterCommon.Conflict('player'));resetProviders()
 end)
 test('both adapters are independent and unknown clients fail closed',function()
     assert(J.Adapters.retail.units~=J.Adapters.forever.units);equal(J.Adapters.forever.interface,16001)

@@ -1,8 +1,8 @@
 # JiberishUI
 
-Standalone border skins for Blizzard's unit frames and action bars. The library has **52 choices across 15 material families**: race, class, faction, and standard styles. Human remains the default. Every style can be selected globally or per frame group.
+Border skins for Blizzard's unit frames and action bars, with experimental ElvUI and Ellesmere integrations. The library has **52 choices across 15 material families**: race, class, faction, and standard styles. Human remains the default. Every style can be selected globally or per frame group.
 
-**Version 0.1.0-alpha.3 is an implementation for testing, not a compatibility-certified release.** Artwork has been prepared and measured, both source baselines have been traced, and offline tests pass. Initial Retail testing confirmed action-bar styling but exposed a portrait-frame attachment failure. Alpha.3 checks supported widget scripts before registering resize callbacks and improves error reporting. In-game combat safety, visual fit, and persistence on both clients remain release gates.
+**Version 0.1.0-alpha.5 is an implementation for testing, not a compatibility-certified release.** Alpha.3's rectangular borders fit poorly; alpha.4's full-frame material also textured empty health backdrops during Forever testing. Alpha.5 keeps the native backdrop, uses edge-only bar trim, and bends portrait material around the portrait, clipped to native artwork. ElvUI and Ellesmere adapters use their registered frames instead of skipping those addons. The 48 mocked behavioral tests pass; the revised renderer and integrations still require in-game visual, combat, and persistence validation.
 
 New highlights include Dwarf / Ironforge, Night Elf Moonwell / Ancient Grove / Sentinel, Mage Arcane Crystal, Warlock Fel Covenant, and standard Black Stone, Slate, Obsidian, Silver Steel, Aged Bronze, Ivory Gold, Forest Wood, and Frost Stone. There are presets for all 13 classes, 26 race identities, and Alliance/Horde. Related presets deliberately share artwork and use different palettes; the library contains 15 material families, not 52 independently painted sets. See `docs/SKIN-LIBRARY.md` for the full mapping.
 
@@ -12,7 +12,7 @@ New highlights include Dwarf / Ironforge, Night Elf Moonwell / Ancient Grove / S
 2. Extract its single `JiberishUI` folder into that client's `Interface/AddOns` directory. Avoid an extra nested folder.
 3. Start the client or reload its UI, enable JiberishUI, and open **Settings → AddOns → JiberishUI**, `/jui`, or `/jiberishui`.
 4. Choose Global or a frame group on the left, then **Browse styles**. Filter by category or search, page through the previews, and click a style to apply it. Color-mode buttons still cycle choices. Use **Use global settings** to clear that group's overrides.
-5. Use Blizzard Edit Mode for movement, dimensions, and spacing. JiberishUI controls decorative thickness, inset, opacity, tint, and ornament size. Narrow variants clamp the requested thickness.
+5. Use Blizzard Edit Mode, ElvUI, or Ellesmere's layout controls for movement, dimensions, and spacing. Blizzard portrait frames retain the native curved outline and width; JiberishUI changes its material, tint, and opacity. Thickness, inset, and ornaments apply to rectangular borders where supported. External rectangular borders are limited to 3 UI units; shaped Ellesmere artwork retains Ellesmere's geometry.
 
 During combat, settings are saved and the synthetic preview updates; live changes apply afterward. Disabling a module requires **Reload UI**, which reconstructs the native frame state. Re-enable before reloading to cancel that disable request. To remove every customization, disable the addon and reload. Disabling Global can be overridden by explicitly enabled groups; use the addon checkbox to turn everything off.
 
@@ -26,11 +26,13 @@ Native health/power colors remain the default. Custom modes use a white fill wit
 
 Casts, auras, class resources, predictions, absorbs, cooldowns, threat/selection/proc indicators, keybindings, and click behavior remain under Blizzard's control. Their independent reskinning, nameplates, minimap, chat, bags, tooltips, and other windows are outside this release. Custom endcaps/ornaments and borders still require the visual checks in `docs/VALIDATION.md`, especially with dense layouts.
 
-Known overlapping replacements are skipped: ElvUI; relevant EllesmereUI unit/raid/action modules; Shadowed Unit Frames; PitBull; Bartender; Dominos; and Masque's Blizzard integration. This conservative check is based on loaded addons, not individual settings inside those addons. If a conflict loads after attachment, JiberishUI stops further updates and requests a reload. Loose texture overrides in the WoW installation are not removed.
+ElvUI and Ellesmere support is selected automatically per frame group. The adapters were checked against installed ElvUI **15.26** and Ellesmere modules **9.1.8**; live validation is pending. Mixed ownership, such as ElvUI unit frames with Ellesmere action bars, is supported by discovery. If both providers own the same group, it is skipped with an explanation. External button states, cooldowns, and secure behavior stay with their provider. See [compatibility and testing](docs/COMPATIBILITY.md).
+
+Shadowed Unit Frames, PitBull, Bartender, Dominos, and Masque's Blizzard integration still trigger conservative skips for their affected groups. A provider change after attachment requires reload to finish restoration. Loose texture overrides in the WoW installation are not removed.
 
 ## Project and verification
 
-- `JiberishUI/` — addon source and 211 packaged TGA assets.
+- `JiberishUI/` — addon source and 212 packaged TGA assets, including the bar-interior exclusion mask.
 - `docs/border-showcase.png` — selected new borders at representative UI sizes.
 - `docs/skin-library-*.png` — full Race, Class, Faction, and Standard preview sheets.
 - `docs/skin-catalog.json` / `JiberishUI/SkinCatalog.lua` — generated catalog with permanent profile IDs.
@@ -39,6 +41,7 @@ Known overlapping replacements are skipped: ElvUI; relevant EllesmereUI unit/rai
 - `docs/assets.json` — dimensions, alpha bounds, crop provenance, and hashes.
 - `docs/source-load-order.json` — manifest and recursive XML/script order at the two pinned revisions.
 - `docs/ARCHITECTURE.md` — implementation contract and source mapping.
+- `docs/COMPATIBILITY.md` / `docs/integration-sources.json` — external provider coverage and installed-source evidence.
 - `docs/VALIDATION.md` — exact outstanding game tests and release gates.
 - `tools/` — reproducible source tracing, artwork extraction/conversion, checking, and packaging.
 
@@ -51,4 +54,4 @@ python3 tools/package.py
 python3 tools/check.py --packages
 ```
 
-The local development session used `.tools/lua-5.1.5/src/lua`; the tools and reference caches are ignored by Git and excluded from packages. Pillow is needed only to rebuild artwork/previews. Run `python3 tools/build_library.py` with Pillow to rebuild the expanded library from the included masters; the original four game-extracted families remain intact. See `docs/ARTWORK.md` for extraction details. `/jui diagnostics` reports geometry, adapter/build, attached/applied/failed counts, and sanitized error locations without dumping unit identities or health/power quantities. Error summaries also reach BugSack/BugGrabber when installed. After updating alpha.2, reload to retry previously failed frame attachments.
+The local development session used `.tools/lua-5.1.5/src/lua`; the tools and reference caches are ignored by Git and excluded from packages. Pillow is needed only to rebuild artwork/previews. Run `python3 tools/build_library.py` with Pillow to rebuild the expanded library from the included masters; the original four game-extracted families remain intact. See `docs/ARTWORK.md` for extraction details. `/jui diagnostics` reports geometry, adapter/build, frame provider, attached/applied/failed counts, and sanitized error locations without dumping unit identities or health/power quantities. Error summaries also reach BugSack/BugGrabber when installed. Reload after updating; restart the client if it has not picked up the new addon file list.
