@@ -1,0 +1,41 @@
+{
+  "inspected_on": "2026-09-20",
+  "source": "installed Retail addons",
+  "live_validated": false,
+  "addons": {
+    "ElvUI": {
+      "version": "v15.26",
+      "files": {
+        "ElvUI_Mainline.toc": "ad64e4c6da73f6298d4580faeb00b229a8214c1d0ecc8e7b16c09cf30c2dc4a3",
+        "Game/Shared/Modules/UnitFrames/UnitFrames.lua": "e5affbe20cc8c1bb62fa6f641c7571e3b09a0fba10cdf1f1e97624147f234aaf",
+        "Game/Shared/Modules/UnitFrames/Elements/Portrait.lua": "069bd36877f22d55500922d95417e0664c2bbad08ae882363b5cdb7770e00cc9",
+        "Game/Shared/Modules/ActionBars/ActionBars.lua": "e2d4528b345c0e967f7fd3ecdf5726f5513a13da4f108326323d6730ecad4c08",
+        "Game/Shared/Modules/ActionBars/PetBar.lua": "eedf719e51bb04c893efd61ae715483a80d4f531512dbb2759e9666cd2bfb9dd",
+        "Game/Shared/Modules/ActionBars/StanceBar.lua": "e8fa1cf23e662eef082c776bc535fb109385ebbd0408a9e2893ae41e4180391f",
+        "Game/Shared/Modules/ActionBars/ExtraAB.lua": "7d4be9786270553ec72c43a3c421b9b4b2aaae9116520e0c0742d33892d5171b"
+      }
+    },
+    "EllesmereUIUnitFrames": {
+      "version": "9.1.8",
+      "files": {
+        "EllesmereUIUnitFrames.toc": "99e3d54034ce62650e5de4f97f363d24586f4b936bcaa5751a8f180e06d97f55",
+        "EllesmereUIUnitFrames.lua": "e920bc902146ddf382dc496831f5cc2fe6c9c6e639d3df9b9dd6070dd014fc3e"
+      }
+    },
+    "EllesmereUIRaidFrames": {
+      "version": "9.1.8",
+      "files": {
+        "EllesmereUIRaidFrames.toc": "3474777e9f91ef671120f852d0b361a70a1b1bb956c821c33d2c87f459075367",
+        "EllesmereUIRaidFrames.lua": "883c56bf293164e5bfa586b44a11cec26bba0f5a0ad972721d1e96b3c4b857a4"
+      }
+    },
+    "EllesmereUIActionBars": {
+      "version": "9.1.8",
+      "files": {
+        "EllesmereUIActionBars.toc": "d12f7b84f8c888080237b9937d3714219b93e79f7c05761d5c26c926657e1372",
+        "EllesmereUIActionBars.lua": "b3f2fb24817aba51f1142bf1abe272cf949b8c1a464840a39fa11eec8e0484cf",
+        "EUI_ActionBars_Flyout.lua": "a83fee970d6779135581cb777e87a3a3d9ebc5f7d44a44f41c3c6492d12ce86d"
+      }
+    }
+  }
+}

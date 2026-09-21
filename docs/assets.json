@@ -3453,6 +3453,23 @@
       "sha256": "e3c2c63479348a5e91107eeaf4dbc00af0d436973aa1b5a12889c7911fb59ee6"
     },
     {
+      "file": "JiberishUI/Media/outside-rect.tga",
+      "source": "tools/build_geometry_mask.js",
+      "crop": null,
+      "transform": "opaque outside a central half-width/half-height rectangle; CLAMP with nearest filtering",
+      "size": [
+        8,
+        8
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        8,
+        8
+      ],
+      "sha256": "b58658fbeb86094f1cb893e7a90753517856891192d76f1aa3fb2a5aa11f92aa"
+    },
+    {
       "file": "JiberishUI/Media/sacred_gold/bl.tga",
       "source": "artwork/masters/sacred_gold.png",
       "crop": [
