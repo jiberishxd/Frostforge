@@ -559,6 +559,83 @@ test('new appearance changes queue during combat and apply the latest choices',f
     equal(J.active.player,old);M.combat=false;J:RefreshAll()
     equal(J.active.player.portraitStyle,'christmas');assert(J.active.player.healthGradient)
 end)
+test('crest offsets and expanded size preserve anchors and defer geometry in combat',function()
+    local owner,_,_,portrait=M.portraitUnit('player');owner.scale=0.5;portrait.scale=0.75
+    local cfg=P:Resolve('player');cfg.portraitStyle='mage';cfg.portraitX=-42;cfg.portraitY=28;cfg.portraitScale=2.5
+    local record=J.Fantasy.CreatePortrait(owner,portrait);assert(J.Fantasy.Portrait(record,cfg,true))
+    local point=record.texture.points[1];equal(point[2],portrait);equal(point[4],-42);equal(point[5],29)
+    equal(record.texture:GetWidth(),math.min(110,50*0.75/0.5*1.4)*2.5)
+    local writes=M.layoutWrites;M.combat=true;cfg.portraitX=100;J.Fantasy.Portrait(record,cfg,false)
+    equal(M.layoutWrites,writes);equal(record.texture.points[1][4],-42);M.combat=false
+    assert(J.Fantasy.Portrait(record,cfg,true));equal(record.texture.points[1][4],100)
+end)
+test('hub and crest customization round trips and rejects unsafe bounds',function()
+    local p=P.Default();p.groups.player={portraitX=-250,portraitY=250,portraitScale=3}
+    p.groups.actionbars={actionMode='hub',hubX=-300,hubY=50,hubWidth=1250,hubHeight=320,hubDock=true,
+        hubActionsX=25,hubActionsY=120,hubActionsScale=0.8,hubRowGap=16,hubBar2X=-150,hubBar2Y=-30,hubBar2Scale=0.9,
+        hubMicroX=-370,hubMicroY=30,hubMicroScale=0.7,hubBagsX=360,hubBagsY=30,hubBagsScale=1.1,
+        hubArtworkX=65,hubArtworkY=-40,hubArtworkScale=2.5}
+    local text=assert(P.Export(p));equal(P.Export(assert(P.Import(text))),text)
+    for key,value in pairs({portraitX=251,portraitY=-251,portraitScale=3.1,hubWidth=0,hubHeight=601,hubDock='true',hubActionsScale=0,hubArtworkY=401,hubBagsScale=99,hubMicroX=901}) do
+        local bad=P.Default();bad.global[key]=value;assert(not P.Validate(bad),key)
+    end
+end)
+test('Blizzard docking uses stable scaled anchors, preserves click behavior, and restores latest native layout',function()
+    UIParent:SetSize(1920,1080)
+    local old={MainActionBar,MultiBarBottomLeft,MultiBarBottomRight,MicroMenuContainer,MicroMenu,BagsBar}
+    local function frame(x)
+        local f=CreateFrame('Frame',nil,UIParent);f:SetSize(500,40);f:SetPoint('BOTTOM',UIParent,'BOTTOM',x,20);return f
+    end
+    MainActionBar=frame(25);MultiBarBottomLeft=frame(50);MultiBarBottomRight=frame(75)
+    MicroMenuContainer=frame(100);BagsBar=frame(125)
+    local click=function() end;MainActionBar:SetScript('OnClick',click);MainActionBar:SetScale(0.8)
+    local cfg=P:Resolve('actionbars');cfg.actionMode='hub';cfg.hubDock=true;cfg.hubActionsX=80;cfg.hubActionsScale=0.5
+    cfg.hubBar2X=-25;cfg.hubBar2Y=10;cfg.hubBar2Scale=0.8
+    local l=J.HubLayout;l:Apply(cfg)
+    equal(MainActionBar:GetScale(),0.4);equal(MainActionBar.points[1][4],200);equal(MainActionBar.points[1][5],cfg.hubActionsY/0.4)
+    equal(MainActionBar:GetParent(),UIParent);equal(MainActionBar.scripts.OnClick,click)
+    equal(MultiBarBottomLeft.points[1][4],55/0.4)
+    local writes,hooks=M.layoutWrites,M.hooks;l:Apply(cfg);equal(M.layoutWrites,writes);equal(M.hooks,hooks)
+    M.combat=true;cfg.hubActionsX=-100;l:Apply(cfg);l:Release();equal(M.layoutWrites,writes);M.combat=false
+    l:Apply(cfg);equal(MainActionBar.points[1][4],-250)
+    -- A native layout refresh supersedes the initial restore snapshot.
+    MainActionBar:ClearAllPoints();MainActionBar:SetPoint('BOTTOMLEFT',UIParent,'BOTTOMLEFT',42,37);MainActionBar:SetScale(0.9)
+    l:Apply(cfg);equal(MainActionBar:GetScale(),0.45)
+    cfg.hubDock=false;l:Apply(cfg);equal(MainActionBar:GetScale(),0.9);equal(MainActionBar.points[1][1],'BOTTOMLEFT');equal(MainActionBar.points[1][4],42)
+    cfg.hubDock=true;l:Apply(cfg);cfg.hubMicro=false;l:Apply(cfg);equal(MicroMenuContainer.points[1][4],100)
+    EditModeManagerFrame=CreateFrame('Frame',nil,UIParent);l:Apply(cfg);equal(MainActionBar.points[1][4],42)
+    MainActionBar:ClearAllPoints();MainActionBar:SetPoint('BOTTOM',UIParent,'BOTTOM',70,30)
+    EditModeManagerFrame:Hide();l:Apply(cfg);cfg.actionMode='native';l:Apply(cfg);equal(MainActionBar.points[1][4],70)
+    EditModeManagerFrame=nil
+    MainActionBar,MultiBarBottomLeft,MultiBarBottomRight,MicroMenuContainer,MicroMenu,BagsBar=unpack(old,1,6)
+end)
+test('hub never docks provider controls or conflicting frames',function()
+    local old=MainActionBar;MainActionBar=CreateFrame('Frame',nil,UIParent);MainActionBar:SetPoint('BOTTOM',UIParent,'BOTTOM',27,10)
+    local cfg=P:Resolve('actionbars');cfg.actionMode='hub';cfg.hubDock=true
+    local before=M.layoutWrites;J.Integrations.providers.actionbars='elvui';J.HubLayout:Apply(cfg);equal(M.layoutWrites,before)
+    J.Integrations.providers.actionbars='ellesmere';J.HubLayout:Apply(cfg);equal(M.layoutWrites,before)
+    J.Integrations.providers.actionbars=nil;J.conflicts.actionbars='conflict';J.HubLayout:Apply(cfg);equal(M.layoutWrites,before)
+    J.conflicts.actionbars=nil;MainActionBar=old
+end)
+test('console geometry clamps to screen, uses a reusable chassis, and restores on missing artwork',function()
+    local cfg=P:Resolve('actionbars');cfg.actionMode='hub';cfg.hubDock=false;cfg.hubStyle='mage';cfg.hubX=1200;cfg.hubY=700;cfg.hubWidth=1100;cfg.hubHeight=500
+    UIParent:SetSize(1000,600)
+    local x,y,w,h=J.HubLayout.Geometry(cfg);equal(x,0);equal(y,100);equal(w,1000);equal(h,500)
+    local b=CreateFrame('Button',nil,UIParent);b.rect={420,160,40,40}
+    local old=J.active.actionbars;J.active.actionbars=cfg
+    J.ActionHub:Update({{frame=b,group='actionbars',kind='button'}},true);assert(J.ActionHub.applied)
+    equal(#J.ActionHub.console,9);equal(J.ActionHub.frame:GetWidth(),1000)
+    equal(J.ActionHub.console[5].vertex[4],cfg.hubBackdrop*cfg.hubOpacity);assert(not J.ActionHub.background:IsShown())
+    cfg.hubArtworkX=-70;cfg.hubArtworkY=-40;J.ActionHub.lastConfig=nil;J.ActionHub:Layout(true)
+    equal(J.ActionHub.crest.points[1][4],-70);equal(J.ActionHub.crest.points[1][5],-38)
+    local textures,writes=M.textures,M.layoutWrites;J.ActionHub:Layout(true);equal(M.textures,textures);equal(M.layoutWrites,writes)
+    M.combat=true;J.ActionHub:Layout(false);equal(M.layoutWrites,writes);M.combat=false
+    J.ActionHub.lastConfig=nil;M.missing='hub';J.ActionHub:Layout(true);assert(not J.ActionHub.applied);M.missing=nil
+    J.ActionHub:Layout(true);assert(J.ActionHub.applied)
+    EditModeManagerFrame=CreateFrame('Frame',nil,UIParent);J.ActionHub:Layout(true);assert(not J.ActionHub.applied);EditModeManagerFrame=nil
+    cfg.actionMode='native';J.ActionHub:Layout(true);assert(not J.ActionHub.frame:IsShown())
+    J.active.actionbars=old;UIParent:SetSize(1920,1080)
+end)
 test('both adapters are independent and unknown clients fail closed',function()
     assert(J.Adapters.retail.units~=J.Adapters.forever.units);equal(J.Adapters.forever.interface,16001)
     J.ready=false;M.interface=16001;J:Initialize();equal(J.adapter.id,'forever');M.flush()

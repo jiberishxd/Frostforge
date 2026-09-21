@@ -2,12 +2,18 @@ local _, J = ...
 local U = J.Util
 local P = {}; J.Profiles = P
 local ranges = {thickness={2,12}, inset={-8,12}, opacity={0,1}, ornament={0,1},
-    gradientStrength={0,0.85},portraitScale={0.35,1.5},portraitOpacity={0,1},
-    hubPadding={2,32},hubArtworkScale={0.25,1.5},hubOpacity={0,1},hubBackdrop={0,0.8}}
+    gradientStrength={0,0.85},portraitScale={0.1,3},portraitOpacity={0,1},portraitX={-250,250},portraitY={-250,250},
+    hubPadding={2,32},hubArtworkScale={0.1,3},hubArtworkX={-800,800},hubArtworkY={-400,400},hubOpacity={0,1},hubBackdrop={0,0.8},
+    hubX={-1200,1200},hubY={0,700},hubWidth={500,2000},hubHeight={120,600},
+    hubActionsX={-900,900},hubActionsY={0,500},hubActionsScale={0.4,1.6},hubRowGap={0,40},
+    hubBar2X={-900,900},hubBar2Y={-400,400},hubBar2Scale={0.4,1.6},
+    hubBar3X={-900,900},hubBar3Y={-400,400},hubBar3Scale={0.4,1.6},
+    hubMicroX={-900,900},hubMicroY={0,500},hubMicroScale={0.4,1.6},
+    hubBagsX={-900,900},hubBagsY={0,500},hubBagsScale={0.4,1.6}}
 local modes = {healthMode={native=true,custom=true,class=true},powerMode={native=true,custom=true,type=true,class=true},
-    gradientDirection={HORIZONTAL=true,VERTICAL=true},actionMode={surround=true,buttons=true,both=true,native=true},
+    gradientDirection={HORIZONTAL=true,VERTICAL=true},actionMode={hub=true,surround=true,buttons=true,both=true,native=true},
     hubScope={cluster=true,all=true}}
-local booleans={enabled=true,healthGradient=true,powerGradient=true,portraitBorder=true,hubMicro=true,hubBags=true}
+local booleans={enabled=true,healthGradient=true,powerGradient=true,portraitBorder=true,hubMicro=true,hubBags=true,hubDock=true}
 local function color(value)
     if type(value) ~= 'table' then return false end
     for k,v in pairs(value) do

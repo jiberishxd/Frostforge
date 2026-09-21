@@ -48,7 +48,7 @@ Every row requires **Retail and Forever** testing, unless marked Forever-only. T
 
 ## Visual checks
 
-Alpha.7 adds gradients, independent portrait art, and one shared action-bar surround. Complete the live checklist in `FANTASY.md` on both clients, including all 13 class identities, changing power types, all 15 crests, micro menu and bags, grouped versus distant bars, provider fades, and switching back to native artwork. These features have no live pass recorded yet.
+Alpha.7's options apply in game, but the user reported poor crest/surround fit. Alpha.8 adds crest X/Y and a sculpted console with optional Blizzard docking. Complete `FANTASY.md` on both clients, including all class identities, changing power types, all 15 crests, every component position/size slider, micro menu/bags, native restoration, Edit Mode save/cancel, provider fades, and switching modes during combat. Verify no native frames move in combat and docking never takes over provider layouts. No alpha.8 live pass is recorded yet.
 
 Test all 15 material families at 1920 × 1080, 2560 × 1440, and 3840 × 2160, with representative UI scales (0.64, 0.8, 1.0) and frame scales (0.75, 1.0, 1.25) where supported. Spot-check all 52 presets for palette readability. Test the minimum and maximum thickness, inset, opacity, and ornament settings on rectangular layouts. Native silhouettes must retain the owning UI's geometry at every setting. Include narrow party frames, dense 40-member raid layouts, vertical/multiline action bars, portrait-off states, ElvUI portrait overlays, and Ellesmere shaped/inside portraits.
 

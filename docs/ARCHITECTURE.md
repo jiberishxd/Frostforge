@@ -1,6 +1,6 @@
 # Implementation contract
 
-The addon is cosmetic. Blizzard or the selected frame provider retains secure buttons, attributes, parentage, layout, frame dimensions, frame levels, and event scripts. No global native function is replaced by addon code. Post-hooks are registered once, and the ownership registry and lifecycle flags live in addon-owned tables.
+Blizzard or the selected frame provider retains secure buttons, attributes, parentage, internal button layout, frame dimensions, frame levels, and event scripts. Alpha.8's optional Blizzard hub docking is the sole layout exception: five explicitly named bottom-bar/menu/bag containers can receive new anchors and scale outside combat. Other layout stays with its owner. No global native function is replaced by addon code. Post-hooks are registered once, and ownership/lifecycle records live in addon-owned tables.
 
 ## Layers
 
@@ -16,7 +16,8 @@ The addon is cosmetic. Blizzard or the selected frame provider retains secure bu
 | `Core/Renderer.lua` | Native artwork silhouette masks, addon-owned corner/edge textures, bounded geometry, Blizzard button-state textures |
 | `Core/Colors.lua` | Neutral status-bar fills, optional class/resource gradients, mask ownership, native-priority fallback, no quantity reads |
 | `Core/Fantasy.lua` | Independent portrait material/tint/opacity and 15 class/holiday crest definitions |
-| `Core/ActionHub.lua` | One addon-owned surround around registered action-button rectangles and optional micro-menu/bag areas; no native frame movement |
+| `Core/ActionHub.lua` | Flexible nine-slice console, three decorative bays, configurable crest; legacy simple surround |
+| `Core/HubLayout.lua` | Optional out-of-combat docking of named Blizzard containers; native anchor/scale capture, restoration, provider exclusion, Edit Mode handoff |
 | `Core/Profiles.lua` | Schema validation, precedence, character assignments, bounded data-only import/export |
 | `Core/Settings.lua` | Native Settings canvas, searchable/paged visual skin browser, synthetic preview, profile controls |
 | `Core/Diagnostics.lua` | Build, geometry, attachment count, compatibility failures |
@@ -32,6 +33,8 @@ External providers are discovered only through their specific registries and kno
 The expanded library keeps all four original profile IDs unchanged. Category membership is descriptive: any preset can be selected on either client regardless of the player's actual race/class. Presets reuse 15 shared material directories; palette/default differences are explicit catalog data. Browser previews show the skin's defaults and disclose that saved appearance overrides still apply. Browsing and synthetic preview creation touch only addon-owned frames, including during combat; selecting a style uses the existing deferred application path.
 
 Alpha.7 adds independent portrait configuration without changing the unit-bar material. Portrait crests are transparent textures anchored above the portrait; the native curved outline renderer remains in use for trim. Gradient color endpoints derive only from configured/class/resource colors and use `SetGradient` on the existing fill; the addon never derives gradients from unit quantities. The action surround unions visible registered main/additional button rectangles in UIParent coordinates, optionally including the micro menu and bag bar. A 0.25-second addon-owned driver follows movement outside combat, freezes geometry in combat, and detects hidden/faded controls. It does not reparent or move native frames. Its frame ignores mouse input, and its header art stays outside the button rectangle. See `FANTASY.md` for modes, limitations, provenance, and live gates.
+
+Alpha.8 keeps that simple-surround mode and adds a configurable console with optional Blizzard docking at the user's request. Crest offsets can now move artwork relative to its original anchor, including over other UI. Docking captures native anchors/scale before attachment and tracks subsequent native SetPoint/SetScale calls independently, ignoring its own writes. Combat blocks all dock/restore writes. Edit Mode releases docking; the next attachment captures the edited layout. Providers are never docked, and no button parent, click attribute, event handler, visibility driver, or binding is changed. New profile defaults select the hub; explicit previous action modes remain valid. Console geometry has independent width/height and screen-clamped placement; component/crest offsets are bounded and exported. Native unit-frame geometry is unchanged.
 
 ## Source evidence and load order
 
