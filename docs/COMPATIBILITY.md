@@ -1,4 +1,4 @@
-# Frame provider compatibility — alpha.5
+# Frame provider compatibility — alpha.7
 
 These integrations are implemented and tested in the mocked host. **In-game compatibility is not yet verified.** Source inspection used the installed Retail copies of ElvUI 15.26 and Ellesmere Unit Frames, Raid Frames, and Action Bars 9.1.8. `integration-sources.json` records exact files and SHA-256 hashes without redistributing their code. Future versions can change private registries; unsupported layouts must retain native appearance and report the problem.
 
@@ -23,6 +23,8 @@ Use one provider for each group. ElvUI unit frames with Ellesmere action bars ca
 Use the owning UI's layout editor. JiberishUI never moves or resizes protected frames or changes click attributes. On Blizzard portrait families, the native silhouette determines border width and curved bar ends; JiberishUI changes material, tint, and opacity. Thickness, inset, and ornament sliders are disabled for those individual groups. Party groups can contain both portrait and compact frames, so their size settings affect only the compact instances.
 
 External rectangular borders clamp thickness to 3 UI units and have no hanging ornaments. Shaped Ellesmere borders follow Ellesmere's own border size and visibility. Change those dimensions in Ellesmere. Native color mode preserves each provider's bar styling; custom colors use the neutral-fill service. Values that are unavailable or restricted retain native presentation. Provider changes and module disabling require reload; ordinary skin changes apply outside combat.
+
+Alpha.7 makes individual main/additional button borders optional and defaults to one shared surround, with separate micro-menu/bag inclusion. It reads ElvUI's `ElvUI_MicroBar` and `ElvUIBagBar` geometry when available; Ellesmere retains Blizzard's `MicroMenu` and `BagsBar` objects. Independent portrait trim and optional crests apply only to the external portrait backdrops already discovered above. Gradient fills share the native-priority color service. These additions are mocked and source-inspected, not live compatibility claims; see `FANTASY.md`.
 
 ## Required live checks
 

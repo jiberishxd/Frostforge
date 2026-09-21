@@ -14,7 +14,9 @@ The addon is cosmetic. Blizzard or the selected frame provider retains secure bu
 | `Adapters/Integrations.lua` | ElvUI/Ellesmere registry discovery, ownership selection, optional refresh hooks |
 | `Core/Main.lua` | Discovery, ownership, lifecycle, coalesced events, combat deferral, reload rules |
 | `Core/Renderer.lua` | Native artwork silhouette masks, addon-owned corner/edge textures, bounded geometry, Blizzard button-state textures |
-| `Core/Colors.lua` | Neutral status-bar fills, mask ownership, native-priority fallback, no quantity reads |
+| `Core/Colors.lua` | Neutral status-bar fills, optional class/resource gradients, mask ownership, native-priority fallback, no quantity reads |
+| `Core/Fantasy.lua` | Independent portrait material/tint/opacity and 15 class/holiday crest definitions |
+| `Core/ActionHub.lua` | One addon-owned surround around registered action-button rectangles and optional micro-menu/bag areas; no native frame movement |
 | `Core/Profiles.lua` | Schema validation, precedence, character assignments, bounded data-only import/export |
 | `Core/Settings.lua` | Native Settings canvas, searchable/paged visual skin browser, synthetic preview, profile controls |
 | `Core/Diagnostics.lua` | Build, geometry, attachment count, compatibility failures |
@@ -28,6 +30,8 @@ The separate full-silhouette renderer is used only for Ellesmere's dedicated bor
 External providers are discovered only through their specific registries and known containers. Their rectangular frames receive an outer border limited to 3 UI units. Ellesmere shaped portraits/buttons use the same silhouette renderer where native border artwork exists. Button state textures are never replaced on external-provider buttons, including the special Blizzard buttons those addons style. Unit colors use ElvUI's existing unit field, Ellesmere unit frames' `_euiUnit`, or Ellesmere raid/party buttons' read-only `unit` attribute. Replaced bars restore their previous fill before being retired. Provider selection is recalculated on discovery, old ownership is revoked, and attachment waits until login and until outside combat. See `COMPATIBILITY.md` for coverage and limitations.
 
 The expanded library keeps all four original profile IDs unchanged. Category membership is descriptive: any preset can be selected on either client regardless of the player's actual race/class. Presets reuse 15 shared material directories; palette/default differences are explicit catalog data. Browser previews show the skin's defaults and disclose that saved appearance overrides still apply. Browsing and synthetic preview creation touch only addon-owned frames, including during combat; selecting a style uses the existing deferred application path.
+
+Alpha.7 adds independent portrait configuration without changing the unit-bar material. Portrait crests are transparent textures anchored above the portrait; the native curved outline renderer remains in use for trim. Gradient color endpoints derive only from configured/class/resource colors and use `SetGradient` on the existing fill; the addon never derives gradients from unit quantities. The action surround unions visible registered main/additional button rectangles in UIParent coordinates, optionally including the micro menu and bag bar. A 0.25-second addon-owned driver follows movement outside combat, freezes geometry in combat, and detects hidden/faded controls. It does not reparent or move native frames. Its frame ignores mouse input, and its header art stays outside the button rectangle. See `FANTASY.md` for modes, limitations, provenance, and live gates.
 
 ## Source evidence and load order
 

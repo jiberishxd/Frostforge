@@ -1,8 +1,8 @@
 # JiberishUI
 
-Border skins for Blizzard's unit frames and action bars, with experimental ElvUI and Ellesmere integrations. The library has **52 choices across 15 material families**: race, class, faction, and standard styles. Human remains the default. Every style can be selected globally or per frame group.
+Border skins for Blizzard's unit frames and action bars, with experimental ElvUI and Ellesmere integrations. The library has **52 trim choices across 15 material families**, plus **15 original class and holiday crests**. Human remains the default unit-border material. Every trim style can be selected globally or per frame group; portraits have independent controls.
 
-**Version 0.1.0-alpha.6 is an implementation for testing, not a compatibility-certified release.** Alpha.5 keeps the native backdrop, uses edge-only bar trim, and bends portrait material around the portrait, clipped to native artwork. ElvUI and Ellesmere adapters use their registered frames instead of skipping those addons. Alpha.6 adds startup persistence diagnostics and direct export/import commands after a user reproduced Forever settings loss on reload. The 51 mocked behavioral groups and 4 recovery-parser tests pass; the renderer and integrations still require in-game visual, combat, and persistence validation.
+**Version 0.1.0-alpha.7 is an implementation for testing, not a compatibility-certified release.** It adds class/resource gradients, a separate Portrait tab, 13 class crests plus Halloween and Christmas, and a shared action-bar surround including micro-menu and bag-button areas. The 60 mocked behavioral groups and 4 recovery-parser tests pass; real rendering, combat safety, provider compatibility, and persistence still require in-game validation. See [new controls and test steps](docs/FANTASY.md).
 
 New highlights include Dwarf / Ironforge, Night Elf Moonwell / Ancient Grove / Sentinel, Mage Arcane Crystal, Warlock Fel Covenant, and standard Black Stone, Slate, Obsidian, Silver Steel, Aged Bronze, Ivory Gold, Forest Wood, and Frost Stone. There are presets for all 13 classes, 26 race identities, and Alliance/Horde. Related presets deliberately share artwork and use different palettes; the library contains 15 material families, not 52 independently painted sets. See `docs/SKIN-LIBRARY.md` for the full mapping.
 
@@ -11,7 +11,7 @@ New highlights include Dwarf / Ironforge, Night Elf Moonwell / Ancient Grove / S
 1. Choose the matching archive in `dist`: Retail (interface **120100**, audited build **12.1.0.69875**) or Forever (interface **16001**, audited build **1.60.1.69913**).
 2. Extract its single `JiberishUI` folder into that client's `Interface/AddOns` directory. Avoid an extra nested folder.
 3. Start the client or reload its UI, enable JiberishUI, and open **Settings → AddOns → JiberishUI**, `/jui`, or `/jiberishui`.
-4. Choose Global or a frame group on the left, then **Browse styles**. Filter by category or search, page through the previews, and click a style to apply it. Color-mode buttons still cycle choices. Use **Use global settings** to clear that group's overrides.
+4. Choose Global or a frame group on the left. **Borders** changes unit/bar trim; **Colors** enables health/power gradients; **Portrait** selects independent trim and artwork. **Action setup** controls the shared surround. Style browsers support previews; color-mode buttons cycle choices. Use **Use global settings** on Borders to clear that group's overrides.
 5. Use Blizzard Edit Mode, ElvUI, or Ellesmere's layout controls for movement, dimensions, and spacing. Blizzard portrait frames retain the native curved outline and width; JiberishUI changes its material, tint, and opacity. Thickness, inset, and ornaments apply to rectangular borders where supported. External rectangular borders are limited to 3 UI units; shaped Ellesmere artwork retains Ellesmere's geometry.
 
 During combat, settings are saved and the synthetic preview updates; live changes apply afterward. Disabling a module requires **Reload UI**, which reconstructs the native frame state. Re-enable before reloading to cancel that disable request. To remove every customization, disable the addon and reload. Disabling Global can be overridden by explicitly enabled groups; use the addon checkbox to turn everything off.
@@ -20,11 +20,11 @@ The Profiles page supports named copies, per-character selection, reset, export,
 
 ## Coverage
 
-Implemented discovery includes player, target, focus, pet, boss, target-of-target, focus-target, portrait party/pets, compact party/pets, raids, main/additional action bars, pet/stance/possess/override buttons, extra/zone buttons, flyouts, and Forever multicast/totem buttons. Main-bar border art and both endcaps are decorated independently; Forever endcaps retain their own Edit Mode containers.
+Implemented discovery includes player, target, focus, pet, boss, target-of-target, focus-target, portrait party/pets, compact party/pets, raids, main/additional action bars, pet/stance/possess/override buttons, extra/zone buttons, flyouts, and Forever multicast/totem buttons. The main/additional action bars default to one shared surround with native buttons. Individual-button styling remains optional; its legacy main-bar art and endcaps retain their own containers. Micro-menu and bag-button areas can join the surround without being moved or having their clicks modified.
 
-Native health/power colors remain the default. Custom modes use a white fill with the native mask. Health supports fixed and class/reaction colors; power supports fixed and power-type palettes. Disconnected, dead, tapped, unavailable, and restricted states fall back to native presentation. Compact frames configured for threat-based health coloring keep native health colors.
+Native health/power colors remain the default. Custom modes use a white fill with the native mask. Health supports fixed and class/reaction colors; power supports fixed, class/reaction, and power-type palettes. Both offer gradients with direction and depth controls. Disconnected, dead, tapped, unavailable, and restricted states fall back to native presentation. Compact frames configured for threat-based health coloring keep native health colors.
 
-Casts, auras, class resources, predictions, absorbs, cooldowns, threat/selection/proc indicators, keybindings, and click behavior remain under Blizzard's control. Their independent reskinning, nameplates, minimap, chat, bags, tooltips, and other windows are outside this release. Custom endcaps/ornaments and borders still require the visual checks in `docs/VALIDATION.md`, especially with dense layouts.
+Casts, auras, class resources, predictions, absorbs, cooldowns, threat/selection/proc indicators, keybindings, and click behavior remain under Blizzard's control. Their independent reskinning, nameplates, minimap, chat, bag inventory windows, tooltips, and other windows are outside this release. Custom endcaps/ornaments and borders still require the visual checks in `docs/VALIDATION.md`, especially with dense layouts.
 
 ElvUI and Ellesmere support is selected automatically per frame group. The adapters were checked against installed ElvUI **15.26** and Ellesmere modules **9.1.8**; live validation is pending. Mixed ownership, such as ElvUI unit frames with Ellesmere action bars, is supported by discovery. If both providers own the same group, it is skipped with an explanation. External button states, cooldowns, and secure behavior stay with their provider. See [compatibility and testing](docs/COMPATIBILITY.md).
 
@@ -32,7 +32,9 @@ Shadowed Unit Frames, PitBull, Bartender, Dominos, and Masque's Blizzard integra
 
 ## Project and verification
 
-- `JiberishUI/` — addon source and 212 packaged TGA assets, including the bar-interior exclusion mask.
+- `JiberishUI/` — addon source and 227 packaged TGA assets, including 15 fantasy crests and the bar-interior exclusion mask.
+- `docs/FANTASY.md` / `docs/fantasy-library.png` — new controls, implementation limits, live test steps, and the crest artwork sheet.
+- `artwork/fantasy/` / `artwork/fantasy-prompts.json` — 15 original transparent masters and exact built-in image_gen prompts.
 - `docs/border-showcase.png` — selected new borders at representative UI sizes.
 - `docs/skin-library-*.png` — full Race, Class, Faction, and Standard preview sheets.
 - `docs/skin-catalog.json` / `JiberishUI/SkinCatalog.lua` — generated catalog with permanent profile IDs.

@@ -2,7 +2,7 @@
 ## Title: JiberishUI
 ## Notes: Race, class, faction, and standard border styles for Blizzard frames. Alpha; in-game validation pending.
 ## Author: JiberishUI
-## Version: 0.1.0-alpha.6
+## Version: 0.1.0-alpha.7
 ## SavedVariables: JiberishUIDB
 ## OptionalDeps: Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_CompactRaidFrames, Blizzard_OverrideActionBar, Blizzard_ZoneAbility, Blizzard_Settings, ElvUI, EllesmereUIUnitFrames, EllesmereUIRaidFrames, EllesmereUIActionBars
 
@@ -13,6 +13,8 @@ Skins.lua
 Core\Profiles.lua
 Core\Renderer.lua
 Core\Colors.lua
+Core\Fantasy.lua
+Core\ActionHub.lua
 Adapters\Common.lua
 Adapters\Retail.lua
 Adapters\Forever.lua

@@ -28,6 +28,62 @@ local function cycle(parent,x,y,width,get,choices,change)
     return f
 end
 function S:Value() return P:Resolve(self.scope) end
+function S:Toggle(parent,key,text,y,whenEnabled)
+    local box=CreateFrame('CheckButton',nil,parent,'UICheckButtonTemplate');box:SetPoint('TOPLEFT',196,y)
+    label(parent,text,232,y-8,430)
+    box:SetScript('OnClick',function()
+        local value=box:GetChecked() and true or false
+        if value and whenEnabled then whenEnabled() end
+        self:Set(key,value)
+    end)
+    self.controls[#self.controls+1]={Refresh=function() box:SetChecked(self:Value()[key]) end}
+    return box
+end
+function S:FantasyButton(parent,key,y)
+    local control=button(parent,'',200,y,440,function() self:BrowseFantasy(key) end)
+    self.controls[#self.controls+1]={Refresh=function()
+        local id=self:Value()[key]
+        control:SetText((id=='none' and 'No artwork' or id=='class' and 'Automatic class artwork' or J.Fantasy.styles[id].label)..' — Browse')
+    end}
+end
+function S:BrowseFantasy(key)
+    if not self.fantasyBrowser then
+        local f=CreateFrame('Frame',nil,UIParent,'BackdropTemplate');self.fantasyBrowser=f
+        f:SetSize(720,520);f:SetPoint('CENTER');f:SetFrameStrata('DIALOG');f:EnableMouse(true)
+        f:SetBackdrop({bgFile='Interface\\Buttons\\WHITE8X8',edgeFile='Interface\\Tooltips\\UI-Tooltip-Border',edgeSize=16})
+        f:SetBackdropColor(0.055,0.065,0.085,1)
+        f.title=label(f,'Class fantasy and holidays',20,-18,640)
+        local function select(id) P:Set(f.scope,f.key,id);self:Refresh();f:Hide() end
+        button(f,'Automatic class',20,-48,180,function() select('class') end)
+        button(f,'No artwork',210,-48,180,function() select('none') end)
+        f.cards={}
+        for i=1,6 do
+            local card=CreateFrame('Button',nil,f);card:SetSize(325,110);card:SetPoint('TOPLEFT',24+((i-1)%2)*351,-90-math.floor((i-1)/2)*116)
+            card.bg=card:CreateTexture(nil,'BACKGROUND');card.bg:SetAllPoints();card.bg:SetColorTexture(0.08,0.1,0.13,1)
+            card.title=label(card,'',10,-8,300)
+            card.art=card:CreateTexture(nil,'ARTWORK');card.art:SetSize(225,75);card.art:SetPoint('TOP',card,'TOP',0,-31)
+            card:SetScript('OnClick',function() if card.style then select(card.style) end end);f.cards[i]=card
+        end
+        button(f,'Previous',20,-451,110,function() f.page=math.max(1,f.page-1);self:RefreshFantasy() end)
+        button(f,'Next',140,-451,110,function() f.page=math.min(3,f.page+1);self:RefreshFantasy() end)
+        button(f,'Close',580,-451,110,function() f:Hide() end)
+        label(f,'13 class crests + Halloween and Christmas. Separate from your unit-bar material.',20,-492,670)
+    end
+    local f=self.fantasyBrowser;f.key=key;f.scope=self.scope;f.page=1;f:Show();self:RefreshFantasy()
+end
+function S:RefreshFantasy()
+    local f=self.fantasyBrowser
+    for i,card in ipairs(f.cards) do
+        local id=J.Fantasy.order[(f.page-1)*6+i];card.style=id;card:SetShown(id~=nil)
+        if id then local style=J.Fantasy.styles[id];card.title:SetText(style.label);card.art:SetTexture(style.path) end
+    end
+end
+function S:ShowPage(id)
+    self.page=id
+    for key,page in pairs(self.pages) do page:SetShown(key==id) end
+    if id=='actions' then self.scope='actionbars' end
+    self:Refresh()
+end
 function S:ExportProfile()
     self:Dialog('Copy this export before reloading',P.Export(P:Current()))
 end
@@ -107,7 +163,7 @@ function S:Dialog(title,text,accept)
     local f=self.dialog; f.title:SetText(title); f.edit:SetText(text or ''); f.action=accept; f.accept:SetShown(accept~=nil)
     f:Show(); f.edit:SetFocus(); f.edit:HighlightText()
 end
-function S:BrowseSkins()
+function S:BrowseSkins(key)
     if not self.browser then
         local f=CreateFrame('Frame',nil,UIParent,'BackdropTemplate'); self.browser=f
         f:SetSize(720,510); f:SetPoint('CENTER'); f:SetFrameStrata('DIALOG'); f:EnableMouse(true)
@@ -134,7 +190,7 @@ function S:BrowseSkins()
             local fill=sample:CreateTexture(nil,'BACKGROUND'); fill:SetAllPoints(); fill:SetColorTexture(0.06,0.09,0.12,1)
             card.border=R.Create(sample,sample,'compact')
             card:SetScript('OnClick',function()
-                if card.skin then self.scope=f.scope; self:Set('skin',card.skin); f:Hide() end
+                if card.skin then self.scope=f.scope; self:Set(f.key,card.skin); f:Hide() end
             end)
             f.cards[i]=card
         end
@@ -143,7 +199,7 @@ function S:BrowseSkins()
         button(f,'Close',580,-450,110,function() f:Hide() end)
         f.note=label(f,'Skin defaults shown. Your saved overrides still apply. Related styles share material artwork.',20,-484,670)
     end
-    local f=self.browser; f.scope=self.scope
+    local f=self.browser; f.scope=self.scope;f.key=key or 'skin'
     f.heading:SetText('Choose a border style — '..(self.scope=='global' and 'Global' or J.GroupLabels[self.scope]))
     f:Show(); self:RefreshBrowser()
 end
@@ -152,7 +208,8 @@ function S:RefreshBrowser()
     local ids=J:FindSkins(f.category,f.search:GetText())
     local pages=math.max(1,math.ceil(#ids/6)); f.page=U.Clamp(f.page,1,pages)
     f.position:SetText(string.format('%d styles • %d / %d',#ids,f.page,pages))
-    local active=P:Resolve(f.scope or self.scope).skin
+    local config=P:Resolve(f.scope or self.scope)
+    local active=config[f.key or 'skin']
     for i,card in ipairs(f.cards) do
         local id=ids[(f.page-1)*6+i]; card.skin=id; card:SetShown(id~=nil)
         if id then
@@ -173,9 +230,14 @@ function S:Refresh()
     self.enabled:SetChecked(config.enabled)
     self.inherit:SetShown(self.scope~='global')
     R.Apply(self.previewBorder,config)
-    local hc=config.healthMode=='native' and {0.1,0.8,0.2} or config.healthMode=='class' and {0.96,0.55,0.73} or config.healthColor
-    local pc=config.powerMode=='custom' and config.powerColor or config.powerColors.MANA or {0.2,0.45,1}
-    self.previewHealth:SetStatusBarColor(unpack(hc)); self.previewPower:SetStatusBarColor(unpack(pc))
+    local class=RAID_CLASS_COLORS and RAID_CLASS_COLORS[self.previewClass or 'MAGE']
+    local classColor=class and {class.r,class.g,class.b} or {0.4,0.8,1}
+    local hc=config.healthMode=='native' and {0.1,0.8,0.2} or config.healthMode=='class' and classColor or config.healthColor
+    local token=self.powerToken or 'MANA'
+    local power=PowerBarColor and PowerBarColor[token]
+    local pc=config.powerMode=='class' and classColor or config.powerMode=='custom' and config.powerColor or config.powerColors[token] or (power and {power.r,power.g,power.b}) or {0.2,0.45,1}
+    J.Colors.Paint(self.previewHealth,hc,config.healthMode~='native' and config.healthGradient,config.gradientDirection,config.gradientStrength)
+    J.Colors.Paint(self.previewPower,pc,config.powerMode~='native' and config.powerGradient,config.gradientDirection,config.gradientStrength)
     self.profileLabel:SetText('Active profile: '..P:Name())
     self.refreshing=false
 end
@@ -193,34 +255,77 @@ function S:Create()
     local groups={'global'}; for _,group in ipairs(J.Groups) do groups[#groups+1]=group end
     for i,group in ipairs(groups) do
         local scope=group
-        button(appearance,group=='global' and 'Global' or J.GroupLabels[group],16,-104-(i-1)*23,170,function() self.scope=scope; self:Refresh() end)
+        button(appearance,group=='global' and 'Global' or J.GroupLabels[group],16,-104-(i-1)*23,170,function()
+            self.scope=scope
+            if self.page=='actions' and scope~='actionbars' then self:ShowPage('borders') else self:Refresh() end
+        end)
     end
-    self.scopeLabel=label(appearance,'',200,-106,450)
-    local theme=button(appearance,'Browse styles',200,-130,440,function() self:BrowseSkins() end)
+    self.scopeLabel=label(appearance,'',200,-106,330)
+    self.pages={}
+    for i,entry in ipairs({{'borders','Borders'},{'colors','Colors'},{'portrait','Portrait'},{'actions','Action setup'}}) do
+        local id=entry[1];local page=CreateFrame('Frame',nil,appearance);page:SetAllPoints();page:SetShown(i==1);self.pages[id]=page
+        button(appearance,entry[2],200+(i-1)*112,-135,108,function() self:ShowPage(id) end)
+    end
+    self.page='borders'
+    local borders,colors,portrait,actions=self.pages.borders,self.pages.colors,self.pages.portrait,self.pages.actions
+    local theme=button(borders,'Browse styles',200,-180,440,function() self:BrowseSkins() end)
     self.controls[#self.controls+1]={Refresh=function() theme:SetText(J.Skins[self:Value().skin].label..' — Browse styles') end}
-    self.enabled=CreateFrame('CheckButton',nil,appearance,'UICheckButtonTemplate'); self.enabled:SetPoint('TOPLEFT',196,-160)
+    self.enabled=CreateFrame('CheckButton',nil,appearance,'UICheckButtonTemplate'); self.enabled:SetPoint('TOPLEFT',548,-99)
     self.enabled:SetScript('OnClick',function(box) self:Set('enabled',box:GetChecked() and true or false) end)
-    label(appearance,'Enable this group (disabling requires reload)',232,-170,430)
-    self:Slider(appearance,'thickness','Border thickness',-204,2,12,0.5)
-    self:Slider(appearance,'inset','Border inset',-237,-8,12,0.5)
-    self:Slider(appearance,'opacity','Border opacity',-270,0,1,0.05)
-    self:Slider(appearance,'ornament','Ornament scale',-303,0,1,0.05)
-    button(appearance,'Border tint',200,-332,130,function() self:Color('tint') end)
-    self.inherit=button(appearance,'Use global settings',420,-332,200,function() P:ClearGroup(self.scope); self:Refresh() end)
-    label(appearance,'Health',200,-373,80)
-    self.controls[#self.controls+1]=cycle(appearance,285,-365,180,function() return self:Value().healthMode end,{{'native','Blizzard colors'},{'custom','Fixed color'},{'class','Class / reaction'}},function(value) self:Set('healthMode',value) end)
-    button(appearance,'Health color',480,-365,160,function() self:Color('healthColor') end)
-    label(appearance,'Power',200,-405,80)
-    self.controls[#self.controls+1]=cycle(appearance,285,-397,180,function() return self:Value().powerMode end,{{'native','Blizzard colors'},{'custom','Fixed color'},{'type','Power type'}},function(value) self:Set('powerMode',value) end)
-    button(appearance,'Power color',480,-397,160,function() self:Color('powerColor') end)
+    label(appearance,'Enabled',583,-108,80)
+    self:Slider(borders,'thickness','Border thickness',-224,2,12,0.5)
+    self:Slider(borders,'inset','Border inset',-257,-8,12,0.5)
+    self:Slider(borders,'opacity','Border opacity',-290,0,1,0.05)
+    self:Slider(borders,'ornament','Ornament scale',-323,0,1,0.05)
+    button(borders,'Border tint',200,-363,130,function() self:Color('tint') end)
+    self.inherit=button(borders,'Use global settings',420,-363,200,function() P:ClearGroup(self.scope); self:Refresh() end)
+    label(borders,'Portrait artwork has its own tab. Edit Mode or your frame addon controls layout.\nDisabling a group requires Reload UI.',200,-410,440)
+    label(colors,'Health',200,-191,80)
+    self.controls[#self.controls+1]=cycle(colors,285,-183,180,function() return self:Value().healthMode end,{{'native','Blizzard colors'},{'custom','Fixed color'},{'class','Class / reaction'}},function(value) self:Set('healthMode',value) end)
+    button(colors,'Health color',480,-183,160,function() self:Color('healthColor') end)
+    self:Toggle(colors,'healthGradient','Health gradient',-215,function() if self:Value().healthMode=='native' then self:Set('healthMode','class') end end)
+    label(colors,'Power',200,-263,80)
+    self.controls[#self.controls+1]=cycle(colors,285,-255,180,function() return self:Value().powerMode end,{{'native','Blizzard colors'},{'custom','Fixed color'},{'type','Power type'},{'class','Class / reaction'}},function(value) self:Set('powerMode',value) end)
+    button(colors,'Power color',480,-255,160,function() self:Color('powerColor') end)
+    self:Toggle(colors,'powerGradient','Power gradient',-287,function() if self:Value().powerMode=='native' then self:Set('powerMode','type') end end)
+    label(colors,'Gradient',200,-334,80)
+    self.controls[#self.controls+1]=cycle(colors,285,-326,355,function() return self:Value().gradientDirection end,{{'HORIZONTAL','Left to right'},{'VERTICAL','Bottom to top'}},function(value) self:Set('gradientDirection',value) end)
+    self:Slider(colors,'gradientStrength','Gradient depth',-365,0,0.85,0.05)
     self.powerToken='MANA'
-    self.controls[#self.controls+1]=cycle(appearance,200,-431,265,function() return self.powerToken end,{{'MANA','Mana'},{'RAGE','Rage'},{'FOCUS','Focus'},{'ENERGY','Energy'},{'RUNIC_POWER','Runic power'},{'LUNAR_POWER','Astral power'},{'MAELSTROM','Maelstrom'},{'INSANITY','Insanity'},{'FURY','Fury'},{'PAIN','Pain'}},function(value) self.powerToken=value; self:Refresh() end)
-    button(appearance,'Type color',480,-431,160,function() self:Color('powerColors',self.powerToken) end)
+    self.controls[#self.controls+1]=cycle(colors,200,-405,265,function() return self.powerToken end,{{'MANA','Mana'},{'RAGE','Rage'},{'FOCUS','Focus'},{'ENERGY','Energy'},{'RUNIC_POWER','Runic power'},{'LUNAR_POWER','Astral power'},{'MAELSTROM','Maelstrom'},{'INSANITY','Insanity'},{'FURY','Fury'},{'PAIN','Pain'}},function(value) self.powerToken=value; self:Refresh() end)
+    button(colors,'Type color',480,-405,160,function() self:Color('powerColors',self.powerToken) end)
+    self.previewClass='MAGE'
+    label(colors,'Preview class',200,-450,90)
+    self.controls[#self.controls+1]=cycle(colors,300,-442,340,function() return self.previewClass end,function()
+        local list={};for _,id in ipairs(J.SkinOrder) do local skin=J.Skins[id];if skin.category=='class' then list[#list+1]={skin.identity,skin.identity} end end;return list
+    end,function(value) self.previewClass=value;self:Refresh() end)
+    local portraitMaterial=button(portrait,'Portrait border material',200,-180,440,function() self:BrowseSkins('portraitSkin') end)
+    self.controls[#self.controls+1]={Refresh=function()
+        local id=self:Value().portraitSkin;portraitMaterial:SetText('Trim: '..(id=='inherit' and 'Match bar material' or J.Skins[id].label)..' — Browse')
+    end}
+    button(portrait,'Match bar material',200,-213,200,function() self:Set('portraitSkin','inherit') end)
+    button(portrait,'Portrait trim tint',420,-213,220,function() self:Color('portraitTint') end)
+    self:Toggle(portrait,'portraitBorder','Decorate the portrait outline',-246)
+    self:FantasyButton(portrait,'portraitStyle',-286)
+    self:Slider(portrait,'portraitScale','Artwork size',-333,0.35,1.5,0.05)
+    self:Slider(portrait,'portraitOpacity','Portrait opacity',-370,0,1,0.05)
+    label(portrait,'Crests sit above the portrait. Its native shape and functional indicators stay in place.\nAutomatic class art follows player units; choose a fixed style for NPCs.',200,-413,440)
+    self.controls[#self.controls+1]=cycle(actions,200,-178,440,function() return self:Value().actionMode end,
+        {{'surround','One surround / native buttons'},{'buttons','Individual button borders'},{'both','Surround + button borders'},{'native','Native action-bar artwork'}},function(value) self:Set('actionMode',value) end)
+    self:FantasyButton(actions,'hubStyle',-210)
+    self.controls[#self.controls+1]=cycle(actions,200,-242,440,function() return self:Value().hubScope end,
+        {{'cluster','Main cluster + micro menu and bags'},{'all','All visible action bars + menu and bags'}},function(value) self:Set('hubScope',value) end)
+    self:Toggle(actions,'hubMicro','Include micro menu',-273)
+    self:Toggle(actions,'hubBags','Include bag buttons',-304)
+    self:Slider(actions,'hubPadding','Surround padding',-344,2,32,1)
+    self:Slider(actions,'hubArtworkScale','Class artwork size',-375,0.25,1.5,0.05)
+    self:Slider(actions,'hubOpacity','Surround opacity',-406,0,1,0.05)
+    self:Slider(actions,'hubBackdrop','Backdrop opacity',-437,0,0.8,0.05)
     local preview=CreateFrame('Frame',nil,appearance); preview:SetPoint('TOPLEFT',appearance,'TOPLEFT',220,-485); preview:SetSize(220,42)
     local health=CreateFrame('StatusBar',nil,preview); health:SetPoint('TOPLEFT'); health:SetSize(220,28); health:SetStatusBarTexture(J.Neutral); health:SetMinMaxValues(0,100); health:SetValue(75)
     local power=CreateFrame('StatusBar',nil,preview); power:SetPoint('TOPLEFT',0,-30); power:SetSize(220,10); power:SetStatusBarTexture(J.Neutral); power:SetMinMaxValues(0,100); power:SetValue(40)
     self.previewHealth,self.previewPower=health,power; self.previewBorder=R.Create(preview,preview,'compact')
-    label(appearance,'Material preview\nLive shape follows your UI.\nBlizzard portrait borders use native width.',475,-485,210)
+    label(appearance,'Synthetic color / trim preview\nLive shape follows your UI.\nClass and holiday art: Browse above.',475,-485,210)
     self.status=label(panel,'',16,-555,680)
     self.profileLabel=label(profiles,'',24,-115,630)
     self.controls[#self.controls+1]=cycle(profiles,24,-148,285,function() return P:Name() end,function()
