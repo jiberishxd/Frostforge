@@ -15,7 +15,11 @@ for _,entry in ipairs(J.SkinCatalog) do
         description=entry.description, identity=entry.identity, path=root..entry.material..'\\', qualified=true,
         defaults={enabled=true, thickness=entry.thickness, inset=0, opacity=1, ornament=entry.ornament,
             tint=J.Util.Copy(entry.tint), healthMode='native', healthColor={0.2,0.8,0.3},
-            powerMode='native', powerColor={0.2,0.45,1}, powerColors={}}})
+            powerMode='native', powerColor={0.2,0.45,1}, powerColors={},
+            healthGradient=false,powerGradient=false,gradientDirection='HORIZONTAL',gradientStrength=0.5,
+            portraitBorder=true,portraitSkin='inherit',portraitStyle='none',portraitScale=0.8,portraitOpacity=1,portraitTint={1,1,1},
+            actionMode='surround',hubStyle='class',hubScope='cluster',hubPadding=10,hubArtworkScale=0.8,
+            hubOpacity=1,hubBackdrop=0.3,hubMicro=true,hubBags=true}})
 end
 function J:FindSkins(category,query)
     local out={}; query=(query or ''):lower():match('^%s*(.-)%s*$')

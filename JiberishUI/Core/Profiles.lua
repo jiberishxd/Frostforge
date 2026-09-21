@@ -1,8 +1,13 @@
 local _, J = ...
 local U = J.Util
 local P = {}; J.Profiles = P
-local ranges = {thickness={2,12}, inset={-8,12}, opacity={0,1}, ornament={0,1}}
-local modes = {healthMode={native=true,custom=true,class=true},powerMode={native=true,custom=true,type=true}}
+local ranges = {thickness={2,12}, inset={-8,12}, opacity={0,1}, ornament={0,1},
+    gradientStrength={0,0.85},portraitScale={0.35,1.5},portraitOpacity={0,1},
+    hubPadding={2,32},hubArtworkScale={0.25,1.5},hubOpacity={0,1},hubBackdrop={0,0.8}}
+local modes = {healthMode={native=true,custom=true,class=true},powerMode={native=true,custom=true,type=true,class=true},
+    gradientDirection={HORIZONTAL=true,VERTICAL=true},actionMode={surround=true,buttons=true,both=true,native=true},
+    hubScope={cluster=true,all=true}}
+local booleans={enabled=true,healthGradient=true,powerGradient=true,portraitBorder=true,hubMicro=true,hubBags=true}
 local function color(value)
     if type(value) ~= 'table' then return false end
     for k,v in pairs(value) do
@@ -16,13 +21,17 @@ local function options(value)
     for k,v in pairs(value) do
         if k == 'skin' then
             if not J.Skins[v] then return false end
-        elseif k == 'enabled' then
+        elseif k=='portraitSkin' then
+            if type(v)~='string' or (v~='inherit' and not J.Skins[v]) then return false end
+        elseif k=='portraitStyle' or k=='hubStyle' then
+            if type(v)~='string' or (v~='none' and v~='class' and not (J.Fantasy and J.Fantasy.styles[v])) then return false end
+        elseif booleans[k] then
             if type(v)~='boolean' then return false end
         elseif ranges[k] then
             if not U.Number(v) or v<ranges[k][1] or v>ranges[k][2] then return false end
         elseif modes[k] then
             if type(v)~='string' or not modes[k][v] then return false end
-        elseif k=='tint' or k=='healthColor' or k=='powerColor' then
+        elseif k=='tint' or k=='healthColor' or k=='powerColor' or k=='portraitTint' then
             if not color(v) then return false end
         elseif k=='powerColors' then
             if type(v)~='table' then return false end

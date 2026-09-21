@@ -14,6 +14,10 @@ function methods:GetRegions() return unpack(self.regions) end
 function methods:GetWidth() return self.w end
 function methods:GetHeight() return self.h end
 function methods:GetEffectiveScale() return self.scale end
+function methods:GetRect() if self.rect then return unpack(self.rect) end end
+function methods:GetNumPoints() return #self.points end
+function methods:GetPoint(i) return unpack(self.points[i]) end
+function methods:IsVisible() return self.shown and (not self.parent or self.parent:IsVisible()) end
 function methods:SetSize(w,h) self.w=w;self.h=h; M.layoutWrites=M.layoutWrites+1 end
 function methods:SetWidth(w) self.w=w end
 function methods:SetHeight(h) self.h=h end
@@ -32,7 +36,8 @@ function methods:SetAtlas(atlas) self.atlas=atlas;self.texture=42; self.coords={
 function methods:GetAtlas() return self.atlas end
 function methods:SetTexCoord(...) self.coords={...} end
 function methods:GetTexCoord() return unpack(self.coords) end
-function methods:SetVertexColor(...) self.vertex={...} end
+function methods:SetVertexColor(...) self.vertex={...};self.gradient=nil end
+function methods:SetGradient(direction,low,high) self.gradient={direction=direction,low=low,high=high} end
 function methods:GetVertexColor() return unpack(self.vertex or {1,1,1,1}) end
 function methods:SetColorTexture(...) self.vertex={...} end
 function methods:SetAlpha(a) self.alpha=a end
@@ -45,7 +50,7 @@ function methods:SetStatusBarTexture(path)
     if not self.fill then self.fill=self:CreateTexture() end; self.fill:SetTexture(path)
 end
 function methods:GetStatusBarTexture() return self.fill end
-function methods:SetStatusBarColor(...) self.color={...} end
+function methods:SetStatusBarColor(...) self.color={...};if self.fill then self.fill:SetVertexColor(...) end end
 function methods:GetStatusBarColor() return unpack(self.color or {1,1,1,1}) end
 function methods:AddMaskTexture(mask) self.masks[#self.masks+1]=mask end
 function methods:RemoveMaskTexture(mask) for i=#self.masks,1,-1 do if self.masks[i]==mask then table.remove(self.masks,i) end end end
@@ -96,7 +101,8 @@ function UnitIsConnected() if M.restricted then return M.secret end; return M.co
 function UnitIsDeadOrGhost() return M.dead or false end
 function UnitIsTapDenied() return M.tapped or false end
 function UnitIsPlayer() return M.player~=false end
-function UnitClass() return 'Mage','MAGE',8 end
+function UnitClass() return 'Mage',M.class or 'MAGE',8 end
+function CreateColor(r,g,b,a) return {r=r,g=g,b=b,a=a} end
 function UnitSelectionColor() return 1,0.5,0 end
 function UnitPowerType() if M.restrictedPower then return 0,M.secret end; return 0,'MANA' end
 function UnitHealth() error('UnitHealth must never be queried') end

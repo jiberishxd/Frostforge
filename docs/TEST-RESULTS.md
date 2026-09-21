@@ -1,15 +1,16 @@
 # Offline test report — 2026-09-20
 
-Build: **0.1.0-alpha.6**. Status: **offline checks pass; Forever reload settings loss user-reproduced; curved trim and ElvUI/Ellesmere live validation pending**. Earlier builds' attachment successes and visual failures are recorded below.
+Build: **0.1.0-alpha.7**. Status: **offline checks pass; gradients, independent portraits, and shared action surround await in-game validation; Forever reload settings loss remains unresolved**. Earlier builds' attachment successes and visual failures are recorded below.
 
 | Check | Result |
 |---|---|
-| Lua 5.1 load/parse and behavioral harness | 51 test groups passed |
+| Lua 5.1 load/parse and behavioral harness | 60 test groups passed |
 | Saved-data recovery parser | 4 tests passed; executable Lua, malformed data, duplicate keys, and excessive input rejected |
 | Source manifest and safety boundary checks | Passed |
-| Asset hashes/dimensions/casing/alpha bounds | 212 of 212 passed, including the bar-interior exclusion mask |
+| Asset hashes/dimensions/casing/alpha bounds | 227 of 227 passed, including 15 new transparent crests and the bar-interior exclusion mask |
 | Generated edge-tile repeat seams | All 44 generated edge tiles have matching endpoint pixels |
 | Catalog coverage | 52 presets / 15 materials; 13 classes, 26 race identities, 2 factions, 8 standard styles |
+| Fantasy artwork | 15 distinct masters and runtime crests; all 13 classes plus Halloween and Christmas |
 | Source tracing | 146 Retail files; 110 Forever files; pinned manifests/includes/overrides verified |
 | Adapter region paths | Checked against both cached source baselines |
 | Retail package | Root, interface 120100, source/assets, and hash checked |
@@ -61,3 +62,9 @@ The user reported appearance and class-color settings resetting after `/reload` 
 Three new Lua groups cover restoration of serialized styles/color modes, startup diagnostics distinguishing absent data from rejected Default profiles, and direct export/import dialogs with malformed input rejection. Four Python tests exercise the saved-data recovery parser. All 51 Lua groups and 4 parser tests pass. This does not repair or prove the exact cause of the client's loading failure.
 
 The user's subsequent alpha.6 diagnostics on Forever 1.60.1 / 69913 / 16001 reported `Settings at startup: No saved settings table received (first run or client loading failure).` The installed addon therefore received no saved table at initialization despite the prior valid disk data. All 169 discovered frames applied with zero failures; raid and flyout counts remained zero. This confirms the startup diagnostic in game and the missing data at the addon boundary. It does not confirm restoration from exports, visual fit, provider compatibility, combat safety, or successful persistence.
+
+## Alpha.7 gradients, portrait art, and shared action-bar surround
+
+Nine new behavioral groups cover validated profile round trips and rejection limits; all 13 class identities, gradient orientation, native state priority and combat paint; power palette/class gradients and artwork refresh/restoration; independent portrait trim and crests, NPC auto-class fallback and missing art; browser scope and reusable previews; scale-aware surround geometry including micro menu/bags, hidden/restricted frames, missing art and conflicts; latest native button atlas/color restoration and click preservation; external-provider shape restoration; and latest-state combat queuing.
+
+All 60 Lua groups, 4 recovery-parser tests, and 227 asset integrity checks pass. Fifteen original transparent master images were generated with the built-in image_gen tool, inspected, and converted to TGA with preserved alpha. Their prompt set and hashes are retained. The contact sheet is an artwork reference only. The addon has not yet been live-tested for these new features on either client. The exact geometry, layering, visibility/fade transitions, native warning colors, and combat behavior must be checked in game before compatibility is claimed.

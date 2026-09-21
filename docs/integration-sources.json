@@ -12,7 +12,9 @@
         "Game/Shared/Modules/ActionBars/ActionBars.lua": "e2d4528b345c0e967f7fd3ecdf5726f5513a13da4f108326323d6730ecad4c08",
         "Game/Shared/Modules/ActionBars/PetBar.lua": "eedf719e51bb04c893efd61ae715483a80d4f531512dbb2759e9666cd2bfb9dd",
         "Game/Shared/Modules/ActionBars/StanceBar.lua": "e8fa1cf23e662eef082c776bc535fb109385ebbd0408a9e2893ae41e4180391f",
-        "Game/Shared/Modules/ActionBars/ExtraAB.lua": "7d4be9786270553ec72c43a3c421b9b4b2aaae9116520e0c0742d33892d5171b"
+        "Game/Shared/Modules/ActionBars/ExtraAB.lua": "7d4be9786270553ec72c43a3c421b9b4b2aaae9116520e0c0742d33892d5171b",
+        "Game/Shared/Modules/ActionBars/MicroBar.lua": "6b65eca993d5820806da993978d6f1380f4aafb9e2c7ff58d702c79d75c16110",
+        "Game/Shared/Modules/Bags/BagBar.lua": "6cf13faeb55afb51c0396eff1183d759f9f4830cd015b9df98d831db3fbc4fa4"
       }
     },
     "EllesmereUIUnitFrames": {

@@ -29,6 +29,7 @@ function J:Diagnostics()
         if self.conflicts[group] then lines[#lines+1]='  Skipped: '..self.conflicts[group] end
     end
     local failures={}; for key,message in pairs(self.failures) do failures[#failures+1]=key..': '..message end; table.sort(failures)
+    if self.ActionHub then lines[#lines+1]='Action-bar surround: '..self.ActionHub.status end
     if #failures>0 then lines[#lines+1]='Recorded notices (reload clears the history):' end
     for _,message in ipairs(failures) do lines[#lines+1]=message end
     if self.adapter and self.adapter.id=='forever' then lines[#lines+1]='Forever build 69913: settings loss after /reload has been reported even with valid saved files. Use /jui export before reloading and /jui import to restore.' end

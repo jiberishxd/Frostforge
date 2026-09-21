@@ -137,6 +137,7 @@ test('overlapping UI replacement skips affected module',function()
     M.loaded.Bartender4=true;local b=CreateFrame('Button',nil,UIParent);J:Attach({frame=b,group='actionbars',kind='button'});assert(not J.records[b]);M.loaded.Bartender4=nil
 end)
 test('button state reset and stable hooks',function()
+    assert(P:Set('actionbars','actionMode','buttons'));J:ResolveRequested()
     local b=CreateFrame('Button',nil,UIParent);for _,state in ipairs({'Normal','Pushed','Highlight','Checked'}) do b['Set'..state..'Texture'](b,'native') end
     J:Attach({frame=b,group='actionbars',kind='button'});local hooks=M.hooks
     b:SetNormalAtlas('blizzard-replacement');assert(b:GetNormalTexture():GetTexture():find('button%-normal.tga'));equal(M.hooks,hooks)
@@ -148,6 +149,7 @@ test('pooled frame ownership loss stops custom updates',function()
     local writes=M.layoutWrites;CompactUnitFrame_UpdateAll(frame);equal(M.layoutWrites,writes)
 end)
 test('Forever endcaps retain independent containers',function()
+    assert(P:Set('actionbars','actionMode','buttons'));J:ResolveRequested()
     local bar=CreateFrame('Frame',nil,UIParent);bar.BorderArt=bar:CreateTexture();bar.EndCaps=CreateFrame('Frame',nil,bar)
     for _,key in ipairs({'LeftEndCap','RightEndCap'}) do local f=CreateFrame('Frame',nil,bar.EndCaps);f.Texture=f:CreateTexture();bar.EndCaps[key]=f end
     J:Attach({frame=bar,group='actionbars',kind='rail'});equal(#J.records[bar].endcaps,2);equal(bar.EndCaps.LeftEndCap.Texture:GetAlpha(),0);equal(J.records[bar].endcaps[1].texture:GetParent(),bar.EndCaps.LeftEndCap)
@@ -427,6 +429,135 @@ test('missing provider registries suppress native replacements with a diagnostic
     local f=externalUnit();M.loaded.EllesmereUIUnitFrames=true;EllesmereUI={}
     local found=J.Integrations:Discover({{frame=f,group='player',kind='unit'}})
     equal(#found,0);assert(J.AdapterCommon.Conflict('player'));resetProviders()
+end)
+test('gradient portrait and surround settings round trip with bounded validation',function()
+    local p=P.Default()
+    p.global={healthMode='class',healthGradient=true,powerMode='type',powerGradient=true,gradientDirection='VERTICAL',gradientStrength=0.65}
+    p.groups.player={portraitSkin='blackstone',portraitStyle='halloween',portraitScale=1.2,portraitOpacity=0.8,portraitBorder=false,portraitTint={0.5,0.6,0.7}}
+    p.groups.actionbars={actionMode='surround',hubStyle='christmas',hubScope='all',hubPadding=14,hubMicro=true,hubBags=false,hubBackdrop=0.2,hubOpacity=0.75,hubArtworkScale=1.2}
+    local text=assert(P.Export(p));equal(P.Export(assert(P.Import(text))),text)
+    for key,value in pairs({gradientStrength=1,gradientDirection='DIAGONAL',portraitStyle='unknown',portraitSkin='unknown',portraitScale=20,hubStyle='unknown',hubScope='unknown',actionMode='unknown',hubBackdrop=1,hubMicro='yes'}) do
+        local invalid=P.Default();invalid.global[key]=value;assert(not P.Validate(invalid),key)
+    end
+end)
+test('all class gradients use native class identities and retain state priority',function()
+    local owner=CreateFrame('Frame',nil,UIParent);owner.unit='player';local bar=M.bar(owner)
+    local config=P:Resolve('player');config.healthMode='class';config.healthGradient=true;config.gradientStrength=0.6
+    local record=J.Colors.Attach(owner,bar,'health',nil,function() return config end)
+    local original=RAID_CLASS_COLORS;RAID_CLASS_COLORS={};local count=0
+    for class in pairs(J.Fantasy.classes) do
+        count=count+1;RAID_CLASS_COLORS[class]={r=0.2+count/50,g=0.5,b=0.8};M.class=class
+        J.Colors.Apply(record)
+        local gradient=bar.fill.gradient;assert(gradient);equal(gradient.direction,'HORIZONTAL')
+        assert(math.abs(gradient.low.r-RAID_CLASS_COLORS[class].r*0.4)<0.000001)
+        assert(gradient.high.r>gradient.low.r);equal(bar:GetStatusBarTexture():GetTexture(),J.Neutral)
+    end
+    equal(count,13);config.gradientDirection='VERTICAL';J.Colors.Apply(record);equal(bar.fill.gradient.direction,'VERTICAL')
+    local writes=M.layoutWrites;M.combat=true;J.Colors.Apply(record);equal(M.layoutWrites,writes);M.combat=false
+    for _,state in ipairs({'dead','tapped','restricted'}) do
+        M[state]=true;J.Colors.Apply(record);equal(bar.fill:GetTexture(),'native');assert(not bar.fill.gradient)
+        M[state]=nil;J.Colors.Apply(record);assert(bar.fill.gradient)
+    end
+    M.connected=false;J.Colors.Apply(record);assert(not bar.fill.gradient);M.connected=true
+    owner.displayThreatHealthBarColor=true;J.Colors.Apply(record);equal(bar.fill:GetTexture(),'native');owner.displayThreatHealthBarColor=false
+    M.class=M.secret;J.Colors.Apply(record);assert(not bar.fill.gradient);M.class=nil
+    config.healthMode='native';J.Colors.Apply(record);RAID_CLASS_COLORS=original
+end)
+test('power gradients respect palette changes and native artwork refreshes',function()
+    local owner=CreateFrame('Frame',nil,UIParent);owner.unit='player';local bar=M.bar(owner)
+    local config=P:Resolve('player');config.powerMode='type';config.powerGradient=true;config.powerColors.MANA={0.1,0.4,0.9}
+    local record=J.Colors.Attach(owner,bar,'power',nil,function() return config end)
+    J.Colors.Apply(record);assert(bar.fill.gradient);equal(bar.fill.gradient.low.b,0.45)
+    bar:SetStatusBarTexture('native-resource-change');assert(bar.fill.gradient);equal(bar.fill:GetTexture(),J.Neutral)
+    bar:SetStatusBarColor(0.2,0.3,0.4,1);assert(bar.fill.gradient)
+    config.powerMode='class';J.Colors.Apply(record);equal(bar.fill.gradient.low.r,RAID_CLASS_COLORS.MAGE.r*0.5)
+    config.powerMode='type'
+    config.powerGradient=false;J.Colors.Apply(record);assert(not bar.fill.gradient);equal(bar.color[2],0.4)
+    config.powerMode='native';J.Colors.Apply(record);equal(bar.fill:GetTexture(),'native-resource-change');equal(bar.color[2],0.3)
+end)
+test('portrait art and trim are independent of unit bars and retain native geometry',function()
+    local f,health,power,portrait,shell=M.portraitUnit('player')
+    local cfg=P:Resolve('player');cfg.skin='human';cfg.portraitSkin='blackstone';cfg.portraitStyle='mage'
+    local contour=J.Renderer.CreateContour(shell,{health=health,power=power,portrait=portrait})
+    assert(J.Renderer.Apply(contour,cfg));assert(contour.arcs[1]:GetTexture():find('black_basalt',1,true))
+    assert(contour.bars[1].pieces.top:GetTexture():find('human',1,true));equal(shell:GetAlpha(),1)
+    local crest=J.Fantasy.CreatePortrait(f,portrait);assert(J.Fantasy.Portrait(crest,cfg,true));assert(crest.texture:IsShown())
+    equal(crest.texture.points[1][1],'BOTTOM');equal(crest.texture.points[1][3],'TOP')
+    local textures,writes=M.textures,M.layoutWrites;M.combat=true
+    cfg.portraitStyle='halloween';J.Fantasy.Portrait(crest,cfg,false);equal(M.textures,textures);equal(M.layoutWrites,writes);M.combat=false
+    cfg.portraitBorder=false;J.Renderer.Apply(contour,cfg);assert(not contour.arcs[1]:IsShown());assert(contour.bars[1].pieces.top:IsShown())
+    portrait:Hide();J.Fantasy.Portrait(crest,cfg,true);assert(not crest.texture:IsShown());portrait:Show()
+    M.missing='fantasy';assert(not J.Fantasy.Portrait(crest,cfg,true));assert(not crest.texture:IsShown());equal(shell:GetAlpha(),1);M.missing=nil
+    cfg.portraitStyle='class';M.player=false;J.Fantasy.Portrait(crest,cfg,true);assert(not crest.texture:IsShown());M.player=true
+    equal(#J.Fantasy.order,15)
+end)
+test('portrait and fantasy browsers preserve scope and reuse cards',function()
+    local s=J.SettingsUI;s.scope='target';s:BrowseSkins('portraitSkin');local card=s.browser.cards[1]
+    local old=P:Resolve('target').skin;card.scripts.OnClick();equal(P:Resolve('target').skin,old);equal(P:Resolve('target').portraitSkin,card.skin)
+    s.scope='player';s:BrowseFantasy('portraitStyle');local browser=s.fantasyBrowser
+    s.scope='target';browser.cards[1].scripts.OnClick();equal(P:Resolve('player').portraitStyle,browser.cards[1].style)
+    local textures=M.textures;s:BrowseFantasy('portraitStyle');browser.page=3;s:RefreshFantasy();equal(M.textures,textures)
+    browser.cards[3].scripts.OnClick();equal(P:Resolve('target').portraitStyle,'christmas')
+    s:ShowPage('actions');equal(s.scope,'actionbars');assert(s.pages.actions:IsShown());assert(not s.pages.portrait:IsShown())
+    s:ShowPage('colors');s.scope='global';s:Refresh()
+end)
+test('surround bounds combine scaled bars micro menu and bags without moving them',function()
+    UIParent:SetSize(1920,1080)
+    local a=CreateFrame('Button',nil,UIParent);a.rect={850,50,40,40}
+    local b=CreateFrame('Button',nil,UIParent);b.rect={1800,100,80,80};b.scale=0.5
+    local side=CreateFrame('Button',nil,UIParent);side.rect={1850,600,40,300}
+    local micro=CreateFrame('Frame',nil,UIParent);micro.rect={1450,20,300,30}
+    local bags=CreateFrame('Frame',nil,UIParent);bags.rect={1730,50,170,35}
+    local bounds,count=J.ActionHub.Bounds({a,b,side},'cluster',{micro,bags});equal(count,4);equal(bounds[1],850);equal(bounds[3],1900);equal(bounds[4],90)
+    local all=J.ActionHub.Bounds({a,b,side},'all',{});equal(all[4],900)
+    side.rect={M.secret,0,40,40};local safe=J.ActionHub.Bounds({a,side},'all',{});equal(safe[1],850)
+    a:Hide();b:Hide();assert(not J.ActionHub.Bounds({a,b},'all',{}));a:Show();b:Show()
+    local previousConfig=J.active.actionbars;J.active.actionbars=P:Resolve('actionbars');J.active.actionbars.actionMode='surround'
+    MicroMenu,BagsBar=micro,bags
+    local originalA,originalB=a.rect,b.rect
+    J.ActionHub:Update({{frame=a,group='actionbars',kind='button'},{frame=b,group='actionbars',kind='externalbutton'}},true)
+    assert(J.ActionHub.applied);equal(a.rect,originalA);equal(b.rect,originalB);equal(J.ActionHub.frame:GetWidth(),bounds[3]-bounds[1]+20)
+    local writes,textures=M.layoutWrites,M.textures;M.combat=true;J.ActionHub:Update({{frame=a,group='actionbars',kind='button'}},false)
+    equal(M.layoutWrites,writes);equal(M.textures,textures);M.combat=false
+    local changed=J.Util.Copy(J.active.actionbars);changed.hubStyle='christmas';J.ActionHub.config=changed
+    M.missing='fantasy';J.ActionHub:Layout(true);assert(not J.ActionHub.applied);assert(not J.ActionHub.frame:IsShown());M.missing=nil
+    J.ActionHub:Layout(true);assert(J.ActionHub.applied)
+    J.conflicts.actionbars='provider conflict';J.ActionHub:Layout(true);assert(not J.ActionHub.applied);J.conflicts.actionbars=nil
+    MicroMenu,BagsBar=nil,nil;J.active.actionbars=previousConfig
+end)
+test('switching to a surround restores current native button artwork and retains clicks',function()
+    local cfg=J.active.actionbars;J.active.actionbars=J.Util.Copy(cfg);J.active.actionbars.actionMode='buttons'
+    local b=CreateFrame('Button',nil,UIParent);local click=function() end;b:SetScript('OnClick',click)
+    for _,state in ipairs({'Normal','Pushed','Highlight','Checked'}) do b['Set'..state..'Texture'](b,'original-'..state) end
+    J:Attach({frame=b,group='actionbars',kind='button'});local record=J.records[b]
+    assert(record.buttonCustom);b:SetNormalAtlas('latest-native-normal')
+    b:GetNormalTexture():SetVertexColor(0.4,0.6,0.8,1)
+    J.active.actionbars.actionMode='surround';J:RefreshSafely(record,true)
+    equal(b:GetNormalTexture():GetAtlas(),'latest-native-normal');equal(b:GetPushedTexture():GetTexture(),'original-Pushed');equal(b.scripts.OnClick,click)
+    equal(b:GetNormalTexture().vertex[2],0.6)
+    local hooks,textures=M.hooks,M.textures
+    J.active.actionbars.actionMode='both';J:RefreshSafely(record,true);assert(b:GetNormalTexture():GetTexture():find('button%-normal'))
+    J.active.actionbars.actionMode='native';J:RefreshSafely(record,true);equal(b:GetNormalTexture():GetAtlas(),'latest-native-normal')
+    equal(M.hooks,hooks);equal(M.textures,textures);J.active.actionbars=cfg
+end)
+test('surround mode preserves provider borders through native refresh and alpha changes',function()
+    local cfg=J.active.actionbars;J.active.actionbars=J.Util.Copy(cfg);J.active.actionbars.actionMode='buttons'
+    local b=CreateFrame('Button',nil,UIParent);b:SetNormalTexture('provider-normal')
+    local shell=b:CreateTexture();shell:SetTexture('provider-shape');shell:SetAlpha(0.8)
+    J:Attach({frame=b,group='actionbars',kind='externalbutton',provider='ellesmere',regions={shell=shell}})
+    local record=J.records[b];equal(shell:GetAlpha(),0)
+    J.active.actionbars.actionMode='surround';J:RefreshSafely(record,true);equal(shell:GetAlpha(),0.8)
+    shell:SetAlpha(0.5);equal(shell:GetAlpha(),0.5);equal(b:GetNormalTexture():GetTexture(),'provider-normal')
+    J.active.actionbars.actionMode='both';J:RefreshSafely(record,true);equal(shell:GetAlpha(),0)
+    J.active.actionbars.actionMode='native';J:RefreshSafely(record,true);equal(shell:GetAlpha(),0.5)
+    J.active.actionbars=cfg
+end)
+test('new appearance changes queue during combat and apply the latest choices',function()
+    local old=J.active.player;M.combat=true
+    assert(P:Set('player','portraitStyle','halloween'));assert(P:Set('player','portraitStyle','christmas'))
+    assert(P:Set('player','healthGradient',true));assert(P:Set('player','healthMode','class'))
+    equal(J.active.player,old);M.combat=false;J:RefreshAll()
+    equal(J.active.player.portraitStyle,'christmas');assert(J.active.player.healthGradient)
 end)
 test('both adapters are independent and unknown clients fail closed',function()
     assert(J.Adapters.retail.units~=J.Adapters.forever.units);equal(J.Adapters.forever.interface,16001)

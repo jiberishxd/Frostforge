@@ -334,6 +334,231 @@
       ],
       "sha256": "1d0f4501d4c5f342cf9d56a5ab8ecbd97737b4aca60cb9911cf4cbf9d1446c76",
       "origin": "original image_gen artwork"
+    },
+    {
+      "path": "artwork/fantasy/christmas.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        31,
+        23,
+        2141,
+        700
+      ],
+      "sha256": "21ed3c051c81b372ff5fee4eceb3c3c1936639ec52029c2e1a4db6b5c3b18d2a",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#christmas"
+    },
+    {
+      "path": "artwork/fantasy/deathknight.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        11,
+        9,
+        2162,
+        714
+      ],
+      "sha256": "13da79b0056157f510541d30e9d948374ab1561fc2362a37233bd529c29c9bfc",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#deathknight"
+    },
+    {
+      "path": "artwork/fantasy/demonhunter.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        17,
+        17,
+        2155,
+        692
+      ],
+      "sha256": "24e7bc3b8c6789337669b1e2174a78c25960e795a2651900dda439ca21982261",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#demonhunter"
+    },
+    {
+      "path": "artwork/fantasy/druid.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        66,
+        35,
+        2110,
+        702
+      ],
+      "sha256": "afd305db5292a1c2aee9c35259815a6e7b94fd38a220712d7bcd7da4d93cbb1b",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#druid"
+    },
+    {
+      "path": "artwork/fantasy/evoker.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        33,
+        27,
+        2139,
+        677
+      ],
+      "sha256": "5a5d3c27493f38ffa5e6a59782786e38a71ab9aa63fc9a909e616b1a9bc67893",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#evoker"
+    },
+    {
+      "path": "artwork/fantasy/halloween.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        58,
+        7,
+        2114,
+        684
+      ],
+      "sha256": "1722b7387371a156d29394d2c8298540871ef48b5303e8e1c16d9c2b28d03f58",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#halloween"
+    },
+    {
+      "path": "artwork/fantasy/hunter.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        0,
+        16,
+        2165,
+        702
+      ],
+      "sha256": "9f00f14dd52ca819de73b509b41cb7b3165cf1427adc1450830bb6fe4b977467",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#hunter"
+    },
+    {
+      "path": "artwork/fantasy/mage.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        26,
+        18,
+        2152,
+        660
+      ],
+      "sha256": "9b44a6fb34ffcbcb58c5d9317476439c7d92b4b94bf6faed79f96f8673141d96",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#mage"
+    },
+    {
+      "path": "artwork/fantasy/monk.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        34,
+        20,
+        2141,
+        708
+      ],
+      "sha256": "9f30d593ef61f1bbf8b4c5e803d5bb4828ee329ed9e6b4e7e48f4abda4176b0a",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#monk"
+    },
+    {
+      "path": "artwork/fantasy/paladin.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        8,
+        9,
+        2164,
+        704
+      ],
+      "sha256": "5e62c7c6e23975f2c64239e1e18a25582a86b07bcf7c59cfed5ec8d013b626d2",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#paladin"
+    },
+    {
+      "path": "artwork/fantasy/priest.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        19,
+        15,
+        2154,
+        702
+      ],
+      "sha256": "d1030b5184b11c1a2d9c352c3b2335639eb49e14bb99da587e355af4d47fde6f",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#priest"
+    },
+    {
+      "path": "artwork/fantasy/rogue.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        18,
+        23,
+        2155,
+        708
+      ],
+      "sha256": "5014744dcbe82c93dda7e3b16300bb7058d6a72edd5bf6fcb778814cdcffdb7c",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#rogue"
+    },
+    {
+      "path": "artwork/fantasy/shaman.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        50,
+        44,
+        2152,
+        700
+      ],
+      "sha256": "3c790ce8450af18706cc29287a12a31f95d24e46c83aa76fc03e6d48c10c2f24",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#shaman"
+    },
+    {
+      "path": "artwork/fantasy/warlock.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        0,
+        23,
+        2162,
+        706
+      ],
+      "sha256": "d7357eb33de1d7ca959adc7489750f9aebed7f36c88b2a8caa5aac42c6527e62",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#warlock"
+    },
+    {
+      "path": "artwork/fantasy/warrior.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaBounds": [
+        26,
+        33,
+        2147,
+        724
+      ],
+      "sha256": "ecc3a0e49655a43942b0cdca284e741ddd0593f418420568d0b328bec7987403",
+      "origin": "original built-in image_gen artwork; artwork/fantasy-prompts.json#warrior"
     }
   ],
   "assets": [
@@ -1751,6 +1976,261 @@
         32
       ],
       "sha256": "d23b6ebf9bac46f63aa5ee3dbe9b75103129b2c2caa89e0fd0ba4e28d234fae6"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/christmas.tga",
+      "source": "artwork/fantasy/christmas.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        5,
+        36,
+        507,
+        232
+      ],
+      "sha256": "fb1fa10508db58bf29b9690dc2d5fd08b50429b1ab36e4e89a23949606fc6be4"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/deathknight.tga",
+      "source": "artwork/fantasy/deathknight.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        1,
+        2,
+        511,
+        252
+      ],
+      "sha256": "346260e1ac099275a40da1578b36c30e080819a5223b2577117c49c2ec94ffb6"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/demonhunter.tga",
+      "source": "artwork/fantasy/demonhunter.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        3,
+        6,
+        509,
+        244
+      ],
+      "sha256": "a845ace4ec0312c16127748680ab934ba732e395d2f78f8201f0e45fb330dbf8"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/druid.tga",
+      "source": "artwork/fantasy/druid.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        14,
+        29,
+        498,
+        228
+      ],
+      "sha256": "94c7666bebf7673ba2ad23c188ae09fdc730c45665ab920c652c05ee024e6c2d"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/evoker.tga",
+      "source": "artwork/fantasy/evoker.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        6,
+        18,
+        506,
+        235
+      ],
+      "sha256": "5d40d55317d3d4f2db732240cdaf0387793ea464034d89f46a7e131c3563917f"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/halloween.tga",
+      "source": "artwork/fantasy/halloween.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        12,
+        20,
+        500,
+        238
+      ],
+      "sha256": "c5620a2bc55facdb64a01813bc8f52478bc9bc146346d2c5454b0af2f9d4ed5a"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/hunter.tga",
+      "source": "artwork/fantasy/hunter.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        0,
+        4,
+        512,
+        248
+      ],
+      "sha256": "f18c6d7bbcab65a27211dfe938a3b7c2b0262675822d66827a41059ec0b1b424"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/mage.tga",
+      "source": "artwork/fantasy/mage.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        4,
+        5,
+        508,
+        233
+      ],
+      "sha256": "d838d902294d9686e1b50cf1d4fdc46a57fe1e58578d2073b8573d5077ede961"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/monk.tga",
+      "source": "artwork/fantasy/monk.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        6,
+        9,
+        506,
+        242
+      ],
+      "sha256": "071fb434a51281e2d3081a6d6d0a9f4554ae7d911366ca07852ee0e5429d5f47"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/paladin.tga",
+      "source": "artwork/fantasy/paladin.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        0,
+        4,
+        512,
+        248
+      ],
+      "sha256": "4dd71c73ea2d830a7e3a834d26669c14cf02d622cea5d50bef07f003abf26aeb"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/priest.tga",
+      "source": "artwork/fantasy/priest.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        3,
+        4,
+        510,
+        240
+      ],
+      "sha256": "03cf2ce4e644e949337ae4822c82f05c0ae472f5af6c56c0200984b26bb37563"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/rogue.tga",
+      "source": "artwork/fantasy/rogue.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        2,
+        23,
+        510,
+        244
+      ],
+      "sha256": "713ade0c7bb471c7b0dd23a5e681a32b146e468050412be753097abeae23105a"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/shaman.tga",
+      "source": "artwork/fantasy/shaman.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        10,
+        17,
+        502,
+        238
+      ],
+      "sha256": "c9b25b2077fdd6c7cd558b2adec07b411cfc9307b21fa4854e5a322a13286a07"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/warlock.tga",
+      "source": "artwork/fantasy/warlock.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        1,
+        20,
+        511,
+        246
+      ],
+      "sha256": "924e91bd3ef875e73cdb35fb88a2d5b5fd494b68afb087adab6f53d8894c1dde"
+    },
+    {
+      "file": "JiberishUI/Media/fantasy/warrior.tga",
+      "source": "artwork/fantasy/warrior.png",
+      "crop": null,
+      "transform": "resample to 512x256; display at original 3:1 aspect; preserve alpha",
+      "size": [
+        512,
+        256
+      ],
+      "alphaBounds": [
+        4,
+        12,
+        508,
+        244
+      ],
+      "sha256": "f1e2bb0972d11d157bdabf665419c528811ec51f40823e46fb696e6b6f3d4dfe"
     },
     {
       "file": "JiberishUI/Media/fel_obsidian/bl.tga",

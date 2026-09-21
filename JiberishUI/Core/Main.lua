@@ -65,10 +65,12 @@ function J:Refresh(record,layout)
     if record.busy or record.failed then return end
     if record.owned==false or self.conflicts[record.group] then
         if record.applied then
+            record.busy=true;R.RestoreButton(record,layout);record.busy=false
             record.applied=false; self:Decorations(record,false)
             for _,color in ipairs(record.colors) do C.Apply(color,{healthMode='native',powerMode='native'}) end
             for _,border in ipairs(record.borders) do R.Hide(border) end
             for _,cap in ipairs(record.endcaps or {}) do cap.texture:Hide() end
+            for _,crest in pairs(record.crests or {}) do crest.texture:Hide() end
             self:Failure(record.group,'Ownership changed or a conflicting addon loaded. Updates stopped; reload to finish restoration.')
         end
         return
@@ -76,16 +78,42 @@ function J:Refresh(record,layout)
     local config=self.active[record.group]; if not config or not config.enabled then return end
     record.busy=true
     local success=true
+    local individual=record.group~='actionbars' or config.actionMode=='buttons' or config.actionMode=='both'
+    if record.group=='actionbars' and record.kind=='rail' and config.actionMode~='buttons' then
+        for _,border in ipairs(record.borders) do R.Hide(border) end
+        for _,cap in ipairs(record.endcaps or {}) do cap.texture:Hide() end
+        record.applied=J.ActionHub and J.ActionHub.applied or false
+        self:Decorations(record,record.applied);record.busy=false;return
+    end
+    if (record.kind=='button' or record.kind=='externalbutton') and not individual then
+        R.RestoreButton(record,layout)
+        for _,border in ipairs(record.borders) do R.Hide(border) end
+        for _,decoration in ipairs(record.decorations) do decoration.active=false end
+        record.applied=false;self:Decorations(record,false)
+        record.applied=true;record.busy=false;return
+    end
     if record.kind=='button' then
         success=R.Button(record.frame,config,layout)
+        record.buttonCustom=true
     else
         for _,border in ipairs(record.borders) do
             local fitted
-            if border.active==false then R.Hide(border);fitted=true
-            elseif layout then fitted=R.Apply(border,config) else fitted=R.Refresh(border,config) end
+            local appearance=border.role=='portrait' and J.Fantasy.PortraitConfig(config) or config
+            if border.active==false or (border.role=='portrait' and not config.portraitBorder) then
+                R.Hide(border);fitted=true
+                if border.decoration then border.decoration.active=false end
+            else
+                if border.decoration then border.decoration.active=true end
+                if layout then fitted=R.Apply(border,appearance) else fitted=R.Refresh(border,appearance) end
+            end
             if border.region.GetObjectType and border.region:GetObjectType()=='Texture' and not border.region:IsShown() then R.Hide(border) end
             -- Hidden power bars can have zero geometry; they do not invalidate the main border.
             if border.required and not fitted then success=false end
+        end
+        for _,crest in pairs(record.crests or {}) do
+            if not J.Fantasy.Portrait(crest,config,layout) then
+                self:Failure(record.group..'-portrait','Portrait artwork unavailable; native portrait retained.')
+            end
         end
         for _,cap in ipairs(record.endcaps or {}) do
             local skin=J.Skins[config.skin]
@@ -106,6 +134,7 @@ function J:Refresh(record,layout)
         for _,color in ipairs(record.colors) do C.Apply(color,{healthMode='native',powerMode='native'}) end
         for _,border in ipairs(record.borders) do R.Hide(border) end
         for _,cap in ipairs(record.endcaps or {}) do cap.texture:Hide() end
+        for _,crest in pairs(record.crests or {}) do crest.texture:Hide() end
         self:Failure(record.group,'Artwork or geometry unavailable; retaining Blizzard decorations.')
     end
     if record.visibility and not record.visibility:IsShown() then for _,border in ipairs(record.borders) do R.Hide(border) end end
@@ -117,6 +146,7 @@ function J:RefreshSafely(record,layout)
         record.busy=false; record.failed=true; record.applied=false
         self:Protect(record.group,self.Decorations,self,record,false)
         for _,border in ipairs(record.borders) do R.Hide(border) end
+        for _,crest in pairs(record.crests or {}) do crest.texture:Hide() end
     end
 end
 function J:AddSilhouette(record,source)
@@ -149,6 +179,8 @@ function J:SyncExternal(record,descriptor)
     for _,value in pairs(record.externalBorders) do
         value.active=false;if value.decoration then value.decoration.active=false end
     end
+    record.crests=record.crests or {}
+    for _,crest in pairs(record.crests) do crest.active=false end
     local function edge(owner,region,shell)
         local key=shell or region
         local value=record.externalBorders[key]
@@ -163,7 +195,14 @@ function J:SyncExternal(record,descriptor)
         return value
     end
     edge(record.frame,record.frame,record.regions.shell).required=true
-    for _,p in ipairs(record.regions.portraits or {}) do edge(p.region,p.region,p.shell) end
+    for _,p in ipairs(record.regions.portraits or {}) do
+        edge(p.region,p.region,p.shell).role='portrait'
+        local crest=record.crests[p.region]
+        if not crest then
+            crest=J.Fantasy.CreatePortrait(record.frame,p.region,record.regions.unitField);record.crests[p.region]=crest
+        end
+        crest.active=true
+    end
     for _,kind in ipairs({'health','power'}) do
         local bar=record.regions[kind]
         if bar and bar.GetStatusBarTexture and not record.colorMap[bar] then
@@ -215,6 +254,7 @@ function J:Attach(descriptor)
     if descriptor.kind=='external' or descriptor.kind=='externalbutton' then
         self:SyncExternal(record,descriptor)
     elseif regions then
+        if regions.portrait then record.crests={J.Fantasy.CreatePortrait(frame,regions.portrait)} end
         if descriptor.kind=='compact' then border(frame,frame,'compact',true)
         else
             for _,source in ipairs(regions.decorations) do
@@ -230,15 +270,24 @@ function J:Attach(descriptor)
         end
     elseif descriptor.kind=='button' then
         if not frame.GetNormalTexture then self.records[frame]=nil; return end
-        if not frame:GetNormalTexture() then frame:SetNormalTexture(J.Skins[config.skin].path..'button-normal.tga') end
-        for _,method in ipairs({'SetNormalTexture','SetNormalAtlas','SetPushedTexture','SetPushedAtlas','SetHighlightTexture','SetHighlightAtlas','SetCheckedTexture','SetCheckedAtlas'}) do
-            if frame[method] then hooksecurefunc(frame,method,function() self:RefreshSafely(record,false) end) end
-        end
-        for _,getter in ipairs({'GetNormalTexture','GetPushedTexture','GetHighlightTexture','GetCheckedTexture'}) do
-            local texture=frame[getter] and frame[getter](frame)
+        for _,state in ipairs({'Normal','Pushed','Highlight','Checked'}) do
+            R.CaptureButton(record,state)
+            local function changed()
+                if record.busy then return end
+                R.CaptureButton(record,state);self:RefreshSafely(record,false)
+            end
+            for _,suffix in ipairs({'Texture','Atlas'}) do
+                local method='Set'..state..suffix
+                if frame[method] then hooksecurefunc(frame,method,changed) end
+            end
+            local texture=frame['Get'..state..'Texture'](frame)
             if texture then
-                hooksecurefunc(texture,'SetAtlas',function() self:RefreshSafely(record,false) end)
-                hooksecurefunc(texture,'SetTexture',function() self:RefreshSafely(record,false) end)
+                hooksecurefunc(texture,'SetAtlas',changed)
+                hooksecurefunc(texture,'SetTexture',changed)
+                hooksecurefunc(texture,'SetVertexColor',function(_,r,g,b,a)
+                    if record.busy then return end
+                    R.CaptureButtonColor(record,state,r,g,b,a);self:RefreshSafely(record,false)
+                end)
             end
         end
     elseif descriptor.kind=='rail' then
@@ -309,6 +358,7 @@ function J:RefreshAll()
             if not ok and self.records[descriptor.frame] then self.records[descriptor.frame].failed=true end
         end
     end
+    if self.ActionHub then self:Protect('action-surround',self.ActionHub.Update,self.ActionHub,discovered,layout) end
     for _,record in pairs(self.records) do self:RefreshSafely(record,layout) end
 end
 function J:Schedule()

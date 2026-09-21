@@ -134,7 +134,10 @@ function R.Contour(record,config,layout)
     local portrait=record.portrait
     local visible=portrait and portrait:IsShown()
     if not U.Safe(visible) then return false end
-    if visible then
+    if visible and config.portraitBorder~=false then
+        local portraitConfig=J.Fantasy.PortraitConfig(config)
+        local portraitSkin=J.Skins[portraitConfig.skin]
+        if not portraitSkin or not portraitSkin.qualified then return false end
         if layout then
             local scale,ps=record.owner:GetEffectiveScale(),portrait:GetEffectiveScale()
             local w,h=portrait:GetWidth(),portrait:GetHeight()
@@ -174,8 +177,9 @@ function R.Contour(record,config,layout)
         end
         if not record.arcReady then return false end
         for _,piece in ipairs(record.arcs) do
-            if piece:SetTexture(skin.path..'top.tga','REPEAT','CLAMP')==false then return false end
-            piece:SetVertexColor(config.tint[1],config.tint[2],config.tint[3],cfg.opacity);piece:Show()
+            if piece:SetTexture(portraitSkin.path..'top.tga','REPEAT','CLAMP')==false then return false end
+            local tint=portraitConfig.tint
+            piece:SetVertexColor(tint[1],tint[2],tint[3],cfg.opacity*(config.portraitOpacity or 1));piece:Show()
         end
     else for _,piece in ipairs(record.arcs) do piece:Hide() end end
     record.config=config
@@ -276,4 +280,51 @@ function R.Button(button,config,layout)
         end
     end
     return true
+end
+
+function R.CaptureButton(record,state)
+    record.buttonNative=record.buttonNative or {}
+    local texture=record.frame['Get'..state..'Texture'](record.frame)
+    if not texture then record.buttonNative[state]={absent=true};return end
+    local path,atlas=texture:GetTexture(),texture.GetAtlas and texture:GetAtlas()
+    if not U.Safe(path) or not U.Safe(atlas) then return end
+    -- A native setter can call a texture setter internally; its second hook must
+    -- not capture the artwork our first hook just reapplied.
+    if type(path)=='string' and path:find(J.MediaRoot,1,true)==1 then return end
+    local coords,color={texture:GetTexCoord()},{texture:GetVertexColor()}
+    for _,values in ipairs({coords,color}) do for _,v in ipairs(values) do if not U.Number(v) then return end end end
+    local previous=record.buttonNative[state]
+    local value={path=path,atlas=atlas,coords=coords,color=previous and previous.color or color,points={}}
+    if texture.GetNumPoints then
+        for i=1,texture:GetNumPoints() do
+            local point={texture:GetPoint(i)}
+            if not U.Number(point[4]) or not U.Number(point[5]) then return end
+            value.points[#value.points+1]=point
+        end
+    end
+    record.buttonNative[state]=value
+end
+function R.CaptureButtonColor(record,state,r,g,b,a)
+    local value=record.buttonNative and record.buttonNative[state]
+    if value and U.Number(r) and U.Number(g) and U.Number(b) and U.Safe(a) and (a==nil or U.Number(a)) then
+        value.color={r,g,b,a or 1}
+    end
+end
+function R.RestoreButton(record,layout)
+    if not record.buttonCustom then return end
+    for state,value in pairs(record.buttonNative or {}) do
+        if value.absent then record.frame['Set'..state..'Texture'](record.frame,nil)
+        else
+            local texture=record.frame['Get'..state..'Texture'](record.frame)
+            if texture then
+                if value.atlas then texture:SetAtlas(value.atlas) else texture:SetTexture(value.path) end
+                texture:SetTexCoord(unpack(value.coords));texture:SetVertexColor(unpack(value.color))
+                if layout and #value.points>0 then
+                    texture:ClearAllPoints()
+                    for _,point in ipairs(value.points) do texture:SetPoint(unpack(point)) end
+                end
+            end
+        end
+    end
+    record.buttonCustom=false
 end
