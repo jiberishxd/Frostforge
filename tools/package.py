@@ -10,7 +10,7 @@ CLIENTS = {
     'Retail': (120100, '12.1.0.69875', '78282522143e25c3540583734fd192c3d69be910'),
     'Forever': (16001, '1.60.1.69913', '70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e'),
 }
-VERSION = '0.1.0-alpha.2'
+VERSION = '0.1.0-alpha.3'
 
 def package(destination):
     destination.mkdir(parents=True, exist_ok=True)
