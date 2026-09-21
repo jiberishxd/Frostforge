@@ -1,6 +1,7 @@
 .tools/
 .reference/
 dist/
+recovery/
 __pycache__/
 *.pyc
 .DS_Store
