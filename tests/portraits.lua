@@ -12,6 +12,27 @@ test("all class/race/faction choices map to independent artwork",function(M)
     assert(count(J.PortraitCatalog.classes)==13 and count(J.PortraitCatalog.factions)==3)
 end)
 
+test("every identity uses fixed Player and round Target Focus atlas fits",function(M)
+    for _,interface in ipairs({120100,16001}) do
+        local J=M.load({interface=interface})
+        for id in pairs(J.PortraitCatalog.entries) do
+            for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
+                J.ProfileManager:Set(key,"portraitMode","FIXED")
+                J.ProfileManager:Set(key,"portrait",id)
+                local module=J.Core.modules[key]
+                local uv=module.textures.main.texCoord
+                near(uv[1],key=="playerFrame" and 0 or 1)
+                near(uv[2],0.5);near(uv[3],0);near(uv[4],1)
+                assert(module.frame.w==128 and module.frame.h==128)
+                local c=J.ThemeManager:Resolve(key)
+                near(c.x,key=="playerFrame" and -23 or 22)
+                near(c.y,key=="playerFrame" and 11 or 12)
+            end
+        end
+        assert(M.nativeWrites==0)
+    end
+end)
+
 test("target and focus change classes safely during combat without geometry writes",function(M)
     local J=M.load()
     M.combat=true
@@ -102,6 +123,8 @@ end)
 test("portrait gallery selects fixed art without mutating other modules",function(M)
     local J=M.load(); local S=J.SettingsUI; S:Open()
     S.tabs.focusFrame.scripts.OnClick()
+    assert(S.portraitButtons.CLASS_PALADIN.image.texCoord[1]==0.5)
+    assert(S.portraitButtons.CLASS_PALADIN.image.texCoord[2]==1)
     S:ShowPortraitGroup("RACE")
     assert(S.portraitButtons.RACE_NIGHTELF.shown and not S.portraitButtons.CLASS_ROGUE.shown)
     S.portraitButtons.RACE_NIGHTELF.scripts.OnClick()

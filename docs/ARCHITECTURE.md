@@ -12,7 +12,7 @@ Local decorative scale is native effective scale / UIParent effective scale × c
 
 Native roots and each inspected portrait container/region pass IsForbidden checks before access. Missing or forbidden portraits hide the decoration. Default Background strata, level 0 and Background layer keep native portraits, bars, names and functional indicators above the art. Settings expose strata, level and layer without touching Blizzard objects.
 
-All 42 portraits share the [8,8,210,244] registration box and primary portrait/bar clearance. Side cloth, feathers and stone retain their natural endings; there is no lower-band crop or level-badge notch. Target/Focus mirror the image. The hub uses its original five-piece layout with a separate 42-entry data-only catalog and guarded player identity resolver. Hub selection cannot follow target or focus changes.
+All 42 portraits share an inner-contour fitting process and fixed center at (154,148). Each 512 × 256 atlas stores a 256-square Player teardrop fit on the left and a round Target/Focus fit on the right. Their opening radii are 60 and 58 respectively. Side cloth, feathers and stone retain their natural endings; there is no lower-band crop or level-badge notch. Target/Focus mirror only their atlas half. The hub uses its original five-piece layout with a separate 42-entry data-only catalog and guarded player identity resolver. Hub selection cannot follow target or focus changes.
 
 ## Identity changes and combat
 

@@ -183,6 +183,7 @@ function S:CreatePortraitPicker()
         end,true)
         b:SetHeight(88)
         local art=b:CreateTexture(nil,"ARTWORK"); art:SetSize(66,66); art:SetPoint("TOP",b,"TOP",0,-2); art:SetTexture(entry.texture)
+        art:SetTexCoord(0,0.5,0,1);b.image=art
         text(b,entry.label,2,-69,84)
         self.portraitButtons[id]=b
     end
@@ -285,6 +286,7 @@ function S:Create()
     title:EnableMouse(true); title:RegisterForDrag("LeftButton")
     self.crest=title:CreateTexture(nil,"ARTWORK")
     self.crest:SetPoint("TOPLEFT",title,"TOPLEFT",18,-4);self.crest:SetSize(82,82)
+    self.crest:SetTexCoord(0,0.5,0,1)
     text(title,"JiberishUI",104,-20,430,"GameFontNormalLarge")
     text(title,"Fantasy artwork for your adventures",104,-43,430,"GameFontHighlightSmall")
     title:SetScript("OnDragStart",function()
@@ -370,6 +372,8 @@ function S:Refresh()
         b.caption:SetText((key==self.selected and "|cffffe5a0" or "|cffffd100")..names[key].."|r")
     end
     for id,b in pairs(self.portraitButtons) do
+        local u1,u2=J.Portraits:TexCoords(config.unit or "player")
+        b.image:SetTexCoord(u1,u2,0,1)
         b.selection:SetShown(unit and config.portraitMode=="FIXED" and config.portrait==id)
     end
     for id,b in pairs(self.hubButtons) do

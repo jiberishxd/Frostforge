@@ -1,6 +1,6 @@
 local addonName, J = ...
 local Core = {
-    version = "0.4.0-art.1",
+    version = "0.4.0-art.2",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
     propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "hubMode", "hub" },
@@ -216,6 +216,7 @@ function Core:Apply(module, snapshot)
     for name, texture in pairs(module.textures) do
         local piece = config.pieces and config.pieces[name]
         local x,y,w,h,u1,u2,v1,v2,order = self:PieceGeometry(config,piece)
+        if config.unit then u1,u2 = J.Portraits:TexCoords(config.unit) end
         if config.mirror then x,u1,u2 = config.width-x-w,u2,u1 end
         texture:ClearAllPoints()
         texture:SetPoint("TOPLEFT",frame,"TOPLEFT",x,-y)

@@ -10,6 +10,13 @@ function P:IsUnitKey(key)
     return key == "playerFrame" or key == "targetFrame" or key == "focusFrame"
 end
 
+-- One atlas keeps both native shapes aligned to the same 128-unit frame.
+-- Player has a squared lower corner; Target/Focus use a smaller round opening.
+function P:TexCoords(unit)
+    if unit == "player" then return 0,0.5 end
+    return 0.5,1
+end
+
 -- Never index, compare or format restricted API results. Localized display names
 -- are intentionally ignored; only public, typed file tokens enter the registry.
 local function token(api,unit,index)

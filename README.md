@@ -1,6 +1,6 @@
 # JiberishUI
 
-**0.4.0-art.1** restores natural hanging portrait details and adds 42 class/race/faction action hubs. Class symbols are integrated into the layered portrait ornament and sculpted hubs, using the requested Blizzard emblems as references, including the Undead mask, Mage eye and Hunter stag skull. There are no pasted circular icon holders. All choices use shared fitting templates; the native UI remains functional underneath.
+**0.4.0-art.2** adds 42 class/race/faction action hubs and fits each portrait’s inner contour to the native frame, closing the floating lower-wrap gap. Class symbols are integrated into the layered portrait ornament and sculpted hubs, using the requested Blizzard emblems as references, including the Undead mask, Mage eye and Hunter stag skull. There are no pasted circular icon holders. All choices use shared fitting templates; the native UI remains functional underneath.
 
 Blizzard owns every portrait, health/power bar, name, level badge, aura, position, secure click and action button. JiberishUI creates mouse-transparent decorations under UIParent; it does not replace, reparent or reskin native controls.
 
@@ -10,7 +10,7 @@ Blizzard owns every portrait, health/power bar, name, level badge, aura, positio
 - 26 playable-race backgrounds, including allied races, Earthen and Haranir.
 - Alliance, Horde and Neutral backgrounds.
 
-All 42 portraits use transparent 256 × 256 textures at a default 128 × 128 UI units. They share a registration box and cleared native portrait/teardrop/bar regions. Cloth, feathers and stone sweep down the side naturally; there is no separate level-badge cutout or forced horizontal crop. Natural alpha bounds vary within the shared envelope. Source artwork and the fitting gallery are in `artwork/portraits/`.
+All 42 portraits use transparent 512 × 256 textures containing two 256-square fits, displayed at the same 128 × 128 UI units. Player uses the teardrop fit; Target and Focus use the round fit. Their painted inner contours follow the native openings, with a shared center and clear bar regions. Cloth, feathers and stone sweep down the side naturally; there is no separate level-badge cutout or forced horizontal crop. Natural alpha bounds vary within the shared envelope. Source artwork and the fitting gallery are in `artwork/portraits/`.
 
 ## Action hub library
 
@@ -82,6 +82,7 @@ python3 -m pip install -r tools/requirements-artwork.txt
 python3 tools/encode_paladin_ret.py
 python3 tools/build_portraits.py
 python3 tools/build_hubs.py
+python3 tools/render_portrait_review.py
 lua5.1 tools/export_fit_preview.lua
 python3 tools/check.py
 ```

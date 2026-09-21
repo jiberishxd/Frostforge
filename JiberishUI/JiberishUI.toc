@@ -2,7 +2,7 @@
 ## Title: JiberishUI
 ## Notes: Classic fantasy portrait backgrounds with automatic class, race and faction artwork. In-game validation pending.
 ## Author: JiberishUI
-## Version: 0.4.0-art.1
+## Version: 0.4.0-art.2
 ## SavedVariables: JiberishUIDB
 ## OptionalDeps: Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_Minimap
 

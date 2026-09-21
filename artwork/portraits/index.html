@@ -20,7 +20,7 @@
 <p class="note">Preview guides use the pinned Blizzard geometry, including the player’s squared lower corner and Forever’s level badge. Pixel-size estimate uses the existing screenshot scale model (UI units × effective scale × height / 768). These are synthetic guides; actual client screenshots and combat tests remain required.</p>
 <p><a href="../hubs/">Action hub collection and fitting preview</a></p>
 <div id="grid" class="grid"></div>
-<footer>Class symbols are sculpted into the armor, cloth and side drapes, with no pasted circular badges. All artwork is reduced to a 256-pixel game texture. All 42 assets share a canvas, registration box and fixed portrait opening. Full hanging side details are retained; there is no separate level-badge cutout. Official emblem references are credited to Blizzard Entertainment. <a href="integrated-generation-prompts.json">Revision prompts</a> · <a href="manifest.json">Assets and processing</a> · <a href="catalog.json">Library catalog and sources</a></footer>
+<footer>Class symbols are sculpted into the armor, cloth and side drapes, with no pasted circular badges. Each texture stores separate 256-pixel Player and round Target/Focus fits. All 42 choices share the same native opening and positioning. Full hanging side details are retained; there is no separate level-badge cutout. Official emblem references are credited to Blizzard Entertainment. <a href="integrated-generation-prompts.json">Revision prompts</a> · <a href="manifest.json">Assets and processing</a> · <a href="catalog.json">Library catalog and sources</a></footer>
 </main>
 <script src="gallery-data.js"></script><script>
 const $=id=>document.getElementById(id);
@@ -38,9 +38,9 @@ function render(){
  const scene=document.createElement('div');scene.className='scene';scene.style.transform=`scale(${factor})`;scene.style.width='300px';scene.style.height='170px';
  const root=document.createElement('div');root.className='root '+(mirror?'target':'player');root.style.left='30px';root.style.top='28px';
  for(const [cls,txt] of [['portrait','PORTRAIT'],['name',unit+' name'],['health',''],['power',''],['badge','12']]){const e=document.createElement('div');e.className=cls;e.textContent=txt;root.append(e);}
- const art=document.createElement('img');art.className='art';art.alt=id+' native fitting';art.src='assets/'+id+'.png';art.style.left=(30+(mirror?126:-23))+'px';art.style.top=(28+(mirror?-26:-25))+'px';art.style.transform=mirror?'scaleX(-1)':'none';
+ const art=document.createElement('img');art.className='art';art.alt=id+' native fitting';art.src=(mirror?'round/':'assets/')+id+'.png';art.style.left=(30+(mirror?126:-23))+'px';art.style.top=(28+(mirror?-26:-25))+'px';art.style.transform=mirror?'scaleX(-1)':'none';
  scene.append(art,root);d.append(scene);d.style.height=Math.max(350,170*factor+110)+'px';scene.style.marginRight=(300*factor)+'px';
- $('metrics').textContent=`${id} · ${unit} · 128 × 128 artwork UI units · approximately ${Math.round(128*factor)} × ${Math.round(128*factor)} target pixels · shared 101 × 118 UI-unit fitting envelope · Background strata`;
+ $('metrics').textContent=`${id} · ${unit} · 128 × 128 artwork UI units · approximately ${Math.round(128*factor)} × ${Math.round(128*factor)} target pixels · registered native portrait opening · Background strata`;
 }
 $('collection').onchange=choose;for(const id of ['artwork','unit','resolution','scale','bounds','checker'])$(id).oninput=render;choose();
 </script></html>
