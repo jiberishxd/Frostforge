@@ -10,9 +10,9 @@ import zipfile
 from package import ROOT, CLIENTS, VERSION, active_sources, payload
 
 REQUIRED = {
-    "Build.lua", "Core/Core.lua", "Core/ThemeManager.lua", "Core/ProfileManager.lua", "Core/Media.lua",
+    "Build.lua", "Core/Core.lua", "Core/ThemeManager.lua", "Core/ProfileManager.lua", "Core/Media.lua", "Core/Settings.lua", "Core/Portraits.lua", "Themes/Portraits.lua", "Core/Hubs.lua", "Themes/Hubs.lua",
     "Compatibility/Retail.lua", "Compatibility/Forever.lua",
-    "Modules/Minimap.lua", "Modules/PlayerFrame.lua", "Modules/TargetFrame.lua", "Modules/ActionHub.lua",
+    "Modules/Minimap.lua", "Modules/PlayerFrame.lua", "Modules/TargetFrame.lua", "Modules/FocusFrame.lua", "Modules/ActionHub.lua",
     "Themes/Paladin/Retribution.lua",
 }
 
@@ -25,32 +25,33 @@ def source_checks():
     toc = (ROOT / "JiberishUI/JiberishUI.toc").read_text()
     assert "## SavedVariables: JiberishUIDB" in toc
     assert VERSION in (ROOT / "JiberishUI/Core/Core.lua").read_text()
-    forbidden = r"\b(loadstring|loadfile|dofile|UnitHealth|UnitPower|UnitClass|SetAttribute|SetParent|SetStatusBarTexture|SetStatusBarColor|SetAtlas|RegisterForClicks|SetBinding)\s*\("
+    forbidden = r"\b(loadstring|loadfile|dofile|UnitHealth|UnitPower|SetAttribute|SetParent|SetStatusBarTexture|SetStatusBarColor|SetAtlas|RegisterForClicks|SetBinding)\s*\("
     for name in sources:
         code = (ROOT / "JiberishUI" / name).read_text()
         code = re.sub(r"--[^\n]*", "", code)
         assert not re.search(forbidden, code), name
-        assert not re.search(r"\b(PlayerFrame|TargetFrame|MainActionBar|Minimap|UIParent)\s*[:.]\s*Set\w*\s*\(", code), name
+        assert not re.search(r"\b(PlayerFrame|TargetFrame|FocusFrame|MainActionBar|Minimap|UIParent)\s*[:.]\s*Set\w*\s*\(", code), name
         if name.startswith("Modules/"):
             assert 'CreateFrame("Frame"' in code and ",UIParent)" in code
-            assert "EnableMouse(false)" in code and code.count(":CreateTexture(") == 2
+            assert "EnableMouse(false)" in code and code.count(":CreateTexture(") == 1
         if name.startswith("Themes/"):
             assert not re.search(r"\b(function|CreateFrame|hooksecurefunc|SetScript)\b", code)
-            assert code.count('J.ThemeManager:Register("paladin_ret"') == 1
+            if name.endswith("Retribution.lua"):
+                assert code.count('J.ThemeManager:Register("paladin_ret"') == 1
         if name.startswith("Compatibility/"):
             assert "IsUsableFrame(frame)" in code
     core = (ROOT / "JiberishUI/Core/Core.lua").read_text()
     assert "pcall(frame.IsForbidden, frame)" in core and "PLAYER_REGEN_ENABLED" in core
     assert "IsProtected()" in core and 'EnableMouse(false)' in core
     assert 'SLASH_JIBERISHFANTASY1 = "/jf"' in core
-    print("PASS Phase 1 manifest, four owned modules, one data-only theme, and prohibited API checks")
+    print("PASS manifest, five owned modules, data-only artwork registry, and prohibited API checks")
 
 
 def asset_checks():
     manifest = json.loads((ROOT / "docs/phase1-assets.json").read_text())
     assets = manifest["assets"]
-    assert len(assets) == 3
-    media = (ROOT / "JiberishUI/Core/Media.lua").read_text()
+    assert len(assets) == 85
+    media = (ROOT / "JiberishUI/Core/Media.lua").read_text() + (ROOT / "JiberishUI/Themes/Portraits.lua").read_text() + (ROOT / "JiberishUI/Themes/Hubs.lua").read_text()
     references = re.findall(r'"Interface\\\\AddOns\\\\JiberishUI\\\\([^"]+)"', media)
     expected = {"JiberishUI/" + path.replace("\\\\", "/") for path in references}
     assert expected == {a["file"] for a in assets}
@@ -59,6 +60,12 @@ def asset_checks():
         data = path.read_bytes()
         assert hashlib.sha256(data).hexdigest() == asset["sha256"]
         assert hashlib.sha256((ROOT / asset["source"]).read_bytes()).hexdigest() == asset["source_sha256"]
+        if asset.get("original"):
+            assert hashlib.sha256((ROOT / asset["original"]).read_bytes()).hexdigest() == asset["original_sha256"]
+        if asset.get("alpha_processing"):
+            processing = json.loads((ROOT / asset["alpha_processing"]).read_text())
+            assert processing["output_sha256"] == asset["source_sha256"]
+            assert hashlib.sha256((ROOT / processing["source"]).read_bytes()).hexdigest() == processing["source_sha256"]
         _, palette, kind, _, _, _, _, _, w, h, bits, descriptor = struct.unpack("<BBBHHBHHHHBB", data[:18])
         assert palette == 0 and kind == 2 and bits == 32 and descriptor & 15 == 8
         assert [w, h] == asset["size"]
@@ -78,7 +85,41 @@ def asset_checks():
                   max(x for x,y in visible)+1, max(y for x,y in visible)+1]
         assert bounds == asset["alphaBounds"]
         assert min(pixels[3::4]) == 0, "Artwork must have transparency"
-    print("PASS three packaged RGBA assets: source/file hashes, dimensions, alpha bounds, media references")
+        for fx, fy in asset.get("clear_points", []):
+            x, y = int(fx*w), int(fy*h)
+            if not descriptor & 32:
+                y = h - 1 - y
+            assert pixels[(y*w+x)*4+3] == 0, "Functional opening must remain transparent"
+        if "/Portraits/" in asset["file"]:
+            assert [w,h] == [256,256]
+            assert asset['fit_version']==4 and asset['registration_box']==[8,8,210,244]
+            assert asset['portrait_center']==[154,148] and asset['portrait_radius']==64
+            assert bounds[0]>=8 and bounds[1]>=8 and bounds[2]<=214 and bounds[3]<=244
+            assert any(y>=190 for x,y in visible), 'Natural side flare must not be chopped off'
+            if asset.get('official_crest') or asset.get('emblem_reference'):
+                crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
+            for y in range(h):
+                for x in range(w):
+                    # Exact default player silhouette and the native bar corridor;
+                    # mirrored target/focus portraits fit inside the same hole.
+                    clear = ((x-154)**2+(y-148)**2 <= 60**2 or
+                             (154 <= x <= 214 and 148 <= y <= 208) or
+                             x >= 214)
+                    row = y if descriptor & 32 else h-1-y
+                    if clear:
+                        assert pixels[(row*w+x)*4+3] == 0, asset["file"]
+        if "/Hubs/" in asset["file"]:
+            assert [w,h]==[1024,512]
+            assert asset['registration']=={'canvas':[2172,724],'seams':[620,980,1210,1552],
+                                            'rail_band':[530,620],'clear_region':[620,0,1552,440]}
+            # Stay inside UV margins to account for resampling at the seams.
+            for y in range(2,int(h*435/724)):
+                for x in range(int(w*625/2172),int(w*1547/2172)):
+                    row=y if descriptor & 32 else h-1-y
+                    assert pixels[(row*w+x)*4+3]==0, 'Hub art covers reserved button region'
+            if asset.get('official_crest') or asset.get('emblem_reference'):
+                crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
+    print("PASS 42 portrait openings, 42 shared hub atlases, 85 RGBA assets and provenance hashes")
 
 
 def reference_checks():
@@ -109,7 +150,7 @@ def archive_checks(directory):
             assert set(archive.namelist()) == set(expected)
             for name, content in expected.items():
                 assert archive.read(name) == content, name
-        assert len([p for p in expected if p.endswith(".tga")]) == 3
+        assert len([p for p in expected if p.endswith(".tga")]) == 85
     print("PASS both exact client archives; no legacy code/themes or unrelated textures packaged")
 
 

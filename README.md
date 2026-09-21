@@ -1,90 +1,68 @@
-# JiberishUI — Phase 1 fantasy artwork prototype
+# JiberishUI
 
-**0.2.0-phase1.1** implements one theme, `paladin_ret`, with exactly four non-interactive artwork components:
+**0.4.0-art.1** restores natural hanging portrait details and adds 42 class/race/faction action hubs. Class symbols are integrated into the layered portrait ornament and sculpted hubs, using the requested Blizzard emblems as references, including the Undead mask, Mage eye and Hunter stag skull. There are no pasted circular icon holders. All choices use shared fitting templates; the native UI remains functional underneath.
 
-- Minimap surround
-- Player-frame surround
-- Target-frame surround
-- Action-bar hub/background
+Blizzard owns every portrait, health/power bar, name, level badge, aura, position, secure click and action button. JiberishUI creates mouse-transparent decorations under UIParent; it does not replace, reparent or reskin native controls.
 
-Blizzard owns the UI, including its borders, colors, buttons, clicks, visibility rules, and Edit Mode layout. JiberishUI adds its own frames and textures, parented to UIParent and anchored to four native roots. It does not move, reparent, recolor, hide, or replace native UI.
+## Portrait library
 
-This is an architectural prototype. Existing gold trim, a Paladin crest, and a console texture are layout fixtures, not a finished fitted skin. **Offline checks pass; this refactor has not yet been validated in-game.** Additional themes, gradients, party/raid/focus components, replacement-addon adapters, and bar docking are outside Phase 1.
+- 13 class backgrounds.
+- 26 playable-race backgrounds, including allied races, Earthen and Haranir.
+- Alliance, Horde and Neutral backgrounds.
 
-## Install and test
+All 42 portraits use transparent 256 × 256 textures at a default 128 × 128 UI units. They share a registration box and cleared native portrait/teardrop/bar regions. Cloth, feathers and stone sweep down the side naturally; there is no separate level-badge cutout or forced horizontal crop. Natural alpha bounds vary within the shared envelope. Source artwork and the fitting gallery are in `artwork/portraits/`.
 
-Use the matching archive for Retail or Forever. Each contains a single `JiberishUI` folder. Replace the previous addon folder; do not merge old source files into the package. Keep your WTF/SavedVariables files.
+## Action hub library
 
-**Restart WoW once after installing this refactor**, because its file list changed. The previous runtime's hooks cannot be unloaded by `reloadtheme`.
+The hub includes the same 13 classes, 26 races and three faction choices. `/jui` → Action hub exposes automatic player class/race/faction selection and a paginated artwork gallery. Selecting an individual hub sets Chosen artwork. It never follows the target's identity. All 42 choices retain the same anchor, five-piece geometry, baseline and reserved button space. Endcaps preserve their proportions while the rails stretch independently. Paladin keeps its flared wing endcaps; other variants carry their identity through layered armor, stone, wood, feathers and draped cloth, with one integrated motif on the left. Neutral uses an original compass. Hub textures are 1024 × 512 RGBA; only visible gallery thumbnails are assigned textures. A standalone fit gallery is in `artwork/hubs/`.
 
-Run:
+**Automatic class is the default.** Targeting a player changes that frame's background to their class; Focus selects its own class independently. Race and faction modes, or a fixed artwork choice, are available separately for each frame. NPCs and unavailable/restricted class information use Neutral. Automatic race/faction modes also use Neutral when their information is unavailable. No health/power quantities are read.
 
-```text
-/jf theme paladin_ret
-/jf debug
-/jf status
-```
+## Testing in game
 
-Select a target to see its artwork. Debug also outlines an attached target component while no target is visible; its artwork stays hidden in that case. If an anchor is absent or forbidden, status explains why no frame was attached.
+Install the matching Retail or Forever package and **fully restart WoW** for the new files and textures. Open `/jui`. Select Player, Target or Focus, then use Portrait selection or Browse artwork. The options window uses textured borders, red/gold buttons, classic checkbox art, slider tracks and a selected-portrait crest. Move it by its title bar; all in-game decorations remain click-through.
 
-Use Edit Mode to move or scale Blizzard UI. Use the commands below to adjust only the decorative artwork. Start with default Blizzard UI to validate Phase 1. Follow [the four-component test checklist](docs/VALIDATION.md) before expanding scope.
+Target a Paladin, then a Rogue or another class. Set a different-class player as Focus. Check the native name, level badge and bars remain visible, and test entering/exiting combat. Automatic texture changes can run in combat only on already-attached, unprotected addon frames. Protected changes and all positioning/configuration changes wait until combat ends.
+
+The baseline fits are verified offline against the pinned native geometry. **This build still needs in-game visual and secure-runtime validation on both clients.** See [validation](docs/VALIDATION.md) and [test results](docs/TEST-RESULTS.md).
 
 ## Controls
 
-`/jf` displays help. `/jui` and `/jiberishui` are aliases.
+`/jui`, `/jiberishui` and `/jf` open the movable options window. Existing commands remain available:
 
-| Command | Result |
+| Command | Effect |
 |---|---|
-| `/jf theme paladin_ret` | Select and reapply the test theme, retaining your per-component overrides |
-| `/jf reloadtheme` | Reapply loaded theme data, asset references, and current overrides |
-| `/jf debug [on\|off]` | Toggle each component's bounds and geometry/texture labels |
-| `/jf status` | Print attachment status, debug details, client baseline, and errors |
-| `/jf set <component> <property> <value>` | Change one artwork property |
-| `/jf show <component>` / `/jf hide <component>` | Toggle that component immediately outside combat |
-| `/jf reset [component]` | Clear one component's overrides, or all four when omitted |
-| `/jf export` / `/jf import <JF1 backup>` | Print/restore a validated text backup of Phase 1 appearance settings |
+| `/jf debug [on\|off]` | Show decorative bounds and geometry/texture information |
+| `/jf status` | Print client, settings and component diagnostics |
+| `/jf reloadtheme` | Reapply current in-memory settings |
+| `/jf set <component> <property> <value>` | Adjust one decorative component |
+| `/jf show <component>` / `/jf hide <component>` | Show or hide artwork |
+| `/jf reset [component]` | Reset one component, or all when omitted |
+| `/jf export` / `/jf import <backup>` | Export/import validated appearance data |
 
-Component names are `minimap`, `playerFrame`, `targetFrame`, and `actionHub`.
+Components: `playerFrame`, `targetFrame`, `focusFrame`, `minimap`, `actionHub`.
 
-| Property | Values |
-|---|---|
-| `width`, `height` | 16–2048 artwork UI units |
-| `x`, `y` | −2048–2048 native-anchor UI units; positive X is right, positive Y is up |
-| `scale` | 0.25–3, multiplied by the native anchor's effective scale |
-| `strata` | BACKGROUND, LOW, MEDIUM, HIGH, DIALOG, FULLSCREEN, FULLSCREEN_DIALOG, TOOLTIP |
-| `layer` | BACKGROUND, BORDER, ARTWORK, OVERLAY |
-| `point`, `relativePoint` | CENTER, TOP, BOTTOM, LEFT, RIGHT, TOPLEFT, TOPRIGHT, BOTTOMLEFT, BOTTOMRIGHT |
-| `opacity` | 0–1 |
-| `shown` | on / off |
-
-Examples:
+Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `portraitMode` (CLASS/RACE/FACTION/FIXED) and a catalog `portrait` ID.
 
 ```text
-/jf set playerFrame width 290
-/jf set playerFrame height 145
-/jf set playerFrame x -6
-/jf set playerFrame y 8
-/jf set playerFrame scale 1.1
-/jf set targetFrame strata BACKGROUND
-/jf set minimap layer BORDER
-/jf set actionHub width 850
-/jf set actionHub height 165
-/jf set actionHub y -10
+/jf set targetFrame portraitMode CLASS
+/jf set focusFrame portraitMode RACE
+/jf set playerFrame portrait CLASS_PALADIN
+/jf set playerFrame portraitMode FIXED
+/jf set actionHub hubMode RACE
+/jf set actionHub hub RACE_SCOURGE
+/jf set actionHub hubMode FIXED
 ```
 
-The hub is one artwork background anchored to MainActionBar. It does not arrange bars, bags, or the micro menu, and does not automatically encompass every custom bar layout. Width/height adjust its footprint. Default BACKGROUND strata keeps the artwork behind native controls; higher strata can visually cover them, though the artwork remains mouse-transparent.
+Background strata and level 0 keep native controls above the art. Custom dimensions/offsets/strata can change the fit. Use Reset this component to return to the fitted defaults.
 
-Changes requested in combat apply after combat ends. Existing unprotected artwork can safely follow native visibility during combat; if the client protects it, visibility changes are deferred too.
+## Persistence and scope
 
-`reloadtheme` reuses the existing objects. It cannot execute newly edited Lua from disk. After changing Lua files, use `/reload`; after installing a new file list, restart the client. WoW may cache changed texture bytes and require a restart.
+Settings remain under `JiberishUIDB.phase1`, now version 2. Version-1 shell sizing converts once to portrait sizing; offsets retain their adjustment relative to the previous defaults. Layering, visibility, hub/minimap settings and options position are retained. JF2 backups preserve new portrait settings; old JF1 backups are accepted and converted. Unknown/future database formats are preserved read-only.
 
-## Settings and scope
+Forever build 69913 previously failed to supply saved settings at startup in live diagnostics. This update does not fix that client loading failure. Export before closing: [persistence notes](docs/PERSISTENCE.md).
 
-Phase 1 settings live under `JiberishUIDB.phase1`. Earlier profiles remain in the saved table, untouched and inactive; their docking and native styling settings are not migrated into this renderer. Retail and Forever keep separate SavedVariables.
-
-Forever build 69913 previously failed to supply saved settings at startup in the user's live diagnostics. This refactor does not claim to fix that client-side loading behavior. See [persistence notes](docs/PERSISTENCE.md).
-
-The old skin library and research assets remain in repository history/research files. Release packages include only the Phase 1 source and three referenced textures. [Architecture](docs/ARCHITECTURE.md), [compatibility](docs/COMPATIBILITY.md), and [test results](docs/TEST-RESULTS.md) describe the limits.
+No party/raid, pet, boss, cast-bar or replacement-UI modules are added. ElvUI/Ellesmere integration is not claimed. No native minimap or action-bar positioning changes are made; existing minimap edge clipping and arbitrary action-hub layouts remain separate fitting concerns.
 
 ## Local checks
 
@@ -95,4 +73,17 @@ python3 tools/package.py
 python3 tools/check.py --packages
 ```
 
-Use a Lua 5.1 interpreter; locally the bundled build is `.tools/lua-5.1.5/src/lua`. Mock tests cannot certify WoW's secure runtime or visual fit.
+Install Lua 5.1 and Python 3 to run these checks; a local Lua 5.1 executable can be used instead of `lua5.1`. The same checks run on pull requests.
+
+The repository includes the final textures and all artwork inputs. To rebuild media without a generation-service cache or network access, install the pinned image-processing dependencies and run:
+
+```sh
+python3 -m pip install -r tools/requirements-artwork.txt
+python3 tools/encode_paladin_ret.py
+python3 tools/build_portraits.py
+python3 tools/build_hubs.py
+lua5.1 tools/export_fit_preview.lua
+python3 tools/check.py
+```
+
+Serve the repository with `python3 -m http.server 8757 --bind 127.0.0.1`, then open `/artwork/portraits/` or `/artwork/hubs/` on that server. The source PNGs, generation briefs and revision history are retained for editing; only active textures and Lua files enter the game packages. Downloaded website HTML is a local cache and is not committed. Source references and Blizzard credits are in [artwork credits](docs/ARTWORK-CREDITS.md). Mock checks cannot certify WoW's secure runtime.

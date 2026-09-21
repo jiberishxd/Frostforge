@@ -42,21 +42,48 @@ function methods:SetHeight(h) writable(self,true); self.h=h end
 function methods:SetScale(scale) writable(self,true); self.scale=scale end
 function methods:SetPoint(...) writable(self,true); self.points[#self.points+1]={...} end
 function methods:GetPoint(i) return unpack(self.points[i or 1]) end
-function methods:ClearAllPoints() writable(self,true); self.points={} end
+function methods:ClearAllPoints() writable(self,true); self.points={}; self.center=nil end
 function methods:SetAllPoints(relative) writable(self,true); self.allPoints=relative end
 function methods:SetFrameStrata(value) writable(self); self.strata=value end
 function methods:SetFrameLevel(value) writable(self); self.level=value end
+function methods:GetFrameLevel() readable(self); return self.level or 0 end
+function methods:SetBackdrop(value) writable(self); assert(self.template=="BackdropTemplate"); self.backdrop=value end
+function methods:SetBackdropColor(...) writable(self); self.backdropColor={...} end
+function methods:SetBackdropBorderColor(...) writable(self); self.backdropBorderColor={...} end
+function methods:SetBlendMode(value) writable(self); self.blend=value end
+function methods:SetMovable(value) writable(self); self.movable=value end
+function methods:SetClampedToScreen(value) writable(self); self.clamped=value end
+function methods:RegisterForDrag(...) writable(self); self.dragButtons={...} end
+function methods:StartMoving() writable(self,true); assert(self.movable); self.moving=true end
+function methods:StopMovingOrSizing() writable(self,true); self.moving=false end
+function methods:GetCenter()
+    readable(self)
+    if self.center then return unpack(self.center) end
+    local point=self.points[1]
+    if point and point[1]=="CENTER" and point[3]=="CENTER" then
+        local x,y=point[2]:GetCenter()
+        return x+point[4],y+point[5]
+    end
+    return self.w/2,self.h/2
+end
 function methods:EnableMouse(value) writable(self); self.mouse=value end
 function methods:EnableMouseWheel(value) writable(self); self.wheel=value end
 function methods:EnableKeyboard(value) writable(self); self.keyboard=value end
 function methods:SetDrawLayer(value,sub) writable(self); self.layer,self.sub=value,sub end
+function methods:SetTexCoord(...) writable(self); self.texCoord={...} end
 function methods:SetTexture(value)
     writable(self)
     self.path=value
     return not M.missingTexture
 end
 function methods:SetColorTexture(...) writable(self); self.color={...} end
-function methods:SetShown(value) writable(self); self.shown=value end
+function methods:SetShown(value)
+    writable(self)
+    local changed=self.shown~=value
+    self.shown=value
+    local callback=self.scripts[value and "OnShow" or "OnHide"]
+    if changed and callback then callback(self) end
+end
 function methods:Show() self:SetShown(true) end
 function methods:Hide() self:SetShown(false) end
 function methods:SetAlpha(value) writable(self); self.alpha=value end
@@ -79,6 +106,38 @@ function methods:SetText(text) writable(self); self.text=text end
 function methods:GetText() return self.text end
 function methods:SetTextColor(...) writable(self); self.color={...} end
 function methods:SetJustifyH(value) writable(self); self.justify=value end
+function methods:SetAutoFocus(value) writable(self); self.autoFocus=value end
+function methods:SetFontObject(value) writable(self); self.fontObject=value end
+function methods:SetTextInsets(...) writable(self); self.insets={...} end
+function methods:SetMaxLetters(value) writable(self); self.maxLetters=value end
+function methods:HasFocus() return self.focused or false end
+function methods:SetFocus()
+    writable(self)
+    if not self.focused then
+        self.focused=true
+        if self.scripts.OnEditFocusGained then self.scripts.OnEditFocusGained(self) end
+    end
+end
+function methods:ClearFocus()
+    writable(self)
+    if self.focused then
+        self.focused=false
+        if self.scripts.OnEditFocusLost then self.scripts.OnEditFocusLost(self) end
+    end
+end
+function methods:HighlightText() writable(self); self.highlighted=true end
+function methods:SetOrientation(value) writable(self); self.orientation=value end
+function methods:SetMinMaxValues(a,b) writable(self); self.minimum,self.maximum=a,b end
+function methods:SetValueStep(value) writable(self); self.step=value end
+function methods:SetObeyStepOnDrag(value) writable(self); self.obeyStep=value end
+function methods:SetThumbTexture(value) writable(self); self.thumb=value end
+function methods:SetValue(value)
+    writable(self)
+    local changed=self.value~=value
+    self.value=value
+    if changed and self.scripts.OnValueChanged then self.scripts.OnValueChanged(self,value) end
+end
+function methods:GetValue() return self.value end
 function methods:RegisterEvent(event) writable(self); self.events[event]=true end
 function methods:SetScript(event,callback) writable(self); self.scripts[event]=callback end
 -- These APIs must never be used by the prototype, even on unprotected native UI.
@@ -86,8 +145,9 @@ function methods:SetParent() error("No reparenting permitted") end
 function methods:SetAttribute() error("No secure attribute writes permitted") end
 function hooksecurefunc() error("No native hooks are needed by Phase 1") end
 function CreateFrame(kind,name,parent,template)
-    assert(not template,"No secure or native templates")
+    assert(not template or template=="BackdropTemplate","Only nonsecure backdrop templates allowed")
     local frame=object(kind,parent,name)
+    frame.template=template
     if name then _G[name]=frame end
     return frame
 end
@@ -98,9 +158,19 @@ function GetBuildInfo() return M.interface==16001 and "1.60.1" or "12.1.0","test
 function IsLoggedIn() return M.loggedIn or false end
 function UnitHealth() error("Unit data is out of scope") end
 function UnitPower() error("Unit data is out of scope") end
-function UnitClass() error("Unit data is out of scope") end
+M.unitData = {
+    player={player=true,class="PALADIN",race="Scourge",faction="Horde"},
+    target={player=true,class="ROGUE",race="Human",faction="Alliance"},
+    focus={player=true,class="MAGE",race="Gnome",faction="Alliance"},
+}
+function UnitIsPlayer(unit) return M.unitData[unit] and M.unitData[unit].player end
+function UnitClass(unit) return "localized",M.unitData[unit] and M.unitData[unit].class end
+function UnitRace(unit) return "localized",M.unitData[unit] and M.unitData[unit].race end
+function UnitFactionGroup(unit) return M.unitData[unit] and M.unitData[unit].faction end
 DEFAULT_CHAT_FRAME={AddMessage=function(_,text) M.messages[#M.messages+1]=text end}
 SlashCmdList={}
+UISpecialFrames={}
+JiberishUIOptionsFrame=nil
 UIParent=object("Frame",nil,"UIParent")
 UIParent.w,UIParent.h,UIParent.scale=1920,1080,0.64
 UIParent.native=true
@@ -108,12 +178,22 @@ function M.native(name,w,h,scale)
     local frame=object("Frame",UIParent,name)
     frame.w,frame.h,frame.scale=w,h,scale or 1
     frame.native=true
+    if name == "PlayerFrame" or name == "TargetFrame" or name == "FocusFrame" then
+        local container=object("Frame",frame); container.native=true
+        local portrait=object("Texture",container); portrait.native=true
+        if name == "PlayerFrame" then
+            frame.PlayerFrameContainer=container; container.PlayerPortrait=portrait
+        else
+            frame.TargetFrameContainer=container; container.Portrait=portrait
+        end
+    end
     _G[name]=frame
     return frame
 end
 M.native("Minimap",198,198)
 M.native("PlayerFrame",232,100,1.3)
 M.native("TargetFrame",232,100)
+M.native("FocusFrame",232,100,0.75)
 M.native("MainActionBar",562,45)
 function M.event(core,event,name) core.driver.scripts.OnEvent(core.driver,event,name) end
 function M.tick(core) core.driver.scripts.OnUpdate(core.driver,0.21) end

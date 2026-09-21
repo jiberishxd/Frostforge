@@ -1,17 +1,14 @@
-# Phase 1 live validation gate
+# Portrait build validation
 
-Do not add themes or components until the four-component prototype passes this gate on both clients. Artwork refinement follows reliable attachment, visibility and safety.
+Install 0.4.0-art.1 and fully restart WoW. This refreshes the replaced portrait textures and classic options controls. Do not delete saved settings. Export current settings before closing, especially on Forever build 69913.
 
-Install the matching 0.2.0-phase1.1 package and fully restart the client once. Keep SavedVariables. Enable only the required test/bug-reporting addons plus JiberishUI initially.
+1. Open /jui. Confirm textured window borders, red/gold buttons, checkboxes, five component tabs and a movable window. Verify Show artwork and Debug bounds check marks, selected tabs, and gallery selection after switching components. Player, Target and Focus default to Automatic class; Minimap settings and hub geometry are retained; the hub defaults to automatic player class.
+2. At default portrait dimensions, check Player's teardrop corner, level badge, name and bars. Select players of different classes and verify only Target's portrait background changes; the art should share the same visible envelope without a lower loop or level-badge circle. Verify Mage uses an eye and Hunter uses a skull. Set another class as Focus and verify independent selection. Clear Target/Focus and confirm their decoration disappears.
+3. Test all 13 class tokens, NPCs, unavailable identities, vehicles and target changes in combat. No previous target's class should persist on a new readable identity. Restricted identity data uses Neutral; a client-protected decoration must defer changes safely.
+4. Select automatic race and faction modes; exercise neutral and allied races. Browse every fixed artwork category, then switch back to Automatic class. Confirm unrelated components remain unchanged.
+5. Test absent/forbidden roots, portrait visibility options, small/large Focus, Edit Mode movement/scaling/save/cancel, and login while in combat. No blocked actions, Lua secret-value errors or native frame writes are acceptable.
+6. Check 1080p, 1440p and 4K at several native/UI scales. Inspect portrait/badge clearances, edges and the absence of bar-end decoration. Custom width/height/offset settings can change fit; reset only the affected component to inspect defaults.
+7. Exercise all options, typed validation, profile reset and JF2 export/import. Import a legacy JF1 backup and verify one-time sizing conversion. Verify reload, logout/login and full restart separately; offline persistence tests do not resolve the Forever loader issue.
+8. Recheck the unchanged minimap. In Action hub, select each group, page the gallery, switch automatic modes and choose a fixed hub. Verify width changes stretch only rails, target changes never alter the hub, and settings survive export/import. Check several native bar layouts: this artwork does not reposition bars, micro menu or bags.
 
-1. Run `/jf theme paladin_ret`, select a target, and run `/jf debug on`. Confirm four non-interactive rectangular bounds with module name, width/height, anchor, X/Y, scale, strata/layer and texture paths. Use `/jf status` if a label is clipped or an anchor is missing.
-2. Confirm native minimap interaction, player/target clicks and menus, targeting, action buttons, keybinds, cooldowns, proc highlights, health/power updates and functional indicators still work. No original borders or controls should disappear.
-3. Change each component's width, height, X/Y, scale, strata and layer using `/jf set`. Toggle each with `show`/`hide`. Confirm only that artwork changes, and hides require no reload.
-4. In Blizzard Edit Mode, move/scale each supported native frame. Save and cancel layouts. Test 1080p, 1440p and 4K where available, several UI scales, native frame scales, and window resizing. Expect the artwork anchor and effective scale to follow; manually adjust its width/height for different bar arrangements.
-5. Clear/reacquire targets, enter/exit vehicles, page action bars, change native visibility/alpha settings, and load addons late. Confirm hidden native roots do not leave floating artwork. Debug may intentionally display bounds for disabled/hidden components; turn debug off for visibility tests.
-6. Enter combat. Request multiple size/offset changes, hide/show, theme reload and debug changes. Confirm the most recent configuration applies on combat exit, with no blocked-action or taint errors. Log in/reload during combat where safely reproducible; newly encountered roots must not attach until combat ends.
-7. Repeatedly run `/jf reloadtheme`. Confirm no growing set of art objects, duplicated borders, native style changes or extra hooks. A missing texture must not hide native art.
-8. Set obvious custom values. Test `/reload`, logout/login and full client restart separately. Check the startup-settings notice. Forever 69913's previous saved-table failure remains unresolved; do not count an offline profile round trip as a client persistence pass.
-9. Disable JiberishUI and reload. Confirm Blizzard layout/behavior is normal. For the transition from alpha.8 or older, a full restart is needed to remove the old loaded code and refresh the manifest.
-
-Record client/build, resolution/UI scale, the four component settings, status output, exact action and any BugSack/blocked-action message for a failed case. No additional UI providers or components need to be implemented to complete this gate.
+Record client/build, resolution, UI/frame scale, mode/artwork, /jf status and exact BugSack/blocked-action details. In-game compatibility is not claimed until both clients pass.
