@@ -3,7 +3,32 @@ local Profiles = { writable = true }
 J.ProfileManager = Profiles
 
 local function defaults()
-    return { version = 1, theme = "paladin_ret", debug = false, modules = {} }
+    return { version = 2, theme = "paladin_ret", debug = false, modules = {} }
+end
+
+-- The former width controlled long bar rails. Convert that layout to compact
+-- portraits once; retain relative adjustments, scale, visibility and layering.
+local function migrateShell(profile)
+    for _,key in ipairs({"playerFrame","targetFrame"}) do
+        local c = profile.modules[key]
+        if c then
+            local oldX = key == "playerFrame" and -46 or 46
+            local newX = key == "playerFrame" and -23 or 22
+            local newY = key == "playerFrame" and 11 or 12
+            if c.width or c.height then
+                local s = math.min((c.height or 170)/170,(c.width or 300)/260)
+                c.width,c.height = math.max(16,128*s),math.max(16,128*s)
+            end
+            if c.x then c.x=math.max(-2048,math.min(2048,newX+c.x-oldX)) end
+            if c.y then c.y=math.max(-2048,math.min(2048,newY+c.y-16)) end
+        end
+    end
+end
+
+local function supported(key,property)
+    if property == "portrait" or property == "portraitMode" then return J.Portraits:IsUnitKey(key) end
+    if property == "hub" or property == "hubMode" then return key == "actionHub" end
+    return true
 end
 
 function Profiles:Initialize()
@@ -17,7 +42,7 @@ function Profiles:Initialize()
     end
     if self.writable then
         source = JiberishUIDB.phase1
-        if type(source) == "table" and type(source.version) == "number" and source.version > 1 then
+        if type(source) == "table" and type(source.version) == "number" and source.version > 2 then
             self.writable = false
             self.notice = "Newer Phase 1 settings version found; preserved without changes."
         end
@@ -26,19 +51,27 @@ function Profiles:Initialize()
     if self.writable and type(source) == "table" then
         if J.ThemeManager.registry[source.theme] then self.current.theme = source.theme end
         self.current.debug = source.debug == true
+        if type(source.window) == "table" and J.Core:IsNumber(source.window.x) and J.Core:IsNumber(source.window.y)
+            and math.abs(source.window.x) <= 10000 and math.abs(source.window.y) <= 10000 then
+            self.current.window = {x=source.window.x,y=source.window.y}
+        end
         if type(source.modules) == "table" then
             for _, key in ipairs(J.Core.order) do
                 if type(source.modules[key]) == "table" then
                     local target = {}
                     for property, value in pairs(source.modules[key]) do
                         local valid = J.Core:ValidateProperty(property, value)
-                        if valid ~= nil then target[property] = valid end
+                        if valid ~= nil and supported(key,property) then target[property] = valid end
                     end
                     self.current.modules[key] = target
                 end
             end
         end
         self.notice = "Phase 1 settings loaded."
+        if source.version ~= 2 then
+            migrateShell(self.current)
+            self.notice = "Portrait backgrounds loaded; previous bar-shell sizing converted."
+        end
     elseif self.writable and not self.notice then
         self.notice = "New Phase 1 settings; earlier profiles preserved separately."
     end
@@ -46,9 +79,17 @@ function Profiles:Initialize()
     if self.writable then JiberishUIDB.phase1 = self.current end
 end
 
+function Profiles:SetWindowPosition(x,y)
+    if not self.writable or not J.Core:IsNumber(x) or not J.Core:IsNumber(y)
+        or math.abs(x) > 10000 or math.abs(y) > 10000 then return false end
+    self.current.window = {x=x,y=y}
+    return true
+end
+
 function Profiles:Set(key, property, value)
     if not self.writable then return false, self.notice end
     if not J.Core.modules[key] then return false, "Unknown component." end
+    if not supported(key,property) then return false, "Portrait options apply to Player, Target and Focus." end
     local valid = J.Core:ValidateProperty(property, value)
     if valid == nil then return false, J.Core:PropertyHelp(property) end
     local overrides = self.current.modules[key] or {}
@@ -68,7 +109,7 @@ end
 
 -- A bounded command-format backup. No Lua or other code is ever evaluated.
 function Profiles:Export()
-    local fields = { "JF1", self.current.theme }
+    local fields = { "JF2", self.current.theme }
     for _, key in ipairs(J.Core.order) do
         local config = self.current.modules[key] or {}
         for _, property in ipairs(J.Core.propertyOrder) do
@@ -83,22 +124,24 @@ end
 function Profiles:Import(text)
     if not self.writable then return false, self.notice end
     if type(text) ~= "string" or #text > 8192 then return false, "Invalid backup length." end
-    local theme, tail = text:match("^JF1;([a-z_]+)(.*)$")
+    local version, theme, tail = text:match("^JF([12]);([a-z_]+)(.*)$")
     if not theme or not J.ThemeManager.registry[theme] then return false, "Invalid backup theme." end
     local candidate, seen = defaults(), {}
     candidate.theme = theme
     candidate.debug = self.current.debug
+    candidate.window = J.Core:Copy(self.current.window)
     while tail ~= "" do
         local key, property, value, rest = tail:match("^;(%w+)%.(%w+)=([^;]+)(.*)$")
         if not key or not J.Core.modules[key] then return false, "Invalid backup component." end
         local id = key .. "." .. property
         local valid = J.Core:ValidateProperty(property, value)
-        if seen[id] or valid == nil then return false, "Invalid or duplicate backup property." end
+        if seen[id] or valid == nil or not supported(key,property) then return false, "Invalid or duplicate backup property." end
         seen[id] = true
         candidate.modules[key] = candidate.modules[key] or {}
         candidate.modules[key][property] = valid
         tail = rest
     end
+    if version == "1" then migrateShell(candidate) end
     self.current = candidate
     JiberishUIDB.phase1 = candidate
     J.Core:RequestRefresh(true)

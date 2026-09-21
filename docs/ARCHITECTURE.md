@@ -1,53 +1,33 @@
-# Phase 1 rendering architecture
+# Decorative rendering architecture
 
-The active manifest loads one data-only Retribution Paladin theme, four modules, and shared services. No legacy renderer, colors, secure layout/docking code, provider adapters, settings skin, or native decoration hooks are loaded.
+Five independent addon-owned roots cover Player portrait, Target portrait, Focus portrait, Minimap and Action hub. Each is a mouse/keyboard/wheel-transparent UIParent child. Blizzard frames are read-only anchors; no native reparenting, scripts, textures, attributes, layout or secure behavior are changed.
 
-## Files and responsibilities
+Core/Core.lua owns lifecycle, geometry, visibility, diagnostics and commands. ThemeManager resolves validated data-only configuration. ProfileManager stores versioned settings and data-only backups. Core/Portraits.lua selects safe public identity tokens. Themes/Portraits.lua contains only catalog data and media references. Each Modules file creates its own ordinary frame and textures. Retail and Forever use separate adapter methods for native root discovery and portrait visibility checks.
 
-| File | Responsibility |
-|---|---|
-| Core/Core.lua | Module registry, lifecycle, input validation, safe frame reads, geometry, visibility, debug and commands |
-| Core/ThemeManager.lua | Configuration-only theme registry; defaults plus per-component overrides |
-| Core/ProfileManager.lua | Versioned Phase 1 namespace, sanitization, reset and bounded data-only backup |
-| Core/Media.lua | Three packaged local texture paths |
-| Compatibility/Retail.lua | Retail 12.x root discovery with forbidden-frame checks |
-| Compatibility/Forever.lua | Separate Forever 16001 root discovery, acknowledging Camelot overrides |
-| Modules/Minimap.lua | Own frame and textures for the Minimap anchor |
-| Modules/PlayerFrame.lua | Own frame and textures for the PlayerFrame anchor |
-| Modules/TargetFrame.lua | Own frame and textures for the TargetFrame anchor |
-| Modules/ActionHub.lua | Own frame and textures for the MainActionBar anchor |
-| Themes/Paladin/Retribution.lua | paladin_ret data and asset references only |
+There are five decorative frames, nine artwork textures, 20 debug-edge textures and five labels. Each unit has a single texture; only the hub uses five independently laid-out pieces. Debug regions belong to those same roots. The nonvisual event driver and separately created options/picker windows are not decorative components.
 
-Each module creates an ordinary Frame directly under UIParent and two Texture objects. Core records ownership, configures those objects, and adds four debug line textures plus a FontString. No secure template, native child, parent write, attribute write, native function replacement, native texture setter, or native script hook is used.
+## Native ownership and geometry
 
-The nonvisual event driver has no rendering regions and disables mouse input. Debug outlines cover the four rendering frames; no separate interactive debug UI is created.
+Local decorative scale is native effective scale / UIParent effective scale × configured scale. FRAME positioning follows the native root; SCREEN uses UIParent while preserving native scale/visibility. X/Y offsets remain expressed in native-anchor units. Width/height affect addon artwork only.
 
-## Coordinates and layering
+Native roots and each inspected portrait container/region pass IsForbidden checks before access. Missing or forbidden portraits hide the decoration. Default Background strata, level 0 and Background layer keep native portraits, bars, names and functional indicators above the art. Settings expose strata, level and layer without touching Blizzard objects.
 
-Width and height are explicit artwork dimensions. An artwork frame's local scale is:
+All 42 portraits share an inner-contour fitting process and fixed center at (154,148). Each 512 × 256 atlas stores a 256-square Player teardrop fit on the left and a round Target/Focus fit on the right. Their opening radii are 60 and 58 respectively. Side cloth, feathers and stone retain their natural endings; there is no lower-band crop or level-badge notch. Target/Focus mirror only their atlas half. The hub uses its original five-piece layout with a separate 42-entry data-only catalog and guarded player identity resolver. Hub selection cannot follow target or focus changes.
 
-`anchor effective scale / UIParent effective scale * configured scale`
+## Identity changes and combat
 
-This accounts for native scaling and UIParent scaling exactly once. Its anchor references the live Blizzard root, so native movement follows automatically. X/Y are expressed in native-anchor units; dividing SetPoint offsets by configured scale keeps the requested offset stable when decorative size changes. Dimensions and native scale are polled, but artwork width/height do not automatically expand to wrap a resized, rotated, or rearranged bar group.
+The default CLASS mode uses UnitIsPlayer and the nonlocalized UnitClass token. NPCs use Neutral rather than their generic UnitClass result. RACE uses the nonlocalized UnitRace token; FACTION uses UnitFactionGroup. Every result is protected by pcall, checked with issecretvalue when available, and type-checked before lookup/comparison/formatting. Unknown, unavailable or restricted inputs resolve to Neutral. No health, power or identity strings are printed in diagnostics.
 
-The default frame strata and texture layer are BACKGROUND, with frame level zero. Native art and controls remain untouched above the decoration. Users can change strata/layer independently. The crest is constrained within the owned frame rectangle and displayed at its intended 3:1 aspect. The main artwork is stretched to the configured footprint as a prototype fixture.
+A 0.2-second read-only scan catches native visibility/scale changes and identity changes. Target/focus/portrait/faction events request immediate refresh. Stable scans perform no writes. Identity changes on already-attached unprotected addon frames replace only their texture. If anchoring makes the owned frame protected, the change waits for PLAYER_REGEN_ENABLED. All new attachment, geometry, layering and user-requested configuration changes defer during combat and apply the latest state afterward.
 
-## Lifecycle and safety
+No Blizzard hooks are required. All frames/textures are reused. A replaced or forbidden root hides stale artwork when safe. Missing media never causes native decoration to be hidden.
 
-At player login (or a load-on-demand login already in progress), Core initializes the profile, selects a compatible client path, discovers roots, and attaches only outside combat. ADDON_LOADED, PLAYER_ENTERING_WORLD, PLAYER_TARGET_CHANGED, PLAYER_REGEN_ENABLED, scale/display changes, and Edit Mode layout events request refreshes. Optional event-registration failures are reported, not fatal.
+## Profiles and options
 
-A 0.2-second read-only scan of four explicitly named roots catches visibility, effective scale, late loads and root replacement without native hooks or overrides. Stable polling performs no writes. Refreshes reuse frames, textures, labels and points.
+JiberishUIDB.phase1 version 2 stores theme, debug, modules and optional options-window position. Version-1 unit shell dimensions convert once to compact portrait dimensions; relative offsets are translated to the new defaults. Non-unit settings and layering/visibility are retained. JF2 export includes portrait mode/choice; JF1 imports are converted. Validation is atomic and never executes Lua. Unknown/future versions stay read-only.
 
-Every discovery checks IsForbidden before native geometry/visibility reads, in both client paths. Missing, forbidden, zero-sized, or restricted geometry is skipped without accessing unit data. Unexpected errors are isolated per module, reported in status, and stale artwork is hidden when safe.
+The movable /jui window has Player, Target, Focus, Minimap and Action hub tabs. Portrait tabs offer automatic class/race/faction or fixed artwork, plus a grouped thumbnail picker. Picking artwork selects FIXED; choosing an automatic mode resumes identity-driven selection. The picker never writes native frames. First creation is outside combat; existing settings can record deferred changes during combat. Opening, browsing or changing tabs does not create profile overrides.
 
-Configuration is saved immediately; a single dirty flag defers all geometry, new attachment, texture and debug changes through combat. PLAYER_REGEN_ENABLED applies the latest profile state. Existing artwork visibility/alpha follows the native anchor only if the owned root is unprotected; otherwise even those writes wait. New roots encountered in combat remain native. A replaced root cannot display old artwork at a stale anchor.
+Options use the nonsecure BackdropTemplate only on addon-owned settings objects. Native dialog/slider border files and button/check artwork provide the classic styling; decorative world modules still use plain frames. Every control is reused and checkbox/selection art reflects the saved value after validation, including rejected or combat-deferred changes.
 
-There are no native hooks to duplicate. If future redraw requirements justify hooksecurefunc, its callback must gate any received Blizzard frame through IsUsableFrame before access. This prototype requires no redraw hooks because it never modifies native artwork.
-
-## Theme and profile boundaries
-
-Theme registration rejects executable values, duplicate IDs, missing components and invalid exposed properties. The registered table is copied. Theme resolution copies defaults and adds only validated per-component overrides.
-
-JiberishUIDB.phase1 version 1 contains theme, debug and modules. Previous top-level profiles/character assignments are preserved. A future Phase 1 version or an unknown database format is preserved read-only. Malformed property overrides fall back to theme defaults. Backups are length-limited JF1 data; imports validate the complete candidate before any mutation and never execute Lua.
-
-All four components can be hidden immediately outside combat because no native snapshots need restoration. Reloading without the addon simply removes its artwork. A full restart is required for the initial transition from the older addon/file list.
+Hub settings (`hubMode`, `hub`) are restricted to actionHub; portrait settings remain restricted to units. Both are included in bounded JF2 exports. The hub gallery uses 12 thumbnails per page and clears texture references when hidden. Options/picker backdrops have opaque addon-owned underlays.
