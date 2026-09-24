@@ -76,6 +76,7 @@ function methods:SetTexture(value)
     self.path=value
     return not M.missingTexture
 end
+function methods:GetTexture() readable(self); return self.path end
 function methods:SetColorTexture(...) writable(self); self.color={...} end
 function methods:SetShown(value)
     writable(self)
@@ -171,6 +172,12 @@ DEFAULT_CHAT_FRAME={AddMessage=function(_,text) M.messages[#M.messages+1]=text e
 SlashCmdList={}
 UISpecialFrames={}
 JiberishUIOptionsFrame=nil
+BLINKIISPORTRAITS=nil
+for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do
+    for _,unit in ipairs({"Player","Target","Focus"}) do _G[prefix..unit]=nil end
+end
+ElvUI_Bar1=nil
+EABBar_MainBar=nil
 UIParent=object("Frame",nil,"UIParent")
 UIParent.w,UIParent.h,UIParent.scale=1920,1080,0.64
 UIParent.native=true
@@ -189,6 +196,11 @@ function M.native(name,w,h,scale)
     end
     _G[name]=frame
     return frame
+end
+function M.region(parent,kind,w,h)
+    local region=object(kind or "Texture",parent)
+    region.w,region.h,region.native=w,h,true
+    return region
 end
 M.native("Minimap",198,198)
 M.native("PlayerFrame",232,100,1.3)
