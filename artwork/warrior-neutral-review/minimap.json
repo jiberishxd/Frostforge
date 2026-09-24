@@ -1,0 +1,5 @@
+{
+  "id": "minimap",
+  "path": "artwork/warrior-neutral-review/minimap.png",
+  "method": "built-in imagegen"
+}

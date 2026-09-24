@@ -613,4 +613,5 @@ test("reported Forever fit profile reproduces geometry without changing native f
 end)
 assert(loadfile("tests/portraits.lua"))(test,near,count)
 assert(loadfile("tests/hubs.lua"))(test,near,count)
+assert(loadfile("tests/minimaps.lua"))(test,near,count)
 print(string.format("%d tests passed; no native-frame writes. In-game testing is still required.",passed))

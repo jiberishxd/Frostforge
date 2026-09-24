@@ -1,0 +1,5 @@
+{
+  "id": "faction_alliance",
+  "path": "artwork/minimaps/originals/faction_alliance.png",
+  "method": "built-in imagegen"
+}

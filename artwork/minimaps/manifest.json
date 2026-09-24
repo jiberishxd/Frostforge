@@ -1,0 +1,3078 @@
+{
+  "assets": [
+    {
+      "id": "class_warrior",
+      "label": "Warrior",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_warrior.tga",
+      "source": "artwork/minimaps/assets/class_warrior.png",
+      "source_sha256": "c8c18bd992d3cccbb37c056d45c21ef8f984eeebd73ee6e481a3200f6ec9713b",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_warrior.png",
+      "original_sha256": "e01d6c3a581993a4b7db6af21fd915e0cf8cb2f13ccdbea197e811a51612d3ee",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "b2372919ab7bc5180f8678411dcee1d3e8153e52e072eb01010e26ead4f48f74",
+      "alphaBounds": [
+        15,
+        10,
+        498,
+        494
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.5644189910963,
+        277.6769740595361,
+        134.1902590354994
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_warrior.png",
+          "sha256": "71f6c0c6639f6f6a7486e6dc3a01ab5f1496e644f40ce74729cfc5fc7e00c44e"
+        },
+        {
+          "file": "artwork/portraits/assets/class_warrior.png",
+          "sha256": "0e0a7f850b30b8a5842ba1f778cfd0083528a4cfe59ac0f143b756b9cf1e1daa"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_paladin",
+      "label": "Paladin",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_paladin.tga",
+      "source": "artwork/minimaps/assets/class_paladin.png",
+      "source_sha256": "7dddd8ffb5b936d47cc96b5f1c942bdb6a191243d1d8c39e27b9912b2f994d54",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_paladin.png",
+      "original_sha256": "4be28f89881f24c0b92c47cd4b10f84301d0a202d476bf2a6d82f0b0fce86237",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "b451d112383d3839baa5ddc57383cef4999f4505203999aa10056fbb227a6582",
+      "alphaBounds": [
+        17,
+        10,
+        496,
+        491
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.48617010715884,
+        265.30213606556265,
+        139.68211527757182
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_paladin.png",
+          "sha256": "bd64a27fa31386e0fdbc937f2f8f159bd972a8216055f1a3c38c5c35fac97687"
+        },
+        {
+          "file": "artwork/portraits/assets/class_paladin.png",
+          "sha256": "e9b6d506e4f1d7bdbf81b2d31971dd997697f034c2fb6a21d30a29ee5d150e2c"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_hunter",
+      "label": "Hunter",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_hunter.tga",
+      "source": "artwork/minimaps/assets/class_hunter.png",
+      "source_sha256": "883bd29c147aacbf6e892bff012684773dbea412c122d3307d99af454da3f45d",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_hunter.png",
+      "original_sha256": "87669d22a6b1ca9d635c8e2dafb01d3259599ed4d81bceebb843546c941f5f36",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "e93a43952d777159d28d88ff821ed9744969ce7da82759a16966b291878afa0c",
+      "alphaBounds": [
+        22,
+        12,
+        492,
+        487
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.3120766324484,
+        275.26157051374713,
+        139.57424696413008
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_hunter.png",
+          "sha256": "c8677af450bfdf7d8f091315d565e1e1b2ff364cc7b1093dd1dd9730b842473d"
+        },
+        {
+          "file": "artwork/portraits/assets/class_hunter.png",
+          "sha256": "4e567f0025f2c079c8500f6f1568bd7924acc36379d4a7ec30a3b65420e01d59"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_rogue",
+      "label": "Rogue",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_rogue.tga",
+      "source": "artwork/minimaps/assets/class_rogue.png",
+      "source_sha256": "92cd050c8cc591aa73aca417b0aa49b80edd52be45abea2d1f0819f74813daa1",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_rogue.png",
+      "original_sha256": "08a98888b66b6f2328a493413366aa6a7008b88a4e2a8fded93da48b5214d4b1",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "7c4d4b8bf72f74e2146423131b5583a70e81f7313c4efa6622a6226ccce2de39",
+      "alphaBounds": [
+        17,
+        12,
+        496,
+        491
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.43147155831448,
+        265.8180462092125,
+        142.61014158003235
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_rogue.png",
+          "sha256": "cd857589dffc063cf9cf88768aa5d734d9320e7d5f7d3e805c2594625c16876c"
+        },
+        {
+          "file": "artwork/portraits/assets/class_rogue.png",
+          "sha256": "d8e5a7edde8b40c2a7bc8e62d28840d7b141bb11d0291562ba32f020d8823a78"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_priest",
+      "label": "Priest",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_priest.tga",
+      "source": "artwork/minimaps/assets/class_priest.png",
+      "source_sha256": "b4d47c4455e95c84419e95c1f6bfff08ad260dffd5be68dab8ea2aa85d660074",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_priest.png",
+      "original_sha256": "22b645d28d8b7b1c974a54cfa041857ccd0577502c8e30efa12b9f8162e151b7",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "a4145542714e114657652788baf31d60a11cd5e132ebfadf267deeeb236ea3f0",
+      "alphaBounds": [
+        21,
+        8,
+        492,
+        503
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.66237692387583,
+        276.97831471395943,
+        149.9719776095045
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_priest.png",
+          "sha256": "22f0c96a0cca762a682a7095dfac1070e08ca5d27f2a0c89a588f9d030ace614"
+        },
+        {
+          "file": "artwork/portraits/assets/class_priest.png",
+          "sha256": "8892833e05a51bc9a689679a80a730c0694333a773073b8d8daceed7cbd1c7d5"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_deathknight",
+      "label": "Death Knight",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_deathknight.tga",
+      "source": "artwork/minimaps/assets/class_deathknight.png",
+      "source_sha256": "0e73f143cca03d83eeb615d15a405d2dd0ea8f83ec14514d7d545a42c0d6dbe5",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_deathknight.png",
+      "original_sha256": "a55c4c1d435c70344832bbbad341255201a1f2e2e4ca6e0f225f5a55ab0fd9e6",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "a6fc7134eabf166a125b9de31b6781cf4d586fe365088da119a55ea629d64f36",
+      "alphaBounds": [
+        9,
+        11,
+        504,
+        499
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.86234653716295,
+        255.79585079865245,
+        116.49727688674751
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_deathknight.png",
+          "sha256": "c05d5ce90dd15e552e066d5640ae5b6e5db78241eec39e4d90fd6933696e40eb"
+        },
+        {
+          "file": "artwork/portraits/assets/class_deathknight.png",
+          "sha256": "1b0c9e63c5d014e38fc31e4a00c36c6fe9c8f0037542aafd88e1097d8c200972"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_shaman",
+      "label": "Shaman",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_shaman.tga",
+      "source": "artwork/minimaps/assets/class_shaman.png",
+      "source_sha256": "9c1a3196833df0742f8288804ac759a61ab426fc27c84f94ab1d3e57f0136bdf",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_shaman.png",
+      "original_sha256": "7c0419e738975a1af9fc1ac756f86fa2a09887d14d3cf22c63f6ae68f3faf8ea",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "b4f6a969d4c68bb7dada8dd7b125d0b965075155296903770d2d2c73f28464e9",
+      "alphaBounds": [
+        12,
+        11,
+        503,
+        494
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.59554002832363,
+        266.33901183016036,
+        143.88595772723767
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_shaman.png",
+          "sha256": "950a04b43ec66edde573b16ba57c086c241d8128c94d2b5c413e958023693b32"
+        },
+        {
+          "file": "artwork/portraits/assets/class_shaman.png",
+          "sha256": "da6c3241e42b6ab04f85df1cb5c27abb46f8b5042559e1f8cfebdf33d07ffd2c"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_mage",
+      "label": "Mage",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_mage.tga",
+      "source": "artwork/minimaps/assets/class_mage.png",
+      "source_sha256": "d5503392bd353e24e7bec7b3b15da7dd7c6fcde8df6cc765ff54a74634e7e1ae",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_mage.png",
+      "original_sha256": "826f295f5bb478a06ca700983b1934e3ae7a28031fb565a382c770377e6b7f94",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "7911dd28dea2cf3ad815e38001c6007c003f5815901a4dbe0cb02d2669d7fd30",
+      "alphaBounds": [
+        24,
+        11,
+        490,
+        491
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.52357041489046,
+        275.5496665235859,
+        136.03613096707753
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_mage.png",
+          "sha256": "76f6fc47e3dc7bf7168f5a179c71237b92bec68cf538148c39dbfcdf7a764d3f"
+        },
+        {
+          "file": "artwork/portraits/assets/class_mage.png",
+          "sha256": "5e575d6abc077d11593eb6933e66dcadf6092bd6c7791c45f91880292ebe0605"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_warlock",
+      "label": "Warlock",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_warlock.tga",
+      "source": "artwork/minimaps/assets/class_warlock.png",
+      "source_sha256": "26ebfa5c06eaeaa73e745e3cdd50fa40010bb187ee3ef2381ccc9c740ce12b75",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_warlock.png",
+      "original_sha256": "f6eeab494100b037f007a9c92d925c2cf50aec672c935a93f9b89d93fa17ef6b",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "fe01955ded7b28af51b63cd9e582328a695f1f8451c66c33b0ccee5ff06bdaef",
+      "alphaBounds": [
+        13,
+        9,
+        500,
+        500
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.4261853869042,
+        269.04092468441127,
+        135.62027644818852
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_warlock.png",
+          "sha256": "f229e0cf3677eb0fa0755d72ca012c32dcb1990b5c37aaea387a1d0aabadc79d"
+        },
+        {
+          "file": "artwork/portraits/assets/class_warlock.png",
+          "sha256": "17b520cafd5c4723388658013e4b8aa437e0af18de8b13402be9e6d35c3abaa6"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_monk",
+      "label": "Monk",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_monk.tga",
+      "source": "artwork/minimaps/assets/class_monk.png",
+      "source_sha256": "7950aef511600cc7c73da4fc1c77a6e19d6f4a396d6f68c3b1e12833830387e5",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_monk.png",
+      "original_sha256": "2fa04ea5ee17db02f16ccb1f0b26a4da7621df2ebce49d0f5a0472ab084a9bae",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "23529e99f49509a53a1985d0c7000ed0d284579bc510ddf1e2bafa8db0a6e2dc",
+      "alphaBounds": [
+        24,
+        15,
+        495,
+        499
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.59036997687105,
+        255.5377111704347,
+        138.82307386457077
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_monk.png",
+          "sha256": "4cca3d987b19d30a6afdf45002cfa2b6553a7809dd08a34ebfac1353eb4e7971"
+        },
+        {
+          "file": "artwork/portraits/assets/class_monk.png",
+          "sha256": "702d6032c3ee6c3da516f7e4354447fbe36c8177192c20f1b8f1d34ac31fa834"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_druid",
+      "label": "Druid",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_druid.tga",
+      "source": "artwork/minimaps/assets/class_druid.png",
+      "source_sha256": "7098c544b1918aa053b4e53acf6a87816be33e74d6ee7d744f065e4fca915caa",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_druid.png",
+      "original_sha256": "e0b1760ae7919bf67a57d31be018cf797b4f3df35158200e6eedb6bb3e8e8c9d",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "b3329980af3be47967cfd4a6bd536116763ac3bf8225a03f4e27f4538bf6d3f3",
+      "alphaBounds": [
+        11,
+        14,
+        502,
+        501
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.8640189691358,
+        259.09557689769406,
+        127.04622006598082
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_druid.png",
+          "sha256": "718c7ba1c3e7b9036f80da66bc9d7c5f8f935a522f5cac74d657c57074f5fc79"
+        },
+        {
+          "file": "artwork/portraits/assets/class_druid.png",
+          "sha256": "b7072ea1e9fe7bb5c8240711e2c5f7c723be65d16297680a21882e39e5e56097"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_demonhunter",
+      "label": "Demon Hunter",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_demonhunter.tga",
+      "source": "artwork/minimaps/assets/class_demonhunter.png",
+      "source_sha256": "9d8cde22670fadbbccdefbb2dd73edf7172420b58c3435019446f02fa98cb492",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_demonhunter.png",
+      "original_sha256": "59a5c0dba23c2cce6ddf6c9b909e888dcd18198af634512d4246442e8d18fd31",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "52d92a2aa8d9fae75615152f87236c3ec1ef8c95e2a386ce0146ceecdfdb8c33",
+      "alphaBounds": [
+        13,
+        10,
+        501,
+        497
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.46144667033514,
+        266.83272674896557,
+        141.72895273897302
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_demonhunter.png",
+          "sha256": "b674f5e9d0cd6f800d9cc963287afcfd4b30d4e1b8c0a480b83a0c14ee3ce235"
+        },
+        {
+          "file": "artwork/portraits/assets/class_demonhunter.png",
+          "sha256": "d76d998649f6816c8bf060a951615ccec55d51ab784051e6ff963e30d9250c1b"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "class_evoker",
+      "label": "Evoker",
+      "group": "class",
+      "file": "JiberishUI/Media/Minimaps/class_evoker.tga",
+      "source": "artwork/minimaps/assets/class_evoker.png",
+      "source_sha256": "93f8f9678e3f5c9bdfe992a389720f74710f9683a926fabdd45b08f2504f5530",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/class_evoker.png",
+      "original_sha256": "0b86dc4f084ce698167f7df649cee9d0296e0c3b0f30b7ffd2900d6b14c8cae9",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "66f2c14349ae411e648872e32d1caf45c0d10bfe997f32e518210ea759d5aa76",
+      "alphaBounds": [
+        25,
+        12,
+        488,
+        480
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.5131405552936,
+        265.7786059974619,
+        133.6116894956063
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/class_evoker.png",
+          "sha256": "d2fbcf867a75d82bfced4b22f9928ca52379df5b3f3ad004079f75b0563ca3bf"
+        },
+        {
+          "file": "artwork/portraits/assets/class_evoker.png",
+          "sha256": "b4c776cdc484faed6109197bb60928bcfadb21f88852e8fdc081c13c9d5ee153"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_human",
+      "label": "Human",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_human.tga",
+      "source": "artwork/minimaps/assets/race_human.png",
+      "source_sha256": "a785a9e8c57091da8b060efda27a8b3124246932951b45e57bdc0f7837b6b363",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_human.png",
+      "original_sha256": "c443bb0279f0427431d77cc7b8953d02b0f55a20277247ab91d74281aef9bbdb",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "6787311f7edf680dfe9481e58aa9034d8c25e7828c811c537698719cafbf3a08",
+      "alphaBounds": [
+        23,
+        10,
+        490,
+        486
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.4601759137109,
+        262.3809731009137,
+        135.23308783926603
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_human.png",
+          "sha256": "632a131a552d0bef35ab496b5af308dee034de87d29dde7fa94c5ab173af4ebc"
+        },
+        {
+          "file": "artwork/portraits/assets/race_human.png",
+          "sha256": "ea3c662e264f0ee4980801eed5380110dc6047b6122b24a8b0d58acf8c36baef"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_dwarf",
+      "label": "Dwarf",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_dwarf.tga",
+      "source": "artwork/minimaps/assets/race_dwarf.png",
+      "source_sha256": "e654549525c652a22cbf7759e074652cec4e0fe174f5f5435816ff58cb508e8d",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_dwarf.png",
+      "original_sha256": "9a30da6613db7411a0cf4e2ce4193a8b7ca164a7a3b849562dd51d775c3f93c2",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "e98c5da7de326a13520f63e74b77b4063277e5723bf8f799460720b131ab45af",
+      "alphaBounds": [
+        19,
+        19,
+        494,
+        493
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.50617631907286,
+        253.582474459429,
+        145.77652601340407
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_dwarf.png",
+          "sha256": "3bd1049ed91b34a1c814c89a892aba1506095a6cbe22cfed405e234f7b3559b8"
+        },
+        {
+          "file": "artwork/portraits/assets/race_dwarf.png",
+          "sha256": "8d93bf044536221b987221c0a6e91b072e373059a4a19930ff4af9c0debcb524"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_nightelf",
+      "label": "Night Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_nightelf.tga",
+      "source": "artwork/minimaps/assets/race_nightelf.png",
+      "source_sha256": "201bd96bd75bf63c783c4664884bd3daf68e6b508f1f03a3500e51d02102a1db",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_nightelf.png",
+      "original_sha256": "ee933794df4fe35d0f3500db59af64e29f22e5a1f6196c69674eebb95fb7b60d",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "3de0fc23b611ce5672a52ec675d2a938cbfd16c432f9a40b896beac42d7b2ba9",
+      "alphaBounds": [
+        15,
+        13,
+        498,
+        497
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.25030648425405,
+        259.7656110419916,
+        139.3275701314256
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_nightelf.png",
+          "sha256": "cb81ae7d26ea1c16bd25022db19ab1418d5e2ace5aa169fdd50387feeeadfc86"
+        },
+        {
+          "file": "artwork/portraits/assets/race_nightelf.png",
+          "sha256": "47d962a72d1107aa1f050aa1440899215542537afe31d650f956a7e9b7e9929f"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_gnome",
+      "label": "Gnome",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_gnome.tga",
+      "source": "artwork/minimaps/assets/race_gnome.png",
+      "source_sha256": "945fc01704398fd133b7652b2d475c960f35b7a7d002aad1af0b079baf28a37c",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_gnome.png",
+      "original_sha256": "18af61702b35715c69bc128501e19e681cd03be9c8a0aec7765c44f98664c4e6",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "23284b52a42f1114e0ecc842c2881ddd841988a5299fb0741405660c97230aa5",
+      "alphaBounds": [
+        15,
+        10,
+        497,
+        486
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.36761504321848,
+        258.58175111077827,
+        148.5806714304906
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_gnome.png",
+          "sha256": "aeff6d116ae118fd98fe278c701d531546c78848ad23366aedcf739fe13d20fa"
+        },
+        {
+          "file": "artwork/portraits/assets/race_gnome.png",
+          "sha256": "c7e8b329dcf304c58c031599c817e60c788412557fefb3012c9e4e2820477e78"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_draenei",
+      "label": "Draenei",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_draenei.tga",
+      "source": "artwork/minimaps/assets/race_draenei.png",
+      "source_sha256": "3de43583550e1e1b6723ef7ec99d03e884e20be34667e3aca418bad8a4554f3c",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_draenei.png",
+      "original_sha256": "e8bb8bbaa63d6ddc443fbe03298fba3d7158f4f262a3c210f0c9eec6fa1ed34a",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "ac554da6f69185fc34de93d7bdaa02e20f2527d3e6f80026f55308dea821dc07",
+      "alphaBounds": [
+        21,
+        11,
+        492,
+        490
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.52849020106825,
+        280.9630174214159,
+        145.0228291891203
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_draenei.png",
+          "sha256": "610f006b1ddbe93f055296f0c9f18d75e39a9369c9f5e75409b05e38cec1f537"
+        },
+        {
+          "file": "artwork/portraits/assets/race_draenei.png",
+          "sha256": "03260f56066c1a991b7efb03012475ac2df1e3bf7ed8f1cdb2316bef829933f3"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_worgen",
+      "label": "Worgen",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_worgen.tga",
+      "source": "artwork/minimaps/assets/race_worgen.png",
+      "source_sha256": "cc773f8d45e810877d18cfc4569961906bf9aa25b7e8a482ab1ee9aa157e3e4a",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_worgen.png",
+      "original_sha256": "ed7d122d7cdf5bfd716dd66cac97fa0aba286efc2928aa4baef2419c0696e557",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "33361c5f0c048ffc2fefaaa8def6d34d4042671e6822fc58add0f3f250a88530",
+      "alphaBounds": [
+        14,
+        10,
+        500,
+        490
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        256.2477596167695,
+        263.19915303323256,
+        129.99563045409084
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_worgen.png",
+          "sha256": "bd69d899ed46fccada9aba1e0b2bf2ce47f804afaf6b88307e306914d9672e75"
+        },
+        {
+          "file": "artwork/portraits/assets/race_worgen.png",
+          "sha256": "346c673f61cea84a857f14501dda24b89e87164860f91467f5eaf899deec1903"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_orc",
+      "label": "Orc",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_orc.tga",
+      "source": "artwork/minimaps/assets/race_orc.png",
+      "source_sha256": "018cbeab87caff45cfd6c48c523c1c43fad16ae04493e3c7da8142ddd02957da",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_orc.png",
+      "original_sha256": "2b3c5bc099d7194e24f2522231ca1bc2b358c0927cf3b143225fb8a9fc8a397f",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "bf299e5a5b5de05685b52ed76bdeefed5f2e52bba87158027818be9019c4975d",
+      "alphaBounds": [
+        14,
+        15,
+        499,
+        495
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.8322340645274,
+        258.5089190631154,
+        137.72412630055993
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_orc.png",
+          "sha256": "0b16cf59d981f1e7f42ecd986dadc823d1189065c5f37958463abf5c6d1a1fb8"
+        },
+        {
+          "file": "artwork/portraits/assets/race_orc.png",
+          "sha256": "ca3c923b8123b4f59dc12426c760252856893749fd9bf289aee15c0760b69815"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_scourge",
+      "label": "Undead",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_scourge.tga",
+      "source": "artwork/minimaps/assets/race_scourge.png",
+      "source_sha256": "4e4a02a9a63207ba68ae9cafbf1c8feba205093c8d673f4c1b9e28cf37988ae1",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_scourge.png",
+      "original_sha256": "06a87888a3ad70b104d4b6345c9c682d4023576550b1b77626fb2061567e1216",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "e75f3f1d57c953fa084b232686d39462ec69ff1a21f79a79eb77ab793e29c3b1",
+      "alphaBounds": [
+        18,
+        10,
+        495,
+        495
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.65110437036608,
+        274.3060446999489,
+        145.30438377783992
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_scourge.png",
+          "sha256": "d5ec894a863cfe3411e12c8541b57322ebc8e04ad8f1d19cbc262be834f9b1bb"
+        },
+        {
+          "file": "artwork/portraits/assets/race_scourge.png",
+          "sha256": "709174e8bb904e37304cb57b35c2cc1f84678aa87fe277e583f4169970f8ccd8"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_tauren",
+      "label": "Tauren",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_tauren.tga",
+      "source": "artwork/minimaps/assets/race_tauren.png",
+      "source_sha256": "d3f76196ef55352714b62aaf9eb08735f81f4361e1895feaed2309ef65b94f2d",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_tauren.png",
+      "original_sha256": "664b1e0789bd990b58aa6e54f041f3da55958090a9e0ab435c218eb1d72103d1",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "8598c47deb71aeb874e79748207e10128d7592bd8e3bf13bb7b7805dfa059d51",
+      "alphaBounds": [
+        20,
+        16,
+        502,
+        493
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.42591797348825,
+        257.83439889353104,
+        137.62840690155528
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_tauren.png",
+          "sha256": "e31d5401eff48cbb1e1d5d0a563abc70ad2c9bae6cca813490b27f3d411beab7"
+        },
+        {
+          "file": "artwork/portraits/assets/race_tauren.png",
+          "sha256": "5d011957e28ceb8d4c5d81af4e7c23e941b3b2427c3c2af880c85dcdf7a2dd4b"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_troll",
+      "label": "Troll",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_troll.tga",
+      "source": "artwork/minimaps/assets/race_troll.png",
+      "source_sha256": "38593d446ca0d0dc620f28e7492c1c8bdab6ea7068082df5a9733986231e59b3",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_troll.png",
+      "original_sha256": "04b73ffe28efa80b1f07998fc4675b854550ba831f7df5061a789d44c742189b",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "88d3ecb3b177b3274d1a70119f4c4a1290eb7a5ddd7dd98beeedf76a6f956786",
+      "alphaBounds": [
+        16,
+        10,
+        497,
+        485
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.58531374701818,
+        256.853237580833,
+        140.47838146308874
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_troll.png",
+          "sha256": "7247dea4f0e7aed1fb7de18a58665c63caa7a5f5148d9ee2898d4f5b145440e0"
+        },
+        {
+          "file": "artwork/portraits/assets/race_troll.png",
+          "sha256": "a138f149cb321ee68d3a04f5e45dacf3865f03caf5c109ff8adc858cbaf03e4e"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_bloodelf",
+      "label": "Blood Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_bloodelf.tga",
+      "source": "artwork/minimaps/assets/race_bloodelf.png",
+      "source_sha256": "7cb717b4484eae947f7e5854763e772c0ec3c006f7189c48b235705690890368",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_bloodelf.png",
+      "original_sha256": "c926db98d5db552dedc211a7f7f5fec1ff8f9f5febf163f512c2b418cca11b8e",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "9ddff3c463c67f4de0d3f854f62ef425c5535f08c4a2915ce00bb418cf8fd787",
+      "alphaBounds": [
+        13,
+        10,
+        500,
+        499
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.77475996241526,
+        266.5735808263833,
+        152.40786729232306
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_bloodelf.png",
+          "sha256": "3c1cd3bb0b5c8f23758689c3aa01080c2c54c4f0a47bb51b0fe6186bf9e8ab05"
+        },
+        {
+          "file": "artwork/portraits/assets/race_bloodelf.png",
+          "sha256": "7c69054c39faa9b2eba4362c365af91d4f6fc647289d70ae5286aa59da694a74"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_goblin",
+      "label": "Goblin",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_goblin.tga",
+      "source": "artwork/minimaps/assets/race_goblin.png",
+      "source_sha256": "2f4c6dc8cbf933821bdbd96fa1788e4c7e08e3f13c3e5dda49c6adc393b505e2",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_goblin.png",
+      "original_sha256": "de680cdb0dd09b908b9ba2cf54b649205fa63e9d4947c2010e837e651ebc24ba",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "88f78d579c009cedd70f02b008fb7460d39f89fd537735e21831d59c6b6147de",
+      "alphaBounds": [
+        16,
+        10,
+        497,
+        495
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.72407730488067,
+        249.292436121841,
+        141.01016759984387
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_goblin.png",
+          "sha256": "d70679ef8d55d37c7748455fcc711e86d6adc0a74c519083c751a7518814e156"
+        },
+        {
+          "file": "artwork/portraits/assets/race_goblin.png",
+          "sha256": "fd3e8f85046b040932a2bfdca7fdfe967ed7245158f7f276933265c6adccdc52"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_pandaren",
+      "label": "Pandaren",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_pandaren.tga",
+      "source": "artwork/minimaps/assets/race_pandaren.png",
+      "source_sha256": "90d7ab5fc4aada5251181c49acd7d9acc70219f902e79652f66dcfa9b0aa93e1",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_pandaren.png",
+      "original_sha256": "519056ce3d2b107c59f50077f3c4b76e28f84e75e25305df2de5c0db0e364367",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "8b0651a6d682ae15764969829a586a8bb018b017da8fcab94b5083b4b8c489b3",
+      "alphaBounds": [
+        12,
+        11,
+        502,
+        496
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.3139781990129,
+        249.6904586314148,
+        128.8505716878192
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_pandaren.png",
+          "sha256": "2bb1fbc9a15e79d65e6e7ecc6ad4e070a78e4a64001f61c5a4427eb93e550b74"
+        },
+        {
+          "file": "artwork/portraits/assets/race_pandaren.png",
+          "sha256": "c6c3cd3952e4672b9b01537db203d68e35944e451395c3c6732a396b3338293c"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_dracthyr",
+      "label": "Dracthyr",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_dracthyr.tga",
+      "source": "artwork/minimaps/assets/race_dracthyr.png",
+      "source_sha256": "89da70e16c42491a6a3075c7a0bca3970c6e6f7b96ebc6e7e9e0d7f9c98e0136",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_dracthyr.png",
+      "original_sha256": "1755e789317f60ac58c958858b5b3461ee71a188cd64e425766085e41764d82d",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "b109f9acceab2d6ee0d706b2387f1e379a70b9d83dd7379b70892efeff878d34",
+      "alphaBounds": [
+        13,
+        10,
+        501,
+        498
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.48295483808303,
+        245.09419994340857,
+        145.16468609896427
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_dracthyr.png",
+          "sha256": "c206901a5f7e65da9fb5132f8e81105ba01ce833c86c83997a3e477a9215a32d"
+        },
+        {
+          "file": "artwork/portraits/assets/race_dracthyr.png",
+          "sha256": "078c78572be520e4cbf8f7b48f8841b057f5c25dbad3f9a2670c4f7784fa6014"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_voidelf",
+      "label": "Void Elf",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_voidelf.tga",
+      "source": "artwork/minimaps/assets/race_voidelf.png",
+      "source_sha256": "16241a6aa040748155cb3f4da3fd1b899a25e991f6c34af940d603dd379674f5",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_voidelf.png",
+      "original_sha256": "8f188a9a93cfd2d838c61708723d3b650f4cde3764f9094e3ace8c6ae1ef20b2",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "73da16e9acf42e8c894de2705aa00ba558cdd727a4f0987343e50786001b6e22",
+      "alphaBounds": [
+        11,
+        11,
+        502,
+        492
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.58600694556628,
+        255.5301385851527,
+        142.86009902142936
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_voidelf.png",
+          "sha256": "4a29dd7517f42b92fa5a6fc33e4975511a62b15207a306917307a0d94af360a5"
+        },
+        {
+          "file": "artwork/portraits/assets/race_voidelf.png",
+          "sha256": "137ce4c8667557a3657e71eb26e8e7d68eeafb9e1e10685e88ceeb70dd3b319e"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_lightforgeddraenei",
+      "label": "Lightforged Draenei",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_lightforgeddraenei.tga",
+      "source": "artwork/minimaps/assets/race_lightforgeddraenei.png",
+      "source_sha256": "f202ff1b5487eb5b475d825ca99a638a2df1723f479b48ebd2145eb505559d3c",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_lightforgeddraenei.png",
+      "original_sha256": "f313682c101849af07a62b771fa34e4863a2ae1846de3fdc9ef62c7ee83806c1",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "f1774c4fb40821b934f96c007281fdc866f17ee086d33d0e83b6d6ed12101029",
+      "alphaBounds": [
+        15,
+        9,
+        497,
+        492
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.56710139823738,
+        263.1758572813727,
+        137.6640628564373
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_lightforgeddraenei.png",
+          "sha256": "db61f8ef8257fa7eeaa9dc9cf4df42c1772da7ad7e1691c3b44bf793e13bda06"
+        },
+        {
+          "file": "artwork/portraits/assets/race_lightforgeddraenei.png",
+          "sha256": "c833172811ce601d4863f51b628d836353f5c6fbbc8375900c65621730f8bc07"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_darkirondwarf",
+      "label": "Dark Iron Dwarf",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_darkirondwarf.tga",
+      "source": "artwork/minimaps/assets/race_darkirondwarf.png",
+      "source_sha256": "6e032f49c4aa38605c701ff899f29cecfb0c43db918f597ea30b0774ab3bccdf",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_darkirondwarf.png",
+      "original_sha256": "33106103e093efdc60b08a9267bcbbe319f3f4343f3785aef2a36f970a72a833",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "6ffaabe49418c587ff6ebcec95c101cc641e415a83c9697702834b92a858b5e5",
+      "alphaBounds": [
+        19,
+        11,
+        494,
+        494
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.58755998083146,
+        257.186811129947,
+        141.69851618766546
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_darkirondwarf.png",
+          "sha256": "73bd0cb118c887557feb530924e4098b65f1b5cf749240a1976e5ffb9540193f"
+        },
+        {
+          "file": "artwork/portraits/assets/race_darkirondwarf.png",
+          "sha256": "45d68d8fdcd7f5f0b37f5f451278cf1c6f66dd45ac4545b88ba41d5dc634424f"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_kultiran",
+      "label": "Kul Tiran",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_kultiran.tga",
+      "source": "artwork/minimaps/assets/race_kultiran.png",
+      "source_sha256": "920b8dd1e701d2ef99bf156fdb475afecbd702b35dbab12c5118e7af5b3c2d6c",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_kultiran.png",
+      "original_sha256": "458fabc1a5f5d92ce98bcfefe3d82c3222ad40de083a80aad14e764b8a98193b",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "a3db3939565ebe0ad258f8cdf8de662dd1942fd006dad453f402b114071a89ce",
+      "alphaBounds": [
+        14,
+        13,
+        499,
+        492
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.63207474717913,
+        256.7666099599401,
+        140.5985841039271
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_kultiran.png",
+          "sha256": "89d97b769163ea045f14a3bd0b6380416a9b94ad1ff38bf6a16730de0ee38de2"
+        },
+        {
+          "file": "artwork/portraits/assets/race_kultiran.png",
+          "sha256": "8e444860d98cbb65d27143a413d17847c13262e2183d3dded48b5aac75c51975"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_mechagnome",
+      "label": "Mechagnome",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_mechagnome.tga",
+      "source": "artwork/minimaps/assets/race_mechagnome.png",
+      "source_sha256": "041900a1f88892b85838c470af57013001579a6d48cb4c8585f64f593607e8b7",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_mechagnome.png",
+      "original_sha256": "c56802ca4c11aaa8068e1a88ce74b8eab7c32eac24f75b29bf9d275e30bb9bb3",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "74160b4842a829d30e39b2e8bd6665ea9eff6af74353315d048d1eda562fdef7",
+      "alphaBounds": [
+        15,
+        11,
+        498,
+        488
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.7419084247696,
+        259.7516568061647,
+        140.86166277673186
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_mechagnome.png",
+          "sha256": "31cc121d626bcc06c275965252e3ac545771253dc57e8640000c12e20e0eda85"
+        },
+        {
+          "file": "artwork/portraits/assets/race_mechagnome.png",
+          "sha256": "74c8d49d4a26ff640ff34bb61a8e10d1ad39adc657ee9f26dec05104ad8f3824"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_nightborne",
+      "label": "Nightborne",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_nightborne.tga",
+      "source": "artwork/minimaps/assets/race_nightborne.png",
+      "source_sha256": "bde6cb76b860cbeaec6e9ad6caeff2aca1928c99d2cad86f8aa6364389272638",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/alpha-originals/race_nightborne.png",
+      "original_sha256": "a4f719af2c03b06edecf72cc4c824333630e6cad8579f23760d15485dd0a57b6",
+      "background_revision": {
+        "id": "race_nightborne",
+        "method": "built-in imagegen",
+        "path": "artwork/minimaps/alpha-originals/race_nightborne.png",
+        "source": "artwork/minimaps/originals/race_nightborne.png",
+        "prompt": "Use case: background-extraction. Edit target: the attached Nightborne circular minimap surround. Preserve its exact sculpted silhouette, circular opening, purple silver metal, blue leaves and crystals, gold trim, top and bottom crests, colors, composition and canvas. Change ONLY the background: remove every painted checkerboard pixel and pale noisy fringe outside the artwork and inside the circular hole. Place the intact artwork on perfectly flat pure bright green RGB(0,255,0), hex #00FF00 everywhere outside the silhouette and in every opening. No gray checker patterns, no translucent glow, no shadow on the green, no green in the artwork. Keep clean sharply delineated hand-painted edges. Do not add or redraw motifs. This is a chroma-key production extraction plate, not a final game background."
+      },
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "6bd20fb13b3a7f49b575fe6facdb6c96d1a5c51f775b453b87c0926a047691bc",
+      "alphaBounds": [
+        15,
+        10,
+        499,
+        493
+      ],
+      "transform": "Green backdrop keyed and edge color decontaminated; neutral sculpture retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.5255805052079,
+        259.7211182679853,
+        143.60291194653453
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_nightborne.png",
+          "sha256": "46cfa7760bc97369cf03e3165771ffaba9fec381d21822f12d4c699f2d3037f4"
+        },
+        {
+          "file": "artwork/portraits/assets/race_nightborne.png",
+          "sha256": "fd227ac7d678adf4c61cf57d113c95c2486286783e2ddd5bfbb063c44f5a3e70"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_highmountaintauren",
+      "label": "Highmountain Tauren",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_highmountaintauren.tga",
+      "source": "artwork/minimaps/assets/race_highmountaintauren.png",
+      "source_sha256": "c6532b968826015f2b0097474081a68319b31d338aa1cf60875f8a1cb7fc6b7f",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_highmountaintauren.png",
+      "original_sha256": "a18c4744f37a20a0952379f77b71558ef32d7e66e38114e91598eed62d09c381",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "07c576a24e5ef31cda19a31450e754e4888db40b0ee9c9ca6de58bcb4fb95edc",
+      "alphaBounds": [
+        13,
+        11,
+        502,
+        491
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.5676224522674,
+        250.51263082678915,
+        148.48369116706706
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_highmountaintauren.png",
+          "sha256": "f903b44bc554626c84ffd707b96b3fc6d0bb48736f69d90973cd57324853e059"
+        },
+        {
+          "file": "artwork/portraits/assets/race_highmountaintauren.png",
+          "sha256": "cad576b538cb9f0ecb85ec19becc2ff3679e6c8b61bb964c8ca2327e01929bec"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_magharorc",
+      "label": "Mag'har Orc",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_magharorc.tga",
+      "source": "artwork/minimaps/assets/race_magharorc.png",
+      "source_sha256": "360db7608e6ae74e541b3fa8a3401ed8decafa293b554b0fe8d84cf2dedc8751",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_magharorc.png",
+      "original_sha256": "9946f51d390ee69c127cc41c076e5c9d88b75e7b4dec9ccd9b157faec5eaa971",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "210316d751f79ca3797baaeb153e27296ba5670995a4a6408d3fe1c3497eb0bc",
+      "alphaBounds": [
+        16,
+        12,
+        498,
+        499
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.3657251998262,
+        265.52360747720945,
+        138.8869433379353
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_magharorc.png",
+          "sha256": "b99f4e634cc1fa305dafea4875994059afe68cfbc6f4ec71f3d8ab5824bf0cb8"
+        },
+        {
+          "file": "artwork/portraits/assets/race_magharorc.png",
+          "sha256": "80574cf079c5c676d9236d92d8346feec2936e621286126e69114b6a4cb1b1c2"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_zandalaritroll",
+      "label": "Zandalari Troll",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_zandalaritroll.tga",
+      "source": "artwork/minimaps/assets/race_zandalaritroll.png",
+      "source_sha256": "0cf9ec161c6b82d57d43c91342b79ab9d743353944db7f1f9e7083cc4df40024",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_zandalaritroll.png",
+      "original_sha256": "5ccb5e1da1b3ea4b5e5175fb04157147382e6acaf958173b9c423f41de264012",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "acd64be512267ff1a08f9201242c9df21b4963255cca1ffa975962e552c7b9a0",
+      "alphaBounds": [
+        11,
+        9,
+        503,
+        485
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.5463924323366,
+        265.29902433856915,
+        139.38610772022625
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_zandalaritroll.png",
+          "sha256": "adbe7849d0b2e243a54250430d852fb8a483713587b234a7ed89df75aec5d46e"
+        },
+        {
+          "file": "artwork/portraits/assets/race_zandalaritroll.png",
+          "sha256": "baf0db2e71381ad96d7607ca3a740d809dc71232a83f8aac2bee53175fd6568c"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_vulpera",
+      "label": "Vulpera",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_vulpera.tga",
+      "source": "artwork/minimaps/assets/race_vulpera.png",
+      "source_sha256": "a2523c4936ef1754ec40cecc9b2a92dc324e37e3546afbaf7a9985345c8379a0",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_vulpera.png",
+      "original_sha256": "4a07a4e684de6f24b29e7d2763585f1115f92155dcd2651d537f6731cfe3f9e5",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "a4c9c2660121a96e7123e04f1ddcf094ba530a849a9074af1cc633b674ee52d3",
+      "alphaBounds": [
+        20,
+        13,
+        493,
+        501
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.69523169885878,
+        252.1087792587327,
+        146.24799014469693
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_vulpera.png",
+          "sha256": "c4e55119078bc614cad06851db3a85ae55878c3bd41772545e81fc287306299a"
+        },
+        {
+          "file": "artwork/portraits/assets/race_vulpera.png",
+          "sha256": "1ce68a07b8582e74aecd7d8e71409b10de9e26d993510bd35555bba9b8700f5d"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_earthendwarf",
+      "label": "Earthen",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_earthendwarf.tga",
+      "source": "artwork/minimaps/assets/race_earthendwarf.png",
+      "source_sha256": "e80eeb5c2a3baaec162555dee03f5ffee45c4f3894c8038cf8b0418112c8e0a1",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_earthendwarf.png",
+      "original_sha256": "19e5d2a410b7a8ca528e77fb3058e8196a3f8c31e723d0ee162cf3458a21fa7d",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "810c043fe617d5bb635938d829c1f5cec0fbaa5c955a61d905f129741293eb3b",
+      "alphaBounds": [
+        19,
+        12,
+        495,
+        485
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.64101097030948,
+        253.50571782165989,
+        150.13994774160938
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_earthendwarf.png",
+          "sha256": "d70cecb7f2768606f5fcaae69c9b27140d8e1efe2086d7cfaeb073e1fbcd6f50"
+        },
+        {
+          "file": "artwork/portraits/assets/race_earthendwarf.png",
+          "sha256": "6707e89c4719ef2d052b01b4a107c51176511132db0951ae7a435589a2d9a698"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "race_haranir",
+      "label": "Haranir",
+      "group": "race",
+      "file": "JiberishUI/Media/Minimaps/race_haranir.tga",
+      "source": "artwork/minimaps/assets/race_haranir.png",
+      "source_sha256": "9af4a025ecf86edf65fc6245d6820df1ee8a3f05f51e2724986fcd5324ca1755",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/race_haranir.png",
+      "original_sha256": "11603adb690dbf32ca149d3273f0e053c086e3d9670672b3b71337c3af1e6da6",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "ded56fd1774c3de1d3df7329270b5779a22a972935ff4edee7473800565f2e08",
+      "alphaBounds": [
+        19,
+        14,
+        494,
+        498
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.68405248936477,
+        277.9669762068301,
+        139.334584035231
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/race_haranir.png",
+          "sha256": "e27ebdb1865e61c1850c19052863712957b3ba217e783d2e91252b902741140d"
+        },
+        {
+          "file": "artwork/portraits/assets/race_haranir.png",
+          "sha256": "088a6e40d457d011062c849a8072242cfd60ba1f63b658077b8197039f4ea7d4"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_alliance",
+      "label": "Alliance",
+      "group": "faction",
+      "file": "JiberishUI/Media/Minimaps/faction_alliance.tga",
+      "source": "artwork/minimaps/assets/faction_alliance.png",
+      "source_sha256": "25862d43a7860aba686e96bf71526c437e9a1bc9f00839020137da96a3b3306b",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/faction_alliance.png",
+      "original_sha256": "06de7c0ac6a38722b7471c08d66f8565d48c303344347ffca8bd49187e330dfc",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "728d843ac611f4f78d679f5c1d594e8c2e42a1eab4c74e7be89cc141cd6cb283",
+      "alphaBounds": [
+        11,
+        11,
+        501,
+        492
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.90196808592646,
+        262.20388995190615,
+        131.90158834839082
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/faction_alliance.png",
+          "sha256": "23c5dbcff607aaee765a0dfce1422e1a96a8930b2fa0f7d3f35d7b2d32f0acc0"
+        },
+        {
+          "file": "artwork/portraits/assets/faction_alliance.png",
+          "sha256": "eabe62151377b2d2c07436360ea9baadeb272ff7970084e59805a472f168b95f"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_horde",
+      "label": "Horde",
+      "group": "faction",
+      "file": "JiberishUI/Media/Minimaps/faction_horde.tga",
+      "source": "artwork/minimaps/assets/faction_horde.png",
+      "source_sha256": "2e42563da25abe47253d39e1c92af2bf08464078ab87848bfbba6f3367d8b8f2",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/faction_horde.png",
+      "original_sha256": "9d0d748efa7d69d0ead254dffd254f71bac8ba61b1f682f1587b2fccd660e863",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "8013ba84230855a43df04d06fd61fb79ac21703afad0e64465ad99c9adb27dc9",
+      "alphaBounds": [
+        12,
+        11,
+        502,
+        495
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.62886697131742,
+        273.36961663985954,
+        127.15439611394365
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/faction_horde.png",
+          "sha256": "953e06dbe38b8623e5bc1ce35018ed9ae7822de9c5c121704f908e9f386fc729"
+        },
+        {
+          "file": "artwork/portraits/assets/faction_horde.png",
+          "sha256": "8b2e3f9a37ec93b374b4dcc77a7754350c53bad48761ef656e14a3e5ddd2cc77"
+        }
+      ],
+      "in_game_qualified": false
+    },
+    {
+      "id": "faction_neutral",
+      "label": "Neutral",
+      "group": "faction",
+      "file": "JiberishUI/Media/Minimaps/faction_neutral.tga",
+      "source": "artwork/minimaps/assets/faction_neutral.png",
+      "source_sha256": "d2fde81907ce7e91346d4f286eb85b3c4b1ddad3d79262aecec7ea2ab34f2ba8",
+      "source_size": [
+        512,
+        512
+      ],
+      "original": "artwork/minimaps/originals/faction_neutral.png",
+      "original_sha256": "e8127da34777882cdad485638b6899f27cf461f7e24539f7c1e462f1b659398d",
+      "background_revision": null,
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "1e3896deb015b2c5c769a323a0bd92c307cc371f5fed2964445546fde022a831",
+      "alphaBounds": [
+        14,
+        10,
+        499,
+        492
+      ],
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "source_circle": [
+        255.31976164925348,
+        268.1149307632319,
+        147.70605523065333
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "default_display_size": [
+        340,
+        340
+      ],
+      "references": [
+        {
+          "file": "artwork/hubs/assets/faction_neutral.png",
+          "sha256": "5cfba11f417ea0cd981305293d2506e562f47c1b6aa7ad963baecaf0518d1215"
+        },
+        {
+          "file": "artwork/portraits/assets/faction_neutral.png",
+          "sha256": "cf3e8bc51365b681c17668cc05eb2a63cc15c5a7336f1a1e1708cbd4d62d091f"
+        }
+      ],
+      "in_game_qualified": false
+    }
+  ],
+  "complete": true,
+  "in_game_qualified": false
+}

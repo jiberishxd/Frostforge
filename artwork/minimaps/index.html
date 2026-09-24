@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JiberishUI · Minimap fitting</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#191d20;color:#e9e1d2;font:15px/1.5 system-ui}main{padding:26px;max-width:1600px;margin:auto}h1{font-size:25px;margin:0}p{color:#b8b5ad;max-width:1100px}label{display:inline-flex;gap:8px;align-items:center;margin:8px 16px 8px 0}select,input,button{font:inherit;color:inherit;background:#252b32;border:1px solid #666256;padding:7px}input[type=number]{width:86px}a{color:#dbbc72}.toolbar{position:sticky;top:0;background:#191d20f5;z-index:20;padding:10px 0}.scroll{overflow:auto;border:1px solid #555;background-color:#26322d}.stage{position:relative;margin:24px}.stage img{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.guide{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:1px dashed #8bb9af;border-radius:50%;display:grid;place-items:center;color:#c3d0ac;font:14px Georgia;background:#132c2455}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin:24px 0}.card img{width:100%;aspect-ratio:1;object-fit:contain;display:block}.card strong{display:block}.card[aria-pressed=true]{outline:2px solid #dbbc72}#metrics{margin:14px 0;color:#dfc88e}footer{font-size:12px;color:#aaa}.checker{background-image:conic-gradient(#313941 25%,#242a30 0 50%,#313941 0 75%,#242a30 0);background-size:24px 24px}
+</style>
+<main><h1>Class, race & faction minimaps</h1>
+<p>42 circular surrounds matched to the existing portraits and action hubs. Every design has the same transparent opening and center. Blizzard keeps the map, buttons and interactions.</p>
+<div class="toolbar">
+<label>Collection <select id="collection"><option value="class">Classes</option><option value="race">Races</option><option value="faction">Factions</option></select></label>
+<label>Artwork <select id="artwork"></select></label>
+<label>Native diameter <input id="diameter" type="number" value="198" min="100" max="400"></label>
+<label>Resolution <select id="resolution"><option value="1080">1080p</option><option value="1440" selected>1440p</option><option value="2160">4K</option></select></label>
+<label>Effective scale <input id="scale" type="number" value="0.64" min="0.4" max="1.5" step="0.016"></label>
+<label><input id="checker" type="checkbox" checked>Transparency grid</label>
+<label><input id="guides" type="checkbox" checked>Native map guide</label>
+</div>
+<div id="metrics" aria-live="polite"></div><div id="scroll" class="scroll checker"></div>
+<p>The preview uses the exact game texture pixels at the estimated on-screen size. The circle is a synthetic fitting guide. Native map buttons, zone labels and screen-edge placement still need in-game checks on Retail and Forever.</p>
+<p><a href="../portraits/">Portrait fitting</a> · <a href="../hubs/">Action hub fitting</a></p>
+<div id="grid" class="grid"></div>
+<footer>Classic hand-painted ornament, a common 512-pixel canvas and a clear circular opening of radius 149. Warrior uses plain battle cloth without faction insignia. <a href="manifest.json">Sources and processing</a> · <a href="generation-prompts.json">Artwork briefs</a>.</footer></main>
+<script src="gallery-data.js"></script><script>
+const $=id=>document.getElementById(id);
+function choose(){
+ const assets=minimapAssets.filter(a=>a.group===$('collection').value);$('artwork').replaceChildren();$('grid').replaceChildren();
+ for(const a of assets){const o=document.createElement('option');o.value=a.id;o.textContent=a.label;$('artwork').append(o);const b=document.createElement('button');b.className='card';b.dataset.id=a.id;const im=document.createElement('img');im.src='assets/'+a.id+'.png';im.alt=a.label+' minimap';im.loading='lazy';const title=document.createElement('strong');title.textContent=a.label;b.append(im,title);b.onclick=()=>{$('artwork').value=a.id;render()};$('grid').append(b)}
+ if(assets.some(a=>a.id==='class_paladin'))$('artwork').value='class_paladin';render();
+}
+function render(){
+ const id=$('artwork').value,d=Number($('diameter').value),factor=Number($('scale').value)*Number($('resolution').value)/768;
+ if(!id||![d,factor].every(v=>Number.isFinite(v)&&v>0))return;
+ const size=340*d/198*factor,container=$('scroll');container.replaceChildren();container.classList.toggle('checker',$('checker').checked);
+ const stage=document.createElement('div');stage.className='stage';stage.style.width=size+'px';stage.style.height=size+'px';
+ if($('guides').checked){const g=document.createElement('div');g.className='guide';g.style.width=d*factor+'px';g.style.height=d*factor+'px';g.textContent='Native minimap';stage.append(g)}
+ const im=document.createElement('img');im.src='assets/'+id+'.png';im.alt=id+' fitted surround';stage.append(im);container.append(stage);
+ document.querySelectorAll('.card').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.id===id)));
+ $('metrics').textContent=`${id} · ${Math.round(size)} × ${Math.round(size)} estimated artwork pixels · ${Math.round(d*factor)} px native diameter · shared center and opening`;
+}
+$('collection').onchange=choose;for(const id of ['artwork','diameter','resolution','scale','checker','guides'])$(id).oninput=render;choose();
+</script></html>
