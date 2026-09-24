@@ -9,7 +9,10 @@ local strata = {
     {"DIALOG","Dialog"},{"FULLSCREEN","Fullscreen"},{"FULLSCREEN_DIALOG","Fullscreen dialog"},{"TOOLTIP","Tooltip"},
 }
 local layers = {{"BACKGROUND","Background"},{"BORDER","Border"},{"ARTWORK","Artwork"},{"OVERLAY","Overlay"}}
-local anchors = {{"FRAME","Follow native frame"},{"SCREEN","Screen"}}
+local anchors = {{"FRAME","Follow selected frame"},{"SCREEN","Screen"}}
+local portraitSources = {{"AUTO","Automatic (Blinkii first)"},{"BLINKII","Blinkii's Portraits"},
+    {"ELVUI","ElvUI"},{"ELLESMERE","EllesmereUI"},{"BLIZZARD","Blizzard"}}
+local hubSources = {{"AUTO","Automatic"},{"ELVUI","ElvUI"},{"ELLESMERE","EllesmereUI"},{"BLIZZARD","Blizzard"}}
 
 local function backdrop(frame,kind)
     local slider=kind=="slider"
@@ -335,7 +338,7 @@ function S:Create()
     local pos=J.ProfileManager.current.window or {x=0,y=0}
     f:SetPoint("CENTER",UIParent,"CENTER",pos.x,pos.y)
     backdrop(f,"outer")
-    panel(f,16,-122,608,498)
+    panel(f,16,-122,608,522)
     panel(f,16,-650,608,78)
 
     local title=CreateFrame("Frame",nil,f); self.titleBar=title
@@ -370,27 +373,30 @@ function S:Create()
         self:Set("shown",not J.ThemeManager:Resolve(self.selected).shown)
     end)
     self:Number("width","Width",24,-176,1); self:Number("height","Height",340,-176,1)
-    self:Number("x","X offset",24,-252,1); self:Number("y","Y offset",340,-252,1)
-    self:Number("scale","Artwork scale",24,-328,0.01); self:Number("opacity","Opacity",340,-328,0.01)
-    self:Dropdown("strata","Frame strata",strata,24,-406)
-    self:Number("level","Frame level (within strata)",340,-406,1)
-    self:Dropdown("anchor","Anchor",anchors,24,-480)
-    self:Dropdown("layer","Texture draw layer",layers,340,-480)
-    self:Dropdown("portraitMode","Portrait selection",modes,24,-554)
-    self.portraitCaption=text(f,"Portrait artwork",340,-554,276,"GameFontNormal")
-    self.portraitButton=button(f,"Browse artwork",340,-574,276,function()
+    self:Number("x","X offset",24,-246,1); self:Number("y","Y offset",340,-246,1)
+    self:Number("scale","Artwork scale",24,-316,0.01); self:Number("opacity","Opacity",340,-316,0.01)
+    self:Dropdown("strata","Frame strata",strata,24,-386)
+    self:Number("level","Frame level (within strata)",340,-386,1)
+    self:Dropdown("anchor","Anchor",anchors,24,-450)
+    self:Dropdown("layer","Texture draw layer",layers,340,-450)
+    self:Dropdown("portraitSource","Portrait addon",portraitSources,24,-514)
+    self:Dropdown("hubSource","Action bar addon",hubSources,24,-514)
+    self.sourceStatus=text(f,"",24,-632,584)
+    self:Dropdown("portraitMode","Portrait selection",modes,24,-578)
+    self.portraitCaption=text(f,"Portrait artwork",340,-578,276,"GameFontNormal")
+    self.portraitButton=button(f,"Browse artwork",340,-598,276,function()
         self:HideMenus(); self.picker:Show()
     end)
     self:CreatePortraitPicker()
-    self:Dropdown("hubMode","Hub selection",modes,24,-554)
-    self.hubCaption=text(f,"Hub artwork",340,-554,276,"GameFontNormal")
-    self.hubButton=button(f,"Browse hubs",340,-574,276,function()
+    self:Dropdown("hubMode","Hub selection",modes,24,-578)
+    self.hubCaption=text(f,"Hub artwork",340,-578,276,"GameFontNormal")
+    self.hubButton=button(f,"Browse hubs",340,-598,276,function()
         self:HideMenus();self:ShowHubGroup(self.hubGroup or "CLASS",self.hubPage);self.hubPicker:Show()
     end)
     self:CreateHubPicker()
-    self:Dropdown("minimapMode","Minimap selection",modes,24,-554)
-    self.minimapCaption=text(f,"Minimap artwork",340,-554,276,"GameFontNormal")
-    self.minimapButton=button(f,"Browse minimaps",340,-574,276,function()
+    self:Dropdown("minimapMode","Minimap selection",modes,24,-578)
+    self.minimapCaption=text(f,"Minimap artwork",340,-578,276,"GameFontNormal")
+    self.minimapButton=button(f,"Browse minimaps",340,-598,276,function()
         self:HideMenus();self:ShowMinimapGroup(self.minimapGroup or "CLASS",self.minimapPage);self.minimapPicker:Show()
     end)
     self:CreateMinimapPicker()
@@ -418,6 +424,10 @@ function S:Refresh()
         self.minimapButton.caption:SetText(J.MinimapCatalog.entries[id].label.." - Browse")
     end
     local hub=self.selected=="actionHub"
+    self.controls.portraitSource.button:SetShown(unit);self.controls.portraitSource.label:SetShown(unit)
+    self.controls.hubSource.button:SetShown(hub);self.controls.hubSource.label:SetShown(hub)
+    local module=J.Core.modules[self.selected]
+    self.sourceStatus:SetText(module.snapshot and ("Following: "..module.snapshot.name) or module.status or "Waiting for frame")
     self.controls.hubMode.button:SetShown(hub);self.controls.hubMode.label:SetShown(hub)
     self.hubCaption:SetShown(hub);self.hubButton:SetShown(hub)
     if hub then
