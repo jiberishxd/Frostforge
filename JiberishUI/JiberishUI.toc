@@ -1,10 +1,10 @@
 ## Interface: 120100, 16001
 ## Title: JiberishUI
-## Notes: Fantasy portrait surrounds with Blinkii, ElvUI and EllesmereUI support, action hubs and minimap artwork. In-game validation pending.
+## Notes: Fantasy portrait surrounds with Blinkii, mMediaTag, ElvUI and EllesmereUI support, action hubs and minimap artwork. In-game validation pending.
 ## Author: JiberishUI
-## Version: 0.6.0-compat.1
+## Version: 0.6.0-compat.2
 ## SavedVariables: JiberishUIDB
-## OptionalDeps: Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_Minimap, Blinkiis_Portraits, ElvUI, EllesmereUI, EllesmereUIUnitFrames, EllesmereUIActionBars, EllesmereUIMinimap
+## OptionalDeps: Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_Minimap, Blinkiis_Portraits, ElvUI, ElvUI_mMediaTag, EllesmereUI, EllesmereUIUnitFrames, EllesmereUIActionBars, EllesmereUIMinimap
 
 Build.lua
 Core\Core.lua
