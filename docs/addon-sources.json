@@ -1,0 +1,294 @@
+{
+  "date": "2026-09-24",
+  "sources": [
+    {
+      "project": "mBlinkii/Blinkiis-Portraits",
+      "revision": "c12f1d8e36c2f1bfe970aafaf82d137b3adc0980",
+      "files": [
+        {
+          "url": "https://github.com/mBlinkii/Blinkiis-Portraits/blob/c12f1d8e36c2f1bfe970aafaf82d137b3adc0980/Blinkiis_Portraits/portraits/functions.lua",
+          "sha256": "be60e1f3216c6ebd9c44744c9d7c5d7d399c1e7f495ba1a1eae785cf791c6a6f"
+        },
+        {
+          "url": "https://github.com/mBlinkii/Blinkiis-Portraits/blob/c12f1d8e36c2f1bfe970aafaf82d137b3adc0980/Blinkiis_Portraits/portraits/unitframes.lua",
+          "sha256": "c8036cce9102106d1d48edc42b762c20ed5f3e1b3ee6bac23da9b54c7e33d50b"
+        },
+        {
+          "url": "https://github.com/mBlinkii/Blinkiis-Portraits/blob/c12f1d8e36c2f1bfe970aafaf82d137b3adc0980/Blinkiis_Portraits/media/media.lua",
+          "sha256": "cdfb1361489e56fd46c365708001cd1afc1cb343245dd6202601e127fed3db62"
+        }
+      ]
+    },
+    {
+      "project": "tukui-org/ElvUI",
+      "revision": "3b9eed355d09da9eca4cb440b4a0bb9e903ac445",
+      "files": [
+        {
+          "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI/Game/Shared/Modules/UnitFrames/Elements/Portrait.lua",
+          "sha256": "069bd36877f22d55500922d95417e0664c2bbad08ae882363b5cdb7770e00cc9"
+        },
+        {
+          "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI/Game/Shared/Modules/ActionBars/ActionBars.lua",
+          "sha256": "2bb5eee9a05302129002d8f43488a6951bb40a186ac652c5cd964adf18d5ce52"
+        }
+      ]
+    },
+    {
+      "project": "EllesmereGaming/EllesmereUI",
+      "revision": "b3c03015f12d3de861f0999e268f2df60ec830c6",
+      "files": [
+        {
+          "url": "https://github.com/EllesmereGaming/EllesmereUI/blob/b3c03015f12d3de861f0999e268f2df60ec830c6/EllesmereUIUnitFrames/EllesmereUIUnitFrames.lua",
+          "sha256": "a971ce16c576225c27cf1961fab093fe279e155f9b5691dd7ebe18026d511bb4"
+        },
+        {
+          "url": "https://github.com/EllesmereGaming/EllesmereUI/blob/b3c03015f12d3de861f0999e268f2df60ec830c6/EllesmereUIActionBars/EllesmereUIActionBars.lua",
+          "sha256": "3a4a47766cb6ce50ebaf510d4c3295626f3c06aa16a798addc877def83fd4b47"
+        },
+        {
+          "url": "https://github.com/EllesmereGaming/EllesmereUI/blob/b3c03015f12d3de861f0999e268f2df60ec830c6/EllesmereUIMinimap/EllesmereUIMinimap.lua",
+          "sha256": "b96119179ebd07933cf386c8b08c2d4b4e4d53e7ee2ee513555c5a1e2a6d9ae6"
+        }
+      ]
+    }
+  ],
+  "blinkii_mask_fits": [
+    {
+      "file": "antik_mask.tga",
+      "diameter_per_frame_width": 0.88831,
+      "sha256": "3ca856956171fbcb608a13edad9281409374819df0e71e502de5cc4962e57403"
+    },
+    {
+      "file": "antik_mask_mirror.tga",
+      "diameter_per_frame_width": 0.88831,
+      "sha256": "5483cd812b0feec4aeafce58837a641e6510e3e18f7518e619a2eb0393ccc5aa"
+    },
+    {
+      "file": "blizz_mask_a.tga",
+      "diameter_per_frame_width": 1.265059,
+      "sha256": "194b90e6c645cce49b45c33218b6bb1050a18fe94c6f5f9d020747a2550775b7"
+    },
+    {
+      "file": "blizz_mask_b.tga",
+      "diameter_per_frame_width": 1.265059,
+      "sha256": "93aaf9863ab6eab9e32df3ad97dd5bd1a9943485991764e98e40dfacc1f887b5"
+    },
+    {
+      "file": "blizz_round_mask.tga",
+      "diameter_per_frame_width": 1.36454,
+      "sha256": "7265baf6f832cbcb1501e2db70ec77e448a91b474f221db61e5c8f2ade32a990"
+    },
+    {
+      "file": "blizz_round_mask_mirror.tga",
+      "diameter_per_frame_width": 1.36454,
+      "sha256": "93a7b534c9acafb5b2b2f762cbc5bc179ed2f9e20c6a2e736c0d25353ac893ca"
+    },
+    {
+      "file": "blizz_round_up_mask.tga",
+      "diameter_per_frame_width": 1.36454,
+      "sha256": "8ad315eae392ad02c02a59f62b1f615b023348f2d630edd2d58636a1c1f1fe0c"
+    },
+    {
+      "file": "blizz_round_up_mask_mirror.tga",
+      "diameter_per_frame_width": 1.36454,
+      "sha256": "bba8c8196bface44d0f880bab241d4bf41e15bb8b44ee6d8d735892d6b8f7f34"
+    },
+    {
+      "file": "blizz_up_mask_a.tga",
+      "diameter_per_frame_width": 1.265059,
+      "sha256": "4e7fcd00e455986d3eed4153270467769bdcd26a95a300b65d3ecf43eaa2c575"
+    },
+    {
+      "file": "blizz_up_mask_b.tga",
+      "diameter_per_frame_width": 1.265059,
+      "sha256": "88619e92afe0415745ff43ec1ea40f7222846fc41c1b8b015dbf62535ff6c7f6"
+    },
+    {
+      "file": "circle_mask.tga",
+      "diameter_per_frame_width": 0.935301,
+      "sha256": "3678e44ca3229b16fb06aa1f22cf7216126168f1c7f81c00926f64231dc4333c"
+    },
+    {
+      "file": "cookie_mask.tga",
+      "diameter_per_frame_width": 0.990695,
+      "sha256": "748bae4859f2b4d93f3dd500a2a4a3af41c6f2bb83bfc760d2bd599eba5b0063"
+    },
+    {
+      "file": "cookie_mask_mirror.tga",
+      "diameter_per_frame_width": 0.990695,
+      "sha256": "13ea2d4940321aa4e8584cde6958b4ff713d7fec9550ad8939eb0dc98f8e156f"
+    },
+    {
+      "file": "diagonal_mask_a.tga",
+      "diameter_per_frame_width": 1.3093,
+      "sha256": "d51d60c51ceeb9caa728a94c11623b56b7a558605e385ed9095387d01d57ce96"
+    },
+    {
+      "file": "diagonal_mask_b.tga",
+      "diameter_per_frame_width": 1.3093,
+      "sha256": "8fbf9c3f4384b7ac06fade7c2256dc994de3d87b955826419804aa0c175ef79d"
+    },
+    {
+      "file": "diamond_mask.tga",
+      "diameter_per_frame_width": 0.902353,
+      "sha256": "085109836afcf5895afe4091299c8d2843edd6711a81de45d8429e3e343111ff"
+    },
+    {
+      "file": "drop_mask_a.tga",
+      "diameter_per_frame_width": 1.254059,
+      "sha256": "2773122f128a520450a388145ce047699e6c72e09b81802ee193403bf7f94c58"
+    },
+    {
+      "file": "drop_mask_b.tga",
+      "diameter_per_frame_width": 1.254059,
+      "sha256": "d4335891a1f3d326448d4661b2db09fa134c9eb584469acb9b8a475ee8a7328e"
+    },
+    {
+      "file": "drop_side_mask_a.tga",
+      "diameter_per_frame_width": 1.269586,
+      "sha256": "580b01572b558fe522040f42ac8a6a2669cbdccbb4cc20259ab7ded9d4d49e20"
+    },
+    {
+      "file": "drop_side_mask_b.tga",
+      "diameter_per_frame_width": 1.269586,
+      "sha256": "f08c456bff57ee902b80af9f8cc45fed2fe707242d0fc2476a3a57128fd29f2f"
+    },
+    {
+      "file": "egg_mask.tga",
+      "diameter_per_frame_width": 0.934974,
+      "sha256": "5772d200ffd170c811b363f87e8480e5f634591673ba44c92975657d9688a6d9"
+    },
+    {
+      "file": "hexa_mask.tga",
+      "diameter_per_frame_width": 1.082039,
+      "sha256": "89c092c9a42234c0015c0205c5cb80915f8469099c7322cbd4c8e81134f0dbe3"
+    },
+    {
+      "file": "leaf_mask.tga",
+      "diameter_per_frame_width": 1.336886,
+      "sha256": "932874571f0ffdee8523691a74f5add39febaaa8d11ac4933f6b37c676b5bf93"
+    },
+    {
+      "file": "leaf_mask_mirror.tga",
+      "diameter_per_frame_width": 1.336886,
+      "sha256": "b97dfaea1b6b7e8226dd2d4646fd5d8814c59e7365099a10d32e6a90dfb30b5d"
+    },
+    {
+      "file": "moon_mask.tga",
+      "diameter_per_frame_width": 0.954229,
+      "sha256": "9f7ea9ddec9263dd21a1f7b03b9313d97e4d6c166bd5fc3fdbdeb8823924cc47"
+    },
+    {
+      "file": "moon_mask_mirror.tga",
+      "diameter_per_frame_width": 0.954229,
+      "sha256": "cff78759dec6f02af09d00d84ba1e715346632742440b39cca5ff7a0671fa1c1"
+    },
+    {
+      "file": "octagon_mask.tga",
+      "diameter_per_frame_width": 1.052588,
+      "sha256": "faf437f3cb952720c9cbc2ef1a51ddcdb043e717a895c35933f32d87a4da6b54"
+    },
+    {
+      "file": "oval_b_mask.tga",
+      "diameter_per_frame_width": 1.080176,
+      "sha256": "05b6e11a15013429c9e4972016f548646cb7f53a291e110d1583a75f45b2945c"
+    },
+    {
+      "file": "oval_mask.tga",
+      "diameter_per_frame_width": 1.080176,
+      "sha256": "6e75e4f42376cc80e842a4ef3bdc05dd0ed9d113dcc4d9ff2a4f47f48f7e2228"
+    },
+    {
+      "file": "pad_mask.tga",
+      "diameter_per_frame_width": 1.209816,
+      "sha256": "ecfef8aabe6d58aeb018b0d443c26b401a40c296e6c894a0eb0bc54f47683512"
+    },
+    {
+      "file": "page_mask_a.tga",
+      "diameter_per_frame_width": 1.314789,
+      "sha256": "3fa9e393e87b5140ceb703c41088a70a76f2cd43f573c8f768eba81d70be8430"
+    },
+    {
+      "file": "page_mask_b.tga",
+      "diameter_per_frame_width": 1.314789,
+      "sha256": "7653084a31f5575e0a09849635d35a43e721714862534429b78f9a474b0f0307"
+    },
+    {
+      "file": "pentagon_mask.tga",
+      "diameter_per_frame_width": 1.136672,
+      "sha256": "3127ef40971b676e5ef4928a902b67f5135c09731201f3066d2f4dbb6c353896"
+    },
+    {
+      "file": "pentagon_mask_mirror.tga",
+      "diameter_per_frame_width": 1.136672,
+      "sha256": "d0bef2c8e68978b3b12e355c815a2fb8964352cf801cad073ba056ec4927ad0d"
+    },
+    {
+      "file": "rectangular_mask.tga",
+      "diameter_per_frame_width": 1.103984,
+      "sha256": "438c3d79af07e9e93f161fe043d65db59274c6551c902bc44cf7c1dda29d5e58"
+    },
+    {
+      "file": "shield_mask.tga",
+      "diameter_per_frame_width": 1.052472,
+      "sha256": "6eb8748abdaff74d0b7130706dcd73d42f72cb0a60b955f23791bd00650561a3"
+    },
+    {
+      "file": "square_mask.tga",
+      "diameter_per_frame_width": 1.265059,
+      "sha256": "2175556bceefc55f07f3db174fad9eef8d03939f0309ab3de0e0811c7d432592"
+    },
+    {
+      "file": "square_round_mask.tga",
+      "diameter_per_frame_width": 1.254059,
+      "sha256": "052c201977017ea6692b2e3b3099c801fe3aed915555b70c5e05a11bd87fa33b"
+    },
+    {
+      "file": "trapezoid_mask.tga",
+      "diameter_per_frame_width": 1.408863,
+      "sha256": "68e7344a433a97ae13d507b6e6627baadda99d15309b3ee92bb2ce08530c1fa7"
+    },
+    {
+      "file": "trapezoid_mask_mirror.tga",
+      "diameter_per_frame_width": 1.408863,
+      "sha256": "e11841ce851ba028620756d38f3553152b040ead80d71e0e71e8473a59f03d17"
+    }
+  ],
+  "ellesmere_mask_fits": [
+    {
+      "file": "circle_mask.tga",
+      "diameter_per_texture_width": 0.811373,
+      "sha256": "ef8466b2248736ceeee86544a61763acd9fe8fa7b98c51cb50b7fbbf73ce38a6"
+    },
+    {
+      "file": "csquare_mask.tga",
+      "diameter_per_texture_width": 1.116778,
+      "sha256": "ad6ec0edda675f5c1575e7d4eb55f67a271c182788cf4c5b65fd0d51bfbb1bb0"
+    },
+    {
+      "file": "diamond_mask.tga",
+      "diameter_per_texture_width": 0.898472,
+      "sha256": "919b6dedb0b5c2e2d67dfdb2e74997452b8ced8a869b5d9d0c55681fe0ffd6d0"
+    },
+    {
+      "file": "hexagon_mask.tga",
+      "diameter_per_texture_width": 0.99148,
+      "sha256": "39fe68bc7f930bb16aaa05ca6973cb4f58d0a57f58bad2e052a28f67fef91ee7"
+    },
+    {
+      "file": "portrait_mask.tga",
+      "diameter_per_texture_width": 1.138215,
+      "sha256": "8593799ef44f8cc80a28a834ed27c1a2c3d582de31a3223b99cb903c54b41190"
+    },
+    {
+      "file": "shield_mask.tga",
+      "diameter_per_texture_width": 1.006389,
+      "sha256": "de8881c47048160175b2bfc1bfe3a8ae30bddf8bb87bf6dc3c2714467915428c"
+    },
+    {
+      "file": "square_mask.tga",
+      "diameter_per_texture_width": 1.182195,
+      "sha256": "57b6ebb47bf0b7fb656811c01370ebaae3a472999c2d64415092266fc4ebaa97"
+    }
+  ]
+}

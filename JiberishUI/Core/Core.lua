@@ -1,9 +1,9 @@
 local addonName, J = ...
 local Core = {
-    version = "0.5.0-art.1",
+    version = "0.6.0-compat.1",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
-    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "hubMode", "hub", "minimapMode", "minimap" },
+    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap" },
     dirty = true,
 }
 J.Core = Core
@@ -96,18 +96,31 @@ function Core:IsUsableFrame(frame)
 end
 
 function Core:ReadAnchor(key)
-    local frame, name, reason = self.client:Resolve(key)
+    local external, reason, handled = J.AddOnAnchors:Resolve(key)
+    if handled and not external then return nil,reason end
+    local frame,name
+    if external then frame,name = external.frame,external.name
+    else frame,name,reason = self.client:Resolve(key) end
     if not frame then return nil, reason or "Anchor unavailable" end
     -- The adapters check too; recheck before reading any geometry.
     if not self:IsUsableFrame(frame) or not self:IsUsableFrame(UIParent) then return nil, "Forbidden anchor" end
-    local w, h, scale, parentScale = frame:GetWidth(), frame:GetHeight(), frame:GetEffectiveScale(), UIParent:GetEffectiveScale()
+    local bounds = external and external.bounds or frame
+    if not self:IsUsableFrame(bounds) then return nil,"Portrait bounds unavailable" end
+    local w, h, scale, parentScale = bounds:GetWidth(), bounds:GetHeight(), frame:GetEffectiveScale(), UIParent:GetEffectiveScale()
     if not self:IsNumber(w) or not self:IsNumber(h) or not self:IsNumber(scale) or not self:IsNumber(parentScale)
         or w <= 0 or h <= 0 or scale <= 0 or parentScale <= 0 then return nil, "Geometry unavailable" end
     local visible = frame:IsVisible()
-    local alpha = frame.GetEffectiveAlpha and frame:GetEffectiveAlpha() or frame:GetAlpha()
+    local alpha
+    if frame.GetEffectiveAlpha then alpha=frame:GetEffectiveAlpha() else alpha=frame:GetAlpha() end
     if not self:IsSafe(visible) or not self:IsNumber(alpha) then return nil, "Visibility unavailable" end
-    visible = visible and self.client:PortraitVisible(key,frame)
-    return { frame=frame, name=name, w=w, h=h, scale=scale, parentScale=parentScale, visible=visible == true, alpha=alpha }
+    if external then
+        visible = visible and J.AddOnAnchors:Visible(external)
+        local rootAlpha = external.root:GetEffectiveAlpha()
+        if not self:IsNumber(rootAlpha) then return nil,"Root visibility unavailable" end
+        alpha = math.min(alpha,rootAlpha)
+    else visible = visible and self.client:PortraitVisible(key,frame) end
+    return { frame=frame, name=name, w=w, h=h, scale=scale, parentScale=parentScale, visible=visible == true, alpha=alpha,
+        source=external and external.source or "BLIZZARD", portraitFit=external and external.portrait and external.fit or nil }
 end
 
 function Core:FinishCreate(module, frame, textures)
@@ -202,6 +215,7 @@ function Core:Apply(module, snapshot)
         local fit = math.min(snapshot.w,snapshot.h)/198
         config.width,config.height = config.width*fit,config.height*fit
     end
+    J.AddOnAnchors:Fit(module.key,config,snapshot)
     frame:SetSize(config.width,config.height)
     -- Artwork uses the native anchor's UI units. Decorative scale changes its
     -- size independently; divide offsets so scale does not move the anchor.
@@ -225,7 +239,7 @@ function Core:Apply(module, snapshot)
     for name, texture in pairs(module.textures) do
         local piece = config.pieces and config.pieces[name]
         local x,y,w,h,u1,u2,v1,v2,order = self:PieceGeometry(config,piece)
-        if config.unit then u1,u2 = J.Portraits:TexCoords(config.unit) end
+        if config.unit then u1,u2 = J.Portraits:TexCoords(config.roundPortrait and "target" or config.unit) end
         if config.mirror then x,u1,u2 = config.width-x-w,u2,u1 end
         texture:ClearAllPoints()
         texture:SetPoint("TOPLEFT",frame,"TOPLEFT",x,-y)
@@ -263,6 +277,7 @@ end
 local function geometryChanged(a,b)
     return not a or a.frame ~= b.frame or a.w ~= b.w or a.h ~= b.h
         or a.scale ~= b.scale or a.parentScale ~= b.parentScale
+        or a.source ~= b.source or a.portraitFit ~= b.portraitFit
 end
 
 function Core:Tick()

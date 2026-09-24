@@ -1,6 +1,6 @@
 # Portrait build validation
 
-Install 0.5.0-art.1 and fully restart WoW. This loads the new minimap files and refreshed faction-neutral Warrior textures. Do not delete saved settings. Export current settings before closing, especially on Forever build 69913. If a component was manually adjusted to fit the previous artwork, use Reset this component in `/jui` to test the new baseline.
+Install 0.6.0-compat.1 and fully restart WoW. This loads the new minimap files and refreshed faction-neutral Warrior textures. Do not delete saved settings. Export current settings before closing, especially on Forever build 69913. If a component was manually adjusted to fit the previous artwork, use Reset this component in `/jui` to test the new baseline.
 
 1. Open /jui. Confirm textured window borders, red/gold buttons, checkboxes, five component tabs and a movable window. Verify Show artwork and Debug bounds check marks, selected tabs, and gallery selection after switching components. Player, Target and Focus default to Automatic class; Minimap and hub default to automatic player class; existing geometry overrides are retained.
 2. At default portrait dimensions, check Player's teardrop corner, level badge, name and bars. Select players of different classes and verify only Target's portrait background changes; the art should share the same visible envelope without a lower loop or level-badge circle. Verify Mage uses an eye and Hunter uses a skull. Set another class as Focus and verify independent selection. Clear Target/Focus and confirm their decoration disappears.
@@ -12,3 +12,13 @@ Install 0.5.0-art.1 and fully restart WoW. This loads the new minimap files and 
 8. In Minimap, browse all three groups and check several selections at different native map sizes and UI scales. The same center/opening should fit without per-art offsets. Verify clicking the map/buttons, zone labels, screen-edge clipping, combat-deferred changes and hidden-map visibility. Verify Warrior has no faction insignia in portrait, hub or minimap. In Action hub, select each group, page the gallery, switch automatic modes and choose a fixed hub. Verify width changes stretch only rails, target changes never alter the hub, and settings survive export/import. Check several native bar layouts: this artwork does not reposition bars, micro menu or bags.
 
 Record client/build, resolution, UI/frame scale, mode/artwork, /jf status and exact BugSack/blocked-action details. In-game compatibility is not claimed until both clients pass.
+
+## Addon compatibility pass
+
+Test Retail and Forever separately where the upstream addons run. Test ElvUI alone, EllesmereUI alone, Blinkii with each suite, and all three installed with per-unit manual source choices.
+
+1. In `/jui`, leave Portrait addon on Automatic. Enable Player/Target/Focus portraits in the provider. For the closest fit use Blinkii Circle or Ellesmere detached Circle. Confirm the printed Following anchor, opening center, artwork mirroring and click-through behavior.
+2. Resize, move, fade, hide and change portrait shapes/profiles. Toggle Blinkii clickable mode, ElvUI 2D/3D/class modes and Ellesmere attached/detached modes. Turn portraits off, clear target/focus and remove/re-enable providers. No stale surround should remain. Health-overlay portraits intentionally have no separate surround.
+3. Change source and size in combat; test clickable Blinkii portraits and protected dependencies. Deferred changes must apply after combat without blocked-action errors. Target identity artwork should still update when permitted.
+4. Select ElvUI or EllesmereUI as the Action bar addon. Confirm SCREEN and FRAME anchors, alpha/visibility, paging, vehicle transitions and click-through. Use a circular minimap for the existing circular surround. Arbitrary bar layouts and square maps need manual fitting.
+5. Export/import and reload all source settings.
