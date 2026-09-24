@@ -6,7 +6,7 @@
       "group": "class",
       "file": "JiberishUI/Media/Portraits/class_warrior.tga",
       "source": "artwork/portraits/atlases/class_warrior.png",
-      "source_sha256": "5f0cac386124438ae6f0af238186cee0b5757e44dbec7a975393985333af3b33",
+      "source_sha256": "617c485dc94b491de98cee9a282c6c9011a7b33216514e64c75c68deceb430e8",
       "source_size": [
         512,
         256
@@ -16,13 +16,13 @@
         "round": "artwork/portraits/round/class_warrior.png"
       },
       "original": "artwork/portraits/integrated-originals/class_warrior.png",
-      "original_sha256": "4db97c581440c2bd5f5cb6493daaac81179b92365ded304ad833d8656e54c7e2",
+      "original_sha256": "6748a053956bf90d984463ae1c003435d80c863bd0cf5ecd27cca8eb836c7d38",
       "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; register silhouette then smoothly conform its inner contour to the native portrait; retain distant side details; left atlas half is Player teardrop, right half round Target/Focus; no level-badge cutout",
       "fit_version": 5,
       "registration_source_bounds": [
         3,
         4,
-        213,
+        214,
         254
       ],
       "registration_box": [
@@ -60,7 +60,7 @@
       "alphaBounds": [
         8,
         8,
-        466,
+        465,
         244
       ],
       "clear_points": [
@@ -81,7 +81,7 @@
           0.5
         ]
       ],
-      "sha256": "06efd69261c52428f0a3314c7770df5da1133100a475b428c105f0a217fcc65e",
+      "sha256": "ed56fc4913f434881e1423f0cce49045f39a458db0fdd08b791c730666d93baa",
       "in_game_qualified": false
     },
     {

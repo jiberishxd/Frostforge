@@ -1,0 +1,212 @@
+[
+  {
+    "id": "class_warrior",
+    "path": "artwork/minimaps/originals/class_warrior.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_paladin",
+    "path": "artwork/minimaps/originals/class_paladin.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_hunter",
+    "path": "artwork/minimaps/originals/class_hunter.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_rogue",
+    "path": "artwork/minimaps/originals/class_rogue.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_priest",
+    "path": "artwork/minimaps/originals/class_priest.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_deathknight",
+    "path": "artwork/minimaps/originals/class_deathknight.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_shaman",
+    "path": "artwork/minimaps/originals/class_shaman.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_mage",
+    "path": "artwork/minimaps/originals/class_mage.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_warlock",
+    "path": "artwork/minimaps/originals/class_warlock.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_monk",
+    "path": "artwork/minimaps/originals/class_monk.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_druid",
+    "path": "artwork/minimaps/originals/class_druid.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_demonhunter",
+    "path": "artwork/minimaps/originals/class_demonhunter.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "class_evoker",
+    "path": "artwork/minimaps/originals/class_evoker.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_human",
+    "path": "artwork/minimaps/originals/race_human.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_dwarf",
+    "path": "artwork/minimaps/originals/race_dwarf.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_nightelf",
+    "path": "artwork/minimaps/originals/race_nightelf.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_gnome",
+    "path": "artwork/minimaps/originals/race_gnome.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_draenei",
+    "path": "artwork/minimaps/originals/race_draenei.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_worgen",
+    "path": "artwork/minimaps/originals/race_worgen.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_orc",
+    "path": "artwork/minimaps/originals/race_orc.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_scourge",
+    "path": "artwork/minimaps/originals/race_scourge.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_tauren",
+    "path": "artwork/minimaps/originals/race_tauren.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_troll",
+    "path": "artwork/minimaps/originals/race_troll.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_bloodelf",
+    "path": "artwork/minimaps/originals/race_bloodelf.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_goblin",
+    "path": "artwork/minimaps/originals/race_goblin.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_pandaren",
+    "path": "artwork/minimaps/originals/race_pandaren.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_dracthyr",
+    "path": "artwork/minimaps/originals/race_dracthyr.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_voidelf",
+    "path": "artwork/minimaps/originals/race_voidelf.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_lightforgeddraenei",
+    "path": "artwork/minimaps/originals/race_lightforgeddraenei.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_darkirondwarf",
+    "path": "artwork/minimaps/originals/race_darkirondwarf.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_kultiran",
+    "path": "artwork/minimaps/originals/race_kultiran.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_mechagnome",
+    "path": "artwork/minimaps/originals/race_mechagnome.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_nightborne",
+    "path": "artwork/minimaps/originals/race_nightborne.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_highmountaintauren",
+    "path": "artwork/minimaps/originals/race_highmountaintauren.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_magharorc",
+    "path": "artwork/minimaps/originals/race_magharorc.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_zandalaritroll",
+    "path": "artwork/minimaps/originals/race_zandalaritroll.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_vulpera",
+    "path": "artwork/minimaps/originals/race_vulpera.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_earthendwarf",
+    "path": "artwork/minimaps/originals/race_earthendwarf.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "race_haranir",
+    "path": "artwork/minimaps/originals/race_haranir.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "faction_alliance",
+    "path": "artwork/minimaps/originals/faction_alliance.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "faction_horde",
+    "path": "artwork/minimaps/originals/faction_horde.png",
+    "method": "built-in imagegen"
+  },
+  {
+    "id": "faction_neutral",
+    "path": "artwork/minimaps/originals/faction_neutral.png",
+    "method": "built-in imagegen"
+  }
+]

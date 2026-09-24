@@ -1,0 +1,5 @@
+{
+  "id": "faction_horde",
+  "path": "artwork/minimaps/originals/faction_horde.png",
+  "method": "built-in imagegen"
+}

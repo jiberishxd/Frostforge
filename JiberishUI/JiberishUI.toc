@@ -1,8 +1,8 @@
 ## Interface: 120100, 16001
 ## Title: JiberishUI
-## Notes: Classic fantasy portrait backgrounds with automatic class, race and faction artwork. In-game validation pending.
+## Notes: Classic fantasy portraits, action hubs and minimap surrounds with automatic class, race and faction artwork. In-game validation pending.
 ## Author: JiberishUI
-## Version: 0.4.0-art.2
+## Version: 0.5.0-art.1
 ## SavedVariables: JiberishUIDB
 ## OptionalDeps: Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_Minimap
 
@@ -13,6 +13,8 @@ Themes\Portraits.lua
 Core\Portraits.lua
 Themes\Hubs.lua
 Core\Hubs.lua
+Themes\Minimaps.lua
+Core\Minimaps.lua
 Core\ThemeManager.lua
 Core\ProfileManager.lua
 Core\Settings.lua

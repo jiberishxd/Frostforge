@@ -6,18 +6,18 @@
       "group": "class",
       "file": "JiberishUI/Media/Hubs/class_warrior.tga",
       "source": "artwork/hubs/assets/class_warrior.png",
-      "source_sha256": "c30c88f8ff7aa56381451d385f17134cef562b0fa7169150415067e8f2be8e70",
+      "source_sha256": "71f6c0c6639f6f6a7486e6dc3a01ab5f1496e644f40ce74729cfc5fc7e00c44e",
       "source_size": [
         2172,
         724
       ],
       "original": "artwork/hubs/sculpted-originals/class_warrior.png",
-      "original_sha256": "b46624306632e79059ff5832d93cdbf8a08c874eb41fceafdcecab40c9278c17",
+      "original_sha256": "01eb61b2fd26846934f2913b25a1f761b5f1ae5ea39c990c76359c6686da17aa",
       "size": [
         1024,
         512
       ],
-      "sha256": "897c5a7e804dd9517dbf752296fe0305acc4ac5c1ac286a32e7278fc30e96f1e",
+      "sha256": "60edbd7004e5d357a2cf9a0c344fd54e346a00d59f5e9caeb6e2b2d7c1369688",
       "alphaBounds": [
         0,
         16,
@@ -43,7 +43,7 @@
           8
         ],
         [
-          444,
+          445,
           444
         ],
         [
@@ -51,7 +51,7 @@
           530
         ],
         [
-          610,
+          609,
           620
         ],
         [

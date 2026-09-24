@@ -1,6 +1,6 @@
 # Portrait artwork and fitting
 
-The active unit artwork is a portrait background only. There is no health/power border, rail, full-frame shell or bar endpoint. Player, Target and Focus each render one independent texture; Target and Focus mirror the artwork. The minimap retains its Paladin texture; the hub has 42 variants on the existing five-piece geometry.
+The active unit artwork is a portrait background only. There is no health/power border, rail, full-frame shell or bar endpoint. Player, Target and Focus each render one independent texture; Target and Focus mirror the artwork. The minimap and action hub each have the same 42 identities, with shared circular and five-piece fitting geometry respectively.
 
 The library includes 42 compositions from retained generated ornaments and the requested official emblems: 13 classes, 26 playable races, and three faction choices. `artwork/portraits/catalog.json` records the motifs and official roster sources. `generation-prompts.json` stores every complete built-in imagegen prompt. Original outputs are retained separately from processed assets. No generated character portraits are used: native Blizzard portraits stay visible.
 
@@ -19,7 +19,7 @@ At the default 128 × 128 UI-unit size, Player uses LEFT-to-LEFT offset (−23,1
 | Asset | Encoded size | Default artwork size |
 |---|---|---|
 | Media/Portraits/*.tga (42 files) | 512 × 256 (two fits) | 128 × 128 |
-| Media/PaladinRet/minimap.tga | 1024 × 1024 | 340 × 340 |
+| Media/Minimaps/*.tga (42 files) | 512 × 512 | 340 × 340 at native diameter 198 |
 | Media/Hubs/*.tga (42 files) | 1024 × 512 | 1480 × 240 |
 
 The superseded unit-shell files and design experiments remain in research/history only and are excluded from packages. Native decorations never disappear when an asset fails to load.
@@ -45,3 +45,11 @@ The prior portrait.3 lower-band crop was rejected in live feedback and is supers
 Live screenshots showed a floating lower wrap and varying opening sizes when switching artwork. Normalizing only the outer image bounds did not align the inner rim. `tools/fit_portraits.py` now measures the first substantial painted edge along radial samples, smooths that contour, and resamples toward the native Player or round Target/Focus outline. The mapping returns to the original outer artwork beyond the fitting band, and premultiplied-alpha sampling avoids dark edge seams. Every identity uses the same algorithm and anchors.
 
 The two synthetic native-fit sheets are `artwork/portraits/player-fit-review.png` and `round-fit-review.png`. Their gold portrait and level-badge guides are preview overlays, never part of the distributed artwork. Pixel checks verify clear native interiors in both atlas halves and that existing lower wraps sit within four texture pixels of the native edge. The new fitting still needs live confirmation at user-customized sizes and offsets.
+
+## 0.5.0 minimap collection and Warrior correction
+
+All 42 minimaps were generated with the built-in image tool using the matching processed portrait and hub as references. Full prompts, originals and per-asset records are retained in `artwork/minimaps/`. User-authorized Python processing removes baked neutral checker mattes when needed, measures each inner rim, and registers it to center (256,256), radius 149 on a 512-square canvas. A premultiplied-alpha radial resample retains the outer ornament within an eight-pixel transparent margin. Nightborne uses a recorded solid-green background revision to remove a noisy painted checker fringe before extraction. The entire circular opening is transparent, with no map image, labels, buttons or backplate baked into the artwork.
+
+The renderer scales the default 340-unit artwork by the native Minimap diameter / 198. Effective native scale is applied once; user width/height and scale adjustments remain available. Switching identities changes only the texture and keeps identical geometry. Native screen-edge placement, labels and buttons remain unchanged; ornate crests can still extend beyond the screen at edge-hugging native positions.
+
+The Warrior portrait, action hub and minimap were edited to remove faction insignia from their red cloth. Weapons, armor and draping remain. The edit prompt, before images and revised outputs are retained under `artwork/warrior-neutral-review/`; their processed textures use the same fit templates as the other identities.

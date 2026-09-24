@@ -11,7 +11,7 @@ import math
 from package import ROOT, CLIENTS, VERSION, active_sources, payload
 
 REQUIRED = {
-    "Build.lua", "Core/Core.lua", "Core/ThemeManager.lua", "Core/ProfileManager.lua", "Core/Media.lua", "Core/Settings.lua", "Core/Portraits.lua", "Themes/Portraits.lua", "Core/Hubs.lua", "Themes/Hubs.lua",
+    "Build.lua", "Core/Core.lua", "Core/ThemeManager.lua", "Core/ProfileManager.lua", "Core/Media.lua", "Core/Settings.lua", "Core/Portraits.lua", "Themes/Portraits.lua", "Core/Hubs.lua", "Themes/Hubs.lua", "Core/Minimaps.lua", "Themes/Minimaps.lua",
     "Compatibility/Retail.lua", "Compatibility/Forever.lua",
     "Modules/Minimap.lua", "Modules/PlayerFrame.lua", "Modules/TargetFrame.lua", "Modules/FocusFrame.lua", "Modules/ActionHub.lua",
     "Themes/Paladin/Retribution.lua",
@@ -51,8 +51,11 @@ def source_checks():
 def asset_checks():
     manifest = json.loads((ROOT / "docs/phase1-assets.json").read_text())
     assets = manifest["assets"]
-    assert len(assets) == 85
-    media = (ROOT / "JiberishUI/Core/Media.lua").read_text() + (ROOT / "JiberishUI/Themes/Portraits.lua").read_text() + (ROOT / "JiberishUI/Themes/Hubs.lua").read_text()
+    assert len(assets) == 126
+    groups = [{Path(a["file"]).stem for a in assets if "/"+kind+"/" in a["file"]} for kind in ("Portraits", "Hubs", "Minimaps")]
+    assert all(len(g) == 42 and g == groups[0] for g in groups), "Artwork catalogs must match"
+    assert {p.relative_to(ROOT).as_posix() for p in (ROOT/"JiberishUI/Media").glob("*/*.tga") if p.parent.name in ("Portraits", "Hubs", "Minimaps")} == {a["file"] for a in assets}
+    media = (ROOT / "JiberishUI/Core/Media.lua").read_text() + (ROOT / "JiberishUI/Themes/Portraits.lua").read_text() + (ROOT / "JiberishUI/Themes/Hubs.lua").read_text() + (ROOT / "JiberishUI/Themes/Minimaps.lua").read_text()
     references = re.findall(r'"Interface\\\\AddOns\\\\JiberishUI\\\\([^"]+)"', media)
     expected = {"JiberishUI/" + path.replace("\\\\", "/") for path in references}
     assert expected == {a["file"] for a in assets}
@@ -125,6 +128,17 @@ def asset_checks():
                         if pixels[(row*w+x)*4+3]>96:hits.append(distance-radius)
                     if hits:
                         assert min(hits)<=4, (asset['file'],start,degrees,'Lower wrap floats away',min(hits))
+        if "/Minimaps/" in asset["file"]:
+            assert [w,h] == [512,512]
+            assert asset['registration'] == {'canvas':[512,512],'center':[256,256],'radius':149,'margin':8}
+            assert bounds[0]>=8 and bounds[1]>=8 and bounds[2]<=504 and bounds[3]<=504
+            for y in range(h):
+                row=y if descriptor & 32 else h-1-y
+                for x in range(w):
+                    if (x-256)**2+(y-256)**2<=149**2:
+                        assert pixels[(row*w+x)*4+3]==0, asset['file']
+            for ref in asset['references']:
+                assert hashlib.sha256((ROOT/ref['file']).read_bytes()).hexdigest()==ref['sha256']
         if "/Hubs/" in asset["file"]:
             assert [w,h]==[1024,512]
             assert asset['registration']=={'canvas':[2172,724],'seams':[620,980,1210,1552],
@@ -136,7 +150,7 @@ def asset_checks():
                     assert pixels[(row*w+x)*4+3]==0, 'Hub art covers reserved button region'
             if asset.get('official_crest') or asset.get('emblem_reference'):
                 crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
-    print("PASS 42 portrait openings, 42 shared hub atlases, 85 RGBA assets and provenance hashes")
+    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 126 RGBA assets and provenance hashes")
 
 
 def reference_checks():
@@ -167,7 +181,7 @@ def archive_checks(directory):
             assert set(archive.namelist()) == set(expected)
             for name, content in expected.items():
                 assert archive.read(name) == content, name
-        assert len([p for p in expected if p.endswith(".tga")]) == 85
+        assert len([p for p in expected if p.endswith(".tga")]) == 126
     print("PASS both exact client archives; no legacy code/themes or unrelated textures packaged")
 
 

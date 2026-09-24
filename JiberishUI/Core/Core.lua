@@ -1,9 +1,9 @@
 local addonName, J = ...
 local Core = {
-    version = "0.4.0-art.2",
+    version = "0.5.0-art.1",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
-    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "hubMode", "hub" },
+    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "hubMode", "hub", "minimapMode", "minimap" },
     dirty = true,
 }
 J.Core = Core
@@ -196,6 +196,12 @@ function Core:Apply(module, snapshot)
     if not module.frame then module:Create() end
     local frame, config = module.frame, J.ThemeManager:Resolve(module.key)
     assert(self.owned[frame] == module.key, "Only owned artwork may be modified")
+    if module.key == "minimap" then
+        -- Register the shared opening to the native map diameter. User size and
+        -- scale remain independent multipliers; never resize the map itself.
+        local fit = math.min(snapshot.w,snapshot.h)/198
+        config.width,config.height = config.width*fit,config.height*fit
+    end
     frame:SetSize(config.width,config.height)
     -- Artwork uses the native anchor's UI units. Decorative scale changes its
     -- size independently; divide offsets so scale does not move the anchor.
@@ -211,6 +217,9 @@ function Core:Apply(module, snapshot)
     elseif module.key == "actionHub" then
         local id, path = J.Hubs:Resolve(config)
         config.texture, module.hubID = path, id
+    elseif module.key == "minimap" then
+        local id, path = J.Minimaps:Resolve(config)
+        config.texture, module.minimapID = path, id
     end
     module.assetOK = true
     for name, texture in pairs(module.textures) do
@@ -278,6 +287,8 @@ function Core:Tick()
                     J.Portraits:Refresh(module,combat)
                 elseif sameAnchor and module.applied and key == "actionHub" then
                     J.Hubs:Refresh(module,combat)
+                elseif sameAnchor and module.applied and key == "minimap" then
+                    J.Minimaps:Refresh(module,combat)
                 end
                 self:SyncVisibility(module,sameAnchor and snapshot or nil)
             end

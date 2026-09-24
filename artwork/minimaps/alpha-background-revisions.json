@@ -1,0 +1,9 @@
+[
+  {
+    "id": "race_nightborne",
+    "method": "built-in imagegen",
+    "path": "artwork/minimaps/alpha-originals/race_nightborne.png",
+    "source": "artwork/minimaps/originals/race_nightborne.png",
+    "prompt": "Use case: background-extraction. Edit target: the attached Nightborne circular minimap surround. Preserve its exact sculpted silhouette, circular opening, purple silver metal, blue leaves and crystals, gold trim, top and bottom crests, colors, composition and canvas. Change ONLY the background: remove every painted checkerboard pixel and pale noisy fringe outside the artwork and inside the circular hole. Place the intact artwork on perfectly flat pure bright green RGB(0,255,0), hex #00FF00 everywhere outside the silhouette and in every opening. No gray checker patterns, no translucent glow, no shadow on the green, no green in the artwork. Keep clean sharply delineated hand-painted edges. Do not add or redraw motifs. This is a chroma-key production extraction plate, not a final game background."
+  }
+]

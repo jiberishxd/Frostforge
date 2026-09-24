@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "artwork/paladin-ret-review/assets"
-OUTPUT = ROOT / "JiberishUI/Media/PaladinRet"
+OUTPUT = ROOT / "artwork/paladin-ret-review/encoded-legacy"
 SPECS = (
     ("minimap-v1.png", "minimap.tga", (1024, 1024), (340, 340), ((.5, .51),)),
 )
@@ -43,12 +43,12 @@ def main():
             "sha256": digest(destination),
             "phase1_usage": "User-authorized in-game artwork test; visual fit not qualified",
         })
-    (ROOT / "docs/phase1-assets.json").write_text(json.dumps({
+    (OUTPUT / "manifest.json").write_text(json.dumps({
         "assets": assets, "in_game_qualified": False,
         "review": "artwork/paladin-ret-review/index.html",
         "prompts": "artwork/paladin-ret-review/prompts.json",
     }, indent=2) + "\n")
-    print("Encoded minimap; run build_portraits.py and build_hubs.py to complete the media manifest.")
+    print("Encoded historical Paladin minimap outside the active addon; see build_minimaps.py for current media.")
 
 
 if __name__ == "__main__":

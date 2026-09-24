@@ -1,0 +1,5 @@
+{
+  "id": "faction_neutral",
+  "path": "artwork/minimaps/originals/faction_neutral.png",
+  "method": "built-in imagegen"
+}

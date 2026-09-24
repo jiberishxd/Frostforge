@@ -46,7 +46,8 @@ function Themes:Register(id, theme)
         for property in pairs(J.Core.properties) do
             local portrait = property == "portraitMode" or property == "portrait"
             local hub = property == "hubMode" or property == "hub"
-            if (not portrait or config.unit) and (not hub or key == "actionHub") then
+            local minimap = property == "minimapMode" or property == "minimap"
+            if (not portrait or config.unit) and (not hub or key == "actionHub") and (not minimap or key == "minimap") then
                 assert(J.Core:ValidateProperty(property, config[property]) ~= nil,
                     "Invalid theme property: " .. key .. "." .. property)
             end

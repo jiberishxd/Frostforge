@@ -7,3 +7,7 @@ The requested website emblems are visual references for the generated portrait o
 Surrounds, rails and the neutral compass use JiberishUI compositions generated through the built-in image tool, then locally processed under the user's instruction. Prompt sets and originals are retained in artwork/portraits and artwork/hubs. The official emblems and the underlying Warcraft designs are not claimed as JiberishUI original artwork.
 
 No separate written permission from Blizzard has been obtained or is implied by this credit. This record documents provenance, not a license or legal opinion.
+
+## Minimap collection and Warrior revision
+
+The 42 matching minimaps were created with the built-in image generation tool from the existing hub/portrait references. `artwork/minimaps/generation-prompts.json`, `generation-results.json` and `manifest.json` retain prompts, workspace sources and hashes. Alpha cleanup and shared circular fitting use the user's authorized local Python processing. `artwork/warrior-neutral-review/prompt.txt` records the edit removing faction marks from all three Warrior components. These changes do not represent a new license grant for the underlying referenced Blizzard motifs.

@@ -90,6 +90,7 @@ function S:HideMenus()
     for _,menu in ipairs(self.menus) do menu:Hide() end
     if self.picker then self.picker:Hide() end
     if self.hubPicker then self.hubPicker:Hide() end
+    if self.minimapPicker then self.minimapPicker:Hide() end
 end
 
 function S:ShowHubGroup(group,page)
@@ -146,6 +147,62 @@ function S:CreateHubPicker()
         for _,b in pairs(self.hubButtons) do b.image:SetTexture(nil) end
     end)
     self:ShowHubGroup("CLASS");p:Hide()
+end
+
+function S:ShowMinimapGroup(group,page)
+    self.minimapGroup=group
+    local visible={}
+    for id,b in pairs(self.minimapButtons) do
+        b:Hide()
+        b.image:SetTexture(nil)
+        if J.MinimapCatalog.entries[id].group==group then visible[#visible+1]=id end
+    end
+    table.sort(visible,function(a,b) return J.MinimapCatalog.entries[a].label<J.MinimapCatalog.entries[b].label end)
+    local pages=math.max(1,math.ceil(#visible/12))
+    self.minimapPage=math.max(1,math.min(pages,page or 1))
+    for key,b in pairs(self.minimapGroupButtons) do b.selection:SetShown(key==group) end
+    for slot=1,12 do
+        local id=visible[(self.minimapPage-1)*12+slot]
+        if id then
+            local b=self.minimapButtons[id]
+            b.image:SetTexture(J.MinimapCatalog.entries[id].texture)
+            b:ClearAllPoints();b:SetPoint("TOPLEFT",self.minimapPicker,"TOPLEFT",18+((slot-1)%3)*228,-84-math.floor((slot-1)/3)*112)
+            b:Show()
+        end
+    end
+    self.minimapPageLabel:SetText("Page "..self.minimapPage.." / "..pages)
+end
+
+function S:CreateMinimapPicker()
+    local p=CreateFrame("Frame",nil,self.frame,"BackdropTemplate");self.minimapPicker=p
+    p:SetSize(720,584);p:SetPoint("CENTER",self.frame,"CENTER",0,0)
+    p:SetFrameStrata("DIALOG");p:SetFrameLevel(220);p:EnableMouse(true);p:SetClampedToScreen(true)
+    backdrop(p,"outer");text(p,"Minimap collection",20,-18,600,"GameFontNormalLarge")
+    button(p,"X",680,-8,28,function() p:Hide() end)
+    self.minimapGroupButtons={}
+    for i,entry in ipairs({{"CLASS","Classes"},{"RACE","Races"},{"FACTION","Factions"}}) do
+        local group=entry[1]
+        self.minimapGroupButtons[group]=button(p,entry[2],18+(i-1)*228,-44,216,function() self:ShowMinimapGroup(group) end)
+    end
+    self.minimapButtons={}
+    for id,entry in pairs(J.MinimapCatalog.entries) do
+        local choice=id
+        local b=button(p,"",0,0,216,function()
+            p:Hide();self:Set("minimap",choice);self:Set("minimapMode","FIXED")
+        end,true)
+        b:SetHeight(104)
+        local image=b:CreateTexture(nil,"ARTWORK");image:SetSize(72,72)
+        image:SetPoint("TOP",b,"TOP",0,-4);b.image=image
+        text(b,entry.label,8,-78,200)
+        self.minimapButtons[id]=b
+    end
+    button(p,"Previous",18,-542,140,function() self:ShowMinimapGroup(self.minimapGroup,self.minimapPage-1) end)
+    button(p,"Next",562,-542,140,function() self:ShowMinimapGroup(self.minimapGroup,self.minimapPage+1) end)
+    self.minimapPageLabel=text(p,"",294,-550,140)
+    p:SetScript("OnHide",function()
+        for _,b in pairs(self.minimapButtons) do b.image:SetTexture(nil) end
+    end)
+    self:ShowMinimapGroup("CLASS");p:Hide()
 end
 
 function S:ShowPortraitGroup(group)
@@ -331,6 +388,12 @@ function S:Create()
         self:HideMenus();self:ShowHubGroup(self.hubGroup or "CLASS",self.hubPage);self.hubPicker:Show()
     end)
     self:CreateHubPicker()
+    self:Dropdown("minimapMode","Minimap selection",modes,24,-554)
+    self.minimapCaption=text(f,"Minimap artwork",340,-554,276,"GameFontNormal")
+    self.minimapButton=button(f,"Browse minimaps",340,-574,276,function()
+        self:HideMenus();self:ShowMinimapGroup(self.minimapGroup or "CLASS",self.minimapPage);self.minimapPicker:Show()
+    end)
+    self:CreateMinimapPicker()
     self.debugButton=toggle(f,"Debug bounds",24,-664,148,function() J.Core:Command("debug") end)
     button(f,"Reset this component",184,-664,188,function()
         self.message=nil
@@ -347,6 +410,13 @@ function S:Refresh()
     local config=J.ThemeManager:Resolve(self.selected)
     self.heading:SetText(names[self.selected] .. " artwork")
     local unit=J.Portraits:IsUnitKey(self.selected)
+    local minimap=self.selected=="minimap"
+    self.controls.minimapMode.button:SetShown(minimap);self.controls.minimapMode.label:SetShown(minimap)
+    self.minimapCaption:SetShown(minimap);self.minimapButton:SetShown(minimap)
+    if minimap then
+        local id=J.Minimaps:Resolve(config)
+        self.minimapButton.caption:SetText(J.MinimapCatalog.entries[id].label.." - Browse")
+    end
     local hub=self.selected=="actionHub"
     self.controls.hubMode.button:SetShown(hub);self.controls.hubMode.label:SetShown(hub)
     self.hubCaption:SetShown(hub);self.hubButton:SetShown(hub)
@@ -378,6 +448,9 @@ function S:Refresh()
     end
     for id,b in pairs(self.hubButtons) do
         b.selection:SetShown(hub and config.hubMode=="FIXED" and config.hub==id)
+    end
+    for id,b in pairs(self.minimapButtons) do
+        b.selection:SetShown(minimap and config.minimapMode=="FIXED" and config.minimap==id)
     end
     for property,control in pairs(self.controls) do
         if control.slider then
