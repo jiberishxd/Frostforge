@@ -50,6 +50,68 @@
           "sha256": "b96119179ebd07933cf386c8b08c2d4b4e4d53e7ee2ee513555c5a1e2a6d9ae6"
         }
       ]
+    },
+    {
+      "project": "mBlinkii/mMediaTag",
+      "generation": "modern",
+      "revision": "9055ffd989057bb9bd392a55bf03716e611a2072",
+      "files": [
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/9055ffd989057bb9bd392a55bf03716e611a2072/Addon/ElvUI_mMediaTag/init.lua",
+          "sha256": "736f5072aae574842ac069bcb949755881e19abb3cdadb06dd3e5641bda2b29f"
+        },
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/9055ffd989057bb9bd392a55bf03716e611a2072/Addon/ElvUI_mMediaTag/ElvUI_mMediaTag_Mainline.toc",
+          "sha256": "1b57d3f213b699de0716c07a7836695c5a58faf5dfa857c68eb6b6c1bbd768cc"
+        },
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/9055ffd989057bb9bd392a55bf03716e611a2072/Addon/ElvUI_mMediaTag/modules/portraits/functions.lua",
+          "sha256": "96bfe03bb511ee003d340d66f488e36bcb3e0b686bfb19210755841244290e9e"
+        },
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/9055ffd989057bb9bd392a55bf03716e611a2072/Addon/ElvUI_mMediaTag/modules/portraits/texture_db.lua",
+          "sha256": "41de11d3a9473402bde19fbc57f9b6490d64312f249f52bd6f4ea2c9bc2e7b5d"
+        },
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/9055ffd989057bb9bd392a55bf03716e611a2072/Addon/ElvUI_mMediaTag/modules/portraits/player.lua",
+          "sha256": "d5020387a9b4ce4ab7dd67af071c6b937f16769764f2d5b2f019e7db7f5730ee"
+        },
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/9055ffd989057bb9bd392a55bf03716e611a2072/Addon/ElvUI_mMediaTag/modules/portraits/target.lua",
+          "sha256": "4d62451d8527a990e10b5d5fc500c8b7e37437d7ba1ac8080b56f68867b37dc7"
+        },
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/9055ffd989057bb9bd392a55bf03716e611a2072/Addon/ElvUI_mMediaTag/modules/portraits/focus.lua",
+          "sha256": "74bcbe67d6f4c16bfd84f22ad51cd7c48221399cdcfe8f94ad615f573197fedf"
+        }
+      ]
+    },
+    {
+      "project": "mBlinkii/mMediaTag",
+      "generation": "legacy",
+      "revision": "8a29323cc1e549318e62b19304786dcb2bdedb35",
+      "files": [
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/8a29323cc1e549318e62b19304786dcb2bdedb35/Addon/ElvUI_mMediaTag/init.lua",
+          "sha256": "c558e9558cf9a88618279ad1b472a9704f61ddbddd48c2384df9b1fd73a57a30"
+        },
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/8a29323cc1e549318e62b19304786dcb2bdedb35/Addon/ElvUI_mMediaTag/ElvUI_mMediaTag_Mainline.toc",
+          "sha256": "b6185e78c77f8dec7846711959e9f5f8d31fdd890fe42552998bf74e99ac193c"
+        },
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/8a29323cc1e549318e62b19304786dcb2bdedb35/Addon/ElvUI_mMediaTag/modules/unitframes/portrait.lua",
+          "sha256": "9140ba3df55fede6af36a03e7a19cd0f23c6b15f0e49d83e8786c14df96d728d"
+        },
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/8a29323cc1e549318e62b19304786dcb2bdedb35/Addon/ElvUI_mMediaTag/modules/unitframes/portraits_txdb.lua",
+          "sha256": "a795c05fb1dc6067893b608075f03675a7cfbe40c40b4f8ef3b4b65d310b277d"
+        },
+        {
+          "url": "https://github.com/mBlinkii/mMediaTag/blob/8a29323cc1e549318e62b19304786dcb2bdedb35/Addon/ElvUI_mMediaTag/ElvUI_mMediaTag_Vanilla.toc",
+          "sha256": "7015975a31007910751c821935855855ee1602ee99b7c1a952ccd596cfe0db11"
+        }
+      ]
     }
   ],
   "blinkii_mask_fits": [
@@ -289,6 +351,370 @@
       "file": "square_mask.tga",
       "diameter_per_texture_width": 1.182195,
       "sha256": "57b6ebb47bf0b7fb656811c01370ebaae3a472999c2d64415092266fc4ebaa97"
+    }
+  ],
+  "mmediatag_modern_mask_fits": [
+    {
+      "file": "media/portraits/antik/mask.tga",
+      "diameter_per_texture_width": 0.444155,
+      "sha256": "3ca856956171fbcb608a13edad9281409374819df0e71e502de5cc4962e57403"
+    },
+    {
+      "file": "media/portraits/antik/mask_mirror.tga",
+      "diameter_per_texture_width": 0.444155,
+      "sha256": "5483cd812b0feec4aeafce58837a641e6510e3e18f7518e619a2eb0393ccc5aa"
+    },
+    {
+      "file": "media/portraits/blizz round thick/mask.tga",
+      "diameter_per_texture_width": 0.734775,
+      "sha256": "056fedaa88aacdc72073586c74fc67b570803cf6df6563120bf27a33a2c2202c"
+    },
+    {
+      "file": "media/portraits/blizz round thick/mask_mirror.tga",
+      "diameter_per_texture_width": 0.734775,
+      "sha256": "1d9939b35bd36c891fbbba1dbc275d19811f21ee4c90073084da2818dd294d15"
+    },
+    {
+      "file": "media/portraits/blizz round thick/mask_mirror_up.tga",
+      "diameter_per_texture_width": 0.734775,
+      "sha256": "da8c049325e8ef7ddbb068359bb86d90545a9d4c30f1ea70bc16a4c6244001bb"
+    },
+    {
+      "file": "media/portraits/blizz round thick/mask_up.tga",
+      "diameter_per_texture_width": 0.734775,
+      "sha256": "0e687b7e3841abeeb777adadc18dfc54810e2c2b5980934d1790de016f44be6e"
+    },
+    {
+      "file": "media/portraits/blizz round/mask.tga",
+      "diameter_per_texture_width": 0.68227,
+      "sha256": "7265baf6f832cbcb1501e2db70ec77e448a91b474f221db61e5c8f2ade32a990"
+    },
+    {
+      "file": "media/portraits/blizz round/mask_mirror.tga",
+      "diameter_per_texture_width": 0.68227,
+      "sha256": "93a7b534c9acafb5b2b2f762cbc5bc179ed2f9e20c6a2e736c0d25353ac893ca"
+    },
+    {
+      "file": "media/portraits/blizz round/mask_mirror_up.tga",
+      "diameter_per_texture_width": 0.68227,
+      "sha256": "bba8c8196bface44d0f880bab241d4bf41e15bb8b44ee6d8d735892d6b8f7f34"
+    },
+    {
+      "file": "media/portraits/blizz round/mask_up.tga",
+      "diameter_per_texture_width": 0.68227,
+      "sha256": "8ad315eae392ad02c02a59f62b1f615b023348f2d630edd2d58636a1c1f1fe0c"
+    },
+    {
+      "file": "media/portraits/blizz sharp thick/mask.tga",
+      "diameter_per_texture_width": 0.748539,
+      "sha256": "b16b1ee854fcb3f816de7b09d43105a8890a18ad4384a3b229010ce4db6bd154"
+    },
+    {
+      "file": "media/portraits/blizz sharp thick/mask_mirror.tga",
+      "diameter_per_texture_width": 0.748539,
+      "sha256": "10c5a189c849bd13b61dd0ad030c484c3f34bd9a80ec16e6ce891c2945318ce6"
+    },
+    {
+      "file": "media/portraits/blizz sharp thick/mask_mirror_up.tga",
+      "diameter_per_texture_width": 0.748539,
+      "sha256": "0cbf938319030b602608306f8b119a544dacc7ded9975ff4050e641a58140593"
+    },
+    {
+      "file": "media/portraits/blizz sharp thick/mask_up.tga",
+      "diameter_per_texture_width": 0.748539,
+      "sha256": "23f2846c66a000ae80aaa9f9c7dd39b728cbc999fba04b0f7ca49de2e43df86b"
+    },
+    {
+      "file": "media/portraits/blizz sharp/mask.tga",
+      "diameter_per_texture_width": 0.687772,
+      "sha256": "de7dd52e954a9cbc03386c35a6440541c4889f048b1f5f0e31ee50afcf9b6811"
+    },
+    {
+      "file": "media/portraits/blizz sharp/mask_mirror.tga",
+      "diameter_per_texture_width": 0.687772,
+      "sha256": "e50fd3f741dabd24211b6e6364ab9e1dccbb44c3889afc566847bcd9bc6ddb3c"
+    },
+    {
+      "file": "media/portraits/blizz sharp/mask_mirror_up.tga",
+      "diameter_per_texture_width": 0.687772,
+      "sha256": "b1a92453df17ba5604de500feb0b2d12bc86bba2f80ff5d0d5dfa9327f2a327f"
+    },
+    {
+      "file": "media/portraits/blizz sharp/mask_up.tga",
+      "diameter_per_texture_width": 0.687772,
+      "sha256": "178f547e75d6a6502b83a5d4ea47a097404f1769ae3c2304da0d9d9b01bed53b"
+    },
+    {
+      "file": "media/portraits/circle thick/mask.tga",
+      "diameter_per_texture_width": 0.531918,
+      "sha256": "7e5cdbcaa0a265512e8dd3b8e4f70c2565250dadd94d87849bd281e2a1f4e6fb"
+    },
+    {
+      "file": "media/portraits/circle/mask.tga",
+      "diameter_per_texture_width": 0.506587,
+      "sha256": "7537def91d0ba6bb5a755f485d2fd03a20dc867e42da905b890b91e368e63179"
+    },
+    {
+      "file": "media/portraits/cookie/mask.tga",
+      "diameter_per_texture_width": 0.495348,
+      "sha256": "748bae4859f2b4d93f3dd500a2a4a3af41c6f2bb83bfc760d2bd599eba5b0063"
+    },
+    {
+      "file": "media/portraits/cookie/mask_mirror.tga",
+      "diameter_per_texture_width": 0.495348,
+      "sha256": "13ea2d4940321aa4e8584cde6958b4ff713d7fec9550ad8939eb0dc98f8e156f"
+    },
+    {
+      "file": "media/portraits/diamond thick/mask.tga",
+      "diameter_per_texture_width": 0.501988,
+      "sha256": "9d35407199515d8d2035ef551283fc8db4ba9615f07ff23f596bd0aff53c3be5"
+    },
+    {
+      "file": "media/portraits/diamond/mask.tga",
+      "diameter_per_texture_width": 0.482458,
+      "sha256": "b114131906205e4ab721c723b08eb97e8f1cbf5a30a6454121608a63dfb7bcd9"
+    },
+    {
+      "file": "media/portraits/hexagon/mask.tga",
+      "diameter_per_texture_width": 0.560823,
+      "sha256": "7f398b9f344d5c3f81634a8426d0950ad85c397a756e92a9fa93ec6fe7a2b973"
+    },
+    {
+      "file": "media/portraits/leaf/mask.tga",
+      "diameter_per_texture_width": 0.668443,
+      "sha256": "932874571f0ffdee8523691a74f5add39febaaa8d11ac4933f6b37c676b5bf93"
+    },
+    {
+      "file": "media/portraits/leaf/mask_mirror.tga",
+      "diameter_per_texture_width": 0.668443,
+      "sha256": "b97dfaea1b6b7e8226dd2d4646fd5d8814c59e7365099a10d32e6a90dfb30b5d"
+    },
+    {
+      "file": "media/portraits/moon/mask.tga",
+      "diameter_per_texture_width": 0.477115,
+      "sha256": "402a5f9d08da80484dba18bd74abf68956c0baf2792b858691e7f6fac985ec0b"
+    },
+    {
+      "file": "media/portraits/moon/mask_mirror.tga",
+      "diameter_per_texture_width": 0.477115,
+      "sha256": "e7cd9bae96c79fd4f43f8addbe86af5e5f33f4d56fa560a370bffdffadd4c04c"
+    },
+    {
+      "file": "media/portraits/octagon/mask.tga",
+      "diameter_per_texture_width": 0.526294,
+      "sha256": "faf437f3cb952720c9cbc2ef1a51ddcdb043e717a895c35933f32d87a4da6b54"
+    },
+    {
+      "file": "media/portraits/pad/mask.tga",
+      "diameter_per_texture_width": 0.673967,
+      "sha256": "029d843cacf2fe8689de2b703f45a41ad290abcf6cb1b0b9228e987c960d1db9"
+    },
+    {
+      "file": "media/portraits/parallelogram/mask.tga",
+      "diameter_per_texture_width": 0.676814,
+      "sha256": "ea5cf8d44fe9c52685a9e823167893da59c0fd0a1dbd2cc31b030da90f55ffe2"
+    },
+    {
+      "file": "media/portraits/parallelogram/mask_mirror.tga",
+      "diameter_per_texture_width": 0.676814,
+      "sha256": "73d98fe93a66c331b2a06d83a4f6ed10686b076d5e9724d3918b872e6a0df2aa"
+    },
+    {
+      "file": "media/portraits/pentagon/mask.tga",
+      "diameter_per_texture_width": 0.568336,
+      "sha256": "3127ef40971b676e5ef4928a902b67f5135c09731201f3066d2f4dbb6c353896"
+    },
+    {
+      "file": "media/portraits/pentagon/mask_mirror.tga",
+      "diameter_per_texture_width": 0.568336,
+      "sha256": "d0bef2c8e68978b3b12e355c815a2fb8964352cf801cad073ba056ec4927ad0d"
+    },
+    {
+      "file": "media/portraits/pixel/mask.tga",
+      "diameter_per_texture_width": 0.52493,
+      "sha256": "1b5cf31ed10730852fa266ed61d9a2ea251779d3262be00d4a2850b13142b562"
+    },
+    {
+      "file": "media/portraits/rectangular/mask.tga",
+      "diameter_per_texture_width": 0.561394,
+      "sha256": "ba76ed74c873834fd6749b9b82ad1d0f3aa0fb59437431bfb1254eef0baea7f6"
+    },
+    {
+      "file": "media/portraits/shield/mask.tga",
+      "diameter_per_texture_width": 0.526236,
+      "sha256": "6eb8748abdaff74d0b7130706dcd73d42f72cb0a60b955f23791bd00650561a3"
+    },
+    {
+      "file": "media/portraits/square round thick/mask.tga",
+      "diameter_per_texture_width": 0.671222,
+      "sha256": "45c1e0a1797c12d7044b6e870a1953ef5c4e010ffa29dbf59b5fa280e2adc18f"
+    },
+    {
+      "file": "media/portraits/square round/mask.tga",
+      "diameter_per_texture_width": 0.676746,
+      "sha256": "dd12be84b5013424ad854f54ed1ad7267612312e9149bd3a11fd964790472e70"
+    },
+    {
+      "file": "media/portraits/square thick/mask.tga",
+      "diameter_per_texture_width": 0.687772,
+      "sha256": "44d557d47e9417f2a21b8d498279ab845fffbc717f795b823f7fc20d2bf2ccc7"
+    },
+    {
+      "file": "media/portraits/square/mask.tga",
+      "diameter_per_texture_width": 0.682248,
+      "sha256": "f7e2ee599e2da8f96dc1b8896befbbd3a6f5208cd4d9f67c61c9024fba48f0f1"
+    },
+    {
+      "file": "media/portraits/tear/mask.tga",
+      "diameter_per_texture_width": 0.649102,
+      "sha256": "188c2c443a0f711bf4aa373ede5747065bf0b0213c498e2a140080adf64df530"
+    },
+    {
+      "file": "media/portraits/tear/mask_down.tga",
+      "diameter_per_texture_width": 0.649102,
+      "sha256": "6da4c1c823a60f0fec967b91536069bddc77f5d422334951ef4f8584676c93c1"
+    },
+    {
+      "file": "media/portraits/tear/mask_mirror.tga",
+      "diameter_per_texture_width": 0.649102,
+      "sha256": "9cd527a381ae78bc8d676d4a3a83dd5cfa7d0ebd5c066c195138d7cd9d98d921"
+    },
+    {
+      "file": "media/portraits/tear/mask_mirror_down.tga",
+      "diameter_per_texture_width": 0.649102,
+      "sha256": "3f1abd0a084b49a270cb0d39e3e2b4d282bdb85dad8eedfbffe36ac63afb1e96"
+    },
+    {
+      "file": "media/portraits/trapezoid/mask.tga",
+      "diameter_per_texture_width": 0.704432,
+      "sha256": "68e7344a433a97ae13d507b6e6627baadda99d15309b3ee92bb2ce08530c1fa7"
+    },
+    {
+      "file": "media/portraits/trapezoid/mask_mirror.tga",
+      "diameter_per_texture_width": 0.704432,
+      "sha256": "e11841ce851ba028620756d38f3553152b040ead80d71e0e71e8473a59f03d17"
+    }
+  ],
+  "mmediatag_legacy_mask_fits": [
+    {
+      "file": "media/portraits/circle/circle_mask.tga",
+      "diameter_per_texture_width": 0.537625,
+      "sha256": "e8627beedb1525a7db41d1bdb8fbbc2eb593e8e2ae4487e1127419bd0a444ead"
+    },
+    {
+      "file": "media/portraits/diamond/diamond_mask.tga",
+      "diameter_per_texture_width": 0.513676,
+      "sha256": "16d902bf4629302b15ad403c3a2326492df82be76b1090890e9f85b79ccc4aaf"
+    },
+    {
+      "file": "media/portraits/drop/drop_mask_a.tga",
+      "diameter_per_texture_width": 0.745823,
+      "sha256": "51911c6d07b91e582156c209e230940c41030ec72fca1a39864eb72a908b9aa7"
+    },
+    {
+      "file": "media/portraits/drop/drop_mask_b.tga",
+      "diameter_per_texture_width": 0.745823,
+      "sha256": "8e3a62e5eb6d09826769924c46faab64070eecd111edb22f57d42678efdee5ba"
+    },
+    {
+      "file": "media/portraits/drop/drop_mask_c.tga",
+      "diameter_per_texture_width": 0.745823,
+      "sha256": "ccbf9c5d6e09cb53d7fbdcea5029310b416125ff8248e675d5d135d2bc0eadbb"
+    },
+    {
+      "file": "media/portraits/drop/drop_mask_d.tga",
+      "diameter_per_texture_width": 0.745823,
+      "sha256": "7a7e79ed55d4f073d936961f7bc08f29362969cc14caa68ecbc981ef6239fbfb"
+    },
+    {
+      "file": "media/portraits/octagon/octagon_mask.tga",
+      "diameter_per_texture_width": 0.582182,
+      "sha256": "1c4c4a70aeb4ada70e3d3d93bd564bc0fe363ec6b66aa7b669bb71aa4bf60882"
+    },
+    {
+      "file": "media/portraits/old/circle/old_circle_mask.tga",
+      "diameter_per_texture_width": 0.698908,
+      "sha256": "cadb7b959e44d4bdc635b31a7d35864939050f7bf73a34cf14244ed1ac8ae0c5"
+    },
+    {
+      "file": "media/portraits/old/diamond/old_diamond_mask.tga",
+      "diameter_per_texture_width": 0.728519,
+      "sha256": "064fae53dc2c7d4fca5c25c768fa07d8163a1f585b61bda03733b8749518dd4b"
+    },
+    {
+      "file": "media/portraits/old/drop/old_drop_mask_a.tga",
+      "diameter_per_texture_width": 0.950211,
+      "sha256": "0955332a2a4fd6105e68ffb025e9acd6d9a6ae14dedcb9865b362a3a23653b73"
+    },
+    {
+      "file": "media/portraits/old/drop/old_drop_mask_b.tga",
+      "diameter_per_texture_width": 0.950211,
+      "sha256": "1c71cb41d7e8806e4ebe07bf5789f849a0d0afb72435be9293b4e32321655aee"
+    },
+    {
+      "file": "media/portraits/old/drop/old_drop_mask_c.tga",
+      "diameter_per_texture_width": 0.950211,
+      "sha256": "c65f253d281a0cffeea3aa4146db19e0c5fe4a58968e18b988b73c85e34c691c"
+    },
+    {
+      "file": "media/portraits/old/drop/old_drop_mask_d.tga",
+      "diameter_per_texture_width": 0.950211,
+      "sha256": "d3b8f827022e7e939ec28ad3609c04d079c20abe20a04a644febeec0b9636c38"
+    },
+    {
+      "file": "media/portraits/old/pad/old_pad_mask.tga",
+      "diameter_per_texture_width": 0.770636,
+      "sha256": "ae5ddd7f58e690b5a570c655a4f58c97d8b5e828f029f570881cfec30f0d7187"
+    },
+    {
+      "file": "media/portraits/old/square/old_square_mask.tga",
+      "diameter_per_texture_width": 0.881191,
+      "sha256": "a4c1d2fdfde4bd7c6489a67a50b44978243a70578ea326f49772211bb19412c7"
+    },
+    {
+      "file": "media/portraits/old/thin/old_thin_mask.tga",
+      "diameter_per_texture_width": 0.682248,
+      "sha256": "4a419bf97b486baf328bcca977180ec5cf31b20968d529ce6466b764348d7d84"
+    },
+    {
+      "file": "media/portraits/pad/pad_mask.tga",
+      "diameter_per_texture_width": 0.643578,
+      "sha256": "d467e96c33f4961f38e1555fb8ebcb296b3759a92b1a9308887e1eedda33e2b6"
+    },
+    {
+      "file": "media/portraits/pure/pure_mask_a.tga",
+      "diameter_per_texture_width": 0.745823,
+      "sha256": "97fd8bc41ab28df70bec11a500c6a03a721871fa586509d69f7a73531a9dd437"
+    },
+    {
+      "file": "media/portraits/pure/pure_mask_b.tga",
+      "diameter_per_texture_width": 0.745823,
+      "sha256": "8315fc6883d76b6de42bd9024e05868e85fca80e56b6997bb6df6193b0761263"
+    },
+    {
+      "file": "media/portraits/shield/shield_mask.tga",
+      "diameter_per_texture_width": 0.620129,
+      "sha256": "04cfd7a52b4508c7d85f4b5060f84baa48aee03b827fa7b03bb50930f034088f"
+    },
+    {
+      "file": "media/portraits/square/square_mask.tga",
+      "diameter_per_texture_width": 0.687772,
+      "sha256": "e7bfee4797a9035151e0faf3b9277d7498a2a49c7b474a219119d1ca7bab3fbe"
+    },
+    {
+      "file": "media/portraits/thin/thin_mask.tga",
+      "diameter_per_texture_width": 0.731967,
+      "sha256": "72bdf87a6178151b7a4b36ad4122af2dc81f26a3c4dbba2903cca1a751a01dd9"
+    },
+    {
+      "file": "media/portraits/thin_circle/thin_circle_mask.tga",
+      "diameter_per_texture_width": 0.607727,
+      "sha256": "790d8d0e96d836311d47d4b2732a80104d02664e5e58391aa641d64077aa5ff0"
+    },
+    {
+      "file": "media/portraits/thin_diamond/thin_diamond_mask.tga",
+      "diameter_per_texture_width": 0.603519,
+      "sha256": "ac7d7d8ef343c3f5b5307f7791ec8cd1a89fae7bc777a945d091408410ad5812"
     }
   ]
 }

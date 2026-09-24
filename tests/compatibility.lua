@@ -15,6 +15,163 @@ local function replacement(M,source,unit,size)
     root.Portrait.backdrop=bd
     return root,bd
 end
+local function mmediatag(M,unit,legacy,size)
+    local title=unit:sub(1,1):upper()..unit:sub(2)
+    local root=_G["ElvUF_"..title] or M.native("ElvUF_"..title,240,60)
+    local frame=M.native("MMTTest_"..unit,size or 64,size or 64)
+    frame.parent,frame.protected=root,true
+    local maskSize=frame.w*(legacy and 1 or 2)
+    frame.mask=M.region(frame,"MaskTexture",maskSize,maskSize)
+    frame.mask.path="Interface\\AddOns\\ElvUI_mMediaTag\\media\\portraits\\circle\\"..
+        (legacy and "circle_mask.tga" or "mask.tga")
+    if legacy then
+        mMT=mMT or {Modules={Portraits={}}}
+        mMT.Modules.Portraits[title]=frame
+        frame.portrait=M.region(frame,"Texture",maskSize,maskSize)
+    else
+        ElvUI_mMediaTag=ElvUI_mMediaTag or {[3]={Portraits={portraits={}}}}
+        ElvUI_mMediaTag[3].Portraits.portraits[unit]=frame
+        frame.unit_portrait=M.region(frame,"Texture",maskSize,maskSize)
+    end
+    return frame,root
+end
+
+test("mMediaTag modern and legacy registries fit every supported unit",function(M)
+    for _,legacy in ipairs({false,true}) do
+        ElvUI_mMediaTag,mMT=nil,nil
+        local portraits={}
+        for _,unit in ipairs({"player","target","focus"}) do portraits[unit]=mmediatag(M,unit,legacy) end
+        local J=M.load({interface=legacy and 16001 or 120100})
+        for unit,portrait in pairs(portraits) do
+            local m=J.Core.modules[unit.."Frame"]
+            assert(m.snapshot.source=="MMT" and m.snapshot.frame==portrait and m.frame.shown)
+            local diameter=portrait.mask.w*J.PortraitMaskFits[portrait.mask.path:lower()]
+            near(m.frame.w,128*diameter/58)
+            local cx=unit=="player" and 154 or 102
+            near(m.frame.points[1][4]+(cx-128)/256*m.frame.w,0)
+            near(m.frame.points[1][5]-(148-128)/256*m.frame.h,0)
+        end
+        assert(not next(J.Core.notices))
+    end
+end)
+
+test("mMediaTag automatic priority yields to Blinkii and supports manual selection",function(M)
+    local root,elvPortrait=replacement(M,"ELVUI","Player")
+    local mmt=mmediatag(M,"player")
+    local J=M.load();local m=J.Core.modules.playerFrame
+    assert(m.snapshot.frame==mmt)
+    local bp=blinkii(M,"player");M.tick(J.Core);assert(m.snapshot.frame==bp)
+    J.ProfileManager:Set("playerFrame","portraitSource","MMT");assert(m.snapshot.frame==mmt)
+    J.ProfileManager:Set("playerFrame","portraitSource","ELVUI");assert(m.snapshot.frame==elvPortrait)
+    J.ProfileManager:Set("playerFrame","portraitSource","AUTO")
+    bp.shown=false;M.tick(J.Core);assert(m.snapshot.frame==mmt)
+    mmt.shown=false;M.tick(J.Core);assert(m.snapshot.frame==elvPortrait)
+    assert(not next(J.Core.notices))
+end)
+
+test("mMediaTag follows masks instead of zoomed content and updates mirrored shapes",function(M)
+    local portrait=mmediatag(M,"target")
+    local J=M.load();local m=J.Core.modules.targetFrame;local initial=m.frame.w
+    portrait.unit_portrait.w,portrait.unit_portrait.h=300,300
+    M.tick(J.Core);near(m.frame.w,initial)
+    portrait.mask.path="Interface\\AddOns\\ElvUI_mMediaTag\\media\\portraits\\blizz round\\mask_mirror.tga"
+    portrait.mask.w,portrait.mask.h=160,160;M.tick(J.Core)
+    near(m.frame.w,128*160/58*J.PortraitMaskFits[portrait.mask.path:lower()])
+    portrait.mask.path="Interface\\AddOns\\Custom\\mask.tga";M.tick(J.Core)
+    near(m.snapshot.portraitFit,math.sqrt(2))
+    assert(not next(J.Core.notices))
+end)
+
+test("mMediaTag inherits ElvUI parent visibility alpha and scale without repeated writes",function(M)
+    local portrait,root=mmediatag(M,"focus")
+    local J=M.load();local m=J.Core.modules.focusFrame
+    J.ProfileManager:Set("focusFrame","portraitSource","MMT")
+    root.alpha,root.scale,portrait.alpha,portrait.scale=0.5,1.2,0.6,0.8
+    M.tick(J.Core);near(m.frame.alpha,0.3)
+    near(m.frame:GetEffectiveScale(),portrait:GetEffectiveScale())
+    root.shown=false;M.tick(J.Core);assert(not m.frame.shown)
+    root.shown=true;portrait.unit_portrait.shown=false;M.tick(J.Core);assert(not m.frame.shown)
+    portrait.unit_portrait.shown=true;M.tick(J.Core);assert(m.frame.shown)
+    local writes,frames=M.writes,#M.frames
+    M.tick(J.Core);M.tick(J.Core);assert(M.writes==writes and #M.frames==frames)
+    assert(not next(J.Core.notices))
+end)
+
+test("mMediaTag late loading removal and replacement reuse the surround",function(M)
+    local J=M.load();local m=J.Core.modules.playerFrame;local owned=m.frame
+    J.ProfileManager:Set("playerFrame","portraitSource","MMT");assert(not m.frame.shown)
+    local first=mmediatag(M,"player");M.event(J.Core,"ADDON_LOADED","ElvUI_mMediaTag")
+    assert(m.snapshot.frame==first and m.frame==owned)
+    ElvUI_mMediaTag[3].Portraits.portraits.player=nil;M.tick(J.Core)
+    assert(not m.frame.shown and not m.snapshot)
+    -- Neither a leftover global nor a legacy registry may revive a disabled 4.x unit.
+    _G["mMT-Portrait-Player"]=first
+    mmediatag(M,"player",true);M.tick(J.Core);assert(not m.frame.shown)
+    local second=mmediatag(M,"player",false,80);M.tick(J.Core)
+    assert(m.snapshot.frame==second and m.frame==owned)
+    ElvUI_mMediaTag[3].Portraits.portraits=nil;M.tick(J.Core);assert(not m.frame.shown)
+    _G["mMT-Portrait-Player"]=nil
+    assert(not next(J.Core.notices))
+end)
+
+test("disabled legacy mMediaTag portraits fall back only in automatic mode",function(M)
+    local root,bd=replacement(M,"ELVUI","Player")
+    local portrait=mmediatag(M,"player",true)
+    local J=M.load({interface=16001});local m=J.Core.modules.playerFrame
+    assert(m.snapshot.frame==portrait)
+    portrait.shown=false;M.tick(J.Core);assert(m.snapshot.frame==bd)
+    J.ProfileManager:Set("playerFrame","portraitSource","MMT");assert(not m.frame.shown)
+    portrait.shown=true;M.tick(J.Core);assert(m.frame.shown and m.snapshot.frame==portrait)
+    assert(not next(J.Core.notices))
+end)
+
+test("mMediaTag guards restricted registries portraits masks and texture paths",function(M)
+    local portrait=mmediatag(M,"player")
+    local J=M.load();local m=J.Core.modules.playerFrame
+    J.ProfileManager:Set("playerFrame","portraitSource","MMT")
+    local mask=portrait.mask
+    portrait.forbidden=true;M.tick(J.Core);assert(not m.frame.shown)
+    portrait.forbidden=false;mask.forbidden=true;M.tick(J.Core);assert(not m.frame.shown)
+    mask.forbidden=false;portrait.mask=M.secret;M.tick(J.Core);assert(not m.frame.shown)
+    portrait.mask=mask;mask.w=M.secret;M.tick(J.Core);assert(not m.frame.shown)
+    mask.w=128;portrait.unit_portrait.forbidden=true;M.tick(J.Core);assert(not m.frame.shown)
+    portrait.unit_portrait.forbidden=false;mask.path=M.secret;M.tick(J.Core)
+    assert(m.frame.shown);near(m.snapshot.portraitFit,math.sqrt(2))
+    ElvUI_mMediaTag[3].Portraits.portraits=M.secret;M.tick(J.Core);assert(not m.frame.shown)
+    ElvUI_mMediaTag=M.secret;M.tick(J.Core);assert(not m.frame.shown)
+    ElvUI_mMediaTag=nil;mMT={Modules=M.secret};M.tick(J.Core);assert(not m.frame.shown)
+    assert(not next(J.Core.notices))
+end)
+
+test("mMediaTag protected source replacement defers during combat",function(M)
+    mmediatag(M,"player")
+    local J=M.load();local m=J.Core.modules.playerFrame
+    M.combat=true;local geometry=M.geometryWrites
+    local nextPortrait=mmediatag(M,"player",false,90)
+    M.tick(J.Core);assert(not m.frame.shown and M.geometryWrites==geometry)
+    M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+    assert(m.frame.shown and m.snapshot.frame==nextPortrait)
+    near(m.snapshot.w,180)
+    assert(not next(J.Core.notices))
+end)
+
+test("mMediaTag options persist per unit while main bars keep the ElvUI source",function(M)
+    local elv=M.native("ElvUI_Bar1",600,40)
+    local J=M.load();local S=J.SettingsUI;S:Open()
+    local backup=J.ProfileManager:Export()
+    assert(not J.ProfileManager:Set("minimap","portraitSource","MMT"))
+    assert(not J.ProfileManager:Set("actionHub","hubSource","MMT"))
+    assert(not J.ProfileManager:Import(backup..";actionHub.hubSource=MMT"))
+    assert(J.ProfileManager:Export()==backup)
+    S.controls.portraitSource.options.MMT.scripts.OnClick()
+    assert(J.ThemeManager:Resolve("playerFrame").portraitSource=="MMT")
+    assert(J.ThemeManager:Resolve("targetFrame").portraitSource=="AUTO")
+    assert(J.Core.modules.actionHub.snapshot.frame==elv)
+    backup=J.ProfileManager:Export();assert(J.ProfileManager:Import(backup))
+    local nextJ=M.load({db=JiberishUIDB})
+    assert(nextJ.ThemeManager:Resolve("playerFrame").portraitSource=="MMT")
+    assert(not next(nextJ.Core.notices))
+end)
 
 test("Blinkii priority and per-unit source choice work on both clients",function(M)
     for _,interface in ipairs({120100,16001}) do
