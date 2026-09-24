@@ -1,6 +1,6 @@
 # JiberishUI
 
-**0.4.0-art.2** adds 42 class/race/faction action hubs and fits each portrait’s inner contour to the native frame, closing the floating lower-wrap gap. Class symbols are integrated into the layered portrait ornament and sculpted hubs, using the requested Blizzard emblems as references, including the Undead mask, Mage eye and Hunter stag skull. There are no pasted circular icon holders. All choices use shared fitting templates; the native UI remains functional underneath.
+**0.5.0-art.1** adds 42 matching minimap surrounds with a shared circular opening, automatic class/race/faction selection and a manual artwork picker. Warrior portrait, hub and minimap artwork now use plain battle cloth without Horde or Alliance insignia. All choices retain the existing decorative architecture; native UI controls remain functional underneath.
 
 Blizzard owns every portrait, health/power bar, name, level badge, aura, position, secure click and action button. JiberishUI creates mouse-transparent decorations under UIParent; it does not replace, reparent or reskin native controls.
 
@@ -15,6 +15,10 @@ All 42 portraits use transparent 512 × 256 textures containing two 256-square f
 ## Action hub library
 
 The hub includes the same 13 classes, 26 races and three faction choices. `/jui` → Action hub exposes automatic player class/race/faction selection and a paginated artwork gallery. Selecting an individual hub sets Chosen artwork. It never follows the target's identity. All 42 choices retain the same anchor, five-piece geometry, baseline and reserved button space. Endcaps preserve their proportions while the rails stretch independently. Paladin keeps its flared wing endcaps; other variants carry their identity through layered armor, stone, wood, feathers and draped cloth, with one integrated motif on the left. Neutral uses an original compass. Hub textures are 1024 × 512 RGBA; only visible gallery thumbnails are assigned textures. A standalone fit gallery is in `artwork/hubs/`.
+
+## Minimap library
+
+The same 13 classes, 26 races and three factions now have circular minimap surrounds matched to their portrait and hub. Open `/jui` → Minimap to choose automatic player class/race/faction or a fixed design. Every 512 × 512 RGBA texture has its opening centered at (256,256), radius 149, with a clear outer margin. The default 340-unit surround fits a 198-unit native map; it follows changes to the native diameter and effective scale without moving or resizing Blizzard's map. Existing manual width/height, scale and offset settings are preserved. Reset this component to test the new baseline. The fitting preview is in `artwork/minimaps/`.
 
 **Automatic class is the default.** Targeting a player changes that frame's background to their class; Focus selects its own class independently. Race and faction modes, or a fixed artwork choice, are available separately for each frame. NPCs and unavailable/restricted class information use Neutral. Automatic race/faction modes also use Neutral when their information is unavailable. No health/power quantities are read.
 
@@ -42,7 +46,7 @@ The baseline fits are verified offline against the pinned native geometry. **Thi
 
 Components: `playerFrame`, `targetFrame`, `focusFrame`, `minimap`, `actionHub`.
 
-Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `portraitMode` (CLASS/RACE/FACTION/FIXED) and a catalog `portrait` ID.
+Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `portraitMode` (CLASS/RACE/FACTION/FIXED) and a catalog `portrait` ID.
 
 ```text
 /jf set targetFrame portraitMode CLASS
@@ -52,6 +56,9 @@ Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), op
 /jf set actionHub hubMode RACE
 /jf set actionHub hub RACE_SCOURGE
 /jf set actionHub hubMode FIXED
+/jf set minimap minimapMode RACE
+/jf set minimap minimap CLASS_WARRIOR
+/jf set minimap minimapMode FIXED
 ```
 
 Background strata and level 0 keep native controls above the art. Custom dimensions/offsets/strata can change the fit. Use Reset this component to return to the fitted defaults.
@@ -79,12 +86,12 @@ The repository includes the final textures and all artwork inputs. To rebuild me
 
 ```sh
 python3 -m pip install -r tools/requirements-artwork.txt
-python3 tools/encode_paladin_ret.py
 python3 tools/build_portraits.py
 python3 tools/build_hubs.py
+python3 tools/build_minimaps.py
 python3 tools/render_portrait_review.py
 lua5.1 tools/export_fit_preview.lua
 python3 tools/check.py
 ```
 
-Serve the repository with `python3 -m http.server 8757 --bind 127.0.0.1`, then open `/artwork/portraits/` or `/artwork/hubs/` on that server. The source PNGs, generation briefs and revision history are retained for editing; only active textures and Lua files enter the game packages. Downloaded website HTML is a local cache and is not committed. Source references and Blizzard credits are in [artwork credits](docs/ARTWORK-CREDITS.md). Mock checks cannot certify WoW's secure runtime.
+Serve the repository with `python3 -m http.server 8757 --bind 127.0.0.1`, then open `/artwork/portraits/` `/artwork/hubs/` or `/artwork/minimaps/` on that server. The source PNGs, generation briefs and revision history are retained for editing; only active textures and Lua files enter the game packages. Downloaded website HTML is a local cache and is not committed. Source references and Blizzard credits are in [artwork credits](docs/ARTWORK-CREDITS.md). Mock checks cannot certify WoW's secure runtime.

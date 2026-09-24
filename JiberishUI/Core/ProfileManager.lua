@@ -28,6 +28,7 @@ end
 local function supported(key,property)
     if property == "portrait" or property == "portraitMode" then return J.Portraits:IsUnitKey(key) end
     if property == "hub" or property == "hubMode" then return key == "actionHub" end
+    if property == "minimap" or property == "minimapMode" then return key == "minimap" end
     return true
 end
 
@@ -89,7 +90,7 @@ end
 function Profiles:Set(key, property, value)
     if not self.writable then return false, self.notice end
     if not J.Core.modules[key] then return false, "Unknown component." end
-    if not supported(key,property) then return false, "Portrait options apply to Player, Target and Focus." end
+    if not supported(key,property) then return false, "Artwork selection does not apply to this component." end
     local valid = J.Core:ValidateProperty(property, value)
     if valid == nil then return false, J.Core:PropertyHelp(property) end
     local overrides = self.current.modules[key] or {}

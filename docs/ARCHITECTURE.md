@@ -31,3 +31,9 @@ The movable /jui window has Player, Target, Focus, Minimap and Action hub tabs. 
 Options use the nonsecure BackdropTemplate only on addon-owned settings objects. Native dialog/slider border files and button/check artwork provide the classic styling; decorative world modules still use plain frames. Every control is reused and checkbox/selection art reflects the saved value after validation, including rejected or combat-deferred changes.
 
 Hub settings (`hubMode`, `hub`) are restricted to actionHub; portrait settings remain restricted to units. Both are included in bounded JF2 exports. The hub gallery uses 12 thumbnails per page and clears texture references when hidden. Options/picker backdrops have opaque addon-owned underlays.
+
+## Minimap collection
+
+Core/Minimaps.lua reuses the guarded player identity resolver with the data-only Themes/Minimaps.lua catalog. `minimapMode` and `minimap` settings are scoped to the minimap and round-trip in JF2 backups. Automatic modes never follow target/focus. The 12-thumbnail paginated picker clears hidden references and reuses its controls.
+
+All 42 textures share a circular opening, center and 512-square canvas. Core applies native diameter / 198 to the configured artwork dimensions, then follows native effective scale using the normal owned-frame path. No native dimensions are written. Existing user overrides persist; debug reports the resulting applied geometry. Combat deferral, forbidden-frame gating and visibility handling are shared with the other decorations.
