@@ -34,6 +34,7 @@ end)
 test("hub configuration and client-protected texture refresh defer in combat",function(M)
     local J=M.load();local hub=J.Core.modules.actionHub
     J.ProfileManager:Set("playerFrame","portraitMode","FIXED")
+    J.ProfileManager:Set("minimap","minimapMode","FIXED")
     hub.frame.protected=true;M.combat=true
     local writes=M.writes
     M.unitData.player.class="MAGE";M.tick(J.Core)

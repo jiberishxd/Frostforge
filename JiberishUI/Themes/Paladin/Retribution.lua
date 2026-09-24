@@ -17,8 +17,9 @@ local hubPieces = {
 J.ThemeManager:Register("paladin_ret", {
     name = "Retribution Paladin",
     minimap = {
-        texture = J.Media.minimap,
-        width = 340, height = 340, x = 0, y = 3, scale = 1,
+        minimapMode = "CLASS", minimap = "CLASS_PALADIN",
+        texture = J.MinimapCatalog.entries.CLASS_PALADIN.texture,
+        width = 340, height = 340, x = 0, y = 0, scale = 1,
         anchor = "FRAME", point = "CENTER", relativePoint = "CENTER",
         strata = "BACKGROUND", level = 0, layer = "BACKGROUND", opacity = 1, shown = true,
     },
