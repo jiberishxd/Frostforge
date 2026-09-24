@@ -1,6 +1,6 @@
 # Portrait build validation
 
-Install 0.6.0-compat.1 and fully restart WoW. This loads the new minimap files and refreshed faction-neutral Warrior textures. Do not delete saved settings. Export current settings before closing, especially on Forever build 69913. If a component was manually adjusted to fit the previous artwork, use Reset this component in `/jui` to test the new baseline.
+Install 0.6.0-compat.2 and fully restart WoW. This loads the new minimap files and refreshed faction-neutral Warrior textures. Do not delete saved settings. Export current settings before closing, especially on Forever build 69913. If a component was manually adjusted to fit the previous artwork, use Reset this component in `/jui` to test the new baseline.
 
 1. Open /jui. Confirm textured window borders, red/gold buttons, checkboxes, five component tabs and a movable window. Verify Show artwork and Debug bounds check marks, selected tabs, and gallery selection after switching components. Player, Target and Focus default to Automatic class; Minimap and hub default to automatic player class; existing geometry overrides are retained.
 2. At default portrait dimensions, check Player's teardrop corner, level badge, name and bars. Select players of different classes and verify only Target's portrait background changes; the art should share the same visible envelope without a lower loop or level-badge circle. Verify Mage uses an eye and Hunter uses a skull. Set another class as Focus and verify independent selection. Clear Target/Focus and confirm their decoration disappears.
@@ -15,10 +15,10 @@ Record client/build, resolution, UI/frame scale, mode/artwork, /jf status and ex
 
 ## Addon compatibility pass
 
-Test Retail and Forever separately where the upstream addons run. Test ElvUI alone, EllesmereUI alone, Blinkii with each suite, and all three installed with per-unit manual source choices.
+Test Retail and Forever separately where the upstream addons run. Test ElvUI alone, EllesmereUI alone, Blinkii with each suite, mMediaTag with ElvUI, and coexistence with per-unit manual source choices. Test mMediaTag 4.x on Retail and 3.x only on clients supported by that upstream build.
 
-1. In `/jui`, leave Portrait addon on Automatic. Enable Player/Target/Focus portraits in the provider. For the closest fit use Blinkii Circle or Ellesmere detached Circle. Confirm the printed Following anchor, opening center, artwork mirroring and click-through behavior.
-2. Resize, move, fade, hide and change portrait shapes/profiles. Toggle Blinkii clickable mode, ElvUI 2D/3D/class modes and Ellesmere attached/detached modes. Turn portraits off, clear target/focus and remove/re-enable providers. No stale surround should remain. Health-overlay portraits intentionally have no separate surround.
+1. In `/jui`, leave Portrait addon on Automatic. Enable Player/Target/Focus portraits in the provider. For the closest fit use Blinkii/mMediaTag Circle or Ellesmere detached Circle. Confirm the printed Following anchor, opening center, artwork mirroring and click-through behavior. When mMediaTag and ElvUI portraits coexist, Automatic should choose mMediaTag; visible Blinkii portraits retain first priority.
+2. Resize, move, fade, hide and change portrait shapes/profiles. Toggle Blinkii clickable mode, mMediaTag mirrored masks and zoom, ElvUI 2D/3D/class modes and Ellesmere attached/detached modes. Turn portraits off, clear target/focus and remove/re-enable providers. No stale surround should remain. Health-overlay portraits intentionally have no separate surround.
 3. Change source and size in combat; test clickable Blinkii portraits and protected dependencies. Deferred changes must apply after combat without blocked-action errors. Target identity artwork should still update when permitted.
 4. Select ElvUI or EllesmereUI as the Action bar addon. Confirm SCREEN and FRAME anchors, alpha/visibility, paging, vehicle transitions and click-through. Use a circular minimap for the existing circular surround. Arbitrary bar layouts and square maps need manual fitting.
 5. Export/import and reload all source settings.

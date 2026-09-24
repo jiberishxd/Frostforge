@@ -11,6 +11,7 @@ local strata = {
 local layers = {{"BACKGROUND","Background"},{"BORDER","Border"},{"ARTWORK","Artwork"},{"OVERLAY","Overlay"}}
 local anchors = {{"FRAME","Follow selected frame"},{"SCREEN","Screen"}}
 local portraitSources = {{"AUTO","Automatic (Blinkii first)"},{"BLINKII","Blinkii's Portraits"},
+    {"MMT","mMediaTag & Tools"},
     {"ELVUI","ElvUI"},{"ELLESMERE","EllesmereUI"},{"BLIZZARD","Blizzard"}}
 local hubSources = {{"AUTO","Automatic"},{"ELVUI","ElvUI"},{"ELLESMERE","EllesmereUI"},{"BLIZZARD","Blizzard"}}
 

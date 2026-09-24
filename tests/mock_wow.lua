@@ -173,6 +173,8 @@ SlashCmdList={}
 UISpecialFrames={}
 JiberishUIOptionsFrame=nil
 BLINKIISPORTRAITS=nil
+ElvUI_mMediaTag=nil
+mMT=nil
 for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do
     for _,unit in ipairs({"Player","Target","Focus"}) do _G[prefix..unit]=nil end
 end

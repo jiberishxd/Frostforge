@@ -4,8 +4,8 @@ J.AddOnAnchors = A
 
 local units = {playerFrame="player",targetFrame="target",focusFrame="focus"}
 local titles = {player="Player",target="Target",focus="Focus"}
-local labels = {BLINKII="Blinkii's Portraits",ELVUI="ElvUI",ELLESMERE="EllesmereUI"}
-J.Core.properties.portraitSource = {AUTO=true,BLIZZARD=true,BLINKII=true,ELVUI=true,ELLESMERE=true}
+local labels = {BLINKII="Blinkii's Portraits",MMT="mMediaTag & Tools",ELVUI="ElvUI",ELLESMERE="EllesmereUI"}
+J.Core.properties.portraitSource = {AUTO=true,BLIZZARD=true,BLINKII=true,MMT=true,ELVUI=true,ELLESMERE=true}
 J.Core.properties.hubSource = {AUTO=true,BLIZZARD=true,ELVUI=true,ELLESMERE=true}
 
 local function field(object,key)
@@ -34,6 +34,31 @@ function A:Candidate(source,key)
         if fit then fit = fit*2 end
         -- Unknown/custom masks may occupy the whole twice-sized texture.
         fit = fit or math.sqrt(8)
+    elseif source == "MMT" and unit then
+        -- 4.x keeps active units in its engine; 3.x uses capitalized module fields.
+        -- Do not resurrect a legacy/global frame when a modern unit is disabled.
+        if not J.Core:IsSafe(ElvUI_mMediaTag) then return nil end
+        if ElvUI_mMediaTag ~= nil then
+            local module = field(field(ElvUI_mMediaTag,3),"Portraits")
+            frame = field(field(module,"portraits"),unit)
+            if not J.Core:IsUsableFrame(frame) then return nil end
+            region = frame.unit_portrait
+        else
+            local module = field(field(mMT,"Modules"),"Portraits")
+            frame = field(module,titles[unit])
+            if not J.Core:IsUsableFrame(frame) then return nil end
+            region = frame.portrait
+        end
+        local mask = frame.mask
+        if not J.Core:IsUsableFrame(mask) then return nil end
+        if type(mask.GetTexture) == "function" then
+            local path = mask:GetTexture()
+            if J.Core:IsSafe(path) and type(path) == "string" then fit = J.PortraitMaskFits[path:lower()] end
+        end
+        -- Read the mask itself: modern masks are twice the button size, legacy
+        -- masks match it, and zoomed portrait content can be larger than either.
+        return {frame=frame,root=frame,region=region,bounds=mask,name="mMediaTag "..unit,
+            source=source,portrait=true,fit=fit or math.sqrt(2)}
     elseif unit then
         name = (source == "ELVUI" and "ElvUF_" or "EllesmereUIUnitFrames_") .. titles[unit]
         local root = _G[name]
@@ -82,7 +107,7 @@ function A:Resolve(key)
         return nil,"Waiting for an enabled " .. labels[source] .. " portrait/bar",true
     end
     local hidden
-    for _,id in ipairs(units[key] and {"BLINKII","ELVUI","ELLESMERE"} or {"ELVUI","ELLESMERE"}) do
+    for _,id in ipairs(units[key] and {"BLINKII","MMT","ELVUI","ELLESMERE"} or {"ELVUI","ELLESMERE"}) do
         local candidate = self:Candidate(id,key)
         if candidate then
             if visible(candidate.root) then
