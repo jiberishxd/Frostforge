@@ -1,6 +1,6 @@
 # JiberishUI
 
-**0.6.0-compat.1** adds automatic portrait surrounds for Blinkii's Portraits, ElvUI and EllesmereUI, plus main action-bar anchors for both UI suites. Choose the portrait addon separately for Player, Target and Focus in `/jui`. See [addon setup and limits](docs/ADDON-COMPATIBILITY.md).
+**0.6.0-compat.2** adds automatic portrait surrounds for mMediaTag & Tools alongside Blinkii's Portraits, ElvUI and EllesmereUI, plus main action-bar anchors for both UI suites. Choose the portrait addon separately for Player, Target and Focus in `/jui`. See [addon setup and limits](docs/ADDON-COMPATIBILITY.md).
 
 The artwork library includes 42 matching minimap surrounds with a shared circular opening, automatic class/race/faction selection and a manual artwork picker. Warrior portrait, hub and minimap artwork now use plain battle cloth without Horde or Alliance insignia. All choices retain the existing decorative architecture; native UI controls remain functional underneath.
 
@@ -48,7 +48,7 @@ The baseline fits are verified offline against the pinned native geometry. **Thi
 
 Components: `playerFrame`, `targetFrame`, `focusFrame`, `minimap`, `actionHub`.
 
-Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/ELVUI/ELLESMERE). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
+Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
 
 ```text
 /jf set targetFrame portraitMode CLASS
@@ -71,7 +71,7 @@ Settings remain under `JiberishUIDB.phase1`, now version 2. Version-1 shell sizi
 
 Forever build 69913 previously failed to supply saved settings at startup in live diagnostics. This update does not fix that client loading failure. Export before closing: [persistence notes](docs/PERSISTENCE.md).
 
-No party/raid, pet, boss, cast-bar or replacement-UI modules are added. Blinkii, ElvUI and EllesmereUI portrait anchors and ElvUI/EllesmereUI main action-bar anchors are supported; live validation remains pending. No native minimap or action-bar positioning changes are made; existing minimap edge clipping and arbitrary action-hub layouts remain separate fitting concerns.
+No party/raid, pet, boss, cast-bar or replacement-UI modules are added. Blinkii, mMediaTag, ElvUI and EllesmereUI portrait anchors and ElvUI/EllesmereUI main action-bar anchors are supported; live validation remains pending. No native minimap or action-bar positioning changes are made; existing minimap edge clipping and arbitrary action-hub layouts remain separate fitting concerns.
 
 ## Local checks
 

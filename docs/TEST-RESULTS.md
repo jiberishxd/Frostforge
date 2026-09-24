@@ -1,8 +1,8 @@
 # Validation record
 
-Build: **0.6.0-compat.1**. Date: **2026-09-24**.
+Build: **0.6.0-compat.2**. Date: **2026-09-24**.
 
-**86 Lua 5.1 tests passed**, with zero writes to mocked native frames.
+**95 Lua 5.1 tests passed**, with zero writes to mocked native frames.
 
 The offline host checks five owned decorative roots, mouse transparency, separate Retail/Forever adapters, forbidden/restricted native reads, effective scale, anchors, repeated refresh reuse, combat deferral, profile/import validation and the movable classic options window.
 
@@ -16,7 +16,7 @@ The release preparation rebuilt the media from repository-relative retained orig
 
 The local galleries use actual game-resolution pixels. All 42 portraits and all 42 sculpted hub compositions were visually reviewed, including alpha against dark backgrounds. Browser fitting checks covered the Player at 1440p, mirrored Mage Target at 4K, and Hunter Focus at 1080p/small scale. Hub previews were checked at widths 600 and 900, 1080p/1440p/4K, with unbroken seams, retained hanging ornament and a clear central guide. These are synthetic native-frame guides and estimated target pixel sizes, not live-client certification.
 
-**0.6.0-compat.1 live validation remains pending.** Art.1 screenshots confirmed the artwork appears in game and exposed the lower-wrap gap now corrected in offline fitting previews. Check fit, target/focus switching, combat, Edit Mode changes and reload/logout persistence in both clients. Forever build 69913's previously reported missing saved table is not fixed by this change. Arbitrary bar layouts remain a manual fitting concern. Addon portrait and main-bar adapters are implemented; live compatibility validation remains pending.
+**0.6.0-compat.2 live validation remains pending.** Art.1 screenshots confirmed the artwork appears in game and exposed the lower-wrap gap now corrected in offline fitting previews. Check fit, target/focus switching, combat, Edit Mode changes and reload/logout persistence in both clients. Forever build 69913's previously reported missing saved table is not fixed by this change. Arbitrary bar layouts remain a manual fitting concern. Addon portrait and main-bar adapters are implemented; live compatibility validation remains pending.
 
 ## Minimap update validation
 
@@ -26,6 +26,12 @@ The complete minimap collection was inspected on a solid background, and detache
 
 ## Addon compatibility validation
 
-Eleven additional Lua tests cover Blinkii priority and explicit per-unit sources on both client adapters; round and mirrored opening registration; scale and size changes; late loading, clickable/display replacement and removal; external alpha, visibility and portrait replacement; disabled/health-overlay portraits; Ellesmere detached mask bounds; forbidden/restricted inputs; combat deferral; ElvUI/Ellesmere main action-bar sources; and scoped profile/export/import/options behavior. The compatibility-only suite passes 86 tests with zero native-frame writes.
+Eleven additional Lua tests cover Blinkii priority and explicit per-unit sources on both client adapters; round and mirrored opening registration; scale and size changes; late loading, clickable/display replacement and removal; external alpha, visibility and portrait replacement; disabled/health-overlay portraits; Ellesmere detached mask bounds; forbidden/restricted inputs; combat deferral; ElvUI/Ellesmere main action-bar sources; and scoped profile/export/import/options behavior. The initial compatibility build passed 86 tests with zero native-frame writes.
 
 Source snapshots are pinned in addon-sources.json. All 47 measured mask files (40 Blinkii, seven Ellesmere) were checked against their recorded hashes and every occupied pixel was verified to fit the configured containing circle. Source/media checks and exact Retail/Forever archive verification pass. No third-party Lua or textures are packaged. These offline checks cannot validate the real secure runtime or visual fit in WoW.
+
+## mMediaTag follow-up validation
+
+Nine additional Lua tests bring the suite to 95. They cover 4.x and 3.x registry discovery for Player/Target/Focus; modern Retail and legacy Forever mock paths; automatic priority and explicit selection; mask geometry independent of zoom; mirrored and custom masks; inherited ElvUI alpha/visibility/scale; stable idle polling; late loading, replacement and removal; stale-global/legacy rejection; disabled legacy fallback; forbidden/secret inputs; combat deferral; and scoped options/export/import persistence. No provider frames are written.
+
+The 48 current and 24 legacy mMediaTag mask files were measured from pinned upstream revisions and recorded with SHA-256 hashes. Their nonzero-alpha pixel centers fit the stored containing radii, rounded upward to six decimal places. No upstream Lua or media is shipped. This adapter does not establish mMediaTag's client support; real WoW fitting and secure-runtime checks remain pending.
