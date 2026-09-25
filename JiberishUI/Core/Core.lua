@@ -1,9 +1,9 @@
 local addonName, J = ...
 local Core = {
-    version = "0.7.0-art.2",
+    version = "0.7.1",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
-    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitStyle" },
+    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown" },
     dirty = true,
 }
 J.Core = Core
@@ -337,6 +337,7 @@ function Core:Status()
         local module = self.modules[key]
         self:Print(key .. ": " .. (module.status or "waiting for anchor"))
         if module.debugLabel then self:Print(module.debugLabel:GetText()) end
+        if J.Portraits:IsUnitKey(key) then self:Print(key .. " unit frame: " .. (J.UnitSkins.status[key] or "waiting")) end
     end
     for key, message in pairs(self.notices) do self:Print(key .. ": " .. message) end
     if self.client and self.client.id == "forever" then

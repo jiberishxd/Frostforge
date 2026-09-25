@@ -1,11 +1,11 @@
 [
   {
     "id": "class_warrior",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_warrior.png",
     "source_sha256": "9374b66844d117572e8a9ef1057c7980ae709b449ccb4cdb0c9d76a0ac97c6ad",
     "file": "artwork/unit-frames/sculpted/assets/class_warrior.png",
-    "sha256": "9929c3c0830028ce8908b0b9d255389b8e0fe130c43e68ecdd0f0fa433d02461",
+    "sha256": "7619f1ffaadf7c1842f66f97a95044bbe08971542765c0eae23dcc070f8ca7df",
     "measured": {
       "health": [
         260,
@@ -19,26 +19,47 @@
         1411,
         575
       ],
-      "upper_source_bounds": [
-        438,
-        1217
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 283,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          80.6944757609921,
+          101.85794813979707,
+          402.5073280721533,
+          137.92559188275084
+        ],
+        "power": [
+          80.6944757609921,
+          151.0665163472379,
+          402.5073280721533,
+          164.76662908680947
+        ],
+        "divider": 13.140924464487057
+      }
     }
   },
   {
     "id": "class_paladin",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_paladin.png",
-    "source_sha256": "ee5c8c8ded4692c7baafbe96df9f4e921f32d2d51d37a69697dd3248ee9e349f",
+    "source_sha256": "a3cc840c0af520028e54fc8d49f5929f40c2983f7ba66666814cff7edff88a51",
     "file": "artwork/unit-frames/sculpted/assets/class_paladin.png",
-    "sha256": "7891f9fd58cf73e5be9f027ca6903c97fe7a74ed057ae2a253dba2ebd7024642",
+    "sha256": "d8d990309a6b13dfa99a10a269f378ad3a4899494544cb8ef0b1dc7cbd213232",
     "measured": {
       "health": [
         252,
-        352,
+        351,
         1420,
         477
       ],
@@ -46,24 +67,45 @@
         252,
         521,
         1420,
-        576
+        575
       ],
-      "upper_source_bounds": [
-        512,
-        1224
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 302,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          78.45772266065389,
+          102.13754227733935,
+          405.0236753100338,
+          137.36640360766629
+        ],
+        "power": [
+          78.45772266065389,
+          149.6685456595265,
+          405.0236753100338,
+          164.76662908680947
+        ],
+        "divider": 12.302142051860216
+      }
     }
   },
   {
     "id": "class_hunter",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_hunter.png",
     "source_sha256": "af328c225da0d53f38b44a4c62fd939da843473a8e6c18db73bc8ce37cbb5a4d",
     "file": "artwork/unit-frames/sculpted/assets/class_hunter.png",
-    "sha256": "45691852d78aa1beac18aa185c3023ee188dac65181b52bbaf1fb87ccab247d4",
+    "sha256": "7b312710f6d2b41d9c244b642b8aa4782add39dffb83915d4bdab49d37f9e1d3",
     "measured": {
       "health": [
         256,
@@ -77,22 +119,43 @@
         1369,
         577
       ],
-      "upper_source_bounds": [
-        487,
-        1110
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 305,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.13754227733935,
+          390.76437429537765,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          149.94813979706876,
+          390.76437429537765,
+          165.32581736189402
+        ],
+        "divider": 11.463359639233374
+      }
     }
   },
   {
     "id": "class_rogue",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_rogue.png",
     "source_sha256": "fab1f16f3f365bfd486c0657d215968e4a3c8a9adc01f674e3209ade82d30c39",
     "file": "artwork/unit-frames/sculpted/assets/class_rogue.png",
-    "sha256": "8c9e7d0aac8c2a3134d56d0a744b78e8ace1856944a7d20223b0e07571bded4c",
+    "sha256": "efb0842a251ad66cbbe97d0b3787397c997616284414c630422eded201fd2d7c",
     "measured": {
       "health": [
         256,
@@ -106,22 +169,43 @@
         1418,
         574
       ],
-      "upper_source_bounds": [
-        582,
-        1109
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 301,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.13754227733935,
+          404.4644870349493,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          149.94813979706876,
+          404.4644870349493,
+          164.48703494926718
+        ],
+        "divider": 11.463359639233374
+      }
     }
   },
   {
     "id": "class_priest",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_priest.png",
     "source_sha256": "5d1ff7c7e7651a491970cf6b7c7c442ac5a2c175bf282d8f71e13bd3b1584946",
     "file": "artwork/unit-frames/sculpted/assets/class_priest.png",
-    "sha256": "198586fe2a476d1285765820e76c115d22cbea3b7eb75c6367732a5d0ceb8f95",
+    "sha256": "f2cb1023337bb16e235f6274e8c1a77f879a66e698239c21e53ed894e3f7ff4a",
     "measured": {
       "health": [
         257,
@@ -135,22 +219,43 @@
         1419,
         577
       ],
-      "upper_source_bounds": [
-        408,
-        1128
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 306,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.85569334836528,
+          102.97632468996618,
+          404.7440811724915,
+          138.76437429537768
+        ],
+        "power": [
+          79.85569334836528,
+          150.5073280721533,
+          404.7440811724915,
+          165.32581736189402
+        ],
+        "divider": 11.742953776775636
+      }
     }
   },
   {
     "id": "class_deathknight",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_deathknight.png",
     "source_sha256": "0dd215058a66a807f631b227f4c14d70624c90e720c50dfe074ef2ab10a76a6d",
     "file": "artwork/unit-frames/sculpted/assets/class_deathknight.png",
-    "sha256": "8d2f83c59497ea2cfedbebe92f9d4ff286b347833c43e39ed56ee6e6e966a46e",
+    "sha256": "4176e904a6ba285ca49dac3f41429ab47128036bf9633d5e6f9693f08e27c8e4",
     "measured": {
       "health": [
         257,
@@ -164,22 +269,43 @@
         1419,
         571
       ],
-      "upper_source_bounds": [
-        492,
-        1189
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 304,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.85569334836528,
+          102.41713641488163,
+          404.7440811724915,
+          138.20518602029313
+        ],
+        "power": [
+          79.85569334836528,
+          150.22773393461105,
+          404.7440811724915,
+          163.64825253664037
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "class_shaman",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_shaman.png",
     "source_sha256": "a6dc2245bc6e2f4226651abfda530f5c91461f737b9e3a0c16247f1d6c01f535",
     "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-    "sha256": "4d28a79b5fefd6e91d69f6b62326026edf7c2f8249fd8eab757c853156876909",
+    "sha256": "4fb47dfd18c93f95625c5949a826acf479e61b825f351237b1221e822208e98c",
     "measured": {
       "health": [
         256,
@@ -193,22 +319,43 @@
         1419,
         578
       ],
-      "upper_source_bounds": [
-        464,
-        1220
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 304,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.6967305524239,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          150.22773393461105,
+          404.7440811724915,
+          165.60541149943631
+        ],
+        "divider": 11.742953776775664
+      }
     }
   },
   {
     "id": "class_mage",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_mage.png",
     "source_sha256": "53e4bcd74f2d4dc54fcbbfe2492f37fb8f743c00a87178549a7c8c3e286e632c",
     "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
-    "sha256": "20393c3e1f2bcbd9446fb9e208e108656951d2ea6d08145e0d129f01069a9f5d",
+    "sha256": "933c6959b57eee2adf275baf5417673123620571201a2c1186ee3635b11f1907",
     "measured": {
       "health": [
         252,
@@ -222,22 +369,43 @@
         1416,
         573
       ],
-      "upper_source_bounds": [
-        508,
-        1089
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 301,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          78.45772266065389,
+          102.13754227733935,
+          403.9052987598647,
+          137.36640360766629
+        ],
+        "power": [
+          78.45772266065389,
+          149.3889515219842,
+          403.9052987598647,
+          164.20744081172492
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "class_warlock",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_warlock.png",
     "source_sha256": "464c8ce3b18d42456c65c9cdf08a0fd416a592961cdbd64978ba94e27e6217a6",
     "file": "artwork/unit-frames/sculpted/assets/class_warlock.png",
-    "sha256": "78a34e035416a051e39c7e014bdbfff0d1152ae10ce43719f54971413cc2a2b1",
+    "sha256": "a9166f51507ff3f3aaf2f3edf7adeae275be8cc19d2b00f2f804ec0f9a2209ac",
     "measured": {
       "health": [
         256,
@@ -251,22 +419,43 @@
         1427,
         576
       ],
-      "upper_source_bounds": [
-        568,
-        1117
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 291,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.41713641488163,
+          406.9808342728298,
+          138.20518602029313
+        ],
+        "power": [
+          79.576099210823,
+          150.22773393461105,
+          406.9808342728298,
+          165.04622322435173
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "class_monk",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_monk.png",
     "source_sha256": "7989ba375d535618e63ab480fccc6f50e461e518011ba090d678554d8757795c",
     "file": "artwork/unit-frames/sculpted/assets/class_monk.png",
-    "sha256": "f8ea70a388f018784ac967e37095eec3265eb1f7dda74d630d0c9579c717ddc1",
+    "sha256": "0ad27945190646d4c9dfbc98b8bce738deb537b3eeb843c799e794866e6558ef",
     "measured": {
       "health": [
         259,
@@ -280,22 +469,43 @@
         1421,
         570
       ],
-      "upper_source_bounds": [
-        617,
-        1124
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 295,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          80.41488162344983,
+          101.85794813979707,
+          405.3032694475761,
+          137.64599774520858
+        ],
+        "power": [
+          80.41488162344983,
+          149.6685456595265,
+          405.3032694475761,
+          163.36865839909808
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "class_druid",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_druid.png",
     "source_sha256": "7e16d7e92190a3de6ff1957da5691b5d558c88d93b5533baf5da81dfac9b72d0",
     "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
-    "sha256": "207d11adf607a97edbe7aca283c04dc9ac8cc6abed20f620c0b5c03bda7793e4",
+    "sha256": "74173d78556def2443d0c92f0724a0785e01b1121677c64791ee5eb8ecfe3df3",
     "measured": {
       "health": [
         272,
@@ -309,22 +519,43 @@
         1390,
         571
       ],
-      "upper_source_bounds": [
-        427,
-        1093
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 282,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.04960541149944,
+          101.85794813979707,
+          396.6358511837655,
+          135.68883878241263
+        ],
+        "power": [
+          84.04960541149944,
+          148.2705749718151,
+          396.6358511837655,
+          163.64825253664037
+        ],
+        "divider": 12.581736189402477
+      }
     }
   },
   {
     "id": "class_demonhunter",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_demonhunter.png",
     "source_sha256": "4b354682bf1921a60ad3d71c59d9b4cb3dff5bbba33674c80c5cf10302595345",
     "file": "artwork/unit-frames/sculpted/assets/class_demonhunter.png",
-    "sha256": "04dcf3580312ddfdac4d73d1a875b52c3abd001d01bc5320640dfd5d03bb83d9",
+    "sha256": "28bc95445b98f62bd102b97301604cbaa52770a6e7355564ab5eacf88fe92e54",
     "measured": {
       "health": [
         254,
@@ -338,22 +569,43 @@
         1419,
         572
       ],
-      "upper_source_bounds": [
-        470,
-        1204
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 301,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.01691093573844,
+          101.29875986471251,
+          404.7440811724915,
+          137.08680947012402
+        ],
+        "power": [
+          79.01691093573844,
+          149.3889515219842,
+          404.7440811724915,
+          163.92784667418263
+        ],
+        "divider": 12.302142051860187
+      }
     }
   },
   {
     "id": "class_evoker",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_evoker.png",
     "source_sha256": "9032c6f480a3d70bdb0b30ae149dd9b09d9836d344bfebd958dfad96fd3de4aa",
     "file": "artwork/unit-frames/sculpted/assets/class_evoker.png",
-    "sha256": "25f23375f3665c5ac2eceecb61f683ca6e7650d6188efbf8eafcac7732957100",
+    "sha256": "5afab4bdcbe1615063e3ff8c9c2eff0779fa8f7fa0fbe67b81b516baa30b44be",
     "measured": {
       "health": [
         266,
@@ -367,22 +619,43 @@
         1411,
         573
       ],
-      "upper_source_bounds": [
-        525,
-        1066
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 298,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          82.37204058624577,
+          103.815107102593,
+          402.5073280721533,
+          137.92559188275084
+        ],
+        "power": [
+          82.37204058624577,
+          151.62570462232244,
+          402.5073280721533,
+          164.20744081172492
+        ],
+        "divider": 13.700112739571608
+      }
     }
   },
   {
     "id": "race_human",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_human.png",
     "source_sha256": "9c4aecd4bc54a1b41d5c031519ed2842b2359efddbb209b1414bc6a33fc1acfb",
     "file": "artwork/unit-frames/sculpted/assets/race_human.png",
-    "sha256": "7fcd08a345e4068ec2bd95a986e59b56022c191ad063532b409edced4e2d1851",
+    "sha256": "03e3209f7cc3c9b1807eebebcb5a32bfacccad87b2e67746636ec485410bd2a8",
     "measured": {
       "health": [
         285,
@@ -396,22 +669,43 @@
         1417,
         575
       ],
-      "upper_source_bounds": [
-        449,
-        1228
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 302,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          87.68432919954904,
+          102.41713641488163,
+          404.184892897407,
+          138.4847801578354
+        ],
+        "power": [
+          87.68432919954904,
+          150.22773393461105,
+          404.184892897407,
+          164.76662908680947
+        ],
+        "divider": 11.742953776775664
+      }
     }
   },
   {
     "id": "race_dwarf",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_dwarf.png",
     "source_sha256": "b9d7ca1f1aa1846d090b28da305df5dc1347366a77d9836ce8c5bd83eae3136f",
     "file": "artwork/unit-frames/sculpted/assets/race_dwarf.png",
-    "sha256": "c7d2361b300ff7d9a15fdf9a42143c9ada3408876f2e491fa0e6a81aa960b230",
+    "sha256": "59af5b8c6cbb302e6ea9fdc857af8c397975d5ecc1d1989855f26fd5208169f2",
     "measured": {
       "health": [
         272,
@@ -425,22 +719,43 @@
         1398,
         574
       ],
-      "upper_source_bounds": [
-        438,
-        1167
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 287,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.04960541149944,
+          99.34160090191658,
+          398.8726042841037,
+          134.57046223224353
+        ],
+        "power": [
+          84.04960541149944,
+          149.3889515219842,
+          398.8726042841037,
+          164.48703494926718
+        ],
+        "divider": 14.818489289740683
+      }
     }
   },
   {
     "id": "race_nightelf",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_nightelf.png",
     "source_sha256": "f83fac82e9bda503901116016097c72a991665b25df7962ed2715f09b46753be",
     "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-    "sha256": "10fb2d314c70d995a362142e126584a43ad4e34d8980f3406cd7bf0055628825",
+    "sha256": "bcc11b58be7ef127ca06ebec5e22c57c52f6644c8bcfd114450edb25eaf7b6f1",
     "measured": {
       "health": [
         256,
@@ -454,22 +769,43 @@
         1419,
         576
       ],
-      "upper_source_bounds": [
-        516,
-        1173
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 300,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.41713641488163,
+          404.7440811724915,
+          138.20518602029313
+        ],
+        "power": [
+          79.576099210823,
+          149.94813979706876,
+          404.7440811724915,
+          165.04622322435173
+        ],
+        "divider": 11.742953776775636
+      }
     }
   },
   {
     "id": "race_gnome",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_gnome.png",
     "source_sha256": "4d1292570b4bf230c4cff85afb71be579a14aceb3dd84da9ba4e81f972e3b506",
     "file": "artwork/unit-frames/sculpted/assets/race_gnome.png",
-    "sha256": "0fa50f46bb9b79b47620da135740dafa66ece4e2c2ecd2deed396c88b957be9e",
+    "sha256": "27a19ccbd934fac8fce7acd6151bd1031492cd7bccb5a73bfbfbf58fc6a3ac6c",
     "measured": {
       "health": [
         241,
@@ -483,22 +819,43 @@
         1421,
         570
       ],
-      "upper_source_bounds": [
-        510,
-        1172
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 301,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          75.38218714768884,
+          101.29875986471251,
+          405.3032694475761,
+          136.80721533258173
+        ],
+        "power": [
+          75.38218714768884,
+          148.2705749718151,
+          405.3032694475761,
+          163.36865839909808
+        ],
+        "divider": 11.463359639233374
+      }
     }
   },
   {
     "id": "race_draenei",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_draenei.png",
     "source_sha256": "146f025b3baf501e90e52b89440b8a2f830a36474f3283b272d458dc9df0f204",
     "file": "artwork/unit-frames/sculpted/assets/race_draenei.png",
-    "sha256": "70ed4d881b9f7007957924fd74a36b3bb802d26507b79e9cab8c726169f09204",
+    "sha256": "1f71325c364190b021ab7fb1757baf419752e648d3f40ff404c0843d66b54c04",
     "measured": {
       "health": [
         255,
@@ -512,22 +869,43 @@
         1419,
         576
       ],
-      "upper_source_bounds": [
-        381,
-        1193
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 299,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.29650507328073,
+          102.6967305524239,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.29650507328073,
+          150.5073280721533,
+          404.7440811724915,
+          165.04622322435173
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "race_worgen",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_worgen.png",
     "source_sha256": "d6408e6de9827e762e1da53dfed564d683a4acdc485b1113df0132beef4e07a4",
     "file": "artwork/unit-frames/sculpted/assets/race_worgen.png",
-    "sha256": "5dfcad21d7f5fb902f5330ab5ade1cfb95af3d316d77b015c916047b6167cf58",
+    "sha256": "dc5a46c4b259790ead1780749c386554717db4f3098b2432268bc817cc063412",
     "measured": {
       "health": [
         254,
@@ -541,22 +919,43 @@
         1446,
         573
       ],
-      "upper_source_bounds": [
-        468,
-        1217
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 297,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.01691093573844,
+          102.13754227733935,
+          412.293122886133,
+          137.92559188275084
+        ],
+        "power": [
+          79.01691093573844,
+          149.6685456595265,
+          412.293122886133,
+          164.20744081172492
+        ],
+        "divider": 11.742953776775664
+      }
     }
   },
   {
     "id": "race_orc",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_orc.png",
     "source_sha256": "aab68b286939c5d6faee2b30effd1d7cd071540f11149a263b69073c061a4feb",
     "file": "artwork/unit-frames/sculpted/assets/race_orc.png",
-    "sha256": "87d9c4b4b44f77fbad9e6bfeb767987ea6ae8b49642fa6b94e37df1607935953",
+    "sha256": "95bc8c554e198f4c7793053efd556ed878fd658ce0950d9ef825abeaf1bbd9d0",
     "measured": {
       "health": [
         256,
@@ -570,22 +969,43 @@
         1418,
         563
       ],
-      "upper_source_bounds": [
-        507,
-        1163
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 296,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.13754227733935,
+          404.4644870349493,
+          137.08680947012402
+        ],
+        "power": [
+          79.576099210823,
+          150.22773393461105,
+          404.4644870349493,
+          161.41149943630214
+        ],
+        "divider": 13.140924464487028
+      }
     }
   },
   {
     "id": "race_scourge",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_scourge.png",
     "source_sha256": "a8d7f6c4a64408e635e917334d88e09d73093933bdda7b64f434ae90478bfb0f",
     "file": "artwork/unit-frames/sculpted/assets/race_scourge.png",
-    "sha256": "b44e122bbcba3724ba549df6c0bd0ffad9610015fa2fd6d123753f4c707c68a2",
+    "sha256": "60cd09c32a54c1832fb1e901588093a96ff1159a0fa3ecaeb6751118d0b597a5",
     "measured": {
       "health": [
         257,
@@ -599,22 +1019,43 @@
         1418,
         577
       ],
-      "upper_source_bounds": [
-        538,
-        1145
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 303,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.85569334836528,
+          102.6967305524239,
+          404.4644870349493,
+          138.76437429537768
+        ],
+        "power": [
+          79.85569334836528,
+          150.5073280721533,
+          404.4644870349493,
+          165.32581736189402
+        ],
+        "divider": 11.742953776775636
+      }
     }
   },
   {
     "id": "race_tauren",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_tauren.png",
     "source_sha256": "020295d088c2af4490e933228a0d52c53b1b36e663713980b91e694dd469029a",
     "file": "artwork/unit-frames/sculpted/assets/race_tauren.png",
-    "sha256": "a70fa95c04f7dc11e5d80d36b419f1c624a849dd07228b96f7509d6fa23a255d",
+    "sha256": "08ea3704a89980326c71773746c07c1ddd90442e8734a86840744a0ca5227d19",
     "measured": {
       "health": [
         255,
@@ -628,22 +1069,43 @@
         1395,
         574
       ],
-      "upper_source_bounds": [
-        644,
-        1126
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 288,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.29650507328073,
+          102.41713641488163,
+          398.0338218714769,
+          137.36640360766629
+        ],
+        "power": [
+          79.29650507328073,
+          149.94813979706876,
+          398.0338218714769,
+          164.48703494926718
+        ],
+        "divider": 12.581736189402477
+      }
     }
   },
   {
     "id": "race_troll",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_troll.png",
     "source_sha256": "9e742bfbc512288e02ca6a083cf64f32431735d06300cb7fbbdcae8ea81157c8",
     "file": "artwork/unit-frames/sculpted/assets/race_troll.png",
-    "sha256": "c76b57406bfce2a2a79385ff22b7355cf1151624735c30d12d5dcff87d82ddf8",
+    "sha256": "c19354a20e9d85dc80b151caa3b5718799d199384d932ecfd8cdae1b5ae1502b",
     "measured": {
       "health": [
         257,
@@ -657,22 +1119,43 @@
         1419,
         577
       ],
-      "upper_source_bounds": [
-        478,
-        1107
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 300,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.85569334836528,
+          102.97632468996618,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.85569334836528,
+          150.7869222096956,
+          404.7440811724915,
+          165.32581736189402
+        ],
+        "divider": 12.302142051860216
+      }
     }
   },
   {
     "id": "race_bloodelf",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_bloodelf.png",
     "source_sha256": "76675430a13598f6b241bc946eaae5ba550b24527370ee9c86cdae6fe198fd2f",
     "file": "artwork/unit-frames/sculpted/assets/race_bloodelf.png",
-    "sha256": "32ebc03e5c35883df5443c7a6a571ad792e0aced952c18a0efdf3742e0b51453",
+    "sha256": "94e63127d71bd1c0193a8c00e34dca9634ec30fc15818dbdfa9091088ebba96e",
     "measured": {
       "health": [
         254,
@@ -686,22 +1169,43 @@
         1425,
         579
       ],
-      "upper_source_bounds": [
-        452,
-        1229
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 289,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.01691093573844,
+          102.13754227733935,
+          406.4216459977452,
+          138.4847801578354
+        ],
+        "power": [
+          79.01691093573844,
+          150.5073280721533,
+          406.4216459977452,
+          165.88500563697858
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "race_goblin",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_goblin.png",
     "source_sha256": "29cea0da6a6b5593a69c4e7e1bb344640ad0e7b1b35607908706bc0bfb07f5e2",
     "file": "artwork/unit-frames/sculpted/assets/race_goblin.png",
-    "sha256": "6a71533175cfcc4164621269bc00054b55c6bb98f9e9d02cf58291d779d80b00",
+    "sha256": "e62c0e25039b4f6b074927a3798e538afb6104e3c44d6504fde7c916c4d0c9a6",
     "measured": {
       "health": [
         253,
@@ -715,22 +1219,43 @@
         1403,
         577
       ],
-      "upper_source_bounds": [
-        479,
-        1171
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 302,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          78.73731679819616,
+          102.6967305524239,
+          400.2705749718151,
+          137.92559188275084
+        ],
+        "power": [
+          78.73731679819616,
+          151.0665163472379,
+          400.2705749718151,
+          165.32581736189402
+        ],
+        "divider": 13.140924464487057
+      }
     }
   },
   {
     "id": "race_pandaren",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_pandaren.png",
     "source_sha256": "cab74b9a346a85bc3ced8695d303608ce13ae65378b085519aa0cd65121f2608",
     "file": "artwork/unit-frames/sculpted/assets/race_pandaren.png",
-    "sha256": "7d9af04b07413c25a28f229d6f0a5155f36d3b852c3e3f85e2428f792171a779",
+    "sha256": "fe8adcebcd52a00a894b33912bc5d70d26089bbce421ac30a1a92046e1cc4793",
     "measured": {
       "health": [
         255,
@@ -744,22 +1269,43 @@
         1419,
         575
       ],
-      "upper_source_bounds": [
-        499,
-        1178
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 302,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.29650507328073,
+          101.5783540022548,
+          404.7440811724915,
+          137.92559188275084
+        ],
+        "power": [
+          79.29650507328073,
+          149.94813979706876,
+          404.7440811724915,
+          164.76662908680947
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "race_dracthyr",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_dracthyr.png",
     "source_sha256": "9790152428a1990a560fdf570f309d4d58d5a987cc7ffb82ee4a274539af2551",
     "file": "artwork/unit-frames/sculpted/assets/race_dracthyr.png",
-    "sha256": "8dcbf60d2a6dece0b8f09bc606d0d3da68f39032ca17059b5c771c033eb4ecdd",
+    "sha256": "ec5ba7e16b20ba6a605fc5c6d8251c2a44d1c44f6343b3df08849b019926735a",
     "measured": {
       "health": [
         256,
@@ -773,22 +1319,43 @@
         1419,
         575
       ],
-      "upper_source_bounds": [
-        458,
-        1222
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 292,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.6967305524239,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          150.5073280721533,
+          404.7440811724915,
+          164.76662908680947
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "race_voidelf",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_voidelf.png",
     "source_sha256": "2de85cc215823ea289699372d985f2428d1ae4d793b87f51ad8d208865433323",
     "file": "artwork/unit-frames/sculpted/assets/race_voidelf.png",
-    "sha256": "117e10f38a48e9442b747a93245fe789dc44f5a9fb5eb2b3634d6902ddf0d434",
+    "sha256": "d30f70b769a0e11c2599609fbfada49a635b1cf511a77871e844a11607e7eeff",
     "measured": {
       "health": [
         256,
@@ -802,22 +1369,43 @@
         1418,
         574
       ],
-      "upper_source_bounds": [
-        400,
-        1271
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 288,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.41713641488163,
+          404.4644870349493,
+          137.92559188275084
+        ],
+        "power": [
+          79.576099210823,
+          150.22773393461105,
+          404.4644870349493,
+          164.48703494926718
+        ],
+        "divider": 12.302142051860216
+      }
     }
   },
   {
     "id": "race_lightforgeddraenei",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_lightforgeddraenei.png",
     "source_sha256": "b458cdcb8a5248b8d683faa9a1ceb94c673a93c676caf70d89480a9ea8b7933b",
     "file": "artwork/unit-frames/sculpted/assets/race_lightforgeddraenei.png",
-    "sha256": "80e4e712740ff4c291e5c88b9f807de8ac1c55ba01c7efc3f00186affae3f93f",
+    "sha256": "613d670cd7445e1e53a3b46a48f0aff1ce047304cc1e136951bf545d0f7ef9cb",
     "measured": {
       "health": [
         257,
@@ -831,22 +1419,43 @@
         1419,
         579
       ],
-      "upper_source_bounds": [
-        462,
-        1231
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 295,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.85569334836528,
+          101.85794813979707,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.85569334836528,
+          150.5073280721533,
+          404.7440811724915,
+          165.88500563697858
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "race_darkirondwarf",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_darkirondwarf.png",
     "source_sha256": "e8da2a958988a236882aa060b9679bd2a063ccd7418f98305356a6d1810eb229",
     "file": "artwork/unit-frames/sculpted/assets/race_darkirondwarf.png",
-    "sha256": "29fd37923b4f556d223db3a24d1aff061f8c88ca636cbdd8fcbe1e7f38cdda4c",
+    "sha256": "c92a7221b78d7bb86718c201f6f383e2fb3b474f3793265a095f3d23e2fe4d2a",
     "measured": {
       "health": [
         256,
@@ -860,22 +1469,43 @@
         1418,
         575
       ],
-      "upper_source_bounds": [
-        385,
-        1223
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 302,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.6967305524239,
+          404.4644870349493,
+          138.20518602029313
+        ],
+        "power": [
+          79.576099210823,
+          150.22773393461105,
+          404.4644870349493,
+          164.76662908680947
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "race_kultiran",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_kultiran.png",
     "source_sha256": "03e844b8686f86296b9fe4f06ff1d2dce95f63ec39254e9f0c067068ea7f361a",
     "file": "artwork/unit-frames/sculpted/assets/race_kultiran.png",
-    "sha256": "556aa82db53007aca0feb3f190082f6e2469b6ded229238c2870097d7210d41e",
+    "sha256": "254d7fcb9673c902aa9154ed7a0e21265fd811eeb2553b5e64daef8218a3ba69",
     "measured": {
       "health": [
         258,
@@ -889,22 +1519,43 @@
         1421,
         573
       ],
-      "upper_source_bounds": [
-        505,
-        1168
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 299,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          80.13528748590755,
+          101.5783540022548,
+          405.3032694475761,
+          135.9684329199549
+        ],
+        "power": [
+          80.13528748590755,
+          148.5501691093574,
+          405.3032694475761,
+          164.20744081172492
+        ],
+        "divider": 12.581736189402505
+      }
     }
   },
   {
     "id": "race_mechagnome",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_mechagnome.png",
     "source_sha256": "e9f85bd9108a944db06935597705b28426a38e1aff7e77e7b10afdd767cf8bd9",
     "file": "artwork/unit-frames/sculpted/assets/race_mechagnome.png",
-    "sha256": "e043fb21456aea85d04c697d17a3ec3242ab5065f598c430351c3dd56dd8d37b",
+    "sha256": "273e1408eda31268f6a08cb6422287bee6e253e1dbb83268495b6832f99559f9",
     "measured": {
       "health": [
         256,
@@ -918,22 +1569,43 @@
         1419,
         578
       ],
-      "upper_source_bounds": [
-        444,
-        1217
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 304,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.41713641488163,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          150.5073280721533,
+          404.7440811724915,
+          165.60541149943631
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "race_nightborne",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_nightborne.png",
     "source_sha256": "0f1d888ae689889151cb0cf3059530898efd56330af590caf8f51a5cb0f67943",
     "file": "artwork/unit-frames/sculpted/assets/race_nightborne.png",
-    "sha256": "b41806aebcb09f07085ccb0b4f119e28d287e57852329739af4e7c485ab0d87f",
+    "sha256": "a5884471404421758570aeac9d3ff91a0475de3f9a440c88ba48b45ab7776909",
     "measured": {
       "health": [
         256,
@@ -947,22 +1619,43 @@
         1422,
         577
       ],
-      "upper_source_bounds": [
-        440,
-        1245
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 298,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.41713641488163,
+          405.5828635851184,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          150.5073280721533,
+          405.5828635851184,
+          165.32581736189402
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "race_highmountaintauren",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_highmountaintauren.png",
     "source_sha256": "2d8ac72978e0776d970e519aad8eba7276ad359e8305be420299e1ed2a23d586",
     "file": "artwork/unit-frames/sculpted/assets/race_highmountaintauren.png",
-    "sha256": "bbacf2309f2f670dafc4c8c042985f03a5f22d618e9b534a5fc58f0ad0b86c24",
+    "sha256": "7be93de43e2bb0cca194201c9c56a8eb9a41c515637bec66aaf4773086b2f4ef",
     "measured": {
       "health": [
         262,
@@ -976,22 +1669,43 @@
         1413,
         573
       ],
-      "upper_source_bounds": [
-        540,
-        1273
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 297,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          81.25366403607666,
+          102.6967305524239,
+          403.0665163472379,
+          138.4847801578354
+        ],
+        "power": [
+          81.25366403607666,
+          150.22773393461105,
+          403.0665163472379,
+          164.20744081172492
+        ],
+        "divider": 11.742953776775664
+      }
     }
   },
   {
     "id": "race_magharorc",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_magharorc.png",
     "source_sha256": "25157252be4fe1b53d0771847fdfc5319686151a004620345a3755945eb7f0da",
     "file": "artwork/unit-frames/sculpted/assets/race_magharorc.png",
-    "sha256": "efc6bd2bb9288ba3de939ac957d61ecdaff0f76e6fe3ab97eebdabe4a0f40fc8",
+    "sha256": "6deb7a99b1a28ff62ebe43b49ec7d19f9dee6c1b80466bd1df943e0d60d0b087",
     "measured": {
       "health": [
         254,
@@ -1005,22 +1719,43 @@
         1422,
         574
       ],
-      "upper_source_bounds": [
-        710,
-        1090
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 295,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.01691093573844,
+          102.6967305524239,
+          405.5828635851184,
+          138.4847801578354
+        ],
+        "power": [
+          79.01691093573844,
+          150.22773393461105,
+          405.5828635851184,
+          164.48703494926718
+        ],
+        "divider": 11.742953776775664
+      }
     }
   },
   {
     "id": "race_zandalaritroll",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_zandalaritroll.png",
     "source_sha256": "9b7e885821be724b930caed4b37d15cda28fa156088675075676a3ba8e9b5646",
     "file": "artwork/unit-frames/sculpted/assets/race_zandalaritroll.png",
-    "sha256": "d484a33e1e79f76c60f28c90383135f7b919fa5f51b1e855a088412533b616ca",
+    "sha256": "cac461d65e3a03962d9bfb615f4c5b03ab1390f382be00657b017c20fcaff407",
     "measured": {
       "health": [
         253,
@@ -1034,22 +1769,43 @@
         1418,
         570
       ],
-      "upper_source_bounds": [
-        402,
-        1195
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 291,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          78.73731679819616,
+          103.25591882750845,
+          404.4644870349493,
+          135.68883878241263
+        ],
+        "power": [
+          78.73731679819616,
+          149.3889515219842,
+          404.4644870349493,
+          163.36865839909808
+        ],
+        "divider": 13.70011273957158
+      }
     }
   },
   {
     "id": "race_vulpera",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_vulpera.png",
     "source_sha256": "8196dd8e5fc0349f1f02ad684ceb12be93c4327611f89f53ac1389be5aed8ea2",
     "file": "artwork/unit-frames/sculpted/assets/race_vulpera.png",
-    "sha256": "4e9e6a91afbd9344e415734dd56a28a36548a2b716be10965afd889a9871a8b8",
+    "sha256": "cdce8361bc3d11464f5bbb5eecc241c638b0213866de17fc6a182a46e681382b",
     "measured": {
       "health": [
         267,
@@ -1063,22 +1819,43 @@
         1389,
         568
       ],
-      "upper_source_bounds": [
-        578,
-        1101
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 283,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          82.65163472378805,
+          99.06200676437429,
+          396.3562570462232,
+          136.24802705749718
+        ],
+        "power": [
+          82.65163472378805,
+          148.2705749718151,
+          396.3562570462232,
+          162.80947012401353
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "race_earthendwarf",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_earthendwarf.png",
     "source_sha256": "3bb90d072ee831b91b018d268821d49cf3b44a766cccca67c8d526ce1554280b",
     "file": "artwork/unit-frames/sculpted/assets/race_earthendwarf.png",
-    "sha256": "b1fa980dc44aa97b855e3d94c241972978df0f0261be6cd1fbd24963febfc30d",
+    "sha256": "28a56a5238465a73902765db150beaae25f34ca7f5d6ce7717330967c28bd62d",
     "measured": {
       "health": [
         259,
@@ -1092,22 +1869,43 @@
         1418,
         576
       ],
-      "upper_source_bounds": [
-        460,
-        1175
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 298,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          80.41488162344983,
+          102.41713641488163,
+          404.4644870349493,
+          137.92559188275084
+        ],
+        "power": [
+          80.41488162344983,
+          149.94813979706876,
+          404.4644870349493,
+          165.04622322435173
+        ],
+        "divider": 12.022547914317926
+      }
     }
   },
   {
     "id": "race_haranir",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_haranir.png",
     "source_sha256": "95a79400eece1c2b133e8a06323289b0e50bd94add69b9fb424c55bdc2b61346",
     "file": "artwork/unit-frames/sculpted/assets/race_haranir.png",
-    "sha256": "87de9be4fb54358aa5e0c4738775c309203c62564d629d59f8d2e8e0c39a09f7",
+    "sha256": "26cf6f83889d0231b2c5f44c26a66db51c6129952df773f8e9a38415151beb85",
     "measured": {
       "health": [
         251,
@@ -1121,22 +1919,43 @@
         1422,
         577
       ],
-      "upper_source_bounds": [
-        444,
-        1152
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 290,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          78.17812852311161,
+          102.6967305524239,
+          405.5828635851184,
+          137.92559188275084
+        ],
+        "power": [
+          78.17812852311161,
+          150.22773393461105,
+          405.5828635851184,
+          165.32581736189402
+        ],
+        "divider": 12.302142051860216
+      }
     }
   },
   {
     "id": "faction_alliance",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/faction_alliance.png",
     "source_sha256": "7ad57bdfc0d48223d0c04038e6684c0034f819651b890bcf3cf187729c0ed1ba",
     "file": "artwork/unit-frames/sculpted/assets/faction_alliance.png",
-    "sha256": "a36cd7f141f64ecc8e2b46684fd489710c4aab4e179fcd6cd8329b2a6095be7b",
+    "sha256": "1157eec9509717be81ff27c2d1059c4d03e230bcd91277c53cffcdc37ba8aed8",
     "measured": {
       "health": [
         258,
@@ -1150,22 +1969,43 @@
         1419,
         574
       ],
-      "upper_source_bounds": [
-        432,
-        1225
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 293,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          80.13528748590755,
+          101.5783540022548,
+          404.7440811724915,
+          139.04396843291997
+        ],
+        "power": [
+          80.13528748590755,
+          150.5073280721533,
+          404.7440811724915,
+          164.48703494926718
+        ],
+        "divider": 11.463359639233346
+      }
     }
   },
   {
     "id": "faction_horde",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/faction_horde.png",
     "source_sha256": "1027b72ffaf7144b915dbbcd952054c2e5305e2d6d71eb466a427b4578ec6941",
     "file": "artwork/unit-frames/sculpted/assets/faction_horde.png",
-    "sha256": "ce6b2a96e71c5912ab2dada579c5a30b7aed6adfb70befde490de150095430dd",
+    "sha256": "ebe15eddd9ae8de3dc8f986d83428c1f93792b7f09d8213fafac4f0fa82ce8ce",
     "measured": {
       "health": [
         275,
@@ -1179,22 +2019,43 @@
         1417,
         565
       ],
-      "upper_source_bounds": [
-        665,
-        1074
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 294,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.88838782412627,
+          101.01916572717023,
+          404.184892897407,
+          134.8500563697858
+        ],
+        "power": [
+          84.88838782412627,
+          147.71138669673056,
+          404.184892897407,
+          161.9706877113867
+        ],
+        "divider": 12.861330326944767
+      }
     }
   },
   {
     "id": "faction_neutral",
-    "fit_version": 2,
+    "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/faction_neutral.png",
     "source_sha256": "049916d560b31a3436205ae8dd2fcec6bef627168bc9c7efd28d631c28457919",
     "file": "artwork/unit-frames/sculpted/assets/faction_neutral.png",
-    "sha256": "7168bb916b9703ba8039afac17640b0424094cab3791aa09ac5b47379a964262",
+    "sha256": "688c609d396424345689b3e243577fb8fe28ca1c165000e6fecdaeb9d3f1a649",
     "measured": {
       "health": [
         255,
@@ -1208,13 +2069,34 @@
         1420,
         576
       ],
-      "upper_source_bounds": [
-        432,
-        1176
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
       ],
-      "rail_top": 294,
-      "name_pixels_discarded": 0,
-      "edge_pixels_discarded": 0
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.29650507328073,
+          101.85794813979707,
+          405.0236753100338,
+          137.92559188275084
+        ],
+        "power": [
+          79.29650507328073,
+          150.22773393461105,
+          405.0236753100338,
+          165.04622322435173
+        ],
+        "divider": 12.302142051860216
+      }
     }
   }
 ]

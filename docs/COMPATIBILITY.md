@@ -7,7 +7,7 @@
 
 **Neither client is certified by the offline tests.** The old alpha builds' live attachment counts do not validate this new renderer.
 
-Both paths explicitly resolve Minimap, PlayerFrame, TargetFrame, FocusFrame and MainActionBar. Each adapter separately validates native portrait container/region visibility; both check IsForbidden before access. Forever loads Camelot overrides. Level decorations and native layout remain untouched. Optional FULL style changes only native health/power fill textures and adds an original sculpted shell; PORTRAIT style leaves bars unchanged. Missing roots or portraits remain native.
+Both paths explicitly resolve Minimap, PlayerFrame, TargetFrame, FocusFrame and MainActionBar. Each adapter separately validates native portrait container/region visibility; both check IsForbidden before access. Forever loads Camelot overrides. Level decorations and the native health-bar layout remain untouched. Unit-frame artwork changes fill textures and fits the existing power bar below the thick painted separator, restoring its original points and size when disabled. Portrait art alone leaves both bars unchanged. Missing roots or portraits remain native.
 
 The five roots are verified against pinned Blizzard source snapshots. Exact URLs and hashes are in [phase1-sources.json](phase1-sources.json). Retail revision: `78282522143e25c3540583734fd192c3d69be910`. Forever revision: `70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e`. The earlier complete unit-frame load-order research remains in source-load-order.json.
 
@@ -19,4 +19,4 @@ No party, raid, boss, pet, extra ability, flyout, micro-menu, bag, tracking-bar,
 
 The hub follows MainActionBar's visibility and effective scale. It defaults to screen-bottom positioning; FRAME mode follows the native bar's position instead. It can also follow ElvUI_Bar1 or EABBar_MainBar, selected automatically or with hubSource. It does not create a vehicle/override replacement. The shared Minimap frame remains the map anchor under both UI suites; circular map shapes fit the existing circular artwork. Blizzard retains action paging, bindings, secure click behavior and vehicle transitions. Those transitions still need live testing.
 
-Full skins use separately verified Mainline health/mana child paths on Retail and Forever. Every intermediate object passes IsForbidden before child access. See [unit skin details](UNIT-SKINS.md). External portrait sources suspend and restore Blizzard bar styling.
+Full skins use verified Mainline health/mana child paths on Retail. Forever first follows its initialized healthbar/manabar bindings, with verified child paths as a fallback. Inspected frames pass IsForbidden before access. See [unit skin details](UNIT-SKINS.md). Portrait providers and visibility do not disable Blizzard bar styling; hidden native bars hide the shell.

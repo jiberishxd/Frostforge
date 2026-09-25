@@ -1,0 +1,26 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-09-24",
+  "prompt": "Use case: precise-object-edit. Edit target: Image 1 is our original Paladin horizontal health/power ornamental shell. Image 2 is Blizzard's official Paladin class emblem, a reference for the correct identity. Image 3 is our approved Paladin portrait artwork, a style reference. Make ONE narrowly scoped correction to Image 1: incorporate the recognizable crowned dark silver lion face, gold mane armor and violet cloth from Image 2 into the tall RIGHT cheek of the shell, matching the lion crown already integrated into Image 3. Replace the generic round yellow sun disc on that right cheek with the lion crest sculpted into the existing armor. No additional circular icon holder or medallion. Keep the outward-flared ivory/gold wings, the left end, bottom cloth, all three heavy stone/metal horizontal rails, both bar opening sizes and positions, and the complete connected right shoulder flowing into the top rail exactly as in Image 1. No redesign, no thinning rails, no disconnected logo. Old-school 2004 Warcraft hand-painted texture, broad brush strokes, matte worn gold/silver, chunky silhouette; not glossy modern high-resolution CGI. Preserve the wide 2:1 front-facing composition with full tips visible. Background and both empty slots should be genuinely transparent alpha; do not paint a checkerboard. Do not add a portrait opening, level badge, lettering, stats, scenery, or watermark. This is class identity, not a Horde or Alliance faction emblem. Return one complete corrected shell.",
+  "source": "artwork/unit-frames/sculpted/revisions/class_paladin-crest-generated.png",
+  "output": "artwork/unit-frames/sculpted/references/class_paladin.png",
+  "edit": "Restore the official Paladin crowned-lion class motif inside the existing right cheek; retain flared wings and thick borders.",
+  "alpha_processing": "User-authorized local neutral connected-background extraction; the image tool returned an RGB checkerboard.",
+  "source_sha256": "7316bfb7bd6b10fbd0f5edb8da8dc744060dede75f26fd0510fddae5b2bb31c4",
+  "output_sha256": "a3cc840c0af520028e54fc8d49f5929f40c2983f7ba66666814cff7edff88a51",
+  "alpha_script": "tools/extract_paladin_crest.py",
+  "inputs": [
+    {
+      "file": "artwork/unit-frames/sculpted/revisions/class_paladin-sun-original.png",
+      "sha256": "ee5c8c8ded4692c7baafbe96df9f4e921f32d2d51d37a69697dd3248ee9e349f"
+    },
+    {
+      "file": "artwork/official-crests/originals/class_paladin.png",
+      "sha256": "a71c9da0ad891dcc699ae350838e4fb1d7add21cd707a9fd04b0a610ec3d851f"
+    },
+    {
+      "file": "artwork/portraits/assets/class_paladin.png",
+      "sha256": "e9b6d506e4f1d7bdbf81b2d31971dd997697f034c2fb6a21d30a29ee5d150e2c"
+    }
+  ]
+}
