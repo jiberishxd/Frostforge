@@ -125,7 +125,7 @@ test("portrait gallery selects fixed art without mutating other modules",functio
     S.tabs.focusFrame.scripts.OnClick()
     assert(S.portraitButtons.CLASS_PALADIN.image.texCoord[1]==0.5)
     assert(S.portraitButtons.CLASS_PALADIN.image.texCoord[2]==1)
-    S:ShowPortraitGroup("RACE")
+    S:ShowPortraitGroup("RACE",2)
     assert(S.portraitButtons.RACE_NIGHTELF.shown and not S.portraitButtons.CLASS_ROGUE.shown)
     S.portraitButtons.RACE_NIGHTELF.scripts.OnClick()
     assert(J.Core.modules.focusFrame.portraitID=="RACE_NIGHTELF")

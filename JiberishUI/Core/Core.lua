@@ -1,9 +1,9 @@
 local addonName, J = ...
 local Core = {
-    version = "0.7.3",
+    version = "0.7.4",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
-    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource" },
+    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill" },
     dirty = true,
 }
 J.Core = Core
@@ -353,7 +353,7 @@ function Core:Status()
             local source=module.snapshot and module.snapshot.source or "unavailable"
             local visible=module.nativeVisible
             self:Print(key.." portrait: "..(config.shown and "on" or "off").." | requested "..config.portraitSource.." | resolved "..source.." | "..(visible and "visible" or "hidden"))
-            self:Print(key.." unit frame: "..(config.unitFrameShown and "on" or "off").." | requested "..config.unitFrameSource.." | "..(J.UnitSkins.status[key] or "waiting"))
+            self:Print(key.." unit frame: "..(config.unitFrameShown and "on" or "off").." | requested "..config.unitFrameSource.." | "..(J.UnitSkins.status[key] or "waiting").." | fill "..config.unitFrameFill)
         end
     end
     for key, message in pairs(self.notices) do self:Print(key .. ": " .. message) end
@@ -436,6 +436,9 @@ for _, event in ipairs({"ADDON_LOADED","PLAYER_LOGIN","PLAYER_ENTERING_WORLD","P
     Core:Protect("event " .. event,function() driver:RegisterEvent(event) end)
 end
 driver:SetScript("OnEvent",function(_,event,name)
+    if event=="ADDON_LOADED" or event=="PLAYER_LOGIN" then
+        Core:Protect("shared media",function() J.Media:RegisterShared() end)
+    end
     if event == "PLAYER_LOGIN" or (event == "ADDON_LOADED" and name == addonName and IsLoggedIn and IsLoggedIn()) then
         Core:Protect("startup",function() Core:Start() end)
     elseif Core.started then Core:RequestRefresh(true) end

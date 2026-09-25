@@ -1,3 +1,15 @@
+# Build 0.7.4 settings workshop, shared stone and Shaman shell
+
+165 Lua 5.1 behavior tests and six Python artwork regressions pass. Thirteen new Lua cases cover the reorganized settings pages, screen-fit scaling and dragged position, literal collection searches/pagination and selection scope, backup round-trips/invalid input, scoped reset, read-only profiles, optional/late SharedMedia registration, provider-controlled fills, selecting shared Stone without stale restoration, and combat-queued texture ownership. Existing material override tests explicitly select JIBERISH mode; new AUTO checks verify no Ellesmere texture hooks or fill writes are installed.
+
+Browser inspection covered the settings Artwork, Advanced, Guide and collection layouts exported from the actual Lua objects. Native Blizzard textures/fonts are approximated in this development preview. Shaman was inspected as Player and mirrored Target with an independently enabled portrait, at estimated 1440p size; the transparent shell retains a 6.3 UI-unit divider at 20-unit health height. The final PNGs and packaged TGAs share the same pixels. Only the Shaman shell and matching power texture changed: the other 250 runtime textures, including all 126 portrait/hub/minimap assets, are unchanged from main.
+
+Source/media/provenance and exact Retail/Forever 0.7.4 package checks pass. SharedMedia integration uses the consumers' existing library; no third-party addon code or textures are bundled. Shared Stone reuses an already distributed health texture.
+
+No WoW interaction or in-game testing was performed. Provider menu registration was verified from the supplied EllesmereUI source and pinned ElvUI source, with behavior exercised in the offline host. Actual menus, rendering, clipping and secure runtime behavior still require the user's manual checks. See SETTINGS.md and VALIDATION.md.
+
+---
+
 # Build 0.7.3 plain stone health and city NPCs
 
 152 Lua 5.1 tests and six Python artwork regressions pass. Ten added Lua checks cover twelve city affiliations on both Retail and Forever, shared portrait/shell selection, independent toggles, player/focus behavior, automatic versus fixed modes, modern/legacy localization, controlled units, unknown affiliations, bounded cache invalidation, secret/missing metadata, combat deferral and the five known guard IDs when tooltips are absent.
