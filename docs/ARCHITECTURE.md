@@ -1,10 +1,10 @@
 # Decorative rendering architecture
 
-Five independent addon-owned roots cover Player portrait, Target portrait, Focus portrait, Minimap and Action hub. Each is a mouse/keyboard/wheel-transparent UIParent child. Blizzard frames are read-only anchors; no native reparenting, scripts, textures, attributes, layout or secure behavior are changed.
+Five independent addon-owned roots cover Player portrait, Target portrait, Focus portrait, Minimap and Action hub. Each is a mouse/keyboard/wheel-transparent UIParent child. Blizzard frames remain the functional owners. Portrait-only mode uses read-only anchors. Optional full skins may change and restore the existing health/power fill texture and its UVs; no native reparenting, scripts, attributes, layout, values or secure behavior are changed.
 
 Core/Core.lua owns lifecycle, geometry, visibility, diagnostics and commands. ThemeManager resolves validated data-only configuration. ProfileManager stores versioned settings and data-only backups. Core/Portraits.lua selects safe public identity tokens. Themes/Portraits.lua contains only catalog data and media references. Each Modules file creates its own ordinary frame and textures. Retail and Forever use separate adapter methods for native root discovery and portrait visibility checks.
 
-There are five decorative frames, nine artwork textures, 20 debug-edge textures and five labels. Each unit has a single texture; only the hub uses five independently laid-out pieces. Debug regions belong to those same roots. The nonvisual event driver and separately created options/picker windows are not decorative components.
+Portrait-only mode has five decorative frames, nine artwork textures, 20 debug-edge textures and five labels. Each unit has a single texture; only the hub uses five independently laid-out pieces. Debug regions belong to those same roots. The nonvisual event driver and separately created options/picker windows are not decorative components.
 
 ## Native ownership and geometry
 
@@ -20,7 +20,7 @@ The default CLASS mode uses UnitIsPlayer and the nonlocalized UnitClass token. N
 
 A 0.2-second read-only scan catches native visibility/scale changes and identity changes. Target/focus/portrait/faction events request immediate refresh. Stable scans perform no writes. Identity changes on already-attached unprotected addon frames replace only their texture. If anchoring makes the owned frame protected, the change waits for PLAYER_REGEN_ENABLED. All new attachment, geometry, layering and user-requested configuration changes defer during combat and apply the latest state afterward.
 
-No Blizzard hooks are required. All frames/textures are reused. A replaced or forbidden root hides stale artwork when safe. Missing media never causes native decoration to be hidden.
+Portrait-only mode installs no native hooks. Full skins use secure post-hooks only to observe texture redraws and queue a refresh. All frames/textures are reused. A replaced or forbidden root hides stale artwork when safe. Missing media never causes native decoration to be hidden.
 
 ## Profiles and options
 
@@ -46,4 +46,12 @@ mMediaTag uses `ElvUI_mMediaTag[3].Portraits.portraits[unit]` on 4.x, or `mMT.Mo
 
 Source snapshots carry a provider and opening fit. All external portraits use the round atlas half. Fitting scales the 58-unit opening to a containing circle and offsets the off-center (154,148) opening, mirrored to (102,148) for Target/Focus, onto the external portrait center. Saved width/height remain relative multipliers; X/Y are adjustments from the native theme defaults. Scale changes keep the opening centered. SCREEN mode centers against UIParent while still following the selected portrait's visibility and size.
 
-Themes/PortraitMaskFits.lua contains measurements only: the maximum occupied radius of 40 Blinkii masks, seven Ellesmere masks and 72 mMediaTag masks (48 current, 24 legacy). Blinkii renders textures at twice its portrait frame dimensions. Ellesmere's active detached mask bounds are used independently of the enlarged portrait content; unmasked 3D and rectangular portraits use a containing circle. Unknown custom Blinkii and mMediaTag masks use the full texture extent. Native frames retain their original fit. Minimap remains a shared native root, and the hub can follow each suite's main bar.
+Themes/PortraitMaskFits.lua contains measurements only: the maximum occupied radius of 40 Blinkii masks, seven Ellesmere masks and 72 mMediaTag masks (48 current, 24 legacy). Blinkii renders textures at twice its portrait frame dimensions. Ellesmere's active detached mask bounds are used independently of the enlarged portrait content; unmasked 3D and rectangular portraits use a containing circle. Unknown custom Blinkii and mMediaTag masks use the full texture extent. Native frames retain their original fit. Minimap remains a shared native root, and the hub can follow each suite's main bar. Native full bar skins are suspended/restored whenever the portrait resolver selects an external source.
+
+## Optional native unit-frame skins
+
+Core/UnitSkins.lua owns opt-in appearance records, with data-only paths in Themes/UnitSkins.lua. `unitStyle=PORTRAIT` is the default for Player/Target/Focus. FULL creates two additional UIParent shell roots per enabled unit, each click-through, with eight health-half and five power-half art regions plus the usual debug outline/label. Their sizing follows the actual health or power bar, independent of portrait adjustments. A retired record leaves its shell half in a reusable pool rather than creating new frames on each toggle.
+
+Retail and Forever separately walk and IsForbidden-check content/main/health/mana containers. Existing StatusBar fill regions are reused; their current atlas/file and eight UV coordinates are captured only when public and restorable. All native writes go through an out-of-combat presentation gate. No status values, ranges, colors, animations, mask lists or prediction regions are inspected or changed. Each identity's painted fill textures modulate Blizzard's colors. Names, badges and class resources stay native.
+
+Secure hooks on bar SetStatusBarTexture and fill SetTexture/SetAtlas/SetTexCoord only mark an external redraw. Hook-supplied objects are gated before inspection. The next safe scan captures the newest native appearance and reapplies the fill; UV-only redraws never replace the saved native asset with our own. Disable/hide/reset, source changes and region replacement restore the latest original outside combat. Forbidden/secret regions remain native, or retain a pending restoration until they are usable. Missing fill files restore the original immediately. No external addon bar is styled.

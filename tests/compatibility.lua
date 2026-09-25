@@ -268,6 +268,23 @@ test("disabled or overlay portraits do not decorate hidden Blizzard frames",func
     assert(not next(J.Core.notices))
 end)
 
+test("external portrait sources suspend and restore optional native full skins",function(M)
+    local J=M.load()
+    J.ProfileManager:Set("playerFrame","unitStyle","FULL")
+    local skin=J.UnitSkins.units.playerFrame
+    assert(skin.health and skin.health.active)
+    local original=skin.health.original.atlas
+    local native=skin.health.texture
+    local bp=blinkii(M,"player");M.tick(J.Core)
+    assert(J.Core.modules.playerFrame.snapshot.frame==bp)
+    assert(not skin.health and native.atlas==original)
+    for _,trim in pairs(skin.trims) do assert(not trim.frame.shown) end
+    local writes=M.appearanceWrites
+    M.tick(J.Core);assert(M.appearanceWrites==writes)
+    J.ProfileManager:Set("playerFrame","portraitSource","BLIZZARD")
+    assert(skin.health and skin.health.active)
+    assert(not next(J.Core.notices))
+end)
 
 test("Ellesmere detached masks fit independently of expanded portrait art",function(M)
     local root,bd=replacement(M,"ELLESMERE","Player",64)
