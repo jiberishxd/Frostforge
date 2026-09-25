@@ -10391,12 +10391,12 @@
         512,
         256
       ],
-      "source_sha256": "13a831fd23890e96eaaac750e6e7465265105dabfe4e26787e6a5d3e917fa4f6",
+      "source_sha256": "9929c3c0830028ce8908b0b9d255389b8e0fe130c43e68ecdd0f0fa433d02461",
       "alphaBounds": [
-        4,
-        4,
+        5,
+        7,
         508,
-        251
+        249
       ],
       "kind": "unit-shell",
       "references": [
@@ -10406,14 +10406,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warrior.png",
-          "sha256": "13a831fd23890e96eaaac750e6e7465265105dabfe4e26787e6a5d3e917fa4f6"
+          "sha256": "9929c3c0830028ce8908b0b9d255389b8e0fe130c43e68ecdd0f0fa433d02461"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "a56d73893cba6b556287766b0718602a0d3c9c4a7b104144e6c83d7e89b43d5c",
+      "sha256": "ae195f694fb6a935cd9e8c25ef1105dff7e737aa23489fdda5c2415a9e772562",
       "registration": {
         "canvas": [
           512,
@@ -10462,7 +10462,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warrior.png",
-          "sha256": "13a831fd23890e96eaaac750e6e7465265105dabfe4e26787e6a5d3e917fa4f6"
+          "sha256": "9929c3c0830028ce8908b0b9d255389b8e0fe130c43e68ecdd0f0fa433d02461"
         }
       ],
       "sha256": "d814b0a819deb71388902e643e09fde9fe75edfd616196cb31aedbe6ed383c65"
@@ -10489,7 +10489,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warrior.png",
-          "sha256": "13a831fd23890e96eaaac750e6e7465265105dabfe4e26787e6a5d3e917fa4f6"
+          "sha256": "9929c3c0830028ce8908b0b9d255389b8e0fe130c43e68ecdd0f0fa433d02461"
         }
       ],
       "sha256": "601dca37c5f17fa80d95d239447b4e7bbf5e7baf240f8f303102d5414a737d1f"
@@ -10501,12 +10501,12 @@
         512,
         256
       ],
-      "source_sha256": "f7d917ff662c7777cee4f97997d17a4e576e2ac6a8f9e1e569a9ab4f1ae39c85",
+      "source_sha256": "7891f9fd58cf73e5be9f027ca6903c97fe7a74ed057ae2a253dba2ebd7024642",
       "alphaBounds": [
-        6,
-        5,
-        508,
-        250
+        8,
+        7,
+        506,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -10516,14 +10516,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_paladin.png",
-          "sha256": "f7d917ff662c7777cee4f97997d17a4e576e2ac6a8f9e1e569a9ab4f1ae39c85"
+          "sha256": "7891f9fd58cf73e5be9f027ca6903c97fe7a74ed057ae2a253dba2ebd7024642"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "b5fa0786f7e521a188df2050b1da8f6510e21d2109f3cf81b63e845353a408d8",
+      "sha256": "997631a9eea055d3b3195d0dbc9dfce476da6e89b7b05f138eee28e605a16601",
       "registration": {
         "canvas": [
           512,
@@ -10572,7 +10572,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_paladin.png",
-          "sha256": "f7d917ff662c7777cee4f97997d17a4e576e2ac6a8f9e1e569a9ab4f1ae39c85"
+          "sha256": "7891f9fd58cf73e5be9f027ca6903c97fe7a74ed057ae2a253dba2ebd7024642"
         }
       ],
       "sha256": "c112d83148755429c2340ad1d29dca3df6bcc4348fb932820c84fc95b62065fd"
@@ -10599,7 +10599,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_paladin.png",
-          "sha256": "f7d917ff662c7777cee4f97997d17a4e576e2ac6a8f9e1e569a9ab4f1ae39c85"
+          "sha256": "7891f9fd58cf73e5be9f027ca6903c97fe7a74ed057ae2a253dba2ebd7024642"
         }
       ],
       "sha256": "d29a66f85f00017582dbde58da1981e1d46f5ce7b2f6ee09a5c1ba46c0461355"
@@ -10611,12 +10611,12 @@
         512,
         256
       ],
-      "source_sha256": "7f523a8479decc176f9e8c1eb38db82eaa5e669ae0da11742464425f7dddf188",
+      "source_sha256": "45691852d78aa1beac18aa185c3023ee188dac65181b52bbaf1fb87ccab247d4",
       "alphaBounds": [
-        4,
-        5,
-        508,
-        249
+        7,
+        8,
+        506,
+        247
       ],
       "kind": "unit-shell",
       "references": [
@@ -10626,14 +10626,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_hunter.png",
-          "sha256": "7f523a8479decc176f9e8c1eb38db82eaa5e669ae0da11742464425f7dddf188"
+          "sha256": "45691852d78aa1beac18aa185c3023ee188dac65181b52bbaf1fb87ccab247d4"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "30eebfb2a52e50f69ec56d6d50d4aca63b681475946ccaaf934f0d48a3ad9177",
+      "sha256": "3cd800fc01b8ff3acaa171162d203ce06bdbc7966b433a7039ddb83ca03d0832",
       "registration": {
         "canvas": [
           512,
@@ -10682,7 +10682,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_hunter.png",
-          "sha256": "7f523a8479decc176f9e8c1eb38db82eaa5e669ae0da11742464425f7dddf188"
+          "sha256": "45691852d78aa1beac18aa185c3023ee188dac65181b52bbaf1fb87ccab247d4"
         }
       ],
       "sha256": "fd71b63da9efb2117f60f4d781c4e78ff78c94faedcf39736dbabe59a8452cb0"
@@ -10709,7 +10709,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_hunter.png",
-          "sha256": "7f523a8479decc176f9e8c1eb38db82eaa5e669ae0da11742464425f7dddf188"
+          "sha256": "45691852d78aa1beac18aa185c3023ee188dac65181b52bbaf1fb87ccab247d4"
         }
       ],
       "sha256": "92ef236cb76906d1c8428ae8a6a37757b8f18384fbeeb3e1b935a1860c8458c1"
@@ -10721,12 +10721,12 @@
         512,
         256
       ],
-      "source_sha256": "dad414ed29941e8405f9185bad75b26d6a6d0048e663bb5adf2e21075d3d460c",
+      "source_sha256": "8c9e7d0aac8c2a3134d56d0a744b78e8ace1856944a7d20223b0e07571bded4c",
       "alphaBounds": [
-        5,
+        8,
         13,
-        508,
-        248
+        506,
+        247
       ],
       "kind": "unit-shell",
       "references": [
@@ -10736,14 +10736,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_rogue.png",
-          "sha256": "dad414ed29941e8405f9185bad75b26d6a6d0048e663bb5adf2e21075d3d460c"
+          "sha256": "8c9e7d0aac8c2a3134d56d0a744b78e8ace1856944a7d20223b0e07571bded4c"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "35ef4095a7ca35d6c282b3a24cdf4f0366aa3cbbf3f36d106ec2fd8b81a14e35",
+      "sha256": "bfcd5afefadad279a55dafc054aa2a5afd1e14340ffa1306a65e4c59b9a6a677",
       "registration": {
         "canvas": [
           512,
@@ -10792,7 +10792,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_rogue.png",
-          "sha256": "dad414ed29941e8405f9185bad75b26d6a6d0048e663bb5adf2e21075d3d460c"
+          "sha256": "8c9e7d0aac8c2a3134d56d0a744b78e8ace1856944a7d20223b0e07571bded4c"
         }
       ],
       "sha256": "da94f89849d90f52566664b84dcd7351c40c03949c1d53c78e545b4a41cfe90f"
@@ -10819,7 +10819,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_rogue.png",
-          "sha256": "dad414ed29941e8405f9185bad75b26d6a6d0048e663bb5adf2e21075d3d460c"
+          "sha256": "8c9e7d0aac8c2a3134d56d0a744b78e8ace1856944a7d20223b0e07571bded4c"
         }
       ],
       "sha256": "de9078b8a75d78c0eb8a4c93d2a358811eb5c7247630590e881e85f34a69e6e3"
@@ -10831,12 +10831,12 @@
         512,
         256
       ],
-      "source_sha256": "22398056aa6681fba0ada9db1346fdf87172a3ad02e40f264aca08e4cf7bf231",
+      "source_sha256": "198586fe2a476d1285765820e76c115d22cbea3b7eb75c6367732a5d0ceb8f95",
       "alphaBounds": [
-        9,
-        4,
-        508,
-        252
+        10,
+        6,
+        506,
+        249
       ],
       "kind": "unit-shell",
       "references": [
@@ -10846,14 +10846,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_priest.png",
-          "sha256": "22398056aa6681fba0ada9db1346fdf87172a3ad02e40f264aca08e4cf7bf231"
+          "sha256": "198586fe2a476d1285765820e76c115d22cbea3b7eb75c6367732a5d0ceb8f95"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "9aa4169386012721e0b46d7a4532fd6940edf72a8978eeda89a0a11102410eb9",
+      "sha256": "e199d85402abefa975fa13502a9d27970c678eb452338890ea2f0e0d68abc1ed",
       "registration": {
         "canvas": [
           512,
@@ -10902,7 +10902,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_priest.png",
-          "sha256": "22398056aa6681fba0ada9db1346fdf87172a3ad02e40f264aca08e4cf7bf231"
+          "sha256": "198586fe2a476d1285765820e76c115d22cbea3b7eb75c6367732a5d0ceb8f95"
         }
       ],
       "sha256": "2aacbaae5e22591759abd4f14a9fe35e5a37c6ed458dcb2709f9e774101ac23c"
@@ -10929,7 +10929,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_priest.png",
-          "sha256": "22398056aa6681fba0ada9db1346fdf87172a3ad02e40f264aca08e4cf7bf231"
+          "sha256": "198586fe2a476d1285765820e76c115d22cbea3b7eb75c6367732a5d0ceb8f95"
         }
       ],
       "sha256": "78328c268cb9846197feb716c0eae6349f92353e2990373ce1af794dc5b7148d"
@@ -10941,12 +10941,12 @@
         512,
         256
       ],
-      "source_sha256": "98b49c2fb31e1c0c16e4fc3b43dfff1308007b2e493dfaedc5bb1f32e563de18",
+      "source_sha256": "8d2f83c59497ea2cfedbebe92f9d4ff286b347833c43e39ed56ee6e6e966a46e",
       "alphaBounds": [
-        5,
-        6,
-        507,
-        246
+        7,
+        8,
+        505,
+        245
       ],
       "kind": "unit-shell",
       "references": [
@@ -10956,14 +10956,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_deathknight.png",
-          "sha256": "98b49c2fb31e1c0c16e4fc3b43dfff1308007b2e493dfaedc5bb1f32e563de18"
+          "sha256": "8d2f83c59497ea2cfedbebe92f9d4ff286b347833c43e39ed56ee6e6e966a46e"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "08d12595f030c1ed013b784e52ebc7b7fecc645a9adcd8cc03db8926c23e6a7c",
+      "sha256": "9029b973bec51e7556fe8dd00431d847a33aa224b016e93a6c7706d376dbc5ba",
       "registration": {
         "canvas": [
           512,
@@ -11012,7 +11012,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_deathknight.png",
-          "sha256": "98b49c2fb31e1c0c16e4fc3b43dfff1308007b2e493dfaedc5bb1f32e563de18"
+          "sha256": "8d2f83c59497ea2cfedbebe92f9d4ff286b347833c43e39ed56ee6e6e966a46e"
         }
       ],
       "sha256": "cc62383edfaeab7027ee33deba27ac4f95e9ad3b4cde78452074ed6decedcf77"
@@ -11039,7 +11039,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_deathknight.png",
-          "sha256": "98b49c2fb31e1c0c16e4fc3b43dfff1308007b2e493dfaedc5bb1f32e563de18"
+          "sha256": "8d2f83c59497ea2cfedbebe92f9d4ff286b347833c43e39ed56ee6e6e966a46e"
         }
       ],
       "sha256": "7057c759afd5784ea33e87905606c46b43c8c15e40df58ee7b7bd1da0804d6df"
@@ -11051,12 +11051,12 @@
         512,
         256
       ],
-      "source_sha256": "a6b87974db4bbd91d3b95e0b106392c1d6f4c8e5f034b6f01304e6645f6cd0bc",
+      "source_sha256": "4d28a79b5fefd6e91d69f6b62326026edf7c2f8249fd8eab757c853156876909",
       "alphaBounds": [
-        5,
-        10,
-        507,
-        247
+        7,
+        11,
+        505,
+        246
       ],
       "kind": "unit-shell",
       "references": [
@@ -11066,14 +11066,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-          "sha256": "a6b87974db4bbd91d3b95e0b106392c1d6f4c8e5f034b6f01304e6645f6cd0bc"
+          "sha256": "4d28a79b5fefd6e91d69f6b62326026edf7c2f8249fd8eab757c853156876909"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "cb69eb17f0a59cd466f3992a7a15b1be7a16656bf3512b821fbe04bc103d158a",
+      "sha256": "fa912c328dc11851c55f5b3a26688080d10e50cc9d0c989d28f9bb4d75416ace",
       "registration": {
         "canvas": [
           512,
@@ -11122,7 +11122,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-          "sha256": "a6b87974db4bbd91d3b95e0b106392c1d6f4c8e5f034b6f01304e6645f6cd0bc"
+          "sha256": "4d28a79b5fefd6e91d69f6b62326026edf7c2f8249fd8eab757c853156876909"
         }
       ],
       "sha256": "8ba59a252c30654b441b2a692a4ee7cf133d203a0fd4b3c4a94fcace992b54ea"
@@ -11149,7 +11149,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-          "sha256": "a6b87974db4bbd91d3b95e0b106392c1d6f4c8e5f034b6f01304e6645f6cd0bc"
+          "sha256": "4d28a79b5fefd6e91d69f6b62326026edf7c2f8249fd8eab757c853156876909"
         }
       ],
       "sha256": "455a6ac369b87583b48c611416cb96ed9939d8e9a0598416db9ab737d4d60547"
@@ -11161,12 +11161,12 @@
         512,
         256
       ],
-      "source_sha256": "5826d00173f8483970dcc77c6bf74ed82d01aa19bafda8177747af037a77af7c",
+      "source_sha256": "20393c3e1f2bcbd9446fb9e208e108656951d2ea6d08145e0d129f01069a9f5d",
       "alphaBounds": [
-        7,
-        4,
-        508,
-        252
+        8,
+        6,
+        507,
+        250
       ],
       "kind": "unit-shell",
       "references": [
@@ -11176,14 +11176,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
-          "sha256": "5826d00173f8483970dcc77c6bf74ed82d01aa19bafda8177747af037a77af7c"
+          "sha256": "20393c3e1f2bcbd9446fb9e208e108656951d2ea6d08145e0d129f01069a9f5d"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "9942468cda7624a6977343afc461aa8e1af5fd6106fda164d10cbe9b3e47ae2d",
+      "sha256": "1e1c582e956471cfe2cf198f925715842754e59af35ed5d76147ed949f337508",
       "registration": {
         "canvas": [
           512,
@@ -11232,7 +11232,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
-          "sha256": "5826d00173f8483970dcc77c6bf74ed82d01aa19bafda8177747af037a77af7c"
+          "sha256": "20393c3e1f2bcbd9446fb9e208e108656951d2ea6d08145e0d129f01069a9f5d"
         }
       ],
       "sha256": "6c466f1668dacc9d7ce6c8ffb3deb858601c1bacc54274c8d0193987e044e669"
@@ -11259,7 +11259,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
-          "sha256": "5826d00173f8483970dcc77c6bf74ed82d01aa19bafda8177747af037a77af7c"
+          "sha256": "20393c3e1f2bcbd9446fb9e208e108656951d2ea6d08145e0d129f01069a9f5d"
         }
       ],
       "sha256": "7d912c08bd46cdf157f4b384bae687299c1980fc9a67546250589908b2317647"
@@ -11271,11 +11271,11 @@
         512,
         256
       ],
-      "source_sha256": "9fef5245fee355fc4fd835f74e7a7da6b44cd65ec2970077f017ea5d70c4aed8",
+      "source_sha256": "78a34e035416a051e39c7e014bdbfff0d1152ae10ce43719f54971413cc2a2b1",
       "alphaBounds": [
-        5,
+        7,
         10,
-        508,
+        505,
         243
       ],
       "kind": "unit-shell",
@@ -11286,14 +11286,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warlock.png",
-          "sha256": "9fef5245fee355fc4fd835f74e7a7da6b44cd65ec2970077f017ea5d70c4aed8"
+          "sha256": "78a34e035416a051e39c7e014bdbfff0d1152ae10ce43719f54971413cc2a2b1"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "bd27e726ae96e0397b18e0f6199477e4302a757a92a0581a3ac42010dfc7595f",
+      "sha256": "6fb44e488acad000bdf2d0723fbddf0a3e17277e1f3d6b32fa734597d6d10f4b",
       "registration": {
         "canvas": [
           512,
@@ -11342,7 +11342,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warlock.png",
-          "sha256": "9fef5245fee355fc4fd835f74e7a7da6b44cd65ec2970077f017ea5d70c4aed8"
+          "sha256": "78a34e035416a051e39c7e014bdbfff0d1152ae10ce43719f54971413cc2a2b1"
         }
       ],
       "sha256": "682b95b5b3915d0ff4d5dc4b2d8a35259d47288e2971bbd699ab8029dec43f13"
@@ -11369,7 +11369,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warlock.png",
-          "sha256": "9fef5245fee355fc4fd835f74e7a7da6b44cd65ec2970077f017ea5d70c4aed8"
+          "sha256": "78a34e035416a051e39c7e014bdbfff0d1152ae10ce43719f54971413cc2a2b1"
         }
       ],
       "sha256": "9bdbe394bdcb5aabd6e247668370eb0f6fdc43221a161940abb14f91154bb8e7"
@@ -11381,12 +11381,12 @@
         512,
         256
       ],
-      "source_sha256": "9a9d5047c89951d38a79c86bbc406c81dce28ef0ee272bc911b2be97e3db4656",
+      "source_sha256": "f8ea70a388f018784ac967e37095eec3265eb1f7dda74d630d0c9579c717ddc1",
       "alphaBounds": [
-        5,
-        10,
-        508,
-        250
+        7,
+        11,
+        505,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -11396,14 +11396,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_monk.png",
-          "sha256": "9a9d5047c89951d38a79c86bbc406c81dce28ef0ee272bc911b2be97e3db4656"
+          "sha256": "f8ea70a388f018784ac967e37095eec3265eb1f7dda74d630d0c9579c717ddc1"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "42a0601e4a45217404bb9ddad7134b8af0342fb332962b9976c4b9abd1710354",
+      "sha256": "1fd60e764ce49076d82c384f54b20c6cc277f277a5dfb19eb0d32c75ac8558a9",
       "registration": {
         "canvas": [
           512,
@@ -11452,7 +11452,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_monk.png",
-          "sha256": "9a9d5047c89951d38a79c86bbc406c81dce28ef0ee272bc911b2be97e3db4656"
+          "sha256": "f8ea70a388f018784ac967e37095eec3265eb1f7dda74d630d0c9579c717ddc1"
         }
       ],
       "sha256": "751e2a885178b9b3d629fcff9784bdc63d1c5db5a81db9a37a9c260a79a3df09"
@@ -11479,7 +11479,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_monk.png",
-          "sha256": "9a9d5047c89951d38a79c86bbc406c81dce28ef0ee272bc911b2be97e3db4656"
+          "sha256": "f8ea70a388f018784ac967e37095eec3265eb1f7dda74d630d0c9579c717ddc1"
         }
       ],
       "sha256": "77271296b56f35683d0dd03a41ef2fac05089082ab375b1f03e59d42b97f3d6c"
@@ -11491,12 +11491,12 @@
         512,
         256
       ],
-      "source_sha256": "ed760f6b3fce18faf67874f0ffcba11a9fae5a6b895ccce8b13afcca63a07bed",
+      "source_sha256": "207d11adf607a97edbe7aca283c04dc9ac8cc6abed20f620c0b5c03bda7793e4",
       "alphaBounds": [
-        4,
-        4,
-        508,
-        246
+        6,
+        7,
+        507,
+        245
       ],
       "kind": "unit-shell",
       "references": [
@@ -11506,14 +11506,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
-          "sha256": "ed760f6b3fce18faf67874f0ffcba11a9fae5a6b895ccce8b13afcca63a07bed"
+          "sha256": "207d11adf607a97edbe7aca283c04dc9ac8cc6abed20f620c0b5c03bda7793e4"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "923f9c6941930796d2e83cefbdfc0ebc0d12c7bf44f5a47497d07033865f41f9",
+      "sha256": "15c199e51c7c56e1ceff60ddbe29365eb5d6b93da6ea93dfa170cae743c96330",
       "registration": {
         "canvas": [
           512,
@@ -11562,7 +11562,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
-          "sha256": "ed760f6b3fce18faf67874f0ffcba11a9fae5a6b895ccce8b13afcca63a07bed"
+          "sha256": "207d11adf607a97edbe7aca283c04dc9ac8cc6abed20f620c0b5c03bda7793e4"
         }
       ],
       "sha256": "b0942f3e717a588501adb3c642e96db95596c0862beee2ff818e45e5d0c178a0"
@@ -11589,7 +11589,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
-          "sha256": "ed760f6b3fce18faf67874f0ffcba11a9fae5a6b895ccce8b13afcca63a07bed"
+          "sha256": "207d11adf607a97edbe7aca283c04dc9ac8cc6abed20f620c0b5c03bda7793e4"
         }
       ],
       "sha256": "e1b9395803a00b0680addeff90379300befe5abf2b7a7c0082e66925408f63ff"
@@ -11601,12 +11601,12 @@
         512,
         256
       ],
-      "source_sha256": "4ef1e16a945698cd0cefb3e881c339ca9cd74ac6e8731cc559acd8f05408f5a7",
+      "source_sha256": "04dcf3580312ddfdac4d73d1a875b52c3abd001d01bc5320640dfd5d03bb83d9",
       "alphaBounds": [
-        4,
-        4,
-        508,
-        247
+        7,
+        7,
+        507,
+        246
       ],
       "kind": "unit-shell",
       "references": [
@@ -11616,14 +11616,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_demonhunter.png",
-          "sha256": "4ef1e16a945698cd0cefb3e881c339ca9cd74ac6e8731cc559acd8f05408f5a7"
+          "sha256": "04dcf3580312ddfdac4d73d1a875b52c3abd001d01bc5320640dfd5d03bb83d9"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "1cbd3596bb177e703a46240275ae84befd3ae8c43f1d14d7032f1aa635410fe4",
+      "sha256": "6bb2a3691ee7a97d5764a6742bf794f841646c078a560c5c3475b714eca4dbcc",
       "registration": {
         "canvas": [
           512,
@@ -11672,7 +11672,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_demonhunter.png",
-          "sha256": "4ef1e16a945698cd0cefb3e881c339ca9cd74ac6e8731cc559acd8f05408f5a7"
+          "sha256": "04dcf3580312ddfdac4d73d1a875b52c3abd001d01bc5320640dfd5d03bb83d9"
         }
       ],
       "sha256": "faea9210847225012f1bdb927b7def06a96b8e86d7c6faf15c310bc797914924"
@@ -11699,7 +11699,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_demonhunter.png",
-          "sha256": "4ef1e16a945698cd0cefb3e881c339ca9cd74ac6e8731cc559acd8f05408f5a7"
+          "sha256": "04dcf3580312ddfdac4d73d1a875b52c3abd001d01bc5320640dfd5d03bb83d9"
         }
       ],
       "sha256": "5967a60dea272254baabe4d539d6e0e3b8480e3c5842f952ba7e1fb52b1ef053"
@@ -11711,12 +11711,12 @@
         512,
         256
       ],
-      "source_sha256": "166ff9fd8c49629eb8cf5e2721f88744ed6d22d5b3c85a4844fe03ea4caacd3b",
+      "source_sha256": "25f23375f3665c5ac2eceecb61f683ca6e7650d6188efbf8eafcac7732957100",
       "alphaBounds": [
-        5,
         7,
-        508,
-        249
+        8,
+        506,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -11726,14 +11726,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_evoker.png",
-          "sha256": "166ff9fd8c49629eb8cf5e2721f88744ed6d22d5b3c85a4844fe03ea4caacd3b"
+          "sha256": "25f23375f3665c5ac2eceecb61f683ca6e7650d6188efbf8eafcac7732957100"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "38c3d232a9d819636c5fd29c12524bb02b973f38b3dd59b1c74f50a5918be208",
+      "sha256": "897738a850864a38e99d762f6519d95779b66612343b5ff59a3fa8b7d0c26b0b",
       "registration": {
         "canvas": [
           512,
@@ -11782,7 +11782,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_evoker.png",
-          "sha256": "166ff9fd8c49629eb8cf5e2721f88744ed6d22d5b3c85a4844fe03ea4caacd3b"
+          "sha256": "25f23375f3665c5ac2eceecb61f683ca6e7650d6188efbf8eafcac7732957100"
         }
       ],
       "sha256": "f8ac9b044d8ec5fc734717ed56b32008e266bed1387e5dbe7fbb72bbec591715"
@@ -11809,7 +11809,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_evoker.png",
-          "sha256": "166ff9fd8c49629eb8cf5e2721f88744ed6d22d5b3c85a4844fe03ea4caacd3b"
+          "sha256": "25f23375f3665c5ac2eceecb61f683ca6e7650d6188efbf8eafcac7732957100"
         }
       ],
       "sha256": "79c511910e351ea72befc744371bae2ae676ff75d4d689c9be737a3b975c8561"
@@ -11821,12 +11821,12 @@
         512,
         256
       ],
-      "source_sha256": "e23d7eb552e2731bd0872151e15d6b70a1d99f9739566a383251e2e06ae555eb",
+      "source_sha256": "7fcd08a345e4068ec2bd95a986e59b56022c191ad063532b409edced4e2d1851",
       "alphaBounds": [
-        6,
-        5,
-        508,
-        251
+        8,
+        7,
+        505,
+        249
       ],
       "kind": "unit-shell",
       "references": [
@@ -11836,14 +11836,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_human.png",
-          "sha256": "e23d7eb552e2731bd0872151e15d6b70a1d99f9739566a383251e2e06ae555eb"
+          "sha256": "7fcd08a345e4068ec2bd95a986e59b56022c191ad063532b409edced4e2d1851"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "c599ab16d21556f6b725af49988b6e44dae0b6828085cdb3878dbcab256a87f9",
+      "sha256": "bc5c7648c78e833ed9b2d15ca4c4f3534874d45d9d560732863e318272150760",
       "registration": {
         "canvas": [
           512,
@@ -11892,7 +11892,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_human.png",
-          "sha256": "e23d7eb552e2731bd0872151e15d6b70a1d99f9739566a383251e2e06ae555eb"
+          "sha256": "7fcd08a345e4068ec2bd95a986e59b56022c191ad063532b409edced4e2d1851"
         }
       ],
       "sha256": "e0ce370f15771f0ef17c65be8c3ead47f9a6c38fcea6259dcf23e197b1596c9e"
@@ -11919,7 +11919,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_human.png",
-          "sha256": "e23d7eb552e2731bd0872151e15d6b70a1d99f9739566a383251e2e06ae555eb"
+          "sha256": "7fcd08a345e4068ec2bd95a986e59b56022c191ad063532b409edced4e2d1851"
         }
       ],
       "sha256": "d589febd129da58c926e9f8371122eaabc2073749cbfe56413d476d78f999952"
@@ -11931,11 +11931,11 @@
         512,
         256
       ],
-      "source_sha256": "dc013e403875ec28b8e21e6b74f6b86f41007a0db6db41b76e48352d9cd2f6b9",
+      "source_sha256": "c7d2361b300ff7d9a15fdf9a42143c9ada3408876f2e491fa0e6a81aa960b230",
       "alphaBounds": [
-        4,
+        7,
         12,
-        508,
+        507,
         241
       ],
       "kind": "unit-shell",
@@ -11946,14 +11946,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dwarf.png",
-          "sha256": "dc013e403875ec28b8e21e6b74f6b86f41007a0db6db41b76e48352d9cd2f6b9"
+          "sha256": "c7d2361b300ff7d9a15fdf9a42143c9ada3408876f2e491fa0e6a81aa960b230"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "e75bbb15b359166177b6543185f6cc7562a0b401bb23ba5f6f832dbc73ea1323",
+      "sha256": "370380867880cc94757840e8ca4e6e1a42d8e9de78ff626dd93f22b04cb6d83d",
       "registration": {
         "canvas": [
           512,
@@ -12002,7 +12002,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dwarf.png",
-          "sha256": "dc013e403875ec28b8e21e6b74f6b86f41007a0db6db41b76e48352d9cd2f6b9"
+          "sha256": "c7d2361b300ff7d9a15fdf9a42143c9ada3408876f2e491fa0e6a81aa960b230"
         }
       ],
       "sha256": "cb0e69bd75d0e47222a240f6066236076c5c0d66f2f16f28f5202047f7bc17c6"
@@ -12029,7 +12029,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dwarf.png",
-          "sha256": "dc013e403875ec28b8e21e6b74f6b86f41007a0db6db41b76e48352d9cd2f6b9"
+          "sha256": "c7d2361b300ff7d9a15fdf9a42143c9ada3408876f2e491fa0e6a81aa960b230"
         }
       ],
       "sha256": "94f97d65cc9c7cc7001b6070ff93e56d86f76b2f76d0dc624a9a21800f35a90c"
@@ -12041,12 +12041,12 @@
         512,
         256
       ],
-      "source_sha256": "ce132a0e55e0cd69167db1d7654209b142f374b055379c6292366943caa2bcd4",
+      "source_sha256": "10fb2d314c70d995a362142e126584a43ad4e34d8980f3406cd7bf0055628825",
       "alphaBounds": [
-        5,
-        4,
-        508,
-        251
+        8,
+        6,
+        505,
+        249
       ],
       "kind": "unit-shell",
       "references": [
@@ -12056,14 +12056,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-          "sha256": "ce132a0e55e0cd69167db1d7654209b142f374b055379c6292366943caa2bcd4"
+          "sha256": "10fb2d314c70d995a362142e126584a43ad4e34d8980f3406cd7bf0055628825"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "daf9db182bb8dddb83a3d78864b9db31aa8b4932995808325e381853ff9f0056",
+      "sha256": "56fb5c047fa8c31cb452570d67ea3c5d97372ed15f2bc25a1c69d2b8ddd43222",
       "registration": {
         "canvas": [
           512,
@@ -12112,7 +12112,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-          "sha256": "ce132a0e55e0cd69167db1d7654209b142f374b055379c6292366943caa2bcd4"
+          "sha256": "10fb2d314c70d995a362142e126584a43ad4e34d8980f3406cd7bf0055628825"
         }
       ],
       "sha256": "97632269e7ec7258159bd2082b25c3adefcf77dad3babe5dfe6bdf2b504fa8ea"
@@ -12139,7 +12139,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-          "sha256": "ce132a0e55e0cd69167db1d7654209b142f374b055379c6292366943caa2bcd4"
+          "sha256": "10fb2d314c70d995a362142e126584a43ad4e34d8980f3406cd7bf0055628825"
         }
       ],
       "sha256": "967f8f095d4effc0611e232aed7c2bcfbd3a4c881f240e678368befb677394f9"
@@ -12151,11 +12151,11 @@
         512,
         256
       ],
-      "source_sha256": "cb8304b98d75ba591459e5b630e074d18e07c0e408a90d064107ff1389c15939",
+      "source_sha256": "0fa50f46bb9b79b47620da135740dafa66ece4e2c2ecd2deed396c88b957be9e",
       "alphaBounds": [
-        9,
-        8,
-        506,
+        10,
+        10,
+        504,
         245
       ],
       "kind": "unit-shell",
@@ -12166,14 +12166,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_gnome.png",
-          "sha256": "cb8304b98d75ba591459e5b630e074d18e07c0e408a90d064107ff1389c15939"
+          "sha256": "0fa50f46bb9b79b47620da135740dafa66ece4e2c2ecd2deed396c88b957be9e"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "d26ab0fc61d2812b5022faeb22b694ab69f917c28aec40058a1ff0529654ff51",
+      "sha256": "b3d710bc69bb3b938b1c148338037c22f31bdd0b8d35a99ab7fe07945675ef2e",
       "registration": {
         "canvas": [
           512,
@@ -12222,7 +12222,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_gnome.png",
-          "sha256": "cb8304b98d75ba591459e5b630e074d18e07c0e408a90d064107ff1389c15939"
+          "sha256": "0fa50f46bb9b79b47620da135740dafa66ece4e2c2ecd2deed396c88b957be9e"
         }
       ],
       "sha256": "50d8cf07d6e739ff4d16ec5919115238408403dea51e7baa388bcf1eb26fff45"
@@ -12249,7 +12249,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_gnome.png",
-          "sha256": "cb8304b98d75ba591459e5b630e074d18e07c0e408a90d064107ff1389c15939"
+          "sha256": "0fa50f46bb9b79b47620da135740dafa66ece4e2c2ecd2deed396c88b957be9e"
         }
       ],
       "sha256": "e3c84540ccaa802d1e0eafc7c55568b681dc545f077d2bd45cf8b746fa001da9"
@@ -12261,12 +12261,12 @@
         512,
         256
       ],
-      "source_sha256": "9655470518d368745635e8870006ca804e26778aa1a69b13a77f167ce2f75732",
+      "source_sha256": "70ed4d881b9f7007957924fd74a36b3bb802d26507b79e9cab8c726169f09204",
       "alphaBounds": [
-        5,
-        6,
-        508,
-        249
+        7,
+        8,
+        506,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -12276,14 +12276,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_draenei.png",
-          "sha256": "9655470518d368745635e8870006ca804e26778aa1a69b13a77f167ce2f75732"
+          "sha256": "70ed4d881b9f7007957924fd74a36b3bb802d26507b79e9cab8c726169f09204"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "8be4b8343a3627321e44ab6e651f02c6c195a8d8f9c30077ab192129e4d1eb31",
+      "sha256": "889beb1470917969c35fd626eba9735120c64e30b220eef581e73658e908532a",
       "registration": {
         "canvas": [
           512,
@@ -12332,7 +12332,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_draenei.png",
-          "sha256": "9655470518d368745635e8870006ca804e26778aa1a69b13a77f167ce2f75732"
+          "sha256": "70ed4d881b9f7007957924fd74a36b3bb802d26507b79e9cab8c726169f09204"
         }
       ],
       "sha256": "3c4b38c38bfaa81126830c9989597b0ce59fa5f3d54d3ba9507a01e0a9c7cb7b"
@@ -12359,7 +12359,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_draenei.png",
-          "sha256": "9655470518d368745635e8870006ca804e26778aa1a69b13a77f167ce2f75732"
+          "sha256": "70ed4d881b9f7007957924fd74a36b3bb802d26507b79e9cab8c726169f09204"
         }
       ],
       "sha256": "fde2940345413fada21535e33182899b27d3135b6a9cb2ed27e09bc6f7f0f1b1"
@@ -12371,12 +12371,12 @@
         512,
         256
       ],
-      "source_sha256": "94f47556cfa715017a532bb3712bdc7121355fa9a9ba123174fc12f187ca791a",
+      "source_sha256": "5dfcad21d7f5fb902f5330ab5ade1cfb95af3d316d77b015c916047b6167cf58",
       "alphaBounds": [
         4,
-        4,
-        508,
-        252
+        5,
+        507,
+        250
       ],
       "kind": "unit-shell",
       "references": [
@@ -12386,14 +12386,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_worgen.png",
-          "sha256": "94f47556cfa715017a532bb3712bdc7121355fa9a9ba123174fc12f187ca791a"
+          "sha256": "5dfcad21d7f5fb902f5330ab5ade1cfb95af3d316d77b015c916047b6167cf58"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "748fceed4fb94c23374536325a4d860751068baee9da841ba6f7dc49b97be6a3",
+      "sha256": "9d66353d8ebb34222f8ab8396ab9fc91928520c81be7476ab060da115aaeb002",
       "registration": {
         "canvas": [
           512,
@@ -12442,7 +12442,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_worgen.png",
-          "sha256": "94f47556cfa715017a532bb3712bdc7121355fa9a9ba123174fc12f187ca791a"
+          "sha256": "5dfcad21d7f5fb902f5330ab5ade1cfb95af3d316d77b015c916047b6167cf58"
         }
       ],
       "sha256": "12fe359006bdb3171587fda151c9d13c55d164c9872704e44134c32b626a448a"
@@ -12469,7 +12469,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_worgen.png",
-          "sha256": "94f47556cfa715017a532bb3712bdc7121355fa9a9ba123174fc12f187ca791a"
+          "sha256": "5dfcad21d7f5fb902f5330ab5ade1cfb95af3d316d77b015c916047b6167cf58"
         }
       ],
       "sha256": "14920d0ac0291d0b6687a277cc9a2b284d70375a0f9c2c55a51c78a365b1ea97"
@@ -12481,12 +12481,12 @@
         512,
         256
       ],
-      "source_sha256": "fe2b3dcc1ed9b4d9482eda513d55b58ef9a83aaf1f188c3b755c4b553639a751",
+      "source_sha256": "87d9c4b4b44f77fbad9e6bfeb767987ea6ae8b49642fa6b94e37df1607935953",
       "alphaBounds": [
-        7,
-        4,
-        507,
-        252
+        8,
+        6,
+        505,
+        250
       ],
       "kind": "unit-shell",
       "references": [
@@ -12496,14 +12496,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_orc.png",
-          "sha256": "fe2b3dcc1ed9b4d9482eda513d55b58ef9a83aaf1f188c3b755c4b553639a751"
+          "sha256": "87d9c4b4b44f77fbad9e6bfeb767987ea6ae8b49642fa6b94e37df1607935953"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "109907d2552d4a991bc3c376b4702fb5310daca301d1b499a16482a0408e138d",
+      "sha256": "21a1e7421d1fa091de70036113a8f2892bd106861ce469bb604b049a72c02caf",
       "registration": {
         "canvas": [
           512,
@@ -12552,7 +12552,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_orc.png",
-          "sha256": "fe2b3dcc1ed9b4d9482eda513d55b58ef9a83aaf1f188c3b755c4b553639a751"
+          "sha256": "87d9c4b4b44f77fbad9e6bfeb767987ea6ae8b49642fa6b94e37df1607935953"
         }
       ],
       "sha256": "27f653795217ab66f17ea5495e451f17ebda02d3815ef61be5d2c33013d21eb9"
@@ -12579,7 +12579,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_orc.png",
-          "sha256": "fe2b3dcc1ed9b4d9482eda513d55b58ef9a83aaf1f188c3b755c4b553639a751"
+          "sha256": "87d9c4b4b44f77fbad9e6bfeb767987ea6ae8b49642fa6b94e37df1607935953"
         }
       ],
       "sha256": "59b4c264a09550e544087399224b1c8efac97cc53f6d1e49bada8bb04483b9ef"
@@ -12591,12 +12591,12 @@
         512,
         256
       ],
-      "source_sha256": "9d83cfd80672fe980b97b916fdcf2948d86e63312eed588f134701b18e287bb4",
+      "source_sha256": "b44e122bbcba3724ba549df6c0bd0ffad9610015fa2fd6d123753f4c707c68a2",
       "alphaBounds": [
-        5,
-        4,
-        508,
-        252
+        7,
+        6,
+        506,
+        250
       ],
       "kind": "unit-shell",
       "references": [
@@ -12606,14 +12606,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_scourge.png",
-          "sha256": "9d83cfd80672fe980b97b916fdcf2948d86e63312eed588f134701b18e287bb4"
+          "sha256": "b44e122bbcba3724ba549df6c0bd0ffad9610015fa2fd6d123753f4c707c68a2"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "85c40c418bdc10ec47e1f915d689f34e9c902cb93e7a639e01d747ad7d09edaf",
+      "sha256": "bdd32a8e43c19a49c4f4a3d58d89428f3a935382bb9ba2c22278be3fff666433",
       "registration": {
         "canvas": [
           512,
@@ -12662,7 +12662,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_scourge.png",
-          "sha256": "9d83cfd80672fe980b97b916fdcf2948d86e63312eed588f134701b18e287bb4"
+          "sha256": "b44e122bbcba3724ba549df6c0bd0ffad9610015fa2fd6d123753f4c707c68a2"
         }
       ],
       "sha256": "34a3bc027e7e8ab55948bc509e100005038fc2d50efbc793318ad7f28c62d473"
@@ -12689,7 +12689,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_scourge.png",
-          "sha256": "9d83cfd80672fe980b97b916fdcf2948d86e63312eed588f134701b18e287bb4"
+          "sha256": "b44e122bbcba3724ba549df6c0bd0ffad9610015fa2fd6d123753f4c707c68a2"
         }
       ],
       "sha256": "805bb666ef8dee2897eee0baab9a5989fa2a5b5b3fb3c3b4966638492d973cac"
@@ -12701,12 +12701,12 @@
         512,
         256
       ],
-      "source_sha256": "97030abc749a9503d9d2a57ff62617a58a32a98dc4f49ebad12544d3057c9edc",
+      "source_sha256": "a70fa95c04f7dc11e5d80d36b419f1c624a849dd07228b96f7509d6fa23a255d",
       "alphaBounds": [
-        9,
-        15,
-        507,
-        249
+        10,
+        12,
+        505,
+        247
       ],
       "kind": "unit-shell",
       "references": [
@@ -12716,14 +12716,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_tauren.png",
-          "sha256": "97030abc749a9503d9d2a57ff62617a58a32a98dc4f49ebad12544d3057c9edc"
+          "sha256": "a70fa95c04f7dc11e5d80d36b419f1c624a849dd07228b96f7509d6fa23a255d"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "b28de8809dabedf24b8540a9ad3da7c00875cd77cbda3ca026eda5f76da584e4",
+      "sha256": "7adbe9436bbfdb62fa6bf93f7939f7dcd6e856b854d02c54ba20d29c0b26a0ae",
       "registration": {
         "canvas": [
           512,
@@ -12772,7 +12772,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_tauren.png",
-          "sha256": "97030abc749a9503d9d2a57ff62617a58a32a98dc4f49ebad12544d3057c9edc"
+          "sha256": "a70fa95c04f7dc11e5d80d36b419f1c624a849dd07228b96f7509d6fa23a255d"
         }
       ],
       "sha256": "1eb1dee9949679a13bf95cc64518abc662045f008c8d8729f7fb61798e4b542f"
@@ -12799,7 +12799,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_tauren.png",
-          "sha256": "97030abc749a9503d9d2a57ff62617a58a32a98dc4f49ebad12544d3057c9edc"
+          "sha256": "a70fa95c04f7dc11e5d80d36b419f1c624a849dd07228b96f7509d6fa23a255d"
         }
       ],
       "sha256": "f970ac908da34a164da77454d7616afb6941f4b83dfccc63a6a1012a2b18cc08"
@@ -12811,12 +12811,12 @@
         512,
         256
       ],
-      "source_sha256": "b8758be972d70b052605970b1c101647273119cf66ec9f23344f7a211e9a122f",
+      "source_sha256": "c76b57406bfce2a2a79385ff22b7355cf1151624735c30d12d5dcff87d82ddf8",
       "alphaBounds": [
-        6,
-        4,
-        508,
-        252
+        8,
+        5,
+        507,
+        251
       ],
       "kind": "unit-shell",
       "references": [
@@ -12826,14 +12826,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_troll.png",
-          "sha256": "b8758be972d70b052605970b1c101647273119cf66ec9f23344f7a211e9a122f"
+          "sha256": "c76b57406bfce2a2a79385ff22b7355cf1151624735c30d12d5dcff87d82ddf8"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "bf41f9e6aaef838c5710bf0742ad793a03adb08c7448f46299ad3ad976eee4d2",
+      "sha256": "d82bf034d9e8570ebd8c9b300810821ada21707ca04d98d5fc625548fcc3ec06",
       "registration": {
         "canvas": [
           512,
@@ -12882,7 +12882,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_troll.png",
-          "sha256": "b8758be972d70b052605970b1c101647273119cf66ec9f23344f7a211e9a122f"
+          "sha256": "c76b57406bfce2a2a79385ff22b7355cf1151624735c30d12d5dcff87d82ddf8"
         }
       ],
       "sha256": "9d11c5f2f50922ca3bea08ea7af476846e6692ae7cbd4d3e68180b5039e70224"
@@ -12909,7 +12909,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_troll.png",
-          "sha256": "b8758be972d70b052605970b1c101647273119cf66ec9f23344f7a211e9a122f"
+          "sha256": "c76b57406bfce2a2a79385ff22b7355cf1151624735c30d12d5dcff87d82ddf8"
         }
       ],
       "sha256": "f43cab9ec2f836d2ed3af70bc8bb0ba73adb547d0cf72eb7d65d2e00432ad46a"
@@ -12921,12 +12921,12 @@
         512,
         256
       ],
-      "source_sha256": "963123cc65f785c4166d5de369257b8731d3c234185e4514b49d5622e2d380a2",
+      "source_sha256": "32ebc03e5c35883df5443c7a6a571ad792e0aced952c18a0efdf3742e0b51453",
       "alphaBounds": [
-        7,
-        4,
-        507,
-        248
+        8,
+        6,
+        505,
+        247
       ],
       "kind": "unit-shell",
       "references": [
@@ -12936,14 +12936,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_bloodelf.png",
-          "sha256": "963123cc65f785c4166d5de369257b8731d3c234185e4514b49d5622e2d380a2"
+          "sha256": "32ebc03e5c35883df5443c7a6a571ad792e0aced952c18a0efdf3742e0b51453"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "29a3a45d38a55557ad1f6f3279e633a235e326a75e6a13e4659ffb00f438d815",
+      "sha256": "d80b571c012a09c57759f6de05f457a96c123554275b1f52a4de7fcce69317b0",
       "registration": {
         "canvas": [
           512,
@@ -12992,7 +12992,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_bloodelf.png",
-          "sha256": "963123cc65f785c4166d5de369257b8731d3c234185e4514b49d5622e2d380a2"
+          "sha256": "32ebc03e5c35883df5443c7a6a571ad792e0aced952c18a0efdf3742e0b51453"
         }
       ],
       "sha256": "f4dc6a730bf124d815656eecf43f2781714e438e1ef36ad93c7039c7bdb1b47c"
@@ -13019,7 +13019,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_bloodelf.png",
-          "sha256": "963123cc65f785c4166d5de369257b8731d3c234185e4514b49d5622e2d380a2"
+          "sha256": "32ebc03e5c35883df5443c7a6a571ad792e0aced952c18a0efdf3742e0b51453"
         }
       ],
       "sha256": "82c9ba6f3615ed4e5a0e5daede76bc613bd38b99a8e3dbe7e0cfbed107420788"
@@ -13031,12 +13031,12 @@
         512,
         256
       ],
-      "source_sha256": "af3b634374e65173243ea71b59f48ef0aca82a4a9e70dcf099b7ede33b83dc8d",
+      "source_sha256": "6a71533175cfcc4164621269bc00054b55c6bb98f9e9d02cf58291d779d80b00",
       "alphaBounds": [
-        6,
-        6,
-        508,
-        248
+        8,
+        8,
+        506,
+        247
       ],
       "kind": "unit-shell",
       "references": [
@@ -13046,14 +13046,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_goblin.png",
-          "sha256": "af3b634374e65173243ea71b59f48ef0aca82a4a9e70dcf099b7ede33b83dc8d"
+          "sha256": "6a71533175cfcc4164621269bc00054b55c6bb98f9e9d02cf58291d779d80b00"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "cd03a4590861532ff0b2d4e1ca8ee639c6428e828f95234014542c23fc7b5ca5",
+      "sha256": "3184bff8c0cadb9e88298f36f0ce6174a8fb3d9354a8a33b5bc142f758879c21",
       "registration": {
         "canvas": [
           512,
@@ -13102,7 +13102,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_goblin.png",
-          "sha256": "af3b634374e65173243ea71b59f48ef0aca82a4a9e70dcf099b7ede33b83dc8d"
+          "sha256": "6a71533175cfcc4164621269bc00054b55c6bb98f9e9d02cf58291d779d80b00"
         }
       ],
       "sha256": "edb65dae0ff3162bebceabc9a4e719637e25ef5b89afa2e74bd9708b1d81c30f"
@@ -13129,7 +13129,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_goblin.png",
-          "sha256": "af3b634374e65173243ea71b59f48ef0aca82a4a9e70dcf099b7ede33b83dc8d"
+          "sha256": "6a71533175cfcc4164621269bc00054b55c6bb98f9e9d02cf58291d779d80b00"
         }
       ],
       "sha256": "7e0e4dcdaa05a055cc41bf35675cbb7ad522990b06e11404d1bae9db5d525943"
@@ -13141,12 +13141,12 @@
         512,
         256
       ],
-      "source_sha256": "9ef3319067f72369c367c124026e2462178581be2879ea08df1efd70d9a483e2",
+      "source_sha256": "7d9af04b07413c25a28f229d6f0a5155f36d3b852c3e3f85e2428f792171a779",
       "alphaBounds": [
-        4,
-        5,
-        508,
-        250
+        6,
+        7,
+        507,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -13156,14 +13156,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_pandaren.png",
-          "sha256": "9ef3319067f72369c367c124026e2462178581be2879ea08df1efd70d9a483e2"
+          "sha256": "7d9af04b07413c25a28f229d6f0a5155f36d3b852c3e3f85e2428f792171a779"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "02fa912924e8194f0be56c14c9e007bf89f94ff222a2a1ecdfa93d438821110f",
+      "sha256": "96b58085c28655e8a3a9c39672cdd0d70e68c7db25f1d80dddc72e11329426c8",
       "registration": {
         "canvas": [
           512,
@@ -13212,7 +13212,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_pandaren.png",
-          "sha256": "9ef3319067f72369c367c124026e2462178581be2879ea08df1efd70d9a483e2"
+          "sha256": "7d9af04b07413c25a28f229d6f0a5155f36d3b852c3e3f85e2428f792171a779"
         }
       ],
       "sha256": "55ef1e16e7e48c1689e34a7fd0286b019070d3e002a1d0ce6b6be4581f137937"
@@ -13239,7 +13239,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_pandaren.png",
-          "sha256": "9ef3319067f72369c367c124026e2462178581be2879ea08df1efd70d9a483e2"
+          "sha256": "7d9af04b07413c25a28f229d6f0a5155f36d3b852c3e3f85e2428f792171a779"
         }
       ],
       "sha256": "1b69ca4b940f153411066fb9944317cb13603dd2e4fa269ddd6999d4222ee61f"
@@ -13251,12 +13251,12 @@
         512,
         256
       ],
-      "source_sha256": "cf52f071b0805f9b5176a0b971ab04ae87f91df4474272430042e40ed83df40b",
+      "source_sha256": "8dcbf60d2a6dece0b8f09bc606d0d3da68f39032ca17059b5c771c033eb4ecdd",
       "alphaBounds": [
-        4,
-        8,
-        508,
-        248
+        6,
+        9,
+        505,
+        247
       ],
       "kind": "unit-shell",
       "references": [
@@ -13266,14 +13266,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dracthyr.png",
-          "sha256": "cf52f071b0805f9b5176a0b971ab04ae87f91df4474272430042e40ed83df40b"
+          "sha256": "8dcbf60d2a6dece0b8f09bc606d0d3da68f39032ca17059b5c771c033eb4ecdd"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "126d3e470112713ee4a12d59c424b725774405fd7ee73cf11650746480ac3d1b",
+      "sha256": "3013e7f162edae7f179290d6e4ece15610ee032e035b9f2af3def761ada43b22",
       "registration": {
         "canvas": [
           512,
@@ -13322,7 +13322,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dracthyr.png",
-          "sha256": "cf52f071b0805f9b5176a0b971ab04ae87f91df4474272430042e40ed83df40b"
+          "sha256": "8dcbf60d2a6dece0b8f09bc606d0d3da68f39032ca17059b5c771c033eb4ecdd"
         }
       ],
       "sha256": "7a80fc3d25f6eaaf5f962eb1d598f887ac51d68a1a249dc2fbbf00fc3cc1d759"
@@ -13349,7 +13349,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dracthyr.png",
-          "sha256": "cf52f071b0805f9b5176a0b971ab04ae87f91df4474272430042e40ed83df40b"
+          "sha256": "8dcbf60d2a6dece0b8f09bc606d0d3da68f39032ca17059b5c771c033eb4ecdd"
         }
       ],
       "sha256": "7fdef91a1b7defa9de4a571a0596c67564f937f0539cd308ba5248e9341cb371"
@@ -13361,12 +13361,12 @@
         512,
         256
       ],
-      "source_sha256": "1dcfbd68e4d584f8f7f4fea38ec7d2556c7007bf27d5c5a66992029088295423",
+      "source_sha256": "117e10f38a48e9442b747a93245fe789dc44f5a9fb5eb2b3634d6902ddf0d434",
       "alphaBounds": [
-        4,
-        4,
-        508,
-        249
+        6,
+        6,
+        506,
+        247
       ],
       "kind": "unit-shell",
       "references": [
@@ -13376,14 +13376,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_voidelf.png",
-          "sha256": "1dcfbd68e4d584f8f7f4fea38ec7d2556c7007bf27d5c5a66992029088295423"
+          "sha256": "117e10f38a48e9442b747a93245fe789dc44f5a9fb5eb2b3634d6902ddf0d434"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "e50f19cfa2f012aeddd453b0b6776903018bd558a7b0483535e81e352f89719f",
+      "sha256": "74f91b6f38c4d3adb29e03d5e865645d14c11e5fe2524a820b8805574d7ec36d",
       "registration": {
         "canvas": [
           512,
@@ -13432,7 +13432,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_voidelf.png",
-          "sha256": "1dcfbd68e4d584f8f7f4fea38ec7d2556c7007bf27d5c5a66992029088295423"
+          "sha256": "117e10f38a48e9442b747a93245fe789dc44f5a9fb5eb2b3634d6902ddf0d434"
         }
       ],
       "sha256": "3f02e5640f67c5598fd2866990235e56ef6be267237829f5299ad5c78af19d76"
@@ -13459,7 +13459,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_voidelf.png",
-          "sha256": "1dcfbd68e4d584f8f7f4fea38ec7d2556c7007bf27d5c5a66992029088295423"
+          "sha256": "117e10f38a48e9442b747a93245fe789dc44f5a9fb5eb2b3634d6902ddf0d434"
         }
       ],
       "sha256": "4a92b064316edd19bfa0cdeac4e62bc1cbb66a12f7eac325cc712d4cb3cb32e5"
@@ -13471,12 +13471,12 @@
         512,
         256
       ],
-      "source_sha256": "b7a07153c457f72f3dbaa920697b6d7dc68ea3cff68679a594f298fce78347a6",
+      "source_sha256": "80e4e712740ff4c291e5c88b9f807de8ac1c55ba01c7efc3f00186affae3f93f",
       "alphaBounds": [
-        4,
-        4,
-        507,
-        247
+        7,
+        6,
+        504,
+        246
       ],
       "kind": "unit-shell",
       "references": [
@@ -13486,14 +13486,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_lightforgeddraenei.png",
-          "sha256": "b7a07153c457f72f3dbaa920697b6d7dc68ea3cff68679a594f298fce78347a6"
+          "sha256": "80e4e712740ff4c291e5c88b9f807de8ac1c55ba01c7efc3f00186affae3f93f"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "651e5131fc18cd6e2cf65c199870289d7ab04cedac51c27c277edeb660a9483b",
+      "sha256": "349a7a479a96cdac274989c70638c885c2b633ccc2d3ca55e97f31e103a34907",
       "registration": {
         "canvas": [
           512,
@@ -13542,7 +13542,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_lightforgeddraenei.png",
-          "sha256": "b7a07153c457f72f3dbaa920697b6d7dc68ea3cff68679a594f298fce78347a6"
+          "sha256": "80e4e712740ff4c291e5c88b9f807de8ac1c55ba01c7efc3f00186affae3f93f"
         }
       ],
       "sha256": "d295771af47ded1114963f51af2ae69108fac6d1381dc8b2b00ea8f3b82eef4c"
@@ -13569,7 +13569,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_lightforgeddraenei.png",
-          "sha256": "b7a07153c457f72f3dbaa920697b6d7dc68ea3cff68679a594f298fce78347a6"
+          "sha256": "80e4e712740ff4c291e5c88b9f807de8ac1c55ba01c7efc3f00186affae3f93f"
         }
       ],
       "sha256": "8dd3ce7cbbc9e45dab1d442a8299c76eccb740034cc177a8fbd9dfed845c95b8"
@@ -13581,12 +13581,12 @@
         512,
         256
       ],
-      "source_sha256": "3d5fb38c2c1f322f2fbb59456c46bd6a51fc2ae5062ac026629ee853027630de",
+      "source_sha256": "29fd37923b4f556d223db3a24d1aff061f8c88ca636cbdd8fcbe1e7f38cdda4c",
       "alphaBounds": [
-        4,
-        4,
-        507,
-        250
+        7,
+        7,
+        504,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -13596,14 +13596,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_darkirondwarf.png",
-          "sha256": "3d5fb38c2c1f322f2fbb59456c46bd6a51fc2ae5062ac026629ee853027630de"
+          "sha256": "29fd37923b4f556d223db3a24d1aff061f8c88ca636cbdd8fcbe1e7f38cdda4c"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "2d338e97ced857406fa5cc2fde7ddcac651cd27a5af394dcc53f3bda9f657351",
+      "sha256": "426daa968f076f126a534542e474d14f5bd28b2151472421bfed074715577358",
       "registration": {
         "canvas": [
           512,
@@ -13652,7 +13652,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_darkirondwarf.png",
-          "sha256": "3d5fb38c2c1f322f2fbb59456c46bd6a51fc2ae5062ac026629ee853027630de"
+          "sha256": "29fd37923b4f556d223db3a24d1aff061f8c88ca636cbdd8fcbe1e7f38cdda4c"
         }
       ],
       "sha256": "423dc325ab4fa0caf1075d42bc25fb156eb3583ccb38e166a10273b11e6a9421"
@@ -13679,7 +13679,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_darkirondwarf.png",
-          "sha256": "3d5fb38c2c1f322f2fbb59456c46bd6a51fc2ae5062ac026629ee853027630de"
+          "sha256": "29fd37923b4f556d223db3a24d1aff061f8c88ca636cbdd8fcbe1e7f38cdda4c"
         }
       ],
       "sha256": "77c8f9b1b95997df304b074168e7d003544ff83899b959da4a6e3bc44994badc"
@@ -13691,12 +13691,12 @@
         512,
         256
       ],
-      "source_sha256": "2d499da8371a377c5f3c4a044b74901e08836a1c7c2f9807e55daba95cacfa8b",
+      "source_sha256": "556aa82db53007aca0feb3f190082f6e2469b6ded229238c2870097d7210d41e",
       "alphaBounds": [
-        5,
-        8,
-        507,
-        249
+        7,
+        10,
+        505,
+        247
       ],
       "kind": "unit-shell",
       "references": [
@@ -13706,14 +13706,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_kultiran.png",
-          "sha256": "2d499da8371a377c5f3c4a044b74901e08836a1c7c2f9807e55daba95cacfa8b"
+          "sha256": "556aa82db53007aca0feb3f190082f6e2469b6ded229238c2870097d7210d41e"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "17dc246fbf8bd12b14696a3b489724d22b52bf05204c593c7602587bdb6456d0",
+      "sha256": "63432d4dfe0fb92fd81dbca31bb4390fbd8a06cfcca59278444c8e8494c0aac5",
       "registration": {
         "canvas": [
           512,
@@ -13762,7 +13762,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_kultiran.png",
-          "sha256": "2d499da8371a377c5f3c4a044b74901e08836a1c7c2f9807e55daba95cacfa8b"
+          "sha256": "556aa82db53007aca0feb3f190082f6e2469b6ded229238c2870097d7210d41e"
         }
       ],
       "sha256": "3aa9d1fbc196a262ec9167122f73a71f09e4ad7f76dc9aed31db3927e67af917"
@@ -13789,7 +13789,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_kultiran.png",
-          "sha256": "2d499da8371a377c5f3c4a044b74901e08836a1c7c2f9807e55daba95cacfa8b"
+          "sha256": "556aa82db53007aca0feb3f190082f6e2469b6ded229238c2870097d7210d41e"
         }
       ],
       "sha256": "111e2f763fbb48de6d3f7472eb761733f8353a7247e214ce1a4eea28f116a5c5"
@@ -13801,12 +13801,12 @@
         512,
         256
       ],
-      "source_sha256": "479e77afe63dace095a477b3c4cdf17af95c27887e7889ec5f7b900dbeb55963",
+      "source_sha256": "e043fb21456aea85d04c697d17a3ec3242ab5065f598c430351c3dd56dd8d37b",
       "alphaBounds": [
-        8,
-        8,
-        505,
-        247
+        10,
+        9,
+        503,
+        246
       ],
       "kind": "unit-shell",
       "references": [
@@ -13816,14 +13816,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_mechagnome.png",
-          "sha256": "479e77afe63dace095a477b3c4cdf17af95c27887e7889ec5f7b900dbeb55963"
+          "sha256": "e043fb21456aea85d04c697d17a3ec3242ab5065f598c430351c3dd56dd8d37b"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "a07651c86fba318551ad271b5df6c81620a65971c5d7465daa5dd15d55da5ff7",
+      "sha256": "fe06e72f9f285574d53a34ef62f5ea824516ea025c5ce9d8c921056e68ce9c4e",
       "registration": {
         "canvas": [
           512,
@@ -13872,7 +13872,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_mechagnome.png",
-          "sha256": "479e77afe63dace095a477b3c4cdf17af95c27887e7889ec5f7b900dbeb55963"
+          "sha256": "e043fb21456aea85d04c697d17a3ec3242ab5065f598c430351c3dd56dd8d37b"
         }
       ],
       "sha256": "22e26e28af35e401cf654528b5665bdaa0dfe9125971d8f1b3c9ced40ff34546"
@@ -13899,7 +13899,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_mechagnome.png",
-          "sha256": "479e77afe63dace095a477b3c4cdf17af95c27887e7889ec5f7b900dbeb55963"
+          "sha256": "e043fb21456aea85d04c697d17a3ec3242ab5065f598c430351c3dd56dd8d37b"
         }
       ],
       "sha256": "44538095cd4498b21acef6924b557880b89759a3a1ec154fa12f92ef71eddf2f"
@@ -13911,12 +13911,12 @@
         512,
         256
       ],
-      "source_sha256": "a8b1945bc0260a924ab86ae5d166a8832294fb14241a46e014ccf8919df7374b",
+      "source_sha256": "b41806aebcb09f07085ccb0b4f119e28d287e57852329739af4e7c485ab0d87f",
       "alphaBounds": [
-        6,
-        7,
-        508,
-        249
+        8,
+        8,
+        506,
+        247
       ],
       "kind": "unit-shell",
       "references": [
@@ -13926,14 +13926,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightborne.png",
-          "sha256": "a8b1945bc0260a924ab86ae5d166a8832294fb14241a46e014ccf8919df7374b"
+          "sha256": "b41806aebcb09f07085ccb0b4f119e28d287e57852329739af4e7c485ab0d87f"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "4a3dd1ab1717e77c807ddb6cf28eb96eca6e5411e7e19a7556d2b743dfc61326",
+      "sha256": "9f84cd6f2282912a90eb418278b69fe6f43976837e673e89938efcfa1c6e132c",
       "registration": {
         "canvas": [
           512,
@@ -13982,7 +13982,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightborne.png",
-          "sha256": "a8b1945bc0260a924ab86ae5d166a8832294fb14241a46e014ccf8919df7374b"
+          "sha256": "b41806aebcb09f07085ccb0b4f119e28d287e57852329739af4e7c485ab0d87f"
         }
       ],
       "sha256": "4e1c03ae6ed7341b8b4876ce50f7e83c498f2aa9484a2b63e31f4e6f57260c43"
@@ -14009,7 +14009,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightborne.png",
-          "sha256": "a8b1945bc0260a924ab86ae5d166a8832294fb14241a46e014ccf8919df7374b"
+          "sha256": "b41806aebcb09f07085ccb0b4f119e28d287e57852329739af4e7c485ab0d87f"
         }
       ],
       "sha256": "8c4da6c414c208d04b48c4583462f3fb408debffb1bc0603cc6b0c0c569e89d0"
@@ -14021,12 +14021,12 @@
         512,
         256
       ],
-      "source_sha256": "f224ee9e08e886c397ac3cb4079967e69ce00f77a0e383314b08b34fd5771aff",
+      "source_sha256": "bbacf2309f2f670dafc4c8c042985f03a5f22d618e9b534a5fc58f0ad0b86c24",
       "alphaBounds": [
-        6,
         8,
-        508,
-        249
+        10,
+        507,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -14036,14 +14036,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_highmountaintauren.png",
-          "sha256": "f224ee9e08e886c397ac3cb4079967e69ce00f77a0e383314b08b34fd5771aff"
+          "sha256": "bbacf2309f2f670dafc4c8c042985f03a5f22d618e9b534a5fc58f0ad0b86c24"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "abd5fc6aaacad3bcdb482eb8208adf71d51a220fd065ac587afde2d3acc8f8ec",
+      "sha256": "d897254d91db2811618a1b54c39e35940e3409591139e53f697e43df4babd77b",
       "registration": {
         "canvas": [
           512,
@@ -14092,7 +14092,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_highmountaintauren.png",
-          "sha256": "f224ee9e08e886c397ac3cb4079967e69ce00f77a0e383314b08b34fd5771aff"
+          "sha256": "bbacf2309f2f670dafc4c8c042985f03a5f22d618e9b534a5fc58f0ad0b86c24"
         }
       ],
       "sha256": "ef2c58c8c9749ef372cd51aac113ceb08fb40eb3b52128eaa921c893e9baf2c9"
@@ -14119,7 +14119,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_highmountaintauren.png",
-          "sha256": "f224ee9e08e886c397ac3cb4079967e69ce00f77a0e383314b08b34fd5771aff"
+          "sha256": "bbacf2309f2f670dafc4c8c042985f03a5f22d618e9b534a5fc58f0ad0b86c24"
         }
       ],
       "sha256": "30eec2311b93579e732349dfa647c66b61a3a25fa5b6348c1b074344c494a490"
@@ -14131,12 +14131,12 @@
         512,
         256
       ],
-      "source_sha256": "90b388f352e9b77c46c69c4991817b817a3a152ce39355769a64b076f9d92e6d",
+      "source_sha256": "efc6bd2bb9288ba3de939ac957d61ecdaff0f76e6fe3ab97eebdabe4a0f40fc8",
       "alphaBounds": [
-        4,
         6,
-        508,
-        250
+        8,
+        505,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -14146,14 +14146,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_magharorc.png",
-          "sha256": "90b388f352e9b77c46c69c4991817b817a3a152ce39355769a64b076f9d92e6d"
+          "sha256": "efc6bd2bb9288ba3de939ac957d61ecdaff0f76e6fe3ab97eebdabe4a0f40fc8"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "9f8ab7acc589fb275cf0a0453fd515a481d5837a5b2378ba1a44c017f5ec4235",
+      "sha256": "e27316367bdbd830506c2bbb678c8cd2c09b23ca454258a3a5ca8bc8e013931f",
       "registration": {
         "canvas": [
           512,
@@ -14202,7 +14202,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_magharorc.png",
-          "sha256": "90b388f352e9b77c46c69c4991817b817a3a152ce39355769a64b076f9d92e6d"
+          "sha256": "efc6bd2bb9288ba3de939ac957d61ecdaff0f76e6fe3ab97eebdabe4a0f40fc8"
         }
       ],
       "sha256": "a46fd733c9abdeddfa30a6d8714d71b814f5fbe6fc4c180ea3a3f6c3cc5fc0bc"
@@ -14229,7 +14229,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_magharorc.png",
-          "sha256": "90b388f352e9b77c46c69c4991817b817a3a152ce39355769a64b076f9d92e6d"
+          "sha256": "efc6bd2bb9288ba3de939ac957d61ecdaff0f76e6fe3ab97eebdabe4a0f40fc8"
         }
       ],
       "sha256": "34d71361b8b11b755f65d1cd703c56472c957ea50edfd7c7a3dd8728798de543"
@@ -14241,12 +14241,12 @@
         512,
         256
       ],
-      "source_sha256": "b6d6dd4d8d4d9a3b69d7c53fe031bd3ec58113fec80bab45a853ae3287b43ea2",
+      "source_sha256": "d484a33e1e79f76c60f28c90383135f7b919fa5f51b1e855a088412533b616ca",
       "alphaBounds": [
-        5,
-        9,
-        508,
-        249
+        7,
+        10,
+        506,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -14256,14 +14256,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_zandalaritroll.png",
-          "sha256": "b6d6dd4d8d4d9a3b69d7c53fe031bd3ec58113fec80bab45a853ae3287b43ea2"
+          "sha256": "d484a33e1e79f76c60f28c90383135f7b919fa5f51b1e855a088412533b616ca"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "dce722bc7f591f8a5dfadbaef84ccd87dd747060b488683874dd8a97226fac3b",
+      "sha256": "80defdff5955f79c18d5ca9e811475058469c77cd8e2c300d6ae4104e4422cc7",
       "registration": {
         "canvas": [
           512,
@@ -14312,7 +14312,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_zandalaritroll.png",
-          "sha256": "b6d6dd4d8d4d9a3b69d7c53fe031bd3ec58113fec80bab45a853ae3287b43ea2"
+          "sha256": "d484a33e1e79f76c60f28c90383135f7b919fa5f51b1e855a088412533b616ca"
         }
       ],
       "sha256": "0282cf07ce1ea574401dabdb00dcfbdb819cd198f818c656c789c53a99913520"
@@ -14339,7 +14339,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_zandalaritroll.png",
-          "sha256": "b6d6dd4d8d4d9a3b69d7c53fe031bd3ec58113fec80bab45a853ae3287b43ea2"
+          "sha256": "d484a33e1e79f76c60f28c90383135f7b919fa5f51b1e855a088412533b616ca"
         }
       ],
       "sha256": "bdc3b7e9f6217ebfce6d8e5bbf7d4247e1c399bfe9e8cc176400bb71abdb5794"
@@ -14351,12 +14351,12 @@
         512,
         256
       ],
-      "source_sha256": "0e43f33d57d8eee5dd7830f176166438c52379ea20e410ab909533b446086a30",
+      "source_sha256": "4e9e6a91afbd9344e415734dd56a28a36548a2b716be10965afd889a9871a8b8",
       "alphaBounds": [
-        7,
-        4,
-        508,
-        247
+        9,
+        6,
+        506,
+        246
       ],
       "kind": "unit-shell",
       "references": [
@@ -14366,14 +14366,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_vulpera.png",
-          "sha256": "0e43f33d57d8eee5dd7830f176166438c52379ea20e410ab909533b446086a30"
+          "sha256": "4e9e6a91afbd9344e415734dd56a28a36548a2b716be10965afd889a9871a8b8"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "650a76acdfcc09f4a986c1eb2f0c2a990210289896b06bb4611c37eb642b81a1",
+      "sha256": "8944e2b9e9f47ea29e84855b87c30d3f302ca32fa78f11d6834ba6085700e9f7",
       "registration": {
         "canvas": [
           512,
@@ -14422,7 +14422,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_vulpera.png",
-          "sha256": "0e43f33d57d8eee5dd7830f176166438c52379ea20e410ab909533b446086a30"
+          "sha256": "4e9e6a91afbd9344e415734dd56a28a36548a2b716be10965afd889a9871a8b8"
         }
       ],
       "sha256": "a26e53c6e85bc530f33883d85f132a95365ef42e3a7912dc66810b5287113e32"
@@ -14449,7 +14449,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_vulpera.png",
-          "sha256": "0e43f33d57d8eee5dd7830f176166438c52379ea20e410ab909533b446086a30"
+          "sha256": "4e9e6a91afbd9344e415734dd56a28a36548a2b716be10965afd889a9871a8b8"
         }
       ],
       "sha256": "7fae0cf6d5b6ff6b1e4ad7ab1727ee820bb19f8bbe330db2f2b4fd77595745de"
@@ -14461,12 +14461,12 @@
         512,
         256
       ],
-      "source_sha256": "f22c90079890007543eb0349dea74c0703e3171157f7900b3392c0fd171fb640",
+      "source_sha256": "b1fa980dc44aa97b855e3d94c241972978df0f0261be6cd1fbd24963febfc30d",
       "alphaBounds": [
+        8,
         6,
-        4,
-        507,
-        252
+        505,
+        250
       ],
       "kind": "unit-shell",
       "references": [
@@ -14476,14 +14476,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_earthendwarf.png",
-          "sha256": "f22c90079890007543eb0349dea74c0703e3171157f7900b3392c0fd171fb640"
+          "sha256": "b1fa980dc44aa97b855e3d94c241972978df0f0261be6cd1fbd24963febfc30d"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "80280447ba6a9e147b31451b5bda4fe93957dfcb18509971583d755acb53461d",
+      "sha256": "046d0c927b5fe0348b9f94c883c2b338204ba88b099d876d4ec1fba9b3b1a54e",
       "registration": {
         "canvas": [
           512,
@@ -14532,7 +14532,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_earthendwarf.png",
-          "sha256": "f22c90079890007543eb0349dea74c0703e3171157f7900b3392c0fd171fb640"
+          "sha256": "b1fa980dc44aa97b855e3d94c241972978df0f0261be6cd1fbd24963febfc30d"
         }
       ],
       "sha256": "6781867d8a329f9bc73c9d55cda70bcb204142cb7936e772b526a54d014b81f3"
@@ -14559,7 +14559,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_earthendwarf.png",
-          "sha256": "f22c90079890007543eb0349dea74c0703e3171157f7900b3392c0fd171fb640"
+          "sha256": "b1fa980dc44aa97b855e3d94c241972978df0f0261be6cd1fbd24963febfc30d"
         }
       ],
       "sha256": "d8569e0cd83d06eb38e3979041422b5f1d4d9cc539201d0baf0a68bbb86aca2f"
@@ -14571,12 +14571,12 @@
         512,
         256
       ],
-      "source_sha256": "1990b8a07b7b09419ea2eaf630ae3890a3f38b23abf78c1e1306ee02366e6ada",
+      "source_sha256": "87de9be4fb54358aa5e0c4738775c309203c62564d629d59f8d2e8e0c39a09f7",
       "alphaBounds": [
-        4,
         7,
-        508,
-        248
+        9,
+        505,
+        247
       ],
       "kind": "unit-shell",
       "references": [
@@ -14586,14 +14586,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_haranir.png",
-          "sha256": "1990b8a07b7b09419ea2eaf630ae3890a3f38b23abf78c1e1306ee02366e6ada"
+          "sha256": "87de9be4fb54358aa5e0c4738775c309203c62564d629d59f8d2e8e0c39a09f7"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "c30e211644538d716c9083b201b032950ab13e817afeab931392d644046893c1",
+      "sha256": "1e5ae9dc957a1cf553d74f5589bdde6176a9b9b59d2b974d33ec89eb73e0996b",
       "registration": {
         "canvas": [
           512,
@@ -14642,7 +14642,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_haranir.png",
-          "sha256": "1990b8a07b7b09419ea2eaf630ae3890a3f38b23abf78c1e1306ee02366e6ada"
+          "sha256": "87de9be4fb54358aa5e0c4738775c309203c62564d629d59f8d2e8e0c39a09f7"
         }
       ],
       "sha256": "20f88bbbf072fa677de438763fd5bbf0a354932d947bd32893364c069af65b25"
@@ -14669,7 +14669,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_haranir.png",
-          "sha256": "1990b8a07b7b09419ea2eaf630ae3890a3f38b23abf78c1e1306ee02366e6ada"
+          "sha256": "87de9be4fb54358aa5e0c4738775c309203c62564d629d59f8d2e8e0c39a09f7"
         }
       ],
       "sha256": "3a1b97823c381d1601e514484ee9e4ef6abc18b9023408410e21ae033e3846a8"
@@ -14681,12 +14681,12 @@
         512,
         256
       ],
-      "source_sha256": "e8f57fdc1e1f37e152a4f0a25f57bb3b422b68b26eb7da934fe356520aa2f743",
+      "source_sha256": "a36cd7f141f64ecc8e2b46684fd489710c4aab4e179fcd6cd8329b2a6095be7b",
       "alphaBounds": [
-        4,
-        6,
-        508,
-        252
+        7,
+        8,
+        506,
+        249
       ],
       "kind": "unit-shell",
       "references": [
@@ -14696,14 +14696,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_alliance.png",
-          "sha256": "e8f57fdc1e1f37e152a4f0a25f57bb3b422b68b26eb7da934fe356520aa2f743"
+          "sha256": "a36cd7f141f64ecc8e2b46684fd489710c4aab4e179fcd6cd8329b2a6095be7b"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "f1ef5a9a6ff8cb29cac0ae495fba8e7a43bfd11a0bb1a39c2efb5c6d59ef6e84",
+      "sha256": "879827665dd0dbb16ba3092936bd26b48b23f4c4b24393b589fe368f8dd52049",
       "registration": {
         "canvas": [
           512,
@@ -14752,7 +14752,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_alliance.png",
-          "sha256": "e8f57fdc1e1f37e152a4f0a25f57bb3b422b68b26eb7da934fe356520aa2f743"
+          "sha256": "a36cd7f141f64ecc8e2b46684fd489710c4aab4e179fcd6cd8329b2a6095be7b"
         }
       ],
       "sha256": "8b71fadc1dfc974d9e799e340d03b9a1c63f0145f598d41ace5bc12e8a4cc0ee"
@@ -14779,7 +14779,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_alliance.png",
-          "sha256": "e8f57fdc1e1f37e152a4f0a25f57bb3b422b68b26eb7da934fe356520aa2f743"
+          "sha256": "a36cd7f141f64ecc8e2b46684fd489710c4aab4e179fcd6cd8329b2a6095be7b"
         }
       ],
       "sha256": "ee297f4dc18fae7d0d82819af6260a08b0ae368d7df0e7cc930450424fa193a2"
@@ -14791,12 +14791,12 @@
         512,
         256
       ],
-      "source_sha256": "e670bac42f51b822eed7c0c1174298b1f88c9ddde1193deae4ea8a33bab12c9f",
+      "source_sha256": "ce6b2a96e71c5912ab2dada579c5a30b7aed6adfb70befde490de150095430dd",
       "alphaBounds": [
-        5,
-        5,
-        507,
-        249
+        8,
+        8,
+        505,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -14806,14 +14806,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_horde.png",
-          "sha256": "e670bac42f51b822eed7c0c1174298b1f88c9ddde1193deae4ea8a33bab12c9f"
+          "sha256": "ce6b2a96e71c5912ab2dada579c5a30b7aed6adfb70befde490de150095430dd"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "c8e1e61bea14c52b7739c9b03d9a48d79e64d9287fd7d5ee8c4ac5066b34f94e",
+      "sha256": "a33c6a4523962dd2659f75053f1ae2d39159c159a3b274a299fb81667606fb1b",
       "registration": {
         "canvas": [
           512,
@@ -14862,7 +14862,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_horde.png",
-          "sha256": "e670bac42f51b822eed7c0c1174298b1f88c9ddde1193deae4ea8a33bab12c9f"
+          "sha256": "ce6b2a96e71c5912ab2dada579c5a30b7aed6adfb70befde490de150095430dd"
         }
       ],
       "sha256": "074955290b038817faeec263a2b97ec9f04407e99749d54f30b3c9116c2634bf"
@@ -14889,7 +14889,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_horde.png",
-          "sha256": "e670bac42f51b822eed7c0c1174298b1f88c9ddde1193deae4ea8a33bab12c9f"
+          "sha256": "ce6b2a96e71c5912ab2dada579c5a30b7aed6adfb70befde490de150095430dd"
         }
       ],
       "sha256": "4a95fd774692df2629ab917093bc41bf3b4229968182e97583f478ca7eb8cd68"
@@ -14901,12 +14901,12 @@
         512,
         256
       ],
-      "source_sha256": "08571f8c87af57c05b0304650700d8c610db95b4410d4c757dba1051943e3aba",
+      "source_sha256": "7168bb916b9703ba8039afac17640b0424094cab3791aa09ac5b47379a964262",
       "alphaBounds": [
-        9,
-        9,
-        508,
-        250
+        10,
+        10,
+        507,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -14916,14 +14916,14 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_neutral.png",
-          "sha256": "08571f8c87af57c05b0304650700d8c610db95b4410d4c757dba1051943e3aba"
+          "sha256": "7168bb916b9703ba8039afac17640b0424094cab3791aa09ac5b47379a964262"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
         }
       ],
-      "sha256": "5cb0faf467cebcba14451f54b296f3db8ea5807a1e530e3422b86b8c48b5a430",
+      "sha256": "f77813e237b926a620752efd26548e5593d77b099c46502865928449097c5ad2",
       "registration": {
         "canvas": [
           512,
@@ -14972,7 +14972,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_neutral.png",
-          "sha256": "08571f8c87af57c05b0304650700d8c610db95b4410d4c757dba1051943e3aba"
+          "sha256": "7168bb916b9703ba8039afac17640b0424094cab3791aa09ac5b47379a964262"
         }
       ],
       "sha256": "32b080d220aeb390be54d0706b5ce165627c0540838beb7a6de6a1ff7a1c7f90"
@@ -14999,7 +14999,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_neutral.png",
-          "sha256": "08571f8c87af57c05b0304650700d8c610db95b4410d4c757dba1051943e3aba"
+          "sha256": "7168bb916b9703ba8039afac17640b0424094cab3791aa09ac5b47379a964262"
         }
       ],
       "sha256": "9d9d4872e4de3b7c28fa857c9183f499627ae82f1db8116b78e743a6986b43ed"

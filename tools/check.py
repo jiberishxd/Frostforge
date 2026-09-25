@@ -59,6 +59,14 @@ def asset_checks():
     groups = [{Path(a["file"]).stem for a in assets if "/"+kind+"/" in a["file"]} for kind in ("Portraits", "Hubs", "Minimaps")]
     assert all(len(g) == 42 and g == groups[0] for g in groups), "Artwork catalogs must match"
     assert {Path(a["file"]).stem for a in assets if a.get("kind")=="unit-shell"} == groups[0]
+    fits=json.loads((ROOT/'artwork/unit-frames/sculpted/fit-report.json').read_text())
+    assert len(fits)==42 and {f['id'] for f in fits}==groups[0]
+    for fitted in fits:
+        assert fitted['fit_version']==2
+        assert fitted['measured']['name_pixels_discarded']==0, 'Name clearance clips an ornament'
+        assert fitted['measured']['edge_pixels_discarded']==0, 'Outer padding clips an ornament'
+        for field,hash_field in (('source','source_sha256'),('file','sha256')):
+            assert hashlib.sha256((ROOT/fitted[field]).read_bytes()).hexdigest()==fitted[hash_field]
     for kind in ('health','power'):
         assert {Path(a['file']).stem.rsplit('-',1)[0] for a in assets if a['file'].endswith('-'+kind+'.tga')} == groups[0]
     assert {p.relative_to(ROOT).as_posix() for p in (ROOT/"JiberishUI/Media").glob("*/*.tga") if p.parent.name in ("Portraits", "Hubs", "Minimaps", "UnitFrames")} == {a["file"] for a in assets}
