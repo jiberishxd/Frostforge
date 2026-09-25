@@ -1,0 +1,999 @@
+[
+  {
+    "id": "class_warrior",
+    "group": "class",
+    "label": "Warrior",
+    "token": "WARRIOR",
+    "motif": "battered iron plates, russet leather straps, broad rivets, a small battle crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Warrior full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Warrior; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Warrior PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Warrior identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: battered iron plates, russet leather straps, broad rivets, a small battle crest. No Horde or Alliance symbols: this class belongs to both factions. Plain battle cloth, no Horde insignia, no Alliance crest, no red Horde glyph.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_warrior.png",
+      "artwork/official-crests/originals/class_warrior.png"
+    ],
+    "official": {
+      "id": "class_warrior",
+      "label": "Warrior",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/warrior",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blte5777795e548c8c9/5ee3e476fc5bec085f1e6551/RPOZRXV8MCMC1457037487166.png",
+      "file": "artwork/official-crests/originals/class_warrior.png",
+      "sha256": "f8d92945ec9cf7751fddaa8ab39218967c492f36e4c7d81cbfd26b1722e003fa",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_paladin",
+    "group": "class",
+    "label": "Paladin",
+    "token": "PALADIN",
+    "motif": "aged gold and ivory, a sun crown and widely flared upward-swept armored wing, matte silver plate; no lion or weapons",
+    "prompt": "Use case: stylized-concept. Create ONE original Paladin full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Paladin; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Paladin PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Paladin identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: aged gold and ivory, a sun crown and widely flared upward-swept armored wing, matte silver plate; no lion or weapons. No Horde or Alliance symbols: this class belongs to both factions. Keep flared armored wings, no lion head, sword or hammer in this bar body.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_paladin.png",
+      "artwork/official-crests/originals/class_paladin.png"
+    ],
+    "official": {
+      "id": "class_paladin",
+      "label": "Paladin",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/paladin",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt1da73d925b189bce/5ee790ae418a3c077bb238d7/19XLRJMFTB881457037521481.png",
+      "file": "artwork/official-crests/originals/class_paladin.png",
+      "sha256": "a71c9da0ad891dcc699ae350838e4fb1d7add21cd707a9fd04b0a610ec3d851f",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_hunter",
+    "group": "class",
+    "label": "Hunter",
+    "token": "HUNTER",
+    "motif": "antlered stag-skull trophy with ember-red eyes, leather bindings, forest feathers and wood; no paw print",
+    "prompt": "Use case: stylized-concept. Create ONE original Hunter full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Hunter; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Hunter PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Hunter identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: antlered stag-skull trophy with ember-red eyes, leather bindings, forest feathers and wood; no paw print. No Horde or Alliance symbols: this class belongs to both factions. Stag skull / hunting motifs, never a paw print.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_hunter.png",
+      "artwork/official-crests/originals/class_hunter.png"
+    ],
+    "official": {
+      "id": "class_hunter",
+      "label": "Hunter",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/hunter",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8fbac30a6c1af9f1/5ee3e4153a8621077a04a306/PHD55VWE4ZG71457037542377.png",
+      "file": "artwork/official-crests/originals/class_hunter.png",
+      "sha256": "22bd70d124a09032e2d71af0d0d8ed372195c68a45dfb9b62718d90a51b7100a",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_rogue",
+    "group": "class",
+    "label": "Rogue",
+    "token": "ROGUE",
+    "motif": "dark leather, tarnished steel, a hood-shaped crest, muted ochre cloth folds",
+    "prompt": "Use case: stylized-concept. Create ONE original Rogue full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Rogue; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Rogue PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Rogue identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: dark leather, tarnished steel, a hood-shaped crest, muted ochre cloth folds. No Horde or Alliance symbols: this class belongs to both factions.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_rogue.png",
+      "artwork/official-crests/originals/class_rogue.png"
+    ],
+    "official": {
+      "id": "class_rogue",
+      "label": "Rogue",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/rogue",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt7921da4f7d709b4e/5ee3e4a614a7bc718bab5fc2/ORHZR0HIQOW81457037509031.png",
+      "file": "artwork/official-crests/originals/class_rogue.png",
+      "sha256": "e3d1c110dd90c1c0731ea5984ace781b945e229901abe46714005f255da2860c",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_priest",
+    "group": "class",
+    "label": "Priest",
+    "token": "PRIEST",
+    "motif": "ivory stone, old gold, folded white cloth, a small holy sun crest with restrained violet shadow",
+    "prompt": "Use case: stylized-concept. Create ONE original Priest full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Priest; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Priest PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Priest identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: ivory stone, old gold, folded white cloth, a small holy sun crest with restrained violet shadow. No Horde or Alliance symbols: this class belongs to both factions.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_priest.png",
+      "artwork/official-crests/originals/class_priest.png"
+    ],
+    "official": {
+      "id": "class_priest",
+      "label": "Priest",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/priest",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt11fabe7dc7912ba9/5ee78c0263a2d9709383090d/XZAE7Z08UVZM1457037515730.png",
+      "file": "artwork/official-crests/originals/class_priest.png",
+      "sha256": "95693eae3ef0d05b8c0513e114116c9769bbc75b4f2081d75a3c4d228fb89c9c",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_deathknight",
+    "group": "class",
+    "label": "Death Knight",
+    "token": "DEATHKNIGHT",
+    "motif": "heavy dark iron, chipped icy blue runes, frost, a small skull crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Death Knight full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Death Knight; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Death Knight PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Death Knight identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: heavy dark iron, chipped icy blue runes, frost, a small skull crest. No Horde or Alliance symbols: this class belongs to both factions.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_deathknight.png",
+      "artwork/official-crests/originals/class_deathknight.png"
+    ],
+    "official": {
+      "id": "class_deathknight",
+      "label": "Death Knight",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/death-knight",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8bfa36196bf61105/5ee3e3d7889f917094610ea0/IMLWRYPWBRYL1457037563416.png",
+      "file": "artwork/official-crests/originals/class_deathknight.png",
+      "sha256": "cb806391e36ae1cdfcb01c2fcce038a095387f260d22a4a2514f11c3f22d9648",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_shaman",
+    "group": "class",
+    "label": "Shaman",
+    "token": "SHAMAN",
+    "motif": "rough carved wood, ochre bindings, turquoise elemental stones and a short totem crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Shaman full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Shaman; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Shaman PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Shaman identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: rough carved wood, ochre bindings, turquoise elemental stones and a short totem crest. No Horde or Alliance symbols: this class belongs to both factions.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_shaman.png",
+      "artwork/official-crests/originals/class_shaman.png"
+    ],
+    "official": {
+      "id": "class_shaman",
+      "label": "Shaman",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/shaman",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt4f1234eeda8832a3/5ee7928563a2d9709383092b/IJFM2IEVGM6N1457037501982.png",
+      "file": "artwork/official-crests/originals/class_shaman.png",
+      "sha256": "e779f715615a4fa4db0d4757fb4d7d67b18686e8edab07488344316eaa35dce3",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_mage",
+    "group": "class",
+    "label": "Mage",
+    "token": "MAGE",
+    "motif": "violet arcane eye with diamond pupil, bronze setting, blue crystals and purple cloth; no moon",
+    "prompt": "Use case: stylized-concept. Create ONE original Mage full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Mage; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Mage PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Mage identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: violet arcane eye with diamond pupil, bronze setting, blue crystals and purple cloth; no moon. No Horde or Alliance symbols: this class belongs to both factions. Arcane EYE or diamond pupil motif, not a crescent moon.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_mage.png",
+      "artwork/official-crests/originals/class_mage.png"
+    ],
+    "official": {
+      "id": "class_mage",
+      "label": "Mage",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/mage",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt56494dcd20feee74/5ee3e450e8f74907ecce0124/OGQYW3GHV8RL1457037534068.png",
+      "file": "artwork/official-crests/originals/class_mage.png",
+      "sha256": "aace0842705706a569d8c34282b203845cf085cc6820366392137084df918e99",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_warlock",
+    "group": "class",
+    "label": "Warlock",
+    "token": "WARLOCK",
+    "motif": "blackened iron, purple cloth, blunt demonic horn shapes and a restrained fel-green stone",
+    "prompt": "Use case: stylized-concept. Create ONE original Warlock full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Warlock; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Warlock PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Warlock identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: blackened iron, purple cloth, blunt demonic horn shapes and a restrained fel-green stone. No Horde or Alliance symbols: this class belongs to both factions.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_warlock.png",
+      "artwork/official-crests/originals/class_warlock.png"
+    ],
+    "official": {
+      "id": "class_warlock",
+      "label": "Warlock",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/warlock",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt8cee1118340e0529/5ee3e8c5a9170407eeb4b79d/ODSDYFWLT9B01457037493681.png",
+      "file": "artwork/official-crests/originals/class_warlock.png",
+      "sha256": "cd0f2b442ebdd267bde8d1a62d86e9ec7b6fbdbb6b21f9012156dedc4381468f",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_monk",
+    "group": "class",
+    "label": "Monk",
+    "token": "MONK",
+    "motif": "bamboo, jade stones, dark red wooden trim and a simple knotted cord crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Monk full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Monk; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Monk PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Monk identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: bamboo, jade stones, dark red wooden trim and a simple knotted cord crest. No Horde or Alliance symbols: this class belongs to both factions.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_monk.png",
+      "artwork/official-crests/originals/class_monk.png"
+    ],
+    "official": {
+      "id": "class_monk",
+      "label": "Monk",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/monk",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt63e4488784925447/5ee793cfa9170407eeb4b917/7Y1OJFSCMOHZ1457037527905.png",
+      "file": "artwork/official-crests/originals/class_monk.png",
+      "sha256": "cbb26a20b1651783c9828480a7cd9dea6cf2f025cb59b0f5a01e1ccbb2ef0a2e",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_druid",
+    "group": "class",
+    "label": "Druid",
+    "token": "DRUID",
+    "motif": "gnarled roots, chunky antlers, moss and broad dark-green leaves",
+    "prompt": "Use case: stylized-concept. Create ONE original Druid full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Druid; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Druid PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Druid identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: gnarled roots, chunky antlers, moss and broad dark-green leaves. No Horde or Alliance symbols: this class belongs to both factions.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_druid.png",
+      "artwork/official-crests/originals/class_druid.png"
+    ],
+    "official": {
+      "id": "class_druid",
+      "label": "Druid",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/druid",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltbf5a772e934ff371/5ee3e39dfc5bec085f1e6533/LI82P1DRVSNA1447154373009.png",
+      "file": "artwork/official-crests/originals/class_druid.png",
+      "sha256": "04065878ab13f8cf57c470da9c6beb8e22b23b9a05c875712a74ba70bc22d191",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_demonhunter",
+    "group": "class",
+    "label": "Demon Hunter",
+    "token": "DEMONHUNTER",
+    "motif": "black leather, broad curved horns, dark violet metal and a restrained fel-green rune",
+    "prompt": "Use case: stylized-concept. Create ONE original Demon Hunter full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Demon Hunter; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Demon Hunter PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Demon Hunter identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: black leather, broad curved horns, dark violet metal and a restrained fel-green rune. No Horde or Alliance symbols: this class belongs to both factions.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_demonhunter.png",
+      "artwork/official-crests/originals/class_demonhunter.png"
+    ],
+    "official": {
+      "id": "class_demonhunter",
+      "label": "Demon Hunter",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/demon-hunter",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2490a2c648b86219/5ee79636d217327180733e7d/4B35S4Z5N11X1457037556292.png",
+      "file": "artwork/official-crests/originals/class_demonhunter.png",
+      "sha256": "b1d8e9a7d600c68ac3af1e46ce2b889f1bc1506f8509f1bd2e04c092cb6ae828",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "class_evoker",
+    "group": "class",
+    "label": "Evoker",
+    "token": "EVOKER",
+    "motif": "broad weathered dragon scales in muted red and teal, bronze trim, small horn crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Evoker full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Evoker; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Evoker PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Evoker identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: broad weathered dragon scales in muted red and teal, bronze trim, small horn crest. No Horde or Alliance symbols: this class belongs to both factions.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/class_evoker.png",
+      "artwork/official-crests/originals/class_evoker.png"
+    ],
+    "official": {
+      "id": "class_evoker",
+      "label": "Evoker",
+      "group": "class",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/evoker",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3d327163a476f786/632b91c5251b540e0aea7b81/Crest_Dracthyr_RacePage.png",
+      "file": "artwork/official-crests/originals/class_evoker.png",
+      "sha256": "932922fa67b480dec97b627a60ba8f76c40dfc9ef71447c498d3bf905079ae98",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_human",
+    "group": "race",
+    "label": "Human",
+    "token": "Human",
+    "motif": "Stormwind blue cloth, battered silver stonework, a small old gold lion crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Human full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Human; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Human PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Human identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: Stormwind blue cloth, battered silver stonework, a small old gold lion crest.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_human.png",
+      "artwork/official-crests/originals/race_human.png"
+    ],
+    "official": {
+      "id": "race_human",
+      "label": "Human",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/human",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt29feb655ea50fba6/616a0018363f00106eda3f08/2YEP8WEMJ5771603122326566.png",
+      "file": "artwork/official-crests/originals/race_human.png",
+      "sha256": "acc78b40ea8c8506cf68f77cbd6cbead92f3b57318ae4f2688ad3e27b5fd4370",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_dwarf",
+    "group": "race",
+    "label": "Dwarf",
+    "token": "Dwarf",
+    "motif": "rough granite, stout bronze plates, a simple angular dwarven rune crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Dwarf full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Dwarf; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Dwarf PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Dwarf identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: rough granite, stout bronze plates, a simple angular dwarven rune crest.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_dwarf.png",
+      "artwork/official-crests/originals/race_dwarf.png"
+    ],
+    "official": {
+      "id": "race_dwarf",
+      "label": "Dwarf",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dwarf",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2c2df67600500bdc/616a002ece267e66ae2fe944/06NIF1RURDOL1603475082437.png",
+      "file": "artwork/official-crests/originals/race_dwarf.png",
+      "sha256": "b4fbce9e299b0065c680eb12673e93b0c72d746c83d23ff17603f42bd9fe8fac",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_nightelf",
+    "group": "race",
+    "label": "Night Elf",
+    "token": "NightElf",
+    "motif": "ancient purple wood, broad silver crescent, dark teal leaves and owl feathers",
+    "prompt": "Use case: stylized-concept. Create ONE original Night Elf full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Night Elf; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Night Elf PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Night Elf identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: ancient purple wood, broad silver crescent, dark teal leaves and owl feathers.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_nightelf.png",
+      "artwork/official-crests/originals/race_nightelf.png"
+    ],
+    "official": {
+      "id": "race_nightelf",
+      "label": "Night Elf",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/night-elf",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta47b70b74bf269e7/616a00454d5a4b1063b37382/0LY5ZCA0SV371603901805832.png",
+      "file": "artwork/official-crests/originals/race_nightelf.png",
+      "sha256": "0a5d430f7aa534ea67ff6fa85e7841692b738f3b271667b33cc2939653146a5a",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_gnome",
+    "group": "race",
+    "label": "Gnome",
+    "token": "Gnome",
+    "motif": "chunky copper gears, brass bolts, red leather and one simple blue lens",
+    "prompt": "Use case: stylized-concept. Create ONE original Gnome full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Gnome; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Gnome PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Gnome identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: chunky copper gears, brass bolts, red leather and one simple blue lens.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_gnome.png",
+      "artwork/official-crests/originals/race_gnome.png"
+    ],
+    "official": {
+      "id": "race_gnome",
+      "label": "Gnome",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/gnome",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2443ee39caa44a89/616a0060ce267e66ae2fe94c/BW9K7DDHZTRE1605545652498.png",
+      "file": "artwork/official-crests/originals/race_gnome.png",
+      "sha256": "4cddcec5bf83c25d8ec3ad77d94c2044df506b000f8f342b147e5e2508492155",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_draenei",
+    "group": "race",
+    "label": "Draenei",
+    "token": "Draenei",
+    "motif": "worn lavender crystals, pale stone, muted gold naaru-inspired crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Draenei full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Draenei; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Draenei PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Draenei identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: worn lavender crystals, pale stone, muted gold naaru-inspired crest.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_draenei.png",
+      "artwork/official-crests/originals/race_draenei.png"
+    ],
+    "official": {
+      "id": "race_draenei",
+      "label": "Draenei",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/draenei",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltc12b719e2ffc2f52/616a007af8fe091054181e8a/USXSJEJ6B6Z21605557059834.png",
+      "file": "artwork/official-crests/originals/race_draenei.png",
+      "sha256": "91afd003bc19fef0ed6d9207df9138a10f7176174c465af8554ee795e7595e01",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_worgen",
+    "group": "race",
+    "label": "Worgen",
+    "token": "Worgen",
+    "motif": "weathered Gilnean iron, dark blue cloth, broad wolf-ear silhouettes and old brass",
+    "prompt": "Use case: stylized-concept. Create ONE original Worgen full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Worgen; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Worgen PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Worgen identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: weathered Gilnean iron, dark blue cloth, broad wolf-ear silhouettes and old brass.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_worgen.png",
+      "artwork/official-crests/originals/race_worgen.png"
+    ],
+    "official": {
+      "id": "race_worgen",
+      "label": "Worgen",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/worgen",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf902343d6339c091/616a009cfb74964cc74d15e7/A6Y10KJ2VFYJ1605723863532.png",
+      "file": "artwork/official-crests/originals/race_worgen.png",
+      "sha256": "9df69c23e56d45420e3ae77e1413c6f5e635896a221a41fd66341dc6aeafbd12",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_orc",
+    "group": "race",
+    "label": "Orc",
+    "token": "Orc",
+    "motif": "rough iron spikes, red hide bindings, broad tusks and brown wood",
+    "prompt": "Use case: stylized-concept. Create ONE original Orc full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Orc; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Orc PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Orc identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: rough iron spikes, red hide bindings, broad tusks and brown wood.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_orc.png",
+      "artwork/official-crests/originals/race_orc.png"
+    ],
+    "official": {
+      "id": "race_orc",
+      "label": "Orc",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/orc",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt0f02f3cbfdeafa88/616da56f9f3ef74e02a20dcc/6MSKYPAWWSUH1607641013386.png",
+      "file": "artwork/official-crests/originals/race_orc.png",
+      "sha256": "a2aa50b4ea7c9c1f33d535cf2b7bfddabfde4be6daa8f3a0d54483bf539e2953",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_scourge",
+    "group": "race",
+    "label": "Undead",
+    "token": "Scourge",
+    "motif": "chipped tombstone, yellowed bone, torn purple cloth and small green plague accents",
+    "prompt": "Use case: stylized-concept. Create ONE original Undead full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Undead; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Undead PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Undead identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: chipped tombstone, yellowed bone, torn purple cloth and small green plague accents. Preserve the official Undead half-face, spiked teal shield and purple cloth language, not a generic skull.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_scourge.png",
+      "artwork/official-crests/originals/race_scourge.png"
+    ],
+    "official": {
+      "id": "race_scourge",
+      "label": "Undead",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/undead",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt238a2c5d3db4f8f1/6169fc52fb74964cc74d15b7/OG6OH5SWHPZJ1559260730605.png",
+      "file": "artwork/official-crests/originals/race_scourge.png",
+      "sha256": "9dd09370a4bdd3ecafdfbca1e4d698b91d1b97369f2c99850fc3c42b3f921a36",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_tauren",
+    "group": "race",
+    "label": "Tauren",
+    "token": "Tauren",
+    "motif": "carved brown wood, hide, broad white horns and simple ochre tribal paint",
+    "prompt": "Use case: stylized-concept. Create ONE original Tauren full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Tauren; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Tauren PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Tauren identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: carved brown wood, hide, broad white horns and simple ochre tribal paint.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_tauren.png",
+      "artwork/official-crests/originals/race_tauren.png"
+    ],
+    "official": {
+      "id": "race_tauren",
+      "label": "Tauren",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/tauren",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf51ca4462a828005/616a01d19f3ef74e02a20d28/VNKFQWE588461557349783879.png",
+      "file": "artwork/official-crests/originals/race_tauren.png",
+      "sha256": "ed773f7cda8164bbafa50d0f43eb610a44a508a1b79c45ba31fe8f57751e5cee",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_troll",
+    "group": "race",
+    "label": "Troll",
+    "token": "Troll",
+    "motif": "carved blue wood, large tusks, muted orange feathers and simple voodoo mask crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Troll full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Troll; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Troll PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Troll identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: carved blue wood, large tusks, muted orange feathers and simple voodoo mask crest.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_troll.png",
+      "artwork/official-crests/originals/race_troll.png"
+    ],
+    "official": {
+      "id": "race_troll",
+      "label": "Troll",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/troll",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltc7bd33d3398b1d89/616a01e6a617d74bae3180ee/XQIZERDAIV2T1614277942195.png",
+      "file": "artwork/official-crests/originals/race_troll.png",
+      "sha256": "55dc635dac717aa14c1973f7bb36abf40b55766d87c708b05c85c6ea789a3d6e",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_bloodelf",
+    "group": "race",
+    "label": "Blood Elf",
+    "token": "BloodElf",
+    "motif": "aged red and gold, sweeping angular sun shapes, a small emerald crystal",
+    "prompt": "Use case: stylized-concept. Create ONE original Blood Elf full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Blood Elf; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Blood Elf PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Blood Elf identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: aged red and gold, sweeping angular sun shapes, a small emerald crystal.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_bloodelf.png",
+      "artwork/official-crests/originals/race_bloodelf.png"
+    ],
+    "official": {
+      "id": "race_bloodelf",
+      "label": "Blood Elf",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/blood-elf",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltf98f9b287fd259db/616a0201bdc5454d581ba20f/1S1T3ZP0XYGV1552513933946.png",
+      "file": "artwork/official-crests/originals/race_bloodelf.png",
+      "sha256": "c2b815008d0581c6ac492f141777df69d0684467c129e41fc62ce33dd3b03e78",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_goblin",
+    "group": "race",
+    "label": "Goblin",
+    "token": "Goblin",
+    "motif": "rough brass, chunky bolts, green metal panels, a few red rivets",
+    "prompt": "Use case: stylized-concept. Create ONE original Goblin full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Goblin; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Goblin PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Goblin identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: rough brass, chunky bolts, green metal panels, a few red rivets.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_goblin.png",
+      "artwork/official-crests/originals/race_goblin.png"
+    ],
+    "official": {
+      "id": "race_goblin",
+      "label": "Goblin",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/goblin",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt5a20ef2a98398062/616a023f70b75d5011e406d0/KNUS13FCMRZ31614290111339.png",
+      "file": "artwork/official-crests/originals/race_goblin.png",
+      "sha256": "9f61c372738dc93aee953e1da4265ff1e21054bf3d2b041e719a76bac0c8e929",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_pandaren",
+    "group": "race",
+    "label": "Pandaren",
+    "token": "Pandaren",
+    "motif": "dark red lacquered wood, broad bamboo leaves, ivory stone and a jade medallion",
+    "prompt": "Use case: stylized-concept. Create ONE original Pandaren full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Pandaren; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Pandaren PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Pandaren identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: dark red lacquered wood, broad bamboo leaves, ivory stone and a jade medallion.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_pandaren.png",
+      "artwork/official-crests/originals/race_pandaren.png"
+    ],
+    "official": {
+      "id": "race_pandaren",
+      "label": "Pandaren",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/pandaren-alliance",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta264a9ee426a126d/616a018c0e274669d2eec130/K808NK3EW6TS1605905313557.png",
+      "file": "artwork/official-crests/originals/race_pandaren.png",
+      "sha256": "6bc0b3fe0747620ce1baeacdc8f56d939fd225b521ab9be4f5483398eed61441",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_dracthyr",
+    "group": "race",
+    "label": "Dracthyr",
+    "token": "Dracthyr",
+    "motif": "weathered dragon-scale plates, bronze crests, muted red and teal, broad wing membrane accents",
+    "prompt": "Use case: stylized-concept. Create ONE original Dracthyr full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Dracthyr; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Dracthyr PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Dracthyr identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: weathered dragon-scale plates, bronze crests, muted red and teal, broad wing membrane accents.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_dracthyr.png",
+      "artwork/official-crests/originals/race_dracthyr.png"
+    ],
+    "official": {
+      "id": "race_dracthyr",
+      "label": "Dracthyr",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dracthyr-alliance",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3d327163a476f786/632b91c5251b540e0aea7b81/Crest_Dracthyr_RacePage.png",
+      "file": "artwork/official-crests/originals/race_dracthyr.png",
+      "sha256": "932922fa67b480dec97b627a60ba8f76c40dfc9ef71447c498d3bf905079ae98",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_voidelf",
+    "group": "race",
+    "label": "Void Elf",
+    "token": "VoidElf",
+    "motif": "tarnished silver, dark violet cloth and chunky purple void crystals",
+    "prompt": "Use case: stylized-concept. Create ONE original Void Elf full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Void Elf; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Void Elf PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Void Elf identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: tarnished silver, dark violet cloth and chunky purple void crystals.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_voidelf.png",
+      "artwork/official-crests/originals/race_voidelf.png"
+    ],
+    "official": {
+      "id": "race_voidelf",
+      "label": "Void Elf",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/void-elf",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt1d65f09cc7f2072b/6169fdb84d5a4b1063b3735d/5V5FC0JM7EZ21532560495721.png",
+      "file": "artwork/official-crests/originals/race_voidelf.png",
+      "sha256": "5f4378d0f618f9ff47476a8277b1240238930d2d56af190ebff29653881ed813",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_lightforgeddraenei",
+    "group": "race",
+    "label": "Lightforged Draenei",
+    "token": "LightforgedDraenei",
+    "motif": "ivory crystal, aged gold plates and a broad radiant sigil crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Lightforged Draenei full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Lightforged Draenei; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Lightforged Draenei PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Lightforged Draenei identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: ivory crystal, aged gold plates and a broad radiant sigil crest.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_lightforgeddraenei.png",
+      "artwork/official-crests/originals/race_lightforgeddraenei.png"
+    ],
+    "official": {
+      "id": "race_lightforgeddraenei",
+      "label": "Lightforged Draenei",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/lightforged-draenei",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt5a883c594e2d4a2d/6169fdfdc7bf1d4cc89fdb2e/CKSTMP0F3JR31531430144751.png",
+      "file": "artwork/official-crests/originals/race_lightforgeddraenei.png",
+      "sha256": "8aca1bb138c48d7aed93f29b2b6891381f52b6e1ca512f9ee9d75d3cd46f0022",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_darkirondwarf",
+    "group": "race",
+    "label": "Dark Iron Dwarf",
+    "token": "DarkIronDwarf",
+    "motif": "charcoal basalt, dark steel, broad orange magma seams and square dwarven runes",
+    "prompt": "Use case: stylized-concept. Create ONE original Dark Iron Dwarf full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Dark Iron Dwarf; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Dark Iron Dwarf PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Dark Iron Dwarf identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: charcoal basalt, dark steel, broad orange magma seams and square dwarven runes.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_darkirondwarf.png",
+      "artwork/official-crests/originals/race_darkirondwarf.png"
+    ],
+    "official": {
+      "id": "race_darkirondwarf",
+      "label": "Dark Iron Dwarf",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/dark-iron-dwarf",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltcf425cb329c55845/6169fd7b4d5a4b1063b37359/22ZEQWWUAUV01532560489298.png",
+      "file": "artwork/official-crests/originals/race_darkirondwarf.png",
+      "sha256": "4a121554a5b465cd90376752e0ce06e8ed1226c03536558fd34258400698131b",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_kultiran",
+    "group": "race",
+    "label": "Kul Tiran",
+    "token": "KulTiran",
+    "motif": "salt-worn dark green wood, thick rope, brass and a compact anchor crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Kul Tiran full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Kul Tiran; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Kul Tiran PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Kul Tiran identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: salt-worn dark green wood, thick rope, brass and a compact anchor crest.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_kultiran.png",
+      "artwork/official-crests/originals/race_kultiran.png"
+    ],
+    "official": {
+      "id": "race_kultiran",
+      "label": "Kul Tiran",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/kul-tiran",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt53389d72e99677fc/6169fe6f25b12a4a14b3a861/GH79ETP3YC4X1549479455375.png",
+      "file": "artwork/official-crests/originals/race_kultiran.png",
+      "sha256": "9017f58ee455a3dc9b677f3294ca640b91cd533e0ace0d10df7a256fa8f6a680",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_mechagnome",
+    "group": "race",
+    "label": "Mechagnome",
+    "token": "Mechagnome",
+    "motif": "stout brass machinery, large gears, worn copper and a simple blue glass lens",
+    "prompt": "Use case: stylized-concept. Create ONE original Mechagnome full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Mechagnome; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Mechagnome PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Mechagnome identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: stout brass machinery, large gears, worn copper and a simple blue glass lens.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_mechagnome.png",
+      "artwork/official-crests/originals/race_mechagnome.png"
+    ],
+    "official": {
+      "id": "race_mechagnome",
+      "label": "Mechagnome",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/mechagnome",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt94b7b0c81fc1c536/6169fe9e47c23d6a01ffe025/XBBR586Y07TM1578532685694.png",
+      "file": "artwork/official-crests/originals/race_mechagnome.png",
+      "sha256": "786327c17c501a2cbe22f31fce4c668ae3aed332912a3d3fc1829de5fdcf028f",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_nightborne",
+    "group": "race",
+    "label": "Nightborne",
+    "token": "Nightborne",
+    "motif": "weathered dark violet stone, dull gold curves and a small arcane blue crystal",
+    "prompt": "Use case: stylized-concept. Create ONE original Nightborne full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Nightborne; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Nightborne PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Nightborne identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: weathered dark violet stone, dull gold curves and a small arcane blue crystal.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_nightborne.png",
+      "artwork/official-crests/originals/race_nightborne.png"
+    ],
+    "official": {
+      "id": "race_nightborne",
+      "label": "Nightborne",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/nightborne",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt3918dc28e826ae39/6169fee42f01594a0e0416e4/TKPBMPZUSU7U1532560494019.png",
+      "file": "artwork/official-crests/originals/race_nightborne.png",
+      "sha256": "5e48c334747a0db4efc5e449e87b4e598e4efd142d258077bfa77d0feb2e79a4",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_highmountaintauren",
+    "group": "race",
+    "label": "Highmountain Tauren",
+    "token": "HighmountainTauren",
+    "motif": "carved wood, broad moose antlers, hide wraps and red tribal paint",
+    "prompt": "Use case: stylized-concept. Create ONE original Highmountain Tauren full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Highmountain Tauren; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Highmountain Tauren PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Highmountain Tauren identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: carved wood, broad moose antlers, hide wraps and red tribal paint.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_highmountaintauren.png",
+      "artwork/official-crests/originals/race_highmountaintauren.png"
+    ],
+    "official": {
+      "id": "race_highmountaintauren",
+      "label": "Highmountain Tauren",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/highmountain-tauren",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt854c9c9350ea3541/6169ff3f0e274669d2eec112/CKA8GU31B1FO1532560490496.png",
+      "file": "artwork/official-crests/originals/race_highmountaintauren.png",
+      "sha256": "2a32a3a889ff6b31a95f1816310df9526f697681c33c3bc2be0e81338b113f5d",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_magharorc",
+    "group": "race",
+    "label": "Mag'har Orc",
+    "token": "MagharOrc",
+    "motif": "rough brown hide, black iron, bone spikes and broad ochre clan markings",
+    "prompt": "Use case: stylized-concept. Create ONE original Mag'har Orc full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Mag'har Orc; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Mag'har Orc PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Mag'har Orc identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: rough brown hide, black iron, bone spikes and broad ochre clan markings.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_magharorc.png",
+      "artwork/official-crests/originals/race_magharorc.png"
+    ],
+    "official": {
+      "id": "race_magharorc",
+      "label": "Mag'har Orc",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/maghar-orc",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt13e51203596562d1/6169d276bdc5454d581ba1d0/QZWDD8TUMEEX1532560493080.png",
+      "file": "artwork/official-crests/originals/race_magharorc.png",
+      "sha256": "d36b8394da31a02728d103c45530c090f5c8aea9d0750556bff7da869498f163",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_zandalaritroll",
+    "group": "race",
+    "label": "Zandalari Troll",
+    "token": "ZandalariTroll",
+    "motif": "blocky old gold, turquoise stone, broad stepped patterns and a small loa crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Zandalari Troll full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Zandalari Troll; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Zandalari Troll PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Zandalari Troll identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: blocky old gold, turquoise stone, broad stepped patterns and a small loa crest.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_zandalaritroll.png",
+      "artwork/official-crests/originals/race_zandalaritroll.png"
+    ],
+    "official": {
+      "id": "race_zandalaritroll",
+      "label": "Zandalari Troll",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/zandalari-troll",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/bltbdd6b9b51b14fdec/6169ff779f3ef74e02a20d04/J7ETJWJQGK5E1549412561820.png",
+      "file": "artwork/official-crests/originals/race_zandalaritroll.png",
+      "sha256": "ef6e5291530a984295515773972666c54de88a23cdd469cb81d404a78f642f3a",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_vulpera",
+    "group": "race",
+    "label": "Vulpera",
+    "token": "Vulpera",
+    "motif": "sun-worn red cloth, coarse rope, tan leather and broad fox-ear silhouettes",
+    "prompt": "Use case: stylized-concept. Create ONE original Vulpera full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Vulpera; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Vulpera PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Vulpera identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: sun-worn red cloth, coarse rope, tan leather and broad fox-ear silhouettes.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_vulpera.png",
+      "artwork/official-crests/originals/race_vulpera.png"
+    ],
+    "official": {
+      "id": "race_vulpera",
+      "label": "Vulpera",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/vulpera",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt7e38ae72c707eee3/6169ffd235f1b36b742c74a8/VHQCKU8JYDEU1578424645765.png",
+      "file": "artwork/official-crests/originals/race_vulpera.png",
+      "sha256": "b1c84f68d6cd75cb12a3bf26d6b9d759f7d99abc1ce0eed8582e0e16a6bb08f8",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_earthendwarf",
+    "group": "race",
+    "label": "Earthen",
+    "token": "EarthenDwarf",
+    "motif": "rough slate stone, thick bronze bands, broad faceted blue crystal insets",
+    "prompt": "Use case: stylized-concept. Create ONE original Earthen full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Earthen; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Earthen PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Earthen identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: rough slate stone, thick bronze bands, broad faceted blue crystal insets.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_earthendwarf.png",
+      "artwork/official-crests/originals/race_earthendwarf.png"
+    ],
+    "official": {
+      "id": "race_earthendwarf",
+      "label": "Earthen",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/earthen-alliance",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blta1913351187b20e3/66b2885b518bb26230883de1/Earthen_Crest.png",
+      "file": "artwork/official-crests/originals/race_earthendwarf.png",
+      "sha256": "89d60b455101adc079c80a78ebaf601903990b785b09264daf85503b0568a503",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "race_haranir",
+    "group": "race",
+    "label": "Haranir",
+    "token": "Haranir",
+    "motif": "ancient roots, broad dark leaves, purple quills and restrained amber seed accents",
+    "prompt": "Use case: stylized-concept. Create ONE original Haranir full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Haranir; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Haranir PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Haranir identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: ancient roots, broad dark leaves, purple quills and restrained amber seed accents.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/race_haranir.png",
+      "artwork/official-crests/originals/race_haranir.png"
+    ],
+    "official": {
+      "id": "race_haranir",
+      "label": "Haranir",
+      "group": "race",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/haranir-alliance",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt27ff53c174cc3ddb/69a0d7dea9cfc4b81223339d/Haranir_Crest.png",
+      "file": "artwork/official-crests/originals/race_haranir.png",
+      "sha256": "35155afc81b439513d52b91e61fad480140de31557de7c6802d7f9ec5cb90a8f",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "faction_alliance",
+    "group": "faction",
+    "label": "Alliance",
+    "token": "Alliance",
+    "motif": "weathered royal-blue cloth, silver stonework and an aged gold lion crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Alliance full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Alliance; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Alliance PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Alliance identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: weathered royal-blue cloth, silver stonework and an aged gold lion crest.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/faction_alliance.png",
+      "artwork/official-crests/originals/faction_alliance.png"
+    ],
+    "official": {
+      "id": "faction_alliance",
+      "label": "Alliance",
+      "group": "faction",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/human",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt07958d4a50c867ac/616a00180e274669d2eec122/W4EX9UNJV8OB1531430144879.png",
+      "file": "artwork/official-crests/originals/faction_alliance.png",
+      "sha256": "30ae0e592177665eecaaca0f8cf3dc6bca2bad1055ae682702c37dbd570f57bb",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "faction_horde",
+    "group": "faction",
+    "label": "Horde",
+    "token": "Horde",
+    "motif": "rough red hide, dark iron spikes, bone and a bold red Horde-inspired crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Horde full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Horde; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Horde PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Horde identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. \nMaterial direction: rough red hide, dark iron spikes, bone and a bold red Horde-inspired crest.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/faction_horde.png",
+      "artwork/official-crests/originals/faction_horde.png"
+    ],
+    "official": {
+      "id": "faction_horde",
+      "label": "Horde",
+      "group": "faction",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/undead",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt269b19b0f00cc872/6169fc515e87796834fb5acd/VGJ2XT8PAJL31531171276190.png",
+      "file": "artwork/official-crests/originals/faction_horde.png",
+      "sha256": "e596a8fbbd0e542ad8496a1a87c4f91147070853be029f1cf9966f0004d6c011",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  },
+  {
+    "id": "faction_neutral",
+    "group": "faction",
+    "label": "Neutral",
+    "token": "Neutral",
+    "motif": "weathered gray stone, warm brown leather bindings, a modest bronze compass crest",
+    "prompt": "Use case: stylized-concept. Create ONE original Neutral full unit-frame shell sprite for a classic World of Warcraft artwork addon.\nReference 1 is the APPROVED SHAMAN SHELL and defines composition, footprint, two long empty bar slots, dimensional weight and irregular silhouette ONLY. Transform the material and identity to Neutral; do not retain Shaman runes, tusks or wood unless appropriate.\nReference 2 is the existing approved Neutral PORTRAIT artwork: match its paint style, palette, materials and layered silhouette. Reference 3 is the official Warcraft Neutral identity emblem from the same class/race/faction website images used for that portrait. Use its distinctive motifs as inspiration for sculpted armor/stone/cloth details, not a pasted logo or another circle. Neutral has no official emblem; use the existing neutral portrait's compass, leather and stone language.\nMaterial direction: weathered gray stone, warm brown leather bindings, a modest bronze compass crest.\nMake one cohesive HEAVY sculpted body around both horizontal bar openings, not two thin picture-frame borders. Full 2:1 front-facing orthographic composition matching reference 1. The upper health slot is about twice the lower power-slot height. Both are long, clear, bright green, parallel and aligned. The green name clearance above the slots must stay open. Keep the slot pair in the same positions and proportions as reference 1. Substantial layered lower body with naturally hanging cloth, plates, feathers or roots as appropriate, a tall sculptural themed RIGHT cheek, smaller connecting pieces at the LEFT where an existing portrait sits. The end details and lower drapes join into the body, not floating separate emblems. No new portrait circle, level circle, icon medallion or readable text.\nStyle: Classic Warcraft III / 2004 WoW hand-painted game textures, broad strokes, aged matte surfaces, restrained color, chunky clear shapes, deep contact shadows, light along worn edges. Not modern glossy CGI, neon effects, tiny filigree or a flat box. Need strong silhouette at small gameplay size.\nBackground and BOTH slots MUST be uniformly PURE CHROMA GREEN #00ff00 for later extraction. No painted checkerboard or shadow cast onto the green. All unused space green, no scenery, sample health fills, numbers, words, portraits, buttons or watermark. Retain generous green margins around outermost tips. Return one complete sprite; no sheet of variants.",
+    "references": [
+      "artwork/unit-frames/sculpted/references/class_shaman.png",
+      "artwork/portraits/assets/faction_neutral.png"
+    ],
+    "official": null
+  }
+]
