@@ -44,7 +44,7 @@ function Themes:Register(id, theme)
             end
         end
         for property in pairs(J.Core.properties) do
-            local portrait = property == "portraitMode" or property == "portrait" or property == "unitStyle" or property == "unitFrameShown" or property == "portraitSource"
+            local portrait = property == "portraitMode" or property == "portrait" or property == "unitStyle" or property == "unitFrameShown" or property == "unitFrameSource" or property == "portraitSource"
             local hub = property == "hubMode" or property == "hub" or property == "hubSource"
             local minimap = property == "minimapMode" or property == "minimap"
             if property~="unitStyle" and (not portrait or config.unit) and (not hub or key == "actionHub") and (not minimap or key == "minimap") then

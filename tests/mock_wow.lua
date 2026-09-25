@@ -12,10 +12,11 @@ local function readable(self)
     M.reads = (M.reads or 0) + 1
 end
 local function writable(self,geometry)
-    if self.native and self.powerLayoutBar and geometry then
+    if self.native and (self.powerLayoutBar or self.euiLayoutBar) and geometry then
         readable(self)
         assert(not M.combat,"Native power layout written in combat")
         M.nativeLayoutWrites=(M.nativeLayoutWrites or 0)+1
+        if self.euiLayoutBar then M.euiLayoutWrites=(M.euiLayoutWrites or 0)+1 end
         return
     end
     if self.native then M.nativeWrites=M.nativeWrites+1; error("Attempt to mutate Blizzard frame") end
@@ -73,6 +74,19 @@ function methods:GetCenter()
         return x+point[4],y+point[5]
     end
     return self.w/2,self.h/2
+end
+function methods:GetOrientation() readable(self);return self.orientation or "HORIZONTAL" end
+function methods:GetRect()
+    readable(self)
+    if self.secretRect then return M.secret,0,self.w,self.h end
+    if self.rect then return self.rect[1],self.rect[2],self.w,self.h end
+    local p=self.points[1]
+    if not p then return 0,0,self.w,self.h end
+    local anchors={TOPLEFT={0,1},TOP={.5,1},TOPRIGHT={1,1},LEFT={0,.5},CENTER={.5,.5},RIGHT={1,.5},BOTTOMLEFT={0,0},BOTTOM={.5,0},BOTTOMRIGHT={1,0}}
+    local a,b=anchors[p[1]],anchors[p[3]]
+    local x,y,w,h=p[2]:GetRect()
+    local ratio=p[2]:GetEffectiveScale()/self:GetEffectiveScale()
+    return (x+w*b[1])*ratio+(p[4] or 0)-self.w*a[1],(y+h*b[2])*ratio+(p[5] or 0)-self.h*a[2],self.w,self.h
 end
 function methods:EnableMouse(value) writable(self); self.mouse=value end
 function methods:EnableMouseWheel(value) writable(self); self.wheel=value end
@@ -212,6 +226,7 @@ JiberishUIOptionsFrame=nil
 BLINKIISPORTRAITS=nil
 ElvUI_mMediaTag=nil
 mMT=nil
+EllesmereUI=nil
 for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do
     for _,unit in ipairs({"Player","Target","Focus"}) do _G[prefix..unit]=nil end
 end

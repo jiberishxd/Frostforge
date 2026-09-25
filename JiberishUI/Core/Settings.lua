@@ -369,7 +369,7 @@ function S:Create()
         local selected=key
         self.tabs[key]=button(f,names[key],24+(i-1)*120,-82,112,function() self:Select(selected) end)
     end
-    self.heading=text(f,"",32,-136,420,"GameFontNormal")
+    self.heading=text(f,"",32,-136,240,"GameFontNormal")
     self.showButton=toggle(f,"Show artwork",468,-128,140,function()
         self:Set("shown",not J.ThemeManager:Resolve(self.selected).shown)
     end)
@@ -401,10 +401,10 @@ function S:Create()
         self:HideMenus();self:ShowMinimapGroup(self.minimapGroup or "CLASS",self.minimapPage);self.minimapPicker:Show()
     end)
     self:CreateMinimapPicker()
-    self.styleButton=toggle(f,"Unit-frame artwork",340,-534,276,function()
+    self.styleButton=toggle(f,"Unit-frame art",280,-128,180,function()
         self:Set("unitFrameShown",not J.ThemeManager:Resolve(self.selected).unitFrameShown)
     end)
-    self.styleCaption=text(f,"Independent health / power shell",340,-514,276)
+    self:Dropdown("unitFrameSource","Unit frames addon",{{"AUTO","Automatic"},{"BLIZZARD","Blizzard"},{"ELLESMERE","EllesmereUI"}},340,-514)
     self.debugButton=toggle(f,"Debug bounds",24,-664,148,function() J.Core:Command("debug") end)
     button(f,"Reset this component",184,-664,188,function()
         self.message=nil
@@ -421,7 +421,8 @@ function S:Refresh()
     local config=J.ThemeManager:Resolve(self.selected)
     self.heading:SetText(names[self.selected] .. " artwork")
     local unit=J.Portraits:IsUnitKey(self.selected)
-    self.styleButton:SetShown(unit);self.styleCaption:SetShown(unit)
+    self.styleButton:SetShown(unit)
+    self.controls.unitFrameSource.button:SetShown(unit);self.controls.unitFrameSource.label:SetShown(unit)
     if unit then self.styleButton.check:SetShown(config.unitFrameShown) end
     self.showButton.caption:SetText(unit and "Portrait art" or "Show artwork")
     local minimap=self.selected=="minimap"
@@ -437,7 +438,7 @@ function S:Refresh()
     local module=J.Core.modules[self.selected]
     self.sourceStatus:SetText(module.snapshot and ("Following: "..module.snapshot.name) or module.status or "Waiting for frame")
     if unit then
-        self.sourceStatus:SetText("Unit frame: "..(J.UnitSkins.status[self.selected] or "waiting"))
+        self.sourceStatus:SetText("Portrait: "..(not config.shown and "off" or module.snapshot and (module.snapshot.source..(module.nativeVisible and "" or " (hidden)")) or "unavailable").." | Frame: "..(J.UnitSkins.summary[self.selected] or "off"))
     end
     self.controls.hubMode.button:SetShown(hub);self.controls.hubMode.label:SetShown(hub)
     self.hubCaption:SetShown(hub);self.hubButton:SetShown(hub)

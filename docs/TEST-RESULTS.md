@@ -1,4 +1,14 @@
-# Build 0.7.1 independent unit-frame artwork
+# Build 0.7.2 EllesmereUI integration
+
+142 Lua 5.1 tests and five Python artwork regressions pass. Fourteen new Lua checks cover the supplied EllesmereUI 9.2.9 object structure on both client paths: independent portrait/shell toggles for all three units, explicit and automatic provider selection, inactive/transparent providers, coexistence with Blinkii, delayed/replaced frames, original stack bounds, all 42 theme fits without cumulative shrinkage, combat queuing, restoration after provider redraws, hidden/forbidden/secret geometry, supported versus texture-only layouts, stock portrait masks and side changes, default/explicit layers, diagnostics, scale changes and partial provider redraws.
+
+The offline fixture describes public object shape only; no Ellesmere code is copied or executed. Read-only inspection hashes for the supplied release are in addon-sources.json. The mock rejects functional native writes and all presentation writes in combat. It permits only the documented fill texture/UV and bar layout edits. Stable ticks do not repeat layout or fill writes. Root size, clipping and parent relationships are untouched.
+
+All 252 runtime artwork files are unchanged from merged 0.7.1. Source, transparency, provenance and exact Retail/Forever 0.7.2 package checks pass. No third-party addon code or textures are included.
+
+No WoW interaction or in-game testing was performed. The reported Ellesmere failure exposed the missing bar adapter; active-provider selection, portrait masks and opaque-panel layering are also corrected offline. User confirmation is still required for renderer clipping, labels/prediction overlays, profile redraw timing and secure behavior. Full Ellesmere shells currently require horizontal attached power below/aligned with health; other layouts receive available textures only. See VALIDATION.md for the user-run checks and use `/jui status` to report any remaining issue.
+
+## Previous build 0.7.1 independent unit-frame artwork
 
 128 Lua tests pass. Coverage includes four portrait/shell toggle combinations on Retail and Forever; legacy migration/import/export; initialized Forever bar bindings; unavailable or restricted fill metadata; external portrait providers; and source-proportional power-bar fitting. Geometry tests cover restoration, combat deferral, later native layouts and stable ticks without repeated writes. The mock permits only the intended out-of-combat power geometry and fill appearance writes, and rejects functional native mutations.
 
