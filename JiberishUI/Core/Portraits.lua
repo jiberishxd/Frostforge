@@ -1,5 +1,5 @@
 local _, J = ...
-local P = {}
+local P = {cityCache={}}
 J.Portraits = P
 
 J.Core.properties.portraitMode = {CLASS=true,RACE=true,FACTION=true,FIXED=true}
@@ -17,8 +17,8 @@ function P:TexCoords(unit)
     return 0.5,1
 end
 
--- Never index, compare or format restricted API results. Localized display names
--- are intentionally ignored; only public, typed file tokens enter the registry.
+-- Never index, compare or format restricted API results. Player selection uses
+-- public file tokens; NPC affiliations use exact, client-localized labels.
 local function token(api,unit,index)
     if type(api) ~= "function" then return nil end
     local values = {pcall(api,unit)}
@@ -27,25 +27,90 @@ local function token(api,unit,index)
     if J.Core:IsSafe(value) and type(value) == "string" then return value end
 end
 
+local function field(object,key)
+    if not J.Core:IsSafe(object) or type(object)~="table" then return end
+    local value=object[key]
+    if J.Core:IsSafe(value) then return value end
+end
+
+local function publicCall(api,...)
+    if type(api)~="function" then return end
+    local ok,value=pcall(api,...)
+    if ok and J.Core:IsSafe(value) then return value end
+end
+
+local function plainText(value)
+    if not J.Core:IsSafe(value) or type(value)~="string" or #value>256 then return end
+    return value:gsub("|c%x%x%x%x%x%x%x%x",""):gsub("|r",""):match("^%s*(.-)%s*$")
+end
+
+function P:CityNames(now)
+    if self.cityNames and now and self.cityNamesAt and now-self.cityNamesAt<30 then return self.cityNames end
+    local names={}
+    for _,city in ipairs(J.NPCCities) do
+        names[city.name]=city.artwork
+        local data=publicCall(field(C_Reputation,"GetFactionDataByID"),city.factionID)
+        local name=plainText(field(data,"name")) or plainText(publicCall(GetFactionInfoByID,city.factionID))
+        if name and name~="" then names[name]=city.artwork end
+    end
+    self.cityNames,self.cityNamesAt=names,now
+    return names
+end
+
+function P:NPCCity(unit)
+    -- City affiliation belongs to the NPC, not the player's current zone. A
+    -- public creature GUID excludes players, pets and vehicles; restricted
+    -- identity/tooltip fields never enter string matching or cache keys.
+    local guid=token(UnitGUID,unit,1)
+    if not guid or not guid:match("^Creature%-") then self.cityCache[unit]=nil;return end
+    if publicCall(UnitPlayerControlled,unit)~=false then return end
+    local now=publicCall(GetTime)
+    if not J.Core:IsNumber(now) then now=nil end
+    local cached=self.cityCache[unit]
+    if cached and cached.guid==guid and now and cached.at and now>=cached.at and now-cached.at<.5 then return cached.id end
+    local data=publicCall(field(C_TooltipInfo,"GetUnit"),unit,true)
+    local lines=field(data,"lines")
+    local id
+    local names=self:CityNames(now)
+    -- Affiliation is an ordinary text line. Skip the name, quest objectives,
+    -- owner and all other typed lines; never substring-match an NPC's name.
+    for i=2,12 do
+        local line=field(lines,i)
+        local kind=field(line,"type")
+        if type(line)=="table" and J.Core:IsSafe(line.type) and (kind==nil or kind==0) then
+            local text=plainText(field(line,"leftText"))
+            if text and names[text] then id=names[text];break end
+        end
+    end
+    if not id then
+        local creatureID=tonumber(guid:match("^Creature%-%d+%-%d+%-%d+%-%d+%-(%d+)%-"))
+        id=creatureID and J.NPCCityGuards[creatureID]
+    end
+    self.cityCache[unit]={guid=guid,at=now,id=id}
+    return id
+end
+
 function P:Resolve(config)
     local id
     if config.portraitMode == "FIXED" then
         id = config.portrait
-    elseif config.portraitMode == "CLASS" then
-        -- NPC UnitClass commonly returns WARRIOR regardless of appearance.
-        -- Keep those on a neutral background rather than inventing a class.
-        local ok, player = false, nil
-        if type(UnitIsPlayer) == "function" then ok,player=pcall(UnitIsPlayer,config.unit) end
-        if ok and J.Core:IsSafe(player) and player == true then
-            local value = token(UnitClass,config.unit,2)
-            if value then id = J.PortraitCatalog.classes[value] end
+    else
+        local player=publicCall(UnitIsPlayer,config.unit)
+        if player==false then id=self:NPCCity(config.unit) end
+        if not id and config.portraitMode == "CLASS" then
+            -- NPC UnitClass commonly returns WARRIOR regardless of appearance.
+            -- Unrecognized NPC affiliations keep the neutral fallback.
+            if player == true then
+                local value = token(UnitClass,config.unit,2)
+                if value then id = J.PortraitCatalog.classes[value] end
+            end
+        elseif not id and config.portraitMode == "RACE" then
+            local value = token(UnitRace,config.unit,2)
+            if value then id = J.PortraitCatalog.races[value] end
+        elseif not id and config.portraitMode == "FACTION" then
+            local value = token(UnitFactionGroup,config.unit,1)
+            if value then id = J.PortraitCatalog.factions[value] end
         end
-    elseif config.portraitMode == "RACE" then
-        local value = token(UnitRace,config.unit,2)
-        if value then id = J.PortraitCatalog.races[value] end
-    elseif config.portraitMode == "FACTION" then
-        local value = token(UnitFactionGroup,config.unit,1)
-        if value then id = J.PortraitCatalog.factions[value] end
     end
     id = id or "FACTION_NEUTRAL"
     local entry = J.PortraitCatalog.entries[id] or J.PortraitCatalog.entries.FACTION_NEUTRAL

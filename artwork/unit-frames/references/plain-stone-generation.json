@@ -1,0 +1,7 @@
+{
+  "date": "2026-09-25",
+  "tool": "Built-in image_gen",
+  "source": "artwork/unit-frames/references/plain-stone.png",
+  "prompt": "Use case: stylized-concept. Asset type: ORIGINAL tileable diffuse stone material for a classic fantasy RPG health-bar fill. Create only a flat, full-bleed, horizontally wide slab of worn slate/limestone texture, viewed straight on, filling every pixel. Hand-painted early-2000s Warcraft-like low-resolution game texture, chunky but subtle irregular stone facets, soft shallow chips and occasional hairline mineral fissures. Quiet, even, medium-light grayscale values, matte surface, gentle top-to-bottom volume, readable at a tiny 256 by 32 pixel health bar. Natural uncarved stone with no man-made marks. No emblems, symbols, runes, lettering, logos, borders, frame, ornamental trim, gems, metallic straps, cloth, embossed pattern or large dominant cracks. No scenery, no perspective, no vignette, no cast shadows. Entire image is opaque usable stone; no surrounding background. Keep the visual density restrained and the edges continuous so clipping the health fill at any percentage looks natural. This must be a new original material, not a recreation of any addon asset. Wide landscape composition, approximately 3:1.",
+  "purpose": "Original health-bar stone material; no reference addon assets used."
+}
