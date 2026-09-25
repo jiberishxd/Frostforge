@@ -219,6 +219,12 @@ function UnitIsPlayer(unit) return M.unitData[unit] and M.unitData[unit].player 
 function UnitClass(unit) return "localized",M.unitData[unit] and M.unitData[unit].class end
 function UnitRace(unit) return "localized",M.unitData[unit] and M.unitData[unit].race end
 function UnitFactionGroup(unit) return M.unitData[unit] and M.unitData[unit].faction end
+function UnitGUID(unit) return M.unitData[unit] and M.unitData[unit].guid end
+function UnitPlayerControlled(unit) return M.unitData[unit] and M.unitData[unit].controlled or false end
+function GetTime() return M.time or 0 end
+C_TooltipInfo=nil
+C_Reputation=nil
+GetFactionInfoByID=nil
 DEFAULT_CHAT_FRAME={AddMessage=function(_,text) M.messages[#M.messages+1]=text end}
 SlashCmdList={}
 UISpecialFrames={}

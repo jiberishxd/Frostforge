@@ -57,7 +57,7 @@
       256,
       32
     ],
-    "source_sha256": "aa632c312359dede6d0cdba940ab8dc1ec21e37c81e92f9992bb8edc462c0b18",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -67,15 +67,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_warrior.png",
-        "sha256": "7619f1ffaadf7c1842f66f97a95044bbe08971542765c0eae23dcc070f8ca7df"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "e2421349728bec7d7126425c2713ecd22f813f117cd32b623474c1e32e3642e3"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_warrior-power.tga",
@@ -170,7 +170,7 @@
       256,
       32
     ],
-    "source_sha256": "dfd7c4846467247dfc04dd7fb0f0a68d0772fd5f2c2e0704b018cde917cd6d2e",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -180,15 +180,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_paladin.png",
-        "sha256": "d8d990309a6b13dfa99a10a269f378ad3a4899494544cb8ef0b1dc7cbd213232"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "5a7772be37e1ded26dfee0e7415d49c82d92717a29dbd69a872abfedc91f52ac"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_paladin-power.tga",
@@ -275,7 +275,7 @@
       256,
       32
     ],
-    "source_sha256": "7f436d19a6f94205a57722596366427b8fd173f1f113d2f694216c05384bb069",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -285,15 +285,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_hunter.png",
-        "sha256": "7b312710f6d2b41d9c244b642b8aa4782add39dffb83915d4bdab49d37f9e1d3"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "0ce27da4c4815cc9c0f5889ba7d06f56ec7aebc4cbe75e984c007dfdea34fbbb"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_hunter-power.tga",
@@ -380,7 +380,7 @@
       256,
       32
     ],
-    "source_sha256": "fca509f678209a6c165322a6d5f73556f8ca7b055d50b6475d0798333fa2e037",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -390,15 +390,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_rogue.png",
-        "sha256": "efb0842a251ad66cbbe97d0b3787397c997616284414c630422eded201fd2d7c"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "2ce9bdb93b306d1c899fb5e57a158a5b68ef2d7f84c11854fc95c7ad9fc1d57d"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_rogue-power.tga",
@@ -485,7 +485,7 @@
       256,
       32
     ],
-    "source_sha256": "328e7ba2ea949a720f510c996d812fbf3c05d6f670cd047246a72db2e8c35f0a",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -495,15 +495,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_priest.png",
-        "sha256": "f2cb1023337bb16e235f6274e8c1a77f879a66e698239c21e53ed894e3f7ff4a"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "ffbbdcf3045c88a7be30951be0bf80f57a220ce1c4de509a527392db538e4240"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_priest-power.tga",
@@ -590,7 +590,7 @@
       256,
       32
     ],
-    "source_sha256": "da9d1c05cec3c83afbc29a21146e53a770fb4fc24e11931c1254dfb4d46dd0ac",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -600,15 +600,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_deathknight.png",
-        "sha256": "4176e904a6ba285ca49dac3f41429ab47128036bf9633d5e6f9693f08e27c8e4"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "7f398f866320fc23e409cf8975d1db2a82a0e9429d23bf7d0114698670c61322"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_deathknight-power.tga",
@@ -695,7 +695,7 @@
       256,
       32
     ],
-    "source_sha256": "03e15381784017135ed8c2a77564a5b99b1fdcc5e68e8d64d9ea09165c009d4f",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -705,15 +705,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-        "sha256": "4fb47dfd18c93f95625c5949a826acf479e61b825f351237b1221e822208e98c"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "7ddb3fe58c10158a36654f00dfe9839b91b61c9dab519c68a689ef244bfdca0e"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_shaman-power.tga",
@@ -800,7 +800,7 @@
       256,
       32
     ],
-    "source_sha256": "70e235815081862d96e1c10d43b353bafd3a9a7851b9a5e37c07e2d1402f6eda",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -810,15 +810,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
-        "sha256": "933c6959b57eee2adf275baf5417673123620571201a2c1186ee3635b11f1907"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "248b3d8bc8eb2ea789d5563318f77ce818f9e66bb4b03c8b0c11cec04c1180ec"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_mage-power.tga",
@@ -905,7 +905,7 @@
       256,
       32
     ],
-    "source_sha256": "7d08ebcdfed57ae6459b36d914dd9a0835021c74a4e54aaead2c2cfd9966e725",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -915,15 +915,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_warlock.png",
-        "sha256": "a9166f51507ff3f3aaf2f3edf7adeae275be8cc19d2b00f2f804ec0f9a2209ac"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "731767e8dbe215614d96257a62b7aa66831dfb8131de55094d9d5038625b4316"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_warlock-power.tga",
@@ -1010,7 +1010,7 @@
       256,
       32
     ],
-    "source_sha256": "ed7abc8e0c6a0ddbdb9dc3d635398cf3bc67050f72ad7364af61d5bbc65a1bd7",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -1020,15 +1020,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_monk.png",
-        "sha256": "0ad27945190646d4c9dfbc98b8bce738deb537b3eeb843c799e794866e6558ef"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "3fb7def28a32c36cc9a4a4cf4f1119a59db355f7c6fa15742d92bf4f9bd84fbf"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_monk-power.tga",
@@ -1115,7 +1115,7 @@
       256,
       32
     ],
-    "source_sha256": "fbf117eb7a65b6675fa32ba68d1d888c977de7cc41832af5fb792fceee3ff4c7",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -1125,15 +1125,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
-        "sha256": "74173d78556def2443d0c92f0724a0785e01b1121677c64791ee5eb8ecfe3df3"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "c3689fcd14c689bb7c4987d1b2aec457a01704c5abbf091d6830f05f8ae43315"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_druid-power.tga",
@@ -1220,7 +1220,7 @@
       256,
       32
     ],
-    "source_sha256": "505fec452c1bedfc3bdd76eb0e09e04a2bcb14c058841fda8d3f36e66d75d3e9",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -1230,15 +1230,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_demonhunter.png",
-        "sha256": "28bc95445b98f62bd102b97301604cbaa52770a6e7355564ab5eacf88fe92e54"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "3c01725ed749f1130a8fe9ce9fbae60df89caaeedc3cd9ef8360397f101659a4"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_demonhunter-power.tga",
@@ -1325,7 +1325,7 @@
       256,
       32
     ],
-    "source_sha256": "eeea0dce4797b615406840cb2aa3baa2f08c0985e99f9490fe893d4b32a1ff4a",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -1335,15 +1335,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/class_evoker.png",
-        "sha256": "5afab4bdcbe1615063e3ff8c9c2eff0779fa8f7fa0fbe67b81b516baa30b44be"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "a26b6a8a98940cbc72a9a02cbd254862f2828c2df7e72d0643ed05d09ea6ccc4"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_evoker-power.tga",
@@ -1430,7 +1430,7 @@
       256,
       32
     ],
-    "source_sha256": "9da3a101a303fc7a8622de27e254189be5c1fb99b3274b5b1465997adcb957ac",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -1440,15 +1440,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_human.png",
-        "sha256": "03e3209f7cc3c9b1807eebebcb5a32bfacccad87b2e67746636ec485410bd2a8"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "b750ac8d4e4f1747f167b30951e49ab7b3981e1f145f1594a68a10ab77e30791"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_human-power.tga",
@@ -1535,7 +1535,7 @@
       256,
       32
     ],
-    "source_sha256": "8b40f24c4378ae5c2182ac25724f171fec7b759dcb9695d99b21aae9b3d5a77e",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -1545,15 +1545,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_dwarf.png",
-        "sha256": "59af5b8c6cbb302e6ea9fdc857af8c397975d5ecc1d1989855f26fd5208169f2"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "43afbf46712a86a83799715aab6cc18556ef4a0c0bfacffad3f1d5ccdaf9f080"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_dwarf-power.tga",
@@ -1640,7 +1640,7 @@
       256,
       32
     ],
-    "source_sha256": "8eaf96ba0dc587d9c2c35b4bcb4c08a2136183f0b27deeae2ccfb55755ff22a2",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -1650,15 +1650,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-        "sha256": "bcc11b58be7ef127ca06ebec5e22c57c52f6644c8bcfd114450edb25eaf7b6f1"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "4a9765fdc62dec398b3d9b291528253b980b34a284feaf165c69da35988ee160"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_nightelf-power.tga",
@@ -1745,7 +1745,7 @@
       256,
       32
     ],
-    "source_sha256": "601d4f5c4179419c38ce8184f8d05f8098ab3bde4ade36b9bd9a73d3f986263f",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -1755,15 +1755,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_gnome.png",
-        "sha256": "27a19ccbd934fac8fce7acd6151bd1031492cd7bccb5a73bfbfbf58fc6a3ac6c"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "8fca0d2b0229963eb2fd776aa65e258ecfd52ddc2380001461dc8abcdb009860"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_gnome-power.tga",
@@ -1850,7 +1850,7 @@
       256,
       32
     ],
-    "source_sha256": "e5f0631737ce7ae0d0f984f42f4f784bcbf2a17c0526ecda94f085a640d44d17",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -1860,15 +1860,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_draenei.png",
-        "sha256": "1f71325c364190b021ab7fb1757baf419752e648d3f40ff404c0843d66b54c04"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "e550dac9bdffd35fb49009541d7d0bd4671c4b18a2e6294ed2643ceb972591cc"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_draenei-power.tga",
@@ -1955,7 +1955,7 @@
       256,
       32
     ],
-    "source_sha256": "dcc5ab03e7d08aae8eae81e5f98afa1b3c8702e24df2aa2871180f35c9773a07",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -1965,15 +1965,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_worgen.png",
-        "sha256": "dc5a46c4b259790ead1780749c386554717db4f3098b2432268bc817cc063412"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "38adaf996f28bd7752b2637de3d40529a25d06da7d1af56ae33686f48f849047"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_worgen-power.tga",
@@ -2060,7 +2060,7 @@
       256,
       32
     ],
-    "source_sha256": "ee3fa5f8247828cb1d2bb274014b9650ab477e0f533b7a1f0fa859750ebc8c5f",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -2070,15 +2070,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_orc.png",
-        "sha256": "95bc8c554e198f4c7793053efd556ed878fd658ce0950d9ef825abeaf1bbd9d0"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "4dd3f9d6bbcd17d84e68ee736587b1fbb2229d08f25b5a9e3843326e19a60ca4"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_orc-power.tga",
@@ -2165,7 +2165,7 @@
       256,
       32
     ],
-    "source_sha256": "b891ef689dc775c0380c0ca28b3aa94b84d15fb25687fda31548c1c9fc31200d",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -2175,15 +2175,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_scourge.png",
-        "sha256": "60cd09c32a54c1832fb1e901588093a96ff1159a0fa3ecaeb6751118d0b597a5"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "808585f950736b5d68a97523915602635752477c72c28a033a5a84f2f01ad0bd"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_scourge-power.tga",
@@ -2270,7 +2270,7 @@
       256,
       32
     ],
-    "source_sha256": "43a11360547a814171a292bbe40f0e4f5e4ccc0b801a4b6f5d930c0e74931d0a",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -2280,15 +2280,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_tauren.png",
-        "sha256": "08ea3704a89980326c71773746c07c1ddd90442e8734a86840744a0ca5227d19"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "9f30c8c6fe5473ad51f54327a0bba0df4b874c5be84d4f3ed1844decf7d4cb1d"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_tauren-power.tga",
@@ -2375,7 +2375,7 @@
       256,
       32
     ],
-    "source_sha256": "97dc0c0cdffc7b2a18dc02d2b5c57664047d7f1bdcceba1f38e97def25d24262",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -2385,15 +2385,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_troll.png",
-        "sha256": "c19354a20e9d85dc80b151caa3b5718799d199384d932ecfd8cdae1b5ae1502b"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "150915ebec76c5812f3fdecab887a30da74b355141d12aed35438fe00ab2d7b5"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_troll-power.tga",
@@ -2480,7 +2480,7 @@
       256,
       32
     ],
-    "source_sha256": "cd58eb490bb6caadea4fe65e1a8717b84f75e6321eb0d83c4890615023b078a8",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -2490,15 +2490,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_bloodelf.png",
-        "sha256": "94e63127d71bd1c0193a8c00e34dca9634ec30fc15818dbdfa9091088ebba96e"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "85019bc1a6ba32acc5edb52411937b2f24461c600dcfc4e13d5e19278583db02"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_bloodelf-power.tga",
@@ -2585,7 +2585,7 @@
       256,
       32
     ],
-    "source_sha256": "f9885410721a3e74d860037414aaa164cc957b86baef3845c06ad193b4a3c775",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -2595,15 +2595,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_goblin.png",
-        "sha256": "e62c0e25039b4f6b074927a3798e538afb6104e3c44d6504fde7c916c4d0c9a6"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "7db46ac611d11d48a14fd55e6b4c66218c14e6c4ee7c0bceeeaead5924016258"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_goblin-power.tga",
@@ -2690,7 +2690,7 @@
       256,
       32
     ],
-    "source_sha256": "5b37be94626a92a1a1efb68a958968ef2ce2eb06f7891470e045cdf34fc49ef9",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -2700,15 +2700,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_pandaren.png",
-        "sha256": "fe8adcebcd52a00a894b33912bc5d70d26089bbce421ac30a1a92046e1cc4793"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "38e9f154a1888e8d0101c6e2aae2b8c1192c8a26aa059a26abf033df59a32449"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_pandaren-power.tga",
@@ -2795,7 +2795,7 @@
       256,
       32
     ],
-    "source_sha256": "7af4b1256ccd9f14a33487700996f04da1dabba60c4bbd46a4768f6ec7a99654",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -2805,15 +2805,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_dracthyr.png",
-        "sha256": "ec5ba7e16b20ba6a605fc5c6d8251c2a44d1c44f6343b3df08849b019926735a"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "84e39be4402ce4c760bb1459bf958982e11851a6ccdb9cd6709fa131ec6ca9e9"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_dracthyr-power.tga",
@@ -2900,7 +2900,7 @@
       256,
       32
     ],
-    "source_sha256": "368811b512972b05c87d2397f93ca1709a19f5fb11aeba9be978489c4620e771",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -2910,15 +2910,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_voidelf.png",
-        "sha256": "d30f70b769a0e11c2599609fbfada49a635b1cf511a77871e844a11607e7eeff"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "2c43b0eee8ed90efc539143d71a42a691a001c695e475dea4106e992efcbdbc7"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_voidelf-power.tga",
@@ -3005,7 +3005,7 @@
       256,
       32
     ],
-    "source_sha256": "7e3d63fe9372aa8bfaf4b95934b9d9c545908dfd0d13c415dce0d610df1d3248",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -3015,15 +3015,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_lightforgeddraenei.png",
-        "sha256": "613d670cd7445e1e53a3b46a48f0aff1ce047304cc1e136951bf545d0f7ef9cb"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "a1ba19cfc1f58f3fe473eb37a1d49ffa0061e1d18bba106af65870a8d39d7829"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_lightforgeddraenei-power.tga",
@@ -3110,7 +3110,7 @@
       256,
       32
     ],
-    "source_sha256": "0a14b3cdf9b51aff6c19fa6c41b60b210b90b422038ea50bd20012d254244679",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -3120,15 +3120,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_darkirondwarf.png",
-        "sha256": "c92a7221b78d7bb86718c201f6f383e2fb3b474f3793265a095f3d23e2fe4d2a"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "9893f0fd694346cde56ae6e93a62b2bcc3fcee2e4bd68ba4fde034f0f8c3e491"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_darkirondwarf-power.tga",
@@ -3215,7 +3215,7 @@
       256,
       32
     ],
-    "source_sha256": "6e101e5682c396940516345b3613e17f518b85589feb876975b04cc8ecbab8a7",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -3225,15 +3225,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_kultiran.png",
-        "sha256": "254d7fcb9673c902aa9154ed7a0e21265fd811eeb2553b5e64daef8218a3ba69"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "932c1d0b5f4c28e876ff3524957024d618b1a48fcf277768dbc83b3d4fb44bcd"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_kultiran-power.tga",
@@ -3320,7 +3320,7 @@
       256,
       32
     ],
-    "source_sha256": "67f4fa254a558a87d13396f93752b8cf1eecfed38accf37712b91c4fc7ec6b9c",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -3330,15 +3330,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_mechagnome.png",
-        "sha256": "273e1408eda31268f6a08cb6422287bee6e253e1dbb83268495b6832f99559f9"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "8d193518344749b5beca63c4091a639faddf7006bf4e8095eddd4d49bc213dd9"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_mechagnome-power.tga",
@@ -3425,7 +3425,7 @@
       256,
       32
     ],
-    "source_sha256": "9a67f52a150f4cf7e7c0b009cd30401dd43ed1ef552fa01e3e0d0458a595fe42",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -3435,15 +3435,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_nightborne.png",
-        "sha256": "a5884471404421758570aeac9d3ff91a0475de3f9a440c88ba48b45ab7776909"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "7f8f5fe8ec150e41eba35573b24aad8285e05d97ffde88240fb8afa097f4309b"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_nightborne-power.tga",
@@ -3530,7 +3530,7 @@
       256,
       32
     ],
-    "source_sha256": "586f742e3aa94c039c9518c2cd12a8d6d059ee0502d812df5ba43a9ea5ff9079",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -3540,15 +3540,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_highmountaintauren.png",
-        "sha256": "7be93de43e2bb0cca194201c9c56a8eb9a41c515637bec66aaf4773086b2f4ef"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "4a0534fea34dfb1045c7c70b9f4e0923c3f45958c3d8fffe9c56cf67ca1ba3af"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_highmountaintauren-power.tga",
@@ -3635,7 +3635,7 @@
       256,
       32
     ],
-    "source_sha256": "9f5904583af519d08c9fd5e5acb75a4faf29cd1838478fd4cd7ecb6006640309",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -3645,15 +3645,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_magharorc.png",
-        "sha256": "6deb7a99b1a28ff62ebe43b49ec7d19f9dee6c1b80466bd1df943e0d60d0b087"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "4f898e53a343fd1e7e63a9adaee606fb4d549e05695c29f0151a749b3452ed2d"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_magharorc-power.tga",
@@ -3740,7 +3740,7 @@
       256,
       32
     ],
-    "source_sha256": "bd8e100e3a587080b2dbaafe5bb8eea9ab80c714b2e39201aa0eecd9722c630c",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -3750,15 +3750,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_zandalaritroll.png",
-        "sha256": "cac461d65e3a03962d9bfb615f4c5b03ab1390f382be00657b017c20fcaff407"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "5ea5536371198f2ebaee68fdc299ae263e71aed484c668fd4f186c77618168b1"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_zandalaritroll-power.tga",
@@ -3845,7 +3845,7 @@
       256,
       32
     ],
-    "source_sha256": "892ea21160242edf66b8b30e872e8ea679884b6381d1602f6cc20e140a8a420a",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -3855,15 +3855,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_vulpera.png",
-        "sha256": "cdce8361bc3d11464f5bbb5eecc241c638b0213866de17fc6a182a46e681382b"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "3c9f97fa93866b2ae2aab00a1c5f8a0321655558b834c8b0f4360eb9f4c08dc7"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_vulpera-power.tga",
@@ -3950,7 +3950,7 @@
       256,
       32
     ],
-    "source_sha256": "1f0b1045b5064daf653e6213f302cd61bfb24bab4070339a6f5f2c373d27d549",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -3960,15 +3960,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_earthendwarf.png",
-        "sha256": "28a56a5238465a73902765db150beaae25f34ca7f5d6ce7717330967c28bd62d"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "5a8c9484379a792475346b2d2714481f388608cec6af4317d97b4b6edc5884fb"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_earthendwarf-power.tga",
@@ -4055,7 +4055,7 @@
       256,
       32
     ],
-    "source_sha256": "393cf6ce46ea178a00bdedd79b62ab4bda9731efc07404117e5a3f0c7068ee53",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -4065,15 +4065,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/race_haranir.png",
-        "sha256": "26cf6f83889d0231b2c5f44c26a66db51c6129952df773f8e9a38415151beb85"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "3073f4688419215b248923fbdc243f415ee8f35cae34175b82fa6d5cac7defa7"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/race_haranir-power.tga",
@@ -4160,7 +4160,7 @@
       256,
       32
     ],
-    "source_sha256": "b0c4c2807950915953ab242f7c6feb281148618fcb632eb6c482ca15329715b0",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -4170,15 +4170,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/faction_alliance.png",
-        "sha256": "1157eec9509717be81ff27c2d1059c4d03e230bcd91277c53cffcdc37ba8aed8"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "7ee77341979068235d482a3045278d5e4aff64cad10e0e8f29286b2e031a1ac3"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/faction_alliance-power.tga",
@@ -4265,7 +4265,7 @@
       256,
       32
     ],
-    "source_sha256": "b4322aca667a11db74b7cae6f25f09de613c6e994d2fbea58e569d6aa060c9df",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -4275,15 +4275,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/faction_horde.png",
-        "sha256": "ebe15eddd9ae8de3dc8f986d83428c1f93792b7f09d8213fafac4f0fa82ce8ce"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "0351ca3f47ea5df4e44b418d034b6046cfe99e53704e08ba6df36e1214100b4f"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/faction_horde-power.tga",
@@ -4370,7 +4370,7 @@
       256,
       32
     ],
-    "source_sha256": "e6d96418976de01de14b30dac1b5b9b372f0c2bece8f6078d39456eeb94bd545",
+    "source_sha256": "84ad8ebbe5a8c7f28bdfc8cccfb1bae3d4f1a0a6e1a72e4ea99dd7f6781f1262",
     "alphaBounds": [
       0,
       0,
@@ -4380,15 +4380,15 @@
     "kind": "statusbar-fill",
     "references": [
       {
-        "file": "artwork/unit-frames/references/painted-metal.png",
-        "sha256": "96b1e02feb8f7096f67b409ba712b8bda0c56a84d1e3ab001793ba139fbb8343"
+        "file": "artwork/unit-frames/references/plain-stone.png",
+        "sha256": "e2f89eeec4e65acc4a5213a1ef164f1ae5218ff74dca129ca9c328c53fada3e8"
       },
       {
-        "file": "artwork/unit-frames/sculpted/assets/faction_neutral.png",
-        "sha256": "688c609d396424345689b3e243577fb8fe28ca1c165000e6fecdaeb9d3f1a649"
+        "file": "artwork/unit-frames/references/plain-stone-generation.json",
+        "sha256": "2d817fd4b64a32d8be8bd0d101ab2a744849ec67fd3d3e4c1529d23acc8fa100"
       }
     ],
-    "sha256": "cbfd678a15db068f5552788d055473a116785d4fe5429b4049013e9435254289"
+    "sha256": "1f0efd6227c308d284e0394bbdf7e15ce8c43ddaffdf30135aef70b263855663"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/faction_neutral-power.tga",

@@ -28,6 +28,17 @@ reports={r['id']:r for r in json.loads((ART/'fit-report.json').read_text())}
 if not args.preview:assert len(reports)==len(jobs)==42,'Complete every original and its fitting before packaging.'
 source=ROOT/'artwork/unit-frames/references/painted-metal.png'
 base=np.asarray(ImageOps.grayscale(Image.open(source)).resize((256,32),Image.Resampling.LANCZOS)).astype(float)/255
+stone_source=ROOT/'artwork/unit-frames/references/plain-stone.png'
+stone_brief=ROOT/'artwork/unit-frames/references/plain-stone-generation.json'
+# Health uses only natural stone, never samples an ornamental rail. Contain
+# the contrast for small bars and leave color entirely to the owning StatusBar.
+stone=ImageOps.grayscale(Image.open(stone_source))
+stone=ImageOps.fit(stone,(256,32),method=Image.Resampling.LANCZOS)
+grain_stone=np.asarray(stone).astype(float)/255
+y_stone=np.linspace(0,1,32)[:,None]
+stone_shade=.78+(grain_stone-grain_stone.mean())*.82+.07*np.cos(y_stone*np.pi)-.035*y_stone
+stone_rgb=np.repeat(np.clip(stone_shade,.38,.94)[:,:,None],3,axis=2)
+health_fill=Image.fromarray(np.uint8(stone_rgb*255),'RGB').convert('RGBA')
 assets=[];entries=[]
 for job in jobs:
     name=job['id']
@@ -37,8 +48,8 @@ for job in jobs:
     refs=[original,fitted,ART/'generation-prompts.json']
     if name=='class_paladin':refs += [ART/'paladin-crest-correction.json', ROOT/'artwork/official-crests/originals/class_paladin.png']
     assets.append(save(name,shell,refs,'unit-shell'))
-    # Use original painted brushwork and this shell's actual lower-rail material.
-    # These full-bleed materials retain Blizzard's health/resource color tint.
+    # Power retains the existing brushwork and lower-rail material. Health uses
+    # the separate unmarked stone above; both retain the provider's color tint.
     registration=reports[name]['measured']['registration']
     left,_,right,bottom=registration['power']
     band=a[int(bottom):min(256,int(bottom)+32),int(left)+4:int(right)-4];opaque=band[:,:,3]>.8
@@ -49,7 +60,8 @@ for job in jobs:
     y=np.linspace(0,1,32)[:,None]
     shade=.63+.18*np.exp(-((y-.22)/.24)**2)-.22*y + (base-.5)*.65+grain*.25
     shade[0]*=.55;shade[-2:]*=.60;shade[2]+= .12
-    for kind,factor in [('health',1),('power',1.06)]:
+    assets.append(save(name+'-health',health_fill,[stone_source,stone_brief],'statusbar-fill'))
+    for kind,factor in [('power',1.06)]:
         rgb=np.clip(shade[:,:,None]*tint[None,None,:]*factor,.12,.98)
         fill=Image.fromarray(np.uint8(rgb*255),'RGB').convert('RGBA')
         assets.append(save(name+'-'+kind,fill,[source,fitted],'statusbar-fill'))
