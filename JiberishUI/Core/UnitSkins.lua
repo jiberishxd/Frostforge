@@ -1,5 +1,5 @@
 local _, J = ...
-local S = { units = {}, status = {}, powerLayouts = {}, watched = setmetatable({}, {__mode="k"}) }
+local S = { units = {}, status = {}, summary = {}, powerLayouts = {}, ellesmereLayouts = {}, watched = setmetatable({}, {__mode="k"}) }
 J.UnitSkins = S
 J.Core.properties.unitFrameShown = {boolean=true}
 -- Kept as an import/command alias for profiles made before separate toggles.
@@ -238,6 +238,111 @@ function S:FitPowerLayout(key,bars,id,enabled)
     return true
 end
 
+-- Ellesmere clips attached bars to their existing container. Reserve the
+-- painted divider INSIDE the original stack; never grow or disable that clip.
+local function barRect(bar)
+    if not usable(bar) or type(bar.GetRect)~="function" then return end
+    local x,y,w,h=bar:GetRect()
+    local scale=bar:GetEffectiveScale()
+    if not J.Core:IsNumber(x) or not J.Core:IsNumber(y) or not J.Core:IsNumber(w) or not J.Core:IsNumber(h)
+        or not J.Core:IsNumber(scale) or w<=0 or h<=0 or scale<=0 then return end
+    return {left=x*scale,bottom=y*scale,right=(x+w)*scale,top=(y+h)*scale}
+end
+
+function S:RestoreEllesmereLayout(key)
+    local record=self.ellesmereLayouts[key]
+    if not record then return true end
+    if InCombatLockdown() then J.Core.dirty=true;return false end
+    for _,kind in ipairs({"health","power"}) do
+        local item=record[kind]
+        if not usable(item.bar) then J.Core.dirty=true;return false end
+        local ok,current=pcall(layoutState,item.bar)
+        if not item.partial and (not ok or not current) then J.Core.dirty=true;return false end
+        local parent=item.bar:GetParent()
+        if not J.Core:IsSafe(parent) then J.Core.dirty=true;return false end
+        if parent==item.parent and (item.partial or sameLayout(current,item.applied)) then
+            if not J.Core:Protect(key.." Ellesmere layout restore",function() writeLayout(item.bar,item.original) end) then return false end
+            item.partial=false
+        end
+    end
+    self.ellesmereLayouts[key]=nil
+    return true
+end
+
+function S:FitEllesmereLayout(key,bars,id,enabled)
+    local record=self.ellesmereLayouts[key]
+    local health,power=bars and bars.health,bars and bars.power
+    if record and (not enabled or record.health.bar~=health or record.power.bar~=power) then
+        if not self:RestoreEllesmereLayout(key) then return false,"Layout restoration queued" end
+        record=nil
+    end
+    if not enabled then return false end
+    if InCombatLockdown() then
+        J.Core.dirty=true
+        return record and record.id==id and not record.health.partial and not record.power.partial or false,"Layout queued until combat ends"
+    end
+    local hg,pg=geometry(health),geometry(power)
+    if not hg or not pg then return false,"Full shell needs an enabled health and power bar" end
+    local shown,hp,pp=power:IsShown(),health:GetParent(),power:GetParent()
+    if not J.Core:IsSafe(shown) or shown~=true or not usable(hp) or not usable(pp) or hp~=pp then
+        self:RestoreEllesmereLayout(key)
+        return false,"Shell needs attached power below health; textures only"
+    end
+    local current={}
+    for kind,bar in pairs({health=health,power=power}) do
+        if type(bar.GetOrientation)=="function" then
+            local direction=bar:GetOrientation()
+            if not J.Core:IsSafe(direction) or direction~="HORIZONTAL" then
+                self:RestoreEllesmereLayout(key)
+                return false,"Full shell needs horizontal bars; textures only"
+            end
+        end
+        local ok,state=pcall(layoutState,bar)
+        if not ok or not state then return false,"Waiting for public Ellesmere bar layout" end
+        current[kind]=state
+    end
+    if record and (record.health.partial or record.power.partial
+        or not sameLayout(current.health,record.health.applied) or not sameLayout(current.power,record.power.applied)
+        or hg.scale~=record.healthScale or pg.scale~=record.powerScale) then
+        if not self:RestoreEllesmereLayout(key) then return false,"Waiting to restore Ellesmere layout" end
+        return self:FitEllesmereLayout(key,bars,id,enabled)
+    end
+    if not record then
+        local hok,hr=pcall(barRect,health)
+        local pok,pr=pcall(barRect,power)
+        if not hok or not pok or not hr or not pr then return false,"Waiting for public Ellesmere bar bounds" end
+        local gap=hr.bottom-pr.top
+        -- Detached/off-center/above layouts keep their geometry and receive
+        -- materials only. Never drag a separately positioned resource bar.
+        if gap < -.5 or math.abs(hr.left-pr.left)>2 or math.abs(hr.right-pr.right)>12 then
+            return false,"Shell needs power below health and aligned; textures only"
+        end
+        record={health={bar=health,parent=hp,original=current.health},power={bar=power,parent=pp,original=current.power},
+            gap=math.max(0,gap)/hg.scale,healthScale=hg.scale,powerScale=pg.scale}
+        self.ellesmereLayouts[key]=record
+    end
+    local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
+    local h,p=entry.opening.health,entry.opening.power
+    local total=(record.health.original.h+record.gap)*hg.scale+record.power.original.h*pg.scale
+    local scale=total/(p[4]-h[2])
+    local desiredHealth={w=current.health.w,h=(h[4]-h[2])*scale/hg.scale,points=record.health.original.points}
+    local desiredPower={w=hg.w*hg.scale/pg.scale,h=(p[4]-p[2])*scale/pg.scale,
+        points={{"TOPLEFT",health,"BOTTOMLEFT",0,-(p[2]-h[4])*scale/pg.scale}}}
+    for _,kind in ipairs({"health","power"}) do
+        local desired=kind=="health" and desiredHealth or desiredPower
+        local item=record[kind]
+        if not sameLayout(current[kind],desired) then
+            item.partial=true
+            if not J.Core:Protect(key.." Ellesmere "..kind.." fitting",function() writeLayout(item.bar,desired) end) then
+                return false,"Waiting to finish Ellesmere bar fitting"
+            end
+        end
+        item.applied,item.partial=desired,false
+    end
+    record.id=id
+    return true
+end
+
 function S:Layout(record,key,kind,config,id,g)
     local trim=record.trim
     if not trim then trim=self:CreateTrim(key,kind);record.trim=trim end
@@ -309,16 +414,25 @@ end
 
 function S:TickUnit(key)
     local config=J.ThemeManager:Resolve(key)
-    -- Portrait visibility/provider must never disable Blizzard bar artwork.
-    -- Hidden native bars already hide their corresponding shells naturally.
+    -- Portrait visibility/provider must never disable independent bar artwork.
     local enabled=config.unitFrameShown
-    self.status[key]=enabled and "Waiting for Blizzard health / power bars" or "Off"
+    self.status[key]=enabled and "Waiting for unit-frame bars" or "Unit frame: off"
+    self.summary[key]=enabled and "waiting for bars" or "off"
     local unit=self.units[key]
     if not enabled and not unit then return end -- Portrait-only mode has no hooks or bar reads.
     if not unit then unit={trims={}};self.units[key]=unit end
-    local bars=enabled and J.Core.client:UnitBars(key) or nil
+    local bars,reason
+    if enabled then bars,reason=J.AddOnAnchors:UnitBars(key,config.unitFrameSource) end
     local id=J.Portraits:Resolve(config)
-    local fitted=self:FitPowerLayout(key,bars,id,enabled)
+    local fitted,fitReason
+    local external=bars and bars.source=="ELLESMERE"
+    if external then
+        local strata,level=bars.root:GetFrameStrata(),bars.root:GetFrameLevel()
+        J.AddOnAnchors:Layer(key,config,strata,J.Core:IsNumber(level) and level+1 or nil)
+        if self:RestorePowerLayout(key) then fitted,fitReason=self:FitEllesmereLayout(key,bars,id,enabled) end
+    else
+        if self:RestoreEllesmereLayout(key) then fitted=self:FitPowerLayout(key,bars,id,enabled) end
+    end
     local states={}
     for _,kind in ipairs({"health","power"}) do
         local bar=bars and bars[kind]
@@ -354,7 +468,7 @@ function S:TickUnit(key)
             if not InCombatLockdown() then
                 -- Shells need only bar geometry. Unreadable native fill metadata
                 -- must not silently suppress the entire ornamental frame.
-                self:Layout(record,key,kind,config,id,g)
+                if not external or fitted then self:Layout(record,key,kind,config,id,g) end
                 unit.trims[kind]=record.trim
                 if not record.original then
                     local original=capture(texture)
@@ -365,19 +479,25 @@ function S:TickUnit(key)
                 local old=record.geometry
                 if not record.active or record.external or record.id~=id or not old
                     or old.w~=g.w or old.h~=g.h or old.scale~=g.scale or old.parentScale~=g.parentScale
-                    or old.capScale~=g.capScale or record.trim.applied.strata~=config.strata
+                    or old.capScale~=g.capScale or not record.trim or not record.trim.applied or record.trim.applied.strata~=config.strata
                     or record.trim.applied.level~=config.level or record.trim.applied.layer~=config.layer then J.Core.dirty=true end
             end
-            self:Visibility(record,enabled and record.id==id)
-            states[#states+1]=kind..(record.trim and record.trim.assetOK and
-                (record.fillReady and ": shell + texture" or ": shell; native fill retained") or ": shell asset unavailable")
-                ..(record.barVisible and "" or " (native bar hidden)")
+            self:Visibility(record,enabled and record.id==id and (not external or fitted))
+            local shellReady=record.trim and record.trim.assetOK and (not external or fitted)
+            states[#states+1]=kind..(shellReady and
+                (record.fillReady and ": shell + texture" or ": shell; native fill retained") or
+                (record.fillReady and ": texture only" or ": native fill retained"))
+                ..(shellReady and not record.barVisible and " (native bar hidden)" or "")
         elseif record then self:Visibility(record,false) end
     end
     if enabled then
-        self.status[key]=#states>0 and table.concat(states,"; ") or "Waiting for Blizzard health / power bars"
-        if not fitted and bars and bars.power then self.status[key]="Waiting to fit power-bar spacing; "..self.status[key] end
+        self.status[key]=#states>0 and ((bars.name or "Blizzard")..": "..table.concat(states,"; ")) or reason or "Waiting for unit-frame bars"
+        if not fitted and bars and (external or bars.power) then self.status[key]=(fitReason or "Waiting to fit power-bar spacing").."; "..self.status[key] end
         if InCombatLockdown() and J.Core.dirty then self.status[key]="Changes queued until combat ends" end
+        if bars then
+            self.summary[key]=bars.name..(fitted and ": fitted" or ": see /jui status")
+        end
+        if InCombatLockdown() and J.Core.dirty then self.summary[key]="queued until combat ends" end
     end
 end
 
