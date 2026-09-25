@@ -274,7 +274,7 @@ function S:Center()
     J.ProfileManager:SetWindowPosition(0,0)
 end
 
-local pageNames={artwork="Artwork",placement="Placement",advanced="Advanced",guide="Guide & backups"}
+local pageNames={artwork="Artwork",placement="Placement",fitting="Unit frame",advanced="Advanced",guide="Guide & backups"}
 
 function S:SetPage(page)
     if not self.pages[page] then return end
@@ -391,9 +391,9 @@ function S:Create()
     button(f,"Center window",28,-592,154,function() self:Center() end)
 
     self.pages={};self.pageButtons={}
-    for i,key in ipairs({"artwork","placement","advanced","guide"}) do
+    for i,key in ipairs({"artwork","placement","fitting","advanced","guide"}) do
         local page=key
-        self.pageButtons[key]=button(f,pageNames[key],218+(i-1)*168,-114,158,function() self:SetPage(page) end)
+        self.pageButtons[key]=button(f,pageNames[key],218+(i-1)*134,-114,126,function() self:SetPage(page) end)
         local body=CreateFrame("Frame",nil,f);body:SetPoint("TOPLEFT",f,"TOPLEFT",218,-214);body:SetSize(666,400)
         body:SetFrameLevel(202);self.pages[key]=body
     end
@@ -417,6 +417,19 @@ function S:Create()
     self:Dropdown("anchor","Anchor",anchors,0,-292,a)
     self.placementHelp=text(a,"",346,-292,318)
     text(a,"Drag a slider or type a value and press Enter. Escape cancels an unfinished edit.",0,-370,660)
+
+    a=self.pages.fitting
+    self:Number("unitFrameWidth","Artwork width (%)",0,-14,1,a)
+    self:Number("unitFrameHeight","Artwork height (%)",346,-14,1,a)
+    self:Number("unitFrameInset","Inset edge depth",0,-108,.1,a)
+    text(a,"A small painted lip and inner shadow make the health and power fills sit inside the frame.",346,-108,318)
+    panel(a,0,-196,666,106)
+    text(a,"FIT THE FRAME, KEEP YOUR BARS",18,-214,626,"GameFontNormal")
+    text(a,"100% follows the current bars. Width and height resize only this unit's artwork around the bar stack. Inset depth controls the inner edge; set it to 0 to remove it. Portrait fitting stays on Placement.",18,-244,626)
+    button(a,"Reset unit-frame fitting",0,-332,318,function()
+        self:Set("unitFrameWidth",100);self:Set("unitFrameHeight",100);self:Set("unitFrameInset",1.5)
+    end)
+    text(a,"Fitting changes apply after combat. Native bar values, colors and texture choices stay with your UI addon.",0,-378,666)
 
     a=self.pages.artwork
     self.showButton=toggle(a,"Portrait art",0,0,318,function() self:Set("shown",not J.ThemeManager:Resolve(self.selected).shown) end)
@@ -463,13 +476,21 @@ function S:Refresh()
     local minimap=self.selected=="minimap"
     local hub=self.selected=="actionHub"
     local module=J.Core.modules[self.selected]
-    local headings={artwork="Artwork",placement="Placement & size",advanced="Textures, layers & diagnostics",guide="Getting started"}
+    local headings={artwork="Artwork",placement="Placement & size",fitting="Unit-frame fitting",advanced="Textures, layers & diagnostics",guide="Getting started"}
+    if not unit and self.page=="fitting" then self.page="placement" end
     self.heading:SetText(names[self.selected].."  |  "..headings[self.page])
     local hints={artwork=unit and "Choose your portrait surround and full-frame artwork independently." or "Choose a matching theme, then follow your existing UI.",
-        placement=unit and "These controls fit the portrait surround. Full-frame shells follow the actual bars." or "Fit the decoration around your existing minimap or action bars.",
+        placement=unit and "These controls fit the portrait surround. Use Unit frame to fit the shell around the bars." or "Fit the decoration around your existing minimap or action bars.",
+        fitting="Enable Unit-frame art on Artwork; then fit its size and inset.",
         advanced="Choose who controls bar textures, then fine-tune layering.",guide="A few simple steps, plus tools to keep your settings safe."}
     self.pageHint:SetText(hints[self.page])
     for key,page in pairs(self.pages) do page:SetShown(key==self.page);self.pageButtons[key].selection:SetShown(key==self.page) end
+    local visiblePages=unit and {"artwork","placement","fitting","advanced","guide"} or {"artwork","placement","advanced","guide"}
+    self.pageButtons.fitting:SetShown(unit)
+    for i,key in ipairs(visiblePages) do
+        local b=self.pageButtons[key];local step=unit and 134 or 168
+        b:ClearAllPoints();b:SetPoint("TOPLEFT",self.frame,"TOPLEFT",218+(i-1)*step,-114);b:SetWidth(step-8)
+    end
     self.styleButton:SetShown(unit);self.styleHelp:SetShown(unit)
     self.controls.unitFrameSource.button:SetShown(unit);self.controls.unitFrameSource.label:SetShown(unit)
     self.controls.unitFrameFill.button:SetShown(unit);self.controls.unitFrameFill.label:SetShown(unit)
@@ -529,10 +550,10 @@ function S:Refresh()
     for choice,b in pairs(self.hubButtons) do b.selection:SetShown(hub and config.hubMode=="FIXED" and config.hub==choice) end
     for choice,b in pairs(self.minimapButtons) do b.selection:SetShown(minimap and config.minimapMode=="FIXED" and config.minimap==choice) end
     for property,control in pairs(self.controls) do
-        if control.slider then
+        if control.slider and config[property]~=nil then
             control.slider:SetValue(config[property])
             if not control.edit:HasFocus() then control.edit:SetText(string.format("%.2f",config[property]):gsub("%.?0+$","")) end
-        else
+        elseif control.choices then
             for _,choice in ipairs(control.choices) do
                 if choice[1]==config[property] then control.button.caption:SetText(choice[2]) end
             end

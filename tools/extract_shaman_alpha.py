@@ -12,7 +12,7 @@ from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'artwork/unit-frames/sculpted'
-SOURCE = ART / 'revisions/shaman-elemental-totem-rgb.png'
+SOURCE = ART / 'revisions/shaman-neutral-totems-rgb.png'
 OUTPUT = ART / 'references/class_shaman.png'
 
 
@@ -36,8 +36,8 @@ def main():
     rgba[alpha == 0, :3] = 0
     result = Image.fromarray(rgba)
     result.save(OUTPUT)
-    assert not alpha[365:475, 280:1390].any()
-    assert not alpha[529:575, 270:1400].any()
+    assert not alpha[365:475, 280:1380].any()
+    assert not alpha[532:568, 280:1380].any()
     assert 0.25 < (alpha > 0).mean() < 0.60
     sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
     report = dict(source=str(SOURCE.relative_to(ROOT)), source_sha256=sha(SOURCE),

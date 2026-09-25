@@ -47,7 +47,7 @@ for job in jobs:
     shell=Image.open(fitted).convert('RGBA');a=np.asarray(shell).astype(float)/255
     refs=[original,fitted,ART/'generation-prompts.json']
     if name=='class_paladin':refs += [ART/'paladin-crest-correction.json', ROOT/'artwork/official-crests/originals/class_paladin.png']
-    if name=='class_shaman':refs += [ART/'shaman-elemental-correction.json', ART/'shaman-alpha-report.json', ART/'revisions/shaman-elemental-totem-rgb.png', ROOT/'artwork/official-crests/originals/class_shaman.png']
+    if name=='class_shaman':refs += [ART/'shaman-elemental-correction.json', ART/'shaman-alpha-report.json', ART/'revisions/shaman-neutral-totems-rgb.png', ART/'shaman-neutral-correction.json', ROOT/'artwork/official-crests/originals/class_shaman.png']
     assets.append(save(name,shell,refs,'unit-shell'))
     # Power retains the existing brushwork and lower-rail material. Health uses
     # the separate unmarked stone above; both retain the provider's color tint.
