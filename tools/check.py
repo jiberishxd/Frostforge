@@ -14,7 +14,7 @@ REQUIRED = {
     "Build.lua", "Core/Core.lua", "Core/ThemeManager.lua", "Core/ProfileManager.lua", "Core/Media.lua", "Core/Settings.lua", "Core/Portraits.lua", "Themes/Portraits.lua", "Core/Hubs.lua", "Themes/Hubs.lua", "Core/Minimaps.lua", "Themes/Minimaps.lua",
     "Compatibility/Retail.lua", "Compatibility/Forever.lua", "Compatibility/AddOns.lua", "Themes/PortraitMaskFits.lua",
     "Modules/Minimap.lua", "Modules/PlayerFrame.lua", "Modules/TargetFrame.lua", "Modules/FocusFrame.lua", "Modules/ActionHub.lua",
-    "Themes/Paladin/Retribution.lua",
+    "Themes/Paladin/Retribution.lua", "Core/UnitSkins.lua", "Themes/UnitSkins.lua",
 }
 
 
@@ -30,7 +30,11 @@ def source_checks():
     for name in sources:
         code = (ROOT / "JiberishUI" / name).read_text()
         code = re.sub(r"--[^\n]*", "", code)
-        assert not re.search(forbidden, code), name
+        # Only the opt-in skin renderer may restore an existing fill atlas.
+        rules = forbidden.replace("|SetAtlas", "") if name == "Core/UnitSkins.lua" else forbidden
+        assert not re.search(rules, code), name
+        if name != "Core/UnitSkins.lua":
+            assert not re.search(r"\bhooksecurefunc\s*\(", code), name
         assert not re.search(r"\b(PlayerFrame|TargetFrame|FocusFrame|MainActionBar|Minimap|UIParent)\s*[:.]\s*Set\w*\s*\(", code), name
         if name.startswith("Modules/"):
             assert 'CreateFrame("Frame"' in code and ",UIParent)" in code
@@ -51,11 +55,15 @@ def source_checks():
 def asset_checks():
     manifest = json.loads((ROOT / "docs/phase1-assets.json").read_text())
     assets = manifest["assets"]
-    assert len(assets) == 126
+    assert len(assets) == 252
     groups = [{Path(a["file"]).stem for a in assets if "/"+kind+"/" in a["file"]} for kind in ("Portraits", "Hubs", "Minimaps")]
     assert all(len(g) == 42 and g == groups[0] for g in groups), "Artwork catalogs must match"
-    assert {p.relative_to(ROOT).as_posix() for p in (ROOT/"JiberishUI/Media").glob("*/*.tga") if p.parent.name in ("Portraits", "Hubs", "Minimaps")} == {a["file"] for a in assets}
+    assert {Path(a["file"]).stem for a in assets if a.get("kind")=="unit-shell"} == groups[0]
+    for kind in ('health','power'):
+        assert {Path(a['file']).stem.rsplit('-',1)[0] for a in assets if a['file'].endswith('-'+kind+'.tga')} == groups[0]
+    assert {p.relative_to(ROOT).as_posix() for p in (ROOT/"JiberishUI/Media").glob("*/*.tga") if p.parent.name in ("Portraits", "Hubs", "Minimaps", "UnitFrames")} == {a["file"] for a in assets}
     media = (ROOT / "JiberishUI/Core/Media.lua").read_text() + (ROOT / "JiberishUI/Themes/Portraits.lua").read_text() + (ROOT / "JiberishUI/Themes/Hubs.lua").read_text() + (ROOT / "JiberishUI/Themes/Minimaps.lua").read_text()
+    media += (ROOT / "JiberishUI/Themes/UnitSkins.lua").read_text()
     references = re.findall(r'"Interface\\\\AddOns\\\\JiberishUI\\\\([^"]+)"', media)
     expected = {"JiberishUI/" + path.replace("\\\\", "/") for path in references}
     assert expected == {a["file"] for a in assets}
@@ -88,12 +96,33 @@ def asset_checks():
         bounds = [min(x for x,y in visible), min(y for x,y in visible),
                   max(x for x,y in visible)+1, max(y for x,y in visible)+1]
         assert bounds == asset["alphaBounds"]
-        assert min(pixels[3::4]) == 0, "Artwork must have transparency"
+        if asset.get("kind") != "statusbar-fill":
+            assert min(pixels[3::4]) == 0, "Surround artwork must have transparency"
         for fx, fy in asset.get("clear_points", []):
             x, y = int(fx*w), int(fy*h)
             if not descriptor & 32:
                 y = h - 1 - y
             assert pixels[(y*w+x)*4+3] == 0, "Functional opening must remain transparent"
+        if "/UnitFrames/" in asset["file"]:
+            assert asset["kind"] in ("unit-shell", "statusbar-fill")
+            assert [w,h] == ([512,256] if asset["kind"] == "unit-shell" else [256,32])
+            for ref in asset["references"]:
+                assert hashlib.sha256((ROOT/ref["file"]).read_bytes()).hexdigest()==ref["sha256"]
+            if asset["kind"]=="unit-shell":
+                assert bounds[0]>=4 and bounds[1]>=4 and bounds[2]<=508 and bounds[3]<=252
+                registration={'canvas':[512,256],'health':[96,84,396,132],'power':[96,136,396,160],'name':[96,0,396,70],'margin':4}
+                assert asset['registration']==registration
+                for region in ('health','power','name'):
+                    x1,y1,x2,y2=registration[region]
+                    for y in range(y1,y2):
+                        row=y if descriptor & 32 else h-1-y
+                        assert all(pixels[(row*w+x)*4+3]==0 for x in range(x1,x2)), (asset['file'],region)
+
+            else:
+                # The sampled fill band is opaque; native masks own clipping.
+                for y in range(h):
+                    row=y if descriptor & 32 else h-1-y
+                    assert all(pixels[(row*w+x)*4+3]==255 for x in range(w))
         if "/Portraits/" in asset["file"]:
             assert [w,h] == [512,256]
             assert asset['fit_version']==5 and asset['registration_box']==[8,8,214,244]
@@ -150,7 +179,7 @@ def asset_checks():
                     assert pixels[(row*w+x)*4+3]==0, 'Hub art covers reserved button region'
             if asset.get('official_crest') or asset.get('emblem_reference'):
                 crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
-    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 126 RGBA assets and provenance hashes")
+    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 252 RGBA assets (including 42 sculpted shells and 84 painted fills) and provenance hashes")
 
 
 def reference_checks():
@@ -181,7 +210,7 @@ def archive_checks(directory):
             assert set(archive.namelist()) == set(expected)
             for name, content in expected.items():
                 assert archive.read(name) == content, name
-        assert len([p for p in expected if p.endswith(".tga")]) == 126
+        assert len([p for p in expected if p.endswith(".tga")]) == 252
     print("PASS both exact client archives; no legacy code/themes or unrelated textures packaged")
 
 

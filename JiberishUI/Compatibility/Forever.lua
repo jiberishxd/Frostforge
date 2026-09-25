@@ -36,3 +36,26 @@ function Forever:PortraitVisible(key,root)
     local visible=portrait:IsVisible()
     return J.Core:IsSafe(visible) and visible == true
 end
+
+-- Verified Forever Mainline paths. Walk and gate each container independently;
+-- a missing/forbidden child leaves that bar native. No fallback to other addons.
+function Forever:UnitBars(key)
+    local root=self:Resolve(key)
+    if not J.Portraits:IsUnitKey(key) or not J.Core:IsUsableFrame(root) then return end
+    local content=key=="playerFrame" and root.PlayerFrameContent or root.TargetFrameContent
+    if not J.Core:IsUsableFrame(content) then return end
+    local main=key=="playerFrame" and content.PlayerFrameContentMain or content.TargetFrameContentMain
+    if not J.Core:IsUsableFrame(main) then return end
+    local health=main.HealthBarsContainer
+    if J.Core:IsUsableFrame(health) then health=health.HealthBar else health=nil end
+    local power
+    if key=="playerFrame" then
+        local area=main.ManaBarArea
+        if J.Core:IsUsableFrame(area) then power=area.ManaBar end
+    else power=main.ManaBar end
+    local result={}
+    for kind,bar in pairs({health=health,power=power}) do
+        if J.Core:IsUsableFrame(bar) and type(bar.GetStatusBarTexture)=="function" then result[kind]=bar end
+    end
+    return result
+end

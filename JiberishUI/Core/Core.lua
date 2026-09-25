@@ -1,9 +1,9 @@
 local addonName, J = ...
 local Core = {
-    version = "0.6.0-compat.2",
+    version = "0.7.0-art.1",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
-    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap" },
+    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitStyle" },
     dirty = true,
 }
 J.Core = Core
@@ -87,7 +87,7 @@ function Core:RegisterModule(module)
 end
 
 -- This gate is also mandatory for any future hook-supplied Blizzard frame.
--- No hooks on Blizzard frames are needed by the current prototype.
+-- Optional full unit skins observe native texture redraws through secure hooks.
 function Core:IsUsableFrame(frame)
     if not self:IsSafe(frame) or (type(frame) ~= "table" and type(frame) ~= "userdata") then return false end
     if type(frame.IsForbidden) ~= "function" then return false end
@@ -314,6 +314,7 @@ function Core:Tick()
             self:Protect(key .. " cleanup",function() self:SyncVisibility(module,nil) end)
         end
     end
+    if J.UnitSkins then J.UnitSkins:Tick() end
 end
 
 function Core:RequestRefresh(immediate)

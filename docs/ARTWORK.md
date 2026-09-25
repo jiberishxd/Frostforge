@@ -53,3 +53,11 @@ All 42 minimaps were generated with the built-in image tool using the matching p
 The renderer scales the default 340-unit artwork by the native Minimap diameter / 198. Effective native scale is applied once; user width/height and scale adjustments remain available. Switching identities changes only the texture and keeps identical geometry. Native screen-edge placement, labels and buttons remain unchanged; ornate crests can still extend beyond the screen at edge-hugging native positions.
 
 The Warrior portrait, action hub and minimap were edited to remove faction insignia from their red cloth. Weapons, armor and draping remain. The edit prompt, before images and revised outputs are retained under `artwork/warrior-neutral-review/`; their processed textures use the same fit templates as the other identities.
+
+## Optional unit-frame materials (0.6.0-art.1)
+
+The 42 full unit-frame shells are original generated artwork, guided by the approved Shaman composition, the existing portrait for each identity, and the recorded official Warcraft class/race/faction reference. Their raw sources, prompts and measured fitting records are in `artwork/unit-frames/sculpted/`. Warrior remains faction-neutral; Mage uses an arcane eye, Hunter uses hunting/skull motifs, and Paladin has broad wings. No other addon's assets, code or branding are used.
+
+`tools/fit_unit_shells.py` removes the solid green matte, despills adjacent edges and registers every shell to a shared 512 × 256 atlas. Health (96,84)-(396,132), power (96,136)-(396,160) and name (96,0)-(396,70) are fully transparent. The outer four pixels remain transparent. Runtime sections fit actual native bars while retaining endcap proportions and hanging ornament.
+
+`tools/build_unit_frame_art.py` encodes the 42 shells and 84 matching 256 × 32 opaque health/power materials. Those materials combine our original painted surface with the corresponding shell's lower-rail material; native color tint and masks remain in charge of resource hues and clipping. Portrait, hub and minimap pixels are unchanged. The preview includes a stored-size checkerboard view and gameplay-size Player/Target/Focus comparisons.
