@@ -21,6 +21,10 @@ At the default 128 × 128 UI-unit size, Player uses LEFT-to-LEFT offset (−23,1
 | Media/Portraits/*.tga (42 files) | 512 × 256 (two fits) | 128 × 128 |
 | Media/Minimaps/*.tga (42 files) | 512 × 512 | 340 × 340 at native diameter 198 |
 | Media/Hubs/*.tga (42 files) | 1024 × 512 | 1480 × 240 |
+| Media/UnitFrames/*.tga (42 shells) | 512 × 256 | Fitted to the native bars |
+| Media/UnitFrames/*-health.tga and *-power.tga (84 fills) | 256 × 32 | Native health/power regions |
+
+These four directories are the complete active media inventory: 252 textures. The retired material families (`arcane_crystal`, `jade_bamboo`, `fel_obsidian`, `black_basalt` and their peers), the old `fantasy` and singular `hub` directories, and the standalone placeholder textures have been removed from the addon folder. They were already excluded from release ZIPs. Artwork sources and historical records outside `JiberishUI` remain available for editing; the current build commands are in README.md. Validation rejects any media file outside the active manifest.
 
 The superseded unit-shell files and design experiments remain in research/history only and are excluded from packages. Native decorations never disappear when an asset fails to load.
 

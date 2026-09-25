@@ -1,5 +1,7 @@
 # Border library
 
+Historical design reference only. These presets were retired before the current portrait, hub, minimap and unit-frame collections. Their unused runtime textures have been removed from `JiberishUI/Media`; source artwork and this record remain for design history. See [the active artwork inventory](ARTWORK.md). The old library builders are not part of the current build instructions.
+
 52 selectable presets across 15 material families. Families share texture files; palettes and default ornament/thickness settings distinguish variants.
 
 The original four Warcraft III IDs remain valid. Other choices are original generated materials or explicitly named palette variants of shared materials. These are cosmetic choices on either client, independent of which races/classes that client offers.

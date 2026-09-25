@@ -34,6 +34,10 @@ The same 13 classes, 26 races and three factions now have circular minimap surro
 
 ## Testing in game
 
+The addon uses four artwork folders under `JiberishUI/Media`: **Portraits**, **Hubs**, **Minimaps**, and **UnitFrames**. Keep the addon’s Lua files, `Core`, `Compatibility`, `Modules`, and `Themes` too; these load the artwork and provide its behavior. Old material folders such as `arcane_crystal`, `jade_bamboo`, `fel_obsidian` and `black_basalt` are retired and no longer present in the addon source or release ZIPs.
+
+For a clean manual update, close WoW and replace only the existing `Interface/AddOns/JiberishUI` folder with the package’s `JiberishUI` folder. Copying over it can leave obsolete files behind. Keep the `WTF` folder and saved settings.
+
 Install the matching Retail or Forever package and **fully restart WoW** for the new files and textures. Open `/jui`. Select Player, Target or Focus, then use Portrait selection or Browse artwork. The options window uses textured borders, red/gold buttons, classic checkbox art, slider tracks and a selected-portrait crest. Move it by its title bar; all in-game decorations remain click-through.
 
 Target a Paladin, then a Rogue or another class. Set a different-class player as Focus. Check the native name, level badge and bars remain visible, and test entering/exiting combat. Automatic texture changes can run in combat only on already-attached, unprotected addon frames. Protected changes and all positioning/configuration changes wait until combat ends.
