@@ -14,7 +14,7 @@ REQUIRED = {
     "Build.lua", "Core/Core.lua", "Core/ThemeManager.lua", "Core/ProfileManager.lua", "Core/Media.lua", "Core/Settings.lua", "Core/Portraits.lua", "Themes/Portraits.lua", "Themes/NPCCities.lua", "Core/Hubs.lua", "Themes/Hubs.lua", "Core/Minimaps.lua", "Themes/Minimaps.lua",
     "Compatibility/Retail.lua", "Compatibility/Forever.lua", "Compatibility/AddOns.lua", "Themes/PortraitMaskFits.lua",
     "Modules/Minimap.lua", "Modules/PlayerFrame.lua", "Modules/TargetFrame.lua", "Modules/FocusFrame.lua", "Modules/ActionHub.lua",
-    "Themes/Paladin/Retribution.lua", "Core/UnitSkins.lua", "Themes/UnitSkins.lua",
+    "Themes/Paladin/Retribution.lua", "Core/UnitSkins.lua", "Themes/UnitSkins.lua", "Core/CastBars.lua",
 }
 
 
@@ -36,6 +36,8 @@ def source_checks():
         if name != "Core/UnitSkins.lua":
             assert not re.search(r"\bhooksecurefunc\s*\(", code), name
         assert not re.search(r"\b(PlayerFrame|TargetFrame|FocusFrame|MainActionBar|Minimap|UIParent)\s*[:.]\s*Set\w*\s*\(", code), name
+        if name == "Core/CastBars.lua":
+            assert not re.search(r"\b(UnitCastingInfo|UnitChannelInfo|UnitEmpoweredChannelInfo|GetValue|GetMinMaxValues|SetValue|SetMinMaxValues|HookScript)\s*\(", code), name
         if name.startswith("Modules/"):
             assert 'CreateFrame("Frame"' in code and ",UIParent)" in code
             assert "EnableMouse(false)" in code and code.count(":CreateTexture(") == 1
@@ -55,7 +57,7 @@ def source_checks():
 def asset_checks():
     manifest = json.loads((ROOT / "docs/phase1-assets.json").read_text())
     assets = manifest["assets"]
-    assert len(assets) == 252
+    assert len(assets) == 294
     groups = [{Path(a["file"]).stem for a in assets if "/"+kind+"/" in a["file"]} for kind in ("Portraits", "Hubs", "Minimaps")]
     assert all(len(g) == 42 and g == groups[0] for g in groups), "Artwork catalogs must match"
     assert {Path(a["file"]).stem for a in assets if a.get("kind")=="unit-shell"} == groups[0]
@@ -113,6 +115,14 @@ def asset_checks():
             if not descriptor & 32:
                 y = h - 1 - y
             assert pixels[(y*w+x)*4+3] == 0, "Functional opening must remain transparent"
+        if "/CastBars/" in asset["file"]:
+            assert asset['kind']=='cast-border' and [w,h]==[512,128]
+            assert bounds[0]>=4 and bounds[1]>=4 and bounds[2]<=508 and bounds[3]<=124
+            for y in range(48,80):
+                row=y if descriptor & 32 else h-1-y
+                assert all(pixels[(row*w+x)*4+3]==0 for x in range(48,464))
+            for ref in asset['references']:
+                assert hashlib.sha256((ROOT/ref['file']).read_bytes()).hexdigest()==ref['sha256']
         if "/UnitFrames/" in asset["file"]:
             assert asset["kind"] in ("unit-shell", "statusbar-fill")
             assert [w,h] == ([512,256] if asset["kind"] == "unit-shell" else [256,32])
@@ -196,7 +206,7 @@ def asset_checks():
                     assert pixels[(row*w+x)*4+3]==0, 'Hub art covers reserved button region'
             if asset.get('official_crest') or asset.get('emblem_reference'):
                 crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
-    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 252 RGBA assets (including 42 sculpted shells and 84 painted fills) and provenance hashes")
+    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 294 RGBA assets (including 42 complete cast borders, 42 sculpted shells and 84 painted fills) and provenance hashes")
 
 
 def reference_checks():
@@ -227,7 +237,7 @@ def archive_checks(directory):
             assert set(archive.namelist()) == set(expected)
             for name, content in expected.items():
                 assert archive.read(name) == content, name
-        assert len([p for p in expected if p.endswith(".tga")]) == 252
+        assert len([p for p in expected if p.endswith(".tga")]) == 294
     print("PASS both exact client archives; no legacy code/themes or unrelated textures packaged")
 
 

@@ -1,9 +1,9 @@
 local addonName, J = ...
 local Core = {
-    version = "0.7.5",
+    version = "0.8.0",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
-    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset" },
+    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset", "castBarShown", "castBarSource", "castBarStyle", "castBarArt", "castBarWeight", "castBarPadding", "castBarWidth", "castBarHeight" },
     dirty = true,
 }
 J.Core = Core
@@ -326,6 +326,7 @@ function Core:Tick()
         end
     end
     if J.UnitSkins then J.UnitSkins:Tick() end
+    if J.CastBars then J.CastBars:Tick() end
 end
 
 function Core:RequestRefresh(immediate)
@@ -355,6 +356,9 @@ function Core:Status()
             self:Print(key.." portrait: "..(config.shown and "on" or "off").." | requested "..config.portraitSource.." | resolved "..source.." | "..(visible and "visible" or "hidden"))
             self:Print(key.." unit frame: "..(config.unitFrameShown and "on" or "off").." | requested "..config.unitFrameSource.." | "..(J.UnitSkins.status[key] or "waiting").." | fill "..config.unitFrameFill)
         end
+    end
+    if J.CastBars then
+        for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do self:Print(key.." cast border: "..(J.CastBars.status[key] or "waiting")) end
     end
     for key, message in pairs(self.notices) do self:Print(key .. ": " .. message) end
     if self.client and self.client.id == "forever" then
@@ -443,9 +447,14 @@ driver:SetScript("OnEvent",function(_,event,name)
         Core:Protect("startup",function() Core:Start() end)
     elseif Core.started then Core:RequestRefresh(true) end
 end)
-local elapsedTime = 0
+local elapsedTime,castElapsed = 0,0
 driver:SetScript("OnUpdate",function(_,elapsed)
     elapsedTime = elapsedTime + elapsed
+    castElapsed = castElapsed + elapsed
+    if castElapsed >= .05 then
+        castElapsed = 0
+        if Core.started and Core.client and J.CastBars then J.CastBars:Sync() end
+    end
     if elapsedTime >= 0.2 then elapsedTime = 0; Core:Tick() end
 end)
 SLASH_JIBERISHFANTASY1 = "/jf"

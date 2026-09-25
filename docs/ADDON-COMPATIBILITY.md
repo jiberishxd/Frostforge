@@ -32,3 +32,7 @@ These settings are included in existing JF2 exports. Source code revisions and m
 ## Shared status-bar material (0.7.4)
 
 EllesmereUI and ElvUI can select **JiberishUI Stone** through their existing LibSharedMedia texture menus. Choose it in the provider for any supported frame type, including frames beyond JiberishUI's own Player/Target/Focus shells. JiberishUI's default AUTO fill mode now respects Ellesmere choices; PROVIDER keeps native fills on any supported shell provider. JIBERISH explicitly restores the prior override behavior. Existing profiles with no fill setting inherit AUTO. No provider settings or third-party code are copied. See [settings setup](SETTINGS.md).
+
+## Cast-bar borders (0.8.0)
+
+Player, Target and Focus now support optional minimal borders for Blizzard, EllesmereUI 9.2.9 and ElvUI v15.26 horizontal cast bars. Discovery uses their actual StatusBars; fills, colors, text, progress and native behavior stay with the provider. This does not extend ElvUI support to full unit-frame shells. [Setup, exact anchors and limitations](CAST-BARS.md). Offline checks cover both client paths; live validation remains pending.

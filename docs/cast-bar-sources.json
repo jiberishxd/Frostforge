@@ -1,0 +1,104 @@
+{
+  "inspected_on": "2026-09-25",
+  "in_game_validated": false,
+  "sources": [
+    {
+      "provider": "Blizzard",
+      "client": "retail",
+      "revision": "78282522143e25c3540583734fd192c3d69be910",
+      "files": [
+        {
+          "path": "Blizzard_UIPanels_Game/Mainline/CastingBarFrame.xml",
+          "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UIPanels_Game/Mainline/CastingBarFrame.xml",
+          "sha256": "789faf31ce85676efab51e58349fa89aa8c1ec72dab0f2e55be6a93fe57dc691"
+        },
+        {
+          "path": "Blizzard_UIPanels_Game/Shared/CastingBarFrame.lua",
+          "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UIPanels_Game/Shared/CastingBarFrame.lua",
+          "sha256": "3ba6c1cff48b15d697fe03c80d6f8eb0b2e57f9ca08f62c322ed0757a0c00e77"
+        },
+        {
+          "path": "Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+          "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+          "sha256": "b4c7aaa25fb9d508100291e78e7a32343d495fc17ab9ad41f1ae6f6a9ba38440"
+        },
+        {
+          "path": "Blizzard_UnitFrame/Mainline/TargetFrame.xml",
+          "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UnitFrame/Mainline/TargetFrame.xml",
+          "sha256": "99a851903dba4f2a8521080548f4e3ddeab9f467472327785d9aac1773ef78bd"
+        }
+      ]
+    },
+    {
+      "provider": "Blizzard",
+      "client": "forever",
+      "revision": "70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e",
+      "files": [
+        {
+          "path": "Blizzard_UIPanels_Game/Mainline/CastingBarFrame.xml",
+          "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UIPanels_Game/Mainline/CastingBarFrame.xml",
+          "sha256": "407606d6af63393189b615d3077288676224e4e3b950df3f6de449ea97f80789"
+        },
+        {
+          "path": "Blizzard_UIPanels_Game/Shared/CastingBarFrame.lua",
+          "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UIPanels_Game/Shared/CastingBarFrame.lua",
+          "sha256": "d7ed9f2b914be8d43b47456e35a98256f7b49c02c1c4e7072788d4e478098b56"
+        },
+        {
+          "path": "Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+          "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+          "sha256": "db34fc42e0d059733935154b667ae275eb2b0edd7f4ecfdec90860629a7e4373"
+        },
+        {
+          "path": "Blizzard_UnitFrame/Mainline/TargetFrame.xml",
+          "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UnitFrame/Mainline/TargetFrame.xml",
+          "sha256": "b74a7046542df1f918191e6e584e66a3e46b3989f8b9081dfd0f77ad07938afb"
+        }
+      ]
+    },
+    {
+      "provider": "EllesmereUI",
+      "release": "9.2.9",
+      "source": "User-supplied release; inspected read-only",
+      "files": [
+        {
+          "path": "EllesmereUIUnitFrames/EllesmereUIUnitFrames.lua",
+          "sha256": "75fbf6eff6d601d1290c9832a63a759a92f4dc1361d19831fcfd7187198a2fe8"
+        },
+        {
+          "path": "EllesmereUIUnitFrames/EUI_UnitFrames_Engine.lua",
+          "sha256": "0b1fb5372506307f7310f7e902e4f970086315d4c9c2e898760f9ad4dda17bb3"
+        }
+      ],
+      "evidence": "CreateCastBar creates the StatusBar inside castbarBg and assigns frame.Castbar; SetupShowOnCastBar owns native visibility."
+    },
+    {
+      "provider": "ElvUI",
+      "release": "15.26",
+      "source": "Installed addon; inspected read-only",
+      "files": [
+        {
+          "path": "ElvUI_Mainline.toc",
+          "sha256": "ad64e4c6da73f6298d4580faeb00b229a8214c1d0ecc8e7b16c09cf30c2dc4a3"
+        },
+        {
+          "path": "Game/Shared/Modules/UnitFrames/Elements/CastBar.lua",
+          "sha256": "c030562a0e2bf454ccd0add8be99973b15ce839ba57c36179746be1f1b0d9e77"
+        },
+        {
+          "path": "Game/Shared/Modules/UnitFrames/Units/Player.lua",
+          "sha256": "31632a18507aa11b3361dd31681c5da66334214fdba78fd11f7ea53838959790"
+        },
+        {
+          "path": "Game/Shared/Modules/UnitFrames/Units/Target.lua",
+          "sha256": "8bb607971d5c68d94544b99eff07916960aceb239b7cab8d4b322561c9955793"
+        },
+        {
+          "path": "Game/Shared/Modules/UnitFrames/Units/Focus.lua",
+          "sha256": "887e8870cd94fd8d47bc0cd9eefef91a0e4d6f8f1a0bb5b284dd49be2b456aa6"
+        }
+      ],
+      "evidence": "Construct_Castbar creates a StatusBar; Player/Target/Focus assign frame.Castbar, with a separate holder for positioning."
+    }
+  ]
+}

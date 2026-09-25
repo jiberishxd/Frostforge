@@ -26,7 +26,7 @@ local function migrateShell(profile)
 end
 
 local function supported(key,property)
-    if property == "portrait" or property == "portraitMode" or property == "portraitSource" or property == "unitStyle" or property == "unitFrameShown" or property == "unitFrameFill" or property == "unitFrameWidth" or property == "unitFrameHeight" or property == "unitFrameInset" or property == "unitFrameSource" then return J.Portraits:IsUnitKey(key) end
+    if property == "castBarShown" or property == "castBarSource" or property == "castBarStyle" or property == "castBarArt" or property == "castBarWeight" or property == "castBarPadding" or property == "castBarWidth" or property == "castBarHeight" or property == "portrait" or property == "portraitMode" or property == "portraitSource" or property == "unitStyle" or property == "unitFrameShown" or property == "unitFrameFill" or property == "unitFrameWidth" or property == "unitFrameHeight" or property == "unitFrameInset" or property == "unitFrameSource" then return J.Portraits:IsUnitKey(key) end
     if property == "hub" or property == "hubMode" or property == "hubSource" then return key == "actionHub" end
     if property == "minimap" or property == "minimapMode" then return key == "minimap" end
     return true

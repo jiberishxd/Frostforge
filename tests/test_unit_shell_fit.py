@@ -14,6 +14,49 @@ from fit_unit_shells import fit
 
 
 class ShellFitTests(unittest.TestCase):
+    def test_complete_cast_silhouettes_have_clear_centers_and_uncropped_details(self):
+        source = (ROOT / 'artwork/cast-bars/runtime-borders.js').read_text()
+        data = json.loads(source.split('window.castBorders=', 1)[1].rstrip(';\n'))
+        self.assertEqual(len(data['themes']), 42)
+        for identity, theme in data['themes'].items():
+            image = Image.open(ROOT / 'artwork/cast-bars/assets' / (theme['file'] + '.png')).convert('RGBA')
+            alpha = np.asarray(image)[:,:,3]
+            with self.subTest(identity=identity):
+                self.assertEqual(image.size, (512,128))
+                self.assertFalse(alpha[48:80,48:464].any())
+                self.assertFalse(alpha[:4].any() or alpha[-4:].any() or alpha[:,:4].any() or alpha[:,-4:].any())
+                self.assertTrue((alpha[:48,48:464]>32).any(axis=0).all())
+                self.assertTrue((alpha[80:,48:464]>32).any(axis=0).all())
+                game = Image.open(ROOT / 'JiberishUI/Media/CastBars' / (theme['file']+'.tga')).convert('RGBA')
+                self.assertEqual(image.tobytes(), game.tobytes())
+                for style, pieces in theme['styles'].items():
+                    self.assertEqual(len(pieces), 8)
+                    for name, p in pieces.items():
+                        x,y,w,h = (p[k] for k in ('x','y','w','h'))
+                        self.assertTrue(x+w<=0 or x>=180 or y+h<=0 or y>=16)
+                        if name in ('11','13','31','33'):
+                            sx=w/((p['u2']-p['u1'])*512)
+                            sy=h/((p['v2']-p['v1'])*128)
+                            self.assertAlmostEqual(sx,sy,places=6)
+                    self.assertEqual(min(p['u1'] for p in pieces.values()),0)
+                    self.assertEqual(max(p['u2'] for p in pieces.values()),1)
+                    self.assertEqual(min(p['v1'] for p in pieces.values()),0)
+                    self.assertEqual(max(p['v2'] for p in pieces.values()),1)
+
+    def test_mage_emblem_changes_are_localized_and_keep_frame_openings(self):
+        root=ROOT/'artwork/mage-emblem-correction'
+        for record in json.loads((root/'applied.json').read_text()):
+            with self.subTest(kind=record['kind']):
+                before=np.asarray(Image.open(ROOT/record['source']))
+                after=np.asarray(Image.open(ROOT/record['file']))
+                allowed=np.zeros(before.shape[:2],dtype=bool)
+                for x1,y1,x2,y2 in record['boxes']: allowed[y1:y2+1,x1:x2+1]=True
+                self.assertTrue(np.array_equal(before[~allowed],after[~allowed]))
+                self.assertFalse(np.array_equal(before[allowed],after[allowed]))
+        before=np.asarray(Image.open(root/'unit-frame-fitted-before.png'))
+        after=np.asarray(Image.open(ROOT/'artwork/unit-frames/assets/class_mage.png'))
+        self.assertTrue(np.array_equal(before[:,:,3],after[:,:,3]))
+
     def test_health_is_plain_color_neutral_stone_for_every_identity(self):
         assets = json.loads((ROOT / 'artwork/unit-frames/manifest.json').read_text())
         health = [a for a in assets if a['file'].endswith('-health.tga')]
@@ -40,10 +83,11 @@ class ShellFitTests(unittest.TestCase):
                     'artwork/unit-frames/references/plain-stone-generation.json',
                 })
 
-    def test_portraits_hubs_and_minimaps_unchanged(self):
+    def test_other_portraits_hubs_and_minimaps_unchanged(self):
         baseline = json.loads((ROOT / 'tests/fixtures/pre-audit-art.json').read_text())
         self.assertEqual(len(baseline['assets']), 126)
         for name, expected in baseline['assets'].items():
+            if name.endswith('Portraits/class_mage.tga'): continue
             with self.subTest(asset=name):
                 self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected)
 

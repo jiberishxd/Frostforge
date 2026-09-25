@@ -95,11 +95,13 @@ function S:HideMenus()
     if self.picker then self.picker:Hide() end
     if self.hubPicker then self.hubPicker:Hide() end
     if self.minimapPicker then self.minimapPicker:Hide() end
+    if self.castPicker then self.castPicker:Hide() end
     if self.backupDialog then self.backupDialog:Hide();self.backupEdit:ClearFocus() end
     if self.resetDialog then self.resetDialog:Hide() end
 end
 
 local collectionSpecs={
+    cast={catalog="PortraitCatalog",property="castBarArt",picker="castPicker",buttons="castButtons",groups="castGroupButtons",group="castGroup",page="castPage",label="castPageLabel",title="Cast-bar border artwork"},
     portrait={catalog="PortraitCatalog",property="portrait",mode="portraitMode",picker="picker",buttons="portraitButtons",groups="groupButtons",group="portraitGroup",page="portraitPage",label="portraitPageLabel",title="Unit artwork collection"},
     hub={catalog="HubCatalog",property="hub",mode="hubMode",picker="hubPicker",buttons="hubButtons",groups="hubGroupButtons",group="hubGroup",page="hubPage",label="hubPageLabel",title="Action hub collection"},
     minimap={catalog="MinimapCatalog",property="minimap",mode="minimapMode",picker="minimapPicker",buttons="minimapButtons",groups="minimapGroupButtons",group="minimapGroup",page="minimapPage",label="minimapPageLabel",title="Minimap collection"},
@@ -135,7 +137,7 @@ function S:ShowCollection(kind,group,page)
     p.empty:SetShown(#visible==0)
     p.previous:SetAlpha(self[spec.page]>1 and 1 or .45)
     p.next:SetAlpha(self[spec.page]<pages and 1 or .45)
-    p.hint:SetText("Applies to "..names[self.selected].." only. Choosing a design switches to Chosen artwork.")
+    p.hint:SetText("Applies to "..names[self.selected]..(kind=="cast" and " cast border only. Match unit artwork returns to automatic matching." or " only. Choosing a design switches to Chosen artwork."))
 end
 
 function S:CreateCollection(kind)
@@ -165,13 +167,13 @@ function S:CreateCollection(kind)
     for id,entry in pairs(J[spec.catalog].entries) do
         local choice=id
         local b=button(p,"",0,0,168,function()
-            p:Hide();self:Set(spec.property,choice);self:Set(spec.mode,"FIXED")
+            p:Hide();self:Set(spec.property,choice);if spec.mode then self:Set(spec.mode,"FIXED") end
         end,true)
         b:SetHeight(118)
         b.image=b:CreateTexture(nil,"ARTWORK")
         b.image:SetSize(kind=="hub" and 156 or 78,kind=="hub" and 52 or 78)
         b.image:SetPoint("TOP",b,"TOP",0,kind=="hub" and -18 or -4)
-        if kind=="portrait" then b.image:SetTexCoord(0,.5,0,1) end
+        if kind=="portrait" or kind=="cast" then b.image:SetTexCoord(0,.5,0,1) end
         local caption=text(b,entry.label,6,-86,156);caption:SetJustifyH("CENTER")
         self[spec.buttons][id]=b
     end
@@ -274,7 +276,7 @@ function S:Center()
     J.ProfileManager:SetWindowPosition(0,0)
 end
 
-local pageNames={artwork="Artwork",placement="Placement",fitting="Unit frame",advanced="Advanced",guide="Guide & backups"}
+local pageNames={artwork="Artwork",placement="Placement",fitting="Unit frame",cast="Cast bar",advanced="Advanced",guide="Guide"}
 
 function S:SetPage(page)
     if not self.pages[page] then return end
@@ -391,9 +393,9 @@ function S:Create()
     button(f,"Center window",28,-592,154,function() self:Center() end)
 
     self.pages={};self.pageButtons={}
-    for i,key in ipairs({"artwork","placement","fitting","advanced","guide"}) do
+    for i,key in ipairs({"artwork","placement","fitting","cast","advanced","guide"}) do
         local page=key
-        self.pageButtons[key]=button(f,pageNames[key],218+(i-1)*134,-114,126,function() self:SetPage(page) end)
+        self.pageButtons[key]=button(f,pageNames[key],218+(i-1)*112,-114,104,function() self:SetPage(page) end)
         local body=CreateFrame("Frame",nil,f);body:SetPoint("TOPLEFT",f,"TOPLEFT",218,-214);body:SetSize(666,400)
         body:SetFrameLevel(202);self.pages[key]=body
     end
@@ -430,6 +432,28 @@ function S:Create()
         self:Set("unitFrameWidth",100);self:Set("unitFrameHeight",100);self:Set("unitFrameInset",1.5)
     end)
     text(a,"Fitting changes apply after combat. Native bar values, colors and texture choices stay with your UI addon.",0,-378,666)
+
+    a=self.pages.cast
+    self.castToggle=toggle(a,"Cast-bar border",0,0,318,function() self:Set("castBarShown",not J.ThemeManager:Resolve(self.selected).castBarShown) end)
+    text(a,"An independent, minimal surround. Native cast text, colors, icons and timing stay with your provider.",346,0,318)
+    self:Dropdown("castBarStyle","Border style",{{"SLIM","Subtle"},{"CARVED","Classic"},{"CAPPED","Bold"}},0,-50,a)
+    self:Dropdown("castBarSource","Cast-bar provider",hubSources,346,-50,a)
+    text(a,"Border artwork",0,-114,318,"GameFontNormal")
+    self.castMatch=button(a,"Match unit artwork",0,-136,318,function() self:Set("castBarArt","MATCH") end)
+    self.castBrowse=button(a,"Choose border artwork",346,-136,318,function()
+        self:HideMenus();self:ShowCollection("cast",self.castGroup or "CLASS",self.castPage);self.castPicker:Show()
+    end)
+    self:Number("castBarWeight","Border weight",0,-190,.05,a)
+    self:Number("castBarPadding","Space around the bar",346,-190,.5,a)
+    self:Number("castBarWidth","Border width (%)",0,-260,1,a)
+    self:Number("castBarHeight","Border height (%)",346,-260,1,a)
+    self.castReset=button(a,"Reset border fitting",0,-330,220,function()
+        self:Set("castBarWidth",100);self:Set("castBarHeight",100)
+        self:Set("castBarWeight",1);self:Set("castBarPadding",1)
+    end)
+    self.castStatus=text(a,"",242,-330,424)
+    text(a,"100% follows the native cast bar. Width and height adjust only the centered artwork. Enable the cast bar in its own addon too. Fitting changes apply after combat.",0,-376,666)
+    self:CreateCollection("cast")
 
     a=self.pages.artwork
     self.showButton=toggle(a,"Portrait art",0,0,318,function() self:Set("shown",not J.ThemeManager:Resolve(self.selected).shown) end)
@@ -476,25 +500,34 @@ function S:Refresh()
     local minimap=self.selected=="minimap"
     local hub=self.selected=="actionHub"
     local module=J.Core.modules[self.selected]
-    local headings={artwork="Artwork",placement="Placement & size",fitting="Unit-frame fitting",advanced="Textures, layers & diagnostics",guide="Getting started"}
-    if not unit and self.page=="fitting" then self.page="placement" end
+    local headings={artwork="Artwork",placement="Placement & size",fitting="Unit-frame fitting",cast="Cast-bar border",advanced="Textures, layers & diagnostics",guide="Getting started"}
+    if not unit and (self.page=="fitting" or self.page=="cast") then self.page="placement" end
     self.heading:SetText(names[self.selected].."  |  "..headings[self.page])
     local hints={artwork=unit and "Choose your portrait surround and full-frame artwork independently." or "Choose a matching theme, then follow your existing UI.",
         placement=unit and "These controls fit the portrait surround. Use Unit frame to fit the shell around the bars." or "Fit the decoration around your existing minimap or action bars.",
         fitting="Enable Unit-frame art on Artwork; then fit its size and inset.",
+        cast="A matching border, independent of portraits and full unit-frame shells.",
         advanced="Choose who controls bar textures, then fine-tune layering.",guide="A few simple steps, plus tools to keep your settings safe."}
     self.pageHint:SetText(hints[self.page])
     for key,page in pairs(self.pages) do page:SetShown(key==self.page);self.pageButtons[key].selection:SetShown(key==self.page) end
-    local visiblePages=unit and {"artwork","placement","fitting","advanced","guide"} or {"artwork","placement","advanced","guide"}
-    self.pageButtons.fitting:SetShown(unit)
+    local visiblePages=unit and {"artwork","placement","fitting","cast","advanced","guide"} or {"artwork","placement","advanced","guide"}
+    self.pageButtons.fitting:SetShown(unit);self.pageButtons.cast:SetShown(unit)
     for i,key in ipairs(visiblePages) do
-        local b=self.pageButtons[key];local step=unit and 134 or 168
+        local b=self.pageButtons[key];local step=unit and 112 or 168
         b:ClearAllPoints();b:SetPoint("TOPLEFT",self.frame,"TOPLEFT",218+(i-1)*step,-114);b:SetWidth(step-8)
     end
     self.styleButton:SetShown(unit);self.styleHelp:SetShown(unit)
     self.controls.unitFrameSource.button:SetShown(unit);self.controls.unitFrameSource.label:SetShown(unit)
     self.controls.unitFrameFill.button:SetShown(unit);self.controls.unitFrameFill.label:SetShown(unit)
-    if unit then self.styleButton.check:SetShown(config.unitFrameShown) end
+    if unit then
+        self.styleButton.check:SetShown(config.unitFrameShown)
+        self.castToggle.check:SetShown(config.castBarShown)
+        self.castMatch.selection:SetShown(config.castBarArt=="MATCH")
+        local castID=J.CastBars:Artwork(config)
+        self.castBrowse.caption:SetText(J.PortraitCatalog.entries[castID].label.." - Browse")
+        self.castStatus:SetText((config.castBarArt=="MATCH" and "Matching unit artwork: " or "Chosen border artwork: ")..J.PortraitCatalog.entries[castID].label.."\n"..(J.CastBars.status[self.selected] or "Waiting for cast-bar provider"))
+        for choice,b in pairs(self.castButtons) do b.selection:SetShown(config.castBarArt==choice) end
+    end
     self.showButton.caption:SetText(unit and "Portrait art" or "Show artwork")
     self.showHelp:SetText(unit and "Decorative surround for the unit portrait." or minimap and "Decorative border around the native minimap." or "Decorative endcaps and rail for the action bars.")
     self.controls.minimapMode.button:SetShown(minimap);self.controls.minimapMode.label:SetShown(minimap)

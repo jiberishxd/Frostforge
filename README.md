@@ -1,5 +1,7 @@
 # JiberishUI
 
+**0.8.0** adds optional matching cast-bar borders for Player, Target and Focus on Blizzard, EllesmereUI and ElvUI. Open `/jui → Player/Target/Focus → Cast bar` to enable the border, choose Subtle/Classic/Bold, or select separate artwork. Width and height controls (50–150%) independently fit each unit’s border. All 42 designs use complete painted health-style rails with free outer details. Mage portrait, unit-frame and cast artwork now use the reference’s horizontal arcane lens, diamond center and cyan book runes. Cast behavior and native fills remain provider-controlled. See [cast-bar setup](docs/CAST-BARS.md).
+
 **0.7.5** adds a painted inner edge and shadow to all 42 unit-frame themes so health and power appear inset. In `/jui → Player/Target/Focus → Unit frame`, adjust artwork width, height and inset depth independently from portraits. The Shaman shell now uses balanced elemental totems, natural rope and stone without red banners or oversized tusks. Portraits, hubs and minimaps remain unchanged.
 
 The classic settings workshop, searchable collections, backups and shared **JiberishUI Stone** texture from 0.7.4 remain available. Automatic texture mode respects Ellesmere's choices, while Blizzard keeps JiberishUI fills. See [settings and shared texture setup](docs/SETTINGS.md).
@@ -62,7 +64,7 @@ The baseline fits are verified offline against the pinned native geometry. **Thi
 
 Components: `playerFrame`, `targetFrame`, `focusFrame`, `minimap`, `actionHub`.
 
-Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `unitFrameWidth`/`unitFrameHeight` (75–150%), `unitFrameInset` (0–3), `unitFrameFill` (AUTO/PROVIDER/JIBERISH), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE), and `unitFrameSource` (AUTO/BLIZZARD/ELLESMERE). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
+Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `unitFrameWidth`/`unitFrameHeight` (75–150%), `unitFrameInset` (0–3), `unitFrameFill` (AUTO/PROVIDER/JIBERISH), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE), and `unitFrameSource` (AUTO/BLIZZARD/ELLESMERE). Cast-border properties are `castBarShown`, `castBarSource` (AUTO/BLIZZARD/ELLESMERE/ELVUI), `castBarStyle` (SLIM/CARVED/CAPPED), `castBarArt` (MATCH or a catalog ID), `castBarWeight` (0.5–2) `castBarPadding` (0–8), and `castBarWidth`/`castBarHeight` (50–150%, default 100). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
 
 ```text
 /jf set playerFrame unitFrameShown on
@@ -86,7 +88,7 @@ Settings remain under `JiberishUIDB.phase1`, now version 2. Version-1 shell sizi
 
 Forever build 69913 previously failed to supply saved settings at startup in live diagnostics. This update does not fix that client loading failure. Export before closing: [persistence notes](docs/PERSISTENCE.md).
 
-No party/raid, pet, boss, cast-bar or replacement-UI modules are added. Blinkii, mMediaTag, ElvUI and EllesmereUI portrait anchors and ElvUI/EllesmereUI main action-bar anchors are supported; live validation remains pending. Full unit-frame bar skins apply to Blizzard frames and the supported Ellesmere layout described above. No native minimap or action-bar positioning changes are made; existing minimap edge clipping and arbitrary action-hub layouts remain separate fitting concerns.
+Optional cast-bar borders decorate Player/Target/Focus without replacing their native casts. No party/raid, pet, boss or replacement-UI modules are added. Blinkii, mMediaTag, ElvUI and EllesmereUI portrait anchors and ElvUI/EllesmereUI main action-bar anchors are supported; live validation remains pending. Full unit-frame bar skins apply to Blizzard frames and the supported Ellesmere layout described above. No native minimap or action-bar positioning changes are made; existing minimap edge clipping and arbitrary action-hub layouts remain separate fitting concerns.
 
 ## Local checks
 
