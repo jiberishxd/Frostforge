@@ -1,0 +1,10 @@
+{
+  "id": "race_dracthyr",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Create ONE Dracthyr cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Dracthyr UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: weathered dragon-scale plates, bronze crests, muted red and teal, broad wing membrane accents. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Dracthyr. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+  "references": [
+    "artwork/cast-bars/references/class_druid.png",
+    "artwork/unit-frames/assets/race_dracthyr.png"
+  ],
+  "file": "artwork/cast-bars/references/race_dracthyr.png"
+}

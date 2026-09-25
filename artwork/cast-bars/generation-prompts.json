@@ -1,0 +1,422 @@
+[
+  {
+    "id": "class_druid",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE transparent game UI cast-bar surround sprite. Reference 1 is our approved Druid unit-frame artwork, for the exact aged root/wood/leaves hand-painted materials. Reference 2 is the user's desired cropped health-border example, defining the LIGHT, MINIMAL cast border direction. Make two very long, thin winding wooden root rails, one ABOVE and one BELOW ONE empty horizontal bar opening, with a few green leaves, moss strands and vine loops protruding naturally outside the rails. Short organic curved twigs join the ends. NO large crest, character, antlers, side pillars, hanging banners, medallions, second bar, or rectangular backing. The shapes must be finished natural silhouettes, no abruptly cropped tips, no art squeezed into a box. Front-facing old 2004 Warcraft painted texture, matte aged warm wood and muted green leaves, broad readable strokes. Design a very long low bar: clear inner opening roughly 1200 pixels wide by 90 pixels high; rails roughly 18 pixels thick with details extending another 25 pixels, small end curls. Center the complete sprite on a wide 1536x1024 canvas with generous empty space around it. Both outer background and interior opening must be TRUE transparent alpha, NOT checkerboard pattern, no fill, no shadow on background, no text or numbers. Retain all tips completely. Single coherent cast-bar decoration, not a sheet or mockup.",
+    "references": [
+      "artwork/unit-frames/assets/class_druid.png",
+      "user Druid health-border screenshot"
+    ],
+    "file": "artwork/cast-bars/references/class_druid.png"
+  },
+  {
+    "id": "class_priest",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Priest cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow one-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Priest UNIT FRAME and defines this identity's painted materials and palette. Make ONLY the slim health-style rails above and below ONE empty bar opening, with small rounded/beveled joins at the ends, with this material direction: ivory stone, worn gold bindings, tiny folded white cloth tabs, pale blue gems; restrained violet shadow. Do NOT copy the Druid roots/leaves unless appropriate to this identity. NO large crests, heads, side pillars, portrait circles, hanging banners, text, filled bars or second slot. Details may extend naturally a little above/below/outside the rails; no enclosing rectangular background or clipping. Front-facing hand-painted 2004 Warcraft game art, matte aged materials, chunky strokes, small readable details, not modern glossy CGI. Approximate inner opening width 1250 and height 90 pixels. Rails ~18 pixels thick with occasional details ~25 pixels beyond them. Center on a 1536x1024 landscape canvas with ample transparent margin. Both background and inner opening must be TRUE transparent alpha (no checkerboard, green key, shadow or glow). Keep every tip in frame. ONE coherent sprite, no variants sheet.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_priest.png"
+    ],
+    "file": "artwork/cast-bars/references/class_priest.png"
+  },
+  {
+    "id": "class_paladin",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Paladin cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow one-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Paladin UNIT FRAME and defines this identity's painted materials and palette. Make ONLY the slim health-style rails above and below ONE empty bar opening, with small rounded/beveled joins at the ends, with this material direction: aged gold and matte silver stone, small ivory wing-feather shapes at the ends, short violet bindings; no faction emblem. Do NOT copy the Druid roots/leaves unless appropriate to this identity. NO large crests, heads, side pillars, portrait circles, hanging banners, text, filled bars or second slot. Details may extend naturally a little above/below/outside the rails; no enclosing rectangular background or clipping. Front-facing hand-painted 2004 Warcraft game art, matte aged materials, chunky strokes, small readable details, not modern glossy CGI. Approximate inner opening width 1250 and height 90 pixels. Rails ~18 pixels thick with occasional details ~25 pixels beyond them. Center on a 1536x1024 landscape canvas with ample transparent margin. Both background and inner opening must be TRUE transparent alpha (no checkerboard, green key, shadow or glow). Keep every tip in frame. ONE coherent sprite, no variants sheet.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_paladin.png"
+    ],
+    "file": "artwork/cast-bars/references/class_paladin.png"
+  },
+  {
+    "id": "class_shaman",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Shaman cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow one-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Shaman UNIT FRAME and defines this identity's painted materials and palette. Make ONLY the slim health-style rails above and below ONE empty bar opening, with small rounded/beveled joins at the ends, with this material direction: rough carved totem wood, natural rope, slate, small turquoise rune insets and elemental stones; NO red drapes or tusks or teeth. Do NOT copy the Druid roots/leaves unless appropriate to this identity. NO large crests, heads, side pillars, portrait circles, hanging banners, text, filled bars or second slot. Details may extend naturally a little above/below/outside the rails; no enclosing rectangular background or clipping. Front-facing hand-painted 2004 Warcraft game art, matte aged materials, chunky strokes, small readable details, not modern glossy CGI. Approximate inner opening width 1250 and height 90 pixels. Rails ~18 pixels thick with occasional details ~25 pixels beyond them. Center on a 1536x1024 landscape canvas with ample transparent margin. Both background and inner opening must be TRUE transparent alpha (no checkerboard, green key, shadow or glow). Keep every tip in frame. ONE coherent sprite, no variants sheet.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_shaman.png"
+    ],
+    "file": "artwork/cast-bars/references/class_shaman.png"
+  },
+  {
+    "id": "class_deathknight",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Death Knight cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Death Knight UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: heavy dark iron, chipped icy blue runes, frost, a small skull crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Death Knight. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations. This class belongs to Horde and Alliance: no faction symbols.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_deathknight.png"
+    ],
+    "file": "artwork/cast-bars/references/class_deathknight.png"
+  },
+  {
+    "id": "class_demonhunter",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Demon Hunter cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Demon Hunter UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: black leather, broad curved horns, dark violet metal and a restrained fel-green rune. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Demon Hunter. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations. This class belongs to Horde and Alliance: no faction symbols.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_demonhunter.png"
+    ],
+    "file": "artwork/cast-bars/references/class_demonhunter.png"
+  },
+  {
+    "id": "class_evoker",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Evoker cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Evoker UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: broad weathered dragon scales in muted red and teal, bronze trim, small horn crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Evoker. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations. This class belongs to Horde and Alliance: no faction symbols.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_evoker.png"
+    ],
+    "file": "artwork/cast-bars/references/class_evoker.png"
+  },
+  {
+    "id": "class_hunter",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Hunter cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Hunter UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: antlered stag-skull trophy with ember-red eyes, leather bindings, forest feathers and wood; no paw print. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Hunter. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations. This class belongs to Horde and Alliance: no faction symbols.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_hunter.png"
+    ],
+    "file": "artwork/cast-bars/references/class_hunter.png"
+  },
+  {
+    "id": "class_mage",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Mage cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Mage UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: violet arcane eye with diamond pupil, bronze setting, blue crystals and purple cloth; no moon. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Mage. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations. This class belongs to Horde and Alliance: no faction symbols.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_mage.png"
+    ],
+    "file": "artwork/cast-bars/references/class_mage.png"
+  },
+  {
+    "id": "class_monk",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Monk cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Monk UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: bamboo, jade stones, dark red wooden trim and a simple knotted cord crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Monk. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations. This class belongs to Horde and Alliance: no faction symbols.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_monk.png"
+    ],
+    "file": "artwork/cast-bars/references/class_monk.png"
+  },
+  {
+    "id": "class_rogue",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Rogue cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Rogue UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: dark leather, tarnished steel, a hood-shaped crest, muted ochre cloth folds. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Rogue. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations. This class belongs to Horde and Alliance: no faction symbols.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_rogue.png"
+    ],
+    "file": "artwork/cast-bars/references/class_rogue.png"
+  },
+  {
+    "id": "class_warlock",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Warlock cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Warlock UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: blackened iron, purple cloth, blunt demonic horn shapes and a restrained fel-green stone. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Warlock. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations. This class belongs to Horde and Alliance: no faction symbols.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_warlock.png"
+    ],
+    "file": "artwork/cast-bars/references/class_warlock.png"
+  },
+  {
+    "id": "class_warrior",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Warrior cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Warrior UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: battered iron plates, russet leather straps, broad rivets, a small battle crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Warrior. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations. This class belongs to Horde and Alliance: no faction symbols.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/class_warrior.png"
+    ],
+    "file": "artwork/cast-bars/references/class_warrior.png"
+  },
+  {
+    "id": "faction_alliance",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Alliance cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Alliance UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: weathered royal-blue cloth, silver stonework and an aged gold lion crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Alliance. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/faction_alliance.png"
+    ],
+    "file": "artwork/cast-bars/references/faction_alliance.png"
+  },
+  {
+    "id": "faction_horde",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Horde cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Horde UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: rough red hide, dark iron spikes, bone and a bold red Horde-inspired crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Horde. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/faction_horde.png"
+    ],
+    "file": "artwork/cast-bars/references/faction_horde.png"
+  },
+  {
+    "id": "faction_neutral",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Neutral cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Neutral UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: weathered gray stone, warm brown leather bindings, a modest bronze compass crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Neutral. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/faction_neutral.png"
+    ],
+    "file": "artwork/cast-bars/references/faction_neutral.png"
+  },
+  {
+    "id": "race_bloodelf",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Blood Elf cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Blood Elf UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: aged red and gold, sweeping angular sun shapes, a small emerald crystal. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Blood Elf. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_bloodelf.png"
+    ],
+    "file": "artwork/cast-bars/references/race_bloodelf.png"
+  },
+  {
+    "id": "race_darkirondwarf",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Dark Iron Dwarf cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Dark Iron Dwarf UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: charcoal basalt, dark steel, broad orange magma seams and square dwarven runes. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Dark Iron Dwarf. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_darkirondwarf.png"
+    ],
+    "file": "artwork/cast-bars/references/race_darkirondwarf.png"
+  },
+  {
+    "id": "race_dracthyr",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Dracthyr cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Dracthyr UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: weathered dragon-scale plates, bronze crests, muted red and teal, broad wing membrane accents. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Dracthyr. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_dracthyr.png"
+    ],
+    "file": "artwork/cast-bars/references/race_dracthyr.png"
+  },
+  {
+    "id": "race_draenei",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Draenei cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Draenei UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: worn lavender crystals, pale stone, muted gold naaru-inspired crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Draenei. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_draenei.png"
+    ],
+    "file": "artwork/cast-bars/references/race_draenei.png"
+  },
+  {
+    "id": "race_dwarf",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Dwarf cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Dwarf UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: rough granite, stout bronze plates, a simple angular dwarven rune crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Dwarf. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_dwarf.png"
+    ],
+    "file": "artwork/cast-bars/references/race_dwarf.png"
+  },
+  {
+    "id": "race_earthendwarf",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Earthen cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Earthen UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: rough slate stone, thick bronze bands, broad faceted blue crystal insets. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Earthen. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_earthendwarf.png"
+    ],
+    "file": "artwork/cast-bars/references/race_earthendwarf.png"
+  },
+  {
+    "id": "race_gnome",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Gnome cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Gnome UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: chunky copper gears, brass bolts, red leather and one simple blue lens. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Gnome. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_gnome.png"
+    ],
+    "file": "artwork/cast-bars/references/race_gnome.png"
+  },
+  {
+    "id": "race_goblin",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Goblin cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Goblin UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: rough brass, chunky bolts, green metal panels, a few red rivets. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Goblin. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_goblin.png"
+    ],
+    "file": "artwork/cast-bars/references/race_goblin.png"
+  },
+  {
+    "id": "race_haranir",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Haranir cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Haranir UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: ancient roots, broad dark leaves, purple quills and restrained amber seed accents. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Haranir. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_haranir.png"
+    ],
+    "file": "artwork/cast-bars/references/race_haranir.png"
+  },
+  {
+    "id": "race_highmountaintauren",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Highmountain Tauren cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Highmountain Tauren UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: carved wood, broad moose antlers, hide wraps and red tribal paint. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Highmountain Tauren. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_highmountaintauren.png"
+    ],
+    "file": "artwork/cast-bars/references/race_highmountaintauren.png"
+  },
+  {
+    "id": "race_human",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Human cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Human UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: Stormwind blue cloth, battered silver stonework, a small old gold lion crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Human. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_human.png"
+    ],
+    "file": "artwork/cast-bars/references/race_human.png"
+  },
+  {
+    "id": "race_kultiran",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Kul Tiran cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Kul Tiran UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: salt-worn dark green wood, thick rope, brass and a compact anchor crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Kul Tiran. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_kultiran.png"
+    ],
+    "file": "artwork/cast-bars/references/race_kultiran.png"
+  },
+  {
+    "id": "race_lightforgeddraenei",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Lightforged Draenei cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Lightforged Draenei UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: ivory crystal, aged gold plates and a broad radiant sigil crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Lightforged Draenei. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_lightforgeddraenei.png"
+    ],
+    "file": "artwork/cast-bars/references/race_lightforgeddraenei.png"
+  },
+  {
+    "id": "race_magharorc",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Mag'har Orc cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Mag'har Orc UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: rough brown hide, black iron, bone spikes and broad ochre clan markings. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Mag'har Orc. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_magharorc.png"
+    ],
+    "file": "artwork/cast-bars/references/race_magharorc.png"
+  },
+  {
+    "id": "race_mechagnome",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Mechagnome cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Mechagnome UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: stout brass machinery, large gears, worn copper and a simple blue glass lens. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Mechagnome. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_mechagnome.png"
+    ],
+    "file": "artwork/cast-bars/references/race_mechagnome.png"
+  },
+  {
+    "id": "race_nightborne",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Nightborne cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Nightborne UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: weathered dark violet stone, dull gold curves and a small arcane blue crystal. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Nightborne. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_nightborne.png"
+    ],
+    "file": "artwork/cast-bars/references/race_nightborne.png"
+  },
+  {
+    "id": "race_nightelf",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Night Elf cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Night Elf UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: ancient purple wood, broad silver crescent, dark teal leaves and owl feathers. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Night Elf. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_nightelf.png"
+    ],
+    "file": "artwork/cast-bars/references/race_nightelf.png"
+  },
+  {
+    "id": "race_orc",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Orc cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Orc UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: rough iron spikes, red hide bindings, broad tusks and brown wood. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Orc. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_orc.png"
+    ],
+    "file": "artwork/cast-bars/references/race_orc.png"
+  },
+  {
+    "id": "race_pandaren",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Pandaren cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Pandaren UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: dark red lacquered wood, broad bamboo leaves, ivory stone and a jade medallion. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Pandaren. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_pandaren.png"
+    ],
+    "file": "artwork/cast-bars/references/race_pandaren.png"
+  },
+  {
+    "id": "race_scourge",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Undead cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Undead UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: chipped tombstone, yellowed bone, torn purple cloth and small green plague accents. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Undead. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_scourge.png"
+    ],
+    "file": "artwork/cast-bars/references/race_scourge.png"
+  },
+  {
+    "id": "race_tauren",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Tauren cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Tauren UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: carved brown wood, hide, broad white horns and simple ochre tribal paint. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Tauren. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_tauren.png"
+    ],
+    "file": "artwork/cast-bars/references/race_tauren.png"
+  },
+  {
+    "id": "race_troll",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Troll cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Troll UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: carved blue wood, large tusks, muted orange feathers and simple voodoo mask crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Troll. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_troll.png"
+    ],
+    "file": "artwork/cast-bars/references/race_troll.png"
+  },
+  {
+    "id": "race_voidelf",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Void Elf cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Void Elf UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: tarnished silver, dark violet cloth and chunky purple void crystals. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Void Elf. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_voidelf.png"
+    ],
+    "file": "artwork/cast-bars/references/race_voidelf.png"
+  },
+  {
+    "id": "race_vulpera",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Vulpera cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Vulpera UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: sun-worn red cloth, coarse rope, tan leather and broad fox-ear silhouettes. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Vulpera. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_vulpera.png"
+    ],
+    "file": "artwork/cast-bars/references/race_vulpera.png"
+  },
+  {
+    "id": "race_worgen",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Worgen cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Worgen UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: weathered Gilnean iron, dark blue cloth, broad wolf-ear silhouettes and old brass. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Worgen. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_worgen.png"
+    ],
+    "file": "artwork/cast-bars/references/race_worgen.png"
+  },
+  {
+    "id": "race_zandalaritroll",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Create ONE Zandalari Troll cast-bar border sprite for our old-school Warcraft addon. Reference 1 is the approved Druid CAST BORDER and defines the narrow ONE-bar composition, small freely protruding details, and complete uncropped ends. Reference 2 is our Zandalari Troll UNIT FRAME: match its painted rail materials and muted palette. Make ONLY slim health-style rails above and below ONE empty horizontal bar opening, with small rounded/beveled joins at the ends. Material direction: blocky old gold, turquoise stone, broad stepped patterns and a small loa crest. Simplify to the material, a few bindings/insets, and small characteristic accents; omit the large identity crest from the full unit frame. Do NOT retain Druid leaves or roots unless appropriate to Zandalari Troll. No big emblems, heads, side pillars, medallions, portraits, text, filled bars or second slot. No hanging banners. Details may extend naturally a little beyond the rails. Fully finished outer contour, never cropped or squeezed into a flat box. Front-facing hand-painted 2004 Warcraft game texture, matte aged materials, chunky strokes, not modern glossy CGI. Keep a very long thin clear slot (about 1250 pixels wide by 100 pixels high); rails roughly 20 pixels thick with small occasional protrusions and end details at most 40 pixels beyond the rails. Center complete sprite on wide 1536x1024 canvas with ample margin around tips. Prefer TRUE transparent alpha background and empty interior. If alpha cannot be supplied, use a PERFECTLY flat solid pure chroma green #00ff00 background and interior; never draw a checkerboard. No background shadow, glow, scenery or mockup. Single coherent sprite, not multiple variations.",
+    "references": [
+      "artwork/cast-bars/references/class_druid.png",
+      "artwork/unit-frames/assets/race_zandalaritroll.png"
+    ],
+    "file": "artwork/cast-bars/references/race_zandalaritroll.png"
+  }
+]

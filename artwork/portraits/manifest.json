@@ -594,7 +594,7 @@
       "group": "class",
       "file": "JiberishUI/Media/Portraits/class_mage.tga",
       "source": "artwork/portraits/atlases/class_mage.png",
-      "source_sha256": "210645be74116d2995c53ae78e481d257374f2af230bc8711e0c0392199d90c1",
+      "source_sha256": "75808a9da3fea17bedbe27e02fdc04353adf8be64e39cfc8af7777e3d5f6f33b",
       "source_size": [
         512,
         256
@@ -604,7 +604,7 @@
         "round": "artwork/portraits/round/class_mage.png"
       },
       "original": "artwork/portraits/integrated-originals/class_mage.png",
-      "original_sha256": "177b78bbe151fdd1f8116864d2b584dea04df1b5151df9f50940a616f4db9dac",
+      "original_sha256": "7b9fee04cf6bd3eb3f8e37a51bf3f278bdf83df44dd5e56073b6f7431b7c1b58",
       "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; register silhouette then smoothly conform its inner contour to the native portrait; retain distant side details; left atlas half is Player teardrop, right half round Target/Focus; no level-badge cutout",
       "fit_version": 5,
       "registration_source_bounds": [
@@ -669,8 +669,9 @@
           0.5
         ]
       ],
-      "sha256": "e799824280880b6aaf5601c29b279d4e8970ab2dc86b9c8ccdd68d4a3c4c4323",
-      "in_game_qualified": false
+      "sha256": "395a0c1b4452a52c99621d31ae713ae7c0f829d509d51ace9bbbc7cd74d88ba7",
+      "in_game_qualified": false,
+      "emblem_correction": "artwork/mage-emblem-correction/portrait-generation.json"
     },
     {
       "id": "class_warlock",

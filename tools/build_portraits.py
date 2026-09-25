@@ -135,6 +135,8 @@ def main(partial=False):
             'alphaBounds':list(atlas.getchannel('A').getbbox()),'clear_points':[[154/512,148/256],[410/512,148/256],[.45,.5],[.95,.5]],
             'sha256':digest(tga),'in_game_qualified':False,
         })
+    for record in reports:
+        if record['id']=='class_mage': record['emblem_correction']='artwork/mage-emblem-correction/portrait-generation.json'
     (ART/'manifest.json').write_text(json.dumps({'assets':reports,'in_game_qualified':False},indent=2)+'\n')
     (ART/'gallery-data.js').write_text('const portraitAssets = '+json.dumps(reports)+';\n')
     if not partial:

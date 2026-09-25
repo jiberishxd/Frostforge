@@ -353,9 +353,9 @@
     "id": "class_mage",
     "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_mage.png",
-    "source_sha256": "53e4bcd74f2d4dc54fcbbfe2492f37fb8f743c00a87178549a7c8c3e286e632c",
+    "source_sha256": "3ce073fb3ad63fdfb7049cb2af0823bacf50932b7723001cb028082da81e2af1",
     "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
-    "sha256": "933c6959b57eee2adf275baf5417673123620571201a2c1186ee3635b11f1907",
+    "sha256": "fda1ab88fafd4dfe608b19ff3a7abaf112de878a3827a76cc772f32476e2d5cd",
     "measured": {
       "health": [
         252,
