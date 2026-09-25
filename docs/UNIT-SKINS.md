@@ -1,6 +1,6 @@
 # Optional full Blizzard unit-frame skins
 
-Build 0.7.0-art.1 adds Full unit frame style independently to Player, Target and Focus. In `/jui`, select the unit tab and click **Style: Portrait only** to enable **Style: Full unit frame**. Click again to restore native fills. The default remains portrait-only, and all existing portrait artwork/settings are retained.
+Build 0.7.0-art.2 adds Full unit frame style independently to Player, Target and Focus. In `/jui`, select the unit tab and click **Style: Portrait only** to enable **Style: Full unit frame**. Click again to restore native fills. The default remains portrait-only, and all existing portrait artwork/settings are retained.
 
 The full skin combines a substantial sculpted shell with painted health/power materials. All 42 class/race/faction identities have original shells inspired by their existing portraits and the Warcraft identity references recorded in the artwork provenance. Each has its own full-bleed health and power material. Blizzard's health/reaction and mana/rage/energy hues remain native. There are no new portrait or level-badge circles.
 

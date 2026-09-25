@@ -1,6 +1,6 @@
 # Portrait artwork and fitting
 
-The active unit artwork is a portrait background only. There is no health/power border, rail, full-frame shell or bar endpoint. Player, Target and Focus each render one independent texture; Target and Focus mirror the artwork. The minimap and action hub each have the same 42 identities, with shared circular and five-piece fitting geometry respectively.
+Portrait-only mode uses a portrait background without a health/power border, rail, full-frame shell or bar endpoint. Optional full-frame skins are described below. Player, Target and Focus each render one independent texture; Target and Focus mirror the artwork. The minimap and action hub each have the same 42 identities, with shared circular and five-piece fitting geometry respectively.
 
 The library includes 42 compositions from retained generated ornaments and the requested official emblems: 13 classes, 26 playable races, and three faction choices. `artwork/portraits/catalog.json` records the motifs and official roster sources. `generation-prompts.json` stores every complete built-in imagegen prompt. Original outputs are retained separately from processed assets. No generated character portraits are used: native Blizzard portraits stay visible.
 
@@ -54,10 +54,16 @@ The renderer scales the default 340-unit artwork by the native Minimap diameter 
 
 The Warrior portrait, action hub and minimap were edited to remove faction insignia from their red cloth. Weapons, armor and draping remain. The edit prompt, before images and revised outputs are retained under `artwork/warrior-neutral-review/`; their processed textures use the same fit templates as the other identities.
 
-## Optional unit-frame materials (0.6.0-art.1)
+## Optional unit-frame materials (0.7.0-art.1)
 
 The 42 full unit-frame shells are original generated artwork, guided by the approved Shaman composition, the existing portrait for each identity, and the recorded official Warcraft class/race/faction reference. Their raw sources, prompts and measured fitting records are in `artwork/unit-frames/sculpted/`. Warrior remains faction-neutral; Mage uses an arcane eye, Hunter uses hunting/skull motifs, and Paladin has broad wings. No other addon's assets, code or branding are used.
 
 `tools/fit_unit_shells.py` removes the solid green matte, despills adjacent edges and registers every shell to a shared 512 × 256 atlas. Health (96,84)-(396,132), power (96,136)-(396,160) and name (96,0)-(396,70) are fully transparent. The outer four pixels remain transparent. Runtime sections fit actual native bars while retaining endcap proportions and hanging ornament.
 
 `tools/build_unit_frame_art.py` encodes the 42 shells and 84 matching 256 × 32 opaque health/power materials. Those materials combine our original painted surface with the corresponding shell's lower-rail material; native color tint and masks remain in charge of resource hues and clipping. Portrait, hub and minimap pixels are unchanged. The preview includes a stored-size checkerboard view and gameplay-size Player/Target/Focus comparisons.
+
+## 0.7.0-art.2 artwork audit
+
+The shell fitter now measures the full upper silhouettes and top rail before registration. It keeps the inner shoulders outside the existing name corridor, eases back to the unchanged health opening, and fits extremities inside the outer padding. The name and margin masks must discard zero visible pixels before a fit can export. This replaces the rectangular crop that cut off the Priest corner and similar details in the other shells. Failed fits stop the build rather than publishing an incomplete fitting report.
+
+All 42 original shell sources, all portraits, hubs, minimaps and 84 fill textures remain unchanged. Only the 42 fitted shell exports change. The browser gallery now follows the selected Player/Target/Focus orientation in its thumbnails too. See [the audit findings and comparison](ARTWORK-AUDIT.md).

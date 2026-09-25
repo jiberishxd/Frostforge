@@ -20,6 +20,10 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y lua5.1
       - name: Check Lua behavior
         run: lua5.1 tests/run.lua
+      - name: Install artwork test dependencies
+        run: python3 -m pip install -r tools/requirements-artwork.txt
+      - name: Check non-destructive artwork fitting
+        run: python3 tests/test_unit_shell_fit.py
       - name: Check source, transparency and provenance
         run: python3 tools/check.py
       - name: Package both clients
