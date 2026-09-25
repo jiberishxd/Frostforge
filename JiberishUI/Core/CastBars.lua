@@ -9,6 +9,8 @@ J.Core.properties.castBarWeight = {.5,2}
 J.Core.properties.castBarPadding = {0,8}
 J.Core.properties.castBarWidth = {50,150}
 J.Core.properties.castBarHeight = {50,150}
+J.Core.properties.castBarStrata = J.Core:Copy(J.Core.properties.strata)
+J.Core.properties.castBarStrata.AUTO=true
 for id in pairs(J.UnitSkinCatalog.entries) do J.Core.properties.castBarArt[id]=true end
 
 local keys={"playerFrame","targetFrame","focusFrame"}
@@ -71,7 +73,10 @@ end
 
 function C:Create(key)
     local module={key=key..".castBorder"}
-    local frame=CreateFrame("Frame",nil,UIParent)
+    -- Ellesmere's Blizzard-style bars can inherit the aura-layout aspect.
+    -- Opt into its layout-only template; we have no layout scripts to disable.
+    local ok,frame=pcall(CreateFrame,"Frame",nil,UIParent,"DisableUntrustedLayoutScriptsTemplate")
+    if not ok or not frame then frame=CreateFrame("Frame",nil,UIParent) end
     local textures={}
     for row=1,3 do for col=1,3 do
         if row~=2 or col~=2 then textures[row..col]=frame:CreateTexture(nil,"ARTWORK") end
@@ -81,7 +86,7 @@ function C:Create(key)
     return module
 end
 
-local properties={"castBarShown","castBarSource","castBarStyle","castBarArt","castBarWeight","castBarPadding","castBarWidth","castBarHeight"}
+local properties={"castBarShown","castBarSource","castBarStyle","castBarArt","castBarWeight","castBarPadding","castBarWidth","castBarHeight","castBarStrata"}
 local function changed(module,bar,g,config)
     local old=module.geometry
     if not old or module.bar~=bar then return true end
@@ -127,6 +132,12 @@ function C:TickUnit(key)
         if module then module.active=false;J.Core:SyncVisibility(module,nil) end
         return
     end
+    g.artLevel=g.level+1
+    if usable(candidate.chrome) then
+        local level=candidate.chrome:GetFrameLevel()
+        local strata=candidate.chrome:GetFrameStrata()
+        if J.Core:IsNumber(level) and J.Core:IsSafe(strata) and strata==g.strata then g.artLevel=math.max(g.artLevel,level+1) end
+    end
     if not module then
         if combat then J.Core.dirty=true;self.status[key]="Attachment queued until combat ends";return end
         module=self:Create(key)
@@ -145,7 +156,7 @@ function C:TickUnit(key)
         local f=module.frame
         f:SetScale(g.scale/g.parentScale);f:SetSize(g.w,g.h)
         f:ClearAllPoints();f:SetPoint("TOPLEFT",bar,"TOPLEFT",0,0)
-        f:SetFrameStrata(g.strata);f:SetFrameLevel(g.level+1)
+        f:SetFrameStrata(config.castBarStrata=="AUTO" and g.strata or config.castBarStrata);f:SetFrameLevel(g.artLevel)
         module.applied={shown=true,opacity=1}
         self:Paint(module,id,true)
     elseif module.id~=id then
@@ -153,13 +164,16 @@ function C:TickUnit(key)
         else self:Paint(module,id,false) end
     end
     module.active=true
-    self.status[key]=labels[candidate.source].." - "..(module.assetOK and "ready (follows cast visibility)" or "artwork unavailable")
-    J.Core:SyncVisibility(module,visibility(bar))
+    local shown=visibility(bar)
+    self.status[key]=(candidate.name or labels[candidate.source]).." - "..(module.assetOK and
+        (shown and shown.visible and shown.alpha>0 and "attached; cast visible" or "attached; waiting for cast") or "artwork unavailable")
+    J.Core:SyncVisibility(module,shown)
 end
 
 function C:Tick()
     for _,key in ipairs(keys) do
         local ok=J.Core:Protect(key.." cast border",function() self:TickUnit(key) end)
+        if not ok then self.status[key]="Attachment unavailable; see /jui status." end
         if not ok and self.units[key] then
             local module=self.units[key];module.active=false
             J.Core:Protect(key.." cast cleanup",function() J.Core:SyncVisibility(module,nil) end)

@@ -30,7 +30,7 @@ source=ROOT/'artwork/unit-frames/references/painted-metal.png'
 base=np.asarray(ImageOps.grayscale(Image.open(source)).resize((256,32),Image.Resampling.LANCZOS)).astype(float)/255
 stone_source=ROOT/'artwork/unit-frames/references/plain-stone.png'
 stone_brief=ROOT/'artwork/unit-frames/references/plain-stone-generation.json'
-# Health uses only natural stone, never samples an ornamental rail. Contain
+# Health uses only painted stone, never samples an ornamental rail. Contain
 # the contrast for small bars and leave color entirely to the owning StatusBar.
 stone=ImageOps.grayscale(Image.open(stone_source))
 stone=ImageOps.fit(stone,(256,32),method=Image.Resampling.LANCZOS)
@@ -49,6 +49,7 @@ for job in jobs:
     if name=='class_paladin':refs += [ART/'paladin-crest-correction.json', ROOT/'artwork/official-crests/originals/class_paladin.png']
     if name=='class_shaman':refs += [ART/'shaman-elemental-correction.json', ART/'shaman-alpha-report.json', ART/'revisions/shaman-neutral-totems-rgb.png', ART/'shaman-neutral-correction.json', ROOT/'artwork/official-crests/originals/class_shaman.png']
     if name=='class_mage': refs += [ROOT/'artwork/mage-emblem-correction/unit-frame-generation.json', ROOT/'artwork/mage-emblem-correction/applied.json']
+    if name=='class_druid': refs += [ART/'druid-antler-correction/generation.json', ART/'druid-antler-correction/applied.json', ROOT/'artwork/official-crests/originals/class_druid.png']
     assets.append(save(name,shell,refs,'unit-shell'))
     # Power retains the existing brushwork and lower-rail material. Health uses
     # the separate unmarked stone above; both retain the provider's color tint.
@@ -80,7 +81,10 @@ if not args.preview:
         lines.append('    %s = {shell="%s%s.tga",cast="%s%s.tga",health="%s%s-health.tga",power="%s%s-power.tga",opening={health={%s},power={%s}}},'%(ident,prefix,stem,prefix.replace("UnitFrames","CastBars"),stem,prefix,stem,prefix,stem,health,power))
     lines+=['} }'];(ROOT/'JiberishUI/Themes/UnitSkins.lua').write_text('\n'.join(lines)+'\n')
     manifest=ROOT/'docs/phase1-assets.json';data=json.loads(manifest.read_text())
-    data['assets']=[a for a in data['assets'] if '/UnitFrames/' not in a['file']]+assets
+    replacements={a['file']:a for a in assets}
+    data['assets']=[replacements.pop(a['file'],a) for a in data['assets']
+                    if '/UnitFrames/' not in a['file'] or a['file'] in replacements]
+    data['assets'].extend(replacements.values())
     manifest.write_text(json.dumps(data,indent=2)+'\n')
     (ROOT/'artwork/unit-frames/manifest.json').write_text(json.dumps(assets,indent=2)+'\n')
     # Obsolete development-only common fills are not part of this release.

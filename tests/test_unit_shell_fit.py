@@ -14,6 +14,19 @@ from fit_unit_shells import fit
 
 
 class ShellFitTests(unittest.TestCase):
+    def test_druid_antlers_preserve_rails_openings_and_other_source_pixels(self):
+        root=ROOT/'artwork/unit-frames/sculpted/druid-antler-correction'
+        record=json.loads((root/'generation.json').read_text())
+        before=np.asarray(Image.open(ROOT/record['before']))
+        after=np.asarray(Image.open(ROOT/record['file']))
+        allowed=np.zeros(before.shape[:2],dtype=bool)
+        for x1,y1,x2,y2 in record['boxes']: allowed[y1:y2,x1:x2]=True
+        self.assertTrue(np.array_equal(before[~allowed],after[~allowed]))
+        self.assertFalse(np.array_equal(before[allowed],after[allowed]))
+        old,old_fit=fit(ROOT/record['before']);new,new_fit=fit(ROOT/record['file'])
+        self.assertEqual(old_fit,new_fit)
+        self.assertTrue(np.array_equal(np.asarray(old)[100:],np.asarray(new)[100:]))
+
     def test_complete_cast_silhouettes_have_clear_centers_and_uncropped_details(self):
         source = (ROOT / 'artwork/cast-bars/runtime-borders.js').read_text()
         data = json.loads(source.split('window.castBorders=', 1)[1].rstrip(';\n'))
@@ -87,8 +100,12 @@ class ShellFitTests(unittest.TestCase):
     def test_other_portraits_hubs_and_minimaps_unchanged(self):
         baseline = json.loads((ROOT / 'tests/fixtures/pre-audit-art.json').read_text())
         self.assertEqual(len(baseline['assets']), 126)
+        hub_corrections=json.loads((ROOT/'artwork/hubs/alpha-cleanup/manifest.json').read_text())['corrections']
         for name, expected in baseline['assets'].items():
             if name.endswith('Portraits/class_mage.tga'): continue
+            if '/Hubs/' in name and Path(name).stem in hub_corrections:
+                self.assertEqual(expected,hub_corrections[Path(name).stem]['before_tga_sha256'])
+                continue  # Alpha-only changes are checked in test_hub_alpha.py.
             with self.subTest(asset=name):
                 self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected)
 

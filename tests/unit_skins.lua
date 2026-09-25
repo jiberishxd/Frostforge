@@ -222,7 +222,7 @@ test("shell layers follow user settings and defer protected changes in combat",f
     local J=M.load();enable(J)
     local u=J.UnitSkins.units.playerFrame
     M.combat=true
-    J.ProfileManager:Set("playerFrame","strata","HIGH")
+    J.ProfileManager:Set("playerFrame","unitFrameStrata","HIGH")
     J.ProfileManager:Set("playerFrame","level",42)
     J.ProfileManager:Set("playerFrame","layer","ARTWORK")
     assert(u.health.trim.frame.strata=="BACKGROUND")

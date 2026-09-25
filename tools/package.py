@@ -13,7 +13,9 @@ CLIENTS = {
 }
 TOC = ROOT / "JiberishUI/JiberishUI.toc"
 VERSION = re.search(r"^## Version: (.+)$", TOC.read_text(), re.M).group(1)
-DOCS = ("README.md", "docs/ARCHITECTURE.md", "docs/UNIT-SKINS.md", "docs/ARTWORK.md", "docs/COMPATIBILITY.md",
+DOCS = ("README.md", "SUPPORT.md", "CONTRIBUTING.md", "docs/HUB-TRANSPARENCY.md", "docs/images/minimal-stone.jpg", "docs/PROFILES.md", "docs/images/profiles.jpg",
+        "docs/GETTING-STARTED.md", "docs/GALLERY.md", "docs/DEVELOPMENT.md", "docs/COMMANDS.md", "docs/BLIZZARD-CONTROLS.md", "docs/stock-frame-sources.json",
+        "docs/images/emblem.png", "docs/images/overview.jpg", "docs/images/unit-frames.jpg", "docs/images/settings.jpg", "docs/images/blizzard-controls.jpg", "docs/images/paladin-ingame.png", "docs/ARCHITECTURE.md", "docs/UNIT-SKINS.md", "docs/ARTWORK.md", "docs/COMPATIBILITY.md",
         "docs/PERSISTENCE.md", "docs/VALIDATION.md", "docs/TEST-RESULTS.md", "docs/NPC-CITIES.md", "docs/SETTINGS.md", "docs/CAST-BARS.md", "docs/cast-bar-sources.json",
         "docs/phase1-assets.json", "docs/phase1-sources.json", "docs/addon-sources.json", "docs/ADDON-COMPATIBILITY.md", "docs/ARTWORK-CREDITS.md", "docs/ARTWORK-SOURCES.json")
 

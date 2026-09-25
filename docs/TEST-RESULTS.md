@@ -1,3 +1,17 @@
+# Build 0.8.1 character profiles, native controls and artwork polish
+
+216 Lua 5.1 behavior tests and 15 Python artwork tests pass. New behavior coverage includes character-specific profile assignments on both client paths, migration of the previous setup, independent copies, deliberately shared profiles, relogging, imports, invalid/future formats, combat restrictions, and restoring native presentation after switching profiles. The Profiles, Artwork, Blizzard and Advanced settings pages were visually inspected from the actual Lua UI export.
+
+Ellesmere cast-border cases cover Resource Bars versus Unit Frames discovery, idle preparation, frame chrome layering and independent strata. Blizzard controls cover portrait-image visibility, name positioning/font restoration, and shared stone fills across main, pet, boss, party and raid health/power bars. Native appearance changes defer during combat. These are offline simulations, not certification of the game's secure renderer.
+
+All 42 hubs were visually audited on a solid background; retained masks remove baked checker residue in 24 while preserving artwork RGB and registration. All 42 health fills now use the original minimal painted-stone material. The Druid shell has localized branching antlers; the remaining source pixels, bar openings and rail fitting are unchanged. Of 294 runtime textures, 67 changed (24 hubs, 42 health fills and one Druid shell); the other 227 are unchanged. Artwork tests and provenance checks cover the corrected exports and retained generation references.
+
+Source/media/provenance checks, the exported cast-layout comparison, and exact Retail/Forever 0.8.1 package checks pass. Each archive contains 359 files, including 294 runtime textures. Documentation links resolve locally.
+
+No WoW interaction or in-game testing was performed. Character logout/login persistence, actual Ellesmere cast-border visibility, secure runtime behavior, native text placement and custom layouts remain user-run checks. Retail and Forever keep separate saved files. The previously reported Forever saved-table loading issue remains distinct from profile assignment; see [persistence](PERSISTENCE.md).
+
+---
+
 # Build 0.8.0 matching cast-bar borders and Mage emblem correction
 
 190 Lua 5.1 behavior tests and 12 Python artwork tests pass. Cast cases cover Blizzard, EllesmereUI and ElvUI on both client paths; all 42 themes; complete outer texture coordinates and proportional corners; legacy-style migration to the single Bold design; centered width/height fitting, independent settings, reset and backups; matching/fixed artwork; combat-safe identity changes and queued fitting; idle attachment, fading/hiding, effective scale, provider replacement, unavailable/restricted geometry and Forever gamepad casts.

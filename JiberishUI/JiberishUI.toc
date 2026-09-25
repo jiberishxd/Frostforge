@@ -2,9 +2,10 @@
 ## Title: JiberishUI
 ## Notes: Optional sculpted unit-frame skins and fantasy portrait surrounds with Blinkii, mMediaTag, ElvUI and EllesmereUI support, matching cast-bar borders, action hubs and minimap artwork. In-game validation pending.
 ## Author: JiberishUI
-## Version: 0.8.0
+## Version: 0.8.1
 ## SavedVariables: JiberishUIDB
-## OptionalDeps: LibSharedMedia-3.0, Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_Minimap, Blinkiis_Portraits, ElvUI, ElvUI_mMediaTag, EllesmereUI, EllesmereUIUnitFrames, EllesmereUIActionBars, EllesmereUIMinimap
+## SavedVariablesPerCharacter: JiberishUICharacterDB
+## OptionalDeps: LibSharedMedia-3.0, Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_Minimap, Blinkiis_Portraits, ElvUI, ElvUI_mMediaTag, EllesmereUI, EllesmereUIUnitFrames, EllesmereUIResourceBars, EllesmereUIActionBars, EllesmereUIMinimap
 
 Build.lua
 Core\Core.lua
@@ -19,8 +20,10 @@ Core\Minimaps.lua
 Themes\UnitSkins.lua
 Core\UnitSkins.lua
 Core\CastBars.lua
+Core\BlizzardUnits.lua
 Core\ThemeManager.lua
 Core\ProfileManager.lua
+Core\NamedProfiles.lua
 Core\Settings.lua
 Compatibility\Retail.lua
 Compatibility\Forever.lua

@@ -1,7 +1,10 @@
 -- Development-only snapshots of the real options objects in the offline host.
 -- Native Blizzard textures/fonts are approximated by the browser renderer.
 local M=dofile("tests/mock_wow.lua")
-local J=M.load();local S=J.SettingsUI;S:Open()
+local J=M.load({stockStone=true});local S=J.SettingsUI;S:Open()
+-- Illustrative names only; generated in the offline fixture, never player data.
+local P=J.ProfileManager;local initial=P.activeID
+P:RenameProfile("Paladin raids");P:SaveAs("Night Elf hunter",true);P:UseProfile(initial)
 local function json(v)
     if type(v)=="string" then return '"'..v:gsub('\\','\\\\'):gsub('"','\\"'):gsub('\n','\\n'):gsub('\r','\\r')..'"' end
     if type(v)~="table" then return tostring(v) end
@@ -27,7 +30,7 @@ end
 local out={root=ids[S.frame],pages={}}
 for _,key in ipairs({"playerFrame","minimap","actionHub"}) do
     S:Select(key)
-    for _,page in ipairs({"artwork","placement","fitting","cast","advanced","guide"}) do
+    for _,page in ipairs({"artwork","placement","fitting","cast","blizzard","advanced","guide","profiles"}) do
         S:SetPage(page);out.pages[key.."-"..page]=snapshot()
     end
 end

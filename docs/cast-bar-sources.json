@@ -68,9 +68,13 @@
         {
           "path": "EllesmereUIUnitFrames/EUI_UnitFrames_Engine.lua",
           "sha256": "0b1fb5372506307f7310f7e902e4f970086315d4c9c2e898760f9ad4dda17bb3"
+        },
+        {
+          "path": "EllesmereUIResourceBars/EllesmereUIResourceBars.lua",
+          "sha256": "e13e92a55ea4cebd1e1e432013ea3e3aec156faa2106480fcb404b5e019f2adf"
         }
       ],
-      "evidence": "CreateCastBar creates the StatusBar inside castbarBg and assigns frame.Castbar; SetupShowOnCastBar owns native visibility."
+      "evidence": "CreateCastBar creates the StatusBar inside castbarBg and assigns frame.Castbar; SetupShowOnCastBar owns native visibility. Resource Bars creates ERB_CastBarFrame._bar (ERB_CastBar) inside a clipping frame, with _border above it. Main Player discovery prefers this live bar, then the Unit Frames mini cast. UF_CastbarAspectTemplate opts Blizzard-style holders into DisableUntrustedLayoutScriptsTemplate; _blizzArtFr/_classicArt draw above the native bar."
     },
     {
       "provider": "ElvUI",

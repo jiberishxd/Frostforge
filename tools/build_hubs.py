@@ -8,6 +8,7 @@ import json
 import numpy as np
 from PIL import Image, ImageFilter
 from build_portraits import ROOT, extract_alpha, digest, retain_source
+from clean_hub_alpha import clean
 
 ART = ROOT / 'artwork/hubs'
 WIDTH, HEIGHT = 2172, 724
@@ -94,6 +95,10 @@ def main(partial=False):
         original=ART/'sculpted-originals'/f'{id}.png';retain_source(records[id],original)
         matte=records[id].get('matte')
         raw,method=extract_chroma(Image.open(original),matte) if matte else extract_alpha(Image.open(original))
+        corrected=clean(raw,id)
+        if corrected is not raw:
+            method+='; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json)'
+        raw=corrected
         canvas,mapping=register(raw)
         assert canvas.crop((620,0,1552,440)).getchannel('A').getbbox() is None
         png=ART/'assets'/f'{id}.png';canvas.save(png)
@@ -122,7 +127,11 @@ def main(partial=False):
             lines.append('J.HubCatalog.entries.'+entry['id'].upper()+' = {label='+json.dumps(entry['label'])+',group='+json.dumps(entry['group'].upper())+',texture='+json.dumps(path)+'}')
         (ROOT/'JiberishUI/Themes/Hubs.lua').write_text('\n'.join(lines)+'\n')
         target=ROOT/'docs/phase1-assets.json';data=json.loads(target.read_text())
-        data['assets']=[a for a in data['assets'] if '/Hubs/' not in a['file'] and not a['file'].endswith('PaladinRet/action-hub.tga')]+reports
+        replacements={a['file']:a for a in reports}
+        data['assets']=[replacements.pop(a['file'],a) for a in data['assets']
+                        if not a['file'].endswith('PaladinRet/action-hub.tga')
+                        and ('/Hubs/' not in a['file'] or a['file'] in replacements)]
+        data['assets'].extend(replacements.values())
         data['official_crest_sources']='artwork/official-crests/sources.json'
         target.write_text(json.dumps(data,indent=2)+'\n')
     print('Prepared',len(reports),'complete sculpted hub atlases with shared seams and clear button regions.')
