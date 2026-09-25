@@ -2,6 +2,7 @@ local _, J = ...
 local S = { units = {}, status = {}, summary = {}, powerLayouts = {}, ellesmereLayouts = {}, watched = setmetatable({}, {__mode="k"}) }
 J.UnitSkins = S
 J.Core.properties.unitFrameShown = {boolean=true}
+J.Core.properties.unitFrameFill = {AUTO=true,PROVIDER=true,JIBERISH=true}
 -- Kept as an import/command alias for profiles made before separate toggles.
 J.Core.properties.unitStyle = {PORTRAIT=true,FULL=true}
 
@@ -31,10 +32,11 @@ local function capture(texture)
 end
 
 function S:Watch(record)
-    local function changed(frame)
+    local function changed(frame, selection)
         -- Hooks only observe redraws; all writes happen in the out-of-combat tick.
-        if not usable(frame) or record.writing then return end
+        if not usable(frame) or record.writing or not record.active then return end
         record.external = true
+        if selection then record.externalSelection = true end
         J.Core.dirty = true
     end
     for _,item in ipairs({{record.bar,"SetStatusBarTexture"},{record.texture,"SetTexture"},
@@ -53,7 +55,10 @@ function S:Watch(record)
                 end
             end)
         end
-        if watched[method] then watched[method][record]=changed end
+        if watched[method] then
+            local selection=method~="SetTexCoord"
+            watched[method][record]=function(received) changed(received,selection) end
+        end
     end
 end
 
@@ -90,11 +95,11 @@ function S:Restore(record)
     if record.external then
         local latest=capture(record.texture)
         if not latest then return false end
-        if not isOurFill(latest) then
-            record.original,record.active,record.external=latest,false,false
+        if record.externalSelection or not isOurFill(latest) then
+            record.original,record.active,record.external,record.externalSelection=latest,false,false,false
             return true
         end
-        record.external=false
+        record.external,record.externalSelection=false,false
     end
     local old=record.original
     local ok=write(record,function()
@@ -114,8 +119,8 @@ function S:ApplyFill(record,kind,id)
     if record.external or not record.active then
         local latest=capture(record.texture)
         if not latest then return false end
-        if not isOurFill(latest) then record.original=latest end
-        record.active,record.external=false,false
+        if not record.active or record.externalSelection or not isOurFill(latest) then record.original=latest end
+        record.active,record.external,record.externalSelection=false,false,false
     end
     if record.active and record.fillPath==path then return true end
     -- SetTexture on the existing fill region preserves the native mask and
@@ -426,6 +431,7 @@ function S:TickUnit(key)
     local id=J.Portraits:Resolve(config)
     local fitted,fitReason
     local external=bars and bars.source=="ELLESMERE"
+    local manageFill=config.unitFrameFill=="JIBERISH" or (config.unitFrameFill=="AUTO" and not external)
     if external then
         local strata,level=bars.root:GetFrameStrata(),bars.root:GetFrameLevel()
         J.AddOnAnchors:Layer(key,config,strata,J.Core:IsNumber(level) and level+1 or nil)
@@ -470,14 +476,19 @@ function S:TickUnit(key)
                 -- must not silently suppress the entire ornamental frame.
                 if not external or fitted then self:Layout(record,key,kind,config,id,g) end
                 unit.trims[kind]=record.trim
-                if not record.original then
+                if manageFill and not record.original then
                     local original=capture(texture)
                     if original then record.original=original;self:Watch(record) end
                 end
-                record.fillReady=record.original and self:ApplyFill(record,kind,id) or false
+                if manageFill then
+                    record.fillReady=record.original and self:ApplyFill(record,kind,id) or false
+                    record.fillManaged=true
+                elseif self:Restore(record) then
+                    record.fillReady,record.fillManaged=false,false
+                end
             elseif InCombatLockdown() then
                 local old=record.geometry
-                if not record.active or record.external or record.id~=id or not old
+                if record.fillManaged~=manageFill or (manageFill and (not record.active or record.external)) or record.id~=id or not old
                     or old.w~=g.w or old.h~=g.h or old.scale~=g.scale or old.parentScale~=g.parentScale
                     or old.capScale~=g.capScale or not record.trim or not record.trim.applied or record.trim.applied.strata~=config.strata
                     or record.trim.applied.level~=config.level or record.trim.applied.layer~=config.layer then J.Core.dirty=true end

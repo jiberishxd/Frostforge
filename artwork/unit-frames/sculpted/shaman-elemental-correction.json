@@ -1,0 +1,17 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Asset: JiberishUI Shaman ornamental unit-frame shell. Image 1 is the edit target: preserve its wide 2:1 composition, two empty health/power slots, thick divider and all three long horizontal stone rails, exact slot positions and proportions. Image 2 is a motif reference only. Revise only the left and right sculpted end ornaments. Integrate a recognizable elemental Shaman mask into the large right endcap: angular green-gray carved stone face, orange ember eyes, a contained fire crown, and four small elemental colored stones (green, red, blue, pale teal), inspired by image 2 but painted as part of our own stone-and-wood totem. No circular badge or medallion, no floating emblem. The mask flows naturally into the right border, red cloth, rope and tusks. Strengthen the left endcap as a smaller carved tribal totem with stacked faces, stone, wood, rope and subtle water/air spirals. Match image 1's gritty old-school Warcraft hand-painted texture, chunky edges and restrained detail. Keep all existing central rails, rope bindings, bottom drapery and slot space intact. No new bars, no text, no level circle, no character portrait. Preserve overall silhouette extent so ornaments are not cropped. Use a genuinely transparent background and transparent empty slots, with no checkerboard or green painted into the output.",
+  "inputs": [
+    "artwork/unit-frames/sculpted/revisions/shaman-before-elemental.png",
+    "artwork/official-crests/originals/class_shaman.png"
+  ],
+  "generated": "artwork/unit-frames/sculpted/revisions/shaman-elemental-totem-rgb.png",
+  "source_page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/shaman",
+  "scope": "Unit-frame shell only; other Shaman artwork already incorporates elemental mask.",
+  "processing": "tools/extract_shaman_alpha.py",
+  "input_sha256": {
+    "artwork/unit-frames/sculpted/revisions/shaman-before-elemental.png": "a6dc2245bc6e2f4226651abfda530f5c91461f737b9e3a0c16247f1d6c01f535",
+    "artwork/official-crests/originals/class_shaman.png": "e779f715615a4fa4db0d4757fb4d7d67b18686e8edab07488344316eaa35dce3"
+  },
+  "generated_sha256": "1ccbeb831202228a30eddcc75e3a59a46f61a930c078972f3ae8c9758e7a77be"
+}
