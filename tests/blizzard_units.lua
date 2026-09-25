@@ -85,16 +85,46 @@ end)
 
 test("stock configuration is scoped persisted and reset through its own settings page",function(M)
     local J=M.load();local S=J.SettingsUI;S:Open();S:SetPage("blizzard")
-    assert(S.nativePortraitToggle:IsVisible() and S.nativeNameToggle:IsVisible())
-    S.nativePortraitToggle.scripts.OnClick();S.nativeNameToggle.scripts.OnClick()
+    assert(S.nativePortraitToggle:IsVisible() and S.nativePortraitFrameToggle:IsVisible() and S.nativeNameToggle:IsVisible())
+    S.nativePortraitToggle.scripts.OnClick();S.nativePortraitFrameToggle.scripts.OnClick();S.nativeNameToggle.scripts.OnClick()
     J.ProfileManager:Set("playerFrame","blizzardNameSize",20)
     local backup=J.ProfileManager:Export();J.ProfileManager:Reset("playerFrame");assert(J.ProfileManager:Import(backup))
     local config=J.ThemeManager:Resolve("playerFrame")
-    assert(config.blizzardPortraitHidden and config.blizzardNameEnabled and config.blizzardNameSize==20)
+    assert(config.blizzardPortraitHidden and config.blizzardPortraitFrameHidden and config.blizzardNameEnabled and config.blizzardNameSize==20)
     assert(not J.ThemeManager:Resolve("targetFrame").blizzardNameEnabled)
     assert(not J.ProfileManager:Set("minimap","blizzardPortraitHidden",true))
     assert(not J.ProfileManager:Set("playerFrame","blizzardNameX",301))
     assert(not J.ProfileManager:Set("playerFrame","blizzardNameSize",5))
-    S.nativeReset.scripts.OnClick();assert(not J.ThemeManager:Resolve("playerFrame").blizzardNameEnabled)
+    S.nativeReset.scripts.OnClick();assert(not J.ThemeManager:Resolve("playerFrame").blizzardNameEnabled and not J.ThemeManager:Resolve("playerFrame").blizzardPortraitFrameHidden)
     S:Select("actionHub");assert(S.page=="placement" and not S.pageButtons.blizzard:IsVisible())
 end)
+
+for _,interface in ipairs({120100,16001}) do
+    test("full stock portrait removal preserves bars and restores chrome on "..interface,function(M)
+        local J=M.load({interface=interface})
+        for _,key in ipairs(keys) do
+            local root,portrait,name=J.BlizzardUnits:Regions(key)
+            local prefix=key=="playerFrame" and "PlayerFrame" or "TargetFrame"
+            local container=root[prefix.."Container"]
+            local border=M.region(container,"Texture",232,100);border.stockPresentation=true;border.alpha=.7
+            container.FrameTexture=border
+            local main=root[prefix.."Content"][prefix.."ContentMain"]
+            local badge=M.region(main,"Texture",24,24);badge.stockPresentation=true
+            main.LevelBackgroundCircle=badge
+            local flash=M.region(main,"Texture",232,100);flash.stockPresentation=true;main.StatusTexture=flash
+            J.ProfileManager:Set(key,"blizzardPortraitFrameHidden",true)
+            near(border.alpha,.7)
+            J.ProfileManager:Set(key,"unitFrameShown",true)
+            assert(portrait.alpha==0 and border.alpha==0 and badge.alpha==0 and flash.alpha==0)
+            assert(root.shown and main.shown and name.alpha==1)
+            local bars=J.Core.client:UnitBars(key)
+            assert(bars.health.shown and bars.health.alpha==1 and bars.power.alpha==1)
+            M.combat=true;J.ProfileManager:Set(key,"blizzardPortraitFrameHidden",false)
+            assert(border.alpha==0)
+            M.combat=false;M.tick(J.Core);near(border.alpha,.7);near(badge.alpha,1);near(flash.alpha,1)
+            J.ProfileManager:Set(key,"blizzardPortraitFrameHidden",true)
+            J.ProfileManager:Set(key,"unitFrameShown",false)
+            near(border.alpha,.7);near(portrait.alpha,1)
+        end
+    end)
+end

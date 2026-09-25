@@ -25,6 +25,6 @@ Full skins use verified Mainline health/mana child paths on Retail. Forever firs
 
 All 42 skins share original plain stone health with the provider’s color; power materials and shell geometry are unchanged. City selection uses public NPC metadata, client-localized reputation names and a small known-guard fallback on both client paths. It is shared by all supported portrait/bar providers. Missing APIs or restricted identity retain the selected mode’s normal fallback. In-game validation is pending; see NPC-CITIES.md.
 
-## Stock portrait/name and stone controls (0.8.1)
+## Stock portrait/name and stone controls (0.8.2)
 
 See [stock controls](BLIZZARD-CONTROLS.md). Native portrait-image alpha and name presentation changes are opt-in, reversible, per unit and applied outside combat. Stock-wide stone is enabled by default, independent of shells. It preserves native colors, values, masks and bar geometry. Exact stock-root and party/raid registry sources are pinned in [stock-frame-sources.json](stock-frame-sources.json).

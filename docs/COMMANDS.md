@@ -35,7 +35,7 @@ Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), op
 Blizzard defaults use Background strata and level 0. Ellesmere defaults follow its panel/portrait layer so opaque panels do not bury the artwork; explicit saved strata/level choices take priority. Custom dimensions/offsets/strata can change the fit. Use Reset this component to return to the fitted defaults.
 
 
-## Stock appearance and independent strata (0.8.1)
+## Stock appearance and independent strata (0.8.2)
 
 ```text
 /jui set playerFrame blizzardPortraitHidden on
@@ -46,6 +46,8 @@ Blizzard defaults use Background strata and level 0. Ellesmere defaults follow i
 /jui set targetFrame blizzardNameAlign CENTER
 /jui set targetFrame blizzardNameOutline OUTLINE
 /jui set playerFrame blizzardStone on
+/jui set playerFrame blizzardPortraitFrameHidden on
+/jui set playerFrame castBarLevel 5
 /jui set playerFrame strata HIGH
 /jui set playerFrame unitFrameStrata MEDIUM
 /jui set playerFrame castBarStrata HIGH

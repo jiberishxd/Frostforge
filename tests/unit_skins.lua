@@ -204,7 +204,7 @@ test("sculpted openings contain no art regions and mirror around native bars",fu
                 assert((uv[1]>uv[2])==(key~="playerFrame"))
             end
         end
-        assert(count==13)
+        assert(count==15)
     end
 end)
 
@@ -490,4 +490,28 @@ test("protected inner rim is retired only after queued hiding completes",functio
     assert(not J.UnitSkins.units.playerFrame.health and not record.trim.rim.frame.shown)
 end)
 
+
+test("Night Elf footer keeps its crescent proportions when native bars widen",function(M)
+    local J=M.load();enable(J)
+    J.ProfileManager:Set("playerFrame","portraitMode","FIXED")
+    J.ProfileManager:Set("playerFrame","portrait","RACE_NIGHTELF")
+    local u=J.UnitSkins.units.playerFrame
+    local center=u.power.trim.textures["2_2"]
+    local cw,ch=center.w,center.h
+    local span=u.power.trim.textures.footerLeft.w
+    local b=bars(J,"playerFrame")
+    b.health.w=b.health.w+150;M.tick(J.Core)
+    near(center.w,cw);near(center.h,ch)
+    near(u.power.trim.textures.footerLeft.w,span+75)
+    local left=u.power.trim.textures.footerLeft
+    local right=u.power.trim.textures.footerRight
+    near(left.points[1][4]+left.w,center.points[1][4])
+    near(center.points[1][4]+center.w,right.points[1][4])
+    for _,kind in ipairs({"health","power"}) do
+        local rim=u[kind].trim.rim
+        assert(not rim.textures.topShadow and not rim.textures.bottomShadow)
+        local top=J.UnitSkinCatalog.entries.RACE_NIGHTELF.opening[kind][2]
+        assert(rim.textures.top.texCoord[4]*256<=top-1)
+    end
+end)
 end
