@@ -118,6 +118,17 @@ def fit(path):
                      source_bounds=[bx,by,br,bb],scale=s,canvas=list(CANVAS),margin=4)
 
 
+def build_review(reports):
+    sheet=Image.new('RGB',(1536,148*((len(reports)+2)//3)),(32,40,43))
+    draw=ImageDraw.Draw(sheet)
+    for index,record in enumerate(reports):
+        image=Image.open(ROOT/record['source']).convert('RGBA')
+        x,y=(index%3)*512,(index//3)*148
+        sheet.paste(image,(x,y),image)
+        draw.text((x+10,y+132),record['id'],fill=(224,207,163))
+    sheet.save(ART/'review.jpg',quality=90)
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('ids',nargs='*');args=parser.parse_args()
     (ART/'assets').mkdir(exist_ok=True)
@@ -134,13 +145,13 @@ def main():
                     alphaBounds=list(image.getchannel('A').getbbox()),clear_points=[[.5,.5],[.2,.5],[.8,.5]],
                     references=[dict(file='artwork/cast-bars/generation-prompts.json',sha256=sha(ART/'generation-prompts.json'))])
         if path.stem == 'class_mage':
-            for name in ('cast-bar-generation.json', 'applied.json'):
-                reference=ROOT/'artwork/mage-emblem-correction'/name
-                record['references'].append(dict(file=str(reference.relative_to(ROOT)),sha256=sha(reference)))
+            reference=ART/'mage-simplification/generation.json'
+            record['references'].append(dict(file=str(reference.relative_to(ROOT)),sha256=sha(reference)))
         reports.append(record)
         print(path.stem,measured['source_opening'],image.getchannel('A').getbbox())
     if not args.ids:
         (ART/'manifest.json').write_text(json.dumps(reports,indent=2)+'\n')
+        build_review(reports)
         if len(reports)==42:
             manifest=ROOT/'docs/phase1-assets.json';data=json.loads(manifest.read_text())
             data['assets']=[a for a in data['assets'] if '/CastBars/' not in a['file']]+reports

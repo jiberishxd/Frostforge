@@ -47,12 +47,12 @@ for _,interface in ipairs({120100,16001}) do
     end
 end
 
-test("all 42 cast identities and three styles have empty centers and fixed fitting",function(M)
+test("all 42 Bold cast identities have empty centers and fixed fitting",function(M)
     local J=M.load();local bar=fixture(M,"BLIZZARD","targetFrame");bar.shown=true
     enable(J,"targetFrame","BLIZZARD")
     local c=J.CastBars.units.targetFrame
     for id,entry in pairs(J.UnitSkinCatalog.entries) do
-        for _,style in ipairs({"SLIM","CARVED","CAPPED"}) do
+        for _,style in ipairs({"CAPPED"}) do
             J.ProfileManager:Set("targetFrame","castBarStyle",style)
             J.ProfileManager:Set("targetFrame","castBarArt",id)
             assert(c.id==id and c.frame.w==180 and c.frame.h==16)
@@ -66,7 +66,7 @@ test("all 42 cast identities and three styles have empty centers and fixed fitti
             end
             for _,weight in ipairs({.5,2}) do
                 for _,padding in ipairs({0,8}) do
-                    local pieces=J.CastBars:Pieces(entry,style,8,4,weight,padding,false)
+                    local pieces=J.CastBars:Pieces(entry,8,4,weight,padding,false)
                     for _,p in pairs(pieces) do assert(p.w>0 and p.h>0 and (p.x+p.w<=0 or p.x>=8 or p.y+p.h<=0 or p.y>=4)) end
                 end
             end
@@ -113,10 +113,10 @@ test("cast configuration and attachment defer in combat and recover after native
     M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");local c=J.CastBars.units.playerFrame
     M.combat=true;local writes=M.geometryWrites
     J.ProfileManager:Set("playerFrame","castBarWeight",2);J.ProfileManager:Set("playerFrame","castBarStyle","SLIM")
-    assert(c.config.castBarWeight==1 and c.config.castBarStyle=="CARVED" and M.geometryWrites==writes)
+    assert(c.config.castBarWeight==1 and c.config.castBarStyle=="CAPPED" and M.geometryWrites==writes)
     bar.w=210;M.tick(J.Core);assert(not c.frame.shown and c.frame.w==180 and M.geometryWrites==writes)
     M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
-    assert(c.frame.shown and c.frame.w==210 and c.config.castBarStyle=="SLIM" and c.config.castBarWeight==2)
+    assert(c.frame.shown and c.frame.w==210 and c.config.castBarStyle=="CAPPED" and c.config.castBarWeight==2)
     local replacement=fixture(M,"ELLESMERE","playerFrame");replacement.shown=true
     M.tick(J.Core);assert(c.bar==replacement and c.frame.shown)
     M.combat=true;c.frame.protected=true;J.ProfileManager:Set("playerFrame","castBarShown",false)
@@ -157,8 +157,8 @@ end)
 
 test("cast options keep artwork choices scoped and persist in validated backups",function(M)
     local J=M.load();local S=J.SettingsUI;S:Open();S:SetPage("cast")
-    assert(S.castToggle:IsVisible() and S.controls.castBarStyle.button:IsVisible() and not S.styleButton:IsVisible())
-    S.castToggle.scripts.OnClick();S.controls.castBarStyle.options.CAPPED.scripts.OnClick()
+    assert(S.castToggle:IsVisible() and not S.controls.castBarStyle and S.controls.castBarSource.button:IsVisible() and not S.styleButton:IsVisible())
+    S.castToggle.scripts.OnClick()
     S.castBrowse.scripts.OnClick();S.castButtons.CLASS_MAGE.scripts.OnClick()
     local c=J.ThemeManager:Resolve("playerFrame")
     assert(c.castBarShown and c.castBarStyle=="CAPPED" and c.castBarArt=="CLASS_MAGE")
@@ -246,12 +246,32 @@ test("cast fitting changes wait for combat and retain full corner silhouettes",f
     assert(c.config.castBarWidth==150 and c.config.castBarHeight==75)
     local entry=J.UnitSkinCatalog.entries.CLASS_DRUID
     for _,w in ipairs({50,100,150}) do for _,h in ipairs({50,100,150}) do
-        for _,p in pairs(J.CastBars:FitPieces(entry,"CARVED",180,16,1,1,false,w,h)) do
+        for _,p in pairs(J.CastBars:FitPieces(entry,180,16,1,1,false,w,h)) do
             assert(p.w>0 and p.h>0)
         end
-        local p=J.CastBars:FitPieces(entry,"CARVED",180,16,1,1,false,w,h)['11']
+        local p=J.CastBars:FitPieces(entry,180,16,1,1,false,w,h)['11']
         near(p.w/48,p.h/48)
         assert(p.u1==0 and p.v1==0,"Outer art was cropped")
     end end
     assert((M.nativeLayoutWrites or 0)==0)
+end)
+
+test("retired cast styles migrate to Bold without losing fitting or artwork",function(M)
+    local J=M.load({db={phase1={version=2,theme="paladin_ret",modules={
+        playerFrame={castBarStyle="SLIM",castBarWidth=123,castBarHeight=84,castBarShown=true,castBarArt="CLASS_MAGE"},
+        targetFrame={castBarStyle="CARVED",castBarWeight=.8},focusFrame={castBarStyle="CAPPED"},
+    }}}})
+    for _,key in ipairs(keys) do assert(J.ThemeManager:Resolve(key).castBarStyle=="CAPPED") end
+    local player=J.ThemeManager:Resolve("playerFrame")
+    assert(player.castBarWidth==123 and player.castBarHeight==84 and player.castBarShown and player.castBarArt=="CLASS_MAGE")
+    assert(J.ThemeManager:Resolve("targetFrame").castBarWeight==.8)
+    local backup=J.ProfileManager:Export()
+    assert(not backup:find("SLIM",1,true) and not backup:find("CARVED",1,true))
+    for _,style in ipairs({"SLIM","CARVED","CAPPED"}) do
+        assert(J.ProfileManager:Import("JF2;paladin_ret;playerFrame.castBarStyle="..style..";playerFrame.castBarWidth=115"))
+        player=J.ThemeManager:Resolve("playerFrame")
+        assert(player.castBarStyle=="CAPPED" and player.castBarWidth==115)
+    end
+    local corner=J.CastBars:Pieces(nil,180,16,1,1,false)['11']
+    near(corner.w,30);near(corner.h,30) -- The previous Bold geometry.
 end)
