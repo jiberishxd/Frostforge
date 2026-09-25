@@ -1,4 +1,12 @@
-# Build 0.7.0-art.1 validation
+# Build 0.7.0-art.2 artwork audit
+
+The 42 identities were inspected in both Player and mirrored Target/Focus portrait-and-shell compositions, plus the portrait-only, hub and minimap collection sheets. The same name-clearance crop removed upper-corner pixels in all 42 shells; the outer padding cut a few tip pixels in 27. Shell fit version 2 preserves those details outside the unchanged clear regions. New fitting records require zero visible pixels discarded by either mask.
+
+All 126 portrait/hub/minimap runtime textures and 84 fill textures are byte-identical to art.1. Original generated sources are unchanged. The 42 fitted shell textures were rebuilt. Two synthetic fitting regressions check that an inward shoulder and an outer crown tip survive export while every functional opening stays empty, and that invalid source geometry fails. The existing 117 Lua tests and complete source/media/package checks also pass.
+
+Browser checks cover Priest Player at 1440p, Priest Target at 4K, and Gnome Focus at 1080p, including matching gallery orientation and transparent shell inspection. These are synthetic baseline previews. No new live-client result is claimed; custom offsets, UI scale, native masks and real layer ordering still need Retail/Forever confirmation. See [audit findings](ARTWORK-AUDIT.md).
+
+## Previous validation record (0.7.0-art.1)
 
 **117 Lua 5.1 tests passed.** The default portrait-only mode still performs no native writes. Opt-in full skins change only fill texture/UV appearance; the mock rejects all functional native writes and all native appearance writes during combat.
 

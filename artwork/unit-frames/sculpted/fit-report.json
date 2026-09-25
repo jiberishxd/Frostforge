@@ -1,10 +1,11 @@
 [
   {
     "id": "class_warrior",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_warrior.png",
     "source_sha256": "9374b66844d117572e8a9ef1057c7980ae709b449ccb4cdb0c9d76a0ac97c6ad",
     "file": "artwork/unit-frames/sculpted/assets/class_warrior.png",
-    "sha256": "13a831fd23890e96eaaac750e6e7465265105dabfe4e26787e6a5d3e917fa4f6",
+    "sha256": "9929c3c0830028ce8908b0b9d255389b8e0fe130c43e68ecdd0f0fa433d02461",
     "measured": {
       "health": [
         260,
@@ -17,15 +18,23 @@
         526,
         1411,
         575
-      ]
+      ],
+      "upper_source_bounds": [
+        438,
+        1217
+      ],
+      "rail_top": 283,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_paladin",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_paladin.png",
     "source_sha256": "ee5c8c8ded4692c7baafbe96df9f4e921f32d2d51d37a69697dd3248ee9e349f",
     "file": "artwork/unit-frames/sculpted/assets/class_paladin.png",
-    "sha256": "f7d917ff662c7777cee4f97997d17a4e576e2ac6a8f9e1e569a9ab4f1ae39c85",
+    "sha256": "7891f9fd58cf73e5be9f027ca6903c97fe7a74ed057ae2a253dba2ebd7024642",
     "measured": {
       "health": [
         252,
@@ -38,15 +47,23 @@
         521,
         1420,
         576
-      ]
+      ],
+      "upper_source_bounds": [
+        512,
+        1224
+      ],
+      "rail_top": 302,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_hunter",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_hunter.png",
     "source_sha256": "af328c225da0d53f38b44a4c62fd939da843473a8e6c18db73bc8ce37cbb5a4d",
     "file": "artwork/unit-frames/sculpted/assets/class_hunter.png",
-    "sha256": "7f523a8479decc176f9e8c1eb38db82eaa5e669ae0da11742464425f7dddf188",
+    "sha256": "45691852d78aa1beac18aa185c3023ee188dac65181b52bbaf1fb87ccab247d4",
     "measured": {
       "health": [
         256,
@@ -59,15 +76,23 @@
         522,
         1369,
         577
-      ]
+      ],
+      "upper_source_bounds": [
+        487,
+        1110
+      ],
+      "rail_top": 305,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_rogue",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_rogue.png",
     "source_sha256": "fab1f16f3f365bfd486c0657d215968e4a3c8a9adc01f674e3209ade82d30c39",
     "file": "artwork/unit-frames/sculpted/assets/class_rogue.png",
-    "sha256": "dad414ed29941e8405f9185bad75b26d6a6d0048e663bb5adf2e21075d3d460c",
+    "sha256": "8c9e7d0aac8c2a3134d56d0a744b78e8ace1856944a7d20223b0e07571bded4c",
     "measured": {
       "health": [
         256,
@@ -80,15 +105,23 @@
         522,
         1418,
         574
-      ]
+      ],
+      "upper_source_bounds": [
+        582,
+        1109
+      ],
+      "rail_top": 301,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_priest",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_priest.png",
     "source_sha256": "5d1ff7c7e7651a491970cf6b7c7c442ac5a2c175bf282d8f71e13bd3b1584946",
     "file": "artwork/unit-frames/sculpted/assets/class_priest.png",
-    "sha256": "22398056aa6681fba0ada9db1346fdf87172a3ad02e40f264aca08e4cf7bf231",
+    "sha256": "198586fe2a476d1285765820e76c115d22cbea3b7eb75c6367732a5d0ceb8f95",
     "measured": {
       "health": [
         257,
@@ -101,15 +134,23 @@
         524,
         1419,
         577
-      ]
+      ],
+      "upper_source_bounds": [
+        408,
+        1128
+      ],
+      "rail_top": 306,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_deathknight",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_deathknight.png",
     "source_sha256": "0dd215058a66a807f631b227f4c14d70624c90e720c50dfe074ef2ab10a76a6d",
     "file": "artwork/unit-frames/sculpted/assets/class_deathknight.png",
-    "sha256": "98b49c2fb31e1c0c16e4fc3b43dfff1308007b2e493dfaedc5bb1f32e563de18",
+    "sha256": "8d2f83c59497ea2cfedbebe92f9d4ff286b347833c43e39ed56ee6e6e966a46e",
     "measured": {
       "health": [
         257,
@@ -122,15 +163,23 @@
         523,
         1419,
         571
-      ]
+      ],
+      "upper_source_bounds": [
+        492,
+        1189
+      ],
+      "rail_top": 304,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_shaman",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_shaman.png",
     "source_sha256": "a6dc2245bc6e2f4226651abfda530f5c91461f737b9e3a0c16247f1d6c01f535",
     "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-    "sha256": "a6b87974db4bbd91d3b95e0b106392c1d6f4c8e5f034b6f01304e6645f6cd0bc",
+    "sha256": "4d28a79b5fefd6e91d69f6b62326026edf7c2f8249fd8eab757c853156876909",
     "measured": {
       "health": [
         256,
@@ -143,15 +192,23 @@
         523,
         1419,
         578
-      ]
+      ],
+      "upper_source_bounds": [
+        464,
+        1220
+      ],
+      "rail_top": 304,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_mage",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_mage.png",
     "source_sha256": "53e4bcd74f2d4dc54fcbbfe2492f37fb8f743c00a87178549a7c8c3e286e632c",
     "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
-    "sha256": "5826d00173f8483970dcc77c6bf74ed82d01aa19bafda8177747af037a77af7c",
+    "sha256": "20393c3e1f2bcbd9446fb9e208e108656951d2ea6d08145e0d129f01069a9f5d",
     "measured": {
       "health": [
         252,
@@ -164,15 +221,23 @@
         520,
         1416,
         573
-      ]
+      ],
+      "upper_source_bounds": [
+        508,
+        1089
+      ],
+      "rail_top": 301,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_warlock",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_warlock.png",
     "source_sha256": "464c8ce3b18d42456c65c9cdf08a0fd416a592961cdbd64978ba94e27e6217a6",
     "file": "artwork/unit-frames/sculpted/assets/class_warlock.png",
-    "sha256": "9fef5245fee355fc4fd835f74e7a7da6b44cd65ec2970077f017ea5d70c4aed8",
+    "sha256": "78a34e035416a051e39c7e014bdbfff0d1152ae10ce43719f54971413cc2a2b1",
     "measured": {
       "health": [
         256,
@@ -185,15 +250,23 @@
         523,
         1427,
         576
-      ]
+      ],
+      "upper_source_bounds": [
+        568,
+        1117
+      ],
+      "rail_top": 291,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_monk",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_monk.png",
     "source_sha256": "7989ba375d535618e63ab480fccc6f50e461e518011ba090d678554d8757795c",
     "file": "artwork/unit-frames/sculpted/assets/class_monk.png",
-    "sha256": "9a9d5047c89951d38a79c86bbc406c81dce28ef0ee272bc911b2be97e3db4656",
+    "sha256": "f8ea70a388f018784ac967e37095eec3265eb1f7dda74d630d0c9579c717ddc1",
     "measured": {
       "health": [
         259,
@@ -206,15 +279,23 @@
         521,
         1421,
         570
-      ]
+      ],
+      "upper_source_bounds": [
+        617,
+        1124
+      ],
+      "rail_top": 295,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_druid",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_druid.png",
     "source_sha256": "7e16d7e92190a3de6ff1957da5691b5d558c88d93b5533baf5da81dfac9b72d0",
     "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
-    "sha256": "ed760f6b3fce18faf67874f0ffcba11a9fae5a6b895ccce8b13afcca63a07bed",
+    "sha256": "207d11adf607a97edbe7aca283c04dc9ac8cc6abed20f620c0b5c03bda7793e4",
     "measured": {
       "health": [
         272,
@@ -227,15 +308,23 @@
         516,
         1390,
         571
-      ]
+      ],
+      "upper_source_bounds": [
+        427,
+        1093
+      ],
+      "rail_top": 282,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_demonhunter",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_demonhunter.png",
     "source_sha256": "4b354682bf1921a60ad3d71c59d9b4cb3dff5bbba33674c80c5cf10302595345",
     "file": "artwork/unit-frames/sculpted/assets/class_demonhunter.png",
-    "sha256": "4ef1e16a945698cd0cefb3e881c339ca9cd74ac6e8731cc559acd8f05408f5a7",
+    "sha256": "04dcf3580312ddfdac4d73d1a875b52c3abd001d01bc5320640dfd5d03bb83d9",
     "measured": {
       "health": [
         254,
@@ -248,15 +337,23 @@
         520,
         1419,
         572
-      ]
+      ],
+      "upper_source_bounds": [
+        470,
+        1204
+      ],
+      "rail_top": 301,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "class_evoker",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/class_evoker.png",
     "source_sha256": "9032c6f480a3d70bdb0b30ae149dd9b09d9836d344bfebd958dfad96fd3de4aa",
     "file": "artwork/unit-frames/sculpted/assets/class_evoker.png",
-    "sha256": "166ff9fd8c49629eb8cf5e2721f88744ed6d22d5b3c85a4844fe03ea4caacd3b",
+    "sha256": "25f23375f3665c5ac2eceecb61f683ca6e7650d6188efbf8eafcac7732957100",
     "measured": {
       "health": [
         266,
@@ -269,15 +366,23 @@
         528,
         1411,
         573
-      ]
+      ],
+      "upper_source_bounds": [
+        525,
+        1066
+      ],
+      "rail_top": 298,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_human",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_human.png",
     "source_sha256": "9c4aecd4bc54a1b41d5c031519ed2842b2359efddbb209b1414bc6a33fc1acfb",
     "file": "artwork/unit-frames/sculpted/assets/race_human.png",
-    "sha256": "e23d7eb552e2731bd0872151e15d6b70a1d99f9739566a383251e2e06ae555eb",
+    "sha256": "7fcd08a345e4068ec2bd95a986e59b56022c191ad063532b409edced4e2d1851",
     "measured": {
       "health": [
         285,
@@ -290,15 +395,23 @@
         523,
         1417,
         575
-      ]
+      ],
+      "upper_source_bounds": [
+        449,
+        1228
+      ],
+      "rail_top": 302,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_dwarf",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_dwarf.png",
     "source_sha256": "b9d7ca1f1aa1846d090b28da305df5dc1347366a77d9836ce8c5bd83eae3136f",
     "file": "artwork/unit-frames/sculpted/assets/race_dwarf.png",
-    "sha256": "dc013e403875ec28b8e21e6b74f6b86f41007a0db6db41b76e48352d9cd2f6b9",
+    "sha256": "c7d2361b300ff7d9a15fdf9a42143c9ada3408876f2e491fa0e6a81aa960b230",
     "measured": {
       "health": [
         272,
@@ -311,15 +424,23 @@
         520,
         1398,
         574
-      ]
+      ],
+      "upper_source_bounds": [
+        438,
+        1167
+      ],
+      "rail_top": 287,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_nightelf",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_nightelf.png",
     "source_sha256": "f83fac82e9bda503901116016097c72a991665b25df7962ed2715f09b46753be",
     "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-    "sha256": "ce132a0e55e0cd69167db1d7654209b142f374b055379c6292366943caa2bcd4",
+    "sha256": "10fb2d314c70d995a362142e126584a43ad4e34d8980f3406cd7bf0055628825",
     "measured": {
       "health": [
         256,
@@ -332,15 +453,23 @@
         522,
         1419,
         576
-      ]
+      ],
+      "upper_source_bounds": [
+        516,
+        1173
+      ],
+      "rail_top": 300,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_gnome",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_gnome.png",
     "source_sha256": "4d1292570b4bf230c4cff85afb71be579a14aceb3dd84da9ba4e81f972e3b506",
     "file": "artwork/unit-frames/sculpted/assets/race_gnome.png",
-    "sha256": "cb8304b98d75ba591459e5b630e074d18e07c0e408a90d064107ff1389c15939",
+    "sha256": "0fa50f46bb9b79b47620da135740dafa66ece4e2c2ecd2deed396c88b957be9e",
     "measured": {
       "health": [
         241,
@@ -353,15 +482,23 @@
         516,
         1421,
         570
-      ]
+      ],
+      "upper_source_bounds": [
+        510,
+        1172
+      ],
+      "rail_top": 301,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_draenei",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_draenei.png",
     "source_sha256": "146f025b3baf501e90e52b89440b8a2f830a36474f3283b272d458dc9df0f204",
     "file": "artwork/unit-frames/sculpted/assets/race_draenei.png",
-    "sha256": "9655470518d368745635e8870006ca804e26778aa1a69b13a77f167ce2f75732",
+    "sha256": "70ed4d881b9f7007957924fd74a36b3bb802d26507b79e9cab8c726169f09204",
     "measured": {
       "health": [
         255,
@@ -374,15 +511,23 @@
         524,
         1419,
         576
-      ]
+      ],
+      "upper_source_bounds": [
+        381,
+        1193
+      ],
+      "rail_top": 299,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_worgen",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_worgen.png",
     "source_sha256": "d6408e6de9827e762e1da53dfed564d683a4acdc485b1113df0132beef4e07a4",
     "file": "artwork/unit-frames/sculpted/assets/race_worgen.png",
-    "sha256": "94f47556cfa715017a532bb3712bdc7121355fa9a9ba123174fc12f187ca791a",
+    "sha256": "5dfcad21d7f5fb902f5330ab5ade1cfb95af3d316d77b015c916047b6167cf58",
     "measured": {
       "health": [
         254,
@@ -395,15 +540,23 @@
         521,
         1446,
         573
-      ]
+      ],
+      "upper_source_bounds": [
+        468,
+        1217
+      ],
+      "rail_top": 297,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_orc",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_orc.png",
     "source_sha256": "aab68b286939c5d6faee2b30effd1d7cd071540f11149a263b69073c061a4feb",
     "file": "artwork/unit-frames/sculpted/assets/race_orc.png",
-    "sha256": "fe2b3dcc1ed9b4d9482eda513d55b58ef9a83aaf1f188c3b755c4b553639a751",
+    "sha256": "87d9c4b4b44f77fbad9e6bfeb767987ea6ae8b49642fa6b94e37df1607935953",
     "measured": {
       "health": [
         256,
@@ -416,15 +569,23 @@
         523,
         1418,
         563
-      ]
+      ],
+      "upper_source_bounds": [
+        507,
+        1163
+      ],
+      "rail_top": 296,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_scourge",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_scourge.png",
     "source_sha256": "a8d7f6c4a64408e635e917334d88e09d73093933bdda7b64f434ae90478bfb0f",
     "file": "artwork/unit-frames/sculpted/assets/race_scourge.png",
-    "sha256": "9d83cfd80672fe980b97b916fdcf2948d86e63312eed588f134701b18e287bb4",
+    "sha256": "b44e122bbcba3724ba549df6c0bd0ffad9610015fa2fd6d123753f4c707c68a2",
     "measured": {
       "health": [
         257,
@@ -437,15 +598,23 @@
         524,
         1418,
         577
-      ]
+      ],
+      "upper_source_bounds": [
+        538,
+        1145
+      ],
+      "rail_top": 303,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_tauren",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_tauren.png",
     "source_sha256": "020295d088c2af4490e933228a0d52c53b1b36e663713980b91e694dd469029a",
     "file": "artwork/unit-frames/sculpted/assets/race_tauren.png",
-    "sha256": "97030abc749a9503d9d2a57ff62617a58a32a98dc4f49ebad12544d3057c9edc",
+    "sha256": "a70fa95c04f7dc11e5d80d36b419f1c624a849dd07228b96f7509d6fa23a255d",
     "measured": {
       "health": [
         255,
@@ -458,15 +627,23 @@
         522,
         1395,
         574
-      ]
+      ],
+      "upper_source_bounds": [
+        644,
+        1126
+      ],
+      "rail_top": 288,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_troll",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_troll.png",
     "source_sha256": "9e742bfbc512288e02ca6a083cf64f32431735d06300cb7fbbdcae8ea81157c8",
     "file": "artwork/unit-frames/sculpted/assets/race_troll.png",
-    "sha256": "b8758be972d70b052605970b1c101647273119cf66ec9f23344f7a211e9a122f",
+    "sha256": "c76b57406bfce2a2a79385ff22b7355cf1151624735c30d12d5dcff87d82ddf8",
     "measured": {
       "health": [
         257,
@@ -479,15 +656,23 @@
         525,
         1419,
         577
-      ]
+      ],
+      "upper_source_bounds": [
+        478,
+        1107
+      ],
+      "rail_top": 300,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_bloodelf",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_bloodelf.png",
     "source_sha256": "76675430a13598f6b241bc946eaae5ba550b24527370ee9c86cdae6fe198fd2f",
     "file": "artwork/unit-frames/sculpted/assets/race_bloodelf.png",
-    "sha256": "963123cc65f785c4166d5de369257b8731d3c234185e4514b49d5622e2d380a2",
+    "sha256": "32ebc03e5c35883df5443c7a6a571ad792e0aced952c18a0efdf3742e0b51453",
     "measured": {
       "health": [
         254,
@@ -500,15 +685,23 @@
         524,
         1425,
         579
-      ]
+      ],
+      "upper_source_bounds": [
+        452,
+        1229
+      ],
+      "rail_top": 289,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_goblin",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_goblin.png",
     "source_sha256": "29cea0da6a6b5593a69c4e7e1bb344640ad0e7b1b35607908706bc0bfb07f5e2",
     "file": "artwork/unit-frames/sculpted/assets/race_goblin.png",
-    "sha256": "af3b634374e65173243ea71b59f48ef0aca82a4a9e70dcf099b7ede33b83dc8d",
+    "sha256": "6a71533175cfcc4164621269bc00054b55c6bb98f9e9d02cf58291d779d80b00",
     "measured": {
       "health": [
         253,
@@ -521,15 +714,23 @@
         526,
         1403,
         577
-      ]
+      ],
+      "upper_source_bounds": [
+        479,
+        1171
+      ],
+      "rail_top": 302,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_pandaren",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_pandaren.png",
     "source_sha256": "cab74b9a346a85bc3ced8695d303608ce13ae65378b085519aa0cd65121f2608",
     "file": "artwork/unit-frames/sculpted/assets/race_pandaren.png",
-    "sha256": "9ef3319067f72369c367c124026e2462178581be2879ea08df1efd70d9a483e2",
+    "sha256": "7d9af04b07413c25a28f229d6f0a5155f36d3b852c3e3f85e2428f792171a779",
     "measured": {
       "health": [
         255,
@@ -542,15 +743,23 @@
         522,
         1419,
         575
-      ]
+      ],
+      "upper_source_bounds": [
+        499,
+        1178
+      ],
+      "rail_top": 302,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_dracthyr",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_dracthyr.png",
     "source_sha256": "9790152428a1990a560fdf570f309d4d58d5a987cc7ffb82ee4a274539af2551",
     "file": "artwork/unit-frames/sculpted/assets/race_dracthyr.png",
-    "sha256": "cf52f071b0805f9b5176a0b971ab04ae87f91df4474272430042e40ed83df40b",
+    "sha256": "8dcbf60d2a6dece0b8f09bc606d0d3da68f39032ca17059b5c771c033eb4ecdd",
     "measured": {
       "health": [
         256,
@@ -563,15 +772,23 @@
         524,
         1419,
         575
-      ]
+      ],
+      "upper_source_bounds": [
+        458,
+        1222
+      ],
+      "rail_top": 292,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_voidelf",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_voidelf.png",
     "source_sha256": "2de85cc215823ea289699372d985f2428d1ae4d793b87f51ad8d208865433323",
     "file": "artwork/unit-frames/sculpted/assets/race_voidelf.png",
-    "sha256": "1dcfbd68e4d584f8f7f4fea38ec7d2556c7007bf27d5c5a66992029088295423",
+    "sha256": "117e10f38a48e9442b747a93245fe789dc44f5a9fb5eb2b3634d6902ddf0d434",
     "measured": {
       "health": [
         256,
@@ -584,15 +801,23 @@
         523,
         1418,
         574
-      ]
+      ],
+      "upper_source_bounds": [
+        400,
+        1271
+      ],
+      "rail_top": 288,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_lightforgeddraenei",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_lightforgeddraenei.png",
     "source_sha256": "b458cdcb8a5248b8d683faa9a1ceb94c673a93c676caf70d89480a9ea8b7933b",
     "file": "artwork/unit-frames/sculpted/assets/race_lightforgeddraenei.png",
-    "sha256": "b7a07153c457f72f3dbaa920697b6d7dc68ea3cff68679a594f298fce78347a6",
+    "sha256": "80e4e712740ff4c291e5c88b9f807de8ac1c55ba01c7efc3f00186affae3f93f",
     "measured": {
       "health": [
         257,
@@ -605,15 +830,23 @@
         524,
         1419,
         579
-      ]
+      ],
+      "upper_source_bounds": [
+        462,
+        1231
+      ],
+      "rail_top": 295,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_darkirondwarf",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_darkirondwarf.png",
     "source_sha256": "e8da2a958988a236882aa060b9679bd2a063ccd7418f98305356a6d1810eb229",
     "file": "artwork/unit-frames/sculpted/assets/race_darkirondwarf.png",
-    "sha256": "3d5fb38c2c1f322f2fbb59456c46bd6a51fc2ae5062ac026629ee853027630de",
+    "sha256": "29fd37923b4f556d223db3a24d1aff061f8c88ca636cbdd8fcbe1e7f38cdda4c",
     "measured": {
       "health": [
         256,
@@ -626,15 +859,23 @@
         523,
         1418,
         575
-      ]
+      ],
+      "upper_source_bounds": [
+        385,
+        1223
+      ],
+      "rail_top": 302,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_kultiran",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_kultiran.png",
     "source_sha256": "03e844b8686f86296b9fe4f06ff1d2dce95f63ec39254e9f0c067068ea7f361a",
     "file": "artwork/unit-frames/sculpted/assets/race_kultiran.png",
-    "sha256": "2d499da8371a377c5f3c4a044b74901e08836a1c7c2f9807e55daba95cacfa8b",
+    "sha256": "556aa82db53007aca0feb3f190082f6e2469b6ded229238c2870097d7210d41e",
     "measured": {
       "health": [
         258,
@@ -647,15 +888,23 @@
         517,
         1421,
         573
-      ]
+      ],
+      "upper_source_bounds": [
+        505,
+        1168
+      ],
+      "rail_top": 299,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_mechagnome",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_mechagnome.png",
     "source_sha256": "e9f85bd9108a944db06935597705b28426a38e1aff7e77e7b10afdd767cf8bd9",
     "file": "artwork/unit-frames/sculpted/assets/race_mechagnome.png",
-    "sha256": "479e77afe63dace095a477b3c4cdf17af95c27887e7889ec5f7b900dbeb55963",
+    "sha256": "e043fb21456aea85d04c697d17a3ec3242ab5065f598c430351c3dd56dd8d37b",
     "measured": {
       "health": [
         256,
@@ -668,15 +917,23 @@
         524,
         1419,
         578
-      ]
+      ],
+      "upper_source_bounds": [
+        444,
+        1217
+      ],
+      "rail_top": 304,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_nightborne",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_nightborne.png",
     "source_sha256": "0f1d888ae689889151cb0cf3059530898efd56330af590caf8f51a5cb0f67943",
     "file": "artwork/unit-frames/sculpted/assets/race_nightborne.png",
-    "sha256": "a8b1945bc0260a924ab86ae5d166a8832294fb14241a46e014ccf8919df7374b",
+    "sha256": "b41806aebcb09f07085ccb0b4f119e28d287e57852329739af4e7c485ab0d87f",
     "measured": {
       "health": [
         256,
@@ -689,15 +946,23 @@
         524,
         1422,
         577
-      ]
+      ],
+      "upper_source_bounds": [
+        440,
+        1245
+      ],
+      "rail_top": 298,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_highmountaintauren",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_highmountaintauren.png",
     "source_sha256": "2d8ac72978e0776d970e519aad8eba7276ad359e8305be420299e1ed2a23d586",
     "file": "artwork/unit-frames/sculpted/assets/race_highmountaintauren.png",
-    "sha256": "f224ee9e08e886c397ac3cb4079967e69ce00f77a0e383314b08b34fd5771aff",
+    "sha256": "bbacf2309f2f670dafc4c8c042985f03a5f22d618e9b534a5fc58f0ad0b86c24",
     "measured": {
       "health": [
         262,
@@ -710,15 +975,23 @@
         523,
         1413,
         573
-      ]
+      ],
+      "upper_source_bounds": [
+        540,
+        1273
+      ],
+      "rail_top": 297,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_magharorc",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_magharorc.png",
     "source_sha256": "25157252be4fe1b53d0771847fdfc5319686151a004620345a3755945eb7f0da",
     "file": "artwork/unit-frames/sculpted/assets/race_magharorc.png",
-    "sha256": "90b388f352e9b77c46c69c4991817b817a3a152ce39355769a64b076f9d92e6d",
+    "sha256": "efc6bd2bb9288ba3de939ac957d61ecdaff0f76e6fe3ab97eebdabe4a0f40fc8",
     "measured": {
       "health": [
         254,
@@ -731,15 +1004,23 @@
         523,
         1422,
         574
-      ]
+      ],
+      "upper_source_bounds": [
+        710,
+        1090
+      ],
+      "rail_top": 295,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_zandalaritroll",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_zandalaritroll.png",
     "source_sha256": "9b7e885821be724b930caed4b37d15cda28fa156088675075676a3ba8e9b5646",
     "file": "artwork/unit-frames/sculpted/assets/race_zandalaritroll.png",
-    "sha256": "b6d6dd4d8d4d9a3b69d7c53fe031bd3ec58113fec80bab45a853ae3287b43ea2",
+    "sha256": "d484a33e1e79f76c60f28c90383135f7b919fa5f51b1e855a088412533b616ca",
     "measured": {
       "health": [
         253,
@@ -752,15 +1033,23 @@
         520,
         1418,
         570
-      ]
+      ],
+      "upper_source_bounds": [
+        402,
+        1195
+      ],
+      "rail_top": 291,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_vulpera",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_vulpera.png",
     "source_sha256": "8196dd8e5fc0349f1f02ad684ceb12be93c4327611f89f53ac1389be5aed8ea2",
     "file": "artwork/unit-frames/sculpted/assets/race_vulpera.png",
-    "sha256": "0e43f33d57d8eee5dd7830f176166438c52379ea20e410ab909533b446086a30",
+    "sha256": "4e9e6a91afbd9344e415734dd56a28a36548a2b716be10965afd889a9871a8b8",
     "measured": {
       "health": [
         267,
@@ -773,15 +1062,23 @@
         516,
         1389,
         568
-      ]
+      ],
+      "upper_source_bounds": [
+        578,
+        1101
+      ],
+      "rail_top": 283,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_earthendwarf",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_earthendwarf.png",
     "source_sha256": "3bb90d072ee831b91b018d268821d49cf3b44a766cccca67c8d526ce1554280b",
     "file": "artwork/unit-frames/sculpted/assets/race_earthendwarf.png",
-    "sha256": "f22c90079890007543eb0349dea74c0703e3171157f7900b3392c0fd171fb640",
+    "sha256": "b1fa980dc44aa97b855e3d94c241972978df0f0261be6cd1fbd24963febfc30d",
     "measured": {
       "health": [
         259,
@@ -794,15 +1091,23 @@
         522,
         1418,
         576
-      ]
+      ],
+      "upper_source_bounds": [
+        460,
+        1175
+      ],
+      "rail_top": 298,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "race_haranir",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/race_haranir.png",
     "source_sha256": "95a79400eece1c2b133e8a06323289b0e50bd94add69b9fb424c55bdc2b61346",
     "file": "artwork/unit-frames/sculpted/assets/race_haranir.png",
-    "sha256": "1990b8a07b7b09419ea2eaf630ae3890a3f38b23abf78c1e1306ee02366e6ada",
+    "sha256": "87de9be4fb54358aa5e0c4738775c309203c62564d629d59f8d2e8e0c39a09f7",
     "measured": {
       "health": [
         251,
@@ -815,15 +1120,23 @@
         523,
         1422,
         577
-      ]
+      ],
+      "upper_source_bounds": [
+        444,
+        1152
+      ],
+      "rail_top": 290,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "faction_alliance",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/faction_alliance.png",
     "source_sha256": "7ad57bdfc0d48223d0c04038e6684c0034f819651b890bcf3cf187729c0ed1ba",
     "file": "artwork/unit-frames/sculpted/assets/faction_alliance.png",
-    "sha256": "e8f57fdc1e1f37e152a4f0a25f57bb3b422b68b26eb7da934fe356520aa2f743",
+    "sha256": "a36cd7f141f64ecc8e2b46684fd489710c4aab4e179fcd6cd8329b2a6095be7b",
     "measured": {
       "health": [
         258,
@@ -836,15 +1149,23 @@
         524,
         1419,
         574
-      ]
+      ],
+      "upper_source_bounds": [
+        432,
+        1225
+      ],
+      "rail_top": 293,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "faction_horde",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/faction_horde.png",
     "source_sha256": "1027b72ffaf7144b915dbbcd952054c2e5305e2d6d71eb466a427b4578ec6941",
     "file": "artwork/unit-frames/sculpted/assets/faction_horde.png",
-    "sha256": "e670bac42f51b822eed7c0c1174298b1f88c9ddde1193deae4ea8a33bab12c9f",
+    "sha256": "ce6b2a96e71c5912ab2dada579c5a30b7aed6adfb70befde490de150095430dd",
     "measured": {
       "health": [
         275,
@@ -857,15 +1178,23 @@
         514,
         1417,
         565
-      ]
+      ],
+      "upper_source_bounds": [
+        665,
+        1074
+      ],
+      "rail_top": 294,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   },
   {
     "id": "faction_neutral",
+    "fit_version": 2,
     "source": "artwork/unit-frames/sculpted/references/faction_neutral.png",
     "source_sha256": "049916d560b31a3436205ae8dd2fcec6bef627168bc9c7efd28d631c28457919",
     "file": "artwork/unit-frames/sculpted/assets/faction_neutral.png",
-    "sha256": "08571f8c87af57c05b0304650700d8c610db95b4410d4c757dba1051943e3aba",
+    "sha256": "7168bb916b9703ba8039afac17640b0424094cab3791aa09ac5b47379a964262",
     "measured": {
       "health": [
         255,
@@ -878,7 +1207,14 @@
         523,
         1420,
         576
-      ]
+      ],
+      "upper_source_bounds": [
+        432,
+        1176
+      ],
+      "rail_top": 294,
+      "name_pixels_discarded": 0,
+      "edge_pixels_discarded": 0
     }
   }
 ]
