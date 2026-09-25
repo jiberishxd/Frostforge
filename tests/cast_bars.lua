@@ -275,3 +275,64 @@ test("retired cast styles migrate to Bold without losing fitting or artwork",fun
     local corner=J.CastBars:Pieces(nil,180,16,1,1,false)['11']
     near(corner.w,30);near(corner.h,30) -- The previous Bold geometry.
 end)
+
+for _,interface in ipairs({120100,16001}) do
+    test("Ellesmere Resource Bars main cast attaches while idle on "..interface,function(M)
+        local J=M.load({interface=interface});local mini=fixture(M,"ELLESMERE","playerFrame")
+        local host=M.native("ERB_CastBarFrame",230,20,.8);host.shown=false;host.alpha=.7
+        local clip=M.region(host,"Frame",210,20);clip.clipsChildren=true
+        local bar=M.region(clip,"Frame",210,20);bar.level=17;bar.strata="MEDIUM";host._bar=bar
+        local chrome=M.region(host,"Frame",230,20);chrome.level=20;chrome.strata="MEDIUM";host._border=chrome
+        enable(J,"playerFrame","ELLESMERE");local c=J.CastBars.units.playerFrame
+        assert(c.bar==bar and not c.frame.shown and c.frame.parent==UIParent and c.frame.level==21)
+        near(c.frame.w,210);near(c.frame.h,20)
+        M.combat=true;host.shown=true;local writes=M.geometryWrites;J.CastBars:Sync()
+        assert(c.frame.shown and M.geometryWrites==writes);near(c.frame.alpha,.7)
+        host.alpha=0;J.CastBars:Sync();assert(not c.frame.shown)
+        host.alpha=.5;J.CastBars:Sync();assert(c.frame.shown);near(c.frame.alpha,.5)
+        M.combat=false;host.shown=false;mini.shown=true;M.tick(J.Core)
+        assert(c.bar==mini and c.frame.shown)
+        mini.shown=false;ERB_CastBarFrame=nil;M.tick(J.Core);assert(c.bar==mini and not c.frame.shown)
+        assert(not next(J.Core.notices))
+    end)
+end
+
+test("Ellesmere target and focus aura-layout casts attach above their style art",function(M)
+    local J=M.load({interface=16001})
+    for _,key in ipairs({"targetFrame","focusFrame"}) do
+        local bar=fixture(M,"ELLESMERE",key);bar.layoutAspect=true
+        bar._blizzArtFr=M.region(bar,"Frame",180,16);bar._blizzArtFr.level=33;bar._blizzArtFr.strata="MEDIUM"
+        enable(J,key,"ELLESMERE");local c=J.CastBars.units[key]
+        assert(c and c.bar==bar and c.frame.template=="DisableUntrustedLayoutScriptsTemplate" and c.frame.level==34)
+        M.combat=true;bar.shown=true;J.CastBars:Sync();assert(c.frame.shown)
+        M.combat=false
+    end
+    assert(not next(J.Core.notices))
+end)
+
+test("cast layout template absence keeps ordinary native bars compatible",function(M)
+    M.noLayoutTemplate=true;local J=M.load();local bar=fixture(M,"BLIZZARD","playerFrame");bar.shown=true
+    enable(J,"playerFrame","BLIZZARD");assert(J.CastBars.units.playerFrame.frame.shown)
+    assert(not J.CastBars.units.playerFrame.frame.template and not next(J.Core.notices))
+end)
+
+test("portrait shell and cast strata are independent and survive backups",function(M)
+    local J=M.load();local bar=fixture(M,"BLIZZARD","playerFrame");bar.shown=true
+    enable(J,"playerFrame","BLIZZARD");J.ProfileManager:Set("playerFrame","unitFrameShown",true)
+    J.ProfileManager:Set("playerFrame","strata","HIGH")
+    J.ProfileManager:Set("playerFrame","unitFrameStrata","MEDIUM")
+    J.ProfileManager:Set("playerFrame","castBarStrata","DIALOG")
+    local cast=J.CastBars.units.playerFrame;local shell=J.UnitSkins.units.playerFrame.health.trim
+    assert(J.Core.modules.playerFrame.frame.strata=="HIGH" and shell.frame.strata=="MEDIUM" and shell.rim.frame.strata=="MEDIUM")
+    assert(cast.frame.strata=="DIALOG")
+    J.ProfileManager:Set("playerFrame","strata","LOW")
+    assert(shell.frame.strata=="MEDIUM" and cast.frame.strata=="DIALOG")
+    local backup=J.ProfileManager:Export();assert(J.ProfileManager:Import(backup))
+    assert(J.ThemeManager:Resolve("playerFrame").castBarStrata=="DIALOG")
+    assert(J.ThemeManager:Resolve("targetFrame").castBarStrata=="AUTO")
+    M.combat=true;J.ProfileManager:Set("playerFrame","castBarStrata","LOW");assert(cast.frame.strata=="DIALOG")
+    M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");assert(cast.frame.strata=="LOW")
+    J.ProfileManager:Set("playerFrame","castBarStrata","AUTO");assert(cast.frame.strata==bar.strata)
+    assert(not J.ProfileManager:Set("actionHub","castBarStrata","HIGH"))
+    assert(not J.ProfileManager:Set("playerFrame","unitFrameStrata","INVALID"))
+end)

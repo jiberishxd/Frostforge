@@ -38,11 +38,32 @@ function A:CastBarCandidate(source,key)
         end
         return first
     end
+    local resource
+    if source=="ELLESMERE" and unit=="player" then
+        local host=ERB_CastBarFrame
+        if J.Core:IsUsableFrame(host) then
+            local bar=field(host,"_bar")
+            if J.Core:IsUsableFrame(bar) then
+                resource={frame=bar,source=source,name="Ellesmere Resource Bars",chrome=field(host,"_border")}
+                if visible(bar) then return resource end
+            end
+        end
+    end
     local name=(source=="ELLESMERE" and "EllesmereUIUnitFrames_" or "ElvUF_")..titles[unit]
     local root=_G[name]
-    if not J.Core:IsUsableFrame(root) then return end
+    if not J.Core:IsUsableFrame(root) then return resource end
     local frame=field(root,"Castbar")
-    if J.Core:IsUsableFrame(frame) then return {frame=frame,source=source,rootVisible=visible(root)} end
+    if J.Core:IsUsableFrame(frame) then
+        local result={frame=frame,source=source,rootVisible=visible(root),
+            name=source=="ELLESMERE" and "Ellesmere Unit Frames" or "ElvUI",
+            chrome=source=="ELLESMERE" and (field(frame,"_blizzArtFr") or field(frame,"_classicArt")) or nil}
+        if visible(frame) then return result end
+        -- The main Resource Bars cast stays hidden/transparent while idle.
+        -- Prepare it before combat instead of attaching the disabled mini bar.
+        if resource then resource.rootVisible=result.rootVisible end
+        return resource or result
+    end
+    return resource
 end
 
 function A:ResolveCastBar(key,config)

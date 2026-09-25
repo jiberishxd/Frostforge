@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Installation and first-time setup
+    url: https://github.com/jiberishxd/JiberishUI-WoW/blob/main/docs/GETTING-STARTED.md
+    about: Install the correct package, choose providers, enable artwork and adjust fitting.
+  - name: Supported UI integrations
+    url: https://github.com/jiberishxd/JiberishUI-WoW/blob/main/docs/ADDON-COMPATIBILITY.md
+    about: Check portrait, unit-frame, action-hub and cast-bar compatibility.

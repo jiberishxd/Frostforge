@@ -8,6 +8,8 @@ local strata = {
     {"BACKGROUND","Background"},{"LOW","Low"},{"MEDIUM","Medium"},{"HIGH","High"},
     {"DIALOG","Dialog"},{"FULLSCREEN","Fullscreen"},{"FULLSCREEN_DIALOG","Fullscreen dialog"},{"TOOLTIP","Tooltip"},
 }
+local automaticStrata={{"AUTO","Automatic"}}
+for _,choice in ipairs(strata) do automaticStrata[#automaticStrata+1]=choice end
 local layers = {{"BACKGROUND","Background"},{"BORDER","Border"},{"ARTWORK","Artwork"},{"OVERLAY","Overlay"}}
 local anchors = {{"FRAME","Follow selected frame"},{"SCREEN","Screen"}}
 local portraitSources = {{"AUTO","Automatic (Blinkii first)"},{"BLINKII","Blinkii's Portraits"},
@@ -91,6 +93,7 @@ function S:Set(property,value)
 end
 
 function S:HideMenus()
+    if self.profileNameEdit then self.profileNameEdit:ClearFocus() end
     for _,menu in ipairs(self.menus) do menu:Hide() end
     if self.picker then self.picker:Hide() end
     if self.hubPicker then self.hubPicker:Hide() end
@@ -200,6 +203,7 @@ function S:Select(key)
     for _,control in pairs(self.controls) do
         if control.edit then control.edit:ClearFocus() end
     end
+    if self.page=="profiles" then self.page="artwork" end
     self.selected=key; self.message=nil; self:Refresh()
 end
 
@@ -276,7 +280,7 @@ function S:Center()
     J.ProfileManager:SetWindowPosition(0,0)
 end
 
-local pageNames={artwork="Artwork",placement="Placement",fitting="Unit frame",cast="Cast bar",advanced="Advanced",guide="Guide"}
+local pageNames={artwork="Artwork",placement="Placement",fitting="Unit frame",cast="Cast bar",advanced="Advanced",blizzard="Blizzard",guide="Guide"}
 
 function S:SetPage(page)
     if not self.pages[page] then return end
@@ -341,6 +345,75 @@ function S:CreateDialogs()
     button(p,"Cancel",260,-148,216,function() p:Hide() end);p:Hide()
 end
 
+function S:ProfileAction(action)
+    local ok,reason
+    local name=self.profileNameEdit:GetText()
+    if action=="use" then ok,reason=J.ProfileManager:UseProfile(self.profileChoice)
+    elseif action=="rename" then ok,reason=J.ProfileManager:RenameProfile(name)
+    else ok,reason=J.ProfileManager:SaveAs(name,action=="new") end
+    if ok then
+        self.profileChoice=J.ProfileManager.activeID
+        self.profileNameEdit:ClearFocus();self.profileNameEdit:SetText("")
+        self.message="Profile '"..J.ProfileManager:ProfileName().."' is assigned to this character. Changes save automatically."
+    else self.message=reason end
+    self:Refresh()
+end
+
+function S:CreateProfilesPage()
+    local p=CreateFrame("Frame",nil,self.frame);self.pages.profiles=p
+    p:SetPoint("TOPLEFT",self.frame,"TOPLEFT",218,-214);p:SetSize(666,400);p:SetFrameLevel(202)
+    text(p,"SAVED PROFILES",0,0,310,"GameFontNormal")
+    self.profileRows={}
+    for i=1,5 do
+        local row=button(p,"",0,-32-(i-1)*50,318,function()
+            self.profileChoice=self.profileRows[i].profileID;self.message=nil;self:Refresh()
+        end,true)
+        row:SetHeight(44);row.caption:SetWidth(282);row.caption:SetJustifyH("LEFT")
+        self.profileRows[i]=row
+    end
+    self.profilesPrevious=button(p,"Previous",0,-294,92,function()
+        self.profilePage=(self.profilePage or 1)-1;self:Refresh()
+    end)
+    self.profilePageLabel=text(p,"",102,-302,100)
+    self.profilesNext=button(p,"Next",226,-294,92,function()
+        self.profilePage=(self.profilePage or 1)+1;self:Refresh()
+    end)
+    self.useProfileButton=button(p,"Use selected for this character",0,-350,318,function() self:ProfileAction("use") end)
+    self.activeProfileLabel=text(p,"",346,0,318,"GameFontNormalSmall")
+    text(p,"Artwork, fitting, providers and all JUI controls save into the active profile as you change them.",346,-52,318)
+    text(p,"Profile name",346,-112,318,"GameFontNormalSmall")
+    local edit=CreateFrame("EditBox",nil,p,"BackdropTemplate");self.profileNameEdit=edit
+    edit:SetPoint("TOPLEFT",p,"TOPLEFT",346,-134);edit:SetSize(318,30)
+    edit:EnableMouse(true);edit:SetAutoFocus(false);edit:SetFontObject("GameFontHighlightSmall")
+    edit:SetTextInsets(8,8,0,0);edit:SetMaxLetters(64);backdrop(edit,"inset");edit:SetText("")
+    edit:SetScript("OnEscapePressed",function() edit:ClearFocus() end)
+    edit:SetScript("OnEnterPressed",function() self:ProfileAction("copy") end)
+    self.saveProfileButton=button(p,"Save as new profile",346,-184,318,function() self:ProfileAction("copy") end)
+    self.newProfileButton=button(p,"New profile from defaults",346,-226,318,function() self:ProfileAction("new") end)
+    self.renameProfileButton=button(p,"Rename active profile",346,-268,318,function() self:ProfileAction("rename") end)
+    text(p,"A new character starts with its own automatic setup. Selecting the same profile on two characters shares future edits. Save as new to keep them separate.",346,-316,318)
+end
+
+function S:RefreshProfiles()
+    self.heading:SetText("Profiles  |  This character")
+    self.pageHint:SetText("Your character's assignment loads automatically when you log in.")
+    self.activeProfileLabel:SetText("ACTIVE PROFILE\n"..J.ProfileManager:ProfileName())
+    local list=J.ProfileManager:ProfileList()
+    local pages=math.max(1,math.ceil(#list/5))
+    self.profilePage=math.max(1,math.min(pages,self.profilePage or 1))
+    self.profileChoice=self.profileChoice or J.ProfileManager.activeID
+    for i,row in ipairs(self.profileRows) do
+        local entry=list[(self.profilePage-1)*5+i]
+        row:SetShown(entry~=nil);row.profileID=entry and entry.id
+        if entry then row.caption:SetText(entry.name);row.selection:SetShown(entry.id==self.profileChoice) end
+    end
+    self.profilePageLabel:SetText(self.profilePage.." / "..pages)
+    self.profilesPrevious:SetAlpha(self.profilePage>1 and 1 or .45)
+    self.profilesNext:SetAlpha(self.profilePage<pages and 1 or .45)
+    self.status:SetText(not J.ProfileManager.writable and J.ProfileManager.notice or self.message
+        or "Profiles change only JiberishUI. Your other addons keep their own profiles.")
+end
+
 function S:Create()
     if self.frame then return end
     assert(not InCombatLockdown(),"First options attachment deferred during combat")
@@ -385,7 +458,8 @@ function S:Create()
         b:SetHeight(44);self.tabs[key]=b
     end
     text(f,"Choose a component, then shape its artwork.",32,-438,140)
-    text(f,"Changes save as you go. No Apply button needed.",32,-488,140)
+    self.profilesButton=button(f,"Profiles",28,-482,154,function() self:SetPage("profiles") end,true)
+    text(f,"Changes save as you go.",32,-522,146)
     self.resetButton=button(f,"Reset component",28,-552,154,function()
         self:HideMenus();self.resetKey=self.selected
         self.resetTitle:SetText("Reset "..names[self.selected].." artwork?");self.resetDialog:Show()
@@ -393,23 +467,24 @@ function S:Create()
     button(f,"Center window",28,-592,154,function() self:Center() end)
 
     self.pages={};self.pageButtons={}
-    for i,key in ipairs({"artwork","placement","fitting","cast","advanced","guide"}) do
+    for i,key in ipairs({"artwork","placement","fitting","cast","blizzard","advanced","guide"}) do
         local page=key
         self.pageButtons[key]=button(f,pageNames[key],218+(i-1)*112,-114,104,function() self:SetPage(page) end)
         local body=CreateFrame("Frame",nil,f);body:SetPoint("TOPLEFT",f,"TOPLEFT",218,-214);body:SetSize(666,400)
         body:SetFrameLevel(202);self.pages[key]=body
     end
+    self:CreateProfilesPage()
     self.heading=text(f,"",220,-165,650,"GameFontNormalLarge")
     self.pageHint=text(f,"",220,-192,652)
     local a=self.pages.advanced
-    self:Dropdown("strata","Frame strata",strata,0,-14,a)
+    self:Dropdown("strata","Portrait art strata",strata,0,-14,a)
     self:Number("level","Level within strata",346,-14,1,a)
-    self:Dropdown("layer","Texture draw layer",layers,0,-108,a)
+    self:Dropdown("unitFrameStrata","Unit-frame art strata",automaticStrata,0,-108,a)
+    self:Dropdown("castBarStrata","Cast-border strata",automaticStrata,0,-202,a)
+    self:Dropdown("layer","Texture draw layer",layers,346,-202,a)
     self:Dropdown("unitFrameFill","Health & power textures",{{"AUTO","Automatic (respect UI addon)"},{"PROVIDER","Keep provider textures"},{"JIBERISH","Use JiberishUI fills"}},346,-108,a)
     self.debugButton=toggle(a,"Show fitting bounds",0,-350,318,function() J.Core:Command("debug") end)
-    panel(a,0,-200,666,124)
-    text(a,"TEXTURES & LAYERING",18,-218,626,"GameFontNormal")
-    text(a,"Choose JiberishUI Stone in EllesmereUI or ElvUI texture menus to use our stone on any of their bars. Automatic keeps Ellesmere textures and uses our fills on Blizzard frames. Higher layers can cover names and controls.",18,-248,626)
+    text(a,"Strata controls which artwork draws in front. Each decoration has its own setting. Higher strata may cover names. Choose JiberishUI Stone in your UI addon to share the stone texture across its bars.",0,-286,666)
     self.diagnosticsButton=button(a,"Print support details to chat",346,-350,318,function() J.Core:Command("status");self.message="Support details printed to chat. Include them with your screenshot.";self:Refresh() end)
 
     a=self.pages.placement
@@ -427,9 +502,9 @@ function S:Create()
     text(a,"A small painted lip and inner shadow make the health and power fills sit inside the frame.",346,-108,318)
     panel(a,0,-196,666,106)
     text(a,"FIT THE FRAME, KEEP YOUR BARS",18,-214,626,"GameFontNormal")
-    text(a,"100% follows the current bars. Width and height resize only this unit's artwork around the bar stack. Inset depth controls the inner edge; set it to 0 to remove it. Portrait fitting stays on Placement.",18,-244,626)
+    text(a,"100% follows the current bars. Width and height resize this unit's artwork. Inset depth lays painted edges over health and power so they sit inside the shell; 3 is the default, 0 removes the edges. Portrait fitting stays on Placement.",18,-244,626)
     button(a,"Reset unit-frame fitting",0,-332,318,function()
-        self:Set("unitFrameWidth",100);self:Set("unitFrameHeight",100);self:Set("unitFrameInset",1.5)
+        self:Set("unitFrameWidth",100);self:Set("unitFrameHeight",100);self:Set("unitFrameInset",3)
     end)
     text(a,"Fitting changes apply after combat. Native bar values, colors and texture choices stay with your UI addon.",0,-378,666)
 
@@ -454,6 +529,26 @@ function S:Create()
     self.castStatus=text(a,"",242,-330,424)
     text(a,"100% follows the native cast bar. Width and height adjust only the centered artwork. Enable the cast bar in its own addon too. Fitting changes apply after combat.",0,-376,666)
     self:CreateCollection("cast")
+
+    a=self.pages.blizzard
+    self.nativePortraitToggle=toggle(a,"Hide Blizzard portrait image",0,0,318,function() self:Set("blizzardPortraitHidden",not J.ThemeManager:Resolve(self.selected).blizzardPortraitHidden) end)
+    text(a,"Hides the stock face image only. The stock rim, level badge and JiberishUI artwork remain independent.",346,0,318)
+    self.nativeNameToggle=toggle(a,"Customize Blizzard name",0,-56,318,function() self:Set("blizzardNameEnabled",not J.ThemeManager:Resolve(self.selected).blizzardNameEnabled) end)
+    text(a,"Moves and styles the existing name label. Blizzard continues to supply the name and its color.",346,-56,318)
+    self:Number("blizzardNameX","Name horizontal offset",0,-112,1,a)
+    self:Number("blizzardNameY","Name vertical offset",346,-112,1,a)
+    self:Number("blizzardNameSize","Name font size",0,-188,1,a)
+    self:Dropdown("blizzardNameAlign","Name alignment",{{"LEFT","Left"},{"CENTER","Center"},{"RIGHT","Right"}},346,-188,a)
+    self:Dropdown("blizzardNameOutline","Name outline",{{"KEEP","Keep Blizzard outline"},{"NONE","None"},{"OUTLINE","Outline"},{"THICKOUTLINE","Thick outline"}},0,-270,a)
+    self.nativeReset=button(a,"Restore stock portrait & name",346,-292,318,function()
+        self:Set("blizzardPortraitHidden",false);self:Set("blizzardNameEnabled",false)
+        self:Set("blizzardNameX",0);self:Set("blizzardNameY",0);self:Set("blizzardNameSize",12)
+        self:Set("blizzardNameAlign","CENTER");self:Set("blizzardNameOutline","KEEP")
+    end)
+    self.stockStoneToggle=toggle(a,"Stone textures on all Blizzard health/power bars",0,-342,520,function()
+        J.ProfileManager:Set("playerFrame","blizzardStone",not J.ThemeManager:Resolve("playerFrame").blizzardStone);self:Refresh()
+    end)
+    self.nativeStatus=text(a,"",0,-382,666)
 
     a=self.pages.artwork
     self.showButton=toggle(a,"Portrait art",0,0,318,function() self:Set("shown",not J.ThemeManager:Resolve(self.selected).shown) end)
@@ -495,31 +590,53 @@ end
 function S:Refresh()
     if not self.frame or not self.frame:IsShown() or self.refreshing then return end
     self.refreshing=true
+    local profiles=self.page=="profiles"
+    self.pages.profiles:SetShown(profiles);self.profilesButton.selection:SetShown(profiles)
+    self.resetButton:SetShown(not profiles)
+    if profiles then
+        for key,page in pairs(self.pages) do if key~="profiles" then page:Hide() end end
+        for _,b in pairs(self.pageButtons) do b:Hide() end
+        for _,b in pairs(self.tabs) do b.selection:Hide() end
+        self:RefreshProfiles();self.refreshing=false;return
+    end
+    for _,b in pairs(self.pageButtons) do b:Show() end
     local config=J.ThemeManager:Resolve(self.selected)
     local unit=J.Portraits:IsUnitKey(self.selected)
     local minimap=self.selected=="minimap"
     local hub=self.selected=="actionHub"
     local module=J.Core.modules[self.selected]
-    local headings={artwork="Artwork",placement="Placement & size",fitting="Unit-frame fitting",cast="Cast-bar border",advanced="Textures, layers & diagnostics",guide="Getting started"}
-    if not unit and (self.page=="fitting" or self.page=="cast") then self.page="placement" end
+    local headings={artwork="Artwork",placement="Placement & size",fitting="Unit-frame fitting",cast="Cast-bar border",advanced="Textures, layers & diagnostics",blizzard="Stock portrait & name",guide="Getting started"}
+    if not unit and (self.page=="fitting" or self.page=="cast" or self.page=="blizzard") then self.page="placement" end
     self.heading:SetText(names[self.selected].."  |  "..headings[self.page])
     local hints={artwork=unit and "Choose your portrait surround and full-frame artwork independently." or "Choose a matching theme, then follow your existing UI.",
         placement=unit and "These controls fit the portrait surround. Use Unit frame to fit the shell around the bars." or "Fit the decoration around your existing minimap or action bars.",
         fitting="Enable Unit-frame art on Artwork; then fit its size and inset.",
         cast="A matching border, independent of portraits and full unit-frame shells.",
+        blizzard="Optional controls for stock Blizzard Player, Target and Focus only.",
         advanced="Choose who controls bar textures, then fine-tune layering.",guide="A few simple steps, plus tools to keep your settings safe."}
     self.pageHint:SetText(hints[self.page])
-    for key,page in pairs(self.pages) do page:SetShown(key==self.page);self.pageButtons[key].selection:SetShown(key==self.page) end
-    local visiblePages=unit and {"artwork","placement","fitting","cast","advanced","guide"} or {"artwork","placement","advanced","guide"}
-    self.pageButtons.fitting:SetShown(unit);self.pageButtons.cast:SetShown(unit)
+    for key,page in pairs(self.pages) do
+        page:SetShown(key==self.page)
+        if self.pageButtons[key] then self.pageButtons[key].selection:SetShown(key==self.page) end
+    end
+    local visiblePages=unit and {"artwork","placement","fitting","cast","blizzard","advanced","guide"} or {"artwork","placement","advanced","guide"}
+    self.pageButtons.fitting:SetShown(unit);self.pageButtons.cast:SetShown(unit);self.pageButtons.blizzard:SetShown(unit)
     for i,key in ipairs(visiblePages) do
-        local b=self.pageButtons[key];local step=unit and 112 or 168
+        local b=self.pageButtons[key];local step=unit and 96 or 168
         b:ClearAllPoints();b:SetPoint("TOPLEFT",self.frame,"TOPLEFT",218+(i-1)*step,-114);b:SetWidth(step-8)
     end
     self.styleButton:SetShown(unit);self.styleHelp:SetShown(unit)
     self.controls.unitFrameSource.button:SetShown(unit);self.controls.unitFrameSource.label:SetShown(unit)
     self.controls.unitFrameFill.button:SetShown(unit);self.controls.unitFrameFill.label:SetShown(unit)
+    for _,property in ipairs({"unitFrameStrata","castBarStrata"}) do
+        self.controls[property].button:SetShown(unit);self.controls[property].label:SetShown(unit)
+    end
+    self.controls.strata.label:SetText(unit and "Portrait art strata" or "Artwork strata")
     if unit then
+        self.stockStoneToggle.check:SetShown(J.ThemeManager:Resolve("playerFrame").blizzardStone)
+        self.nativePortraitToggle.check:SetShown(config.blizzardPortraitHidden)
+        self.nativeNameToggle.check:SetShown(config.blizzardNameEnabled)
+        self.nativeStatus:SetText(J.BlizzardUnits.status[self.selected] or "Stock settings unchanged. Changes and restoration apply outside combat.")
         self.styleButton.check:SetShown(config.unitFrameShown)
         self.castToggle.check:SetShown(config.castBarShown)
         self.castMatch.selection:SetShown(config.castBarArt=="MATCH")

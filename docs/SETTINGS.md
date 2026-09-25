@@ -4,7 +4,7 @@ Open `/jui`. Choose Player, Target, Focus, Minimap or Action hub on the left. Se
 
 - **Artwork:** Independent portrait and unit-frame toggles, automatic class/race/faction choices, providers and attachment status. Browse opens a searchable collection; picking a design makes it fixed for that component.
 - **Placement:** Size, offsets, scale, opacity and anchor. For units, these fit portrait art; full shells follow the actual bars. Move the native frames in their owning UI's settings.
-- **Unit frame** (Player/Target/Focus): Artwork width/height from 75–150% of the automatic fit, plus inset edge depth from 0–3. A dedicated reset restores 100%/100%/1.5 without changing portraits. Both shell halves scale around the same bar-stack center. These controls resize decorations, not native bars.
+- **Unit frame** (Player/Target/Focus): Artwork width/height from 75–150% of the automatic fit, plus inset edge depth from 0–6. A dedicated reset restores 100%/100%/3 without changing portraits. Both shell halves scale around the same bar-stack center. These controls resize decorations, not native bars.
 - **Advanced:** Health/power texture ownership, layers, fitting bounds and support details printed to chat.
 - **Cast bar (Player/Target/Focus):** Independent enable toggle, one Bold artwork style, automatic or explicit Blizzard/EllesmereUI/ElvUI provider, Match unit artwork or a separate collection choice, border width, height, weight and spacing. Off by default; the provider must have its own cast bar enabled. [Cast-bar details](CAST-BARS.md).
 - **Guide:** Setup help and troubleshooting, plus copy/paste backup and restore. Restore replaces JiberishUI settings for all five components; invalid backups leave current settings intact. Reset component asks before restoring just that component's defaults.
@@ -25,3 +25,7 @@ The material is registered through the LibSharedMedia-3.0 already supplied by El
 ## Preview and verification
 
 `artwork/settings/` renders snapshots exported from the real Lua settings objects with `tools/export_settings_preview.lua`. Its Blizzard fonts and panel textures are browser approximations, and controls shown inside the pictured window are snapshots. Use the preview's top selectors to review layouts. It is not a game screenshot. No WoW automation or gameplay testing was performed.
+
+## Stock frames and separate layers (0.8.1)
+
+Player, Target and Focus have a **Blizzard** page for their stock portrait image and name label, plus a shared **Stone textures on all Blizzard health/power bars** switch. The switch starts on and remains active independently of full-shell and fill-mode choices. **Advanced** separates portrait, unit-frame and cast-border strata. [Full behavior and restoration](BLIZZARD-CONTROLS.md).

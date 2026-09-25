@@ -26,7 +26,8 @@ local function migrateShell(profile)
 end
 
 local function supported(key,property)
-    if property == "castBarShown" or property == "castBarSource" or property == "castBarStyle" or property == "castBarArt" or property == "castBarWeight" or property == "castBarPadding" or property == "castBarWidth" or property == "castBarHeight" or property == "portrait" or property == "portraitMode" or property == "portraitSource" or property == "unitStyle" or property == "unitFrameShown" or property == "unitFrameFill" or property == "unitFrameWidth" or property == "unitFrameHeight" or property == "unitFrameInset" or property == "unitFrameSource" then return J.Portraits:IsUnitKey(key) end
+    if property=="blizzardStone" then return key=="playerFrame" end
+    if property == "castBarShown" or property == "unitFrameStrata" or property == "castBarStrata" or property == "blizzardPortraitHidden" or property == "blizzardNameEnabled" or property == "blizzardNameX" or property == "blizzardNameY" or property == "blizzardNameSize" or property == "blizzardNameAlign" or property == "blizzardNameOutline" or property == "castBarSource" or property == "castBarStyle" or property == "castBarArt" or property == "castBarWeight" or property == "castBarPadding" or property == "castBarWidth" or property == "castBarHeight" or property == "portrait" or property == "portraitMode" or property == "portraitSource" or property == "unitStyle" or property == "unitFrameShown" or property == "unitFrameFill" or property == "unitFrameWidth" or property == "unitFrameHeight" or property == "unitFrameInset" or property == "unitFrameSource" then return J.Portraits:IsUnitKey(key) end
     if property == "hub" or property == "hubMode" or property == "hubSource" then return key == "actionHub" end
     if property == "minimap" or property == "minimapMode" then return key == "minimap" end
     return true
@@ -38,8 +39,36 @@ local function migrateUnitToggles(profile)
         if c then
             if c.unitFrameShown==nil and c.unitStyle then c.unitFrameShown=c.unitStyle=="FULL" end
             c.unitStyle=nil
+            -- Preserve the previous shared layering once; later choices are independent.
+            if c.unitFrameStrata==nil and c.strata then c.unitFrameStrata=c.strata end
         end
     end
+end
+
+function Profiles:Sanitize(source)
+    local current=defaults()
+    if type(source)~="table" then return current end
+    if J.ThemeManager.registry[source.theme] then current.theme=source.theme end
+    current.debug=source.debug==true
+    if type(source.window)=="table" and J.Core:IsNumber(source.window.x) and J.Core:IsNumber(source.window.y)
+        and math.abs(source.window.x)<=10000 and math.abs(source.window.y)<=10000 then
+        current.window={x=source.window.x,y=source.window.y}
+    end
+    if type(source.modules)=="table" then
+        for _,key in ipairs(J.Core.order) do
+            if type(source.modules[key])=="table" then
+                local target={}
+                for property,value in pairs(source.modules[key]) do
+                    local valid=J.Core:ValidateProperty(property,value)
+                    if valid~=nil and supported(key,property) then target[property]=valid end
+                end
+                current.modules[key]=target
+            end
+        end
+    end
+    if source.version~=2 then migrateShell(current) end
+    migrateUnitToggles(current)
+    return current
 end
 
 function Profiles:Initialize()
@@ -60,33 +89,16 @@ function Profiles:Initialize()
     end
     self.current = defaults()
     if self.writable and type(source) == "table" then
-        if J.ThemeManager.registry[source.theme] then self.current.theme = source.theme end
-        self.current.debug = source.debug == true
-        if type(source.window) == "table" and J.Core:IsNumber(source.window.x) and J.Core:IsNumber(source.window.y)
-            and math.abs(source.window.x) <= 10000 and math.abs(source.window.y) <= 10000 then
-            self.current.window = {x=source.window.x,y=source.window.y}
-        end
-        if type(source.modules) == "table" then
-            for _, key in ipairs(J.Core.order) do
-                if type(source.modules[key]) == "table" then
-                    local target = {}
-                    for property, value in pairs(source.modules[key]) do
-                        local valid = J.Core:ValidateProperty(property, value)
-                        if valid ~= nil and supported(key,property) then target[property] = valid end
-                    end
-                    self.current.modules[key] = target
-                end
-            end
-        end
+        self.current = self:Sanitize(source)
         self.notice = "Phase 1 settings loaded."
         if source.version ~= 2 then
-            migrateShell(self.current)
             self.notice = "Portrait backgrounds loaded; previous bar-shell sizing converted."
         end
     elseif self.writable and not self.notice then
         self.notice = "New Phase 1 settings; earlier profiles preserved separately."
     end
     migrateUnitToggles(self.current)
+    if self.writable then self:InitializeNamed(source) end
     -- Never convert, erase, or apply the previous renderer's profiles.
     if self.writable then JiberishUIDB.phase1 = self.current end
 end
@@ -158,6 +170,7 @@ function Profiles:Import(text)
     migrateUnitToggles(candidate)
     self.current = candidate
     JiberishUIDB.phase1 = candidate
+    if self.store and self.activeID then self.store.profiles[self.activeID].settings=candidate end
     J.Core:RequestRefresh(true)
     return true
 end

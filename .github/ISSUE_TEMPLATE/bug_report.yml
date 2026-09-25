@@ -1,0 +1,62 @@
+name: Bug or artwork fitting problem
+description: Report missing artwork, a layout problem, or unexpected addon behavior.
+title: "[Bug] "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: JiberishUI version
+      placeholder: "For example: 0.8.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: client
+    attributes:
+      label: Game client
+      options:
+        - Retail
+        - Forever
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: providers
+    attributes:
+      label: Client build and UI addons
+      description: Include the client build and versions of Blizzard UI, EllesmereUI, ElvUI, Blinkii, mMediaTag, or other addons involved.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component
+      multiple: true
+      options:
+        - Player portrait
+        - Target portrait
+        - Focus portrait
+        - Full unit-frame shell
+        - Cast-bar border
+        - Action hub
+        - Minimap
+        - Shared stone texture
+        - Profiles, settings or backups
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Explain what you expected and what appeared instead. Include the selected artwork, provider and fitting values if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Describe how to reproduce it, including whether it happens in combat or after changing targets, profiles or layouts.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots and diagnostics
+      description: Attach a screenshot of the problem and relevant JiberishUI settings. Paste /jui status output and any Lua error text when available.
