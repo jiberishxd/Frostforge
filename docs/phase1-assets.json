@@ -11182,7 +11182,7 @@
         },
         {
           "file": "artwork/mage-emblem-correction/applied.json",
-          "sha256": "172a0b69d5be6082d75badaf623552f61cdab90fa36063020457b43de48eaaff"
+          "sha256": "8d0801be249ee0eaa7572ff752a2022ced6f1a9f8a0b581cce60c5080cafc8cb"
         }
       ],
       "sha256": "d4356f366a893297e19dedff00c86bd931e79d013c8d87a3badfd4f24d236194",
@@ -15170,11 +15170,11 @@
       "id": "class_mage",
       "kind": "cast-border",
       "source": "artwork/cast-bars/assets/class_mage.png",
-      "source_sha256": "ceae2b77d9fc126709e87c01097e6cc7e295014902db8a2ed737d27098c9e294",
+      "source_sha256": "561e7b94ab9c75957f2c89355fb16db39d1227c631cb99e8f505017272904a64",
       "original": "artwork/cast-bars/references/class_mage.png",
-      "original_sha256": "c0b349de92615c7b6c8262bb959d5ad6724787b6b8620befc395c78094666d46",
+      "original_sha256": "4ee3194edcbaa1ea891c94e0b84b12e302ae3c8909a2e25cd48a68a934b061ad",
       "file": "JiberishUI/Media/CastBars/class_mage.tga",
-      "sha256": "0efd669abddeb8de6adb70782beab924c16bc012395415fe05fcb57452f7e5f6",
+      "sha256": "f76305ba91a9918a119580ffe63b334a7f8b18ae50683cd1cb2cfd06abe384dd",
       "size": [
         512,
         128
@@ -15182,10 +15182,10 @@
       "measured": {
         "method": "Connected backdrop removal and rail component retention",
         "source_opening": [
-          193,
-          485,
-          1343,
-          539
+          115,
+          479,
+          1421,
+          536
         ],
         "opening": [
           48,
@@ -15194,12 +15194,12 @@
           80
         ],
         "source_bounds": [
-          22,
-          362,
-          1514,
-          653
+          51,
+          377,
+          1484,
+          613
         ],
-        "scale": 0.2573099415204678,
+        "scale": 0.31852986217457885,
         "canvas": [
           512,
           128
@@ -15207,10 +15207,10 @@
         "margin": 4
       },
       "alphaBounds": [
-        4,
+        28,
         16,
-        508,
-        109
+        484,
+        105
       ],
       "clear_points": [
         [
@@ -15232,12 +15232,8 @@
           "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
         },
         {
-          "file": "artwork/mage-emblem-correction/cast-bar-generation.json",
-          "sha256": "7a33381d5641d315eb6bef50f9779a6269cdc88ad3dd86c7bc2f8cefdfb10cb9"
-        },
-        {
-          "file": "artwork/mage-emblem-correction/applied.json",
-          "sha256": "172a0b69d5be6082d75badaf623552f61cdab90fa36063020457b43de48eaaff"
+          "file": "artwork/cast-bars/mage-simplification/generation.json",
+          "sha256": "2774d54473857aae336e39374703cf554be042cde115e8d54182a438e2384c4e"
         }
       ]
     },

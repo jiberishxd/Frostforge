@@ -22,6 +22,7 @@ class ShellFitTests(unittest.TestCase):
             image = Image.open(ROOT / 'artwork/cast-bars/assets' / (theme['file'] + '.png')).convert('RGBA')
             alpha = np.asarray(image)[:,:,3]
             with self.subTest(identity=identity):
+                self.assertEqual(set(theme['styles']), {'CAPPED'})
                 self.assertEqual(image.size, (512,128))
                 self.assertFalse(alpha[48:80,48:464].any())
                 self.assertFalse(alpha[:4].any() or alpha[-4:].any() or alpha[:,:4].any() or alpha[:,-4:].any())

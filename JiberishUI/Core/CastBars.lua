@@ -3,7 +3,7 @@ local C = {units={},status={}}
 J.CastBars = C
 J.Core.properties.castBarShown = {boolean=true}
 J.Core.properties.castBarSource = {AUTO=true,BLIZZARD=true,ELLESMERE=true,ELVUI=true}
-J.Core.properties.castBarStyle = {SLIM=true,CARVED=true,CAPPED=true}
+J.Core.properties.castBarStyle = {CAPPED=true} -- Retained for older profile backups.
 J.Core.properties.castBarArt = {MATCH=true}
 J.Core.properties.castBarWeight = {.5,2}
 J.Core.properties.castBarPadding = {0,8}
@@ -41,8 +41,8 @@ end
 -- Complete cast artwork is registered around one shared transparent opening.
 -- Outer contours are never sampled out of a thin unit-shell strip. Corners use
 -- the same horizontal/vertical scale; only connecting spans fit the native bar.
-function C:Pieces(entry,style,w,h,weight,padding,mirror)
-    local factor=(style=="SLIM" and .7 or style=="CAPPED" and 1.25 or 1)*weight
+function C:Pieces(entry,w,h,weight,padding,mirror)
+    local factor=1.25*weight
     local scale=math.min(h/32, .65)*factor
     local side=48*scale
     local x={-padding-side,-padding,w+padding,w+padding+side}
@@ -59,9 +59,9 @@ function C:Pieces(entry,style,w,h,weight,padding,mirror)
     return pieces
 end
 
-function C:FitPieces(entry,style,w,h,weight,padding,mirror,widthPercent,heightPercent)
+function C:FitPieces(entry,w,h,weight,padding,mirror,widthPercent,heightPercent)
     local width,height=w*widthPercent/100,h*heightPercent/100
-    local pieces=self:Pieces(entry,style,width,height,weight,padding,mirror)
+    local pieces=self:Pieces(entry,width,height,weight,padding,mirror)
     for _,piece in pairs(pieces) do
         piece.x=piece.x+(w-width)/2
         piece.y=piece.y+(h-height)/2
@@ -93,7 +93,7 @@ end
 function C:Paint(module,id,layout)
     local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
     local g,c=module.geometry,module.config
-    local pieces=self:FitPieces(entry,c.castBarStyle,g.w,g.h,c.castBarWeight,c.castBarPadding,c.unit~="player",c.castBarWidth,c.castBarHeight)
+    local pieces=self:FitPieces(entry,g.w,g.h,c.castBarWeight,c.castBarPadding,c.unit~="player",c.castBarWidth,c.castBarHeight)
     module.assetOK=true
     for name,piece in pairs(pieces) do
         local texture=module.textures[name]

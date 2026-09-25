@@ -10,7 +10,8 @@ ART=ROOT/'artwork/mage-emblem-correction'
 JOBS={
     'portrait': ('artwork/portraits/integrated-originals/class_mage.png',[(423,106,894,400)]),
     'unit-frame': ('artwork/unit-frames/sculpted/references/class_mage.png',[(1456,121,1749,342)]),
-    'cast-bar': ('artwork/cast-bars/references/class_mage.png',[(32,450,192,578),(1344,450,1504,578)]),
+    # Retain the earlier correction as the input to the later simplified ends.
+    'cast-bar': ('artwork/cast-bars/mage-simplification/before.png',[(32,450,192,578),(1344,450,1504,578)]),
 }
 
 def main():

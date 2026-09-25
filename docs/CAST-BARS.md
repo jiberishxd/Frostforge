@@ -2,7 +2,7 @@
 
 Player, Target and Focus each have an optional border for their existing Blizzard, EllesmereUI or ElvUI cast bar. Open `/jui`, select the unit, then **Cast bar**. Enable **Cast-bar border**; it is off by default and independent of portrait and unit-frame toggles. The provider's own cast bar must also be enabled.
 
-Choose **Subtle**, **Classic** (default), or **Bold**. **Border weight** ranges from 0.5–2 and **Space around the bar** from 0–8 UI units; both default to 1. The border follows the actual bar dimensions and scale. Each of the 42 class/race/faction designs has dedicated painted rails with complete outer leaves, bindings and end details. Transparent margins let those details extend freely. The renderer preserves the full outer contour and uses equal X/Y scaling at the corners; only the connecting spans adapt to the bar. There is no center texture or cropped unit-shell rim.
+All borders use **Bold**, with no style selector. Older Subtle/Classic saved settings and backups automatically use Bold while retaining artwork, enabled state and fitting values. **Border weight** ranges from 0.5–2 and **Space around the bar** from 0–8 UI units; both default to 1. The border follows the actual bar dimensions and scale. Each of the 42 class/race/faction designs has dedicated painted rails with complete outer leaves, bindings and end details. Transparent margins let those details extend freely. The renderer preserves the full outer contour and uses equal X/Y scaling at the corners; only the connecting spans adapt to the bar. There is no center texture or cropped unit-shell rim.
 
 **Border width (%)** and **Border height (%)** independently adjust the centered artwork from 50–150%; 100% follows the native cast bar. The native bar, fill and text are never resized. **Reset border fitting** returns width/height to 100%, weight to 1 and spacing to 1 without changing the enable toggle or selected artwork. Values below 100% deliberately bring artwork inside the native rectangle. All fitting changes wait until combat ends.
 
@@ -29,7 +29,7 @@ The Lua mock exercises all three providers on Retail and Forever paths. The brow
 
 1. Enable one unit's border and confirm the other two units and all portrait/shell toggles stay independent. Try Reset border fitting and a JF2 export/import.
 2. Start and finish a cast/channel, interrupt it, and test an empowered cast where available. Confirm native progress, labels, icons, shields and stage indicators remain intact, with no lingering border after the bar fades/hides.
-3. Try the three styles, width, height, weight and spacing, a fixed border theme and Match unit artwork. Target players/NPCs with different artwork selections.
+3. Try width, height, weight and spacing, a fixed border theme and Match unit artwork. Target players/NPCs with different artwork selections.
 4. Move/resize the provider cast bar, change profiles, reload and switch provider. Confirm the border follows, old borders disappear and backups restore the settings.
 5. Change settings in combat; confirm changes apply after combat without errors. Toggle the feature off and verify the provider retains all of its own appearance and behavior.
 

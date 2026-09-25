@@ -48,6 +48,9 @@ function Core:ValidateProperty(property, value)
         if value == false or value == "false" or value == "off" then return false end
     elseif type(value) == "string" then
         value = value:upper()
+        -- Cast borders now have one Bold style. Preserve old saved profiles,
+        -- commands and backups without keeping the retired rendering variants.
+        if property=="castBarStyle" and (value=="SLIM" or value=="CARVED") then value="CAPPED" end
         if rule[value] then return value end
     end
 end
