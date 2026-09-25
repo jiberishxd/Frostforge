@@ -1,6 +1,8 @@
 # JiberishUI
 
-**0.7.4** refreshes the in-game options with a classic stone-and-gold workshop, searchable artwork collections, setup help and settings backups. **JiberishUI Stone** is now a shared status-bar texture for EllesmereUI and ElvUI. Automatic texture mode respects Ellesmere's choices, while Blizzard keeps JiberishUI fills. The Shaman unit shell gains an integrated elemental mask and carved tribal totems. Portraits, hubs and minimaps remain unchanged. See [settings and shared texture setup](docs/SETTINGS.md).
+**0.7.5** adds a painted inner edge and shadow to all 42 unit-frame themes so health and power appear inset. In `/jui → Player/Target/Focus → Unit frame`, adjust artwork width, height and inset depth independently from portraits. The Shaman shell now uses balanced elemental totems, natural rope and stone without red banners or oversized tusks. Portraits, hubs and minimaps remain unchanged.
+
+The classic settings workshop, searchable collections, backups and shared **JiberishUI Stone** texture from 0.7.4 remain available. Automatic texture mode respects Ellesmere's choices, while Blizzard keeps JiberishUI fills. See [settings and shared texture setup](docs/SETTINGS.md).
 
 The artwork library includes 42 matching minimap surrounds with a shared circular opening, automatic class/race/faction selection and a manual artwork picker. Warrior portrait, hub and minimap artwork now use plain battle cloth without Horde or Alliance insignia. All choices retain the existing decorative architecture; native UI controls remain functional underneath.
 
@@ -60,7 +62,7 @@ The baseline fits are verified offline against the pinned native geometry. **Thi
 
 Components: `playerFrame`, `targetFrame`, `focusFrame`, `minimap`, `actionHub`.
 
-Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE), and `unitFrameSource` (AUTO/BLIZZARD/ELLESMERE). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
+Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `unitFrameWidth`/`unitFrameHeight` (75–150%), `unitFrameInset` (0–3), `unitFrameFill` (AUTO/PROVIDER/JIBERISH), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE), and `unitFrameSource` (AUTO/BLIZZARD/ELLESMERE). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
 
 ```text
 /jf set playerFrame unitFrameShown on

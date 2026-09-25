@@ -381,4 +381,89 @@ test("stable full-frame ticks do not repeat native layout writes",function(M)
     assert(M.nativeLayoutWrites==writes)
 end)
 
+
+test("every theme has a narrow painted inset above native fills and outside their center",function(M)
+    local J=M.load();enable(J)
+    J.ProfileManager:Set("playerFrame","portraitMode","FIXED")
+    for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
+    enable(J,key);J.ProfileManager:Set(key,"portraitMode","FIXED")
+    for id in pairs(J.UnitSkinCatalog.entries) do
+        J.ProfileManager:Set(key,"portrait",id)
+        for _,kind in ipairs({"health","power"}) do
+            local record=J.UnitSkins.units[key][kind];local rim=record.trim.rim
+            assert(rim.frame.shown and rim.frame.mouse==false and rim.frame.level==record.bar:GetFrameLevel()+1)
+            near(rim.frame.w,record.bar.w);near(rim.frame.h,record.bar.h)
+            for name,t in pairs(rim.textures) do
+                local x,y=t.points[1][4],-t.points[1][5]
+                assert(x>=0 and y>=0 and x+t.w<=rim.frame.w+.001 and y+t.h<=rim.frame.h+.001)
+                assert(not (x<rim.frame.w/2 and x+t.w>rim.frame.w/2 and y<rim.frame.h/2 and y+t.h>rim.frame.h/2))
+                if not name:find("Shadow") then
+                    assert(t.path==J.UnitSkinCatalog.entries[id].shell)
+                    assert((t.texCoord[1]>t.texCoord[2])==(key~="playerFrame"))
+                end
+            end
+        end
+    end
+    end
+end)
+
+test("shell width and height resize art around one center without changing bars or portraits",function(M)
+    local J=M.load();enable(J)
+    local u=J.UnitSkins.units.playerFrame;local b=bars(J);local hw,hh,pw,ph=b.health.w,b.health.h,b.power.w,b.power.h
+    local healthW,healthH,powerH=u.health.trim.frame.w,u.health.trim.frame.h,u.power.trim.frame.h
+    local portraitW,portraitH=J.Core.modules.playerFrame.frame.w,J.Core.modules.playerFrame.frame.h
+    J.SettingsUI:Open();J.SettingsUI:SetPage("fitting")
+    assert(J.SettingsUI.controls.unitFrameWidth.edit:IsVisible())
+    J.SettingsUI.controls.unitFrameWidth.slider:SetValue(110)
+    J.SettingsUI.controls.unitFrameHeight.slider:SetValue(120)
+    near(u.health.trim.frame.w,healthW*1.1);near(u.health.trim.frame.h,healthH*1.2);near(u.power.trim.frame.h,powerH*1.2)
+    local entry=J.UnitSkinCatalog.entries[u.health.id];local k=u.health.geometry.capScale
+    local powerOrigin=(entry.opening.power[2]-entry.opening.health[2])*k
+    local healthBottom=-u.health.trim.frame.points[1][5]+u.health.trim.frame.h
+    local powerTop=powerOrigin-u.power.trim.frame.points[1][5]
+    near(healthBottom,powerTop)
+    near(u.health.trim.rim.frame.w,hw*1.1);near(u.health.trim.rim.frame.h,hh*1.2)
+    assert(b.health.w==hw and b.health.h==hh and b.power.w==pw and b.power.h==ph)
+    assert(J.Core.modules.playerFrame.frame.w==portraitW and J.Core.modules.playerFrame.frame.h==portraitH)
+    J.SettingsUI:Select("minimap");assert(J.SettingsUI.page=="placement" and not J.SettingsUI.pageButtons.fitting.shown)
+end)
+
+test("inset and fitting changes queue in combat then reuse existing frames",function(M)
+    local J=M.load();enable(J);local trim=J.UnitSkins.units.playerFrame.health.trim
+    local w=trim.frame.w;local frames,textures=#M.frames,M.textures
+    M.combat=true;J.ProfileManager:Set("playerFrame","unitFrameWidth",115);J.ProfileManager:Set("playerFrame","unitFrameInset",0)
+    assert(trim.frame.w==w and trim.rim.frame.shown)
+    M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+    near(trim.frame.w,w*1.15);assert(not trim.rim.frame.shown and trim.frame.shown)
+    J.ProfileManager:Set("playerFrame","unitFrameInset",2)
+    assert(trim.rim.frame.shown and #M.frames==frames and M.textures==textures)
+    local writes=M.geometryWrites
+    for i=1,10 do M.tick(J.Core) end
+    assert(writes==M.geometryWrites)
+end)
+
+test("unit artwork fitting settings validate and round trip independently",function(M)
+    local J=M.load()
+    assert(J.ProfileManager:Set("targetFrame","unitFrameWidth",90))
+    assert(J.ProfileManager:Set("targetFrame","unitFrameHeight",125))
+    assert(J.ProfileManager:Set("targetFrame","unitFrameInset",2))
+    assert(not J.ProfileManager:Set("minimap","unitFrameWidth",90))
+    assert(not J.ProfileManager:Set("targetFrame","unitFrameWidth",0))
+    assert(not J.ProfileManager:Set("targetFrame","unitFrameHeight",151))
+    assert(not J.ProfileManager:Set("targetFrame","unitFrameInset",4))
+    local backup=J.ProfileManager:Export();J.ProfileManager:Reset();assert(J.ProfileManager:Import(backup))
+    local c=J.ThemeManager:Resolve("targetFrame")
+    assert(c.unitFrameWidth==90 and c.unitFrameHeight==125 and c.unitFrameInset==2)
+    assert(J.ThemeManager:Resolve("playerFrame").unitFrameWidth==100)
+end)
+
+test("protected inner rim is retired only after queued hiding completes",function(M)
+    local J=M.load();J.ProfileManager:Set("playerFrame","unitFrameFill","PROVIDER");enable(J)
+    local record=J.UnitSkins.units.playerFrame.health;record.trim.rim.frame.protected=true
+    M.combat=true;J.ProfileManager:Set("playerFrame","unitFrameShown",false);M.tick(J.Core)
+    assert(J.UnitSkins.units.playerFrame.health==record and record.trim.rim.frame.shown)
+    M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+    assert(not J.UnitSkins.units.playerFrame.health and not record.trim.rim.frame.shown)
+end)
+
 end

@@ -1,9 +1,9 @@
 local addonName, J = ...
 local Core = {
-    version = "0.7.4",
+    version = "0.7.5",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
-    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill" },
+    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset" },
     dirty = true,
 }
 J.Core = Core

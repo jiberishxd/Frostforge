@@ -27,7 +27,7 @@ end
 local out={root=ids[S.frame],pages={}}
 for _,key in ipairs({"playerFrame","minimap","actionHub"}) do
     S:Select(key)
-    for _,page in ipairs({"artwork","placement","advanced","guide"}) do
+    for _,page in ipairs({"artwork","placement","fitting","advanced","guide"}) do
         S:SetPage(page);out.pages[key.."-"..page]=snapshot()
     end
 end
