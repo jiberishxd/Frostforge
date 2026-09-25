@@ -1,6 +1,6 @@
 # Portrait addon setup
 
-Build **0.7.0-art.1** adds Player, Target and Focus surrounds for **mMediaTag & Tools** alongside **Blinkii's Portraits**, **ElvUI** and **EllesmereUI**, plus main action-bar anchors for both UI suites. The implementation passes offline checks; fitting and secure behavior still need validation inside WoW.
+Build **0.7.0-art.2** adds Player, Target and Focus surrounds for **mMediaTag & Tools** alongside **Blinkii's Portraits**, **ElvUI** and **EllesmereUI**, plus main action-bar anchors for both UI suites. The implementation passes offline checks; fitting and secure behavior still need validation inside WoW.
 
 Install the matching JiberishUI package, keep your preferred frame addon enabled, and fully restart WoW. Open `/jui` and select Player, Target or Focus. **Portrait addon → Automatic (Blinkii first)** follows Blinkii when its active portrait is visible, otherwise mMediaTag, ElvUI, EllesmereUI or Blizzard, in that order. Set a specific provider per unit when multiple frame addons are active. An explicit choice waits for that provider and never silently switches to another. The Following line identifies the resolved anchor.
 

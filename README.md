@@ -1,6 +1,6 @@
 # JiberishUI
 
-**0.7.0-art.1** adds optional full Blizzard unit-frame skins alongside automatic portrait surrounds for mMediaTag & Tools, Blinkii's Portraits, ElvUI and EllesmereUI, plus main action-bar anchors for both UI suites. Choose the portrait addon separately for Player, Target and Focus in `/jui`. See [addon setup and limits](docs/ADDON-COMPATIBILITY.md).
+**0.7.0-art.2** corrects clipped corners and tips in the optional full Blizzard unit-frame skins alongside automatic portrait surrounds for mMediaTag & Tools, Blinkii's Portraits, ElvUI and EllesmereUI, plus main action-bar anchors for both UI suites. Choose the portrait addon separately for Player, Target and Focus in `/jui`. See [addon setup and limits](docs/ADDON-COMPATIBILITY.md).
 
 The artwork library includes 42 matching minimap surrounds with a shared circular opening, automatic class/race/faction selection and a manual artwork picker. Warrior portrait, hub and minimap artwork now use plain battle cloth without Horde or Alliance insignia. All choices retain the existing decorative architecture; native UI controls remain functional underneath.
 
@@ -100,6 +100,8 @@ python3 -m pip install -r tools/requirements-artwork.txt
 python3 tools/build_portraits.py
 python3 tools/build_hubs.py
 python3 tools/build_minimaps.py
+python3 tests/test_unit_shell_fit.py
+python3 tools/fit_unit_shells.py
 python3 tools/build_unit_frame_art.py
 python3 tools/render_portrait_review.py
 lua5.1 tools/export_fit_preview.lua

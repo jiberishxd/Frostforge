@@ -1,6 +1,6 @@
 # Portrait build validation
 
-Install 0.7.0-art.1 and fully restart WoW. This loads the new minimap files and refreshed faction-neutral Warrior textures. Do not delete saved settings. Export current settings before closing, especially on Forever build 69913. If a component was manually adjusted to fit the previous artwork, use Reset this component in `/jui` to test the new baseline.
+Install 0.7.0-art.2 and fully restart WoW. This loads the audited full-shell textures with corrected corners and preserved tips. Do not delete saved settings. Export current settings before closing, especially on Forever build 69913. If a component was manually adjusted to fit the previous artwork, use Reset this component in `/jui` to test the new baseline.
 
 1. Open /jui. Confirm textured window borders, red/gold buttons, checkboxes, five component tabs and a movable window. Verify Show artwork and Debug bounds check marks, selected tabs, and gallery selection after switching components. Player, Target and Focus default to Automatic class; Minimap and hub default to automatic player class; existing geometry overrides are retained.
 2. At default portrait dimensions, check Player's teardrop corner, level badge, name and bars. Select players of different classes and verify only Target's portrait background changes; the art should share the same visible envelope without a lower loop or level-badge circle. Verify Mage uses an eye and Hunter uses a skull. Set another class as Focus and verify independent selection. Clear Target/Focus and confirm their decoration disappears.
