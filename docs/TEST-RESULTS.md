@@ -1,3 +1,15 @@
+# Build 0.7.3 plain stone health and city NPCs
+
+152 Lua 5.1 tests and six Python artwork regressions pass. Ten added Lua checks cover twelve city affiliations on both Retail and Forever, shared portrait/shell selection, independent toggles, player/focus behavior, automatic versus fixed modes, modern/legacy localization, controlled units, unknown affiliations, bounded cache invalidation, secret/missing metadata, combat deferral and the five known guard IDs when tooltips are absent.
+
+The added material regression checks every health export for an opaque, color-neutral 256 × 32 stone fill, matching preview pixels, bounded tonal variation and provenance that excludes shell ornaments. All 42 health TGAs changed; the other 210 runtime artwork files are byte-identical to merged main `c42af81`. Six artwork tests also preserve all prior shell-fitting checks and the 126 pre-audit portrait/hub/minimap hashes.
+
+The browser preview was inspected with rose Paladin health and green Undead Target health, including the matching portrait toggle. It renders the actual packaged health pixels with the original shells and thick dividers. Source/media/provenance and exact Retail/Forever 0.7.3 package checks pass. No reference-addon assets, code or branding are included.
+
+No WoW interaction or in-game testing was performed. City matching requires a public matching affiliation or known guard ID, rather than the player's zone; unrecognized NPCs keep their previous automatic-mode fallback. Actual city tooltips, provider rendering and combat behavior still need the user's in-game checks in VALIDATION.md.
+
+---
+
 # Build 0.7.2 EllesmereUI integration
 
 142 Lua 5.1 tests and five Python artwork regressions pass. Fourteen new Lua checks cover the supplied EllesmereUI 9.2.9 object structure on both client paths: independent portrait/shell toggles for all three units, explicit and automatic provider selection, inactive/transparent providers, coexistence with Blinkii, delayed/replaced frames, original stack bounds, all 42 theme fits without cumulative shrinkage, combat queuing, restoration after provider redraws, hidden/forbidden/secret geometry, supported versus texture-only layouts, stock portrait masks and side changes, default/explicit layers, diagnostics, scale changes and partial provider redraws.

@@ -11,3 +11,7 @@ No separate written permission from Blizzard has been obtained or is implied by 
 ## Minimap collection and Warrior revision
 
 The 42 matching minimaps were created with the built-in image generation tool from the existing hub/portrait references. `artwork/minimaps/generation-prompts.json`, `generation-results.json` and `manifest.json` retain prompts, workspace sources and hashes. Alpha cleanup and shared circular fitting use the user's authorized local Python processing. `artwork/warrior-neutral-review/prompt.txt` records the edit removing faction marks from all three Warrior components. These changes do not represent a new license grant for the underlying referenced Blizzard motifs.
+
+## Plain stone health material
+
+Build 0.7.3 uses a new original stone material generated with the built-in image tool, then cropped, reduced to grayscale and fitted locally for 256 × 32 health fills. The source is `artwork/unit-frames/references/plain-stone.png`; its exact prompt and generation record are in `plain-stone-generation.json` beside it. No reference-addon assets, code or branding were used. All 42 health exports use this unmarked material and retain native tinting. Existing ornamental shells, power materials, portraits, hubs and minimaps are unchanged.
