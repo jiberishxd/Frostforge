@@ -27,7 +27,7 @@ Existing bars and late-created party/raid frames are rediscovered automatically 
 
 ## Independent artwork strata
 
-Under **Advanced**, **Portrait art strata**, **Unit-frame art strata** and **Cast-border strata** control their respective decorations independently. Shells and casts offer **Automatic**; explicit values such as Medium or High affect only that artwork. Higher strata can cover other UI, including names. Existing profiles' shared strata is copied to the shell setting once to preserve the previous look.
+Under **Advanced**, **Portrait art strata**, **Unit-frame art strata** and **Cast-border strata** control their respective decorations independently. Shells and casts offer **Automatic**; explicit values such as Medium or High affect only that artwork. Higher strata can cover other UI, including names. Existing profiles' shared strata is copied to the shell setting once to preserve the previous look. The inner lips stay above the owning health/power bar even when the surrounding shell uses a lower strata or level.
 
 Frame level and texture draw layer retain their existing portrait/shell behavior. Cast-border level automatically follows the native bar and known Ellesmere cast chrome. Strata and geometry updates wait until combat ends.
 
