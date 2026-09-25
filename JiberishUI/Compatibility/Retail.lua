@@ -6,6 +6,19 @@ local Retail = {
 }
 J.Core.clients.retail = Retail
 
+function Retail:CastBars(key)
+    if key=="playerFrame" then
+        local bars={}
+        for _,name in ipairs({"PlayerCastingBarFrame","OverlayPlayerCastingBarFrame"}) do
+            local frame=_G[name]
+            if J.Core:IsUsableFrame(frame) then bars[#bars+1]=frame end
+        end
+        return bars
+    end
+    local root=key=="targetFrame" and TargetFrame or key=="focusFrame" and FocusFrame
+    if J.Core:IsUsableFrame(root) and J.Core:IsUsableFrame(root.spellbar) then return {root.spellbar} end
+end
+
 function Retail:Matches(interface)
     return J.Core:IsNumber(interface) and interface >= 120000 and interface < 130000
 end

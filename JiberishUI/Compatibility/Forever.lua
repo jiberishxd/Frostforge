@@ -6,6 +6,19 @@ local Forever = {
 }
 J.Core.clients.forever = Forever
 
+function Forever:CastBars(key)
+    if key=="playerFrame" then
+        local bars={}
+        for _,name in ipairs({"PlayerCastingBarFrame","GamepadPlayerCastingBarFrame","OverlayPlayerCastingBarFrame"}) do
+            local frame=_G[name]
+            if J.Core:IsUsableFrame(frame) then bars[#bars+1]=frame end
+        end
+        return bars
+    end
+    local root=key=="targetFrame" and TargetFrame or key=="focusFrame" and FocusFrame
+    if J.Core:IsUsableFrame(root) and J.Core:IsUsableFrame(root.spellbar) then return {root.spellbar} end
+end
+
 function Forever:Matches(interface)
     return J.Core:IsNumber(interface) and interface == self.baseline
 end

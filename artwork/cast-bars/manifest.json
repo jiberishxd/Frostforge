@@ -1,0 +1,2820 @@
+[
+  {
+    "id": "class_deathknight",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_deathknight.png",
+    "source_sha256": "9d98a43f58d70fc637db525a1ffe63bebbf6b9508a36a4119b2f0943c21ea777",
+    "original": "artwork/cast-bars/references/class_deathknight.png",
+    "original_sha256": "37bf02827486b26fc189a9a03407a971822cfccbe91be35b83142449b3141491",
+    "file": "JiberishUI/Media/CastBars/class_deathknight.tga",
+    "sha256": "ceef690e2d6a7db82878359e1f10e12a774b25994fb62b86a1b3f5db07f91ba0",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        195,
+        504,
+        1341,
+        551
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        15,
+        349,
+        1521,
+        676
+      ],
+      "scale": 0.24444444444444444,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      10,
+      508,
+      111
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_demonhunter",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_demonhunter.png",
+    "source_sha256": "3651a37ad4ff650a5d91a4ba146b98bbd1e7cc05b4c07346ed33e75abb256aea",
+    "original": "artwork/cast-bars/references/class_demonhunter.png",
+    "original_sha256": "de2d048d4cd4c93802dd11b67c08dfdcbe034837f650accc6db60f7db4465b58",
+    "file": "JiberishUI/Media/CastBars/class_demonhunter.tga",
+    "sha256": "d9185178e274e10fcad58b293c76b5e091535539396d48acbc19b6df19bf1d3c",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        159,
+        471,
+        1375,
+        563
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        22,
+        292,
+        1514,
+        656
+      ],
+      "scale": 0.24581005586592178,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      14,
+      4,
+      498,
+      103
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_druid",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_druid.png",
+    "source_sha256": "0cdda77a64e52e21fea83b2d555d784110425abc8ed044653a5e2781d2fbdd77",
+    "original": "artwork/cast-bars/references/class_druid.png",
+    "original_sha256": "a1fbe9379c8251b508527040bfc742db08adf185630b44dee4c7d9a5f9c43a85",
+    "file": "JiberishUI/Media/CastBars/class_druid.tga",
+    "sha256": "20d322d03b17edfe5241395660f69688934e6bcaf673539fe7a422171df73cd7",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Preserved generated alpha",
+      "source_opening": [
+        127,
+        515,
+        1389,
+        546
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        17,
+        367,
+        1520,
+        658
+      ],
+      "scale": 0.2972972972972973,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      15,
+      4,
+      503,
+      113
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_evoker",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_evoker.png",
+    "source_sha256": "19c28f388f8b56caaa9e42553b5576983c85fda72f220b5c195ec7d76a16a41c",
+    "original": "artwork/cast-bars/references/class_evoker.png",
+    "original_sha256": "0e7331289b35049118773871a3828c567c0df6cdb6ebf26c4b5334c7761756bb",
+    "file": "JiberishUI/Media/CastBars/class_evoker.tga",
+    "sha256": "f6d5839ec74bd06962cb667d692f6616ad6a3dedf97f08aae94883e30ad0f748",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        127,
+        471,
+        1408,
+        544
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        24,
+        347,
+        1511,
+        654
+      ],
+      "scale": 0.32474629195940674,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      15,
+      8,
+      497,
+      116
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_hunter",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_hunter.png",
+    "source_sha256": "20dc6656ea39989d5df914968ba13b0449c6650273da703904378268b42c56bf",
+    "original": "artwork/cast-bars/references/class_hunter.png",
+    "original_sha256": "efb33872ee9009019adf6f01423c642a7c1e652ee9a5c07476f64013ca617998",
+    "file": "JiberishUI/Media/CastBars/class_hunter.tga",
+    "sha256": "d13a194e365deed2918cb678a96648e4f020516444ab05bb4a676ce2e1e259d3",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        171,
+        478,
+        1365,
+        546
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        27,
+        322,
+        1509,
+        703
+      ],
+      "scale": 0.2802547770700637,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      8,
+      4,
+      504,
+      124
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_mage",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_mage.png",
+    "source_sha256": "561e7b94ab9c75957f2c89355fb16db39d1227c631cb99e8f505017272904a64",
+    "original": "artwork/cast-bars/references/class_mage.png",
+    "original_sha256": "4ee3194edcbaa1ea891c94e0b84b12e302ae3c8909a2e25cd48a68a934b061ad",
+    "file": "JiberishUI/Media/CastBars/class_mage.tga",
+    "sha256": "f76305ba91a9918a119580ffe63b334a7f8b18ae50683cd1cb2cfd06abe384dd",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        115,
+        479,
+        1421,
+        536
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        51,
+        377,
+        1484,
+        613
+      ],
+      "scale": 0.31852986217457885,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      28,
+      16,
+      484,
+      105
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      },
+      {
+        "file": "artwork/cast-bars/mage-simplification/generation.json",
+        "sha256": "2774d54473857aae336e39374703cf554be042cde115e8d54182a438e2384c4e"
+      }
+    ]
+  },
+  {
+    "id": "class_monk",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_monk.png",
+    "source_sha256": "1b14f47c6356fe06a7da05c15876e65cdb2daeefd71154c20e8b830c90108155",
+    "original": "artwork/cast-bars/references/class_monk.png",
+    "original_sha256": "172ad6b3d5ccc5949cb781b3eb4bbd1c4babdf8615faaf7b28bcb639dff902e2",
+    "file": "JiberishUI/Media/CastBars/class_monk.tga",
+    "sha256": "ba443f72bb4a1feca8c642ccea96e8b048b421ee06bec5f7f8b31635daab4bdd",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        151,
+        452,
+        1385,
+        538
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        3,
+        330,
+        1532,
+        678
+      ],
+      "scale": 0.2972972972972973,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      12,
+      508,
+      122
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_paladin",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_paladin.png",
+    "source_sha256": "5997a2c4a4c0dbf2ce28b6a3d1ade9048ce9f11e2ac90f3dd7276246107857e0",
+    "original": "artwork/cast-bars/references/class_paladin.png",
+    "original_sha256": "fe249fe19262160d5ab7064a4de747976e5bac4d7097637c978104220f4cdf4f",
+    "file": "JiberishUI/Media/CastBars/class_paladin.tga",
+    "sha256": "93538a6fb386e17997c54a5d16e9cdbd1316b5899f0ef5b17962987b805b0c17",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        208,
+        454,
+        1328,
+        547
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        11,
+        292,
+        1526,
+        670
+      ],
+      "scale": 0.2222222222222222,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      12,
+      508,
+      107
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_priest",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_priest.png",
+    "source_sha256": "316af26a2b361598c31415f2e33b4bd336e0db8d4836b6f17019c11f70eca525",
+    "original": "artwork/cast-bars/references/class_priest.png",
+    "original_sha256": "03029bbda52c6d5327d7acca1813cd175e1548d77755d4240a5c115751f14b20",
+    "file": "JiberishUI/Media/CastBars/class_priest.tga",
+    "sha256": "d05e876afab5205a8b74ded63ebb8b627c91cc8b1c4aba4440eb931d73fc99f9",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        242,
+        479,
+        1294,
+        532
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        19,
+        362,
+        1518,
+        643
+      ],
+      "scale": 0.19642857142857142,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      25,
+      508,
+      102
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_rogue",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_rogue.png",
+    "source_sha256": "ba8def22e8894eca971303924b989ce7f718f1f64e3f2a78ebaafed8c816e96c",
+    "original": "artwork/cast-bars/references/class_rogue.png",
+    "original_sha256": "369fe50bc04ee6501b88e3935bcec9c8c1a1e8e93d66212802a2d1722b6cdae5",
+    "file": "JiberishUI/Media/CastBars/class_rogue.tga",
+    "sha256": "072ca755f7ab1a35fa1e4084315cdd6623b6a2cd61d22e9635565990894606cd",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        184,
+        467,
+        1353,
+        537
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        21,
+        336,
+        1515,
+        678
+      ],
+      "scale": 0.26993865030674846,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      13,
+      508,
+      118
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_shaman",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_shaman.png",
+    "source_sha256": "100392860eea14848f2acee41a1d496046705c300a714f248b28c50a9038357e",
+    "original": "artwork/cast-bars/references/class_shaman.png",
+    "original_sha256": "f1eb819fa5d0770ee2db3207b3bc4ae04371c2ad5fd78785a1e75dc05629702c",
+    "file": "JiberishUI/Media/CastBars/class_shaman.tga",
+    "sha256": "df06b7856d161456e8e97782e578c946b68de167ee709d0fd91266ef48b0d14c",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        164,
+        473,
+        1372,
+        548
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        25,
+        351,
+        1510,
+        653
+      ],
+      "scale": 0.31654676258992803,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      9,
+      508,
+      113
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_warlock",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_warlock.png",
+    "source_sha256": "6b1519512d1116d624dc2164a54d37352d834e91ee2db75c0fe6e79357f2a52f",
+    "original": "artwork/cast-bars/references/class_warlock.png",
+    "original_sha256": "bccaf89e07306f17eeb9be29d5c713c299cd4eee892e037b9201bca6b8f06197",
+    "file": "JiberishUI/Media/CastBars/class_warlock.tga",
+    "sha256": "3afccefa89af11b8f74a1fcbdf2e1064e988138e7298f9229eb307844515b8ac",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        149,
+        495,
+        1386,
+        545
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        31,
+        337,
+        1503,
+        654
+      ],
+      "scale": 0.27848101265822783,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      15,
+      4,
+      497,
+      110
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "class_warrior",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/class_warrior.png",
+    "source_sha256": "dca5d2f60ccb950cde967b751f0e9276fdc895e63997d51605288a2bb647b419",
+    "original": "artwork/cast-bars/references/class_warrior.png",
+    "original_sha256": "6177e0e058b6f032c55b1212abca47f4cdfd7700453490f4998c777565d0e9ad",
+    "file": "JiberishUI/Media/CastBars/class_warrior.tga",
+    "sha256": "354dc1e4981a8b579c21893f87a5089b801c040085adc33ac42935848e83263b",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        142,
+        445,
+        1393,
+        536
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        19,
+        311,
+        1518,
+        663
+      ],
+      "scale": 0.3283582089552239,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      8,
+      4,
+      505,
+      122
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "faction_alliance",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/faction_alliance.png",
+    "source_sha256": "45b514c785cb5c58c6e29087862abc6330d4f7a53227bc5950e76f68f59af9e8",
+    "original": "artwork/cast-bars/references/faction_alliance.png",
+    "original_sha256": "ccc910d5956e6d7f6aa7590e3bde5a5f46ab8d85b34dce39b13a1cff02eedbb5",
+    "file": "JiberishUI/Media/CastBars/faction_alliance.tga",
+    "sha256": "551c8573b8e72c2e4bb7fe9ee7a1497b7fb22fa0e823f516007c8f1c7b036557",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        237,
+        476,
+        1300,
+        551
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        18,
+        366,
+        1518,
+        639
+      ],
+      "scale": 0.2009132420091324,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      26,
+      508,
+      98
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "faction_horde",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/faction_horde.png",
+    "source_sha256": "796d28013afb5a8c5a752bef905be5acd515b3011045719b172b4e32f553493a",
+    "original": "artwork/cast-bars/references/faction_horde.png",
+    "original_sha256": "d38e4e2478b6d7448df8e46183588a4e8e19f9079e904b1e7bd838a81c7514ad",
+    "file": "JiberishUI/Media/CastBars/faction_horde.tga",
+    "sha256": "2955104d79f0a8a6ff4f920ad97d7611417fba71bf4d6f91610c3c82023b308b",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        191,
+        457,
+        1332,
+        539
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        17,
+        314,
+        1520,
+        686
+      ],
+      "scale": 0.23404255319148937,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      7,
+      15,
+      508,
+      114
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "faction_neutral",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/faction_neutral.png",
+    "source_sha256": "6ab60e7bc806bfcbd343266d1b7cde0dc8f8fcf4d18d545f0e32bc5967672701",
+    "original": "artwork/cast-bars/references/faction_neutral.png",
+    "original_sha256": "c57618151ed1591b7a01e805b0b17a70439e63ed2b0f34df95e73b2e8a519d75",
+    "file": "JiberishUI/Media/CastBars/faction_neutral.tga",
+    "sha256": "7989a382830669492c91d88e59f98352e185df7909bb21f1baefe7210b7fa11c",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        172,
+        481,
+        1366,
+        545
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        20,
+        378,
+        1517,
+        647
+      ],
+      "scale": 0.2894736842105263,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      18,
+      508,
+      110
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_bloodelf",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_bloodelf.png",
+    "source_sha256": "5f6ebd54bf3c288d970338392db9e5b4a50d0206526468f36a9b1884cf6e7930",
+    "original": "artwork/cast-bars/references/race_bloodelf.png",
+    "original_sha256": "c9f87aa117231b00b3e6421334db7d4c4ab0ecdba8c498a4bd79614859870e07",
+    "file": "JiberishUI/Media/CastBars/race_bloodelf.tga",
+    "sha256": "7585e52e247f55112036ad388a47f752d7adbe1527bab5a1722ca67be9895177",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        152,
+        440,
+        1384,
+        540
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        24,
+        302,
+        1512,
+        678
+      ],
+      "scale": 0.3188405797101449,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      7,
+      4,
+      505,
+      124
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_darkirondwarf",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_darkirondwarf.png",
+    "source_sha256": "e378d32e4b27bfc48796898c797e1a9d2b6de2a983022f19b30d77444fa1b5cb",
+    "original": "artwork/cast-bars/references/race_darkirondwarf.png",
+    "original_sha256": "5e8507da80e970dcdde124452006a8cbe73537daac235414d77c8f7ca6f056fe",
+    "file": "JiberishUI/Media/CastBars/race_darkirondwarf.tga",
+    "sha256": "e78c209f51c5f102ee5fea003f16ac4303228d4156aa65b37c9fb82cdde301d5",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        236,
+        456,
+        1299,
+        542
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        11,
+        339,
+        1523,
+        643
+      ],
+      "scale": 0.19555555555555557,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      25,
+      508,
+      100
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_dracthyr",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_dracthyr.png",
+    "source_sha256": "7a7fd0ffc947d1b210c764b7845f83369558344f41557721eaac28e8855f62f6",
+    "original": "artwork/cast-bars/references/race_dracthyr.png",
+    "original_sha256": "39ec4a86dd67fe7b7cad90ffd20bb939300211a7f323af80f7fe33aef2c75220",
+    "file": "JiberishUI/Media/CastBars/race_dracthyr.tga",
+    "sha256": "4abe530674b016eec07990a214851e70fdf32c8919ccd9271db356ea50ab32aa",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        181,
+        462,
+        1355,
+        544
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        28,
+        347,
+        1508,
+        662
+      ],
+      "scale": 0.2875816993464052,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      15,
+      508,
+      114
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_draenei",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_draenei.png",
+    "source_sha256": "006a8ce8d7aba90cfd25770f30fe0a109c5ae5859b03aa2414f2480a56192aa9",
+    "original": "artwork/cast-bars/references/race_draenei.png",
+    "original_sha256": "d800c6bf4c16d6039a3613a60f68445d9ae576ded18e8a448d34c1f556c235d6",
+    "file": "JiberishUI/Media/CastBars/race_draenei.tga",
+    "sha256": "205b55a501ac7b733050cc715f0f5e87c9b866784ce5a4ef8972e9ea714c2687",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        184,
+        462,
+        1351,
+        546
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        7,
+        349,
+        1530,
+        662
+      ],
+      "scale": 0.24581005586592178,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      20,
+      508,
+      109
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_dwarf",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_dwarf.png",
+    "source_sha256": "46ceed514f121c1836d96e2ef97d53f753313e78326266ba6074a206b5b2fdff",
+    "original": "artwork/cast-bars/references/race_dwarf.png",
+    "original_sha256": "4faa7c72fafea516815a30e065d013891168c5d3051d43a8b02daeb9be5fc78d",
+    "file": "JiberishUI/Media/CastBars/race_dwarf.tga",
+    "sha256": "bb3804c7e0fc3274fc1b9a032a38959491a156c3478edce1ed9da23ac58fafa1",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        253,
+        472,
+        1282,
+        549
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        16,
+        343,
+        1520,
+        663
+      ],
+      "scale": 0.18487394957983194,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      24,
+      508,
+      101
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_earthendwarf",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_earthendwarf.png",
+    "source_sha256": "521c172d1eb8584a6a9947c22560e28d603d31dbeea78fd1f974ecd104488bd7",
+    "original": "artwork/cast-bars/references/race_earthendwarf.png",
+    "original_sha256": "9bc4497b44297d34bdcad00a3a17b5e0987a2197de446252658775543495c09b",
+    "file": "JiberishUI/Media/CastBars/race_earthendwarf.tga",
+    "sha256": "8ca3c85321c652127e8b48744c468585ee16db8ba1ccd72bb2b4e40cec787f36",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        170,
+        473,
+        1365,
+        540
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        21,
+        338,
+        1515,
+        660
+      ],
+      "scale": 0.29333333333333333,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      8,
+      508,
+      115
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_gnome",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_gnome.png",
+    "source_sha256": "83e5da76448ab94fd5e292d2cefb85b3924ef7e1ed0ecf510dedb9459e92934b",
+    "original": "artwork/cast-bars/references/race_gnome.png",
+    "original_sha256": "f106e6305f9b5cc35b0580e899db4a8701d9c79424d51f44abd4584e0eb71dc9",
+    "file": "JiberishUI/Media/CastBars/race_gnome.tga",
+    "sha256": "cb2f026af4a408148ddb6a865a777f5b76758a66c665c05c71ab24414061af27",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        245,
+        463,
+        1281,
+        544
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        28,
+        359,
+        1508,
+        643
+      ],
+      "scale": 0.19383259911894274,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      6,
+      28,
+      508,
+      99
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_goblin",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_goblin.png",
+    "source_sha256": "4110eb41e38920109589b0b5aa4e4f140faf837159a656d24832bb7aa06f12cc",
+    "original": "artwork/cast-bars/references/race_goblin.png",
+    "original_sha256": "db36ce4b6f45c3b81e04ee177852d8daa9956ae1895538cceb07f66e53295f3d",
+    "file": "JiberishUI/Media/CastBars/race_goblin.tga",
+    "sha256": "74634dbf3286f0be2bdfac83249224d3da7139e7602c12f30746674685b745d1",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        240,
+        458,
+        1296,
+        545
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        17,
+        348,
+        1520,
+        649
+      ],
+      "scale": 0.19642857142857142,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      26,
+      508,
+      100
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_haranir",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_haranir.png",
+    "source_sha256": "72ef8789827492411d2fff229fdb64140aa9d6dc455ad1fd1b1849dd0067311b",
+    "original": "artwork/cast-bars/references/race_haranir.png",
+    "original_sha256": "73f6514ea4a106c53845050e9f0a97f39c1b9b718f7af53cc73bbcb03974302a",
+    "file": "JiberishUI/Media/CastBars/race_haranir.tga",
+    "sha256": "c8814569f9423e0d3325d96f0b904f9a34bb8f14ed72084d6b944e25e09c33ba",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        163,
+        470,
+        1378,
+        543
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        10,
+        316,
+        1529,
+        657
+      ],
+      "scale": 0.2857142857142857,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      4,
+      507,
+      113
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_highmountaintauren",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_highmountaintauren.png",
+    "source_sha256": "b91db5badfec2779a8abeb5310e3621a6c4bbbec6abf54a2177ccdc19c5fe731",
+    "original": "artwork/cast-bars/references/race_highmountaintauren.png",
+    "original_sha256": "e0968dc26ee0cc694eff521bcfd58dbd56b81c7305604de018022f82ff2379df",
+    "file": "JiberishUI/Media/CastBars/race_highmountaintauren.tga",
+    "sha256": "d562be7c1cdcccb0eeafaa74c1c1a61e61d60f59a90f667fdb20c719dd04960a",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        156,
+        455,
+        1379,
+        537
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        29,
+        308,
+        1507,
+        653
+      ],
+      "scale": 0.29931972789115646,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      10,
+      4,
+      502,
+      115
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_human",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_human.png",
+    "source_sha256": "8c316c5a2000b1669150588ac962cc4a851a32ad2878fb992f4f5e50293b41e2",
+    "original": "artwork/cast-bars/references/race_human.png",
+    "original_sha256": "36dbf6022a239a2f39b39bb0113b6530f64605a4f3ec85c8432756b6deb2b725",
+    "file": "JiberishUI/Media/CastBars/race_human.tga",
+    "sha256": "f7c63655ddb10f456efd54ec0248ad78df012f7bf618bdb39d9b985e36484d6e",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        193,
+        469,
+        1343,
+        554
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        22,
+        362,
+        1514,
+        667
+      ],
+      "scale": 0.2573099415204678,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      20,
+      508,
+      109
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_kultiran",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_kultiran.png",
+    "source_sha256": "e17150f7d30705ab0a49a0edb998767af03495ca12f81a19504844e0099abed7",
+    "original": "artwork/cast-bars/references/race_kultiran.png",
+    "original_sha256": "9293e6b65216e1d8616f3d95bf30a088facd09f038bb1df4d88e494295d3d387",
+    "file": "JiberishUI/Media/CastBars/race_kultiran.tga",
+    "sha256": "b0f8dc03d1d86dd8057b19294175dfe4a2eb6435b2d49580dc24f0d55d0c41b8",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        194,
+        467,
+        1341,
+        555
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        16,
+        378,
+        1519,
+        637
+      ],
+      "scale": 0.24719101123595505,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      26,
+      508,
+      100
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_lightforgeddraenei",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_lightforgeddraenei.png",
+    "source_sha256": "02820295980a0a30675664421a53c8379272815916f76913e46c856106115051",
+    "original": "artwork/cast-bars/references/race_lightforgeddraenei.png",
+    "original_sha256": "9803d9ede1f3ee7cd24f5498f86a1577d6e30a83ee7f9b25a9f72f76ec1bce01",
+    "file": "JiberishUI/Media/CastBars/race_lightforgeddraenei.tga",
+    "sha256": "617fa4f8c4d11247d197a08922a2fc292b0b08a7732c69b2ee024405ad33066d",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        163,
+        478,
+        1373,
+        532
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        17,
+        320,
+        1522,
+        682
+      ],
+      "scale": 0.27848101265822783,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      7,
+      4,
+      505,
+      122
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_magharorc",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_magharorc.png",
+    "source_sha256": "5987ea4c4e3db5d71905896bf02f672f0fc859b3fba62bf46dc443bd5a3c0fa7",
+    "original": "artwork/cast-bars/references/race_magharorc.png",
+    "original_sha256": "8f63b53020139fbc480d83cdb6f12a65b9d10e65f4b21a8b4c5aafb8d28a6ad5",
+    "file": "JiberishUI/Media/CastBars/race_magharorc.tga",
+    "sha256": "8d6d00150b64fdd4f653c531d15892529b3e30f7cc6236debf996dd172e29c7e",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        179,
+        453,
+        1355,
+        538
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        19,
+        310,
+        1518,
+        661
+      ],
+      "scale": 0.26993865030674846,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      5,
+      9,
+      508,
+      113
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_mechagnome",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_mechagnome.png",
+    "source_sha256": "73abe5e1c3366fbb675737e94e1ce954c54b7e75eab25900969af500cb2c910c",
+    "original": "artwork/cast-bars/references/race_mechagnome.png",
+    "original_sha256": "c85b9716d154a3649274a64e890448afb653769c8ed73886637641007bdf4fad",
+    "file": "JiberishUI/Media/CastBars/race_mechagnome.tga",
+    "sha256": "feef73377ba75c0c59cd7c4c748c7b5c8b083ae11269974a147ff036760378d3",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        211,
+        449,
+        1326,
+        539
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        22,
+        309,
+        1516,
+        656
+      ],
+      "scale": 0.23157894736842105,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      16,
+      508,
+      107
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_nightborne",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_nightborne.png",
+    "source_sha256": "0a43d3a53743713f992035bb475db744c98b5386625952be19c25f0335e2d428",
+    "original": "artwork/cast-bars/references/race_nightborne.png",
+    "original_sha256": "722a8c65bcbb4d95c07b3a9764e74e09988bebee37f2c5b4f9f2ce1bdba93a03",
+    "file": "JiberishUI/Media/CastBars/race_nightborne.tga",
+    "sha256": "2ef491348a82ddc55528dabfa534b8c0e14c903d56f4b29f0b1d3945d7c520ba",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        261,
+        338,
+        1721,
+        438
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        46,
+        216,
+        1937,
+        548
+      ],
+      "scale": 0.2037037037037037,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      23,
+      508,
+      102
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_nightelf",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_nightelf.png",
+    "source_sha256": "af7bb89ccc635d58d056306c6feadc09e8f4222e21e7843a605f988d2f7951e1",
+    "original": "artwork/cast-bars/references/race_nightelf.png",
+    "original_sha256": "2ecd725a6c9e63e75b059afe6e1978e3343880c91d4d35d6c15fece67f753b48",
+    "file": "JiberishUI/Media/CastBars/race_nightelf.tga",
+    "sha256": "48f3cc0e25181dd0217aa6095b00e94de230442627fb48d88149605e1206943e",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        169,
+        462,
+        1364,
+        533
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        13,
+        338,
+        1521,
+        693
+      ],
+      "scale": 0.275,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      5,
+      14,
+      507,
+      124
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_orc",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_orc.png",
+    "source_sha256": "6acddf08a76160f23fd726d31c730daa46a2a538cfb0de375369a2beb36cdef0",
+    "original": "artwork/cast-bars/references/race_orc.png",
+    "original_sha256": "42c9388688d952c096eafd64ab8c7ab1c4c0c53b317efa49eeca4a2691048e12",
+    "file": "JiberishUI/Media/CastBars/race_orc.tga",
+    "sha256": "567488f8585b16d23a5f5bcd1e04e677022683c23b0869d12f24070359c0b1d6",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        256,
+        344,
+        1727,
+        445
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        20,
+        155,
+        1964,
+        607
+      ],
+      "scale": 0.18565400843881857,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      13,
+      508,
+      110
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_pandaren",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_pandaren.png",
+    "source_sha256": "d86f178b2a6a7921177ec05df3e1292a466a0abb0796a68ab86c0f7442df9aa6",
+    "original": "artwork/cast-bars/references/race_pandaren.png",
+    "original_sha256": "9d28905d00a573af3eceae8ec73aca16c596560bba312ddaf61a2feb1d6e51de",
+    "file": "JiberishUI/Media/CastBars/race_pandaren.tga",
+    "sha256": "99d4a8987d6fd17fb9bc303824ca875e21c08bed522fc2ad7de20a5fe99c0f54",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        152,
+        454,
+        1383,
+        552
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        17,
+        309,
+        1518,
+        703
+      ],
+      "scale": 0.2913907284768212,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      9,
+      6,
+      503,
+      124
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_scourge",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_scourge.png",
+    "source_sha256": "c3986443918a672d0ea598923a3925fb492a4269e2ce148511eceb09a40dbfd7",
+    "original": "artwork/cast-bars/references/race_scourge.png",
+    "original_sha256": "02f58f116b088375e39f674a4851c0a6356bbb6ad361a6b76d737c327e70e888",
+    "file": "JiberishUI/Media/CastBars/race_scourge.tga",
+    "sha256": "6758d2f18960d90a605b9267696c2891dbc8842be321f8abc43a1752c4668002",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        139,
+        487,
+        1396,
+        515
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        24,
+        321,
+        1511,
+        654
+      ],
+      "scale": 0.26506024096385544,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      18,
+      4,
+      494,
+      117
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_tauren",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_tauren.png",
+    "source_sha256": "8e73b5114d166705fcfa0c37df1cda4d0fa340ce6f6f22f9657008f8bd7e4b5e",
+    "original": "artwork/cast-bars/references/race_tauren.png",
+    "original_sha256": "7641d15223d22631e9270958bff4a89f840bf47a4a0dcec561b74d335259786c",
+    "file": "JiberishUI/Media/CastBars/race_tauren.tga",
+    "sha256": "8356d1a99e0a6ba0d722f78159b0acbe0aa99f6ee7d37aa30b1806e6535c7f6c",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        200,
+        464,
+        1336,
+        552
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        30,
+        281,
+        1506,
+        726
+      ],
+      "scale": 0.24043715846994534,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      7,
+      4,
+      505,
+      122
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_troll",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_troll.png",
+    "source_sha256": "96fae868f96c4e5f0767d5147ffa52097e3f3057e51137224b9278b4077c6bc6",
+    "original": "artwork/cast-bars/references/race_troll.png",
+    "original_sha256": "00dc8b8c5f22b97a71a9be39233c0f1f7091d829eefb8d94d74ecb8a1d04b2e5",
+    "file": "JiberishUI/Media/CastBars/race_troll.tga",
+    "sha256": "6d65d383ab27f62677ee1e69162bd85057ee262799cb098264ec51d461dfce45",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        223,
+        466,
+        1311,
+        543
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        26,
+        285,
+        1514,
+        687
+      ],
+      "scale": 0.21674876847290642,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      5,
+      9,
+      508,
+      111
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_voidelf",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_voidelf.png",
+    "source_sha256": "515a56abfda6c0506a042492e816f7e1c49301432e0e14728e313be421a5fa60",
+    "original": "artwork/cast-bars/references/race_voidelf.png",
+    "original_sha256": "140fc7af13aa546907ed6d4db06006c7d038a0f236708bb590083738127ad529",
+    "file": "JiberishUI/Media/CastBars/race_voidelf.tga",
+    "sha256": "e311a5660fa60e56242c67dc8d518f8c0e8815ad027651bfde941bb46571339b",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        158,
+        460,
+        1379,
+        544
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        28,
+        295,
+        1510,
+        702
+      ],
+      "scale": 0.26666666666666666,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      13,
+      4,
+      499,
+      122
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_vulpera",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_vulpera.png",
+    "source_sha256": "4015361fd903304ce5bcf9cb86b4bdbb124ff45b1a4c8490ad5968f9f84e35d9",
+    "original": "artwork/cast-bars/references/race_vulpera.png",
+    "original_sha256": "e2d9758999a255e2641c6b98503c503f6d0fe53ceb1748091375441c59a729c1",
+    "file": "JiberishUI/Media/CastBars/race_vulpera.tga",
+    "sha256": "3d4f072a1c3fa2a99841e9369198688ca4bebe83899092a2e46c0a582ab6071b",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        180,
+        458,
+        1357,
+        539
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        25,
+        286,
+        1512,
+        684
+      ],
+      "scale": 0.2558139534883721,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      8,
+      4,
+      504,
+      117
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_worgen",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_worgen.png",
+    "source_sha256": "f53de5714367a67cf7ad09a51138bd222bc5e2bcf5d4ed1d22d31860dabcea81",
+    "original": "artwork/cast-bars/references/race_worgen.png",
+    "original_sha256": "13435a1fb3d34e05a5eb876bffe6221bde50588e10bc6c9593974a3173e91681",
+    "file": "JiberishUI/Media/CastBars/race_worgen.tga",
+    "sha256": "d4d87d0a2e9a9a30d190c79fd58f43a8a067889b7100b06cbc9f4dc903c72ace",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        286,
+        440,
+        1251,
+        543
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        15,
+        276,
+        1522,
+        712
+      ],
+      "scale": 0.16236162361623616,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      21,
+      508,
+      107
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  },
+  {
+    "id": "race_zandalaritroll",
+    "kind": "cast-border",
+    "source": "artwork/cast-bars/assets/race_zandalaritroll.png",
+    "source_sha256": "bdb0fa92853ba7a8ea9317778b6aaa5905aafc175777a44e8fb8975c48406b96",
+    "original": "artwork/cast-bars/references/race_zandalaritroll.png",
+    "original_sha256": "cb3fdf7906a59231358305099d5323c8bf7b064bb4365d153136f7a68b2a02f2",
+    "file": "JiberishUI/Media/CastBars/race_zandalaritroll.tga",
+    "sha256": "8a29aef779bc0ed5fb875260cbda64ce0199679c4ac03c14cd05446a79f83fc3",
+    "size": [
+      512,
+      128
+    ],
+    "measured": {
+      "method": "Connected backdrop removal and rail component retention",
+      "source_opening": [
+        145,
+        473,
+        1390,
+        532
+      ],
+      "opening": [
+        48,
+        48,
+        464,
+        80
+      ],
+      "source_bounds": [
+        12,
+        352,
+        1524,
+        665
+      ],
+      "scale": 0.3283582089552239,
+      "canvas": [
+        512,
+        128
+      ],
+      "margin": 4
+    },
+    "alphaBounds": [
+      4,
+      8,
+      508,
+      124
+    ],
+    "clear_points": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.5
+      ],
+      [
+        0.8,
+        0.5
+      ]
+    ],
+    "references": [
+      {
+        "file": "artwork/cast-bars/generation-prompts.json",
+        "sha256": "cba0b1907c0840ec5246d906d8a8efd6ae91afd1c12365cd5073d04b7fd6fe4d"
+      }
+    ]
+  }
+]

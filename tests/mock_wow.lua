@@ -238,6 +238,9 @@ JiberishUIOptionsFrame=nil
 BLINKIISPORTRAITS=nil
 ElvUI_mMediaTag=nil
 mMT=nil
+PlayerCastingBarFrame=nil
+OverlayPlayerCastingBarFrame=nil
+GamepadPlayerCastingBarFrame=nil
 EllesmereUI=nil
 LibStub=nil
 for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do

@@ -1,0 +1,56 @@
+[
+  {
+    "kind": "portrait",
+    "file": "artwork/portraits/integrated-originals/class_mage.png",
+    "boxes": [
+      [
+        423,
+        106,
+        894,
+        400
+      ]
+    ],
+    "sha256": "7b9fee04cf6bd3eb3f8e37a51bf3f278bdf83df44dd5e56073b6f7431b7c1b58",
+    "source": "artwork/mage-emblem-correction/portrait-before.png",
+    "generated": "artwork/mage-emblem-correction/portrait-generated.png",
+    "note": "Only the generated emblem region is composited; all other source pixels are unchanged."
+  },
+  {
+    "kind": "unit-frame",
+    "file": "artwork/unit-frames/sculpted/references/class_mage.png",
+    "boxes": [
+      [
+        1456,
+        121,
+        1749,
+        342
+      ]
+    ],
+    "sha256": "3ce073fb3ad63fdfb7049cb2af0823bacf50932b7723001cb028082da81e2af1",
+    "source": "artwork/mage-emblem-correction/unit-frame-before.png",
+    "generated": "artwork/mage-emblem-correction/unit-frame-generated.png",
+    "note": "Only the generated emblem region is composited; all other source pixels are unchanged."
+  },
+  {
+    "kind": "cast-bar",
+    "file": "artwork/cast-bars/mage-simplification/before.png",
+    "boxes": [
+      [
+        32,
+        450,
+        192,
+        578
+      ],
+      [
+        1344,
+        450,
+        1504,
+        578
+      ]
+    ],
+    "sha256": "c0b349de92615c7b6c8262bb959d5ad6724787b6b8620befc395c78094666d46",
+    "source": "artwork/mage-emblem-correction/cast-bar-before.png",
+    "generated": "artwork/mage-emblem-correction/cast-bar-generated.png",
+    "note": "Only the generated emblem region is composited; all other source pixels are unchanged."
+  }
+]

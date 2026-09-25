@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Image 1 is the edit target, our finished Mage cast-bar artwork. Image 2 is the ACTUAL official Warcraft Mage class emblem, the required identity reference. Correct ONLY the eye emblem(s) and immediately surrounding book/rune details to faithfully convey image 2. The reference has a wide HORIZONTAL eyelid-shaped ARCANE LENS in violet stone, with a small pale faceted DIAMOND GEM in its center, a short row/stack of diamond gemstones above, and downward violet fluted rays below. It is NOT a biological eye, NOT a cat eye, NOT a black vertical slit pupil or tall iris. Flanking book pages carry pale cyan glowing runes in aged bronze bindings. Repaint the existing eye location(s) as this arcane-stone lens and diamond architecture in the same hand-painted matte classic Warcraft style. At BOTH small ends, change the current vertical cat eye to a small wide horizontal lens with a pale diamond center; add only tiny book/rune hints, keeping both end shapes and size unchanged. Preserve ALL other existing painted rails, cloth, crystals, outer silhouette, bar/portrait openings, overall framing, canvas proportions, and current background exactly. This is a very localized icon-accuracy correction, not a redesign. No new circle or medallion. No change to borders, sizes or positions. Return ONE edited image, no comparison layout.",
+  "reference": "artwork/mage-emblem-correction/official-reference.png",
+  "source": "cast-bar-before.png",
+  "output": "cast-bar-generated.png"
+}

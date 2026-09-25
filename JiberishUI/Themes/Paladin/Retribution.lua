@@ -26,6 +26,7 @@ J.ThemeManager:Register("paladin_ret", {
     playerFrame = {
         texture = J.PortraitCatalog.entries.CLASS_PALADIN.texture,
         unit = "player", portraitMode = "CLASS", portrait = "CLASS_PALADIN", unitFrameShown = false, unitFrameFill = "AUTO", unitFrameWidth = 100, unitFrameHeight = 100, unitFrameInset = 1.5, unitFrameSource = "AUTO", portraitSource = "AUTO",
+        castBarShown = false, castBarSource = "AUTO", castBarStyle = "CAPPED", castBarArt = "MATCH", castBarWeight = 1, castBarPadding = 1, castBarWidth = 100, castBarHeight = 100,
         width = 128, height = 128, x = -23, y = 11, scale = 1,
         anchor = "FRAME", point = "LEFT", relativePoint = "LEFT",
         strata = "BACKGROUND", level = 0, layer = "BACKGROUND", opacity = 1, shown = true,
@@ -33,6 +34,7 @@ J.ThemeManager:Register("paladin_ret", {
     targetFrame = {
         texture = J.PortraitCatalog.entries.CLASS_PALADIN.texture, mirror = true,
         unit = "target", portraitMode = "CLASS", portrait = "CLASS_PALADIN", unitFrameShown = false, unitFrameFill = "AUTO", unitFrameWidth = 100, unitFrameHeight = 100, unitFrameInset = 1.5, unitFrameSource = "AUTO", portraitSource = "AUTO",
+        castBarShown = false, castBarSource = "AUTO", castBarStyle = "CAPPED", castBarArt = "MATCH", castBarWeight = 1, castBarPadding = 1, castBarWidth = 100, castBarHeight = 100,
         width = 128, height = 128, x = 22, y = 12, scale = 1,
         anchor = "FRAME", point = "RIGHT", relativePoint = "RIGHT",
         strata = "BACKGROUND", level = 0, layer = "BACKGROUND", opacity = 1, shown = true,
@@ -40,6 +42,7 @@ J.ThemeManager:Register("paladin_ret", {
     focusFrame = {
         texture = J.PortraitCatalog.entries.CLASS_PALADIN.texture, mirror = true,
         unit = "focus", portraitMode = "CLASS", portrait = "CLASS_PALADIN", unitFrameShown = false, unitFrameFill = "AUTO", unitFrameWidth = 100, unitFrameHeight = 100, unitFrameInset = 1.5, unitFrameSource = "AUTO", portraitSource = "AUTO",
+        castBarShown = false, castBarSource = "AUTO", castBarStyle = "CAPPED", castBarArt = "MATCH", castBarWeight = 1, castBarPadding = 1, castBarWidth = 100, castBarHeight = 100,
         width = 128, height = 128, x = 22, y = 12, scale = 1,
         anchor = "FRAME", point = "RIGHT", relativePoint = "RIGHT",
         strata = "BACKGROUND", level = 0, layer = "BACKGROUND", opacity = 1, shown = true,
