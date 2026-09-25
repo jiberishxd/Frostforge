@@ -66,7 +66,12 @@ def asset_checks():
             assert hashlib.sha256((ROOT/fitted[field]).read_bytes()).hexdigest()==fitted[hash_field]
     for kind in ('health','power'):
         assert {Path(a['file']).stem.rsplit('-',1)[0] for a in assets if a['file'].endswith('-'+kind+'.tga')} == groups[0]
-    assert {p.relative_to(ROOT).as_posix() for p in (ROOT/"JiberishUI/Media").glob("*/*.tga") if p.parent.name in ("Portraits", "Hubs", "Minimaps", "UnitFrames")} == {a["file"] for a in assets}
+    actual_media = {p.relative_to(ROOT).as_posix() for p in (ROOT/"JiberishUI/Media").rglob("*") if p.is_file()}
+    expected_media = {a["file"] for a in assets}
+    assert actual_media == expected_media, (
+        "Addon media must contain only active manifest assets; "
+        f"unused={sorted(actual_media - expected_media)}, missing={sorted(expected_media - actual_media)}"
+    )
     media = (ROOT / "JiberishUI/Core/Media.lua").read_text() + (ROOT / "JiberishUI/Themes/Portraits.lua").read_text() + (ROOT / "JiberishUI/Themes/Hubs.lua").read_text() + (ROOT / "JiberishUI/Themes/Minimaps.lua").read_text()
     media += (ROOT / "JiberishUI/Themes/UnitSkins.lua").read_text()
     references = re.findall(r'"Interface\\\\AddOns\\\\JiberishUI\\\\([^"]+)"', media)
