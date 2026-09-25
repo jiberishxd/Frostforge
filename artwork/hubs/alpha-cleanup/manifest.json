@@ -1,0 +1,217 @@
+{
+  "reviewed_hubs": [
+    "class_deathknight",
+    "class_demonhunter",
+    "class_druid",
+    "class_evoker",
+    "class_hunter",
+    "class_mage",
+    "class_monk",
+    "class_paladin",
+    "class_priest",
+    "class_rogue",
+    "class_shaman",
+    "class_warlock",
+    "class_warrior",
+    "faction_alliance",
+    "faction_horde",
+    "faction_neutral",
+    "race_bloodelf",
+    "race_darkirondwarf",
+    "race_dracthyr",
+    "race_draenei",
+    "race_dwarf",
+    "race_earthendwarf",
+    "race_gnome",
+    "race_goblin",
+    "race_haranir",
+    "race_highmountaintauren",
+    "race_human",
+    "race_kultiran",
+    "race_lightforgeddraenei",
+    "race_magharorc",
+    "race_mechagnome",
+    "race_nightborne",
+    "race_nightelf",
+    "race_orc",
+    "race_pandaren",
+    "race_scourge",
+    "race_tauren",
+    "race_troll",
+    "race_voidelf",
+    "race_vulpera",
+    "race_worgen",
+    "race_zandalaritroll"
+  ],
+  "method": "Reviewed source-space alpha masks for enclosed neutral/checkered matte and bounded colored spill. RGB artwork, original generations and registration are retained.",
+  "corrections": {
+    "class_druid": {
+      "mask": "artwork/hubs/alpha-cleanup/class_druid-mask.png",
+      "mask_sha256": "ba9e6125b05cbda5a749e6219db6b1c29ec7a660eecc9d80c22d7b103b283f5d",
+      "input_pixels_sha256": "45d51e107f1ac4fe71b32d7ff9a4101e685f7e0d4f2384a656fef8afde9b19cd",
+      "cleared_pixels": 811,
+      "before_tga_sha256": "bfd13d1893d6214f79277b0c5fd4f53eea48eca1ba424aeb01b7c35af8a9d443"
+    },
+    "class_hunter": {
+      "mask": "artwork/hubs/alpha-cleanup/class_hunter-mask.png",
+      "mask_sha256": "c3c03563283380b53f527bcfcc591242ca0b1ce0eb9902f5cad9c4b2f5a86bd1",
+      "input_pixels_sha256": "a9eb6e52794b739c3cae084897781515079ebcc1adf4d7c6a17dee3865087b92",
+      "cleared_pixels": 783,
+      "before_tga_sha256": "3090dbe76239dec9cf253a40cb0fecbaa062fc51573ce8ac0adfd9c6d126abad"
+    },
+    "class_monk": {
+      "mask": "artwork/hubs/alpha-cleanup/class_monk-mask.png",
+      "mask_sha256": "ebb1048030d5a6eb0d11179cf77d792d3fd3244ff8ed02f80a9d9412f548b573",
+      "input_pixels_sha256": "3214f1d9121c2a4f2291309c32e4794ebb618d5a1e10fa9fa20b4aab79bb9c68",
+      "cleared_pixels": 5253,
+      "before_tga_sha256": "c8806bfe46406967c52b0c80ecea013c19bb7fe270e10d49367b524debb007c9"
+    },
+    "class_warrior": {
+      "mask": "artwork/hubs/alpha-cleanup/class_warrior-mask.png",
+      "mask_sha256": "a243e9611c8c346655379a93fd02e0d14a6313d85636fcbd2c01158466340014",
+      "input_pixels_sha256": "4508146f1db8d35f7108eb25cecfed8220df290e96a00d66ecd771eab88aeafb",
+      "cleared_pixels": 1439,
+      "before_tga_sha256": "60edbd7004e5d357a2cf9a0c344fd54e346a00d59f5e9caeb6e2b2d7c1369688"
+    },
+    "race_bloodelf": {
+      "mask": "artwork/hubs/alpha-cleanup/race_bloodelf-mask.png",
+      "mask_sha256": "9770e26b890ad1330e87b50d1115ff2a1cd92fb9767bb96f8d831fbda094e590",
+      "input_pixels_sha256": "ea0264e7202b0d0e212b5dd40b2bca00f935745900425b7ece9a75096cddf6e3",
+      "cleared_pixels": 1632,
+      "before_tga_sha256": "0c4fd44761bfe448b79ea94288985ff01b9eff8241fac6372be076dc690df3cb"
+    },
+    "race_darkirondwarf": {
+      "mask": "artwork/hubs/alpha-cleanup/race_darkirondwarf-mask.png",
+      "mask_sha256": "88eb61e813609a005f23b880595c9840654cfd99bcaf4f00438ed3da3f69c78f",
+      "input_pixels_sha256": "592e2156eb02555a8c42cd27eb9196660a9e67aa8e89fd9d165621f8fa49cf41",
+      "cleared_pixels": 1622,
+      "before_tga_sha256": "a23a5e7ab8a4bcafb2b94bc3ffdbcfe32e25c9b1b96c225d48d56589c962bc49"
+    },
+    "race_gnome": {
+      "mask": "artwork/hubs/alpha-cleanup/race_gnome-mask.png",
+      "mask_sha256": "4f06f4bed4ccf6cd4f1a88330bde9e1b19e090c5bfdf74c4fb064cd25932776e",
+      "input_pixels_sha256": "3f1af7535cdc0d350911c8c365a9b9abeebe4ccb9160967201bd67e865519e0a",
+      "cleared_pixels": 861,
+      "before_tga_sha256": "ccff30c21a86f98c85fa56290549d7526e3f6822db3c17bfe3c98a4a64aa8365"
+    },
+    "race_goblin": {
+      "mask": "artwork/hubs/alpha-cleanup/race_goblin-mask.png",
+      "mask_sha256": "3a8952da5d01d4742b2cd1d2005c98ee180f31be0c5cfcece45919fae604f243",
+      "input_pixels_sha256": "0c7b7324a2ae2bff039a3659b5880877867ca6019cd5d5b2d790cb52d8fc2ab8",
+      "cleared_pixels": 1502,
+      "before_tga_sha256": "91b4f08cd82880b34141bb7eb4da9bdfa997b578300ccc544999abe835c0c40a"
+    },
+    "race_haranir": {
+      "mask": "artwork/hubs/alpha-cleanup/race_haranir-mask.png",
+      "mask_sha256": "b3d8d824a2cb560a03f012cafa07deaa348bb8ea98d949a2e315ca6322b6bc13",
+      "input_pixels_sha256": "ffa011ac0f5986b33e68c200bd47f070117665ff104d569f2dced28e1017400e",
+      "cleared_pixels": 2520,
+      "before_tga_sha256": "9d6ca3f03cd9bd5835231a6812c4594e348ea55178135c0a8afa79e8a46de1c6"
+    },
+    "race_highmountaintauren": {
+      "mask": "artwork/hubs/alpha-cleanup/race_highmountaintauren-mask.png",
+      "mask_sha256": "150914df73d0e77c8fbd2b92bad686c7939984d8b963a31241bcfe7a20952744",
+      "input_pixels_sha256": "28fbbeee587ce89438e9e750d030d19fb5298f300187f27e963f9480b1de3942",
+      "cleared_pixels": 7921,
+      "before_tga_sha256": "4d24c553b95414c7f4a8af01ffe1d47d95e1039691da8f42c4a82fce312c3464"
+    },
+    "race_human": {
+      "mask": "artwork/hubs/alpha-cleanup/race_human-mask.png",
+      "mask_sha256": "369d37c6902594fd2f1e1210f1ebfe68ca3b115fc57a8106364a4b8b8a9f957d",
+      "input_pixels_sha256": "dca97b7e57a8dce3d12c35447b4ecad5e5b41bf6ab5afd9561789bc7d191aaab",
+      "cleared_pixels": 12070,
+      "before_tga_sha256": "399131b955353620f6ad4fc28c524e144acf3c87dcfc3502457761b1415a3fe7"
+    },
+    "race_kultiran": {
+      "mask": "artwork/hubs/alpha-cleanup/race_kultiran-mask.png",
+      "mask_sha256": "ec4a3dd1ccdb5c3b5fb13cbb4ac6eac937b1ff54655580cbe2daaeb134780ea2",
+      "input_pixels_sha256": "cba72b60aedbb4d5499387d85a337372875f52fc3e97f3ad27e26f54aac12b9c",
+      "cleared_pixels": 2002,
+      "before_tga_sha256": "f0b4fb22899d4240df393d19a5fd50b11a42806d9641a5ea4dd44f188dab3d8e"
+    },
+    "race_lightforgeddraenei": {
+      "mask": "artwork/hubs/alpha-cleanup/race_lightforgeddraenei-mask.png",
+      "mask_sha256": "2f8efa186ddd7ff52928dbe1bc6a63b0937891755128712659d21da91f3dfe55",
+      "input_pixels_sha256": "f8e7c7d23d3f8d6a054cc9eaeec245726fcefb4958cd115378b68a5b8865d7d5",
+      "cleared_pixels": 1215,
+      "before_tga_sha256": "ce072f823555b36d88362d703826b2250f07a569c8ad6898236247683951cb7c"
+    },
+    "race_magharorc": {
+      "mask": "artwork/hubs/alpha-cleanup/race_magharorc-mask.png",
+      "mask_sha256": "37a1f647b8b9c8d92d6184dbd55faf8a31b1f66ff256d0b29a0871b5255af038",
+      "input_pixels_sha256": "af392c07228be2bb6d718cbfb982b1814c9e2b7e9c0e791f6427263d34a722ef",
+      "cleared_pixels": 2379,
+      "before_tga_sha256": "f4b781d1e583587c65bd41fdb6d59bf0bfce7655a9aaf1d577669cb39b8b2153"
+    },
+    "race_nightelf": {
+      "mask": "artwork/hubs/alpha-cleanup/race_nightelf-mask.png",
+      "mask_sha256": "8dd6b1da8e48e323ecf4da20dfcc72402c103e6ef36faca5b0d2a0a9fb1b1e70",
+      "input_pixels_sha256": "09968dcc4912fb530c5bec2d403b2e5b2af931ab31d8ddfa93dcce83f306afd2",
+      "cleared_pixels": 7889,
+      "before_tga_sha256": "9522e66db7e98392070b5e18d5bbe237b0ed2e47da96fcb6d495158dec13c30a"
+    },
+    "race_orc": {
+      "mask": "artwork/hubs/alpha-cleanup/race_orc-mask.png",
+      "mask_sha256": "e7598a5e762f47faac0bcd0918c36b79a50f4d7ca625d203aedff8d66f41eeb2",
+      "input_pixels_sha256": "0ba09d3c2a1dd4395d9d98fafb3089ffa18ec75a10fad6c1467251d5edf3d465",
+      "cleared_pixels": 800,
+      "before_tga_sha256": "8c21a1db57eaae3127bf2119a0a9b5d80d64e1a19b19bb0343861029fdc815dd"
+    },
+    "race_pandaren": {
+      "mask": "artwork/hubs/alpha-cleanup/race_pandaren-mask.png",
+      "mask_sha256": "8798403aa269379593d7338f401e8680624ad44fbe42d3bf09849aac2d04a009",
+      "input_pixels_sha256": "bf10e30a0ad29db5531e23a5813cbee0b30ccd3b0562907ee07229936bb13e56",
+      "cleared_pixels": 6410,
+      "before_tga_sha256": "7a4d98bb2107dde7dedc381cc229be106ce63363cdef149f8ffd1e8a67ead620"
+    },
+    "race_scourge": {
+      "mask": "artwork/hubs/alpha-cleanup/race_scourge-mask.png",
+      "mask_sha256": "f77894536b977345ea100ff5c0c0196ae42f10dc04561b8f19a72ba7efa1f4bc",
+      "input_pixels_sha256": "e37438a354e82e7feec06abe68dd2a5379d044c467d3d3112d584d6b1e97b756",
+      "cleared_pixels": 4959,
+      "before_tga_sha256": "e1f6ed381557d123e7c6050ec4cabcda2153be7d20655f12a807e67d83cab09a"
+    },
+    "race_tauren": {
+      "mask": "artwork/hubs/alpha-cleanup/race_tauren-mask.png",
+      "mask_sha256": "39ecf42193f3d08ebbc66a80320297a97e1eb4a5c4642fd7c319d0d26c15ebe3",
+      "input_pixels_sha256": "45090585d8fe4b123aaaaf17ee50ecc4e6e1d42d9f6b17ac1f283dc830c08bac",
+      "cleared_pixels": 3179,
+      "before_tga_sha256": "2e4551f86a079b3aedbd284113ed82bde661ca24e68f9b15615301314f52f459"
+    },
+    "race_troll": {
+      "mask": "artwork/hubs/alpha-cleanup/race_troll-mask.png",
+      "mask_sha256": "e1fc3c170799fcbc6c92e42955a01679e3290cb00537e6a6613fa49349741d66",
+      "input_pixels_sha256": "ecdd8aec5ea949035c610e09f953d848c821442952d583391cdec568030e3cf6",
+      "cleared_pixels": 1387,
+      "before_tga_sha256": "f88dc0e47b461f0d36ab9df946b163e158813552677c760871a306866344d372"
+    },
+    "race_voidelf": {
+      "mask": "artwork/hubs/alpha-cleanup/race_voidelf-mask.png",
+      "mask_sha256": "a23f59888b3abd32bfb9b11eeea1eb3761e3735ebfc02e3ca4b1edc289f4af6f",
+      "input_pixels_sha256": "569da8128d3ab0b009a118a9da6cbf139771d4b2c144270470604f43bf375dbe",
+      "cleared_pixels": 16826,
+      "before_tga_sha256": "c56839578331166c8c0eb3d940bbc0260105991d1657213eaa22432046237334"
+    },
+    "race_vulpera": {
+      "mask": "artwork/hubs/alpha-cleanup/race_vulpera-mask.png",
+      "mask_sha256": "35d54a4f92bce6891e91352aaae031549e6ab900c6506393d7ba64e979f26c13",
+      "input_pixels_sha256": "68fc73da24398803b05b072511a97b1209ea1c61d761434ae7b27c55757f67ce",
+      "cleared_pixels": 1100,
+      "before_tga_sha256": "6b027b74c9d77c5f56ca52fb550f91e34411dfe42203e0b8f491f8c6fe7b17fb"
+    },
+    "race_worgen": {
+      "mask": "artwork/hubs/alpha-cleanup/race_worgen-mask.png",
+      "mask_sha256": "1f2af350dac8aa7bf2045d1090f7ddb8b056a415da19668337f00e8203c5b88f",
+      "input_pixels_sha256": "feda5b1f52f7499ad202c5e258bd5f26190fb1962998804218d14f889f0ad212",
+      "cleared_pixels": 8925,
+      "before_tga_sha256": "b1ac23cdab33a4e04056b782975f9b222ff03a2fd8cfb062eef801e0fa981d5b"
+    },
+    "race_zandalaritroll": {
+      "mask": "artwork/hubs/alpha-cleanup/race_zandalaritroll-mask.png",
+      "mask_sha256": "7947476d5d618a65d47764bd64cb5a4e39310bf3d55f6eca503f4dc38627cc37",
+      "input_pixels_sha256": "ceefc7cd1865abcc0c64caa524914e88dd85f4d1c473048ee783e17809334a4d",
+      "cleared_pixels": 1008,
+      "before_tga_sha256": "af043dc314cb4641161949ed89e645d9115fbecbee6ad5b083607f3cdf801662"
+    }
+  }
+}

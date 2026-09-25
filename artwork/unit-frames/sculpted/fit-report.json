@@ -503,9 +503,9 @@
     "id": "class_druid",
     "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_druid.png",
-    "source_sha256": "7e16d7e92190a3de6ff1957da5691b5d558c88d93b5533baf5da81dfac9b72d0",
+    "source_sha256": "b8bf38b274cf9c73d799c2a1a7a817318ffd7052d934d2b71a033728efd85c60",
     "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
-    "sha256": "74173d78556def2443d0c92f0724a0785e01b1121677c64791ee5eb8ecfe3df3",
+    "sha256": "399ef7238351b6ecd56f5116cd367ba15353032dd0cdc35a490735feb541ce8b",
     "measured": {
       "health": [
         272,

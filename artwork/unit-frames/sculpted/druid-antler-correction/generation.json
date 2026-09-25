@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-25",
+  "tool": "Built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Image 1 is the existing JiberishUI DRUID unit-frame painting to edit. Image 2 is Blizzard's Druid class emblem, a shape reference for the antlers only. Correct ONLY the awkward horns at the tops of the two end ornaments in image 1. On the large right crest, replace the chunky mismatched inward-pointing horns with a coherent, balanced pair of gracefully branching STAG ANTLERS closely following image 2: each grows from its own side of the crest, rises outward and upward, then forks into slimmer purposeful upward tines, with carved aged gold/brown roots and muted gray-brown tips. Read as druid stag antlers, not disconnected tusks, crab claws, bull horns, or chaotic crossed spikes. Keep the open space between the two antlers and a visually symmetrical sweep around the emblem. Make the smaller left end's antler ornament follow the same natural branching language at its existing smaller scale. Keep antler tips comfortably inside the existing canvas, with clean completed ends. Preserve the existing turquoise crescent/spiral emblem, all wood-and-stone rails, their exact thickness and positions, both empty health and power openings, existing leaves, moss, feathers, purple drapes and lower ornaments. No new medallions, symbols or extra artwork. Keep the exact original 1774x887 framing and composition. Maintain the existing hand-painted Warcraft material and shading style. The solid chroma green background and both green bar openings must remain unchanged. This is a localized antler correction, not a redesign.",
+  "reference": "artwork/official-crests/originals/class_druid.png",
+  "before": "artwork/unit-frames/sculpted/druid-antler-correction/before.png",
+  "generated": "artwork/unit-frames/sculpted/druid-antler-correction/generated.png",
+  "file": "artwork/unit-frames/sculpted/references/class_druid.png",
+  "boxes": [
+    [
+      0,
+      0,
+      290,
+      302
+    ],
+    [
+      1290,
+      0,
+      1774,
+      308
+    ]
+  ],
+  "method": "Local antler/endcap correction only; softly blended within the listed boxes. Every pixel outside remains unchanged. Original canvas and bar openings are preserved."
+}

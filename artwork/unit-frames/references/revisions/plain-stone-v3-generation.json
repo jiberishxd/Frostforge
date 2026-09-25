@@ -1,0 +1,8 @@
+{
+  "date": "2026-09-25",
+  "tool": "Built-in image_gen",
+  "source": "artwork/unit-frames/references/plain-stone.png",
+  "prompt": "Use case: precise-object-edit. Input image is the current original stone material to simplify. Create a much more MINIMAL version for an MMO health-bar fill. Reduce visible texture contrast and detail density by about 80 percent. The surface should be largely smooth, softly honed natural stone, with only faint fine mineral grain, occasional tiny shallow pores, and at most one or two very quiet short hairline seams. No rough speckled noise, pebbled surface, heavy cracks, busy carved ridges, folds, crumpled-paper facets or papery appearance. Preserve genuine solid dense stone character, but make it calm and unobtrusive behind class colors and white health text at 256x32 pixels. Uniform light-medium neutral grayscale, subtle narrow value range, even diffuse lighting. Flat frontal material study, opaque full-bleed texture, identical wide framing. No frame, text, symbols, vignette, border, bevel, shine, scenery or other objects. Smooth stone first; small restrained texture second.",
+  "reference": "artwork/unit-frames/references/revisions/plain-stone-v2.png",
+  "purpose": "Original minimal honed stone material. Replaces the prior crumpled facets with quieter fine grain. SharedMedia JiberishUI Stone and all health variants use this source; no reference-addon assets used."
+}

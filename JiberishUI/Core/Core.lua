@@ -1,9 +1,9 @@
 local addonName, J = ...
 local Core = {
-    version = "0.8.0",
+    version = "0.8.1",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
-    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset", "castBarShown", "castBarSource", "castBarStyle", "castBarArt", "castBarWeight", "castBarPadding", "castBarWidth", "castBarHeight" },
+    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset", "castBarShown", "castBarSource", "castBarStyle", "castBarArt", "castBarWeight", "castBarPadding", "castBarWidth", "castBarHeight", "unitFrameStrata", "castBarStrata", "blizzardPortraitHidden", "blizzardNameEnabled", "blizzardNameX", "blizzardNameY", "blizzardNameSize", "blizzardNameAlign", "blizzardNameOutline", "blizzardStone" },
     dirty = true,
 }
 J.Core = Core
@@ -328,6 +328,7 @@ function Core:Tick()
             self:Protect(key .. " cleanup",function() self:SyncVisibility(module,nil) end)
         end
     end
+    if J.BlizzardUnits then J.BlizzardUnits:Tick() end
     if J.UnitSkins then J.UnitSkins:Tick() end
     if J.CastBars then J.CastBars:Tick() end
 end
@@ -347,6 +348,7 @@ function Core:Status()
     self:Print(self.version .. " | " .. (self.client and self.client.id or "unsupported client") .. " | " .. J.ProfileManager.current.theme)
     if self.client then self:Print("Source baseline: " .. self.client.revision) end
     self:Print(J.ProfileManager.notice)
+    self:Print("Character profile: "..J.ProfileManager:ProfileName())
     if InCombatLockdown() and self.dirty then self:Print("Artwork changes queued until combat ends.") end
     for _, key in ipairs(self.order) do
         local module = self.modules[key]
@@ -362,6 +364,10 @@ function Core:Status()
     end
     if J.CastBars then
         for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do self:Print(key.." cast border: "..(J.CastBars.status[key] or "waiting")) end
+    end
+    if J.UnitSkins.stockStatus then self:Print(J.UnitSkins.stockStatus) end
+    if J.BlizzardUnits then
+        for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do self:Print(key.." stock appearance: "..(J.BlizzardUnits.status[key] or "unchanged")) end
     end
     for key, message in pairs(self.notices) do self:Print(key .. ": " .. message) end
     if self.client and self.client.id == "forever" then

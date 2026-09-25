@@ -1,11 +1,14 @@
 local _, J = ...
 local S = { units = {}, status = {}, summary = {}, powerLayouts = {}, ellesmereLayouts = {}, watched = setmetatable({}, {__mode="k"}) }
 J.UnitSkins = S
+J.Core.properties.blizzardStone = {boolean=true}
 J.Core.properties.unitFrameShown = {boolean=true}
 J.Core.properties.unitFrameFill = {AUTO=true,PROVIDER=true,JIBERISH=true}
 J.Core.properties.unitFrameWidth = {75,150}
 J.Core.properties.unitFrameHeight = {75,150}
 J.Core.properties.unitFrameInset = {0,3}
+J.Core.properties.unitFrameStrata = J.Core:Copy(J.Core.properties.strata)
+J.Core.properties.unitFrameStrata.AUTO=true
 -- Kept as an import/command alias for profiles made before separate toggles.
 J.Core.properties.unitStyle = {PORTRAIT=true,FULL=true}
 
@@ -114,9 +117,9 @@ function S:Restore(record)
     return ok
 end
 
-function S:ApplyFill(record,kind,id)
+function S:ApplyFill(record,kind,id,overridePath)
     local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
-    local path=entry[kind]
+    local path=overridePath or entry[kind]
     if InCombatLockdown() then J.Core.dirty=true; return false end
     if not usable(record.bar) or not usable(record.texture) then return false end
     if record.external or not record.active then
@@ -396,7 +399,7 @@ function S:LayoutRim(record,key,kind,config,entry,g)
     -- Only these narrow inner edges sit over the fill. The large ornamental
     -- shell retains its normal layering behind names, badges and other UI.
     local overrides=J.ProfileManager.current.modules[key] or {}
-    f:SetFrameStrata(overrides.strata and config.strata or g.strata)
+    f:SetFrameStrata(config.unitFrameStrata~="AUTO" and config.unitFrameStrata or g.strata)
     f:SetFrameLevel(overrides.level and config.level or g.level+1)
     rim.assetOK=inset>0 and trim.assetOK
     for side,v in pairs(strips) do
@@ -422,7 +425,7 @@ function S:Layout(record,key,kind,config,id,g)
         or old.capScale~=g.capScale or old.level~=g.level or old.strata~=g.strata
     local applied=trim.applied
     if changed or record.id~=id or not applied or applied.strata~=config.strata
-        or applied.level~=config.level or applied.layer~=config.layer or applied.unitFrameWidth~=config.unitFrameWidth
+        or applied.unitFrameStrata~=config.unitFrameStrata or applied.level~=config.level or applied.layer~=config.layer or applied.unitFrameWidth~=config.unitFrameWidth
         or applied.unitFrameHeight~=config.unitFrameHeight or applied.unitFrameInset~=config.unitFrameInset
         or trim.debugApplied~=J.ProfileManager.current.debug then
         if InCombatLockdown() then J.Core.dirty=true;return end
@@ -463,7 +466,7 @@ function S:Layout(record,key,kind,config,id,g)
             y=y+h
         end
         applied={width=(g.w+left+right)*sx,height=height,scale=1,x=-left*sx+dx,y=top*sy+dy,anchor="FRAME",point="TOPLEFT",relativePoint="TOPLEFT",
-            unitFrameWidth=config.unitFrameWidth,unitFrameHeight=config.unitFrameHeight,unitFrameInset=config.unitFrameInset,
+            unitFrameStrata=config.unitFrameStrata,unitFrameWidth=config.unitFrameWidth,unitFrameHeight=config.unitFrameHeight,unitFrameInset=config.unitFrameInset,
             strata=config.strata,level=config.level,layer=config.layer,texture=path,shown=true,opacity=config.opacity,mirror=mirror}
         local snapshot={frame=record.bar,name=key.."."..kind.."Bar",scale=g.scale,visible=true,alpha=1}
         trim.applied,trim.snapshot=applied,snapshot
@@ -504,14 +507,18 @@ function S:TickUnit(key)
     local id=J.Portraits:Resolve(config)
     local fitted,fitReason
     local external=bars and bars.source=="ELLESMERE"
-    local manageFill=config.unitFrameFill=="JIBERISH" or (config.unitFrameFill=="AUTO" and not external)
+    -- Portrait strata no longer drives the independent shell.
+    config.strata=J.ThemeManager.registry[J.ProfileManager.current.theme][key].strata
+    local manageFill=(external or not self.stoneEnabled) and (config.unitFrameFill=="JIBERISH" or (config.unitFrameFill=="AUTO" and not external))
     if external then
         local strata,level=bars.root:GetFrameStrata(),bars.root:GetFrameLevel()
         J.AddOnAnchors:Layer(key,config,strata,J.Core:IsNumber(level) and level+1 or nil)
+        if J.Core:IsSafe(strata) and J.Core.properties.strata[strata] then config.strata=strata end
         if self:RestorePowerLayout(key) then fitted,fitReason=self:FitEllesmereLayout(key,bars,id,enabled) end
     else
         if self:RestoreEllesmereLayout(key) then fitted=self:FitPowerLayout(key,bars,id,enabled) end
     end
+    if config.unitFrameStrata~="AUTO" then config.strata=config.unitFrameStrata end
     local states={}
     for _,kind in ipairs({"health","power"}) do
         local bar=bars and bars[kind]
@@ -567,7 +574,7 @@ function S:TickUnit(key)
                 if record.fillManaged~=manageFill or (manageFill and (not record.active or record.external)) or record.id~=id or not old
                     or old.w~=g.w or old.h~=g.h or old.scale~=g.scale or old.parentScale~=g.parentScale
                     or old.capScale~=g.capScale or not record.trim or not record.trim.applied or record.trim.applied.strata~=config.strata
-                    or old.level~=g.level or old.strata~=g.strata or record.trim.applied.unitFrameWidth~=config.unitFrameWidth
+                    or record.trim.applied.unitFrameStrata~=config.unitFrameStrata or old.level~=g.level or old.strata~=g.strata or record.trim.applied.unitFrameWidth~=config.unitFrameWidth
                     or record.trim.applied.unitFrameHeight~=config.unitFrameHeight or record.trim.applied.unitFrameInset~=config.unitFrameInset
                     or record.trim.applied.level~=config.level or record.trim.applied.layer~=config.layer then J.Core.dirty=true end
             end
@@ -590,8 +597,77 @@ function S:TickUnit(key)
     end
 end
 
+-- Shared stone on Blizzard's existing health/power regions. Discovery is
+-- limited to stock roots and their own party/raid registries, never nameplates
+-- or third-party frames. No health, power, unit identity or progress is read.
+function S:StockBars()
+    local bars={}
+    local function add(bar)
+        if usable(bar) and type(bar.GetStatusBarTexture)=="function" then bars[bar]=true end
+    end
+    local function unit(frame)
+        if not usable(frame) then return end
+        for _,field in ipairs({"healthbar","manabar","healthBar","powerBar"}) do add(frame[field]) end
+    end
+    for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
+        local found=J.Core.client:UnitBars(key)
+        if found then add(found.health);add(found.power) end
+    end
+    for _,name in ipairs({"PetFrame","TargetFrameToT","FocusFrameToT"}) do unit(_G[name]) end
+    for i=1,5 do unit(_G["Boss"..i.."TargetFrame"]) end
+    if usable(PartyFrame) then
+        local pool=PartyFrame.PartyMemberFramePool
+        if J.Core:IsSafe(pool) and type(pool)=="table" and type(pool.EnumerateActive)=="function" then
+            for frame in pool:EnumerateActive() do
+                if usable(frame) then unit(frame);unit(frame.PetFrame) end
+            end
+        end
+    end
+    if usable(CompactPartyFrame) then
+        for _,key in ipairs({"memberUnitFrames","petUnitFrames"}) do
+            local list=CompactPartyFrame[key]
+            if J.Core:IsSafe(list) and type(list)=="table" then
+                for i=1,5 do unit(list[i]) end
+            end
+        end
+    end
+    if usable(CompactRaidFrameContainer) and type(CompactRaidFrameContainer.ApplyToFrames)=="function" then
+        CompactRaidFrameContainer:ApplyToFrames("all",unit)
+    end
+    return bars
+end
+
+function S:TickStockStone(enabled)
+    self.stockRecords=self.stockRecords or {}
+    if InCombatLockdown() then J.Core.dirty=true;return end
+    local bars=enabled and self:StockBars() or {}
+    for bar,record in pairs(self.stockRecords) do
+        local texture=bars[bar] and usable(bar) and bar:GetStatusBarTexture()
+        if not bars[bar] or texture~=record.texture then
+            if self:Restore(record) then self:Retire(record);self.stockRecords[bar]=nil end
+        end
+    end
+    local ready=0
+    for bar in pairs(bars) do
+        local texture=bar:GetStatusBarTexture()
+        local record=self.stockRecords[bar]
+        if not record and usable(texture) then
+            local original=capture(texture)
+            if original then
+                record={bar=bar,texture=texture,original=original}
+                self.stockRecords[bar]=record;self:Watch(record)
+            end
+        end
+        if record and record.texture==texture and self:ApplyFill(record,"health","CLASS_PALADIN",J.Media.stone) then ready=ready+1 end
+    end
+    self.stockStatus=enabled and ("Stone on "..ready.." stock health/power bars; new bars update outside combat.") or "Stock-wide stone off."
+end
+
 function S:Tick()
+    self.stoneEnabled=J.ThemeManager:Resolve("playerFrame").blizzardStone
+    if not self.stoneEnabled then J.Core:Protect("stock stone restoration",function() self:TickStockStone(false) end) end
     for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
         J.Core:Protect(key.." skin",function() self:TickUnit(key) end)
     end
+    if self.stoneEnabled then J.Core:Protect("stock stone",function() self:TickStockStone(true) end) end
 end

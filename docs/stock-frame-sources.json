@@ -1,0 +1,104 @@
+{
+  "inspected_on": "2026-09-25",
+  "in_game_validated": false,
+  "sources": [
+    {
+      "client": "retail",
+      "path": "Blizzard_UnitFrame/Mainline/PlayerFrame.lua",
+      "revision": "78282522143e25c3540583734fd192c3d69be910",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UnitFrame/Mainline/PlayerFrame.lua",
+      "sha256": "3f884782f74baf48b333372bf4bfd32a5605bbe77b4bf65cc95811ae658ab2e9"
+    },
+    {
+      "client": "retail",
+      "path": "Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+      "revision": "78282522143e25c3540583734fd192c3d69be910",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+      "sha256": "b4c7aaa25fb9d508100291e78e7a32343d495fc17ab9ad41f1ae6f6a9ba38440"
+    },
+    {
+      "client": "retail",
+      "path": "Blizzard_UnitFrame/Mainline/PetFrame.lua",
+      "revision": "78282522143e25c3540583734fd192c3d69be910",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UnitFrame/Mainline/PetFrame.lua",
+      "sha256": "d4841981ff2dc8e35f469d897a8b200f282bb1979e1317dd668dbd5760f20d01"
+    },
+    {
+      "client": "retail",
+      "path": "Blizzard_UnitFrame/Shared/PartyFrame.lua",
+      "revision": "78282522143e25c3540583734fd192c3d69be910",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UnitFrame/Shared/PartyFrame.lua",
+      "sha256": "36022fdf0001b09bf552d5d619e50b125bdce3a7e1fdf5b2ed305b4acce09194"
+    },
+    {
+      "client": "retail",
+      "path": "Blizzard_UnitFrame/Shared/CompactPartyFrame.lua",
+      "revision": "78282522143e25c3540583734fd192c3d69be910",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UnitFrame/Shared/CompactPartyFrame.lua",
+      "sha256": "3a33a73243555fbd116b0d36a1b4fe60811197d1727c7e159fd61f7a8b02d684"
+    },
+    {
+      "client": "retail",
+      "path": "Blizzard_UnitFrame/Shared/CompactUnitFrame.lua",
+      "revision": "78282522143e25c3540583734fd192c3d69be910",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_UnitFrame/Shared/CompactUnitFrame.lua",
+      "sha256": "b8d67655750d6693f2571d6d06228dba0b4fb3b16395876f94773f0424b68d13"
+    },
+    {
+      "client": "retail",
+      "path": "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.lua",
+      "revision": "78282522143e25c3540583734fd192c3d69be910",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/78282522143e25c3540583734fd192c3d69be910/Interface/AddOns/Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.lua",
+      "sha256": "9ac871ac7ae0f2eb283c9ecfc67062f3584f47a17beb52dc88265c22c454ee77"
+    },
+    {
+      "client": "forever",
+      "path": "Blizzard_UnitFrame/Mainline/PlayerFrame.lua",
+      "revision": "70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UnitFrame/Mainline/PlayerFrame.lua",
+      "sha256": "fe186db32c4ace446f38bfa3c55bd94b31ea512d26aaab36a59b56fc95af5717"
+    },
+    {
+      "client": "forever",
+      "path": "Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+      "revision": "70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UnitFrame/Mainline/TargetFrame.lua",
+      "sha256": "db34fc42e0d059733935154b667ae275eb2b0edd7f4ecfdec90860629a7e4373"
+    },
+    {
+      "client": "forever",
+      "path": "Blizzard_UnitFrame/Mainline/PetFrame.lua",
+      "revision": "70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UnitFrame/Mainline/PetFrame.lua",
+      "sha256": "a8f41227fec2a7c353fb24863b89c8008441aae0c51aa2a955f6a92a4b48ba2c"
+    },
+    {
+      "client": "forever",
+      "path": "Blizzard_UnitFrame/Shared/PartyFrame.lua",
+      "revision": "70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UnitFrame/Shared/PartyFrame.lua",
+      "sha256": "954d16c3ffd58747aa074f6cb778fed4180226a7a9e9497eda08f9742e71b6a6"
+    },
+    {
+      "client": "forever",
+      "path": "Blizzard_UnitFrame/Shared/CompactPartyFrame.lua",
+      "revision": "70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UnitFrame/Shared/CompactPartyFrame.lua",
+      "sha256": "054679e5f9786404563ad69f199c998b48c3650df3daf1b58e83f320a8e7192b"
+    },
+    {
+      "client": "forever",
+      "path": "Blizzard_UnitFrame/Shared/CompactUnitFrame.lua",
+      "revision": "70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_UnitFrame/Shared/CompactUnitFrame.lua",
+      "sha256": "94f9cc2105039a2b9bedd5991bad4904b0669cbb1a738bb44368bfa3e940648d"
+    },
+    {
+      "client": "forever",
+      "path": "Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.lua",
+      "revision": "70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e",
+      "url": "https://github.com/Gethe/wow-ui-source/blob/70ef1b2fd78061a73f886c4a1e79dc5b5cff6d5e/Interface/AddOns/Blizzard_CompactRaidFrames/Blizzard_CompactRaidFrameContainer.lua",
+      "sha256": "c5b1e1f8fa314a7c1757b774402aaa9917aed7695af3e410a1346fb69a709603"
+    }
+  ]
+}
