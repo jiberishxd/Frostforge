@@ -1,6 +1,6 @@
 # JiberishUI
 
-**0.7.1** preserves the original full-shell silhouettes and thick borders and separates **Portrait art** from **Unit-frame artwork** in `/jui`. Either decoration can be enabled independently for Player, Target and Focus. Forever uses its initialized native bar references; shell rendering no longer depends on reading the bar's fill metadata. See [addon setup and limits](docs/ADDON-COMPATIBILITY.md).
+**0.7.2** adds direct EllesmereUI health/power styling and fixes portrait selection, mask fitting and default layering for the supplied EllesmereUI 9.2.9 release. **Portrait art** and **Unit-frame art** remain independent for Player, Target and Focus. All existing artwork, including the original full-shell silhouettes and thick dividers, is unchanged. See [addon setup and limits](docs/ADDON-COMPATIBILITY.md).
 
 The artwork library includes 42 matching minimap surrounds with a shared circular opening, automatic class/race/faction selection and a manual artwork picker. Warrior portrait, hub and minimap artwork now use plain battle cloth without Horde or Alliance insignia. All choices retain the existing decorative architecture; native UI controls remain functional underneath.
 
@@ -8,9 +8,9 @@ Blizzard or the selected UI addon owns every portrait, health/power value, name,
 
 ## Optional full unit-frame skin
 
-Open `/jui` → Player, Target or Focus. **Portrait art** controls only the portrait surround; **Unit-frame artwork** controls the ornamental bar shell and painted fills. You can use either, both, or neither. Portrait art starts on and unit-frame artwork starts off. Existing FULL selections are retained. Turning the unit-frame toggle off restores the original bar textures and power-bar geometry.
+Open `/jui` → Player, Target or Focus. **Portrait art** controls only the portrait surround; **Unit-frame art** controls the ornamental bar shell and painted fills. You can use either, both, or neither. Portrait art starts on and unit-frame artwork starts off. Existing FULL selections are retained. Turning the unit-frame toggle off restores the original bar textures and any fitted bar geometry.
 
-Full style adds a large original sculpted shell and matching painted health/power materials for every one of the 42 class/race/faction identities. The designs extend the approved portraits with stone, metal, cloth, wood and class motifs. Native health/reaction and resource colors remain recognizable through the shading. Measured source openings align with the native health bar, while the power bar is fitted below the preserved thick separator; ornamental endcaps retain their proportions as bar width changes. Portrait width/height/X/Y do not stretch the shell. Names, badges, predictions, class resources and secure clicks remain native. Fill, power-bar fitting and shell changes wait until combat ends. The unit-frame toggle always follows Blizzard bars, independently of the portrait provider. Hidden Blizzard bars hide their shells; replacement addon bars are not reskinned. If native fill metadata is unavailable, the shell still displays and `/jui status` reports that the native fill was retained.
+Full style adds a large original sculpted shell and matching painted health/power materials for every one of the 42 class/race/faction identities. The designs extend the approved portraits with stone, metal, cloth, wood and class motifs. Native health/reaction and resource colors remain recognizable through the shading. Measured source openings align with the native health bar, while the power bar is fitted below the preserved thick separator; ornamental endcaps retain their proportions as bar width changes. Portrait width/height/X/Y do not stretch the shell. Names, badges, predictions, class resources and secure clicks remain native. Fill, power-bar fitting and shell changes wait until combat ends. **Unit frames addon** selects Automatic, Blizzard or EllesmereUI independently of **Portrait addon**. Automatic follows active Ellesmere unit frames, otherwise Blizzard. Ellesmere needs horizontal health with an attached, aligned power bar below it for the complete shell. JiberishUI reserves the thick divider inside the original stack height, preserving Ellesmere’s clipping container; detached, above-health, hidden or vertical power arrangements keep their layout and receive fill textures only. Hidden provider bars hide their shells. ElvUI bar reskinning is not implemented. If native fill metadata is unavailable, the shell still displays and `/jui status` reports that the native fill was retained.
 
 Standalone comparison and theme gallery: `artwork/unit-frames/`. See [implementation and testing](docs/UNIT-SKINS.md).
 
@@ -56,7 +56,7 @@ The baseline fits are verified offline against the pinned native geometry. **Thi
 
 Components: `playerFrame`, `targetFrame`, `focusFrame`, `minimap`, `actionHub`.
 
-Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
+Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE), and `unitFrameSource` (AUTO/BLIZZARD/ELLESMERE). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
 
 ```text
 /jf set playerFrame unitFrameShown on
@@ -72,7 +72,7 @@ Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), op
 /jf set minimap minimapMode FIXED
 ```
 
-Background strata and level 0 keep native controls above the art. Custom dimensions/offsets/strata can change the fit. Use Reset this component to return to the fitted defaults.
+Blizzard defaults use Background strata and level 0. Ellesmere defaults follow its panel/portrait layer so opaque panels do not bury the artwork; explicit saved strata/level choices take priority. Custom dimensions/offsets/strata can change the fit. Use Reset this component to return to the fitted defaults.
 
 ## Persistence and scope
 
@@ -80,7 +80,7 @@ Settings remain under `JiberishUIDB.phase1`, now version 2. Version-1 shell sizi
 
 Forever build 69913 previously failed to supply saved settings at startup in live diagnostics. This update does not fix that client loading failure. Export before closing: [persistence notes](docs/PERSISTENCE.md).
 
-No party/raid, pet, boss, cast-bar or replacement-UI modules are added. Blinkii, mMediaTag, ElvUI and EllesmereUI portrait anchors and ElvUI/EllesmereUI main action-bar anchors are supported; live validation remains pending. Full unit-frame bar skins apply only to Blizzard frames. No native minimap or action-bar positioning changes are made; existing minimap edge clipping and arbitrary action-hub layouts remain separate fitting concerns.
+No party/raid, pet, boss, cast-bar or replacement-UI modules are added. Blinkii, mMediaTag, ElvUI and EllesmereUI portrait anchors and ElvUI/EllesmereUI main action-bar anchors are supported; live validation remains pending. Full unit-frame bar skins apply to Blizzard frames and the supported Ellesmere layout described above. No native minimap or action-bar positioning changes are made; existing minimap edge clipping and arbitrary action-hub layouts remain separate fitting concerns.
 
 ## Local checks
 

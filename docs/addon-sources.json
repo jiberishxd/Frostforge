@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-24",
+  "date": "2026-09-25",
   "sources": [
     {
       "project": "mBlinkii/Blinkiis-Portraits",
@@ -112,6 +112,33 @@
           "sha256": "7015975a31007910751c821935855855ee1602ee99b7c1a952ccd596cfe0db11"
         }
       ]
+    },
+    {
+      "project": "EllesmereGaming/EllesmereUI",
+      "release": "9.2.9",
+      "source": "User-supplied EllesmereUI-v9.2.9 download; inspected read-only",
+      "url": "https://www.curseforge.com/wow/addons/ellesmereui",
+      "files": [
+        {
+          "path": "EllesmereUIUnitFrames/EllesmereUIUnitFrames.lua",
+          "sha256": "75fbf6eff6d601d1290c9832a63a759a92f4dc1361d19831fcfd7187198a2fe8"
+        },
+        {
+          "path": "EllesmereUIUnitFrames/EUI_UnitFrames_Engine.lua",
+          "sha256": "0b1fb5372506307f7310f7e902e4f970086315d4c9c2e898760f9ad4dda17bb3"
+        },
+        {
+          "path": "EllesmereUI/EllesmereUI.lua",
+          "sha256": "d9591a9d6466d3f8fafa0f753f961b18f4f2733416d0a6df74151a1c0e9fc511"
+        }
+      ],
+      "adapter_evidence": {
+        "unit_roots": "EllesmereUIUnitFrames_Player, _Target, _Focus; Health and Power StatusBars",
+        "clipping": "EnsureBarClip / ReparentBarsToClip, lines 4096\u20134124: attached bars share root._barClip with child clipping enabled",
+        "health_layout": "CreateHealthBar, line 4444: top-left/right anchors and configured height",
+        "power_layout": "CreatePowerBar, line 5976: below/above/none and detached positions",
+        "portrait": "CreatePortrait, lines 6342\u20136364: Portrait.backdrop and _isInside; _shapeMask/_blizzMask and EllesmereUI._ufPortraitSide identify active fit"
+      }
     }
   ],
   "blinkii_mask_fits": [

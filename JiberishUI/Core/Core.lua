@@ -1,9 +1,9 @@
 local addonName, J = ...
 local Core = {
-    version = "0.7.1",
+    version = "0.7.2",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
-    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown" },
+    propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource" },
     dirty = true,
 }
 J.Core = Core
@@ -119,8 +119,16 @@ function Core:ReadAnchor(key)
         if not self:IsNumber(rootAlpha) then return nil,"Root visibility unavailable" end
         alpha = math.min(alpha,rootAlpha)
     else visible = visible and self.client:PortraitVisible(key,frame) end
+    local providerStrata,providerLevel
+    if external and external.source=="ELLESMERE" then
+        local strata,level=frame:GetFrameStrata(),frame:GetFrameLevel()
+        if self:IsSafe(strata) and type(strata)=="string" and self.properties.strata[strata] then providerStrata=strata end
+        if self:IsNumber(level) then providerLevel=math.max(0,level-1) end
+    end
     return { frame=frame, name=name, w=w, h=h, scale=scale, parentScale=parentScale, visible=visible == true, alpha=alpha,
-        source=external and external.source or "BLIZZARD", portraitFit=external and external.portrait and external.fit or nil }
+        source=external and external.source or "BLIZZARD", portraitFit=external and external.portrait and external.fit or nil,
+        portraitShape=external and external.shape,portraitMirror=external and external.mirror,
+        providerStrata=providerStrata,providerLevel=providerLevel }
 end
 
 function Core:FinishCreate(module, frame, textures)
@@ -239,7 +247,7 @@ function Core:Apply(module, snapshot)
     for name, texture in pairs(module.textures) do
         local piece = config.pieces and config.pieces[name]
         local x,y,w,h,u1,u2,v1,v2,order = self:PieceGeometry(config,piece)
-        if config.unit then u1,u2 = J.Portraits:TexCoords(config.roundPortrait and "target" or config.unit) end
+        if config.unit then u1,u2 = J.Portraits:TexCoords(config.portraitAtlasUnit or (config.roundPortrait and "target" or config.unit)) end
         if config.mirror then x,u1,u2 = config.width-x-w,u2,u1 end
         texture:ClearAllPoints()
         texture:SetPoint("TOPLEFT",frame,"TOPLEFT",x,-y)
@@ -256,6 +264,7 @@ function Core:Apply(module, snapshot)
 end
 
 function Core:SyncVisibility(module, snapshot)
+    module.nativeVisible=snapshot and snapshot.visible and snapshot.alpha>0 or false
     local frame, config = module.frame, module.applied
     if not frame or not config then return end
     -- Anchoring can create protection dependencies. Never assume an owned
@@ -278,6 +287,8 @@ local function geometryChanged(a,b)
     return not a or a.frame ~= b.frame or a.w ~= b.w or a.h ~= b.h
         or a.scale ~= b.scale or a.parentScale ~= b.parentScale
         or a.source ~= b.source or a.portraitFit ~= b.portraitFit
+        or a.portraitShape~=b.portraitShape or a.portraitMirror~=b.portraitMirror
+        or a.providerStrata~=b.providerStrata or a.providerLevel~=b.providerLevel
 end
 
 function Core:Tick()
@@ -337,7 +348,13 @@ function Core:Status()
         local module = self.modules[key]
         self:Print(key .. ": " .. (module.status or "waiting for anchor"))
         if module.debugLabel then self:Print(module.debugLabel:GetText()) end
-        if J.Portraits:IsUnitKey(key) then self:Print(key .. " unit frame: " .. (J.UnitSkins.status[key] or "waiting")) end
+        if J.Portraits:IsUnitKey(key) then
+            local config=J.ThemeManager:Resolve(key)
+            local source=module.snapshot and module.snapshot.source or "unavailable"
+            local visible=module.nativeVisible
+            self:Print(key.." portrait: "..(config.shown and "on" or "off").." | requested "..config.portraitSource.." | resolved "..source.." | "..(visible and "visible" or "hidden"))
+            self:Print(key.." unit frame: "..(config.unitFrameShown and "on" or "off").." | requested "..config.unitFrameSource.." | "..(J.UnitSkins.status[key] or "waiting"))
+        end
     end
     for key, message in pairs(self.notices) do self:Print(key .. ": " .. message) end
     if self.client and self.client.id == "forever" then
