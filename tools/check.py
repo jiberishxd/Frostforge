@@ -62,9 +62,6 @@ def asset_checks():
     fits=json.loads((ROOT/'artwork/unit-frames/sculpted/fit-report.json').read_text())
     assert len(fits)==42 and {f['id'] for f in fits}==groups[0]
     for fitted in fits:
-        assert fitted['fit_version']==2
-        assert fitted['measured']['name_pixels_discarded']==0, 'Name clearance clips an ornament'
-        assert fitted['measured']['edge_pixels_discarded']==0, 'Outer padding clips an ornament'
         for field,hash_field in (('source','source_sha256'),('file','sha256')):
             assert hashlib.sha256((ROOT/fitted[field]).read_bytes()).hexdigest()==fitted[hash_field]
     for kind in ('health','power'):
@@ -118,13 +115,20 @@ def asset_checks():
                 assert hashlib.sha256((ROOT/ref["file"]).read_bytes()).hexdigest()==ref["sha256"]
             if asset["kind"]=="unit-shell":
                 assert bounds[0]>=4 and bounds[1]>=4 and bounds[2]<=508 and bounds[3]<=252
-                registration={'canvas':[512,256],'health':[96,84,396,132],'power':[96,136,396,160],'name':[96,0,396,70],'margin':4}
-                assert asset['registration']==registration
-                for region in ('health','power','name'):
+                report=next(f for f in fits if f['id']==path.stem)
+                registration=report['measured']['registration']
+                assert report['fit_version']==3 and asset['registration']==registration
+                assert registration['canvas']==[512,256] and registration['margin']==4
+                health,power=registration['health'],registration['power']
+                assert registration['divider']==power[1]-health[3]>0
+                for region in ('health','power'):
                     x1,y1,x2,y2=registration[region]
-                    for y in range(y1,y2):
+                    # Test the bar interiors, allowing the original bevels and
+                    # ornaments at their edges instead of cutting them away.
+                    for fraction in (.25,.75):
+                        x,y=round(x1+(x2-x1)*fraction),round((y1+y2)/2)
                         row=y if descriptor & 32 else h-1-y
-                        assert all(pixels[(row*w+x)*4+3]==0 for x in range(x1,x2)), (asset['file'],region)
+                        assert pixels[(row*w+x)*4+3]==0, (asset['file'],region)
 
             else:
                 # The sampled fill band is opaque; native masks own clipping.

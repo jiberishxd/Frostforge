@@ -12,6 +12,12 @@ local function readable(self)
     M.reads = (M.reads or 0) + 1
 end
 local function writable(self,geometry)
+    if self.native and self.powerLayoutBar and geometry then
+        readable(self)
+        assert(not M.combat,"Native power layout written in combat")
+        M.nativeLayoutWrites=(M.nativeLayoutWrites or 0)+1
+        return
+    end
     if self.native then M.nativeWrites=M.nativeWrites+1; error("Attempt to mutate Blizzard frame") end
     if M.combat and self.protected then error("Protected artwork changed during combat") end
     M.writes=M.writes+1
@@ -42,6 +48,7 @@ function methods:SetHeight(h) writable(self,true); self.h=h end
 function methods:SetScale(scale) writable(self,true); self.scale=scale end
 function methods:SetPoint(...) writable(self,true); self.points[#self.points+1]={...} end
 function methods:GetPoint(i) return unpack(self.points[i or 1]) end
+function methods:GetNumPoints() readable(self);return #self.points end
 function methods:ClearAllPoints() writable(self,true); self.points={}; self.center=nil end
 function methods:SetAllPoints(relative) writable(self,true); self.allPoints=relative end
 function methods:SetFrameStrata(value) writable(self); self.strata=value end
@@ -231,6 +238,7 @@ function M.native(name,w,h,scale)
         local manaArea=object("Frame",main);manaArea.native=true
         local function bar(parent,kind,w,h)
             local b=object("Frame",parent);b.native=true;b.w=w;b.h=h;b.level=5;b.strata="LOW"
+            b.powerLayoutBar=kind=="Mana";b.points={{"TOPLEFT",parent,"TOPLEFT",0,-20}}
             b.fill=object("Texture",b);b.fill.native=true;b.fill.fillTexture=true
             b.fill.atlas="Native-"..name.."-"..kind;b.fill.path="native-textures";b.fill.texCoord={.1,.2,.1,.4,.7,.2,.7,.4}
             return b

@@ -26,10 +26,20 @@ local function migrateShell(profile)
 end
 
 local function supported(key,property)
-    if property == "portrait" or property == "portraitMode" or property == "portraitSource" or property == "unitStyle" then return J.Portraits:IsUnitKey(key) end
+    if property == "portrait" or property == "portraitMode" or property == "portraitSource" or property == "unitStyle" or property == "unitFrameShown" then return J.Portraits:IsUnitKey(key) end
     if property == "hub" or property == "hubMode" or property == "hubSource" then return key == "actionHub" end
     if property == "minimap" or property == "minimapMode" then return key == "minimap" end
     return true
+end
+
+local function migrateUnitToggles(profile)
+    for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
+        local c=profile.modules[key]
+        if c then
+            if c.unitFrameShown==nil and c.unitStyle then c.unitFrameShown=c.unitStyle=="FULL" end
+            c.unitStyle=nil
+        end
+    end
 end
 
 function Profiles:Initialize()
@@ -76,6 +86,7 @@ function Profiles:Initialize()
     elseif self.writable and not self.notice then
         self.notice = "New Phase 1 settings; earlier profiles preserved separately."
     end
+    migrateUnitToggles(self.current)
     -- Never convert, erase, or apply the previous renderer's profiles.
     if self.writable then JiberishUIDB.phase1 = self.current end
 end
@@ -93,6 +104,7 @@ function Profiles:Set(key, property, value)
     if not supported(key,property) then return false, "Artwork selection does not apply to this component." end
     local valid = J.Core:ValidateProperty(property, value)
     if valid == nil then return false, J.Core:PropertyHelp(property) end
+    if property=="unitStyle" then property,valid="unitFrameShown",valid=="FULL" end
     local overrides = self.current.modules[key] or {}
     self.current.modules[key] = overrides
     overrides[property] = valid
@@ -143,6 +155,7 @@ function Profiles:Import(text)
         tail = rest
     end
     if version == "1" then migrateShell(candidate) end
+    migrateUnitToggles(candidate)
     self.current = candidate
     JiberishUIDB.phase1 = candidate
     J.Core:RequestRefresh(true)

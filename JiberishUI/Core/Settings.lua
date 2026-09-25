@@ -401,11 +401,10 @@ function S:Create()
         self:HideMenus();self:ShowMinimapGroup(self.minimapGroup or "CLASS",self.minimapPage);self.minimapPicker:Show()
     end)
     self:CreateMinimapPicker()
-    self.styleButton=button(f,"Portrait only",340,-534,276,function()
-        local current=J.ThemeManager:Resolve(self.selected).unitStyle
-        self:Set("unitStyle",current=="FULL" and "PORTRAIT" or "FULL")
+    self.styleButton=toggle(f,"Unit-frame artwork",340,-534,276,function()
+        self:Set("unitFrameShown",not J.ThemeManager:Resolve(self.selected).unitFrameShown)
     end)
-    self.styleCaption=text(f,"Blizzard unit frame style",340,-514,276)
+    self.styleCaption=text(f,"Independent health / power shell",340,-514,276)
     self.debugButton=toggle(f,"Debug bounds",24,-664,148,function() J.Core:Command("debug") end)
     button(f,"Reset this component",184,-664,188,function()
         self.message=nil
@@ -423,7 +422,8 @@ function S:Refresh()
     self.heading:SetText(names[self.selected] .. " artwork")
     local unit=J.Portraits:IsUnitKey(self.selected)
     self.styleButton:SetShown(unit);self.styleCaption:SetShown(unit)
-    if unit then self.styleButton.caption:SetText(config.unitStyle=="FULL" and "Style: Full unit frame" or "Style: Portrait only") end
+    if unit then self.styleButton.check:SetShown(config.unitFrameShown) end
+    self.showButton.caption:SetText(unit and "Portrait art" or "Show artwork")
     local minimap=self.selected=="minimap"
     self.controls.minimapMode.button:SetShown(minimap);self.controls.minimapMode.label:SetShown(minimap)
     self.minimapCaption:SetShown(minimap);self.minimapButton:SetShown(minimap)
@@ -436,6 +436,9 @@ function S:Refresh()
     self.controls.hubSource.button:SetShown(hub);self.controls.hubSource.label:SetShown(hub)
     local module=J.Core.modules[self.selected]
     self.sourceStatus:SetText(module.snapshot and ("Following: "..module.snapshot.name) or module.status or "Waiting for frame")
+    if unit then
+        self.sourceStatus:SetText("Unit frame: "..(J.UnitSkins.status[self.selected] or "waiting"))
+    end
     self.controls.hubMode.button:SetShown(hub);self.controls.hubMode.label:SetShown(hub)
     self.hubCaption:SetShown(hub);self.hubButton:SetShown(hub)
     if hub then
@@ -446,6 +449,8 @@ function S:Refresh()
     self.portraitCaption:SetShown(unit); self.portraitButton:SetShown(unit)
     self.controls.portraitMode.label:SetShown(unit)
     if unit then
+        self.controls.portraitMode.label:SetText("Artwork theme selection")
+        self.portraitCaption:SetText("Portrait / unit-frame theme")
         local id=J.Portraits:Resolve(config)
         local entry=J.PortraitCatalog.entries[id]
         self.portraitButton.caption:SetText((entry and entry.label or "Portrait") .. " - Browse")

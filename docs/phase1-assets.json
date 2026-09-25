@@ -10391,12 +10391,12 @@
         512,
         256
       ],
-      "source_sha256": "9929c3c0830028ce8908b0b9d255389b8e0fe130c43e68ecdd0f0fa433d02461",
+      "source_sha256": "7619f1ffaadf7c1842f66f97a95044bbe08971542765c0eae23dcc070f8ca7df",
       "alphaBounds": [
-        5,
-        7,
-        508,
-        249
+        8,
+        6,
+        504,
+        250
       ],
       "kind": "unit-shell",
       "references": [
@@ -10406,38 +10406,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warrior.png",
-          "sha256": "9929c3c0830028ce8908b0b9d255389b8e0fe130c43e68ecdd0f0fa433d02461"
+          "sha256": "7619f1ffaadf7c1842f66f97a95044bbe08971542765c0eae23dcc070f8ca7df"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "ae195f694fb6a935cd9e8c25ef1105dff7e737aa23489fdda5c2415a9e772562",
+      "sha256": "23e7669eef685ddf96b1d96915bd3e98e60426cf60e95629ec099e925c0624fa",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          80.6944757609921,
+          101.85794813979707,
+          402.5073280721533,
+          137.92559188275084
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          80.6944757609921,
+          151.0665163472379,
+          402.5073280721533,
+          164.76662908680947
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 13.140924464487057
       }
     },
     {
@@ -10447,7 +10442,7 @@
         256,
         32
       ],
-      "source_sha256": "34d0d83c7861ef12ce464ec04d67aa0e5b942f337d668b7fc9ba8e5047a2578a",
+      "source_sha256": "aa632c312359dede6d0cdba940ab8dc1ec21e37c81e92f9992bb8edc462c0b18",
       "alphaBounds": [
         0,
         0,
@@ -10462,10 +10457,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warrior.png",
-          "sha256": "9929c3c0830028ce8908b0b9d255389b8e0fe130c43e68ecdd0f0fa433d02461"
+          "sha256": "7619f1ffaadf7c1842f66f97a95044bbe08971542765c0eae23dcc070f8ca7df"
         }
       ],
-      "sha256": "d814b0a819deb71388902e643e09fde9fe75edfd616196cb31aedbe6ed383c65"
+      "sha256": "e2421349728bec7d7126425c2713ecd22f813f117cd32b623474c1e32e3642e3"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_warrior-power.tga",
@@ -10474,7 +10469,7 @@
         256,
         32
       ],
-      "source_sha256": "eb7a99ec28d1f8b7785e679bbff597a8063e4d409e12a83f59756d1471d42860",
+      "source_sha256": "7036453648151d7d9f7800dd828bfa32d62bcabf64412f4f7b39bc69aae658d7",
       "alphaBounds": [
         0,
         0,
@@ -10489,10 +10484,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warrior.png",
-          "sha256": "9929c3c0830028ce8908b0b9d255389b8e0fe130c43e68ecdd0f0fa433d02461"
+          "sha256": "7619f1ffaadf7c1842f66f97a95044bbe08971542765c0eae23dcc070f8ca7df"
         }
       ],
-      "sha256": "601dca37c5f17fa80d95d239447b4e7bbf5e7baf240f8f303102d5414a737d1f"
+      "sha256": "d670a8248e05ee979aafb924c012c2c4b5c7aa8b478793c83ea2edce47158552"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_paladin.tga",
@@ -10501,53 +10496,56 @@
         512,
         256
       ],
-      "source_sha256": "7891f9fd58cf73e5be9f027ca6903c97fe7a74ed057ae2a253dba2ebd7024642",
+      "source_sha256": "d8d990309a6b13dfa99a10a269f378ad3a4899494544cb8ef0b1dc7cbd213232",
       "alphaBounds": [
-        8,
-        7,
-        506,
-        248
+        9,
+        6,
+        504,
+        250
       ],
       "kind": "unit-shell",
       "references": [
         {
           "file": "artwork/unit-frames/sculpted/references/class_paladin.png",
-          "sha256": "ee5c8c8ded4692c7baafbe96df9f4e921f32d2d51d37a69697dd3248ee9e349f"
+          "sha256": "a3cc840c0af520028e54fc8d49f5929f40c2983f7ba66666814cff7edff88a51"
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_paladin.png",
-          "sha256": "7891f9fd58cf73e5be9f027ca6903c97fe7a74ed057ae2a253dba2ebd7024642"
+          "sha256": "d8d990309a6b13dfa99a10a269f378ad3a4899494544cb8ef0b1dc7cbd213232"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
+        },
+        {
+          "file": "artwork/unit-frames/sculpted/paladin-crest-correction.json",
+          "sha256": "6a01034bf0400e2846475ca92a21aa80d4e61568aabdb711c19ebb45cd5b2942"
+        },
+        {
+          "file": "artwork/official-crests/originals/class_paladin.png",
+          "sha256": "a71c9da0ad891dcc699ae350838e4fb1d7add21cd707a9fd04b0a610ec3d851f"
         }
       ],
-      "sha256": "997631a9eea055d3b3195d0dbc9dfce476da6e89b7b05f138eee28e605a16601",
+      "sha256": "24c6a6c6f7e968ab810c2b8ea5117fd972fae611b2f577799cf7b786a40e3a9a",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          78.45772266065389,
+          102.13754227733935,
+          405.0236753100338,
+          137.36640360766629
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          78.45772266065389,
+          149.6685456595265,
+          405.0236753100338,
+          164.76662908680947
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.302142051860216
       }
     },
     {
@@ -10557,7 +10555,7 @@
         256,
         32
       ],
-      "source_sha256": "ea48aec1237ca835bec25c5161aae07347757be2ff743241012a20455499c33b",
+      "source_sha256": "dfd7c4846467247dfc04dd7fb0f0a68d0772fd5f2c2e0704b018cde917cd6d2e",
       "alphaBounds": [
         0,
         0,
@@ -10572,10 +10570,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_paladin.png",
-          "sha256": "7891f9fd58cf73e5be9f027ca6903c97fe7a74ed057ae2a253dba2ebd7024642"
+          "sha256": "d8d990309a6b13dfa99a10a269f378ad3a4899494544cb8ef0b1dc7cbd213232"
         }
       ],
-      "sha256": "c112d83148755429c2340ad1d29dca3df6bcc4348fb932820c84fc95b62065fd"
+      "sha256": "5a7772be37e1ded26dfee0e7415d49c82d92717a29dbd69a872abfedc91f52ac"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_paladin-power.tga",
@@ -10584,7 +10582,7 @@
         256,
         32
       ],
-      "source_sha256": "e48d73f3d39155d3edf46b7781c1af0f63ace88da6f6fb0f11557a84215b56f1",
+      "source_sha256": "7269e5d9ee5b6c81cc0f8bc547c0b5671d1fb69e26960e5c5f62529eaf5f5f43",
       "alphaBounds": [
         0,
         0,
@@ -10599,10 +10597,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_paladin.png",
-          "sha256": "7891f9fd58cf73e5be9f027ca6903c97fe7a74ed057ae2a253dba2ebd7024642"
+          "sha256": "d8d990309a6b13dfa99a10a269f378ad3a4899494544cb8ef0b1dc7cbd213232"
         }
       ],
-      "sha256": "d29a66f85f00017582dbde58da1981e1d46f5ce7b2f6ee09a5c1ba46c0461355"
+      "sha256": "9ab2c245a86862187124bff6c0f45b99ea070ae8185d21c69f8acb6b68be86e4"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_hunter.tga",
@@ -10611,12 +10609,12 @@
         512,
         256
       ],
-      "source_sha256": "45691852d78aa1beac18aa185c3023ee188dac65181b52bbaf1fb87ccab247d4",
+      "source_sha256": "7b312710f6d2b41d9c244b642b8aa4782add39dffb83915d4bdab49d37f9e1d3",
       "alphaBounds": [
-        7,
         8,
-        506,
-        247
+        8,
+        504,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -10626,38 +10624,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_hunter.png",
-          "sha256": "45691852d78aa1beac18aa185c3023ee188dac65181b52bbaf1fb87ccab247d4"
+          "sha256": "7b312710f6d2b41d9c244b642b8aa4782add39dffb83915d4bdab49d37f9e1d3"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "3cd800fc01b8ff3acaa171162d203ce06bdbc7966b433a7039ddb83ca03d0832",
+      "sha256": "20f78771a948a49fad4add5677e4f436b0e938190ff7f67b25c64184c03981c9",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.13754227733935,
+          390.76437429537765,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          149.94813979706876,
+          390.76437429537765,
+          165.32581736189402
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.463359639233374
       }
     },
     {
@@ -10667,7 +10660,7 @@
         256,
         32
       ],
-      "source_sha256": "1f92523ce8012f63f24d7d2308e87ec7a454b6c7cafc0ccd1a5ced4c23dcb54a",
+      "source_sha256": "7f436d19a6f94205a57722596366427b8fd173f1f113d2f694216c05384bb069",
       "alphaBounds": [
         0,
         0,
@@ -10682,10 +10675,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_hunter.png",
-          "sha256": "45691852d78aa1beac18aa185c3023ee188dac65181b52bbaf1fb87ccab247d4"
+          "sha256": "7b312710f6d2b41d9c244b642b8aa4782add39dffb83915d4bdab49d37f9e1d3"
         }
       ],
-      "sha256": "fd71b63da9efb2117f60f4d781c4e78ff78c94faedcf39736dbabe59a8452cb0"
+      "sha256": "0ce27da4c4815cc9c0f5889ba7d06f56ec7aebc4cbe75e984c007dfdea34fbbb"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_hunter-power.tga",
@@ -10694,7 +10687,7 @@
         256,
         32
       ],
-      "source_sha256": "5381840411004fdb4303f58a5cd497cbec67006bbea47bb3ee280681531235bb",
+      "source_sha256": "62f2f3a09a6c1badcb8f7bf1dd04de7d8fb49084c102ca0fa9b03cb77456a2d5",
       "alphaBounds": [
         0,
         0,
@@ -10709,10 +10702,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_hunter.png",
-          "sha256": "45691852d78aa1beac18aa185c3023ee188dac65181b52bbaf1fb87ccab247d4"
+          "sha256": "7b312710f6d2b41d9c244b642b8aa4782add39dffb83915d4bdab49d37f9e1d3"
         }
       ],
-      "sha256": "92ef236cb76906d1c8428ae8a6a37757b8f18384fbeeb3e1b935a1860c8458c1"
+      "sha256": "a70895ae7d796aeab05e1c5df83426fab6758ebbe10bc397c13569956f505afd"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_rogue.tga",
@@ -10721,11 +10714,11 @@
         512,
         256
       ],
-      "source_sha256": "8c9e7d0aac8c2a3134d56d0a744b78e8ace1856944a7d20223b0e07571bded4c",
+      "source_sha256": "efb0842a251ad66cbbe97d0b3787397c997616284414c630422eded201fd2d7c",
       "alphaBounds": [
-        8,
-        13,
-        506,
+        10,
+        17,
+        503,
         247
       ],
       "kind": "unit-shell",
@@ -10736,38 +10729,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_rogue.png",
-          "sha256": "8c9e7d0aac8c2a3134d56d0a744b78e8ace1856944a7d20223b0e07571bded4c"
+          "sha256": "efb0842a251ad66cbbe97d0b3787397c997616284414c630422eded201fd2d7c"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "bfcd5afefadad279a55dafc054aa2a5afd1e14340ffa1306a65e4c59b9a6a677",
+      "sha256": "3051a8d843fcd4b94b6ff6205e86e05e97613c375bfbb20871c2e464301bb60b",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.13754227733935,
+          404.4644870349493,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          149.94813979706876,
+          404.4644870349493,
+          164.48703494926718
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.463359639233374
       }
     },
     {
@@ -10777,7 +10765,7 @@
         256,
         32
       ],
-      "source_sha256": "1191ba66986cc3228185d20af5a456d1712b98266fea990ccae1c61ad60ac9b5",
+      "source_sha256": "fca509f678209a6c165322a6d5f73556f8ca7b055d50b6475d0798333fa2e037",
       "alphaBounds": [
         0,
         0,
@@ -10792,10 +10780,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_rogue.png",
-          "sha256": "8c9e7d0aac8c2a3134d56d0a744b78e8ace1856944a7d20223b0e07571bded4c"
+          "sha256": "efb0842a251ad66cbbe97d0b3787397c997616284414c630422eded201fd2d7c"
         }
       ],
-      "sha256": "da94f89849d90f52566664b84dcd7351c40c03949c1d53c78e545b4a41cfe90f"
+      "sha256": "2ce9bdb93b306d1c899fb5e57a158a5b68ef2d7f84c11854fc95c7ad9fc1d57d"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_rogue-power.tga",
@@ -10804,7 +10792,7 @@
         256,
         32
       ],
-      "source_sha256": "6cd35e6378b4542bce1eafda97eebf94e8b6d5123ab1f245de74f6030083078b",
+      "source_sha256": "cf7a93f633520cd1585bcf1fdda05dcaa4b47b692994cc65788ee15317fc51a1",
       "alphaBounds": [
         0,
         0,
@@ -10819,10 +10807,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_rogue.png",
-          "sha256": "8c9e7d0aac8c2a3134d56d0a744b78e8ace1856944a7d20223b0e07571bded4c"
+          "sha256": "efb0842a251ad66cbbe97d0b3787397c997616284414c630422eded201fd2d7c"
         }
       ],
-      "sha256": "de9078b8a75d78c0eb8a4c93d2a358811eb5c7247630590e881e85f34a69e6e3"
+      "sha256": "8bc414e7b8b69be862bb904945f57ccb149dfb6ad5dd07ae68fd4c275064bcba"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_priest.tga",
@@ -10831,12 +10819,12 @@
         512,
         256
       ],
-      "source_sha256": "198586fe2a476d1285765820e76c115d22cbea3b7eb75c6367732a5d0ceb8f95",
+      "source_sha256": "f2cb1023337bb16e235f6274e8c1a77f879a66e698239c21e53ed894e3f7ff4a",
       "alphaBounds": [
-        10,
-        6,
-        506,
-        249
+        12,
+        5,
+        504,
+        251
       ],
       "kind": "unit-shell",
       "references": [
@@ -10846,38 +10834,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_priest.png",
-          "sha256": "198586fe2a476d1285765820e76c115d22cbea3b7eb75c6367732a5d0ceb8f95"
+          "sha256": "f2cb1023337bb16e235f6274e8c1a77f879a66e698239c21e53ed894e3f7ff4a"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "e199d85402abefa975fa13502a9d27970c678eb452338890ea2f0e0d68abc1ed",
+      "sha256": "b89ef192919b79558779f4cdf9263a4e177f24d1b6ee274bba488a53766b02b1",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.85569334836528,
+          102.97632468996618,
+          404.7440811724915,
+          138.76437429537768
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.85569334836528,
+          150.5073280721533,
+          404.7440811724915,
+          165.32581736189402
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.742953776775636
       }
     },
     {
@@ -10887,7 +10870,7 @@
         256,
         32
       ],
-      "source_sha256": "1fb526bb95724292be21b3cef59f58f84b41b1582a3b1b93b4d1bd2256c16713",
+      "source_sha256": "328e7ba2ea949a720f510c996d812fbf3c05d6f670cd047246a72db2e8c35f0a",
       "alphaBounds": [
         0,
         0,
@@ -10902,10 +10885,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_priest.png",
-          "sha256": "198586fe2a476d1285765820e76c115d22cbea3b7eb75c6367732a5d0ceb8f95"
+          "sha256": "f2cb1023337bb16e235f6274e8c1a77f879a66e698239c21e53ed894e3f7ff4a"
         }
       ],
-      "sha256": "2aacbaae5e22591759abd4f14a9fe35e5a37c6ed458dcb2709f9e774101ac23c"
+      "sha256": "ffbbdcf3045c88a7be30951be0bf80f57a220ce1c4de509a527392db538e4240"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_priest-power.tga",
@@ -10914,7 +10897,7 @@
         256,
         32
       ],
-      "source_sha256": "f9b91c8078c3fb069f0789f2f1c299bb3984af0aedb525a44f0819c0e135cfe7",
+      "source_sha256": "e64a19841b7c073471684bf0b8881b5c0d180249753bb1e085ca4962d9b780f8",
       "alphaBounds": [
         0,
         0,
@@ -10929,10 +10912,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_priest.png",
-          "sha256": "198586fe2a476d1285765820e76c115d22cbea3b7eb75c6367732a5d0ceb8f95"
+          "sha256": "f2cb1023337bb16e235f6274e8c1a77f879a66e698239c21e53ed894e3f7ff4a"
         }
       ],
-      "sha256": "78328c268cb9846197feb716c0eae6349f92353e2990373ce1af794dc5b7148d"
+      "sha256": "6b1d0bbc55c933d96eaa32fc9491f4b83a775c5cd6fbdb34a602a05489659777"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_deathknight.tga",
@@ -10941,11 +10924,11 @@
         512,
         256
       ],
-      "source_sha256": "8d2f83c59497ea2cfedbebe92f9d4ff286b347833c43e39ed56ee6e6e966a46e",
+      "source_sha256": "4176e904a6ba285ca49dac3f41429ab47128036bf9633d5e6f9693f08e27c8e4",
       "alphaBounds": [
-        7,
+        9,
         8,
-        505,
+        502,
         245
       ],
       "kind": "unit-shell",
@@ -10956,38 +10939,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_deathknight.png",
-          "sha256": "8d2f83c59497ea2cfedbebe92f9d4ff286b347833c43e39ed56ee6e6e966a46e"
+          "sha256": "4176e904a6ba285ca49dac3f41429ab47128036bf9633d5e6f9693f08e27c8e4"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "9029b973bec51e7556fe8dd00431d847a33aa224b016e93a6c7706d376dbc5ba",
+      "sha256": "f5736b50a57984d7c3f6d0b20750af0835f4d13aa18625ba5a53533f91b32d87",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.85569334836528,
+          102.41713641488163,
+          404.7440811724915,
+          138.20518602029313
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.85569334836528,
+          150.22773393461105,
+          404.7440811724915,
+          163.64825253664037
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -10997,7 +10975,7 @@
         256,
         32
       ],
-      "source_sha256": "df97220ea117bd1062c7808899ffebfa682c528ce200a7a5311a4a6124deeb8b",
+      "source_sha256": "da9d1c05cec3c83afbc29a21146e53a770fb4fc24e11931c1254dfb4d46dd0ac",
       "alphaBounds": [
         0,
         0,
@@ -11012,10 +10990,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_deathknight.png",
-          "sha256": "8d2f83c59497ea2cfedbebe92f9d4ff286b347833c43e39ed56ee6e6e966a46e"
+          "sha256": "4176e904a6ba285ca49dac3f41429ab47128036bf9633d5e6f9693f08e27c8e4"
         }
       ],
-      "sha256": "cc62383edfaeab7027ee33deba27ac4f95e9ad3b4cde78452074ed6decedcf77"
+      "sha256": "7f398f866320fc23e409cf8975d1db2a82a0e9429d23bf7d0114698670c61322"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_deathknight-power.tga",
@@ -11024,7 +11002,7 @@
         256,
         32
       ],
-      "source_sha256": "ce1a4cb1c0e36d2818165723d29ee0d596d51b57a2350dc3c184fe22080797bf",
+      "source_sha256": "2068e657baeb01507e92dd17da5c5a2b0419d4d9c80c9933bfaaea00b695c30d",
       "alphaBounds": [
         0,
         0,
@@ -11039,10 +11017,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_deathknight.png",
-          "sha256": "8d2f83c59497ea2cfedbebe92f9d4ff286b347833c43e39ed56ee6e6e966a46e"
+          "sha256": "4176e904a6ba285ca49dac3f41429ab47128036bf9633d5e6f9693f08e27c8e4"
         }
       ],
-      "sha256": "7057c759afd5784ea33e87905606c46b43c8c15e40df58ee7b7bd1da0804d6df"
+      "sha256": "e0d1d2015fe268b6c3a7c889046b2d2cf811fbce8aeed71114657055b0bf4932"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_shaman.tga",
@@ -11051,11 +11029,11 @@
         512,
         256
       ],
-      "source_sha256": "4d28a79b5fefd6e91d69f6b62326026edf7c2f8249fd8eab757c853156876909",
+      "source_sha256": "4fb47dfd18c93f95625c5949a826acf479e61b825f351237b1221e822208e98c",
       "alphaBounds": [
-        7,
-        11,
-        505,
+        9,
+        13,
+        502,
         246
       ],
       "kind": "unit-shell",
@@ -11066,38 +11044,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-          "sha256": "4d28a79b5fefd6e91d69f6b62326026edf7c2f8249fd8eab757c853156876909"
+          "sha256": "4fb47dfd18c93f95625c5949a826acf479e61b825f351237b1221e822208e98c"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "fa912c328dc11851c55f5b3a26688080d10e50cc9d0c989d28f9bb4d75416ace",
+      "sha256": "9672855d148bc5cc27c84fa9d49f7d0a3fecc0ad918ad030575ec00810a0d057",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.6967305524239,
+          404.7440811724915,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          150.22773393461105,
+          404.7440811724915,
+          165.60541149943631
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.742953776775664
       }
     },
     {
@@ -11107,7 +11080,7 @@
         256,
         32
       ],
-      "source_sha256": "e3db61edf097ef04544aca501fd949bd5d8dcfc093d377d7d42fdd8e1801a6cc",
+      "source_sha256": "03e15381784017135ed8c2a77564a5b99b1fdcc5e68e8d64d9ea09165c009d4f",
       "alphaBounds": [
         0,
         0,
@@ -11122,10 +11095,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-          "sha256": "4d28a79b5fefd6e91d69f6b62326026edf7c2f8249fd8eab757c853156876909"
+          "sha256": "4fb47dfd18c93f95625c5949a826acf479e61b825f351237b1221e822208e98c"
         }
       ],
-      "sha256": "8ba59a252c30654b441b2a692a4ee7cf133d203a0fd4b3c4a94fcace992b54ea"
+      "sha256": "7ddb3fe58c10158a36654f00dfe9839b91b61c9dab519c68a689ef244bfdca0e"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_shaman-power.tga",
@@ -11134,7 +11107,7 @@
         256,
         32
       ],
-      "source_sha256": "a2584a4aba2b53e86bd92888703dca0c1e48768742236b1251c84907d25a4ff6",
+      "source_sha256": "60dd43d9507c3471b05dcd602d80e3e5e797e547f5fc7f4d9016830a316ade3b",
       "alphaBounds": [
         0,
         0,
@@ -11149,10 +11122,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-          "sha256": "4d28a79b5fefd6e91d69f6b62326026edf7c2f8249fd8eab757c853156876909"
+          "sha256": "4fb47dfd18c93f95625c5949a826acf479e61b825f351237b1221e822208e98c"
         }
       ],
-      "sha256": "455a6ac369b87583b48c611416cb96ed9939d8e9a0598416db9ab737d4d60547"
+      "sha256": "9cbef3042cb6886b85300cffbc08e316d73bd69979ffe15c1699d104c94ce68d"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_mage.tga",
@@ -11161,12 +11134,12 @@
         512,
         256
       ],
-      "source_sha256": "20393c3e1f2bcbd9446fb9e208e108656951d2ea6d08145e0d129f01069a9f5d",
+      "source_sha256": "933c6959b57eee2adf275baf5417673123620571201a2c1186ee3635b11f1907",
       "alphaBounds": [
-        8,
-        6,
-        507,
-        250
+        10,
+        4,
+        504,
+        251
       ],
       "kind": "unit-shell",
       "references": [
@@ -11176,38 +11149,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
-          "sha256": "20393c3e1f2bcbd9446fb9e208e108656951d2ea6d08145e0d129f01069a9f5d"
+          "sha256": "933c6959b57eee2adf275baf5417673123620571201a2c1186ee3635b11f1907"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "1e1c582e956471cfe2cf198f925715842754e59af35ed5d76147ed949f337508",
+      "sha256": "1ddd4f3f15888bd65e0a22cd128518eb2303f7c35597b7353b826f8472c39128",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          78.45772266065389,
+          102.13754227733935,
+          403.9052987598647,
+          137.36640360766629
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          78.45772266065389,
+          149.3889515219842,
+          403.9052987598647,
+          164.20744081172492
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -11217,7 +11185,7 @@
         256,
         32
       ],
-      "source_sha256": "7a401d4be16d91efaf4123dfccbeebfaa1c053a4080c38f8c545d6e37dec8d61",
+      "source_sha256": "70e235815081862d96e1c10d43b353bafd3a9a7851b9a5e37c07e2d1402f6eda",
       "alphaBounds": [
         0,
         0,
@@ -11232,10 +11200,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
-          "sha256": "20393c3e1f2bcbd9446fb9e208e108656951d2ea6d08145e0d129f01069a9f5d"
+          "sha256": "933c6959b57eee2adf275baf5417673123620571201a2c1186ee3635b11f1907"
         }
       ],
-      "sha256": "6c466f1668dacc9d7ce6c8ffb3deb858601c1bacc54274c8d0193987e044e669"
+      "sha256": "248b3d8bc8eb2ea789d5563318f77ce818f9e66bb4b03c8b0c11cec04c1180ec"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_mage-power.tga",
@@ -11244,7 +11212,7 @@
         256,
         32
       ],
-      "source_sha256": "55de0d3d44344d9ac9454e65bb805c73046c831d9249d1fa51572d75468c42ff",
+      "source_sha256": "ff459b4cb6bce90a121ec0e5f5a4ba0cb996d63bca1212c47c34b7283b2d6dfd",
       "alphaBounds": [
         0,
         0,
@@ -11259,10 +11227,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
-          "sha256": "20393c3e1f2bcbd9446fb9e208e108656951d2ea6d08145e0d129f01069a9f5d"
+          "sha256": "933c6959b57eee2adf275baf5417673123620571201a2c1186ee3635b11f1907"
         }
       ],
-      "sha256": "7d912c08bd46cdf157f4b384bae687299c1980fc9a67546250589908b2317647"
+      "sha256": "6c9543af3ce5e02d57f9fc7b4190bf216bff6409c32c47fe419dbf63b8116463"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_warlock.tga",
@@ -11271,11 +11239,11 @@
         512,
         256
       ],
-      "source_sha256": "78a34e035416a051e39c7e014bdbfff0d1152ae10ce43719f54971413cc2a2b1",
+      "source_sha256": "a9166f51507ff3f3aaf2f3edf7adeae275be8cc19d2b00f2f804ec0f9a2209ac",
       "alphaBounds": [
-        7,
-        10,
-        505,
+        9,
+        13,
+        503,
         243
       ],
       "kind": "unit-shell",
@@ -11286,38 +11254,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warlock.png",
-          "sha256": "78a34e035416a051e39c7e014bdbfff0d1152ae10ce43719f54971413cc2a2b1"
+          "sha256": "a9166f51507ff3f3aaf2f3edf7adeae275be8cc19d2b00f2f804ec0f9a2209ac"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "6fb44e488acad000bdf2d0723fbddf0a3e17277e1f3d6b32fa734597d6d10f4b",
+      "sha256": "90665f3356166bd3464c12733dc730a6caf91d4c525292dfe0ae4a8b560408ee",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.41713641488163,
+          406.9808342728298,
+          138.20518602029313
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          150.22773393461105,
+          406.9808342728298,
+          165.04622322435173
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -11327,7 +11290,7 @@
         256,
         32
       ],
-      "source_sha256": "3468aef3a6ddf72da0e73ec9ae6abb59cb5bc60b624a87d286037a7c6e732925",
+      "source_sha256": "7d08ebcdfed57ae6459b36d914dd9a0835021c74a4e54aaead2c2cfd9966e725",
       "alphaBounds": [
         0,
         0,
@@ -11342,10 +11305,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warlock.png",
-          "sha256": "78a34e035416a051e39c7e014bdbfff0d1152ae10ce43719f54971413cc2a2b1"
+          "sha256": "a9166f51507ff3f3aaf2f3edf7adeae275be8cc19d2b00f2f804ec0f9a2209ac"
         }
       ],
-      "sha256": "682b95b5b3915d0ff4d5dc4b2d8a35259d47288e2971bbd699ab8029dec43f13"
+      "sha256": "731767e8dbe215614d96257a62b7aa66831dfb8131de55094d9d5038625b4316"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_warlock-power.tga",
@@ -11354,7 +11317,7 @@
         256,
         32
       ],
-      "source_sha256": "b8810f0b7425d99a53690e5434943058343a2f7a81082a482451e61c940c743c",
+      "source_sha256": "39702b319417cc80dbe5afd523c452722ce3738d367073f7d7b1e697f2389fdb",
       "alphaBounds": [
         0,
         0,
@@ -11369,10 +11332,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_warlock.png",
-          "sha256": "78a34e035416a051e39c7e014bdbfff0d1152ae10ce43719f54971413cc2a2b1"
+          "sha256": "a9166f51507ff3f3aaf2f3edf7adeae275be8cc19d2b00f2f804ec0f9a2209ac"
         }
       ],
-      "sha256": "9bdbe394bdcb5aabd6e247668370eb0f6fdc43221a161940abb14f91154bb8e7"
+      "sha256": "f9c321ebe6b1d47a3d2fc8332355fa12b2dce084d46e11312d6428b0e438239f"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_monk.tga",
@@ -11381,12 +11344,12 @@
         512,
         256
       ],
-      "source_sha256": "f8ea70a388f018784ac967e37095eec3265eb1f7dda74d630d0c9579c717ddc1",
+      "source_sha256": "0ad27945190646d4c9dfbc98b8bce738deb537b3eeb843c799e794866e6558ef",
       "alphaBounds": [
-        7,
-        11,
-        505,
-        248
+        9,
+        13,
+        503,
+        249
       ],
       "kind": "unit-shell",
       "references": [
@@ -11396,38 +11359,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_monk.png",
-          "sha256": "f8ea70a388f018784ac967e37095eec3265eb1f7dda74d630d0c9579c717ddc1"
+          "sha256": "0ad27945190646d4c9dfbc98b8bce738deb537b3eeb843c799e794866e6558ef"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "1fd60e764ce49076d82c384f54b20c6cc277f277a5dfb19eb0d32c75ac8558a9",
+      "sha256": "89088b57d1453760896ddae005c9a6b88b9b841e2f579fce6efd554e811da580",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          80.41488162344983,
+          101.85794813979707,
+          405.3032694475761,
+          137.64599774520858
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          80.41488162344983,
+          149.6685456595265,
+          405.3032694475761,
+          163.36865839909808
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -11437,7 +11395,7 @@
         256,
         32
       ],
-      "source_sha256": "cd6359ba7541512c1cf6fa8ff322012a61b3119ae2891dffff9484147569422f",
+      "source_sha256": "ed7abc8e0c6a0ddbdb9dc3d635398cf3bc67050f72ad7364af61d5bbc65a1bd7",
       "alphaBounds": [
         0,
         0,
@@ -11452,10 +11410,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_monk.png",
-          "sha256": "f8ea70a388f018784ac967e37095eec3265eb1f7dda74d630d0c9579c717ddc1"
+          "sha256": "0ad27945190646d4c9dfbc98b8bce738deb537b3eeb843c799e794866e6558ef"
         }
       ],
-      "sha256": "751e2a885178b9b3d629fcff9784bdc63d1c5db5a81db9a37a9c260a79a3df09"
+      "sha256": "3fb7def28a32c36cc9a4a4cf4f1119a59db355f7c6fa15742d92bf4f9bd84fbf"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_monk-power.tga",
@@ -11464,7 +11422,7 @@
         256,
         32
       ],
-      "source_sha256": "9543195b1cc3a88fec51ec6c5827dc2846ae0868362e8b2657030d279bce87ba",
+      "source_sha256": "3fc3eea9741ea041a64d1e50fd5c99b199086e8a6b4b0934850be9e6acf2d56c",
       "alphaBounds": [
         0,
         0,
@@ -11479,10 +11437,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_monk.png",
-          "sha256": "f8ea70a388f018784ac967e37095eec3265eb1f7dda74d630d0c9579c717ddc1"
+          "sha256": "0ad27945190646d4c9dfbc98b8bce738deb537b3eeb843c799e794866e6558ef"
         }
       ],
-      "sha256": "77271296b56f35683d0dd03a41ef2fac05089082ab375b1f03e59d42b97f3d6c"
+      "sha256": "75ccb50d8b0ff236143fd0ecfc84fd37494b7509aa0293667d77900feb96552f"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_druid.tga",
@@ -11491,11 +11449,11 @@
         512,
         256
       ],
-      "source_sha256": "207d11adf607a97edbe7aca283c04dc9ac8cc6abed20f620c0b5c03bda7793e4",
+      "source_sha256": "74173d78556def2443d0c92f0724a0785e01b1121677c64791ee5eb8ecfe3df3",
       "alphaBounds": [
+        8,
         6,
-        7,
-        507,
+        504,
         245
       ],
       "kind": "unit-shell",
@@ -11506,38 +11464,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
-          "sha256": "207d11adf607a97edbe7aca283c04dc9ac8cc6abed20f620c0b5c03bda7793e4"
+          "sha256": "74173d78556def2443d0c92f0724a0785e01b1121677c64791ee5eb8ecfe3df3"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "15c199e51c7c56e1ceff60ddbe29365eb5d6b93da6ea93dfa170cae743c96330",
+      "sha256": "4e7394a97a067ec40f0653578f67704698588336ed650a0d54282247c5089739",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          84.04960541149944,
+          101.85794813979707,
+          396.6358511837655,
+          135.68883878241263
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          84.04960541149944,
+          148.2705749718151,
+          396.6358511837655,
+          163.64825253664037
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.581736189402477
       }
     },
     {
@@ -11547,7 +11500,7 @@
         256,
         32
       ],
-      "source_sha256": "443d0475d04901c09b6e7b3f5aacd7611fd448f2a3f8337b60f048ce2c134d70",
+      "source_sha256": "fbf117eb7a65b6675fa32ba68d1d888c977de7cc41832af5fb792fceee3ff4c7",
       "alphaBounds": [
         0,
         0,
@@ -11562,10 +11515,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
-          "sha256": "207d11adf607a97edbe7aca283c04dc9ac8cc6abed20f620c0b5c03bda7793e4"
+          "sha256": "74173d78556def2443d0c92f0724a0785e01b1121677c64791ee5eb8ecfe3df3"
         }
       ],
-      "sha256": "b0942f3e717a588501adb3c642e96db95596c0862beee2ff818e45e5d0c178a0"
+      "sha256": "c3689fcd14c689bb7c4987d1b2aec457a01704c5abbf091d6830f05f8ae43315"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_druid-power.tga",
@@ -11574,7 +11527,7 @@
         256,
         32
       ],
-      "source_sha256": "ebbe416176eddb84ba14342e640691ba4f41d04341556eed22e4007759179c51",
+      "source_sha256": "b7801bff5ab0a20b91a3a6217b94b693aaae2fad75db4937c655047fdf489354",
       "alphaBounds": [
         0,
         0,
@@ -11589,10 +11542,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
-          "sha256": "207d11adf607a97edbe7aca283c04dc9ac8cc6abed20f620c0b5c03bda7793e4"
+          "sha256": "74173d78556def2443d0c92f0724a0785e01b1121677c64791ee5eb8ecfe3df3"
         }
       ],
-      "sha256": "e1b9395803a00b0680addeff90379300befe5abf2b7a7c0082e66925408f63ff"
+      "sha256": "e913f3d910b5b5a015dc1d8db9b13eaea2154bd3ee3a99d7b716c78ea708ee7d"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_demonhunter.tga",
@@ -11601,11 +11554,11 @@
         512,
         256
       ],
-      "source_sha256": "04dcf3580312ddfdac4d73d1a875b52c3abd001d01bc5320640dfd5d03bb83d9",
+      "source_sha256": "28bc95445b98f62bd102b97301604cbaa52770a6e7355564ab5eacf88fe92e54",
       "alphaBounds": [
-        7,
-        7,
-        507,
+        9,
+        6,
+        504,
         246
       ],
       "kind": "unit-shell",
@@ -11616,38 +11569,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_demonhunter.png",
-          "sha256": "04dcf3580312ddfdac4d73d1a875b52c3abd001d01bc5320640dfd5d03bb83d9"
+          "sha256": "28bc95445b98f62bd102b97301604cbaa52770a6e7355564ab5eacf88fe92e54"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "6bb2a3691ee7a97d5764a6742bf794f841646c078a560c5c3475b714eca4dbcc",
+      "sha256": "18b4835c2f074f7dc9148deb0943a078081df19dcded46b55c753a5f409284e2",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.01691093573844,
+          101.29875986471251,
+          404.7440811724915,
+          137.08680947012402
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.01691093573844,
+          149.3889515219842,
+          404.7440811724915,
+          163.92784667418263
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.302142051860187
       }
     },
     {
@@ -11657,7 +11605,7 @@
         256,
         32
       ],
-      "source_sha256": "08a9014c01c0fc3a0c6a1086e1af478258096ec7e1f2b541db050fa18987ae1e",
+      "source_sha256": "505fec452c1bedfc3bdd76eb0e09e04a2bcb14c058841fda8d3f36e66d75d3e9",
       "alphaBounds": [
         0,
         0,
@@ -11672,10 +11620,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_demonhunter.png",
-          "sha256": "04dcf3580312ddfdac4d73d1a875b52c3abd001d01bc5320640dfd5d03bb83d9"
+          "sha256": "28bc95445b98f62bd102b97301604cbaa52770a6e7355564ab5eacf88fe92e54"
         }
       ],
-      "sha256": "faea9210847225012f1bdb927b7def06a96b8e86d7c6faf15c310bc797914924"
+      "sha256": "3c01725ed749f1130a8fe9ce9fbae60df89caaeedc3cd9ef8360397f101659a4"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_demonhunter-power.tga",
@@ -11684,7 +11632,7 @@
         256,
         32
       ],
-      "source_sha256": "09379c0ff2911d3d694c6b1c82adf3c7f14c42cb13f9dda73d0302876d73d31c",
+      "source_sha256": "325e0d63c0d92b38932f77592bcdc9f853e6b6d236b455aedc8ea6c2e8eb325c",
       "alphaBounds": [
         0,
         0,
@@ -11699,10 +11647,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_demonhunter.png",
-          "sha256": "04dcf3580312ddfdac4d73d1a875b52c3abd001d01bc5320640dfd5d03bb83d9"
+          "sha256": "28bc95445b98f62bd102b97301604cbaa52770a6e7355564ab5eacf88fe92e54"
         }
       ],
-      "sha256": "5967a60dea272254baabe4d539d6e0e3b8480e3c5842f952ba7e1fb52b1ef053"
+      "sha256": "c5510c976304c14877e0eb352e2a836d7061ea9ba43e1a4b9490ce879b88ea25"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_evoker.tga",
@@ -11711,11 +11659,11 @@
         512,
         256
       ],
-      "source_sha256": "25f23375f3665c5ac2eceecb61f683ca6e7650d6188efbf8eafcac7732957100",
+      "source_sha256": "5afab4bdcbe1615063e3ff8c9c2eff0779fa8f7fa0fbe67b81b516baa30b44be",
       "alphaBounds": [
-        7,
-        8,
-        506,
+        9,
+        9,
+        504,
         248
       ],
       "kind": "unit-shell",
@@ -11726,38 +11674,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_evoker.png",
-          "sha256": "25f23375f3665c5ac2eceecb61f683ca6e7650d6188efbf8eafcac7732957100"
+          "sha256": "5afab4bdcbe1615063e3ff8c9c2eff0779fa8f7fa0fbe67b81b516baa30b44be"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "897738a850864a38e99d762f6519d95779b66612343b5ff59a3fa8b7d0c26b0b",
+      "sha256": "736296a6d84c45755c1166b9f5c1b45d0e5771866e84e3878442a2b038445e04",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          82.37204058624577,
+          103.815107102593,
+          402.5073280721533,
+          137.92559188275084
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          82.37204058624577,
+          151.62570462232244,
+          402.5073280721533,
+          164.20744081172492
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 13.700112739571608
       }
     },
     {
@@ -11767,7 +11710,7 @@
         256,
         32
       ],
-      "source_sha256": "8af49e08ccef017a2c03d81c58fed7f560ab09395f49848eed7de4f042e274ac",
+      "source_sha256": "eeea0dce4797b615406840cb2aa3baa2f08c0985e99f9490fe893d4b32a1ff4a",
       "alphaBounds": [
         0,
         0,
@@ -11782,10 +11725,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_evoker.png",
-          "sha256": "25f23375f3665c5ac2eceecb61f683ca6e7650d6188efbf8eafcac7732957100"
+          "sha256": "5afab4bdcbe1615063e3ff8c9c2eff0779fa8f7fa0fbe67b81b516baa30b44be"
         }
       ],
-      "sha256": "f8ac9b044d8ec5fc734717ed56b32008e266bed1387e5dbe7fbb72bbec591715"
+      "sha256": "a26b6a8a98940cbc72a9a02cbd254862f2828c2df7e72d0643ed05d09ea6ccc4"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/class_evoker-power.tga",
@@ -11794,7 +11737,7 @@
         256,
         32
       ],
-      "source_sha256": "6622c626498fef3ed5757f2c4af3666ffb9f7eacba9f78c294acc0724774a128",
+      "source_sha256": "9a8aeb29c02ac7f192edc584de113d1b1ee6de02bac3f39a3462803b11e88c41",
       "alphaBounds": [
         0,
         0,
@@ -11809,10 +11752,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/class_evoker.png",
-          "sha256": "25f23375f3665c5ac2eceecb61f683ca6e7650d6188efbf8eafcac7732957100"
+          "sha256": "5afab4bdcbe1615063e3ff8c9c2eff0779fa8f7fa0fbe67b81b516baa30b44be"
         }
       ],
-      "sha256": "79c511910e351ea72befc744371bae2ae676ff75d4d689c9be737a3b975c8561"
+      "sha256": "1199f0d34dec33e1e75767e1e74e732dc5c7268cce3f6507b1c632645aacba1f"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_human.tga",
@@ -11821,12 +11764,12 @@
         512,
         256
       ],
-      "source_sha256": "7fcd08a345e4068ec2bd95a986e59b56022c191ad063532b409edced4e2d1851",
+      "source_sha256": "03e3209f7cc3c9b1807eebebcb5a32bfacccad87b2e67746636ec485410bd2a8",
       "alphaBounds": [
+        10,
         8,
-        7,
-        505,
-        249
+        503,
+        250
       ],
       "kind": "unit-shell",
       "references": [
@@ -11836,38 +11779,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_human.png",
-          "sha256": "7fcd08a345e4068ec2bd95a986e59b56022c191ad063532b409edced4e2d1851"
+          "sha256": "03e3209f7cc3c9b1807eebebcb5a32bfacccad87b2e67746636ec485410bd2a8"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "bc5c7648c78e833ed9b2d15ca4c4f3534874d45d9d560732863e318272150760",
+      "sha256": "c1378d4b8869e84d9080f29db171d01e79a1d1f06ba18141fb1c0a42dec50a79",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          87.68432919954904,
+          102.41713641488163,
+          404.184892897407,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          87.68432919954904,
+          150.22773393461105,
+          404.184892897407,
+          164.76662908680947
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.742953776775664
       }
     },
     {
@@ -11877,7 +11815,7 @@
         256,
         32
       ],
-      "source_sha256": "55f22c1c5c51c37347e6a8f31986cc64a4c321c98b84aeaa5322dd616204e70c",
+      "source_sha256": "9da3a101a303fc7a8622de27e254189be5c1fb99b3274b5b1465997adcb957ac",
       "alphaBounds": [
         0,
         0,
@@ -11892,10 +11830,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_human.png",
-          "sha256": "7fcd08a345e4068ec2bd95a986e59b56022c191ad063532b409edced4e2d1851"
+          "sha256": "03e3209f7cc3c9b1807eebebcb5a32bfacccad87b2e67746636ec485410bd2a8"
         }
       ],
-      "sha256": "e0ce370f15771f0ef17c65be8c3ead47f9a6c38fcea6259dcf23e197b1596c9e"
+      "sha256": "b750ac8d4e4f1747f167b30951e49ab7b3981e1f145f1594a68a10ab77e30791"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_human-power.tga",
@@ -11904,7 +11842,7 @@
         256,
         32
       ],
-      "source_sha256": "7eca31c9f3e08f31d569accec628e93133972a54114862e249bf9e8d949be620",
+      "source_sha256": "f4404564244bab78920587db5ab456f2af3b83c3a9f909ca5958d37966115167",
       "alphaBounds": [
         0,
         0,
@@ -11919,10 +11857,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_human.png",
-          "sha256": "7fcd08a345e4068ec2bd95a986e59b56022c191ad063532b409edced4e2d1851"
+          "sha256": "03e3209f7cc3c9b1807eebebcb5a32bfacccad87b2e67746636ec485410bd2a8"
         }
       ],
-      "sha256": "d589febd129da58c926e9f8371122eaabc2073749cbfe56413d476d78f999952"
+      "sha256": "ca453be0eb8fcab015aeb0f86e1c2478f225fb729a05cc73c9a3fcd9350a03fd"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_dwarf.tga",
@@ -11931,11 +11869,11 @@
         512,
         256
       ],
-      "source_sha256": "c7d2361b300ff7d9a15fdf9a42143c9ada3408876f2e491fa0e6a81aa960b230",
+      "source_sha256": "59af5b8c6cbb302e6ea9fdc857af8c397975d5ecc1d1989855f26fd5208169f2",
       "alphaBounds": [
-        7,
-        12,
-        507,
+        9,
+        16,
+        504,
         241
       ],
       "kind": "unit-shell",
@@ -11946,38 +11884,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dwarf.png",
-          "sha256": "c7d2361b300ff7d9a15fdf9a42143c9ada3408876f2e491fa0e6a81aa960b230"
+          "sha256": "59af5b8c6cbb302e6ea9fdc857af8c397975d5ecc1d1989855f26fd5208169f2"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "370380867880cc94757840e8ca4e6e1a42d8e9de78ff626dd93f22b04cb6d83d",
+      "sha256": "4b36a871b89601db48a9fc595dc848f6dc9c1cd2b985e765accd6918f5a70ac4",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          84.04960541149944,
+          99.34160090191658,
+          398.8726042841037,
+          134.57046223224353
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          84.04960541149944,
+          149.3889515219842,
+          398.8726042841037,
+          164.48703494926718
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 14.818489289740683
       }
     },
     {
@@ -11987,7 +11920,7 @@
         256,
         32
       ],
-      "source_sha256": "72f6082fb54a1697575f7d75b0e99abc9446f2e552466d0b9cf174d42c368035",
+      "source_sha256": "8b40f24c4378ae5c2182ac25724f171fec7b759dcb9695d99b21aae9b3d5a77e",
       "alphaBounds": [
         0,
         0,
@@ -12002,10 +11935,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dwarf.png",
-          "sha256": "c7d2361b300ff7d9a15fdf9a42143c9ada3408876f2e491fa0e6a81aa960b230"
+          "sha256": "59af5b8c6cbb302e6ea9fdc857af8c397975d5ecc1d1989855f26fd5208169f2"
         }
       ],
-      "sha256": "cb0e69bd75d0e47222a240f6066236076c5c0d66f2f16f28f5202047f7bc17c6"
+      "sha256": "43afbf46712a86a83799715aab6cc18556ef4a0c0bfacffad3f1d5ccdaf9f080"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_dwarf-power.tga",
@@ -12014,7 +11947,7 @@
         256,
         32
       ],
-      "source_sha256": "141493e724ae77e5cd150058d6397648f0414f799460ab90458383a83dd4211e",
+      "source_sha256": "dc97c3979e03a1e03d23965953d0b6dd8e8d811841b7420af8b68e3382274c5d",
       "alphaBounds": [
         0,
         0,
@@ -12029,10 +11962,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dwarf.png",
-          "sha256": "c7d2361b300ff7d9a15fdf9a42143c9ada3408876f2e491fa0e6a81aa960b230"
+          "sha256": "59af5b8c6cbb302e6ea9fdc857af8c397975d5ecc1d1989855f26fd5208169f2"
         }
       ],
-      "sha256": "94f97d65cc9c7cc7001b6070ff93e56d86f76b2f76d0dc624a9a21800f35a90c"
+      "sha256": "580534277daf9d11987e662f69c749f63f5936e88bed4eaee57203a0ff995b78"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_nightelf.tga",
@@ -12041,12 +11974,12 @@
         512,
         256
       ],
-      "source_sha256": "10fb2d314c70d995a362142e126584a43ad4e34d8980f3406cd7bf0055628825",
+      "source_sha256": "bcc11b58be7ef127ca06ebec5e22c57c52f6644c8bcfd114450edb25eaf7b6f1",
       "alphaBounds": [
-        8,
+        10,
         6,
-        505,
-        249
+        503,
+        250
       ],
       "kind": "unit-shell",
       "references": [
@@ -12056,38 +11989,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-          "sha256": "10fb2d314c70d995a362142e126584a43ad4e34d8980f3406cd7bf0055628825"
+          "sha256": "bcc11b58be7ef127ca06ebec5e22c57c52f6644c8bcfd114450edb25eaf7b6f1"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "56fb5c047fa8c31cb452570d67ea3c5d97372ed15f2bc25a1c69d2b8ddd43222",
+      "sha256": "640ae86de56a591b6c1af7e6265c8f6b25202148704927d0024c6da877c40f07",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.41713641488163,
+          404.7440811724915,
+          138.20518602029313
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          149.94813979706876,
+          404.7440811724915,
+          165.04622322435173
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.742953776775636
       }
     },
     {
@@ -12097,7 +12025,7 @@
         256,
         32
       ],
-      "source_sha256": "3e57449fffca5c8eaf84b3a8b88b8174ae9374eb24dfa67892289a1777ce36b5",
+      "source_sha256": "8eaf96ba0dc587d9c2c35b4bcb4c08a2136183f0b27deeae2ccfb55755ff22a2",
       "alphaBounds": [
         0,
         0,
@@ -12112,10 +12040,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-          "sha256": "10fb2d314c70d995a362142e126584a43ad4e34d8980f3406cd7bf0055628825"
+          "sha256": "bcc11b58be7ef127ca06ebec5e22c57c52f6644c8bcfd114450edb25eaf7b6f1"
         }
       ],
-      "sha256": "97632269e7ec7258159bd2082b25c3adefcf77dad3babe5dfe6bdf2b504fa8ea"
+      "sha256": "4a9765fdc62dec398b3d9b291528253b980b34a284feaf165c69da35988ee160"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_nightelf-power.tga",
@@ -12124,7 +12052,7 @@
         256,
         32
       ],
-      "source_sha256": "0cda9fd878fe752a967aa07743c1f55b7fb6ae971a3aa1a1476871a267d31bfc",
+      "source_sha256": "272a9d62fd593f3389821186e841fe6c0151046c9559085c973c4d0574f0f01f",
       "alphaBounds": [
         0,
         0,
@@ -12139,10 +12067,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-          "sha256": "10fb2d314c70d995a362142e126584a43ad4e34d8980f3406cd7bf0055628825"
+          "sha256": "bcc11b58be7ef127ca06ebec5e22c57c52f6644c8bcfd114450edb25eaf7b6f1"
         }
       ],
-      "sha256": "967f8f095d4effc0611e232aed7c2bcfbd3a4c881f240e678368befb677394f9"
+      "sha256": "8f46b58e094ae629b88bf5e13a401a44ed3f1b5897baf19d7f5441e8edc0f9f1"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_gnome.tga",
@@ -12151,12 +12079,12 @@
         512,
         256
       ],
-      "source_sha256": "0fa50f46bb9b79b47620da135740dafa66ece4e2c2ecd2deed396c88b957be9e",
+      "source_sha256": "27a19ccbd934fac8fce7acd6151bd1031492cd7bccb5a73bfbfbf58fc6a3ac6c",
       "alphaBounds": [
-        10,
-        10,
-        504,
-        245
+        12,
+        11,
+        501,
+        244
       ],
       "kind": "unit-shell",
       "references": [
@@ -12166,38 +12094,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_gnome.png",
-          "sha256": "0fa50f46bb9b79b47620da135740dafa66ece4e2c2ecd2deed396c88b957be9e"
+          "sha256": "27a19ccbd934fac8fce7acd6151bd1031492cd7bccb5a73bfbfbf58fc6a3ac6c"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "b3d710bc69bb3b938b1c148338037c22f31bdd0b8d35a99ab7fe07945675ef2e",
+      "sha256": "c3253bfce9710fd0be60a9b7ddf78113692fcfce95af0d8a7240255603de597a",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          75.38218714768884,
+          101.29875986471251,
+          405.3032694475761,
+          136.80721533258173
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          75.38218714768884,
+          148.2705749718151,
+          405.3032694475761,
+          163.36865839909808
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.463359639233374
       }
     },
     {
@@ -12207,7 +12130,7 @@
         256,
         32
       ],
-      "source_sha256": "888872acaa53f3162891984f14978ff3143eefe5a8b25571d192ec5a1863e53c",
+      "source_sha256": "601d4f5c4179419c38ce8184f8d05f8098ab3bde4ade36b9bd9a73d3f986263f",
       "alphaBounds": [
         0,
         0,
@@ -12222,10 +12145,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_gnome.png",
-          "sha256": "0fa50f46bb9b79b47620da135740dafa66ece4e2c2ecd2deed396c88b957be9e"
+          "sha256": "27a19ccbd934fac8fce7acd6151bd1031492cd7bccb5a73bfbfbf58fc6a3ac6c"
         }
       ],
-      "sha256": "50d8cf07d6e739ff4d16ec5919115238408403dea51e7baa388bcf1eb26fff45"
+      "sha256": "8fca0d2b0229963eb2fd776aa65e258ecfd52ddc2380001461dc8abcdb009860"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_gnome-power.tga",
@@ -12234,7 +12157,7 @@
         256,
         32
       ],
-      "source_sha256": "b8b48423cca1d6171add3f26973e2b242bb6a29fbd8ab8cb07f9ed7e3262765f",
+      "source_sha256": "4ae199c469e1e57ef7f3f4085980f1d4d35c24fd7d736c145439b8b4deee5f35",
       "alphaBounds": [
         0,
         0,
@@ -12249,10 +12172,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_gnome.png",
-          "sha256": "0fa50f46bb9b79b47620da135740dafa66ece4e2c2ecd2deed396c88b957be9e"
+          "sha256": "27a19ccbd934fac8fce7acd6151bd1031492cd7bccb5a73bfbfbf58fc6a3ac6c"
         }
       ],
-      "sha256": "e3c84540ccaa802d1e0eafc7c55568b681dc545f077d2bd45cf8b746fa001da9"
+      "sha256": "f7cacdc6edb0cb1d9193a6932c77ab345661060907bf3e96560d0579d81bb0a5"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_draenei.tga",
@@ -12261,11 +12184,11 @@
         512,
         256
       ],
-      "source_sha256": "70ed4d881b9f7007957924fd74a36b3bb802d26507b79e9cab8c726169f09204",
+      "source_sha256": "1f71325c364190b021ab7fb1757baf419752e648d3f40ff404c0843d66b54c04",
       "alphaBounds": [
-        7,
-        8,
-        506,
+        9,
+        9,
+        504,
         248
       ],
       "kind": "unit-shell",
@@ -12276,38 +12199,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_draenei.png",
-          "sha256": "70ed4d881b9f7007957924fd74a36b3bb802d26507b79e9cab8c726169f09204"
+          "sha256": "1f71325c364190b021ab7fb1757baf419752e648d3f40ff404c0843d66b54c04"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "889beb1470917969c35fd626eba9735120c64e30b220eef581e73658e908532a",
+      "sha256": "db29383ad3d62af89aa8a1fa14508b16f609d1779275a6e0892ee9cea96d0498",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.29650507328073,
+          102.6967305524239,
+          404.7440811724915,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.29650507328073,
+          150.5073280721533,
+          404.7440811724915,
+          165.04622322435173
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -12317,7 +12235,7 @@
         256,
         32
       ],
-      "source_sha256": "3f2ad921f3ebde683e6360e43569b9481433dea76546684a211fb2b1279ddfde",
+      "source_sha256": "e5f0631737ce7ae0d0f984f42f4f784bcbf2a17c0526ecda94f085a640d44d17",
       "alphaBounds": [
         0,
         0,
@@ -12332,10 +12250,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_draenei.png",
-          "sha256": "70ed4d881b9f7007957924fd74a36b3bb802d26507b79e9cab8c726169f09204"
+          "sha256": "1f71325c364190b021ab7fb1757baf419752e648d3f40ff404c0843d66b54c04"
         }
       ],
-      "sha256": "3c4b38c38bfaa81126830c9989597b0ce59fa5f3d54d3ba9507a01e0a9c7cb7b"
+      "sha256": "e550dac9bdffd35fb49009541d7d0bd4671c4b18a2e6294ed2643ceb972591cc"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_draenei-power.tga",
@@ -12344,7 +12262,7 @@
         256,
         32
       ],
-      "source_sha256": "9f243aee981e9698c2cdc7c72ce58215c955ed6e47816a929243eb0345691ca4",
+      "source_sha256": "6c6efa0c615c54c373c9bd1d470b9162e476c0c9a004df2d298c7f11b52b1f11",
       "alphaBounds": [
         0,
         0,
@@ -12359,10 +12277,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_draenei.png",
-          "sha256": "70ed4d881b9f7007957924fd74a36b3bb802d26507b79e9cab8c726169f09204"
+          "sha256": "1f71325c364190b021ab7fb1757baf419752e648d3f40ff404c0843d66b54c04"
         }
       ],
-      "sha256": "fde2940345413fada21535e33182899b27d3135b6a9cb2ed27e09bc6f7f0f1b1"
+      "sha256": "42d7657c573aed1a4d054f3474df1c9bb43bd451f9b8613ef6f6014e1c41cac0"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_worgen.tga",
@@ -12371,12 +12289,12 @@
         512,
         256
       ],
-      "source_sha256": "5dfcad21d7f5fb902f5330ab5ade1cfb95af3d316d77b015c916047b6167cf58",
+      "source_sha256": "dc5a46c4b259790ead1780749c386554717db4f3098b2432268bc817cc063412",
       "alphaBounds": [
+        8,
         4,
-        5,
-        507,
-        250
+        504,
+        252
       ],
       "kind": "unit-shell",
       "references": [
@@ -12386,38 +12304,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_worgen.png",
-          "sha256": "5dfcad21d7f5fb902f5330ab5ade1cfb95af3d316d77b015c916047b6167cf58"
+          "sha256": "dc5a46c4b259790ead1780749c386554717db4f3098b2432268bc817cc063412"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "9d66353d8ebb34222f8ab8396ab9fc91928520c81be7476ab060da115aaeb002",
+      "sha256": "f86ac4d43722c875bd7417169c44ac83b776a7bc62aac5617d503da7c2800b58",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.01691093573844,
+          102.13754227733935,
+          412.293122886133,
+          137.92559188275084
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.01691093573844,
+          149.6685456595265,
+          412.293122886133,
+          164.20744081172492
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.742953776775664
       }
     },
     {
@@ -12427,7 +12340,7 @@
         256,
         32
       ],
-      "source_sha256": "ce2893c6634145c0e290474b6156d753256d2ec0310c62bd41f061ee85933529",
+      "source_sha256": "dcc5ab03e7d08aae8eae81e5f98afa1b3c8702e24df2aa2871180f35c9773a07",
       "alphaBounds": [
         0,
         0,
@@ -12442,10 +12355,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_worgen.png",
-          "sha256": "5dfcad21d7f5fb902f5330ab5ade1cfb95af3d316d77b015c916047b6167cf58"
+          "sha256": "dc5a46c4b259790ead1780749c386554717db4f3098b2432268bc817cc063412"
         }
       ],
-      "sha256": "12fe359006bdb3171587fda151c9d13c55d164c9872704e44134c32b626a448a"
+      "sha256": "38adaf996f28bd7752b2637de3d40529a25d06da7d1af56ae33686f48f849047"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_worgen-power.tga",
@@ -12454,7 +12367,7 @@
         256,
         32
       ],
-      "source_sha256": "2b3482b187dc1ddac4770d4641fa935ec7299d14a28a74d5725ab5cbacb1ae69",
+      "source_sha256": "5ad3c4daec84d64dd385a9f08c9ea75fa0cfcb23af9b0b29cf5c82d10783c405",
       "alphaBounds": [
         0,
         0,
@@ -12469,10 +12382,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_worgen.png",
-          "sha256": "5dfcad21d7f5fb902f5330ab5ade1cfb95af3d316d77b015c916047b6167cf58"
+          "sha256": "dc5a46c4b259790ead1780749c386554717db4f3098b2432268bc817cc063412"
         }
       ],
-      "sha256": "14920d0ac0291d0b6687a277cc9a2b284d70375a0f9c2c55a51c78a365b1ea97"
+      "sha256": "12f5b19559374496ba3b1e1911ae0e8fe05a47759016cd630de8431eb42fba3a"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_orc.tga",
@@ -12481,12 +12394,12 @@
         512,
         256
       ],
-      "source_sha256": "87d9c4b4b44f77fbad9e6bfeb767987ea6ae8b49642fa6b94e37df1607935953",
+      "source_sha256": "95bc8c554e198f4c7793053efd556ed878fd658ce0950d9ef825abeaf1bbd9d0",
       "alphaBounds": [
-        8,
-        6,
-        505,
-        250
+        10,
+        5,
+        502,
+        251
       ],
       "kind": "unit-shell",
       "references": [
@@ -12496,38 +12409,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_orc.png",
-          "sha256": "87d9c4b4b44f77fbad9e6bfeb767987ea6ae8b49642fa6b94e37df1607935953"
+          "sha256": "95bc8c554e198f4c7793053efd556ed878fd658ce0950d9ef825abeaf1bbd9d0"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "21a1e7421d1fa091de70036113a8f2892bd106861ce469bb604b049a72c02caf",
+      "sha256": "f92ca4bced37a48876906f15068df5efed48afceb8b35ea014664851f2f651d9",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.13754227733935,
+          404.4644870349493,
+          137.08680947012402
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          150.22773393461105,
+          404.4644870349493,
+          161.41149943630214
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 13.140924464487028
       }
     },
     {
@@ -12537,7 +12445,7 @@
         256,
         32
       ],
-      "source_sha256": "fdbf71683da8b586a14d0dcd5337c82c7ec87acc6f0f0e4c06f0dbaf55397dd4",
+      "source_sha256": "ee3fa5f8247828cb1d2bb274014b9650ab477e0f533b7a1f0fa859750ebc8c5f",
       "alphaBounds": [
         0,
         0,
@@ -12552,10 +12460,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_orc.png",
-          "sha256": "87d9c4b4b44f77fbad9e6bfeb767987ea6ae8b49642fa6b94e37df1607935953"
+          "sha256": "95bc8c554e198f4c7793053efd556ed878fd658ce0950d9ef825abeaf1bbd9d0"
         }
       ],
-      "sha256": "27f653795217ab66f17ea5495e451f17ebda02d3815ef61be5d2c33013d21eb9"
+      "sha256": "4dd3f9d6bbcd17d84e68ee736587b1fbb2229d08f25b5a9e3843326e19a60ca4"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_orc-power.tga",
@@ -12564,7 +12472,7 @@
         256,
         32
       ],
-      "source_sha256": "d8e7dfdc89c652688b9abcb930e803cd7cb7eb8757f2433ca153ca379c7bcb08",
+      "source_sha256": "057ab9793f07b6d7a9902696aa289fd0cb76d0fea6b7f2ab8956bf68dbc57ebb",
       "alphaBounds": [
         0,
         0,
@@ -12579,10 +12487,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_orc.png",
-          "sha256": "87d9c4b4b44f77fbad9e6bfeb767987ea6ae8b49642fa6b94e37df1607935953"
+          "sha256": "95bc8c554e198f4c7793053efd556ed878fd658ce0950d9ef825abeaf1bbd9d0"
         }
       ],
-      "sha256": "59b4c264a09550e544087399224b1c8efac97cc53f6d1e49bada8bb04483b9ef"
+      "sha256": "b8b2e6c468c9adc1cd305d59cb64f88b83b744b21d019451024f933ce3595433"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_scourge.tga",
@@ -12591,12 +12499,12 @@
         512,
         256
       ],
-      "source_sha256": "b44e122bbcba3724ba549df6c0bd0ffad9610015fa2fd6d123753f4c707c68a2",
+      "source_sha256": "60cd09c32a54c1832fb1e901588093a96ff1159a0fa3ecaeb6751118d0b597a5",
       "alphaBounds": [
-        7,
-        6,
-        506,
-        250
+        9,
+        4,
+        504,
+        252
       ],
       "kind": "unit-shell",
       "references": [
@@ -12606,38 +12514,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_scourge.png",
-          "sha256": "b44e122bbcba3724ba549df6c0bd0ffad9610015fa2fd6d123753f4c707c68a2"
+          "sha256": "60cd09c32a54c1832fb1e901588093a96ff1159a0fa3ecaeb6751118d0b597a5"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "bdd32a8e43c19a49c4f4a3d58d89428f3a935382bb9ba2c22278be3fff666433",
+      "sha256": "41bbb011d07a5647e10123f670e07480c0f82904af6d82ae106a7062c0b74090",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.85569334836528,
+          102.6967305524239,
+          404.4644870349493,
+          138.76437429537768
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.85569334836528,
+          150.5073280721533,
+          404.4644870349493,
+          165.32581736189402
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.742953776775636
       }
     },
     {
@@ -12647,7 +12550,7 @@
         256,
         32
       ],
-      "source_sha256": "0dd8c19cb46b7a01f4eff3bf62fca6c8a4dd2efb78be076b1cefec67f78abf39",
+      "source_sha256": "b891ef689dc775c0380c0ca28b3aa94b84d15fb25687fda31548c1c9fc31200d",
       "alphaBounds": [
         0,
         0,
@@ -12662,10 +12565,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_scourge.png",
-          "sha256": "b44e122bbcba3724ba549df6c0bd0ffad9610015fa2fd6d123753f4c707c68a2"
+          "sha256": "60cd09c32a54c1832fb1e901588093a96ff1159a0fa3ecaeb6751118d0b597a5"
         }
       ],
-      "sha256": "34a3bc027e7e8ab55948bc509e100005038fc2d50efbc793318ad7f28c62d473"
+      "sha256": "808585f950736b5d68a97523915602635752477c72c28a033a5a84f2f01ad0bd"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_scourge-power.tga",
@@ -12674,7 +12577,7 @@
         256,
         32
       ],
-      "source_sha256": "fb761411960f63b4ac096dcd84287cfce94ecb7e480ea8b4c1c314288a9a199c",
+      "source_sha256": "dd382d97cb96d7972bb160a479293d8023f3a475b074b3717a96b0e2952f82a0",
       "alphaBounds": [
         0,
         0,
@@ -12689,10 +12592,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_scourge.png",
-          "sha256": "b44e122bbcba3724ba549df6c0bd0ffad9610015fa2fd6d123753f4c707c68a2"
+          "sha256": "60cd09c32a54c1832fb1e901588093a96ff1159a0fa3ecaeb6751118d0b597a5"
         }
       ],
-      "sha256": "805bb666ef8dee2897eee0baab9a5989fa2a5b5b3fb3c3b4966638492d973cac"
+      "sha256": "b0cc9c7eccf34e4772f1362dfc18b14e4f6fbf83cdb38f58207ba201af243427"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_tauren.tga",
@@ -12701,12 +12604,12 @@
         512,
         256
       ],
-      "source_sha256": "a70fa95c04f7dc11e5d80d36b419f1c624a849dd07228b96f7509d6fa23a255d",
+      "source_sha256": "08ea3704a89980326c71773746c07c1ddd90442e8734a86840744a0ca5227d19",
       "alphaBounds": [
-        10,
         12,
-        505,
-        247
+        15,
+        502,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -12716,38 +12619,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_tauren.png",
-          "sha256": "a70fa95c04f7dc11e5d80d36b419f1c624a849dd07228b96f7509d6fa23a255d"
+          "sha256": "08ea3704a89980326c71773746c07c1ddd90442e8734a86840744a0ca5227d19"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "7adbe9436bbfdb62fa6bf93f7939f7dcd6e856b854d02c54ba20d29c0b26a0ae",
+      "sha256": "3dd7218d193e6183c819f24174314a002ba48f832435bce334890ff69f6b7e2e",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.29650507328073,
+          102.41713641488163,
+          398.0338218714769,
+          137.36640360766629
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.29650507328073,
+          149.94813979706876,
+          398.0338218714769,
+          164.48703494926718
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.581736189402477
       }
     },
     {
@@ -12757,7 +12655,7 @@
         256,
         32
       ],
-      "source_sha256": "884f59e99b7efdd95687a1316bd6a64254d192e168417c87fa1111f38aa395cc",
+      "source_sha256": "43a11360547a814171a292bbe40f0e4f5e4ccc0b801a4b6f5d930c0e74931d0a",
       "alphaBounds": [
         0,
         0,
@@ -12772,10 +12670,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_tauren.png",
-          "sha256": "a70fa95c04f7dc11e5d80d36b419f1c624a849dd07228b96f7509d6fa23a255d"
+          "sha256": "08ea3704a89980326c71773746c07c1ddd90442e8734a86840744a0ca5227d19"
         }
       ],
-      "sha256": "1eb1dee9949679a13bf95cc64518abc662045f008c8d8729f7fb61798e4b542f"
+      "sha256": "9f30c8c6fe5473ad51f54327a0bba0df4b874c5be84d4f3ed1844decf7d4cb1d"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_tauren-power.tga",
@@ -12784,7 +12682,7 @@
         256,
         32
       ],
-      "source_sha256": "b9d78fdbf08516119197682d93a3ecc51254a19116c276559094ba03dada22bc",
+      "source_sha256": "8614b2d61fd6c4152256b770554def00ef19c434b8748f56aebd44e1baa6eae1",
       "alphaBounds": [
         0,
         0,
@@ -12799,10 +12697,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_tauren.png",
-          "sha256": "a70fa95c04f7dc11e5d80d36b419f1c624a849dd07228b96f7509d6fa23a255d"
+          "sha256": "08ea3704a89980326c71773746c07c1ddd90442e8734a86840744a0ca5227d19"
         }
       ],
-      "sha256": "f970ac908da34a164da77454d7616afb6941f4b83dfccc63a6a1012a2b18cc08"
+      "sha256": "078f835f2df8dd0fef7067accab32af40d61aa751227469d938b6490fbfa9037"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_troll.tga",
@@ -12811,12 +12709,12 @@
         512,
         256
       ],
-      "source_sha256": "c76b57406bfce2a2a79385ff22b7355cf1151624735c30d12d5dcff87d82ddf8",
+      "source_sha256": "c19354a20e9d85dc80b151caa3b5718799d199384d932ecfd8cdae1b5ae1502b",
       "alphaBounds": [
-        8,
-        5,
-        507,
-        251
+        10,
+        4,
+        504,
+        252
       ],
       "kind": "unit-shell",
       "references": [
@@ -12826,38 +12724,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_troll.png",
-          "sha256": "c76b57406bfce2a2a79385ff22b7355cf1151624735c30d12d5dcff87d82ddf8"
+          "sha256": "c19354a20e9d85dc80b151caa3b5718799d199384d932ecfd8cdae1b5ae1502b"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "d82bf034d9e8570ebd8c9b300810821ada21707ca04d98d5fc625548fcc3ec06",
+      "sha256": "6761e9cf0703a58472ecfd96d9b3ed3e08aadde33b6075fd357a2775701d55c1",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.85569334836528,
+          102.97632468996618,
+          404.7440811724915,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.85569334836528,
+          150.7869222096956,
+          404.7440811724915,
+          165.32581736189402
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.302142051860216
       }
     },
     {
@@ -12867,7 +12760,7 @@
         256,
         32
       ],
-      "source_sha256": "0f6b096344793fcccf10acd21fc7d258561108762539b239e1be8336872ac717",
+      "source_sha256": "97dc0c0cdffc7b2a18dc02d2b5c57664047d7f1bdcceba1f38e97def25d24262",
       "alphaBounds": [
         0,
         0,
@@ -12882,10 +12775,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_troll.png",
-          "sha256": "c76b57406bfce2a2a79385ff22b7355cf1151624735c30d12d5dcff87d82ddf8"
+          "sha256": "c19354a20e9d85dc80b151caa3b5718799d199384d932ecfd8cdae1b5ae1502b"
         }
       ],
-      "sha256": "9d11c5f2f50922ca3bea08ea7af476846e6692ae7cbd4d3e68180b5039e70224"
+      "sha256": "150915ebec76c5812f3fdecab887a30da74b355141d12aed35438fe00ab2d7b5"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_troll-power.tga",
@@ -12894,7 +12787,7 @@
         256,
         32
       ],
-      "source_sha256": "23a21f02ad5787114d6a700c89bbb25d0de879153666f48ec181dbd38cce263a",
+      "source_sha256": "c2b543d550399a5c6b177bdc42a3afb6e1f7f7026aab7bb8b318d787c282b294",
       "alphaBounds": [
         0,
         0,
@@ -12909,10 +12802,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_troll.png",
-          "sha256": "c76b57406bfce2a2a79385ff22b7355cf1151624735c30d12d5dcff87d82ddf8"
+          "sha256": "c19354a20e9d85dc80b151caa3b5718799d199384d932ecfd8cdae1b5ae1502b"
         }
       ],
-      "sha256": "f43cab9ec2f836d2ed3af70bc8bb0ba73adb547d0cf72eb7d65d2e00432ad46a"
+      "sha256": "31b1d150df06d12993c803aec8ed09e81fc7d5ae6e26ca8c0a2fbf07cc00d822"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_bloodelf.tga",
@@ -12921,12 +12814,12 @@
         512,
         256
       ],
-      "source_sha256": "32ebc03e5c35883df5443c7a6a571ad792e0aced952c18a0efdf3742e0b51453",
+      "source_sha256": "94e63127d71bd1c0193a8c00e34dca9634ec30fc15818dbdfa9091088ebba96e",
       "alphaBounds": [
-        8,
-        6,
-        505,
-        247
+        10,
+        5,
+        502,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -12936,38 +12829,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_bloodelf.png",
-          "sha256": "32ebc03e5c35883df5443c7a6a571ad792e0aced952c18a0efdf3742e0b51453"
+          "sha256": "94e63127d71bd1c0193a8c00e34dca9634ec30fc15818dbdfa9091088ebba96e"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "d80b571c012a09c57759f6de05f457a96c123554275b1f52a4de7fcce69317b0",
+      "sha256": "3afd19a601962488cf1007da588393c95db8ba49a43b9378ae13aee20be61eb9",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.01691093573844,
+          102.13754227733935,
+          406.4216459977452,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.01691093573844,
+          150.5073280721533,
+          406.4216459977452,
+          165.88500563697858
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -12977,7 +12865,7 @@
         256,
         32
       ],
-      "source_sha256": "8dee632e97f600366b4ff8a84941584abf02311a92ae2a00f900e120e4d8ab5c",
+      "source_sha256": "cd58eb490bb6caadea4fe65e1a8717b84f75e6321eb0d83c4890615023b078a8",
       "alphaBounds": [
         0,
         0,
@@ -12992,10 +12880,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_bloodelf.png",
-          "sha256": "32ebc03e5c35883df5443c7a6a571ad792e0aced952c18a0efdf3742e0b51453"
+          "sha256": "94e63127d71bd1c0193a8c00e34dca9634ec30fc15818dbdfa9091088ebba96e"
         }
       ],
-      "sha256": "f4dc6a730bf124d815656eecf43f2781714e438e1ef36ad93c7039c7bdb1b47c"
+      "sha256": "85019bc1a6ba32acc5edb52411937b2f24461c600dcfc4e13d5e19278583db02"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_bloodelf-power.tga",
@@ -13004,7 +12892,7 @@
         256,
         32
       ],
-      "source_sha256": "297dcce17337c0a20be3e032ab2d18ded2836267f84db16b5e8794b9edb31aad",
+      "source_sha256": "efeaec90d64d7715688b2a4fab73a768a21b686293586aab2cd12c27376159b3",
       "alphaBounds": [
         0,
         0,
@@ -13019,10 +12907,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_bloodelf.png",
-          "sha256": "32ebc03e5c35883df5443c7a6a571ad792e0aced952c18a0efdf3742e0b51453"
+          "sha256": "94e63127d71bd1c0193a8c00e34dca9634ec30fc15818dbdfa9091088ebba96e"
         }
       ],
-      "sha256": "82c9ba6f3615ed4e5a0e5daede76bc613bd38b99a8e3dbe7e0cfbed107420788"
+      "sha256": "3a95b08a9a12e54ebe8f3ef0206991da71e1b54ad613028d0434e7be7c73426c"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_goblin.tga",
@@ -13031,11 +12919,11 @@
         512,
         256
       ],
-      "source_sha256": "6a71533175cfcc4164621269bc00054b55c6bb98f9e9d02cf58291d779d80b00",
+      "source_sha256": "e62c0e25039b4f6b074927a3798e538afb6104e3c44d6504fde7c916c4d0c9a6",
       "alphaBounds": [
+        10,
         8,
-        8,
-        506,
+        504,
         247
       ],
       "kind": "unit-shell",
@@ -13046,38 +12934,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_goblin.png",
-          "sha256": "6a71533175cfcc4164621269bc00054b55c6bb98f9e9d02cf58291d779d80b00"
+          "sha256": "e62c0e25039b4f6b074927a3798e538afb6104e3c44d6504fde7c916c4d0c9a6"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "3184bff8c0cadb9e88298f36f0ce6174a8fb3d9354a8a33b5bc142f758879c21",
+      "sha256": "2fd18025a82d5af481cd569540d1b66aa6a0adefcec9903714f20069ff8e0738",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          78.73731679819616,
+          102.6967305524239,
+          400.2705749718151,
+          137.92559188275084
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          78.73731679819616,
+          151.0665163472379,
+          400.2705749718151,
+          165.32581736189402
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 13.140924464487057
       }
     },
     {
@@ -13087,7 +12970,7 @@
         256,
         32
       ],
-      "source_sha256": "e99b524f16ffe19303957d8a00cd74440939d24a4dc22498fc4629316509193b",
+      "source_sha256": "f9885410721a3e74d860037414aaa164cc957b86baef3845c06ad193b4a3c775",
       "alphaBounds": [
         0,
         0,
@@ -13102,10 +12985,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_goblin.png",
-          "sha256": "6a71533175cfcc4164621269bc00054b55c6bb98f9e9d02cf58291d779d80b00"
+          "sha256": "e62c0e25039b4f6b074927a3798e538afb6104e3c44d6504fde7c916c4d0c9a6"
         }
       ],
-      "sha256": "edb65dae0ff3162bebceabc9a4e719637e25ef5b89afa2e74bd9708b1d81c30f"
+      "sha256": "7db46ac611d11d48a14fd55e6b4c66218c14e6c4ee7c0bceeeaead5924016258"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_goblin-power.tga",
@@ -13114,7 +12997,7 @@
         256,
         32
       ],
-      "source_sha256": "a0e9b5bac3c882159360214ea5d6a7339b2b14394280c8f85d8eb42a34b6ea8b",
+      "source_sha256": "2f5374243d23e5de3a06fcb806f8db7459ee6bb4884e096d13ae67ad08bd26ca",
       "alphaBounds": [
         0,
         0,
@@ -13129,10 +13012,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_goblin.png",
-          "sha256": "6a71533175cfcc4164621269bc00054b55c6bb98f9e9d02cf58291d779d80b00"
+          "sha256": "e62c0e25039b4f6b074927a3798e538afb6104e3c44d6504fde7c916c4d0c9a6"
         }
       ],
-      "sha256": "7e0e4dcdaa05a055cc41bf35675cbb7ad522990b06e11404d1bae9db5d525943"
+      "sha256": "c0cd23cb9b734e408d3beee086f1a877af5edb0b0464ac5222e816f10d582eff"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_pandaren.tga",
@@ -13141,12 +13024,12 @@
         512,
         256
       ],
-      "source_sha256": "7d9af04b07413c25a28f229d6f0a5155f36d3b852c3e3f85e2428f792171a779",
+      "source_sha256": "fe8adcebcd52a00a894b33912bc5d70d26089bbce421ac30a1a92046e1cc4793",
       "alphaBounds": [
-        6,
+        8,
         7,
-        507,
-        248
+        504,
+        249
       ],
       "kind": "unit-shell",
       "references": [
@@ -13156,38 +13039,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_pandaren.png",
-          "sha256": "7d9af04b07413c25a28f229d6f0a5155f36d3b852c3e3f85e2428f792171a779"
+          "sha256": "fe8adcebcd52a00a894b33912bc5d70d26089bbce421ac30a1a92046e1cc4793"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "96b58085c28655e8a3a9c39672cdd0d70e68c7db25f1d80dddc72e11329426c8",
+      "sha256": "f6905248072756fb56004a65f42dc897abbfa146a363e5c9d949abecf690b49f",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.29650507328073,
+          101.5783540022548,
+          404.7440811724915,
+          137.92559188275084
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.29650507328073,
+          149.94813979706876,
+          404.7440811724915,
+          164.76662908680947
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -13197,7 +13075,7 @@
         256,
         32
       ],
-      "source_sha256": "5b12c55d0be17d196c9154d3ed98492c338b0bc46e554dab2161501e16ea8818",
+      "source_sha256": "5b37be94626a92a1a1efb68a958968ef2ce2eb06f7891470e045cdf34fc49ef9",
       "alphaBounds": [
         0,
         0,
@@ -13212,10 +13090,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_pandaren.png",
-          "sha256": "7d9af04b07413c25a28f229d6f0a5155f36d3b852c3e3f85e2428f792171a779"
+          "sha256": "fe8adcebcd52a00a894b33912bc5d70d26089bbce421ac30a1a92046e1cc4793"
         }
       ],
-      "sha256": "55ef1e16e7e48c1689e34a7fd0286b019070d3e002a1d0ce6b6be4581f137937"
+      "sha256": "38e9f154a1888e8d0101c6e2aae2b8c1192c8a26aa059a26abf033df59a32449"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_pandaren-power.tga",
@@ -13224,7 +13102,7 @@
         256,
         32
       ],
-      "source_sha256": "42e8fb03d91d6c90c31d8a38365b5273eb575516dd9579a742c98fca9156f6bf",
+      "source_sha256": "c01c35dbb7f6d2301c68e82b3d69efdf62987a85e74ae1a9cced48a755dc9a8e",
       "alphaBounds": [
         0,
         0,
@@ -13239,10 +13117,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_pandaren.png",
-          "sha256": "7d9af04b07413c25a28f229d6f0a5155f36d3b852c3e3f85e2428f792171a779"
+          "sha256": "fe8adcebcd52a00a894b33912bc5d70d26089bbce421ac30a1a92046e1cc4793"
         }
       ],
-      "sha256": "1b69ca4b940f153411066fb9944317cb13603dd2e4fa269ddd6999d4222ee61f"
+      "sha256": "73347f98722d6334917d9cb3384729d795224bb6e5cbe9794fb1b3711a546275"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_dracthyr.tga",
@@ -13251,11 +13129,11 @@
         512,
         256
       ],
-      "source_sha256": "8dcbf60d2a6dece0b8f09bc606d0d3da68f39032ca17059b5c771c033eb4ecdd",
+      "source_sha256": "ec5ba7e16b20ba6a605fc5c6d8251c2a44d1c44f6343b3df08849b019926735a",
       "alphaBounds": [
-        6,
-        9,
-        505,
+        8,
+        11,
+        503,
         247
       ],
       "kind": "unit-shell",
@@ -13266,38 +13144,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dracthyr.png",
-          "sha256": "8dcbf60d2a6dece0b8f09bc606d0d3da68f39032ca17059b5c771c033eb4ecdd"
+          "sha256": "ec5ba7e16b20ba6a605fc5c6d8251c2a44d1c44f6343b3df08849b019926735a"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "3013e7f162edae7f179290d6e4ece15610ee032e035b9f2af3def761ada43b22",
+      "sha256": "8c7c1a46027b33dba3c3a4bdf54f545d17ddbbdf3dbe87b0e7a83115a8f67c74",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.6967305524239,
+          404.7440811724915,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          150.5073280721533,
+          404.7440811724915,
+          164.76662908680947
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -13307,7 +13180,7 @@
         256,
         32
       ],
-      "source_sha256": "e0cc8804a52f8d33ccd9d3595dd868079c279eba338683abf4a0216c597f0846",
+      "source_sha256": "7af4b1256ccd9f14a33487700996f04da1dabba60c4bbd46a4768f6ec7a99654",
       "alphaBounds": [
         0,
         0,
@@ -13322,10 +13195,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dracthyr.png",
-          "sha256": "8dcbf60d2a6dece0b8f09bc606d0d3da68f39032ca17059b5c771c033eb4ecdd"
+          "sha256": "ec5ba7e16b20ba6a605fc5c6d8251c2a44d1c44f6343b3df08849b019926735a"
         }
       ],
-      "sha256": "7a80fc3d25f6eaaf5f962eb1d598f887ac51d68a1a249dc2fbbf00fc3cc1d759"
+      "sha256": "84e39be4402ce4c760bb1459bf958982e11851a6ccdb9cd6709fa131ec6ca9e9"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_dracthyr-power.tga",
@@ -13334,7 +13207,7 @@
         256,
         32
       ],
-      "source_sha256": "50296c8342518bd49ea7f00da6360ca188e22dc1aa25e4ec758b72eb1b3e6c80",
+      "source_sha256": "bc791b5c256497d91ff41e7627322917c8d2539faacd51b2914a6e4686b93efb",
       "alphaBounds": [
         0,
         0,
@@ -13349,10 +13222,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_dracthyr.png",
-          "sha256": "8dcbf60d2a6dece0b8f09bc606d0d3da68f39032ca17059b5c771c033eb4ecdd"
+          "sha256": "ec5ba7e16b20ba6a605fc5c6d8251c2a44d1c44f6343b3df08849b019926735a"
         }
       ],
-      "sha256": "7fdef91a1b7defa9de4a571a0596c67564f937f0539cd308ba5248e9341cb371"
+      "sha256": "12724904483a431bae049cef06dfecccbec94097a64e9d7dae887f08d002786d"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_voidelf.tga",
@@ -13361,12 +13234,12 @@
         512,
         256
       ],
-      "source_sha256": "117e10f38a48e9442b747a93245fe789dc44f5a9fb5eb2b3634d6902ddf0d434",
+      "source_sha256": "d30f70b769a0e11c2599609fbfada49a635b1cf511a77871e844a11607e7eeff",
       "alphaBounds": [
-        6,
-        6,
-        506,
-        247
+        8,
+        5,
+        503,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -13376,38 +13249,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_voidelf.png",
-          "sha256": "117e10f38a48e9442b747a93245fe789dc44f5a9fb5eb2b3634d6902ddf0d434"
+          "sha256": "d30f70b769a0e11c2599609fbfada49a635b1cf511a77871e844a11607e7eeff"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "74f91b6f38c4d3adb29e03d5e865645d14c11e5fe2524a820b8805574d7ec36d",
+      "sha256": "bbc969b947095a38e1faa68314d77f732c447fdfa951a7bc37c8cfb3c8f2738c",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.41713641488163,
+          404.4644870349493,
+          137.92559188275084
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          150.22773393461105,
+          404.4644870349493,
+          164.48703494926718
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.302142051860216
       }
     },
     {
@@ -13417,7 +13285,7 @@
         256,
         32
       ],
-      "source_sha256": "7f9f83ee13518fb295522caa551ac7534ce27f5f54519fa78938b815f2e6d645",
+      "source_sha256": "368811b512972b05c87d2397f93ca1709a19f5fb11aeba9be978489c4620e771",
       "alphaBounds": [
         0,
         0,
@@ -13432,10 +13300,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_voidelf.png",
-          "sha256": "117e10f38a48e9442b747a93245fe789dc44f5a9fb5eb2b3634d6902ddf0d434"
+          "sha256": "d30f70b769a0e11c2599609fbfada49a635b1cf511a77871e844a11607e7eeff"
         }
       ],
-      "sha256": "3f02e5640f67c5598fd2866990235e56ef6be267237829f5299ad5c78af19d76"
+      "sha256": "2c43b0eee8ed90efc539143d71a42a691a001c695e475dea4106e992efcbdbc7"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_voidelf-power.tga",
@@ -13444,7 +13312,7 @@
         256,
         32
       ],
-      "source_sha256": "959c395140a8c2b1251366ac3e7c5eb506a8f81b4eb4740b7cea422958e205e5",
+      "source_sha256": "d42db8cf387ef1d4f7c057843943aa5bdacc00ecc833ddd0cd6903c73b10531d",
       "alphaBounds": [
         0,
         0,
@@ -13459,10 +13327,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_voidelf.png",
-          "sha256": "117e10f38a48e9442b747a93245fe789dc44f5a9fb5eb2b3634d6902ddf0d434"
+          "sha256": "d30f70b769a0e11c2599609fbfada49a635b1cf511a77871e844a11607e7eeff"
         }
       ],
-      "sha256": "4a92b064316edd19bfa0cdeac4e62bc1cbb66a12f7eac325cc712d4cb3cb32e5"
+      "sha256": "edd7aef47ca7c229ad631a6429d4efd51cb8b8c385eb02a60056993ab1d19c79"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_lightforgeddraenei.tga",
@@ -13471,11 +13339,11 @@
         512,
         256
       ],
-      "source_sha256": "80e4e712740ff4c291e5c88b9f807de8ac1c55ba01c7efc3f00186affae3f93f",
+      "source_sha256": "613d670cd7445e1e53a3b46a48f0aff1ce047304cc1e136951bf545d0f7ef9cb",
       "alphaBounds": [
-        7,
-        6,
-        504,
+        8,
+        4,
+        502,
         246
       ],
       "kind": "unit-shell",
@@ -13486,38 +13354,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_lightforgeddraenei.png",
-          "sha256": "80e4e712740ff4c291e5c88b9f807de8ac1c55ba01c7efc3f00186affae3f93f"
+          "sha256": "613d670cd7445e1e53a3b46a48f0aff1ce047304cc1e136951bf545d0f7ef9cb"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "349a7a479a96cdac274989c70638c885c2b633ccc2d3ca55e97f31e103a34907",
+      "sha256": "e8b7d38237c128b721354e8b205332b2c273d48d8861e036f25101f1880bbae6",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.85569334836528,
+          101.85794813979707,
+          404.7440811724915,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.85569334836528,
+          150.5073280721533,
+          404.7440811724915,
+          165.88500563697858
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -13527,7 +13390,7 @@
         256,
         32
       ],
-      "source_sha256": "9f5be1e9842de18bbc7de2938e874e7db5d147141b5117ab4c13fc4e51b1eaf6",
+      "source_sha256": "7e3d63fe9372aa8bfaf4b95934b9d9c545908dfd0d13c415dce0d610df1d3248",
       "alphaBounds": [
         0,
         0,
@@ -13542,10 +13405,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_lightforgeddraenei.png",
-          "sha256": "80e4e712740ff4c291e5c88b9f807de8ac1c55ba01c7efc3f00186affae3f93f"
+          "sha256": "613d670cd7445e1e53a3b46a48f0aff1ce047304cc1e136951bf545d0f7ef9cb"
         }
       ],
-      "sha256": "d295771af47ded1114963f51af2ae69108fac6d1381dc8b2b00ea8f3b82eef4c"
+      "sha256": "a1ba19cfc1f58f3fe473eb37a1d49ffa0061e1d18bba106af65870a8d39d7829"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_lightforgeddraenei-power.tga",
@@ -13554,7 +13417,7 @@
         256,
         32
       ],
-      "source_sha256": "00c5949cc74ee17fbdc63ce3126da1bf22e8577030f4c67ff7c9d143370dd8de",
+      "source_sha256": "ea6fb39d2700ba5bcffb89b010ac52203ba14a1fab15bbc7cc65077c5473e7ac",
       "alphaBounds": [
         0,
         0,
@@ -13569,10 +13432,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_lightforgeddraenei.png",
-          "sha256": "80e4e712740ff4c291e5c88b9f807de8ac1c55ba01c7efc3f00186affae3f93f"
+          "sha256": "613d670cd7445e1e53a3b46a48f0aff1ce047304cc1e136951bf545d0f7ef9cb"
         }
       ],
-      "sha256": "8dd3ce7cbbc9e45dab1d442a8299c76eccb740034cc177a8fbd9dfed845c95b8"
+      "sha256": "1a9ec7e627ef11d7308b5bc8e11e3733d95b47b363808b076c7dbb581f316578"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_darkirondwarf.tga",
@@ -13581,12 +13444,12 @@
         512,
         256
       ],
-      "source_sha256": "29fd37923b4f556d223db3a24d1aff061f8c88ca636cbdd8fcbe1e7f38cdda4c",
+      "source_sha256": "c92a7221b78d7bb86718c201f6f383e2fb3b474f3793265a095f3d23e2fe4d2a",
       "alphaBounds": [
+        9,
         7,
-        7,
-        504,
-        248
+        502,
+        249
       ],
       "kind": "unit-shell",
       "references": [
@@ -13596,38 +13459,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_darkirondwarf.png",
-          "sha256": "29fd37923b4f556d223db3a24d1aff061f8c88ca636cbdd8fcbe1e7f38cdda4c"
+          "sha256": "c92a7221b78d7bb86718c201f6f383e2fb3b474f3793265a095f3d23e2fe4d2a"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "426daa968f076f126a534542e474d14f5bd28b2151472421bfed074715577358",
+      "sha256": "fd07c3550313eee1e853f987c8383e1936aa9c1ef487763f87ff2a2fde2244a6",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.6967305524239,
+          404.4644870349493,
+          138.20518602029313
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          150.22773393461105,
+          404.4644870349493,
+          164.76662908680947
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -13637,7 +13495,7 @@
         256,
         32
       ],
-      "source_sha256": "c8bf62bb26ee92f6f74aa2b2eef3cd728bc0f3540e25a0effb6056b18c7cfa1b",
+      "source_sha256": "0a14b3cdf9b51aff6c19fa6c41b60b210b90b422038ea50bd20012d254244679",
       "alphaBounds": [
         0,
         0,
@@ -13652,10 +13510,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_darkirondwarf.png",
-          "sha256": "29fd37923b4f556d223db3a24d1aff061f8c88ca636cbdd8fcbe1e7f38cdda4c"
+          "sha256": "c92a7221b78d7bb86718c201f6f383e2fb3b474f3793265a095f3d23e2fe4d2a"
         }
       ],
-      "sha256": "423dc325ab4fa0caf1075d42bc25fb156eb3583ccb38e166a10273b11e6a9421"
+      "sha256": "9893f0fd694346cde56ae6e93a62b2bcc3fcee2e4bd68ba4fde034f0f8c3e491"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_darkirondwarf-power.tga",
@@ -13664,7 +13522,7 @@
         256,
         32
       ],
-      "source_sha256": "871638030c7e8438f60c538bb0cf50fc747baf3ac9efe7119c8a0af49c1568af",
+      "source_sha256": "4c182c089d0d71134a57da5f6ca6705ad17e18d2e2d9c15a6c5264f072942b5a",
       "alphaBounds": [
         0,
         0,
@@ -13679,10 +13537,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_darkirondwarf.png",
-          "sha256": "29fd37923b4f556d223db3a24d1aff061f8c88ca636cbdd8fcbe1e7f38cdda4c"
+          "sha256": "c92a7221b78d7bb86718c201f6f383e2fb3b474f3793265a095f3d23e2fe4d2a"
         }
       ],
-      "sha256": "77c8f9b1b95997df304b074168e7d003544ff83899b959da4a6e3bc44994badc"
+      "sha256": "9bab5ecca8aecd09ae6fa8c70ca843f13f9ea29e98dd74fb5dbc8e593b9ecbe4"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_kultiran.tga",
@@ -13691,12 +13549,12 @@
         512,
         256
       ],
-      "source_sha256": "556aa82db53007aca0feb3f190082f6e2469b6ded229238c2870097d7210d41e",
+      "source_sha256": "254d7fcb9673c902aa9154ed7a0e21265fd811eeb2553b5e64daef8218a3ba69",
       "alphaBounds": [
-        7,
         10,
-        505,
-        247
+        11,
+        502,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -13706,38 +13564,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_kultiran.png",
-          "sha256": "556aa82db53007aca0feb3f190082f6e2469b6ded229238c2870097d7210d41e"
+          "sha256": "254d7fcb9673c902aa9154ed7a0e21265fd811eeb2553b5e64daef8218a3ba69"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "63432d4dfe0fb92fd81dbca31bb4390fbd8a06cfcca59278444c8e8494c0aac5",
+      "sha256": "ca899d7c886b640f804f5cd2be465bc015f9cd9e9403e3ad03069bb0e1a3e774",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          80.13528748590755,
+          101.5783540022548,
+          405.3032694475761,
+          135.9684329199549
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          80.13528748590755,
+          148.5501691093574,
+          405.3032694475761,
+          164.20744081172492
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.581736189402505
       }
     },
     {
@@ -13747,7 +13600,7 @@
         256,
         32
       ],
-      "source_sha256": "834c7120c5a5b1231081d4d4929bd78643e48b587880af79879f1b38e2a90b99",
+      "source_sha256": "6e101e5682c396940516345b3613e17f518b85589feb876975b04cc8ecbab8a7",
       "alphaBounds": [
         0,
         0,
@@ -13762,10 +13615,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_kultiran.png",
-          "sha256": "556aa82db53007aca0feb3f190082f6e2469b6ded229238c2870097d7210d41e"
+          "sha256": "254d7fcb9673c902aa9154ed7a0e21265fd811eeb2553b5e64daef8218a3ba69"
         }
       ],
-      "sha256": "3aa9d1fbc196a262ec9167122f73a71f09e4ad7f76dc9aed31db3927e67af917"
+      "sha256": "932c1d0b5f4c28e876ff3524957024d618b1a48fcf277768dbc83b3d4fb44bcd"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_kultiran-power.tga",
@@ -13774,7 +13627,7 @@
         256,
         32
       ],
-      "source_sha256": "2f3e864fcdeac326ce45b9658b9a8992b2fd845f4145df8cf1371640b4780f74",
+      "source_sha256": "55908e0d2352d77788b5821f16ae445a886927c1831d44f4e150888a210e4ba6",
       "alphaBounds": [
         0,
         0,
@@ -13789,10 +13642,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_kultiran.png",
-          "sha256": "556aa82db53007aca0feb3f190082f6e2469b6ded229238c2870097d7210d41e"
+          "sha256": "254d7fcb9673c902aa9154ed7a0e21265fd811eeb2553b5e64daef8218a3ba69"
         }
       ],
-      "sha256": "111e2f763fbb48de6d3f7472eb761733f8353a7247e214ce1a4eea28f116a5c5"
+      "sha256": "3b72cc2ad92ff25a450fe24c36e22d2bd040c12dc98829ccf9059db6190a43e7"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_mechagnome.tga",
@@ -13801,11 +13654,11 @@
         512,
         256
       ],
-      "source_sha256": "e043fb21456aea85d04c697d17a3ec3242ab5065f598c430351c3dd56dd8d37b",
+      "source_sha256": "273e1408eda31268f6a08cb6422287bee6e253e1dbb83268495b6832f99559f9",
       "alphaBounds": [
+        12,
         10,
-        9,
-        503,
+        500,
         246
       ],
       "kind": "unit-shell",
@@ -13816,38 +13669,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_mechagnome.png",
-          "sha256": "e043fb21456aea85d04c697d17a3ec3242ab5065f598c430351c3dd56dd8d37b"
+          "sha256": "273e1408eda31268f6a08cb6422287bee6e253e1dbb83268495b6832f99559f9"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "fe06e72f9f285574d53a34ef62f5ea824516ea025c5ce9d8c921056e68ce9c4e",
+      "sha256": "5d9b833b0b6576802664fd9ca61bf3f36deeef34858fae2497ae8fa33471ca5f",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.41713641488163,
+          404.7440811724915,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          150.5073280721533,
+          404.7440811724915,
+          165.60541149943631
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -13857,7 +13705,7 @@
         256,
         32
       ],
-      "source_sha256": "a958834c422149b261ff1cebf766cec15ae289faa07c16f412c968754e50800e",
+      "source_sha256": "67f4fa254a558a87d13396f93752b8cf1eecfed38accf37712b91c4fc7ec6b9c",
       "alphaBounds": [
         0,
         0,
@@ -13872,10 +13720,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_mechagnome.png",
-          "sha256": "e043fb21456aea85d04c697d17a3ec3242ab5065f598c430351c3dd56dd8d37b"
+          "sha256": "273e1408eda31268f6a08cb6422287bee6e253e1dbb83268495b6832f99559f9"
         }
       ],
-      "sha256": "22e26e28af35e401cf654528b5665bdaa0dfe9125971d8f1b3c9ced40ff34546"
+      "sha256": "8d193518344749b5beca63c4091a639faddf7006bf4e8095eddd4d49bc213dd9"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_mechagnome-power.tga",
@@ -13884,7 +13732,7 @@
         256,
         32
       ],
-      "source_sha256": "2af3abdefd916420b8a289dcdd1b58294ca1ad4cd5ced6e15f4d3ea35a91de6f",
+      "source_sha256": "9918d5b6bf45dfed99da79b0faa7979e4461a4aaaf9e5ad283a4b292080cc256",
       "alphaBounds": [
         0,
         0,
@@ -13899,10 +13747,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_mechagnome.png",
-          "sha256": "e043fb21456aea85d04c697d17a3ec3242ab5065f598c430351c3dd56dd8d37b"
+          "sha256": "273e1408eda31268f6a08cb6422287bee6e253e1dbb83268495b6832f99559f9"
         }
       ],
-      "sha256": "44538095cd4498b21acef6924b557880b89759a3a1ec154fa12f92ef71eddf2f"
+      "sha256": "54754cc9478a3b4fab28e0edefcd3c2581dd37caef1e148091db2eef2a42219a"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_nightborne.tga",
@@ -13911,12 +13759,12 @@
         512,
         256
       ],
-      "source_sha256": "b41806aebcb09f07085ccb0b4f119e28d287e57852329739af4e7c485ab0d87f",
+      "source_sha256": "a5884471404421758570aeac9d3ff91a0475de3f9a440c88ba48b45ab7776909",
       "alphaBounds": [
-        8,
-        8,
-        506,
-        247
+        10,
+        9,
+        504,
+        248
       ],
       "kind": "unit-shell",
       "references": [
@@ -13926,38 +13774,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightborne.png",
-          "sha256": "b41806aebcb09f07085ccb0b4f119e28d287e57852329739af4e7c485ab0d87f"
+          "sha256": "a5884471404421758570aeac9d3ff91a0475de3f9a440c88ba48b45ab7776909"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "9f84cd6f2282912a90eb418278b69fe6f43976837e673e89938efcfa1c6e132c",
+      "sha256": "6b3942e7924384cb0248367f9259f56f1958caf6c371e396134a4dc401d12b69",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.576099210823,
+          102.41713641488163,
+          405.5828635851184,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.576099210823,
+          150.5073280721533,
+          405.5828635851184,
+          165.32581736189402
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -13967,7 +13810,7 @@
         256,
         32
       ],
-      "source_sha256": "45c1f5369e3890ee6dc5a84cfececb90c62cb812f5a491d00a9457205c89b044",
+      "source_sha256": "9a67f52a150f4cf7e7c0b009cd30401dd43ed1ef552fa01e3e0d0458a595fe42",
       "alphaBounds": [
         0,
         0,
@@ -13982,10 +13825,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightborne.png",
-          "sha256": "b41806aebcb09f07085ccb0b4f119e28d287e57852329739af4e7c485ab0d87f"
+          "sha256": "a5884471404421758570aeac9d3ff91a0475de3f9a440c88ba48b45ab7776909"
         }
       ],
-      "sha256": "4e1c03ae6ed7341b8b4876ce50f7e83c498f2aa9484a2b63e31f4e6f57260c43"
+      "sha256": "7f8f5fe8ec150e41eba35573b24aad8285e05d97ffde88240fb8afa097f4309b"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_nightborne-power.tga",
@@ -13994,7 +13837,7 @@
         256,
         32
       ],
-      "source_sha256": "385d5000106aa65510f641063b3c55387e0223d52c83baf7f27c2309324aaba9",
+      "source_sha256": "e6b54ca3c25a769944f29b2582485349be33fd3889e3fe7cc78d14528b57dcff",
       "alphaBounds": [
         0,
         0,
@@ -14009,10 +13852,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightborne.png",
-          "sha256": "b41806aebcb09f07085ccb0b4f119e28d287e57852329739af4e7c485ab0d87f"
+          "sha256": "a5884471404421758570aeac9d3ff91a0475de3f9a440c88ba48b45ab7776909"
         }
       ],
-      "sha256": "8c4da6c414c208d04b48c4583462f3fb408debffb1bc0603cc6b0c0c569e89d0"
+      "sha256": "0ce7c8e544a52e6740842a96185679a892f08680e80012c2381a9827c8f30744"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_highmountaintauren.tga",
@@ -14021,11 +13864,11 @@
         512,
         256
       ],
-      "source_sha256": "bbacf2309f2f670dafc4c8c042985f03a5f22d618e9b534a5fc58f0ad0b86c24",
+      "source_sha256": "7be93de43e2bb0cca194201c9c56a8eb9a41c515637bec66aaf4773086b2f4ef",
       "alphaBounds": [
-        8,
         10,
-        507,
+        11,
+        504,
         248
       ],
       "kind": "unit-shell",
@@ -14036,38 +13879,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_highmountaintauren.png",
-          "sha256": "bbacf2309f2f670dafc4c8c042985f03a5f22d618e9b534a5fc58f0ad0b86c24"
+          "sha256": "7be93de43e2bb0cca194201c9c56a8eb9a41c515637bec66aaf4773086b2f4ef"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "d897254d91db2811618a1b54c39e35940e3409591139e53f697e43df4babd77b",
+      "sha256": "98cadbc9f0199039db926629830a61ce5e13c2d1cee7dcf6776f87537f9e046b",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          81.25366403607666,
+          102.6967305524239,
+          403.0665163472379,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          81.25366403607666,
+          150.22773393461105,
+          403.0665163472379,
+          164.20744081172492
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.742953776775664
       }
     },
     {
@@ -14077,7 +13915,7 @@
         256,
         32
       ],
-      "source_sha256": "8362e249dae6c7a7a1197b3be5faec7f6b860030124e5accf2e1f9e790a1d496",
+      "source_sha256": "586f742e3aa94c039c9518c2cd12a8d6d059ee0502d812df5ba43a9ea5ff9079",
       "alphaBounds": [
         0,
         0,
@@ -14092,10 +13930,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_highmountaintauren.png",
-          "sha256": "bbacf2309f2f670dafc4c8c042985f03a5f22d618e9b534a5fc58f0ad0b86c24"
+          "sha256": "7be93de43e2bb0cca194201c9c56a8eb9a41c515637bec66aaf4773086b2f4ef"
         }
       ],
-      "sha256": "ef2c58c8c9749ef372cd51aac113ceb08fb40eb3b52128eaa921c893e9baf2c9"
+      "sha256": "4a0534fea34dfb1045c7c70b9f4e0923c3f45958c3d8fffe9c56cf67ca1ba3af"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_highmountaintauren-power.tga",
@@ -14104,7 +13942,7 @@
         256,
         32
       ],
-      "source_sha256": "6e7227fc656cd75a2c69e18c2898259f69f430dd6f2a6ab7c5e8384ea98ed3c3",
+      "source_sha256": "a77be1b25e6b8305910c7d4c32cd4d20cf4ad6ea205bc4285bc5a773c84c40ca",
       "alphaBounds": [
         0,
         0,
@@ -14119,10 +13957,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_highmountaintauren.png",
-          "sha256": "bbacf2309f2f670dafc4c8c042985f03a5f22d618e9b534a5fc58f0ad0b86c24"
+          "sha256": "7be93de43e2bb0cca194201c9c56a8eb9a41c515637bec66aaf4773086b2f4ef"
         }
       ],
-      "sha256": "30eec2311b93579e732349dfa647c66b61a3a25fa5b6348c1b074344c494a490"
+      "sha256": "a68e5a7660e94ed6acd57d11f266e9b0b1bca8b290fc87d04dc40a5b6757f521"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_magharorc.tga",
@@ -14131,12 +13969,12 @@
         512,
         256
       ],
-      "source_sha256": "efc6bd2bb9288ba3de939ac957d61ecdaff0f76e6fe3ab97eebdabe4a0f40fc8",
+      "source_sha256": "6deb7a99b1a28ff62ebe43b49ec7d19f9dee6c1b80466bd1df943e0d60d0b087",
       "alphaBounds": [
-        6,
         8,
-        505,
-        248
+        8,
+        503,
+        249
       ],
       "kind": "unit-shell",
       "references": [
@@ -14146,38 +13984,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_magharorc.png",
-          "sha256": "efc6bd2bb9288ba3de939ac957d61ecdaff0f76e6fe3ab97eebdabe4a0f40fc8"
+          "sha256": "6deb7a99b1a28ff62ebe43b49ec7d19f9dee6c1b80466bd1df943e0d60d0b087"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "e27316367bdbd830506c2bbb678c8cd2c09b23ca454258a3a5ca8bc8e013931f",
+      "sha256": "d3cda6d312273e36c97be1572129a1d5917b28274a54522b0a101df0fc7e6cf1",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.01691093573844,
+          102.6967305524239,
+          405.5828635851184,
+          138.4847801578354
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.01691093573844,
+          150.22773393461105,
+          405.5828635851184,
+          164.48703494926718
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.742953776775664
       }
     },
     {
@@ -14187,7 +14020,7 @@
         256,
         32
       ],
-      "source_sha256": "81e5712c9365cfcabe128ce4842b8a151d7933c52efa8cf92cd4bc78c21657b5",
+      "source_sha256": "9f5904583af519d08c9fd5e5acb75a4faf29cd1838478fd4cd7ecb6006640309",
       "alphaBounds": [
         0,
         0,
@@ -14202,10 +14035,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_magharorc.png",
-          "sha256": "efc6bd2bb9288ba3de939ac957d61ecdaff0f76e6fe3ab97eebdabe4a0f40fc8"
+          "sha256": "6deb7a99b1a28ff62ebe43b49ec7d19f9dee6c1b80466bd1df943e0d60d0b087"
         }
       ],
-      "sha256": "a46fd733c9abdeddfa30a6d8714d71b814f5fbe6fc4c180ea3a3f6c3cc5fc0bc"
+      "sha256": "4f898e53a343fd1e7e63a9adaee606fb4d549e05695c29f0151a749b3452ed2d"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_magharorc-power.tga",
@@ -14214,7 +14047,7 @@
         256,
         32
       ],
-      "source_sha256": "a59911f8eb09e625664d8023c309ebb556c939403661ddea28f60ef1ec2addec",
+      "source_sha256": "93f39a9bc09647c74c161756cff02e4def826535d9faeabeff3b41e6179927f1",
       "alphaBounds": [
         0,
         0,
@@ -14229,10 +14062,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_magharorc.png",
-          "sha256": "efc6bd2bb9288ba3de939ac957d61ecdaff0f76e6fe3ab97eebdabe4a0f40fc8"
+          "sha256": "6deb7a99b1a28ff62ebe43b49ec7d19f9dee6c1b80466bd1df943e0d60d0b087"
         }
       ],
-      "sha256": "34d71361b8b11b755f65d1cd703c56472c957ea50edfd7c7a3dd8728798de543"
+      "sha256": "13ac9f8e85750267407e8bca155f8fc23aea45903c2a2ce6a0ab5189ffb4f2bf"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_zandalaritroll.tga",
@@ -14241,11 +14074,11 @@
         512,
         256
       ],
-      "source_sha256": "d484a33e1e79f76c60f28c90383135f7b919fa5f51b1e855a088412533b616ca",
+      "source_sha256": "cac461d65e3a03962d9bfb615f4c5b03ab1390f382be00657b017c20fcaff407",
       "alphaBounds": [
-        7,
-        10,
-        506,
+        9,
+        12,
+        504,
         248
       ],
       "kind": "unit-shell",
@@ -14256,38 +14089,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_zandalaritroll.png",
-          "sha256": "d484a33e1e79f76c60f28c90383135f7b919fa5f51b1e855a088412533b616ca"
+          "sha256": "cac461d65e3a03962d9bfb615f4c5b03ab1390f382be00657b017c20fcaff407"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "80defdff5955f79c18d5ca9e811475058469c77cd8e2c300d6ae4104e4422cc7",
+      "sha256": "4925d2fd0257091b5ea3c49f6f0867bda32873aa6780cc252238769b377b995f",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          78.73731679819616,
+          103.25591882750845,
+          404.4644870349493,
+          135.68883878241263
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          78.73731679819616,
+          149.3889515219842,
+          404.4644870349493,
+          163.36865839909808
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 13.70011273957158
       }
     },
     {
@@ -14297,7 +14125,7 @@
         256,
         32
       ],
-      "source_sha256": "7946abee4ecb3e183a5fe3e1a29eb0ccf7faffe7a49855e4494b076d53554eb8",
+      "source_sha256": "bd8e100e3a587080b2dbaafe5bb8eea9ab80c714b2e39201aa0eecd9722c630c",
       "alphaBounds": [
         0,
         0,
@@ -14312,10 +14140,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_zandalaritroll.png",
-          "sha256": "d484a33e1e79f76c60f28c90383135f7b919fa5f51b1e855a088412533b616ca"
+          "sha256": "cac461d65e3a03962d9bfb615f4c5b03ab1390f382be00657b017c20fcaff407"
         }
       ],
-      "sha256": "0282cf07ce1ea574401dabdb00dcfbdb819cd198f818c656c789c53a99913520"
+      "sha256": "5ea5536371198f2ebaee68fdc299ae263e71aed484c668fd4f186c77618168b1"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_zandalaritroll-power.tga",
@@ -14324,7 +14152,7 @@
         256,
         32
       ],
-      "source_sha256": "19c951fa0f590faa6dcc9822d62186476639c09eb03df0c5538dc2ad14572bac",
+      "source_sha256": "f9cfaf3c7aee4a63ebc439297a32e017baae310e3d0e40d214d3d0b4b4d4c54a",
       "alphaBounds": [
         0,
         0,
@@ -14339,10 +14167,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_zandalaritroll.png",
-          "sha256": "d484a33e1e79f76c60f28c90383135f7b919fa5f51b1e855a088412533b616ca"
+          "sha256": "cac461d65e3a03962d9bfb615f4c5b03ab1390f382be00657b017c20fcaff407"
         }
       ],
-      "sha256": "bdc3b7e9f6217ebfce6d8e5bbf7d4247e1c399bfe9e8cc176400bb71abdb5794"
+      "sha256": "fb31133ae400b261a1dc665fa258519bb087b1da0dd5b89a5c9c19f006057ac9"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_vulpera.tga",
@@ -14351,11 +14179,11 @@
         512,
         256
       ],
-      "source_sha256": "4e9e6a91afbd9344e415734dd56a28a36548a2b716be10965afd889a9871a8b8",
+      "source_sha256": "cdce8361bc3d11464f5bbb5eecc241c638b0213866de17fc6a182a46e681382b",
       "alphaBounds": [
-        9,
+        11,
         6,
-        506,
+        504,
         246
       ],
       "kind": "unit-shell",
@@ -14366,38 +14194,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_vulpera.png",
-          "sha256": "4e9e6a91afbd9344e415734dd56a28a36548a2b716be10965afd889a9871a8b8"
+          "sha256": "cdce8361bc3d11464f5bbb5eecc241c638b0213866de17fc6a182a46e681382b"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "8944e2b9e9f47ea29e84855b87c30d3f302ca32fa78f11d6834ba6085700e9f7",
+      "sha256": "6bbed7f8286b1baab44e9c47afc81ea32e6ab7adbba6deba9a3a178e09eb0062",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          82.65163472378805,
+          99.06200676437429,
+          396.3562570462232,
+          136.24802705749718
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          82.65163472378805,
+          148.2705749718151,
+          396.3562570462232,
+          162.80947012401353
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -14407,7 +14230,7 @@
         256,
         32
       ],
-      "source_sha256": "3d356d93993320e2b5b05b4c0f1b50b608eaf3906e5d2c7d69b071e56b5fa4e7",
+      "source_sha256": "892ea21160242edf66b8b30e872e8ea679884b6381d1602f6cc20e140a8a420a",
       "alphaBounds": [
         0,
         0,
@@ -14422,10 +14245,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_vulpera.png",
-          "sha256": "4e9e6a91afbd9344e415734dd56a28a36548a2b716be10965afd889a9871a8b8"
+          "sha256": "cdce8361bc3d11464f5bbb5eecc241c638b0213866de17fc6a182a46e681382b"
         }
       ],
-      "sha256": "a26e53c6e85bc530f33883d85f132a95365ef42e3a7912dc66810b5287113e32"
+      "sha256": "3c9f97fa93866b2ae2aab00a1c5f8a0321655558b834c8b0f4360eb9f4c08dc7"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_vulpera-power.tga",
@@ -14434,7 +14257,7 @@
         256,
         32
       ],
-      "source_sha256": "aad3d049b73631664d838ccdb4ce1afe6410104a305e1bf6b9a32da93c4604d3",
+      "source_sha256": "18a88e2a89b5bf9b510832ebb5f292ced32743d589d0dd56ad60b88eaa65989e",
       "alphaBounds": [
         0,
         0,
@@ -14449,10 +14272,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_vulpera.png",
-          "sha256": "4e9e6a91afbd9344e415734dd56a28a36548a2b716be10965afd889a9871a8b8"
+          "sha256": "cdce8361bc3d11464f5bbb5eecc241c638b0213866de17fc6a182a46e681382b"
         }
       ],
-      "sha256": "7fae0cf6d5b6ff6b1e4ad7ab1727ee820bb19f8bbe330db2f2b4fd77595745de"
+      "sha256": "66d085199bbb322fe1855509db3f1fe6974cb2ee157a987431a84f2ee3d18ff5"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_earthendwarf.tga",
@@ -14461,12 +14284,12 @@
         512,
         256
       ],
-      "source_sha256": "b1fa980dc44aa97b855e3d94c241972978df0f0261be6cd1fbd24963febfc30d",
+      "source_sha256": "28a56a5238465a73902765db150beaae25f34ca7f5d6ce7717330967c28bd62d",
       "alphaBounds": [
-        8,
-        6,
-        505,
-        250
+        10,
+        4,
+        502,
+        252
       ],
       "kind": "unit-shell",
       "references": [
@@ -14476,38 +14299,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_earthendwarf.png",
-          "sha256": "b1fa980dc44aa97b855e3d94c241972978df0f0261be6cd1fbd24963febfc30d"
+          "sha256": "28a56a5238465a73902765db150beaae25f34ca7f5d6ce7717330967c28bd62d"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "046d0c927b5fe0348b9f94c883c2b338204ba88b099d876d4ec1fba9b3b1a54e",
+      "sha256": "8cf0364b7d5c192203a8c038182a857029e8825d818be774bc37cf57ed0f6d02",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          80.41488162344983,
+          102.41713641488163,
+          404.4644870349493,
+          137.92559188275084
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          80.41488162344983,
+          149.94813979706876,
+          404.4644870349493,
+          165.04622322435173
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.022547914317926
       }
     },
     {
@@ -14517,7 +14335,7 @@
         256,
         32
       ],
-      "source_sha256": "d59f5c2bc8f3d5286cfd7324ebc2267609c79fcf536cd6cb13749b7b205d2848",
+      "source_sha256": "1f0b1045b5064daf653e6213f302cd61bfb24bab4070339a6f5f2c373d27d549",
       "alphaBounds": [
         0,
         0,
@@ -14532,10 +14350,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_earthendwarf.png",
-          "sha256": "b1fa980dc44aa97b855e3d94c241972978df0f0261be6cd1fbd24963febfc30d"
+          "sha256": "28a56a5238465a73902765db150beaae25f34ca7f5d6ce7717330967c28bd62d"
         }
       ],
-      "sha256": "6781867d8a329f9bc73c9d55cda70bcb204142cb7936e772b526a54d014b81f3"
+      "sha256": "5a8c9484379a792475346b2d2714481f388608cec6af4317d97b4b6edc5884fb"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_earthendwarf-power.tga",
@@ -14544,7 +14362,7 @@
         256,
         32
       ],
-      "source_sha256": "840ef6f2ed96e6ddb173ed98babe922182700a21294760c5e89de3bd2783c292",
+      "source_sha256": "b5eaa9c2b28cad5a01910aed31c773bac7f42166fb37e8d9e9dd9428bbe8cf1b",
       "alphaBounds": [
         0,
         0,
@@ -14559,10 +14377,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_earthendwarf.png",
-          "sha256": "b1fa980dc44aa97b855e3d94c241972978df0f0261be6cd1fbd24963febfc30d"
+          "sha256": "28a56a5238465a73902765db150beaae25f34ca7f5d6ce7717330967c28bd62d"
         }
       ],
-      "sha256": "d8569e0cd83d06eb38e3979041422b5f1d4d9cc539201d0baf0a68bbb86aca2f"
+      "sha256": "e9e1d296c35e295caee72a3c27fcfbb6cb7db50f6e4a6de12356ced9e068bbb7"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_haranir.tga",
@@ -14571,11 +14389,11 @@
         512,
         256
       ],
-      "source_sha256": "87de9be4fb54358aa5e0c4738775c309203c62564d629d59f8d2e8e0c39a09f7",
+      "source_sha256": "26cf6f83889d0231b2c5f44c26a66db51c6129952df773f8e9a38415151beb85",
       "alphaBounds": [
-        7,
-        9,
-        505,
+        8,
+        10,
+        503,
         247
       ],
       "kind": "unit-shell",
@@ -14586,38 +14404,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_haranir.png",
-          "sha256": "87de9be4fb54358aa5e0c4738775c309203c62564d629d59f8d2e8e0c39a09f7"
+          "sha256": "26cf6f83889d0231b2c5f44c26a66db51c6129952df773f8e9a38415151beb85"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "1e5ae9dc957a1cf553d74f5589bdde6176a9b9b59d2b974d33ec89eb73e0996b",
+      "sha256": "1e361f08379813d4ef29b1265200e706e39111fba2a4023f12633dab25742c59",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          78.17812852311161,
+          102.6967305524239,
+          405.5828635851184,
+          137.92559188275084
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          78.17812852311161,
+          150.22773393461105,
+          405.5828635851184,
+          165.32581736189402
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.302142051860216
       }
     },
     {
@@ -14627,7 +14440,7 @@
         256,
         32
       ],
-      "source_sha256": "2b8537caf4dcd6995ff0186f5dd08d94b1e9fceeb7d75d1e009563d9af212550",
+      "source_sha256": "393cf6ce46ea178a00bdedd79b62ab4bda9731efc07404117e5a3f0c7068ee53",
       "alphaBounds": [
         0,
         0,
@@ -14642,10 +14455,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_haranir.png",
-          "sha256": "87de9be4fb54358aa5e0c4738775c309203c62564d629d59f8d2e8e0c39a09f7"
+          "sha256": "26cf6f83889d0231b2c5f44c26a66db51c6129952df773f8e9a38415151beb85"
         }
       ],
-      "sha256": "20f88bbbf072fa677de438763fd5bbf0a354932d947bd32893364c069af65b25"
+      "sha256": "3073f4688419215b248923fbdc243f415ee8f35cae34175b82fa6d5cac7defa7"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/race_haranir-power.tga",
@@ -14654,7 +14467,7 @@
         256,
         32
       ],
-      "source_sha256": "6f3f26f88b451b879f627c455309d149c020cf3333ce534168635e7d68b0ec14",
+      "source_sha256": "0a35820ac65b0c8df9f3756de3606039deea76f403d5dcb12ae13e87ea7b4753",
       "alphaBounds": [
         0,
         0,
@@ -14669,10 +14482,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_haranir.png",
-          "sha256": "87de9be4fb54358aa5e0c4738775c309203c62564d629d59f8d2e8e0c39a09f7"
+          "sha256": "26cf6f83889d0231b2c5f44c26a66db51c6129952df773f8e9a38415151beb85"
         }
       ],
-      "sha256": "3a1b97823c381d1601e514484ee9e4ef6abc18b9023408410e21ae033e3846a8"
+      "sha256": "0ebc3e0c38f8d264e3db42c1a17266cb91eac19f01cb75e2321228d6cc18b7fd"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/faction_alliance.tga",
@@ -14681,12 +14494,12 @@
         512,
         256
       ],
-      "source_sha256": "a36cd7f141f64ecc8e2b46684fd489710c4aab4e179fcd6cd8329b2a6095be7b",
+      "source_sha256": "1157eec9509717be81ff27c2d1059c4d03e230bcd91277c53cffcdc37ba8aed8",
       "alphaBounds": [
-        7,
+        9,
         8,
-        506,
-        249
+        504,
+        251
       ],
       "kind": "unit-shell",
       "references": [
@@ -14696,38 +14509,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_alliance.png",
-          "sha256": "a36cd7f141f64ecc8e2b46684fd489710c4aab4e179fcd6cd8329b2a6095be7b"
+          "sha256": "1157eec9509717be81ff27c2d1059c4d03e230bcd91277c53cffcdc37ba8aed8"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "879827665dd0dbb16ba3092936bd26b48b23f4c4b24393b589fe368f8dd52049",
+      "sha256": "85a9dacdc670ce85f801ae1dfa86f2b01aadcf3c81a71851f6e9ef23b5524b6a",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          80.13528748590755,
+          101.5783540022548,
+          404.7440811724915,
+          139.04396843291997
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          80.13528748590755,
+          150.5073280721533,
+          404.7440811724915,
+          164.48703494926718
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 11.463359639233346
       }
     },
     {
@@ -14737,7 +14545,7 @@
         256,
         32
       ],
-      "source_sha256": "bead6a8120e5f57d07d7929842a464862d92392ef979ee4eece3b2f7dd501f2b",
+      "source_sha256": "b0c4c2807950915953ab242f7c6feb281148618fcb632eb6c482ca15329715b0",
       "alphaBounds": [
         0,
         0,
@@ -14752,10 +14560,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_alliance.png",
-          "sha256": "a36cd7f141f64ecc8e2b46684fd489710c4aab4e179fcd6cd8329b2a6095be7b"
+          "sha256": "1157eec9509717be81ff27c2d1059c4d03e230bcd91277c53cffcdc37ba8aed8"
         }
       ],
-      "sha256": "8b71fadc1dfc974d9e799e340d03b9a1c63f0145f598d41ace5bc12e8a4cc0ee"
+      "sha256": "7ee77341979068235d482a3045278d5e4aff64cad10e0e8f29286b2e031a1ac3"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/faction_alliance-power.tga",
@@ -14764,7 +14572,7 @@
         256,
         32
       ],
-      "source_sha256": "6b41fc330d489a48f6ad143310a69501e27842085f7cc89b7931d33cec47c117",
+      "source_sha256": "42f91cf188b37f9a62b3def0621e105afe0e293067639e308d42724d6a7b7487",
       "alphaBounds": [
         0,
         0,
@@ -14779,10 +14587,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_alliance.png",
-          "sha256": "a36cd7f141f64ecc8e2b46684fd489710c4aab4e179fcd6cd8329b2a6095be7b"
+          "sha256": "1157eec9509717be81ff27c2d1059c4d03e230bcd91277c53cffcdc37ba8aed8"
         }
       ],
-      "sha256": "ee297f4dc18fae7d0d82819af6260a08b0ae368d7df0e7cc930450424fa193a2"
+      "sha256": "f7beb77e143eeabe2dd10a8cfc59ffff5b9048538d5ca8163edabdd99662ce6c"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/faction_horde.tga",
@@ -14791,11 +14599,11 @@
         512,
         256
       ],
-      "source_sha256": "ce6b2a96e71c5912ab2dada579c5a30b7aed6adfb70befde490de150095430dd",
+      "source_sha256": "ebe15eddd9ae8de3dc8f986d83428c1f93792b7f09d8213fafac4f0fa82ce8ce",
       "alphaBounds": [
+        10,
         8,
-        8,
-        505,
+        502,
         248
       ],
       "kind": "unit-shell",
@@ -14806,38 +14614,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_horde.png",
-          "sha256": "ce6b2a96e71c5912ab2dada579c5a30b7aed6adfb70befde490de150095430dd"
+          "sha256": "ebe15eddd9ae8de3dc8f986d83428c1f93792b7f09d8213fafac4f0fa82ce8ce"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "a33c6a4523962dd2659f75053f1ae2d39159c159a3b274a299fb81667606fb1b",
+      "sha256": "4c893a23927ea24a229e55830010e005fbaaa58fa8be85fee4abe53576ce3636",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          84.88838782412627,
+          101.01916572717023,
+          404.184892897407,
+          134.8500563697858
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          84.88838782412627,
+          147.71138669673056,
+          404.184892897407,
+          161.9706877113867
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.861330326944767
       }
     },
     {
@@ -14847,7 +14650,7 @@
         256,
         32
       ],
-      "source_sha256": "d321b37842a4d1f7aaa5d23fc9d17be7920f9769c85bd7350a55279268c01181",
+      "source_sha256": "b4322aca667a11db74b7cae6f25f09de613c6e994d2fbea58e569d6aa060c9df",
       "alphaBounds": [
         0,
         0,
@@ -14862,10 +14665,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_horde.png",
-          "sha256": "ce6b2a96e71c5912ab2dada579c5a30b7aed6adfb70befde490de150095430dd"
+          "sha256": "ebe15eddd9ae8de3dc8f986d83428c1f93792b7f09d8213fafac4f0fa82ce8ce"
         }
       ],
-      "sha256": "074955290b038817faeec263a2b97ec9f04407e99749d54f30b3c9116c2634bf"
+      "sha256": "0351ca3f47ea5df4e44b418d034b6046cfe99e53704e08ba6df36e1214100b4f"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/faction_horde-power.tga",
@@ -14874,7 +14677,7 @@
         256,
         32
       ],
-      "source_sha256": "068eb5d235be51b3c3f72f104835f41dcc6dfe026f1a78e4ffa3be7732c236ce",
+      "source_sha256": "8a7de597fa57258108864f1b81c1b1605dfced409da45fe27286d25c2782aae4",
       "alphaBounds": [
         0,
         0,
@@ -14889,10 +14692,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_horde.png",
-          "sha256": "ce6b2a96e71c5912ab2dada579c5a30b7aed6adfb70befde490de150095430dd"
+          "sha256": "ebe15eddd9ae8de3dc8f986d83428c1f93792b7f09d8213fafac4f0fa82ce8ce"
         }
       ],
-      "sha256": "4a95fd774692df2629ab917093bc41bf3b4229968182e97583f478ca7eb8cd68"
+      "sha256": "37c4ff9bdcacc818ccf7441ba886d7f09c972e261827a7cc7e96ef0f7c353bf6"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/faction_neutral.tga",
@@ -14901,12 +14704,12 @@
         512,
         256
       ],
-      "source_sha256": "7168bb916b9703ba8039afac17640b0424094cab3791aa09ac5b47379a964262",
+      "source_sha256": "688c609d396424345689b3e243577fb8fe28ca1c165000e6fecdaeb9d3f1a649",
       "alphaBounds": [
-        10,
-        10,
-        507,
-        248
+        12,
+        13,
+        504,
+        249
       ],
       "kind": "unit-shell",
       "references": [
@@ -14916,38 +14719,33 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_neutral.png",
-          "sha256": "7168bb916b9703ba8039afac17640b0424094cab3791aa09ac5b47379a964262"
+          "sha256": "688c609d396424345689b3e243577fb8fe28ca1c165000e6fecdaeb9d3f1a649"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
-          "sha256": "38ccb71198cb328faac54472649fd34868a119d2e7c4b55d837f944ae23af32c"
+          "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
         }
       ],
-      "sha256": "f77813e237b926a620752efd26548e5593d77b099c46502865928449097c5ad2",
+      "sha256": "0b0c92f587ccf0b11108111fb28747fb8bd81628fe05cad0b6a52a70eca2b068",
       "registration": {
         "canvas": [
           512,
           256
         ],
+        "margin": 4,
         "health": [
-          96,
-          84,
-          396,
-          132
+          79.29650507328073,
+          101.85794813979707,
+          405.0236753100338,
+          137.92559188275084
         ],
         "power": [
-          96,
-          136,
-          396,
-          160
+          79.29650507328073,
+          150.22773393461105,
+          405.0236753100338,
+          165.04622322435173
         ],
-        "name": [
-          96,
-          0,
-          396,
-          70
-        ],
-        "margin": 4
+        "divider": 12.302142051860216
       }
     },
     {
@@ -14957,7 +14755,7 @@
         256,
         32
       ],
-      "source_sha256": "d3eb7a0bf84963502514da858be60b4344be8f0646f7c5c10ac76af35a846771",
+      "source_sha256": "e6d96418976de01de14b30dac1b5b9b372f0c2bece8f6078d39456eeb94bd545",
       "alphaBounds": [
         0,
         0,
@@ -14972,10 +14770,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_neutral.png",
-          "sha256": "7168bb916b9703ba8039afac17640b0424094cab3791aa09ac5b47379a964262"
+          "sha256": "688c609d396424345689b3e243577fb8fe28ca1c165000e6fecdaeb9d3f1a649"
         }
       ],
-      "sha256": "32b080d220aeb390be54d0706b5ce165627c0540838beb7a6de6a1ff7a1c7f90"
+      "sha256": "cbfd678a15db068f5552788d055473a116785d4fe5429b4049013e9435254289"
     },
     {
       "file": "JiberishUI/Media/UnitFrames/faction_neutral-power.tga",
@@ -14984,7 +14782,7 @@
         256,
         32
       ],
-      "source_sha256": "6d9d637b947e51571ca94b7c180d76b2040dbebccf9d81a6bad27b17f0dcc411",
+      "source_sha256": "687ccdb02a4f1dc477b89d543cc35599c66d31fccbae0e23706ecfe9e6293eaf",
       "alphaBounds": [
         0,
         0,
@@ -14999,10 +14797,10 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/faction_neutral.png",
-          "sha256": "7168bb916b9703ba8039afac17640b0424094cab3791aa09ac5b47379a964262"
+          "sha256": "688c609d396424345689b3e243577fb8fe28ca1c165000e6fecdaeb9d3f1a649"
         }
       ],
-      "sha256": "9d9d4872e4de3b7c28fa857c9183f499627ae82f1db8116b78e743a6986b43ed"
+      "sha256": "a6caf611409a3009bc371fd9434084b0962cfc684ed0c234bf427412cd25a78b"
     }
   ],
   "in_game_qualified": false,
