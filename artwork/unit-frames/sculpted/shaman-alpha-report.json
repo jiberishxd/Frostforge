@@ -1,17 +1,17 @@
 {
-  "source": "artwork/unit-frames/sculpted/revisions/shaman-elemental-totem-rgb.png",
-  "source_sha256": "1ccbeb831202228a30eddcc75e3a59a46f61a930c078972f3ae8c9758e7a77be",
+  "source": "artwork/unit-frames/sculpted/revisions/shaman-neutral-totems-rgb.png",
+  "source_sha256": "6c9261da2e640da19b3cc01eccafc3726ab31c350df32c7f7b4fdf0c24ebff12",
   "output": "artwork/unit-frames/sculpted/references/class_shaman.png",
-  "output_sha256": "51b971563b8db534c382a4b52015a086853f4da4d9164a5fba60e789f8fc5463",
+  "output_sha256": "7fcaac566a033edc9b03eadbb095903f8e1999e4635e201914ff77e6d974ede0",
   "size": [
     1774,
     887
   ],
   "alpha_bounds": [
-    18,
-    27,
-    1763,
-    863
+    24,
+    12,
+    1752,
+    841
   ],
   "method": "Exterior/opening neutral flood; retain connected shell; preserve retained RGB",
   "authorization": "User explicitly authorized local Python image processing"

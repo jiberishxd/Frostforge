@@ -1,0 +1,24 @@
+{
+  "tool": "built-in image_gen",
+  "revisions": [
+    {
+      "prompt": "Use case: precise-object-edit. Edit ONLY the RIGHT endcap of image 1, a Shaman health/power UI shell, to fix its clipped-looking, lopsided outer edge. Preserve the entire left totem, three long horizontal stone rails, thick divider, two transparent bar openings, bottom middle ornaments and exact 1774x887 canvas framing. The mask on the right currently looks sliced on its right cheek and shoulder. Make this endcap a COMPLETE, front-facing, bilaterally balanced sculpted elemental mask with a centered fiery crown, both full cheek/temple flanges, two small shoulder stones, matched curved tusks, and balanced feather/red-cloth drapes that taper together. Shift the mask center a little LEFT within the existing right endcap and slightly reduce its width as needed so BOTH sides have enough room and the full outer contour has clear transparent breathing room. Center the lower cloth/tassels under the mask. Image 2 provides the elemental Shaman face shape and four colored gems; use those motifs within our original wooden tribal totem rather than adding a flat pasted emblem. Keep chunky old-school hand-painted Warcraft stone/wood/rope texture, weathered red cloth, blue runes, orange fire and four colored elemental jewels. Avoid a vertical sliced silhouette, sudden cutoffs, cropped tips, circular icon badges, level circles, text, new portrait holes, bright modern gloss. Rightmost art must end naturally before the canvas edge with at least a 25px transparent margin. Retain source-size bar openings and their fitting. Actual transparent background and slots, not a painted checkerboard.",
+      "input": "artwork/unit-frames/sculpted/revisions/shaman-first-elemental-alpha.png",
+      "output": "artwork/unit-frames/sculpted/revisions/shaman-balanced-rgb.png"
+    },
+    {
+      "prompt": "Use case: precise-object-edit. Revise this Shaman unit-frame shell to emphasize FACTION-NEUTRAL CARVED ELEMENTAL TOTEMS. Keep exactly the same 1774x887 wide canvas, bar opening positions/sizes, three thick horizontal rails, central divider, and the complete symmetrical right-end elemental-mask composition. Replace ALL big ivory teeth, horns and tusks with carved wooden or stone totem segments, rectangular elemental rune pendants and small copper/teal bead bindings. Remove the dominant red cloth banners and red drapes on BOTH ends and all across the bottom. In their place build integrated stacked wood-and-stone totem pillars, tied with weathered natural tan rope, with a few short neutral brown woven bindings and small hanging carved wood chimes. There should be almost no cloth and NO red banner, Horde logo, faction symbol, giant tooth or tusk. Keep the recognizable right-end angular green-gray elemental mask, fiery orange crown, orange eyes and its four small differently colored elemental jewels. Preserve the stacked left totem faces, blue water/air rune carvings, wood grain and weathered stone. The right ornament should have two balanced side posts and a centered lower carved pendant under the mask, tapering naturally with finished outer edges and transparent breathing room. All ornamentation should feel carved and layered into the frame. Classic old-school hand-painted Warcraft UI art, chunky expressive forms and restrained resolution, not polished modern render. Palette: natural dark wood, weathered green-gray stone, tan rope, small teal accents; orange ONLY for elemental fire, not cloth. Preserve functional openings, rail thickness and fit. Transparent exterior and slots, no painted background or checkerboard.",
+      "input": "artwork/unit-frames/sculpted/revisions/shaman-balanced-rgb.png",
+      "output": "artwork/unit-frames/sculpted/revisions/shaman-neutral-totems-rgb.png"
+    }
+  ],
+  "reference": "artwork/official-crests/originals/class_shaman.png",
+  "source_page": "https://worldofwarcraft.blizzard.com/en-us/game/classes/shaman",
+  "processing": "tools/extract_shaman_alpha.py",
+  "sha256": {
+    "artwork/unit-frames/sculpted/revisions/shaman-balanced-rgb.png": "50bd11e843d3e1b10d4922fe3b976e43272c26ffa1e7e50b9fc16ae26755b97d",
+    "artwork/unit-frames/sculpted/revisions/shaman-neutral-totems-rgb.png": "6c9261da2e640da19b3cc01eccafc3726ab31c350df32c7f7b4fdf0c24ebff12",
+    "artwork/official-crests/originals/class_shaman.png": "e779f715615a4fa4db0d4757fb4d7d67b18686e8edab07488344316eaa35dce3",
+    "artwork/unit-frames/sculpted/revisions/shaman-first-elemental-alpha.png": "51b971563b8db534c382a4b52015a086853f4da4d9164a5fba60e789f8fc5463"
+  }
+}
