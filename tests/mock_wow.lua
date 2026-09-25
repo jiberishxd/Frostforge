@@ -46,6 +46,7 @@ function methods:ClearAllPoints() writable(self,true); self.points={}; self.cent
 function methods:SetAllPoints(relative) writable(self,true); self.allPoints=relative end
 function methods:SetFrameStrata(value) writable(self); self.strata=value end
 function methods:SetFrameLevel(value) writable(self); self.level=value end
+function methods:GetFrameStrata() readable(self); return self.strata or "LOW" end
 function methods:GetFrameLevel() readable(self); return self.level or 0 end
 function methods:SetBackdrop(value) writable(self); assert(self.template=="BackdropTemplate"); self.backdrop=value end
 function methods:SetBackdropColor(...) writable(self); self.backdropColor={...} end
@@ -70,13 +71,34 @@ function methods:EnableMouse(value) writable(self); self.mouse=value end
 function methods:EnableMouseWheel(value) writable(self); self.wheel=value end
 function methods:EnableKeyboard(value) writable(self); self.keyboard=value end
 function methods:SetDrawLayer(value,sub) writable(self); self.layer,self.sub=value,sub end
-function methods:SetTexCoord(...) writable(self); self.texCoord={...} end
+local function appearance(self)
+    if self.native and self.fillTexture then
+        readable(self)
+        assert(not M.combat,"Native appearance written in combat")
+        M.appearanceWrites=(M.appearanceWrites or 0)+1
+    else writable(self) end
+end
+function methods:SetTexCoord(...) appearance(self); self.texCoord={...} end
+function methods:GetTexCoord()
+    readable(self)
+    if self.secretCoords then return M.secret end
+    if self.texCoord and #self.texCoord==8 then return unpack(self.texCoord) end
+    local t=self.texCoord or {0,1,0,1}
+    return t[1],t[3],t[1],t[4],t[2],t[3],t[2],t[4]
+end
+function methods:GetAtlas() readable(self); return self.atlas end
+function methods:GetTexture() readable(self); return self.path end
+function methods:SetAtlas(value) appearance(self);self.atlas=value;self.path="atlas-file" end
+function methods:GetStatusBarTexture() readable(self); return self.fill end
+function methods:SetStatusBarTexture(value)
+    assert(self.native and self.fill);assert(not M.combat)
+    self.fill:SetTexture(value)
+end
 function methods:SetTexture(value)
-    writable(self)
-    self.path=value
+    appearance(self)
+    self.path=value;self.atlas=nil
     return not M.missingTexture
 end
-function methods:GetTexture() readable(self); return self.path end
 function methods:SetColorTexture(...) writable(self); self.color={...} end
 function methods:SetShown(value)
     writable(self)
@@ -144,7 +166,15 @@ function methods:SetScript(event,callback) writable(self); self.scripts[event]=c
 -- These APIs must never be used by the prototype, even on unprotected native UI.
 function methods:SetParent() error("No reparenting permitted") end
 function methods:SetAttribute() error("No secure attribute writes permitted") end
-function hooksecurefunc() error("No native hooks are needed by Phase 1") end
+function hooksecurefunc(object,method,callback)
+    assert(object.native and (object.fillTexture or object.fill),"Only skin presentation hooks permitted")
+    assert(method=="SetTexture" or method=="SetAtlas" or method=="SetTexCoord" or method=="SetStatusBarTexture")
+    M.hooks=(M.hooks or 0)+1
+    local original=object[method]
+    object[method]=function(self,...)
+        local result=original(self,...);callback(self,...);return result
+    end
+end
 function CreateFrame(kind,name,parent,template)
     assert(not template or template=="BackdropTemplate","Only nonsecure backdrop templates allowed")
     local frame=object(kind,parent,name)
@@ -194,6 +224,25 @@ function M.native(name,w,h,scale)
             frame.PlayerFrameContainer=container; container.PlayerPortrait=portrait
         else
             frame.TargetFrameContainer=container; container.Portrait=portrait
+        end
+        local content=object("Frame",frame);content.native=true
+        local main=object("Frame",content);main.native=true
+        local healthContainer=object("Frame",main);healthContainer.native=true
+        local manaArea=object("Frame",main);manaArea.native=true
+        local function bar(parent,kind,w,h)
+            local b=object("Frame",parent);b.native=true;b.w=w;b.h=h;b.level=5;b.strata="LOW"
+            b.fill=object("Texture",b);b.fill.native=true;b.fill.fillTexture=true
+            b.fill.atlas="Native-"..name.."-"..kind;b.fill.path="native-textures";b.fill.texCoord={.1,.2,.1,.4,.7,.2,.7,.4}
+            return b
+        end
+        main.HealthBarsContainer=healthContainer
+        healthContainer.HealthBar=bar(healthContainer,"Health",124,20)
+        if name=="PlayerFrame" then
+            frame.PlayerFrameContent=content;content.PlayerFrameContentMain=main
+            main.ManaBarArea=manaArea;manaArea.ManaBar=bar(manaArea,"Mana",124,10)
+        else
+            frame.TargetFrameContent=content;content.TargetFrameContentMain=main
+            main.ManaBar=bar(main,"Mana",134,10)
         end
     end
     _G[name]=frame

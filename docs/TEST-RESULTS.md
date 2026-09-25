@@ -1,4 +1,14 @@
-# Validation record
+# Build 0.7.0-art.1 validation
+
+**117 Lua 5.1 tests passed.** The default portrait-only mode still performs no native writes. Opt-in full skins change only fill texture/UV appearance; the mock rejects all functional native writes and all native appearance writes during combat.
+
+The skin tests cover both client adapters, shared 42-theme geometry, independent unit settings, exact atlas/file/UV restoration, native redraw and replacement regions, UV-only redraws, missing fills, combat queues, hidden bars, effective scale, forbidden/secret metadata, option toggles, scoped imports and reused frames/hooks. Compatibility tests cover Blinkii, mMediaTag, ElvUI and Ellesmere source discovery, active masks, source priorities, hidden/missing sources and suspending/restoring native skins across source switches. All 119 measured upstream masks were separately checked against pinned hashes and the configured containing openings.
+
+Source/media checks cover 24 active Lua sources and 252 runtime TGAs: 42 portraits, 42 hubs, 42 minimaps, 42 sculpted unit shells and 84 painted fill textures. Surround alpha, native clear regions, uniform fit, provenance and exact Retail/Forever package payloads are checked. The unit skins alone may restore a captured native atlas; all other prohibited functional API checks remain in force.
+
+The new local side-by-side preview uses encoded assets at estimated native game size. Shaman Player at 1440p, mirrored Shaman Target at 4K, and Undead Focus at 1080p were visually inspected for clear names/badges and fitted shell sections. **In-game validation remains pending.** In particular, verify masks, prediction overlays, power-type changes, vehicles, secure clicks and restoration after combat in both clients. The browser and mock host do not emulate WoW's secure renderer.
+
+## Previous validation record (0.6.0-compat.2)
 
 Build: **0.6.0-compat.2**. Date: **2026-09-24**.
 

@@ -401,6 +401,11 @@ function S:Create()
         self:HideMenus();self:ShowMinimapGroup(self.minimapGroup or "CLASS",self.minimapPage);self.minimapPicker:Show()
     end)
     self:CreateMinimapPicker()
+    self.styleButton=button(f,"Portrait only",340,-534,276,function()
+        local current=J.ThemeManager:Resolve(self.selected).unitStyle
+        self:Set("unitStyle",current=="FULL" and "PORTRAIT" or "FULL")
+    end)
+    self.styleCaption=text(f,"Blizzard unit frame style",340,-514,276)
     self.debugButton=toggle(f,"Debug bounds",24,-664,148,function() J.Core:Command("debug") end)
     button(f,"Reset this component",184,-664,188,function()
         self.message=nil
@@ -417,6 +422,8 @@ function S:Refresh()
     local config=J.ThemeManager:Resolve(self.selected)
     self.heading:SetText(names[self.selected] .. " artwork")
     local unit=J.Portraits:IsUnitKey(self.selected)
+    self.styleButton:SetShown(unit);self.styleCaption:SetShown(unit)
+    if unit then self.styleButton.caption:SetText(config.unitStyle=="FULL" and "Style: Full unit frame" or "Style: Portrait only") end
     local minimap=self.selected=="minimap"
     self.controls.minimapMode.button:SetShown(minimap);self.controls.minimapMode.label:SetShown(minimap)
     self.minimapCaption:SetShown(minimap);self.minimapButton:SetShown(minimap)
