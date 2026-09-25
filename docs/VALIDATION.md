@@ -60,3 +60,7 @@ Unknown NPCs retain the normal fallback; city location alone is not a match. See
 - Review the balanced, faction-neutral Shaman mask/totem shell and thick divider with Player/Target/Focus; check all original portrait toggles remain independent.
 
 These are manual checks for the user. The agent does not operate WoW.
+
+## 0.8.0 cast-border checks
+
+Follow the manual checklist in [CAST-BARS.md](CAST-BARS.md) on Blizzard, EllesmereUI and ElvUI, for Player/Target/Focus. Include idle-to-cast transitions, fades, channels, interrupts and empower indicators, each style, matching versus fixed artwork, provider resizing/replacement, hidden providers, combat-deferred changes, independent toggles and backup restoration. No gameplay was automated during development.

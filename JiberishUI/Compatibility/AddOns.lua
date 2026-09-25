@@ -23,6 +23,58 @@ local function visible(frame)
     return J.Core:IsNumber(alpha) and alpha>0
 end
 
+function A:CastBarCandidate(source,key)
+    local unit=units[key]
+    if not unit then return end
+    if source=="BLIZZARD" then
+        local bars=J.Core.client:CastBars(key)
+        local first
+        for _,frame in ipairs(bars or {}) do
+            if J.Core:IsUsableFrame(frame) then
+                local result={frame=frame,source=source}
+                if visible(frame) then return result end
+                first=first or result
+            end
+        end
+        return first
+    end
+    local name=(source=="ELLESMERE" and "EllesmereUIUnitFrames_" or "ElvUF_")..titles[unit]
+    local root=_G[name]
+    if not J.Core:IsUsableFrame(root) then return end
+    local frame=field(root,"Castbar")
+    if J.Core:IsUsableFrame(frame) then return {frame=frame,source=source,rootVisible=visible(root)} end
+end
+
+function A:ResolveCastBar(key,config)
+    if config.castBarSource~="AUTO" then
+        local candidate=self:CastBarCandidate(config.castBarSource,key)
+        if candidate then return candidate end
+        return nil,"Waiting for "..config.castBarSource.." cast bar"
+    end
+    -- Prefer the configured unit/portrait provider, then an actually visible
+    -- cast bar. Hidden candidates are still attached out of combat so the first
+    -- cast can appear without creating or repositioning frames in combat.
+    local preferred=config.unitFrameSource~="AUTO" and config.unitFrameSource or config.portraitSource
+    local order,seen={},{}
+    for _,source in ipairs({preferred,"ELLESMERE","ELVUI","BLIZZARD"}) do
+        if (source=="BLIZZARD" or source=="ELLESMERE" or source=="ELVUI") and not seen[source] then
+            seen[source]=true;order[#order+1]=source
+        end
+    end
+    local first,active
+    for _,source in ipairs(order) do
+        local candidate=self:CastBarCandidate(source,key)
+        if candidate then
+            if visible(candidate.frame) then return candidate end
+            first=first or candidate
+            if candidate.rootVisible then active=active or candidate end
+        end
+    end
+    local candidate=active or first
+    if candidate then return candidate end
+    return nil,"Waiting for a cast-bar provider"
+end
+
 function A:Candidate(source,key)
     local unit = units[key]
     local frame,region,name,fit,shape,mirror

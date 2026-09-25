@@ -44,7 +44,7 @@ function Themes:Register(id, theme)
             end
         end
         for property in pairs(J.Core.properties) do
-            local portrait = property == "portraitMode" or property == "portrait" or property == "unitStyle" or property == "unitFrameShown" or property == "unitFrameFill" or property == "unitFrameWidth" or property == "unitFrameHeight" or property == "unitFrameInset" or property == "unitFrameSource" or property == "portraitSource"
+            local portrait = property == "portraitMode" or property == "castBarShown" or property == "castBarSource" or property == "castBarStyle" or property == "castBarArt" or property == "castBarWeight" or property == "castBarPadding" or property == "castBarWidth" or property == "castBarHeight" or property == "portrait" or property == "unitStyle" or property == "unitFrameShown" or property == "unitFrameFill" or property == "unitFrameWidth" or property == "unitFrameHeight" or property == "unitFrameInset" or property == "unitFrameSource" or property == "portraitSource"
             local hub = property == "hubMode" or property == "hub" or property == "hubSource"
             local minimap = property == "minimapMode" or property == "minimap"
             if property~="unitStyle" and (not portrait or config.unit) and (not hub or key == "actionHub") and (not minimap or key == "minimap") then
