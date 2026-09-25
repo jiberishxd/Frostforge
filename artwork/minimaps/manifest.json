@@ -63,7 +63,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_warrior.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/class_warrior.png",
           "sha256": "71f6c0c6639f6f6a7486e6dc3a01ab5f1496e644f40ce74729cfc5fc7e00c44e"
         },
         {
@@ -209,7 +209,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_hunter.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/class_hunter.png",
           "sha256": "c8677af450bfdf7d8f091315d565e1e1b2ff364cc7b1093dd1dd9730b842473d"
         },
         {
@@ -720,7 +720,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_monk.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/class_monk.png",
           "sha256": "4cca3d987b19d30a6afdf45002cfa2b6553a7809dd08a34ebfac1353eb4e7971"
         },
         {
@@ -793,7 +793,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_druid.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/class_druid.png",
           "sha256": "718c7ba1c3e7b9036f80da66bc9d7c5f8f935a522f5cac74d657c57074f5fc79"
         },
         {
@@ -1012,7 +1012,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_human.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_human.png",
           "sha256": "632a131a552d0bef35ab496b5af308dee034de87d29dde7fa94c5ab173af4ebc"
         },
         {
@@ -1158,7 +1158,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_nightelf.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_nightelf.png",
           "sha256": "cb81ae7d26ea1c16bd25022db19ab1418d5e2ace5aa169fdd50387feeeadfc86"
         },
         {
@@ -1231,7 +1231,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_gnome.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_gnome.png",
           "sha256": "aeff6d116ae118fd98fe278c701d531546c78848ad23366aedcf739fe13d20fa"
         },
         {
@@ -1377,7 +1377,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_worgen.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_worgen.png",
           "sha256": "bd69d899ed46fccada9aba1e0b2bf2ce47f804afaf6b88307e306914d9672e75"
         },
         {
@@ -1450,7 +1450,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_orc.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_orc.png",
           "sha256": "0b16cf59d981f1e7f42ecd986dadc823d1189065c5f37958463abf5c6d1a1fb8"
         },
         {
@@ -1523,7 +1523,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_scourge.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_scourge.png",
           "sha256": "d5ec894a863cfe3411e12c8541b57322ebc8e04ad8f1d19cbc262be834f9b1bb"
         },
         {
@@ -1596,7 +1596,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_tauren.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_tauren.png",
           "sha256": "e31d5401eff48cbb1e1d5d0a563abc70ad2c9bae6cca813490b27f3d411beab7"
         },
         {
@@ -1669,7 +1669,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_troll.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_troll.png",
           "sha256": "7247dea4f0e7aed1fb7de18a58665c63caa7a5f5148d9ee2898d4f5b145440e0"
         },
         {
@@ -1742,7 +1742,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_bloodelf.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_bloodelf.png",
           "sha256": "3c1cd3bb0b5c8f23758689c3aa01080c2c54c4f0a47bb51b0fe6186bf9e8ab05"
         },
         {
@@ -1815,7 +1815,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_goblin.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_goblin.png",
           "sha256": "d70679ef8d55d37c7748455fcc711e86d6adc0a74c519083c751a7518814e156"
         },
         {
@@ -1888,7 +1888,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_pandaren.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_pandaren.png",
           "sha256": "2bb1fbc9a15e79d65e6e7ecc6ad4e070a78e4a64001f61c5a4427eb93e550b74"
         },
         {
@@ -2034,7 +2034,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_voidelf.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_voidelf.png",
           "sha256": "4a29dd7517f42b92fa5a6fc33e4975511a62b15207a306917307a0d94af360a5"
         },
         {
@@ -2107,7 +2107,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_lightforgeddraenei.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_lightforgeddraenei.png",
           "sha256": "db61f8ef8257fa7eeaa9dc9cf4df42c1772da7ad7e1691c3b44bf793e13bda06"
         },
         {
@@ -2180,7 +2180,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_darkirondwarf.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_darkirondwarf.png",
           "sha256": "73bd0cb118c887557feb530924e4098b65f1b5cf749240a1976e5ffb9540193f"
         },
         {
@@ -2253,7 +2253,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_kultiran.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_kultiran.png",
           "sha256": "89d97b769163ea045f14a3bd0b6380416a9b94ad1ff38bf6a16730de0ee38de2"
         },
         {
@@ -2478,7 +2478,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_highmountaintauren.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_highmountaintauren.png",
           "sha256": "f903b44bc554626c84ffd707b96b3fc6d0bb48736f69d90973cd57324853e059"
         },
         {
@@ -2551,7 +2551,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_magharorc.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_magharorc.png",
           "sha256": "b99f4e634cc1fa305dafea4875994059afe68cfbc6f4ec71f3d8ab5824bf0cb8"
         },
         {
@@ -2624,7 +2624,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_zandalaritroll.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_zandalaritroll.png",
           "sha256": "adbe7849d0b2e243a54250430d852fb8a483713587b234a7ed89df75aec5d46e"
         },
         {
@@ -2697,7 +2697,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_vulpera.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_vulpera.png",
           "sha256": "c4e55119078bc614cad06851db3a85ae55878c3bd41772545e81fc287306299a"
         },
         {
@@ -2843,7 +2843,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_haranir.png",
+          "file": "artwork/minimaps/reference-history/hubs-before-alpha-cleanup/race_haranir.png",
           "sha256": "e27ebdb1865e61c1850c19052863712957b3ba217e783d2e91252b902741140d"
         },
         {

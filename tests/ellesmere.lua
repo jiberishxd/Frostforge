@@ -59,6 +59,23 @@ for _,interface in ipairs({120100,16001}) do
     end)
 end
 
+for _,interface in ipairs({120100,16001}) do
+    test("Ellesmere recessed edges stay above all three unit fills on "..interface,function(M)
+        for _,unit in ipairs({"player","target","focus"}) do eui(M,unit) end
+        local J=M.load({interface=interface})
+        for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
+            enable(J,key)
+            J.ProfileManager:Set(key,"unitFrameStrata","BACKGROUND");J.ProfileManager:Set(key,"level",0)
+            for _,kind in ipairs({"health","power"}) do
+                local r=J.UnitSkins.units[key][kind];local rim=r.trim.rim
+                assert(rim.frame.shown and rim.frame.strata=="MEDIUM" and rim.frame.level>r.bar.level)
+                assert(rim.textures.top.h>=1.5 and rim.textures.top.h<=r.bar.h*.22+.001)
+            end
+        end
+        clear(J)
+    end)
+end
+
 test("automatic portraits skip inactive and transparent providers",function(M)
     local root=eui(M,"player")
     local stale=M.native("ElvUF_Player",240,48)
@@ -201,7 +218,9 @@ test("Ellesmere default layering follows its provider and respects explicit over
     assert(skin.power.trim.frame.strata=="HIGH" and skin.power.trim.frame.level==21)
     J.ProfileManager:Set("playerFrame","strata","BACKGROUND");J.ProfileManager:Set("playerFrame","level",3)
     assert(portrait.frame.strata=="BACKGROUND" and portrait.frame.level==3)
-    assert(skin.health.trim.frame.strata=="BACKGROUND" and skin.health.trim.frame.level==3)
+    assert(skin.health.trim.frame.strata=="HIGH" and skin.health.trim.frame.level==3)
+    J.ProfileManager:Set("playerFrame","unitFrameStrata","BACKGROUND")
+    assert(skin.health.trim.frame.strata=="BACKGROUND")
     J.Core:Status();local messages=table.concat(M.messages,"\n")
     assert(messages:find("requested AUTO | resolved ELLESMERE",1,true))
     assert(messages:find("unit frame: on | requested AUTO | EllesmereUI:",1,true))

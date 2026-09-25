@@ -20,6 +20,12 @@ local function writable(self,geometry)
         if self.euiLayoutBar then M.euiLayoutWrites=(M.euiLayoutWrites or 0)+1 end
         return
     end
+    if self.native and self.stockPresentation then
+        readable(self)
+        assert(not M.combat,"Stock presentation changed during combat")
+        M.stockWrites=(M.stockWrites or 0)+1
+        return
+    end
     if self.native then M.nativeWrites=M.nativeWrites+1; error("Attempt to mutate Blizzard frame") end
     if M.combat and self.protected then error("Protected artwork changed during combat") end
     M.writes=M.writes+1
@@ -48,7 +54,11 @@ function methods:SetSize(w,h) writable(self,true); self.w,self.h=w,h end
 function methods:SetWidth(w) writable(self,true); self.w=w end
 function methods:SetHeight(h) writable(self,true); self.h=h end
 function methods:SetScale(scale) writable(self,true); self.scale=scale end
-function methods:SetPoint(...) writable(self,true); self.points[#self.points+1]={...} end
+function methods:SetPoint(...)
+    local _,relative=...
+    if relative and relative.layoutAspect then assert(self.template=="DisableUntrustedLayoutScriptsTemplate","Missing aura layout aspect") end
+    writable(self,true); self.points[#self.points+1]={...}
+end
 function methods:GetPoint(i) return unpack(self.points[i or 1]) end
 function methods:GetNumPoints() readable(self);return #self.points end
 function methods:ClearAllPoints() writable(self,true); self.points={}; self.center=nil; self.allPoints=nil end
@@ -157,6 +167,9 @@ function methods:GetText() return self.text end
 function methods:SetTextColor(...) writable(self); self.color={...} end
 function methods:SetJustifyH(value) writable(self); self.justify=value end
 function methods:SetAutoFocus(value) writable(self); self.autoFocus=value end
+function methods:GetFont() readable(self);return unpack(self.font or {"Fonts/FRIZQT__.TTF",12,"OUTLINE"}) end
+function methods:SetFont(path,size,flags) writable(self);self.font={path,size,flags};return true end
+function methods:GetJustifyH() readable(self);return self.justify or "LEFT" end
 function methods:SetFontObject(value) writable(self); self.fontObject=value end
 function methods:SetTextInsets(...) writable(self); self.insets={...} end
 function methods:SetMaxLetters(value) writable(self); self.maxLetters=value end
@@ -203,7 +216,7 @@ function hooksecurefunc(object,method,callback)
     end
 end
 function CreateFrame(kind,name,parent,template)
-    assert(not template or template=="BackdropTemplate","Only nonsecure backdrop templates allowed")
+    assert(not template or template=="BackdropTemplate" or (template=="DisableUntrustedLayoutScriptsTemplate" and not M.noLayoutTemplate),"Unsupported template")
     local frame=object(kind,parent,name)
     frame.template=template
     if name then _G[name]=frame end
@@ -242,6 +255,16 @@ PlayerCastingBarFrame=nil
 OverlayPlayerCastingBarFrame=nil
 GamepadPlayerCastingBarFrame=nil
 EllesmereUI=nil
+ERB_CastBarFrame=nil
+ERB_CastBar=nil
+PartyFrame=nil
+CompactPartyFrame=nil
+CompactRaidFrameContainer=nil
+PetFrame=nil
+TargetFrameToT=nil
+FocusFrameToT=nil
+for i=1,5 do _G["Boss"..i.."TargetFrame"]=nil end
+PlayerName=nil
 LibStub=nil
 for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do
     for _,unit in ipairs({"Player","Target","Focus"}) do _G[prefix..unit]=nil end
@@ -257,7 +280,7 @@ function M.native(name,w,h,scale)
     frame.native=true
     if name == "PlayerFrame" or name == "TargetFrame" or name == "FocusFrame" then
         local container=object("Frame",frame); container.native=true
-        local portrait=object("Texture",container); portrait.native=true
+        local portrait=object("Texture",container); portrait.native=true;portrait.stockPresentation=true
         if name == "PlayerFrame" then
             frame.PlayerFrameContainer=container; container.PlayerPortrait=portrait
         else
@@ -274,6 +297,11 @@ function M.native(name,w,h,scale)
             b.fill.atlas="Native-"..name.."-"..kind;b.fill.path="native-textures";b.fill.texCoord={.1,.2,.1,.4,.7,.2,.7,.4}
             return b
         end
+        local nameLabel=object("FontString",main)
+        nameLabel.native=true;nameLabel.stockPresentation=true
+        nameLabel.points={{"TOPLEFT",main,"TOPLEFT",5,8}};nameLabel.font={"Fonts/FRIZQT__.TTF",11,""}
+        main.Name=nameLabel;frame.name=nameLabel
+        if name=="PlayerFrame" then PlayerName=nameLabel end
         main.HealthBarsContainer=healthContainer
         healthContainer.HealthBar=bar(healthContainer,"Health",124,20)
         if name=="PlayerFrame" then
@@ -303,6 +331,7 @@ function M.load(options)
     options=options or {}
     M.interface=options.interface or 120100
     JiberishUIDB=options.db
+    JiberishUICharacterDB=options.characterDB or M.characterDB
     local J={}
     local toc=assert(io.open("JiberishUI/JiberishUI.toc")):read("*a")
     for path in toc:gmatch("[^\r\n]+") do
@@ -311,8 +340,11 @@ function M.load(options)
             chunk("JiberishUI",J)
         end
     end
+    -- Existing shell tests explicitly isolate the per-unit renderer from the global stock texture option.
+    if not options.stockStone then J.ThemeManager.registry.paladin_ret.playerFrame.blizzardStone=false end
     if options.flavor then J.Build.flavor=options.flavor end
     if not options.noStart then M.event(J.Core,"PLAYER_LOGIN") end
+    M.characterDB=JiberishUICharacterDB
     return J
 end
 return M

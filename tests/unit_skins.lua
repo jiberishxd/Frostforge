@@ -222,7 +222,7 @@ test("shell layers follow user settings and defer protected changes in combat",f
     local J=M.load();enable(J)
     local u=J.UnitSkins.units.playerFrame
     M.combat=true
-    J.ProfileManager:Set("playerFrame","strata","HIGH")
+    J.ProfileManager:Set("playerFrame","unitFrameStrata","HIGH")
     J.ProfileManager:Set("playerFrame","level",42)
     J.ProfileManager:Set("playerFrame","layer","ARTWORK")
     assert(u.health.trim.frame.strata=="BACKGROUND")
@@ -382,7 +382,7 @@ test("stable full-frame ticks do not repeat native layout writes",function(M)
 end)
 
 
-test("every theme has a narrow painted inset above native fills and outside their center",function(M)
+test("every theme has a recessed painted inset above native fills and outside their center",function(M)
     local J=M.load();enable(J)
     J.ProfileManager:Set("playerFrame","portraitMode","FIXED")
     for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
@@ -393,6 +393,8 @@ test("every theme has a narrow painted inset above native fills and outside thei
             local record=J.UnitSkins.units[key][kind];local rim=record.trim.rim
             assert(rim.frame.shown and rim.frame.mouse==false and rim.frame.level==record.bar:GetFrameLevel()+1)
             near(rim.frame.w,record.bar.w);near(rim.frame.h,record.bar.h)
+            local depth=rim.textures.top.h
+            assert(depth>=record.bar.h*.15 and depth<=record.bar.h*.22+.001)
             for name,t in pairs(rim.textures) do
                 local x,y=t.points[1][4],-t.points[1][5]
                 assert(x>=0 and y>=0 and x+t.w<=rim.frame.w+.001 and y+t.h<=rim.frame.h+.001)
@@ -405,6 +407,28 @@ test("every theme has a narrow painted inset above native fills and outside thei
         end
     end
     end
+end)
+
+test("inset lips stay above fills despite saved background strata and level zero",function(M)
+    local J=M.load();enable(J)
+    local u=J.UnitSkins.units.playerFrame
+    J.ProfileManager:Set("playerFrame","unitFrameStrata","BACKGROUND")
+    J.ProfileManager:Set("playerFrame","level",0)
+    for _,kind in ipairs({"health","power"}) do
+        local r=u[kind]
+        assert(r.trim.frame.strata=="BACKGROUND" and r.trim.frame.level==0)
+        assert(r.trim.rim.frame.strata==r.bar.strata and r.trim.rim.frame.level>r.bar.level)
+    end
+    J.ProfileManager:Set("playerFrame","unitFrameStrata","HIGH")
+    J.ProfileManager:Set("playerFrame","level",42)
+    assert(u.health.trim.rim.frame.strata=="HIGH" and u.health.trim.rim.frame.level==42)
+    local hw,hh=u.health.bar.w,u.health.bar.h
+    J.ProfileManager:Set("playerFrame","unitFrameInset",6)
+    assert(u.health.trim.rim.textures.top.h<=hh*.22+.001)
+    assert(u.health.bar.w==hw and u.health.bar.h==hh)
+    J.SettingsUI:Open();J.SettingsUI:SetPage("fitting")
+    J.SettingsUI.controls.unitFrameInset.slider:SetValue(3)
+    assert(J.ThemeManager:Resolve("playerFrame").unitFrameInset==3)
 end)
 
 test("shell width and height resize art around one center without changing bars or portraits",function(M)
@@ -450,7 +474,7 @@ test("unit artwork fitting settings validate and round trip independently",funct
     assert(not J.ProfileManager:Set("minimap","unitFrameWidth",90))
     assert(not J.ProfileManager:Set("targetFrame","unitFrameWidth",0))
     assert(not J.ProfileManager:Set("targetFrame","unitFrameHeight",151))
-    assert(not J.ProfileManager:Set("targetFrame","unitFrameInset",4))
+    assert(not J.ProfileManager:Set("targetFrame","unitFrameInset",7))
     local backup=J.ProfileManager:Export();J.ProfileManager:Reset();assert(J.ProfileManager:Import(backup))
     local c=J.ThemeManager:Resolve("targetFrame")
     assert(c.unitFrameWidth==90 and c.unitFrameHeight==125 and c.unitFrameInset==2)

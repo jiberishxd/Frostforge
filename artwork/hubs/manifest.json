@@ -6,7 +6,7 @@
       "group": "class",
       "file": "JiberishUI/Media/Hubs/class_warrior.tga",
       "source": "artwork/hubs/assets/class_warrior.png",
-      "source_sha256": "71f6c0c6639f6f6a7486e6dc3a01ab5f1496e644f40ce74729cfc5fc7e00c44e",
+      "source_sha256": "160996b033d7c0c28c791467087bac812b3fac150b4ff6593fae08ea318d6a6d",
       "source_size": [
         2172,
         724
@@ -17,7 +17,7 @@
         1024,
         512
       ],
-      "sha256": "60edbd7004e5d357a2cf9a0c344fd54e346a00d59f5e9caeb6e2b2d7c1369688",
+      "sha256": "2a9bc445861a20c33d055cf770c87d217e8daa3dde9ebaef8c8168e171905ee2",
       "alphaBounds": [
         0,
         16,
@@ -36,7 +36,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -200,7 +200,7 @@
       "group": "class",
       "file": "JiberishUI/Media/Hubs/class_hunter.tga",
       "source": "artwork/hubs/assets/class_hunter.png",
-      "source_sha256": "c8677af450bfdf7d8f091315d565e1e1b2ff364cc7b1093dd1dd9730b842473d",
+      "source_sha256": "0416de1f2a5cb8d22483d04e40a1a0770f9c24d75b78b50a2af2faa0269c81c7",
       "source_size": [
         2172,
         724
@@ -211,7 +211,7 @@
         1024,
         512
       ],
-      "sha256": "3090dbe76239dec9cf253a40cb0fecbaa062fc51573ce8ac0adfd9c6d126abad",
+      "sha256": "a0d4f076528783264cdf27af40d09cacb748d5cc128d44e9f3434cfa71c6578d",
       "alphaBounds": [
         4,
         11,
@@ -230,7 +230,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -879,7 +879,7 @@
       "group": "class",
       "file": "JiberishUI/Media/Hubs/class_monk.tga",
       "source": "artwork/hubs/assets/class_monk.png",
-      "source_sha256": "4cca3d987b19d30a6afdf45002cfa2b6553a7809dd08a34ebfac1353eb4e7971",
+      "source_sha256": "6c3fcab2ee612d2e403f31c84e16cdc8139f93eb398b8ce885cd55921176142b",
       "source_size": [
         2172,
         724
@@ -890,7 +890,7 @@
         1024,
         512
       ],
-      "sha256": "c8806bfe46406967c52b0c80ecea013c19bb7fe270e10d49367b524debb007c9",
+      "sha256": "1d5f71a3aa5b9a4e7ae46da158a16b6988c8c793823aa31fc36408eb3bb296c9",
       "alphaBounds": [
         0,
         14,
@@ -909,7 +909,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -976,7 +976,7 @@
       "group": "class",
       "file": "JiberishUI/Media/Hubs/class_druid.tga",
       "source": "artwork/hubs/assets/class_druid.png",
-      "source_sha256": "718c7ba1c3e7b9036f80da66bc9d7c5f8f935a522f5cac74d657c57074f5fc79",
+      "source_sha256": "23ffa1e662311ee492cbb2f7c73390ae5a291e8c446c65b2271bcf96530abc53",
       "source_size": [
         2172,
         724
@@ -987,7 +987,7 @@
         1024,
         512
       ],
-      "sha256": "bfd13d1893d6214f79277b0c5fd4f53eea48eca1ba424aeb01b7c35af8a9d443",
+      "sha256": "19c53f8c8e250aa67e3647ae6dded32e4a1aeed87f5fc3ff5e71e0bf90f1dbaa",
       "alphaBounds": [
         1,
         13,
@@ -1006,7 +1006,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -1267,7 +1267,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_human.tga",
       "source": "artwork/hubs/assets/race_human.png",
-      "source_sha256": "632a131a552d0bef35ab496b5af308dee034de87d29dde7fa94c5ab173af4ebc",
+      "source_sha256": "19fd38fa06f9f5368c3601df2f571bfbb782f8ddb66ec1869b665b9dae3959e7",
       "source_size": [
         2172,
         724
@@ -1278,7 +1278,7 @@
         1024,
         512
       ],
-      "sha256": "399131b955353620f6ad4fc28c524e144acf3c87dcfc3502457761b1415a3fe7",
+      "sha256": "abf1ed455638e394bd3b9d9b559886e7c9d61e910b1026b3030c6e4577ba4585",
       "alphaBounds": [
         0,
         12,
@@ -1297,7 +1297,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -1461,7 +1461,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_nightelf.tga",
       "source": "artwork/hubs/assets/race_nightelf.png",
-      "source_sha256": "cb81ae7d26ea1c16bd25022db19ab1418d5e2ace5aa169fdd50387feeeadfc86",
+      "source_sha256": "b401cec83d1eb91f3427a4e511dbd869e0b964c7cbdc2e9cbf8e21d0e9957e27",
       "source_size": [
         2172,
         724
@@ -1472,7 +1472,7 @@
         1024,
         512
       ],
-      "sha256": "9522e66db7e98392070b5e18d5bbe237b0ed2e47da96fcb6d495158dec13c30a",
+      "sha256": "f151b33f1a491f5beb540566d934e6cb8e44627746486b6eccd93ca6081ce6fc",
       "alphaBounds": [
         1,
         8,
@@ -1491,7 +1491,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -1558,7 +1558,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_gnome.tga",
       "source": "artwork/hubs/assets/race_gnome.png",
-      "source_sha256": "aeff6d116ae118fd98fe278c701d531546c78848ad23366aedcf739fe13d20fa",
+      "source_sha256": "b81a64e198ce4c84ef33c5af658661c1524b70f40fd09b622a1d41a4f1ad5412",
       "source_size": [
         2172,
         724
@@ -1569,7 +1569,7 @@
         1024,
         512
       ],
-      "sha256": "ccff30c21a86f98c85fa56290549d7526e3f6822db3c17bfe3c98a4a64aa8365",
+      "sha256": "1b87e8a11e41c0590da3dce4787cdacdc8b5637eee46189fdeb7c33b8f9af87c",
       "alphaBounds": [
         0,
         9,
@@ -1588,7 +1588,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -1752,7 +1752,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_worgen.tga",
       "source": "artwork/hubs/assets/race_worgen.png",
-      "source_sha256": "bd69d899ed46fccada9aba1e0b2bf2ce47f804afaf6b88307e306914d9672e75",
+      "source_sha256": "37a47421231a7038937e19171088535d76acd92e65f9df77b87076cd450935cd",
       "source_size": [
         2172,
         724
@@ -1763,7 +1763,7 @@
         1024,
         512
       ],
-      "sha256": "b1ac23cdab33a4e04056b782975f9b222ff03a2fd8cfb062eef801e0fa981d5b",
+      "sha256": "65e51d468a15a11513c0ed2f253d785eb1badd5bfa783c8328f301cb229a6711",
       "alphaBounds": [
         0,
         8,
@@ -1782,7 +1782,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -1849,7 +1849,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_orc.tga",
       "source": "artwork/hubs/assets/race_orc.png",
-      "source_sha256": "0b16cf59d981f1e7f42ecd986dadc823d1189065c5f37958463abf5c6d1a1fb8",
+      "source_sha256": "d7c3c17c2598b2839c65d1689f64ef23303803ac1b339652d73258167c53e610",
       "source_size": [
         2172,
         724
@@ -1860,7 +1860,7 @@
         1024,
         512
       ],
-      "sha256": "8c21a1db57eaae3127bf2119a0a9b5d80d64e1a19b19bb0343861029fdc815dd",
+      "sha256": "78a2755b5f47e1f583d1b9ab47dfe672d46c4f5039b656a7f4fb4780afb1d83f",
       "alphaBounds": [
         2,
         7,
@@ -1879,7 +1879,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -1946,7 +1946,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_scourge.tga",
       "source": "artwork/hubs/assets/race_scourge.png",
-      "source_sha256": "d5ec894a863cfe3411e12c8541b57322ebc8e04ad8f1d19cbc262be834f9b1bb",
+      "source_sha256": "dd4219ab22805b87f1bf350d335410ce278a6358a6e26e9b3ac23a8a7b176d62",
       "source_size": [
         2172,
         724
@@ -1957,7 +1957,7 @@
         1024,
         512
       ],
-      "sha256": "e1f6ed381557d123e7c6050ec4cabcda2153be7d20655f12a807e67d83cab09a",
+      "sha256": "bf0f6ac18235bc850dc385c8d25184f87658a237294a9a57e9d739c64199520f",
       "alphaBounds": [
         1,
         4,
@@ -1976,7 +1976,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -2043,7 +2043,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_tauren.tga",
       "source": "artwork/hubs/assets/race_tauren.png",
-      "source_sha256": "e31d5401eff48cbb1e1d5d0a563abc70ad2c9bae6cca813490b27f3d411beab7",
+      "source_sha256": "17a504b1524c578c402538aaa9be08928fb56a6f7be663744456f7186a57aec1",
       "source_size": [
         2172,
         724
@@ -2054,7 +2054,7 @@
         1024,
         512
       ],
-      "sha256": "2e4551f86a079b3aedbd284113ed82bde661ca24e68f9b15615301314f52f459",
+      "sha256": "f18863e322a623cef72fcaf7998dab35b1291ba5c6e7c2055d97c98e552d6af2",
       "alphaBounds": [
         4,
         14,
@@ -2073,7 +2073,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -2140,7 +2140,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_troll.tga",
       "source": "artwork/hubs/assets/race_troll.png",
-      "source_sha256": "7247dea4f0e7aed1fb7de18a58665c63caa7a5f5148d9ee2898d4f5b145440e0",
+      "source_sha256": "f7df2d474a498c70294add39df09313562a6cd89587425aaa3d31df2effb98e7",
       "source_size": [
         2172,
         724
@@ -2151,7 +2151,7 @@
         1024,
         512
       ],
-      "sha256": "f88dc0e47b461f0d36ab9df946b163e158813552677c760871a306866344d372",
+      "sha256": "3ae51897d84fc15d65ff50f723b646dae3e9b28c64b67128cbef1879f653e47b",
       "alphaBounds": [
         5,
         10,
@@ -2170,7 +2170,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -2237,7 +2237,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_bloodelf.tga",
       "source": "artwork/hubs/assets/race_bloodelf.png",
-      "source_sha256": "3c1cd3bb0b5c8f23758689c3aa01080c2c54c4f0a47bb51b0fe6186bf9e8ab05",
+      "source_sha256": "738bc5574fd1525c069b958b0a2df3b3bb28a9ca651b4b14a8e81dfb9d36a66b",
       "source_size": [
         2172,
         724
@@ -2248,7 +2248,7 @@
         1024,
         512
       ],
-      "sha256": "0c4fd44761bfe448b79ea94288985ff01b9eff8241fac6372be076dc690df3cb",
+      "sha256": "0ae711421d07e2416d54a04fa0d52c8923226128c2a61558fc7da16472f0a00e",
       "alphaBounds": [
         5,
         7,
@@ -2267,7 +2267,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -2334,7 +2334,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_goblin.tga",
       "source": "artwork/hubs/assets/race_goblin.png",
-      "source_sha256": "d70679ef8d55d37c7748455fcc711e86d6adc0a74c519083c751a7518814e156",
+      "source_sha256": "8a7f64af87b52544bd844d177867a5eaa992abfdd79e11d0ee690c29ccbb59c6",
       "source_size": [
         2172,
         724
@@ -2345,7 +2345,7 @@
         1024,
         512
       ],
-      "sha256": "91b4f08cd82880b34141bb7eb4da9bdfa997b578300ccc544999abe835c0c40a",
+      "sha256": "b06bd0de67f54a65df1d2af0b519d30184023fee85b99873f729067cb7c551d5",
       "alphaBounds": [
         0,
         3,
@@ -2364,7 +2364,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -2431,7 +2431,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_pandaren.tga",
       "source": "artwork/hubs/assets/race_pandaren.png",
-      "source_sha256": "2bb1fbc9a15e79d65e6e7ecc6ad4e070a78e4a64001f61c5a4427eb93e550b74",
+      "source_sha256": "452ea52e781a3fd9e716d9cdbf23cf16b631e6901187d55fbad6545aa65f4fbe",
       "source_size": [
         2172,
         724
@@ -2442,7 +2442,7 @@
         1024,
         512
       ],
-      "sha256": "7a4d98bb2107dde7dedc381cc229be106ce63363cdef149f8ffd1e8a67ead620",
+      "sha256": "8ab6a6fc196b64093d6c08f7e0b40cd9fad207916c0c215156fda72aadd6af01",
       "alphaBounds": [
         3,
         10,
@@ -2461,7 +2461,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -2625,7 +2625,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_voidelf.tga",
       "source": "artwork/hubs/assets/race_voidelf.png",
-      "source_sha256": "4a29dd7517f42b92fa5a6fc33e4975511a62b15207a306917307a0d94af360a5",
+      "source_sha256": "717830b89b0cf8818f527e9898de5da2a47d45ef430a30f125d60c45e9ec2dc2",
       "source_size": [
         2172,
         724
@@ -2636,7 +2636,7 @@
         1024,
         512
       ],
-      "sha256": "c56839578331166c8c0eb3d940bbc0260105991d1657213eaa22432046237334",
+      "sha256": "adc79c97f6b92216e4c0e919eb8b1c5f536585dad3075e2a40474537433acba9",
       "alphaBounds": [
         5,
         20,
@@ -2655,7 +2655,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -2722,7 +2722,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_lightforgeddraenei.tga",
       "source": "artwork/hubs/assets/race_lightforgeddraenei.png",
-      "source_sha256": "db61f8ef8257fa7eeaa9dc9cf4df42c1772da7ad7e1691c3b44bf793e13bda06",
+      "source_sha256": "7d9e4e739a9a9780551ecc52582a1a606cdc2481a95bb62a6ab3dac488ac78b5",
       "source_size": [
         2172,
         724
@@ -2733,7 +2733,7 @@
         1024,
         512
       ],
-      "sha256": "ce072f823555b36d88362d703826b2250f07a569c8ad6898236247683951cb7c",
+      "sha256": "a56d618b36dbc1cec28fdcd77dc8cfcad935731c38c4df548c2330c275de19b1",
       "alphaBounds": [
         4,
         11,
@@ -2752,7 +2752,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -2819,7 +2819,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_darkirondwarf.tga",
       "source": "artwork/hubs/assets/race_darkirondwarf.png",
-      "source_sha256": "73bd0cb118c887557feb530924e4098b65f1b5cf749240a1976e5ffb9540193f",
+      "source_sha256": "87524fc8ebd3532aa2529a320dc1525a20c1a4d3a0e225892fe73343e4a557e5",
       "source_size": [
         2172,
         724
@@ -2830,7 +2830,7 @@
         1024,
         512
       ],
-      "sha256": "a23a5e7ab8a4bcafb2b94bc3ffdbcfe32e25c9b1b96c225d48d56589c962bc49",
+      "sha256": "b4d905fb411a6fc3c6b2f848bb80dc61c4f7540e325fc3e6cde9cefc7be46198",
       "alphaBounds": [
         0,
         10,
@@ -2849,7 +2849,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -2916,7 +2916,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_kultiran.tga",
       "source": "artwork/hubs/assets/race_kultiran.png",
-      "source_sha256": "89d97b769163ea045f14a3bd0b6380416a9b94ad1ff38bf6a16730de0ee38de2",
+      "source_sha256": "668504f1788899e69451533ee591f442048460ca2469629ce9a49576cb6579f9",
       "source_size": [
         2172,
         724
@@ -2927,7 +2927,7 @@
         1024,
         512
       ],
-      "sha256": "f0b4fb22899d4240df393d19a5fd50b11a42806d9641a5ea4dd44f188dab3d8e",
+      "sha256": "cd9caf087e480ba74fa3ce6cd5bee64b8c59e4b82622573650493d6ee2514716",
       "alphaBounds": [
         2,
         12,
@@ -2946,7 +2946,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -3207,7 +3207,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_highmountaintauren.tga",
       "source": "artwork/hubs/assets/race_highmountaintauren.png",
-      "source_sha256": "f903b44bc554626c84ffd707b96b3fc6d0bb48736f69d90973cd57324853e059",
+      "source_sha256": "70057893186c2bc48c53ddff76deec417d98f855b5d1bcdf921328d80841da9c",
       "source_size": [
         2172,
         724
@@ -3218,7 +3218,7 @@
         1024,
         512
       ],
-      "sha256": "4d24c553b95414c7f4a8af01ffe1d47d95e1039691da8f42c4a82fce312c3464",
+      "sha256": "151554f11696a9533d124703cffdeda8bedce220ebc0ae3f9520a38c254bf5d4",
       "alphaBounds": [
         7,
         22,
@@ -3237,7 +3237,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -3304,7 +3304,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_magharorc.tga",
       "source": "artwork/hubs/assets/race_magharorc.png",
-      "source_sha256": "b99f4e634cc1fa305dafea4875994059afe68cfbc6f4ec71f3d8ab5824bf0cb8",
+      "source_sha256": "8302e3ebbdf2024646847a257315d1ce1fe54efff6fb1a37b53b9241e5e060de",
       "source_size": [
         2172,
         724
@@ -3315,7 +3315,7 @@
         1024,
         512
       ],
-      "sha256": "f4b781d1e583587c65bd41fdb6d59bf0bfce7655a9aaf1d577669cb39b8b2153",
+      "sha256": "d996564ae3caf7b9c1b213a5bb4c8805d354c14d66cfc26777327ee038aad943",
       "alphaBounds": [
         4,
         6,
@@ -3334,7 +3334,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -3401,7 +3401,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_zandalaritroll.tga",
       "source": "artwork/hubs/assets/race_zandalaritroll.png",
-      "source_sha256": "adbe7849d0b2e243a54250430d852fb8a483713587b234a7ed89df75aec5d46e",
+      "source_sha256": "6a697fea6c55d089f0c3c825ba6c7327cd443c2bc357c0c630a9b27111c44008",
       "source_size": [
         2172,
         724
@@ -3412,7 +3412,7 @@
         1024,
         512
       ],
-      "sha256": "af043dc314cb4641161949ed89e645d9115fbecbee6ad5b083607f3cdf801662",
+      "sha256": "321de728dd9cb782bc5ddf42ba34ed032af82c7e239ca85b4e39deefa780a3d2",
       "alphaBounds": [
         1,
         10,
@@ -3431,7 +3431,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -3498,7 +3498,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_vulpera.tga",
       "source": "artwork/hubs/assets/race_vulpera.png",
-      "source_sha256": "c4e55119078bc614cad06851db3a85ae55878c3bd41772545e81fc287306299a",
+      "source_sha256": "02cde3e34553ab6a49dd960582ef4fe877bb22597b136dcd20f5b8e901c2167a",
       "source_size": [
         2172,
         724
@@ -3509,7 +3509,7 @@
         1024,
         512
       ],
-      "sha256": "6b027b74c9d77c5f56ca52fb550f91e34411dfe42203e0b8f491f8c6fe7b17fb",
+      "sha256": "59908568faaeef9804127516810d389888293b99b51cd29240602112932b9dc9",
       "alphaBounds": [
         2,
         11,
@@ -3528,7 +3528,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,
@@ -3692,7 +3692,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_haranir.tga",
       "source": "artwork/hubs/assets/race_haranir.png",
-      "source_sha256": "e27ebdb1865e61c1850c19052863712957b3ba217e783d2e91252b902741140d",
+      "source_sha256": "215b4d4ac9d83657a66f84e5b45895692aeff54d791d2f7f684cedd72926b6e8",
       "source_size": [
         2172,
         724
@@ -3703,7 +3703,7 @@
         1024,
         512
       ],
-      "sha256": "9d6ca3f03cd9bd5835231a6812c4594e348ea55178135c0a8afa79e8a46de1c6",
+      "sha256": "d312750eaf9b54ccb017a1a4f8a0a3eb0c0d5972b0d938ec446c143b0251618f",
       "alphaBounds": [
         2,
         19,
@@ -3722,7 +3722,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json); continuous vertical registration; all five slices retain full-height alpha",
       "vertical_registration": [
         [
           0,

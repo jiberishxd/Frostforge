@@ -25,7 +25,7 @@ jobs:
       - name: Install artwork test dependencies
         run: python3 -m pip install -r tools/requirements-artwork.txt
       - name: Check approved artwork and shell registration
-        run: python3 tests/test_unit_shell_fit.py
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
       - name: Check source, transparency and provenance
         run: python3 tools/check.py
       - name: Package both clients

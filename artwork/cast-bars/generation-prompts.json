@@ -4,7 +4,7 @@
     "tool": "built-in image_gen",
     "prompt": "Use case: stylized-concept. Create ONE transparent game UI cast-bar surround sprite. Reference 1 is our approved Druid unit-frame artwork, for the exact aged root/wood/leaves hand-painted materials. Reference 2 is the user's desired cropped health-border example, defining the LIGHT, MINIMAL cast border direction. Make two very long, thin winding wooden root rails, one ABOVE and one BELOW ONE empty horizontal bar opening, with a few green leaves, moss strands and vine loops protruding naturally outside the rails. Short organic curved twigs join the ends. NO large crest, character, antlers, side pillars, hanging banners, medallions, second bar, or rectangular backing. The shapes must be finished natural silhouettes, no abruptly cropped tips, no art squeezed into a box. Front-facing old 2004 Warcraft painted texture, matte aged warm wood and muted green leaves, broad readable strokes. Design a very long low bar: clear inner opening roughly 1200 pixels wide by 90 pixels high; rails roughly 18 pixels thick with details extending another 25 pixels, small end curls. Center the complete sprite on a wide 1536x1024 canvas with generous empty space around it. Both outer background and interior opening must be TRUE transparent alpha, NOT checkerboard pattern, no fill, no shadow on background, no text or numbers. Retain all tips completely. Single coherent cast-bar decoration, not a sheet or mockup.",
     "references": [
-      "artwork/unit-frames/assets/class_druid.png",
+      "artwork/cast-bars/reference-history/druid-unit-frame-before-antlers.png",
       "user Druid health-border screenshot"
     ],
     "file": "artwork/cast-bars/references/class_druid.png"

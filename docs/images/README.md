@@ -1,0 +1,14 @@
+# Public-facing media
+
+- `overview.jpg`: actual addon textures composed by `tools/render_readme_media.py`; five artwork types, with illustrative health/power fills. Not a game screenshot.
+- `unit-frames.jpg`: the same tool renders Paladin, Mage, Shaman and Night Elf shells using their measured openings and existing fill textures. Not a game screenshot.
+- `minimal-stone.jpg`: the same tool renders the current painted stone in two shells and three actual-size tinted fill samples. Not a game screenshot.
+- `settings.jpg`: browser capture of `artwork/settings/?capture=1`, Artwork page, cropped to the settings panel. The page exports the real Lua settings layout and uses browser approximations for native panel textures/fonts.
+- `profiles.jpg`: the same exported settings preview on the Profiles page, with illustrative Paladin/Hunter names. No real character data is used.
+- `paladin-ingame.png`: player-supplied earlier Paladin/EllesmereUI test capture. It predates the plain-stone health update. Retained unedited.
+- `emblem.png`: documentation-sized copy of the existing project branding image. Its retained generation record is `EMBLEM-SOURCE.md`.
+- `social-preview.jpg`: 1280 × 640 sharing image made from the existing Paladin/Shaman textures and text. Prepared for GitHub's social preview field; not a game screenshot.
+
+The composition tool uses existing images only; it does not generate or replace addon artwork. No documentation image is a runtime texture. All images have captions identifying previews versus game captures.
+
+`blizzard-controls.jpg` shows the actual exported stock portrait/name controls and the stock-wide stone switch. Capture mode hides only the preview-page header so the full options panel fits in the browser viewport.

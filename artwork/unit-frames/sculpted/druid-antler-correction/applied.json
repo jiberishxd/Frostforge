@@ -1,0 +1,20 @@
+{
+  "file": "artwork/unit-frames/sculpted/references/class_druid.png",
+  "sha256": "b8bf38b274cf9c73d799c2a1a7a817318ffd7052d934d2b71a033728efd85c60",
+  "before_sha256": "7e16d7e92190a3de6ff1957da5691b5d558c88d93b5533baf5da81dfac9b72d0",
+  "generated_sha256": "5a0e6de9f885d63a4d1fe8ac50f870050a175891d42f0aef44a2b96c1ead6091",
+  "boxes": [
+    [
+      0,
+      0,
+      290,
+      302
+    ],
+    [
+      1290,
+      0,
+      1774,
+      308
+    ]
+  ]
+}

@@ -1,120 +1,72 @@
+<p align="center"><img src="docs/images/emblem.png" width="112" alt="JiberishUI gold compass emblem"></p>
+
 # JiberishUI
 
-**0.8.0** adds optional matching cast-bar borders for Player, Target and Focus on Blizzard, EllesmereUI and ElvUI. Open `/jui → Player/Target/Focus → Cast bar` to enable the Bold border or select separate artwork. Width and height controls (50–150%) independently fit each unit’s border. All 42 designs use complete painted health-style rails with free outer details. Mage portraits and unit frames use the reference’s horizontal arcane lens, diamond center and cyan book runes; the cast border uses compact bronze brackets, violet crystals and cyan rune accents. Cast behavior and native fills remain provider-controlled. See [cast-bar setup](docs/CAST-BARS.md).
+**Bring the grit, craft, and character of Warcraft into your interface.**
 
-**0.7.5** adds a painted inner edge and shadow to all 42 unit-frame themes so health and power appear inset. In `/jui → Player/Target/Focus → Unit frame`, adjust artwork width, height and inset depth independently from portraits. The Shaman shell now uses balanced elemental totems, natural rope and stone without red banners or oversized tusks. Portraits, hubs and minimaps remain unchanged.
+JiberishUI adds sculpted artwork around your portraits, health and power bars, cast bars, action bars, and minimap. Build a matching look for your class, race, or faction—from Paladin wings and Priest stonework to Druid roots and Shaman totems.
 
-The classic settings workshop, searchable collections, backups and shared **JiberishUI Stone** texture from 0.7.4 remain available. Automatic texture mode respects Ellesmere's choices, while Blizzard keeps JiberishUI fills. See [settings and shared texture setup](docs/SETTINGS.md).
+[Artwork gallery](docs/GALLERY.md) · [Getting started](docs/GETTING-STARTED.md) · [Compatibility](#works-with-your-ui) · [Report an issue](https://github.com/jiberishxd/JiberishUI-WoW/issues/new/choose)
 
-The artwork library includes 42 matching minimap surrounds with a shared circular opening, automatic class/race/faction selection and a manual artwork picker. Warrior portrait, hub and minimap artwork now use plain battle cloth without Horde or Alliance insignia. All choices retain the existing decorative architecture; native UI controls remain functional underneath.
+![A selection of JiberishUI portrait, unit-frame, cast-bar, action-hub and minimap artwork](docs/images/overview.jpg)
 
-Blizzard or the selected UI addon owns every portrait, health/power value, name, level badge, aura, secure click and action button. JiberishUI creates mouse-transparent decorations under UIParent; it does not replace or reparent native controls. Full unit-frame mode can change the existing fill textures, fits the power bar below the painted divider and adds a sculpted shell; Blizzard retains values, colors, masks and functional behavior.
+*Artwork showcase using the addon's actual textures. See the gallery for labeled previews and an early in-game capture.*
 
-## Optional full unit-frame skin
+**Current source: 0.8.1 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/JiberishUI-WoW/releases) published yet. To test from source, [build an installable ZIP](docs/DEVELOPMENT.md#build-installable-zips).
 
-Open `/jui` → Player, Target or Focus. **Portrait art** controls only the portrait surround; **Unit-frame art** controls the ornamental bar shell; Advanced selects who owns the fills. You can use either, both, or neither. Portrait art starts on and unit-frame artwork starts off. Existing FULL selections are retained. Turning the unit-frame toggle off restores the original bar textures and any fitted bar geometry.
+## Make it your own
 
-Full style adds a large original sculpted shell and plain stone health and existing painted power materials for every one of the 42 class/race/faction identities. The designs extend the approved portraits with stone, metal, cloth, wood and class motifs. Native health/reaction and resource colors remain recognizable through the shading. Measured source openings align with the native health bar, while the power bar is fitted below the preserved thick separator; ornamental endcaps retain their proportions as bar width changes. Portrait width/height/X/Y do not stretch the shell. Names, badges, predictions, class resources and secure clicks remain native. Fill, power-bar fitting and shell changes wait until combat ends. **Unit-frame provider** selects Automatic, Blizzard or EllesmereUI independently of **Portrait provider**. Automatic follows active Ellesmere unit frames, otherwise Blizzard. Ellesmere needs horizontal health with an attached, aligned power bar below it for the complete shell. JiberishUI reserves the thick divider inside the original stack height, preserving Ellesmere’s clipping container; detached, above-health, hidden or vertical power arrangements keep their layout and receive fill textures only when explicitly using JiberishUI fills. Hidden provider bars hide their shells. ElvUI full shells are not implemented; its own texture menus can use JiberishUI Stone. If native fill metadata is unavailable, the shell still displays and `/jui status` reports that the native fill was retained.
+- **42 matching themes:** 13 classes, 26 races, and Alliance, Horde and Neutral. Each has portrait, unit-frame, action-hub, minimap and cast-bar artwork.
+- **Independent artwork toggles:** use portrait surrounds, full unit-frame shells and cast-bar borders separately on Player, Target and Focus.
+- **Automatic identity:** follow a unit's class, race or faction, or choose a fixed design. Recognized city NPCs use the matching existing race artwork; for example, Undercity → Undead and Stormwind → Human.
+- **Fit your layout:** adjust size, offsets, scale and layers. Portrait art, unit-frame art and cast borders each have their own strata. Unit-frame shells have separate width, height and inset controls. Bold cast borders have their own width, height, weight and spacing.
+- **Stock Blizzard controls:** hide the portrait image, adjust each name label, and use plain stone on health and power—including party and raid bars.
+- **A shared stone material:** choose **JiberishUI Stone** in compatible EllesmereUI, ElvUI and other LibSharedMedia status-bar texture menus.
+- **A Warcraft-style settings workshop:** searchable artwork collections, per-component controls, reset options and copy/paste settings backups.
+- **Character profiles:** save named setups and assign them per character. New alts start separately; copy a layout or deliberately share one. [Profile guide](docs/PROFILES.md).
 
-Standalone comparison and theme gallery: `artwork/unit-frames/`. See [implementation and testing](docs/UNIT-SKINS.md).
+Your frame provider continues to handle health and power values, casts, names, portraits, auras and clicks. JiberishUI's decorations are click-through. Full unit-frame styling can apply fill textures and fit power-bar spacing to the artwork; disabling it restores the provider's layout and any fills it managed. The separate stock-wide stone toggle can keep Blizzard bars textured even without shells.
 
-## Portrait library
+## Works with your UI
 
-- 13 class backgrounds.
-- 26 playable-race backgrounds, including allied races, Earthen and Haranir.
-- Alliance, Horde and Neutral backgrounds.
+These are the integrations implemented in the current build. Support depends on the provider's enabled modules and layout; this table is not a claim that every combination has been validated in game.
 
-All 42 portraits use transparent 512 × 256 textures containing two 256-square fits, displayed at the same 128 × 128 UI units. Player uses the teardrop fit; Target and Focus use the round fit. Their painted inner contours follow the native openings, with a shared center and clear bar regions. Cloth, feathers and stone sweep down the side naturally; there is no separate level-badge cutout or forced horizontal crop. Natural alpha bounds vary within the shared envelope. Source artwork and the fitting gallery are in `artwork/portraits/`.
+| UI / addon | Portrait art | Full unit-frame shells | Cast-bar borders | Action hub |
+| --- | --- | --- | --- | --- |
+| **Blizzard UI** | Yes | Yes | Yes | Yes |
+| **EllesmereUI** | Yes, with a separate portrait | Yes, for compatible bar layouts¹ | Yes | Yes |
+| **ElvUI** | Yes, with a separate portrait | Not implemented | Yes | Yes |
+| **Blinkii's Portraits** | Yes | Uses another provider | Uses another provider | Uses another provider |
+| **mMediaTag & Tools** | Yes, through ElvUI | Not implemented | Uses ElvUI | Uses ElvUI |
 
-## Action hub library
+¹ Ellesmere full shells require horizontal health with power attached and aligned below it. Detached, hidden, above-health or vertical power layouts do not receive a full shell. Separate/circular portraits give the closest portrait fit; portraits drawn inside health bars have no separate surround to decorate.
 
-The hub includes the same 13 classes, 26 races and three faction choices. `/jui` → Action hub exposes automatic player class/race/faction selection and a paginated artwork gallery. Selecting an individual hub sets Chosen artwork. It never follows the target's identity. All 42 choices retain the same anchor, five-piece geometry, baseline and reserved button space. Endcaps preserve their proportions while the rails stretch independently. Paladin keeps its flared wing endcaps; other variants carry their identity through layered armor, stone, wood, feathers and draped cloth, with one integrated motif on the left. Neutral uses an original compass. Hub textures are 1024 × 512 RGBA; only visible gallery thumbnails are assigned textures. A standalone fit gallery is in `artwork/hubs/`.
+The **minimap surround** follows the shared minimap and is designed for a circular map. Action hubs decorate the main bar; keep your preferred addon in charge of its buttons and layout. **JiberishUI Stone** can also be used on other frames through your provider's texture settings, including ElvUI frames without JiberishUI shells.
 
-## Minimap library
+Third-party addons must support your game client themselves. JiberishUI does not make a Retail-only addon work on Forever. [Detailed provider setup and limitations](docs/ADDON-COMPATIBILITY.md).
 
-The same 13 classes, 26 races and three factions now have circular minimap surrounds matched to their portrait and hub. Open `/jui` → Minimap to choose automatic player class/race/faction or a fixed design. Every 512 × 512 RGBA texture has its opening centered at (256,256), radius 149, with a clear outer margin. The default 340-unit surround fits a 198-unit native map; it follows changes to the native diameter and effective scale without moving or resizing Blizzard's map. Existing manual width/height, scale and offset settings are preserved. Reset this component to test the new baseline. The fitting preview is in `artwork/minimaps/`.
+## Get started
 
-**Automatic class is the default.** Targeting a player changes that frame's background to their class; Focus selects its own class independently. Race and faction modes, or a fixed artwork choice, are available separately for each frame. Recognized NPC city affiliations select the corresponding existing race art in automatic modes; fixed choices win. Other NPCs and unavailable/restricted class information use Neutral. Automatic race/faction modes also use Neutral when their information is unavailable. No health/power quantities are read.
+1. Install the matching **Retail** or **Forever** ZIP. Put its `JiberishUI` folder directly inside your client's `Interface/AddOns/` directory, then fully restart WoW.
+2. Enable JiberishUI and your preferred UI addon. Open **`/jui`**.
+3. Choose **Player**, **Target** or **Focus**. In **Artwork**, select automatic class/race/faction matching or browse for a fixed design.
+4. Enable **Portrait art** and **Unit-frame art** independently. Portraits start on; full shells start off. Choose the correct providers when using multiple UI addons.
+5. Open **Cast bar** to enable its separate border; the provider's cast bar must also be enabled. Then choose matching **Minimap** and **Action hub** artwork if you want a coordinated set.
 
-## Testing in game
+Settings save as you go. Fitting changes that need to wait for combat apply afterward. Use **Placement** for portraits, **Unit frame** for shell fitting, and **Cast bar** for cast-border fitting. Use **Blizzard** for stock portrait/name controls and the stock-wide stone toggle (on by default); **Advanced** has separate portrait, shell and cast-border strata. Your provider's settings still control where its functional frames sit.
 
-The addon uses four artwork folders under `JiberishUI/Media`: **Portraits**, **Hubs**, **Minimaps**, and **UnitFrames**. Keep the addon’s Lua files, `Core`, `Compatibility`, `Modules`, and `Themes` too; these load the artwork and provide its behavior. Old material folders such as `arcane_crystal`, `jade_bamboo`, `fel_obsidian` and `black_basalt` are retired and no longer present in the addon source or release ZIPs.
+![The JiberishUI settings workshop with separate portrait and unit-frame controls](docs/images/settings.jpg)
 
-For a clean manual update, close WoW and replace only the existing `Interface/AddOns/JiberishUI` folder with the package’s `JiberishUI` folder. Copying over it can leave obsolete files behind. Keep the `WTF` folder and saved settings.
+*Offline settings preview exported from the addon's settings code; fonts and native panel textures are browser approximations.*
 
-Install the matching Retail or Forever package and **fully restart WoW** for the new files and textures. Open `/jui`. Select Player, Target or Focus, then use Portrait selection or Browse artwork. The options window uses textured borders, red/gold buttons, classic checkbox art, slider tracks and a selected-portrait crest. Move it by its title bar; all in-game decorations remain click-through.
+For a clean update, close WoW and replace only the existing `Interface/AddOns/JiberishUI` folder. Keep your `WTF` folder and saved settings. [Full setup and troubleshooting](docs/GETTING-STARTED.md).
 
-Target a Paladin, then a Rogue or another class. Set a different-class player as Focus. Check the native name, level badge and bars remain visible, and test entering/exiting combat. Automatic texture changes can run in combat only on already-attached, unprotected addon frames. Protected changes and all positioning/configuration changes wait until combat ends.
+## Help, feedback and development
 
-The baseline fits are verified offline against the pinned native geometry. **This build still needs in-game visual and secure-runtime validation on both clients.** See [validation](docs/VALIDATION.md) and [test results](docs/TEST-RESULTS.md).
+- **Missing art or a fitting problem?** Check the toggle and provider for that component, then include `/jui status`, your client/addon versions, and a screenshot in a [bug report](https://github.com/jiberishxd/JiberishUI-WoW/issues/new/choose).
+- **Want to share a layout or request an improvement?** Open an [issue](https://github.com/jiberishxd/JiberishUI-WoW/issues/new/choose). [Support guide](SUPPORT.md).
+- **Want to contribute?** Read the [contributor guide](CONTRIBUTING.md), [local build instructions](docs/DEVELOPMENT.md), and [validation checklist](docs/VALIDATION.md).
 
-## Controls
+This build decorates Player, Target, Focus, the main action hub and minimap. The plain stone material also covers stock party, raid, pet, boss, target-of-target and focus-target health/power bars; ornamental shells remain limited to Player/Target/Focus. Nameplates are outside this feature. A reported Forever saved-settings loading issue is documented in the [persistence notes](docs/PERSISTENCE.md); keep a settings backup while testing.
 
-`/jui`, `/jiberishui` and `/jf` open the movable options window. Existing commands remain available:
-
-| Command | Effect |
-|---|---|
-| `/jf debug [on\|off]` | Show decorative bounds and geometry/texture information |
-| `/jf status` | Print client, settings and component diagnostics |
-| `/jf reloadtheme` | Reapply current in-memory settings |
-| `/jf set <component> <property> <value>` | Adjust one decorative component |
-| `/jf show <component>` / `/jf hide <component>` | Show or hide artwork |
-| `/jf reset [component]` | Reset one component, or all when omitted |
-| `/jf export` / `/jf import <backup>` | Export/import validated appearance data |
-
-Components: `playerFrame`, `targetFrame`, `focusFrame`, `minimap`, `actionHub`.
-
-Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `unitFrameWidth`/`unitFrameHeight` (75–150%), `unitFrameInset` (0–3), `unitFrameFill` (AUTO/PROVIDER/JIBERISH), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE), and `unitFrameSource` (AUTO/BLIZZARD/ELLESMERE). Cast-border properties are `castBarShown`, `castBarSource` (AUTO/BLIZZARD/ELLESMERE/ELVUI), `castBarArt` (MATCH or a catalog ID), `castBarWeight` (0.5–2) `castBarPadding` (0–8), and `castBarWidth`/`castBarHeight` (50–150%, default 100). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
-
-```text
-/jf set playerFrame unitFrameShown on
-/jf set targetFrame portraitMode CLASS
-/jf set focusFrame portraitMode RACE
-/jf set playerFrame portrait CLASS_PALADIN
-/jf set playerFrame portraitMode FIXED
-/jf set actionHub hubMode RACE
-/jf set actionHub hub RACE_SCOURGE
-/jf set actionHub hubMode FIXED
-/jf set minimap minimapMode RACE
-/jf set minimap minimap CLASS_WARRIOR
-/jf set minimap minimapMode FIXED
-```
-
-Blizzard defaults use Background strata and level 0. Ellesmere defaults follow its panel/portrait layer so opaque panels do not bury the artwork; explicit saved strata/level choices take priority. Custom dimensions/offsets/strata can change the fit. Use Reset this component to return to the fitted defaults.
-
-## Persistence and scope
-
-Settings remain under `JiberishUIDB.phase1`, now version 2. Version-1 shell sizing converts once to portrait sizing; offsets retain their adjustment relative to the previous defaults. Layering, visibility, hub/minimap settings and options position are retained. JF2 backups preserve new portrait settings; old JF1 backups are accepted and converted. Unknown/future database formats are preserved read-only.
-
-Forever build 69913 previously failed to supply saved settings at startup in live diagnostics. This update does not fix that client loading failure. Export before closing: [persistence notes](docs/PERSISTENCE.md).
-
-Optional cast-bar borders decorate Player/Target/Focus without replacing their native casts. No party/raid, pet, boss or replacement-UI modules are added. Blinkii, mMediaTag, ElvUI and EllesmereUI portrait anchors and ElvUI/EllesmereUI main action-bar anchors are supported; live validation remains pending. Full unit-frame bar skins apply to Blizzard frames and the supported Ellesmere layout described above. No native minimap or action-bar positioning changes are made; existing minimap edge clipping and arbitrary action-hub layouts remain separate fitting concerns.
-
-## Local checks
-
-```sh
-lua5.1 tests/run.lua
-python3 tools/check.py
-python3 tools/package.py
-python3 tools/check.py --packages
-```
-
-Install Lua 5.1 and Python 3 to run these checks; a local Lua 5.1 executable can be used instead of `lua5.1`. The same checks run on pull requests.
-
-The repository includes the final textures and all artwork inputs. To rebuild media without a generation-service cache or network access, install the pinned image-processing dependencies and run:
-
-```sh
-python3 -m pip install -r tools/requirements-artwork.txt
-python3 tools/build_portraits.py
-python3 tools/build_hubs.py
-python3 tools/build_minimaps.py
-python3 tools/extract_paladin_crest.py
-python3 tools/fit_unit_shells.py
-python3 tools/build_unit_frame_art.py
-python3 tests/test_unit_shell_fit.py
-python3 tools/render_portrait_review.py
-lua5.1 tools/export_fit_preview.lua
-python3 tools/check.py
-```
-
-Serve the repository with `python3 -m http.server 8757 --bind 127.0.0.1`, then open `/artwork/portraits/` `/artwork/hubs/` `/artwork/minimaps/` or `/artwork/unit-frames/` on that server. The source PNGs, generation briefs and revision history are retained for editing; only active textures and Lua files enter the game packages. Downloaded website HTML is a local cache and is not committed. Source references and Blizzard credits are in [artwork credits](docs/ARTWORK-CREDITS.md). Mock checks cannot certify WoW's secure runtime.
+JiberishUI is an independent community project. [Artwork credits and source references](docs/ARTWORK-CREDITS.md) · [Test results](docs/TEST-RESULTS.md) · [Advanced commands](docs/COMMANDS.md).

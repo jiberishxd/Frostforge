@@ -12,9 +12,9 @@ from package import ROOT, CLIENTS, VERSION, active_sources, payload
 
 REQUIRED = {
     "Build.lua", "Core/Core.lua", "Core/ThemeManager.lua", "Core/ProfileManager.lua", "Core/Media.lua", "Core/Settings.lua", "Core/Portraits.lua", "Themes/Portraits.lua", "Themes/NPCCities.lua", "Core/Hubs.lua", "Themes/Hubs.lua", "Core/Minimaps.lua", "Themes/Minimaps.lua",
-    "Compatibility/Retail.lua", "Compatibility/Forever.lua", "Compatibility/AddOns.lua", "Themes/PortraitMaskFits.lua",
+    "Compatibility/Retail.lua", "Compatibility/Forever.lua", "Compatibility/AddOns.lua", "Themes/PortraitMaskFits.lua", "Core/NamedProfiles.lua",
     "Modules/Minimap.lua", "Modules/PlayerFrame.lua", "Modules/TargetFrame.lua", "Modules/FocusFrame.lua", "Modules/ActionHub.lua",
-    "Themes/Paladin/Retribution.lua", "Core/UnitSkins.lua", "Themes/UnitSkins.lua", "Core/CastBars.lua",
+    "Themes/Paladin/Retribution.lua", "Core/UnitSkins.lua", "Themes/UnitSkins.lua", "Core/CastBars.lua", "Core/BlizzardUnits.lua",
 }
 
 
@@ -25,6 +25,7 @@ def source_checks():
     assert actual == REQUIRED, "Inactive legacy Lua must not remain in the addon folder"
     toc = (ROOT / "JiberishUI/JiberishUI.toc").read_text()
     assert "## SavedVariables: JiberishUIDB" in toc
+    assert "## SavedVariablesPerCharacter: JiberishUICharacterDB" in toc
     assert VERSION in (ROOT / "JiberishUI/Core/Core.lua").read_text()
     forbidden = r"\b(loadstring|loadfile|dofile|UnitHealth|UnitPower|SetAttribute|SetParent|SetStatusBarTexture|SetStatusBarColor|SetAtlas|RegisterForClicks|SetBinding)\s*\("
     for name in sources:
