@@ -101,11 +101,19 @@ class ShellFitTests(unittest.TestCase):
         baseline = json.loads((ROOT / 'tests/fixtures/pre-audit-art.json').read_text())
         self.assertEqual(len(baseline['assets']), 126)
         hub_corrections=json.loads((ROOT/'artwork/hubs/alpha-cleanup/manifest.json').read_text())['corrections']
+        import io
+        retained_hubs={Path(a['file']).stem:a for a in json.loads((ROOT/'artwork/hubs/style-remaster/before/manifest.json').read_text())['assets']}
         for name, expected in baseline['assets'].items():
             if name.endswith('Portraits/class_mage.tga'): continue
             if '/Hubs/' in name and Path(name).stem in hub_corrections:
                 self.assertEqual(expected,hub_corrections[Path(name).stem]['before_tga_sha256'])
                 continue  # Alpha-only changes are checked in test_hub_alpha.py.
+            if '/Hubs/' in name:
+                retained=retained_hubs[Path(name).stem]
+                buffer=io.BytesIO()
+                Image.open(ROOT/retained['file']).save(buffer,format='TGA',compression=None)
+                self.assertEqual(expected,hashlib.sha256(buffer.getvalue()).hexdigest())
+                continue  # All current hubs are checked in test_hub_restyle.py.
             with self.subTest(asset=name):
                 self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected)
 

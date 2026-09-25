@@ -1,3 +1,13 @@
+# Build 0.8.2 sculpted hubs and native frame presentation
+
+224 Lua behavior tests and 17 Python artwork tests pass. New coverage removes synthetic black inset strips, samples the painted bevel away from the opening outline, keeps the center footer ornament proportional when native bars widen, resolves cast borders above native child chrome, and persists an independent cast-border level. Both client fixtures exercise full stock portrait removal and restoration, independent name controls, shared-border visibility and combat deferral.
+
+All 42 hubs were restyled against their matching approved unit-frame references and reviewed on dark and light backgrounds. Tests check exact PNG/TGA pixels, clear button space, transparent margins, preserved registration and retained provenance. The approved-art lock confirms all 211 unit-frame/portrait runtime and reference files are unchanged. Historical minimap references now point to retained hub snapshots; minimap pixels are unchanged.
+
+The browser previews use the exported settings layout and actual runtime artwork. Checks cover the Blizzard controls, Night Elf fitting and assembled hub seams. Source/media checks and separate Retail/Forever package validation pass. These are offline checks: no WoW interaction, gameplay, or live-client testing was performed. Confirm portrait restoration, cast layering, native name placement and custom Ellesmere/Blizzard layouts in game before release.
+
+---
+
 # Build 0.8.1 character profiles, native controls and artwork polish
 
 219 Lua 5.1 behavior tests and 15 Python artwork tests pass. New behavior coverage includes character-specific profile assignments on both client paths, migration of the previous setup, independent copies, deliberately shared profiles, relogging, imports, invalid/future formats, combat restrictions, and restoring native presentation after switching profiles. The Profiles, Artwork, Blizzard and Advanced settings pages were visually inspected from the actual Lua UI export.

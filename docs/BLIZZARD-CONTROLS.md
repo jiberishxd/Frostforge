@@ -5,6 +5,7 @@ Open `/jui`, choose **Player**, **Target** or **Focus**, then **Blizzard**. Port
 ## Portrait image and name
 
 - **Hide Blizzard portrait image** hides the stock face image. The stock rim, level badge and other indicators remain. JiberishUI's portrait surround can remain on independently. Turn the option off to restore the original image opacity.
+- **Hide full Blizzard portrait** removes the face, stock rim, level badge and portrait decoration while **Unit-frame art** is enabled. Blizzard combines its rim and bar outline in one texture, so this also hides that shared stock border. Health, power, names, clicks and group indicators remain active. Turning this option or unit-frame art off restores the original opacity.
 - **Customize Blizzard name** enables X/Y offsets relative to the original position, font size (6–40), alignment and outline. Blizzard still supplies the displayed name and its color; JiberishUI never reads or copies the name text.
 - **Restore stock portrait & name** disables these changes and resets their controls for the selected unit. The original font, alignment, anchors and portrait opacity are restored. It does not change the stock-wide stone switch.
 
@@ -27,9 +28,9 @@ Existing bars and late-created party/raid frames are rediscovered automatically 
 
 ## Independent artwork strata
 
-Under **Advanced**, **Portrait art strata**, **Unit-frame art strata** and **Cast-border strata** control their respective decorations independently. Shells and casts offer **Automatic**; explicit values such as Medium or High affect only that artwork. Higher strata can cover other UI, including names. Existing profiles' shared strata is copied to the shell setting once to preserve the previous look. The inner lips stay above the owning health/power bar even when the surrounding shell uses a lower strata or level.
+**Advanced → Portrait art strata**, **Advanced → Unit-frame art strata** and **Cast bar → Cast-border strata** control their respective decorations independently. Shells and casts offer **Automatic**; explicit values such as Medium or High affect only that artwork. Higher strata can cover other UI, including names. Existing profiles' shared strata is copied to the shell setting once to preserve the previous look. The inner lips stay above the owning health/power bar even when the surrounding shell uses a lower strata or level.
 
-Frame level and texture draw layer retain their existing portrait/shell behavior. Cast-border level automatically follows the native bar and known Ellesmere cast chrome. Strata and geometry updates wait until combat ends.
+Frame level and texture draw layer retain their existing portrait/shell behavior. Automatic cast layering follows the highest native bar/decorative child strata and level. **Advanced → Cast-border level above bar** adds 1–100 levels (default 1) independently for each unit. Strata and geometry updates wait until combat ends.
 
 ## Validation
 

@@ -1,0 +1,11 @@
+{
+  "id": "race_human",
+  "matte": "green",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: style-transfer. EDIT TARGET: first image, the existing JiberishUI HUMAN action-bar hub. STYLE REFERENCE ONLY: second image, our approved Human unit frame; do not alter or reproduce the unit frame. Create one final horizontal HUB, exact 3:1 layout. Preserve the current hub design and U-shaped silhouette: tall left shield with its existing gold crest, crossed sword/hammer and tower masonry, right sculpted lion statue and towers, blue banners, braziers, low continuous rail and center blue jewel. Keep all these elements in their current locations/proportions and leave the entire middle above the rail empty for action buttons. Restyle every surface to MATCH the unit frame: chunky sculpted hand-painted Warcraft interface art, strongly raised gold bevels, large chiseled cool-gray stone and steel planes, deep royal-blue cloth folds, deep ambient occlusion and clean broad directional highlights. Correct any accidental missing fragments in solid hammer/stone/metal surfaces; solid carved surfaces must be complete. Replace pale sketchy thin scratch marks with confident dimensional forms. Keep the existing recognizable ornaments and crest, not a redesign; no extra insignia. Preserve complete unclipped endcaps and safe margins. BACKGROUND: perfectly uniform flat bright green RGB #00FF00 in every empty area and gap, with no checkerboard, no texture, no gradients and no background shadows. It is only a removable production matte, not part of the artwork. No buttons, no text labels, no additional rails/health bars, no floor or surrounding scene. Output only this one full hub on the green matte.",
+  "generated_source": "/Users/kyledelfrancia/.codex/generated_images/01a0c0bc-8370-70b1-9f5b-8c66d15fbe53/exec-0ec16c7e-2565-45d6-8639-ae1be619e52d.png",
+  "original": "artwork/hubs/style-remaster/originals/race_human.png",
+  "target": "artwork/hubs/style-remaster/before/assets/race_human.png",
+  "style_reference": "artwork/unit-frames/sculpted/references/race_human.png",
+  "status": "generated"
+}

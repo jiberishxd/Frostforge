@@ -1,0 +1,11 @@
+{
+  "id": "class_warrior",
+  "matte": "green",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: style-transfer. EDIT TARGET: first image, our existing JiberishUI Warrior action-bar HUB. STYLE REFERENCE ONLY: second image, our approved matching unit frame; do not alter or reproduce the unit frame. Produce one horizontal HUB at exact 3:1 aspect ratio. Preserve first image's recognizable U-shaped composition, every main ornament and motif in its current location, relative size, and asymmetry, tall endcaps at either edge connected by one low continuous rail, tiny center ornament, and empty center above the rail for action buttons. Keep the central 43% width completely empty through the upper 60% height; rail occupies roughly 73-86% of canvas height. Preserve full unclipped silhouettes, all horns/feathers/cloth and 12-pixel safe margins on every side. Restyle all surfaces to precisely MATCH second image's chunky sculpted hand-painted Warcraft UI finish and colors: strong raised thick bevels, large carved planes, rounded lit volumes, deeper ambient occlusion, rich saturated material colors, broad confident highlights, darker recesses, substantial folds and dimensional ornaments. Replace pale scratchy thin sketch detail with bold sculpted mass. Use second image's MATERIAL COLORS where different, while preserving first image's HUB design. Retain left helmet/sword and right shield/axes, chains, worn red cloth, heavy iron and bronze. No Horde or Alliance emblems: warriors are faction neutral. No extra symbols or repeated emblems, no new rails or health/power bars, no buttons, no text, no scene, no floor. BACKGROUND: uniform solid bright GREEN RGB #00FF00 in all empty areas including small enclosed gaps, absolutely no checkerboard, gradients, texture or shadows on background. This is only a removable production matte. Output only the finished HUB.",
+  "generated_source": "/Users/kyledelfrancia/.codex/generated_images/01a0c0bc-8370-70b1-9f5b-8c66d15fbe53/exec-ad681e98-b07e-49d5-af73-5d5bebe1df1c.png",
+  "original": "artwork/hubs/style-remaster/originals/class_warrior.png",
+  "target": "artwork/hubs/style-remaster/before/assets/class_warrior.png",
+  "style_reference": "artwork/unit-frames/sculpted/references/class_warrior.png",
+  "status": "generated"
+}

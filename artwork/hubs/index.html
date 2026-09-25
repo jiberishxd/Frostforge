@@ -5,7 +5,7 @@
 *{box-sizing:border-box}body{margin:0;background:#191d20;color:#e9e1d2;font:15px/1.5 system-ui}main{padding:26px;max-width:1700px;margin:auto}h1{font-size:25px;margin:0}p{color:#b8b5ad;max-width:1100px}label{display:inline-flex;gap:8px;align-items:center;margin:8px 16px 8px 0}select,input,button{font:inherit;color:inherit;background:#252b32;border:1px solid #666256;padding:7px}input[type=number]{width:86px}a{color:#dbbc72}.toolbar{position:sticky;top:0;background:#191d20f5;z-index:20;padding:10px 0}.scroll{overflow:auto;border:1px solid #555;background:#262b30}.stage{position:relative;margin:24px;transform-origin:top left}.piece{position:absolute;overflow:hidden;pointer-events:none}.piece img{position:absolute}.bounds .piece{outline:1px solid #cf76c6}.guides{position:absolute;border:1px dashed #7cc1bd;color:#e0d49d;font:12px Georgia;display:flex;align-items:center;justify-content:center;background:#0b18184d;z-index:10}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;margin:24px 0}.card img{width:100%;height:auto;aspect-ratio:3/1;object-fit:fill;display:block}.card strong{display:block}#metrics{margin:14px 0;color:#dfc88e}footer{font-size:12px;color:#aaa}.checker{background-image:linear-gradient(45deg,#313941 25%,transparent 25%),linear-gradient(-45deg,#313941 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#313941 75%),linear-gradient(-45deg,transparent 75%,#313941 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}
 </style>
 <main><h1>Class, race & faction action hubs</h1>
-<p>Sculpted classic fantasy shells with a single identity motif woven into the left endcap. Armor, stone, cloth, roots and feathers carry that theme across the hub. All 42 choices share the same fitting template and clear button space. Blizzard owns the buttons, bags and micro menu.</p>
+<p>Matching class, race and faction hubs with the raised bevels, deep shadows and rich materials of our unit frames and portraits. Each design retains its original ornaments and clear button space. All 42 choices share the same fitting template. Blizzard owns the buttons, bags and micro menu.</p>
 <div class="toolbar">
 <label>Collection <select id="collection"><option value="class">Classes</option><option value="race">Races</option><option value="faction">Factions</option></select></label>
 <label>Artwork <select id="artwork"></select></label>
@@ -15,17 +15,20 @@
 <label>Effective scale <input id="scale" type="number" value="0.64" min="0.4" max="1.5" step="0.016"></label>
 <label><input id="bounds" type="checkbox">Piece bounds</label>
 <label><input id="guides" type="checkbox" checked>Button-space guide</label>
+<label>Background <select id="background"><option value="checker">Checkerboard</option><option value="#233630">Dark green</option><option value="#e1dbca">Light parchment</option></select></label>
+<label><input id="previous" type="checkbox">Compare previous artwork</label>
 </div>
 <div id="metrics" aria-live="polite"></div><div id="scroll" class="scroll checker"></div>
 <p>Preview is rendered at the estimated target pixel size; scroll horizontally when necessary. The guide indicates an empty area, not a replacement action bar or a guarantee that every Edit Mode layout fits. In-game checks on Retail and Forever remain required.</p>
-<p><a href="../portraits/">Portrait fitting preview</a></p>
+<p><a href="../portraits/">Portrait fitting preview</a> · <a href="../unit-frames/">Matching unit frames</a> · <a href="style-remaster/progress.json">Hub update progress</a></p>
 <div id="grid" class="grid"></div>
-<footer>Official Blizzard emblems serve as visual references for integrated ornament. Endcaps and center details keep their proportions; connecting rails stretch. Full-height pieces retain hanging details. <a href="manifest.json">Sources and processing</a> · <a href="sculpted-generation-prompts.json">Artwork briefs</a>. Neutral uses an original compass motif. · <a href="../minimaps/">Minimap fitting preview</a></footer></main>
+<footer>Official Blizzard emblems serve as visual references for integrated ornament. Endcaps and center details keep their proportions; connecting rails stretch. Full-height pieces retain hanging details. <a href="manifest.json">Sources and processing</a> · <a href="style-remaster/README.md">Restyle references and processing</a>. Neutral uses an original compass motif. · <a href="../minimaps/">Minimap fitting preview</a></footer></main>
 <script src="gallery-data.js"></script><script src="runtime-layout.js"></script><script>
 const $=id=>document.getElementById(id);
+function imagePath(id){return ($('previous').checked?'style-remaster/before/game/':'game/')+id+'.png'}
 function choose(){
  const assets=hubAssets.filter(a=>a.group===$('collection').value);$('artwork').replaceChildren();$('grid').replaceChildren();
- for(const a of assets){const o=document.createElement('option');o.value=a.id;o.textContent=a.label;$('artwork').append(o);const b=document.createElement('button');b.className='card';const im=document.createElement('img');im.src='game/'+a.id+'.png';im.alt=a.label+' action hub';const title=document.createElement('strong');title.textContent=a.label;b.append(im,title);b.onclick=()=>{$('artwork').value=a.id;render()};$('grid').append(b)}
+ for(const a of assets){const o=document.createElement('option');o.value=a.id;o.textContent=a.label;$('artwork').append(o);const b=document.createElement('button');b.className='card';const im=document.createElement('img');im.dataset.art=a.id;im.src=imagePath(a.id);im.alt=a.label+' action hub';const title=document.createElement('strong');title.textContent=a.label;b.append(im,title);b.onclick=()=>{$('artwork').value=a.id;render()};$('grid').append(b)}
  if(assets.some(a=>a.id==='class_paladin'))$('artwork').value='class_paladin';render();
 }
 function render(){
@@ -33,15 +36,17 @@ function render(){
  if(!id||![w,h,factor].every(v=>Number.isFinite(v)&&v>0))return;
  const config=runtimeHub,s=Math.min(h/config.designHeight,w/config.minimumWidth),top=h-config.designHeight*s;
  const container=$('scroll');container.replaceChildren();container.classList.toggle('bounds',$('bounds').checked);
+ container.classList.toggle('checker',$('background').value==='checker');container.style.backgroundColor=$('background').value==='checker'?'#262b30':$('background').value;
+ for(const im of $('grid').querySelectorAll('img'))im.src=imagePath(im.dataset.art);
  const layout=document.createElement('div');layout.style.width=(w*factor+48)+'px';layout.style.height=(h*factor+48)+'px';
  const stage=document.createElement('div');stage.className='stage';stage.style.width=w+'px';stage.style.height=h+'px';stage.style.transform=`scale(${factor})`;layout.append(stage);container.append(layout);
  for(const [name,p] of Object.entries(config.pieces)){
   const x=w*p.leftAnchor+p.leftOffset*s,right=w*p.rightAnchor+p.rightOffset*s,pw=right-x,ph=p.height*s;
   const piece=document.createElement('div');piece.className='piece';piece.title=name;Object.assign(piece.style,{left:x+'px',top:(p.y*s+top)+'px',width:pw+'px',height:ph+'px',zIndex:p.order});
-  const im=document.createElement('img');im.src='game/'+id+'.png';im.alt=name;const iw=pw/(p.u2-p.u1),ih=ph/(p.v2-p.v1);Object.assign(im.style,{width:iw+'px',height:ih+'px',left:(-p.u1*iw)+'px',top:(-p.v1*ih)+'px'});piece.append(im);stage.append(piece);
+  const im=document.createElement('img');im.src=imagePath(id);im.alt=name;const iw=pw/(p.u2-p.u1),ih=ph/(p.v2-p.v1);Object.assign(im.style,{width:iw+'px',height:ih+'px',left:(-p.u1*iw)+'px',top:(-p.v1*ih)+'px'});piece.append(im);stage.append(piece);
  }
  if($('guides').checked){const g=document.createElement('div');g.className='guides';Object.assign(g.style,{left:(config.pieces.leftWing.rightOffset*s)+'px',width:(w-2*config.pieces.leftWing.rightOffset*s)+'px',top:(top+90*s)+'px',height:(50*s)+'px'});g.textContent='Action buttons · micro menu · bags remain native';stage.append(g)}
  $('metrics').textContent=`${id} · ${w} × ${h} UI units · ${Math.round(w*factor)} × ${Math.round(h*factor)} estimated target pixels · same anchor, rail baseline and reserved space`;
 }
-$('collection').onchange=choose;for(const id of ['artwork','width','height','resolution','scale','bounds','guides'])$(id).oninput=render;choose();
+$('collection').onchange=choose;for(const id of ['artwork','width','height','resolution','scale','bounds','guides','previous','background'])$(id).oninput=render;choose();
 </script></html>
