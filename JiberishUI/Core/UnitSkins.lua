@@ -1,21 +1,33 @@
 local _, J = ...
-local S = { units = {}, watched = setmetatable({}, {__mode="k"}) }
+local S = { units = {}, status = {}, powerLayouts = {}, watched = setmetatable({}, {__mode="k"}) }
 J.UnitSkins = S
+J.Core.properties.unitFrameShown = {boolean=true}
+-- Kept as an import/command alias for profiles made before separate toggles.
 J.Core.properties.unitStyle = {PORTRAIT=true,FULL=true}
 
--- Presentation only. Never read health/power values, change bar ranges, replace
--- a StatusBar, or touch its masks/predictions/events/secure attributes.
+-- Presentation only. The full shell fits the existing power bar below the
+-- painted divider. Never read values, change ranges or secure attributes.
 local function usable(frame) return J.Core:IsUsableFrame(frame) end
-local function capture(texture)
+local function readCapture(texture)
     if not usable(texture) then return end
-    local atlas, path = texture:GetAtlas(), texture:GetTexture()
+    if type(texture.GetTexture)~="function" or type(texture.GetTexCoord)~="function" then return end
+    local atlas = type(texture.GetAtlas)=="function" and texture:GetAtlas() or nil
+    local path = texture:GetTexture()
     if not J.Core:IsSafe(atlas) or not J.Core:IsSafe(path) then return end
+    if atlas=="" then atlas=nil end
+    if not atlas and path==nil and type(texture.GetTextureFileID)=="function" then path=texture:GetTextureFileID() end
+    if not J.Core:IsSafe(path) then return end
     if atlas ~= nil and type(atlas) ~= "string" then return end
     if not atlas and type(path) ~= "string" and not J.Core:IsNumber(path) then return end
+    if not atlas and (path=="" or (type(path)=="number" and path<=0)) then return end
     local coords = {texture:GetTexCoord()}
     if #coords ~= 8 then return end
     for _,v in ipairs(coords) do if not J.Core:IsNumber(v) then return end end
     return {atlas=atlas,path=path,coords=coords}
+end
+local function capture(texture)
+    local ok,state=pcall(readCapture,texture)
+    if ok then return state end
 end
 
 function S:Watch(record)
@@ -31,7 +43,7 @@ function S:Watch(record)
         local watched=self.watched[frame]
         if not watched then watched={}; self.watched[frame]=watched end
         -- Reuse a single dispatcher if the same texture is reattached later.
-        if not watched[method] then
+        if type(frame[method])=="function" and not watched[method] then
             watched[method]={}
             local listeners=watched[method]
             hooksecurefunc(frame,method,function(received)
@@ -41,7 +53,7 @@ function S:Watch(record)
                 end
             end)
         end
-        watched[method][record]=changed
+        if watched[method] then watched[method][record]=changed end
     end
 end
 
@@ -145,6 +157,87 @@ local function geometry(bar)
     return {w=w,h=h,scale=s,parentScale=p,level=level,strata=strata}
 end
 
+local function layoutState(bar)
+    if not usable(bar) then return end
+    local count=bar:GetNumPoints()
+    local w,h=bar:GetWidth(),bar:GetHeight()
+    if not J.Core:IsNumber(count) or count<1 or count>8 or not J.Core:IsNumber(w) or not J.Core:IsNumber(h) then return end
+    local state={w=w,h=h,points={}}
+    for i=1,count do
+        local point,relative,relativePoint,x,y=bar:GetPoint(i)
+        if not J.Core:IsSafe(point) or not J.Core:IsSafe(relativePoint) or not usable(relative)
+            or not J.Core.properties.point[point] or not J.Core.properties.point[relativePoint]
+            or not J.Core:IsNumber(x) or not J.Core:IsNumber(y) then return end
+        state.points[i]={point,relative,relativePoint,x,y}
+    end
+    return state
+end
+
+local function sameLayout(a,b)
+    if not a or not b or math.abs(a.w-b.w)>.001 or math.abs(a.h-b.h)>.001 or #a.points~=#b.points then return false end
+    for i,p in ipairs(a.points) do
+        for j,v in ipairs(p) do
+            local other=b.points[i][j]
+            if type(v)=="number" then
+                if math.abs(v-other)>.001 then return false end
+            elseif v~=other then return false end
+        end
+    end
+    return true
+end
+
+local function writeLayout(bar,state)
+    assert(not InCombatLockdown(),"Native bar layout deferred in combat")
+    bar:ClearAllPoints()
+    bar:SetSize(state.w,state.h)
+    for _,point in ipairs(state.points) do bar:SetPoint(unpack(point)) end
+end
+
+function S:RestorePowerLayout(key)
+    local record=self.powerLayouts[key]
+    if not record then return true end
+    if InCombatLockdown() then J.Core.dirty=true;return false end
+    if not usable(record.bar) then J.Core.dirty=true;return false end
+    local ok,current=pcall(layoutState,record.bar)
+    if not record.partial and (not ok or not current) then J.Core.dirty=true;return false end
+    -- A later native layout is authoritative; do not overwrite it on disable.
+    if sameLayout(current,record.applied) or record.partial then
+        if not J.Core:Protect(key.." power layout restore",function() writeLayout(record.bar,record.original) end) then return false end
+    end
+    self.powerLayouts[key]=nil
+    return true
+end
+
+function S:FitPowerLayout(key,bars,id,enabled)
+    local record=self.powerLayouts[key]
+    local bar=bars and bars.power
+    if record and (not enabled or record.bar~=bar or record.partial) and not self:RestorePowerLayout(key) then return false end
+    if not enabled or not bars or not bar then return false end
+    if InCombatLockdown() then
+        local ready=record and record.id==id or false
+        if not ready then J.Core.dirty=true end
+        return ready
+    end
+    local health,power=geometry(bars.health),geometry(bar)
+    if not health or not power then return false end
+    local ok,current=pcall(layoutState,bar)
+    if not ok or not current then return false end
+    record=self.powerLayouts[key]
+    if not record then record={bar=bar,original=current};self.powerLayouts[key]=record
+    elseif not record.partial and not sameLayout(current,record.applied) then record.original=current end
+    local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
+    local h,p=entry.opening.health,entry.opening.power
+    local k=health.h/(h[4]-h[2])*health.scale/power.scale
+    local desired={w=health.w*health.scale/power.scale,h=(p[4]-p[2])*k,
+        points={{"TOPLEFT",bars.health,"BOTTOMLEFT",0,-(p[2]-h[4])*k}}}
+    if not sameLayout(current,desired) then
+        record.partial=true
+        if not J.Core:Protect(key.." power layout",function() writeLayout(bar,desired) end) then return false end
+    end
+    record.applied,record.partial,record.id=desired,false,id
+    return true
+end
+
 function S:Layout(record,key,kind,config,id,g)
     local trim=record.trim
     if not trim then trim=self:CreateTrim(key,kind);record.trim=trim end
@@ -157,21 +250,20 @@ function S:Layout(record,key,kind,config,id,g)
         or applied.level~=config.level or applied.layer~=config.layer or trim.debugApplied~=J.ProfileManager.current.debug then
         if InCombatLockdown() then J.Core.dirty=true;return end
         local mirror=config.unit~="player"
+        local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
+        local health,power=entry.opening.health,entry.opening.power
         local k=g.capScale
-        local left,right=(mirror and 116 or 96)*k,(mirror and 96 or 116)*k
-        local top=kind=="health" and 84*k or 0
-        -- The native 1-unit seam stays small; the substantial lower ornament is
-        -- below the power bar, never stretched over either functional opening.
-        local heights=kind=="health" and {top,g.h,1} or {g.h,96*k}
-        local rows=kind=="health" and {0,84,132,136} or {136,160,256}
-        local cols=mirror and {512,396,96,0} or {0,96,396,512}
+        local left,right=(mirror and 512-health[3] or health[1])*k,(mirror and health[1] or 512-health[3])*k
+        local top=kind=="health" and health[2]*k or 0
+        local heights=kind=="health" and {top,g.h,(power[2]-health[4])*k} or {g.h,(256-power[4])*k}
+        local rows=kind=="health" and {0,health[2],health[4],power[2]} or {power[2],power[4],256}
+        local cols=mirror and {512,health[3],health[1],0} or {0,health[1],health[3],512}
         local widths={left,g.w,right}
         local height=0;for _,v in ipairs(heights) do height=height+v end
         f:SetScale(g.scale/g.parentScale)
         f:SetSize(g.w+left+right,height)
         f:ClearAllPoints();f:SetPoint("TOPLEFT",record.bar,"TOPLEFT",-left,top)
         f:SetFrameStrata(config.strata);f:SetFrameLevel(config.level)
-        local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
         local path=entry.shell
         trim.assetOK=true
         local y=0
@@ -211,28 +303,32 @@ function S:Visibility(record,enabled)
             snapshot=trim.snapshot;snapshot.visible=visible==true;snapshot.alpha=alpha
         end
     end
+    record.barVisible=snapshot and snapshot.visible and snapshot.alpha>0 or false
     J.Core:SyncVisibility(trim,snapshot)
 end
 
 function S:TickUnit(key)
     local config=J.ThemeManager:Resolve(key)
-    local enabled=config.unitStyle=="FULL" and config.shown
-    -- Replacement portrait sources own their bars. Retire a previous native
-    -- skin through the existing restoration path when the source switches.
-    if enabled and J.AddOnAnchors then
-        local _,_,external=J.AddOnAnchors:Resolve(key)
-        enabled=not external
-    end
+    -- Portrait visibility/provider must never disable Blizzard bar artwork.
+    -- Hidden native bars already hide their corresponding shells naturally.
+    local enabled=config.unitFrameShown
+    self.status[key]=enabled and "Waiting for Blizzard health / power bars" or "Off"
     local unit=self.units[key]
     if not enabled and not unit then return end -- Portrait-only mode has no hooks or bar reads.
     if not unit then unit={trims={}};self.units[key]=unit end
     local bars=enabled and J.Core.client:UnitBars(key) or nil
     local id=J.Portraits:Resolve(config)
+    local fitted=self:FitPowerLayout(key,bars,id,enabled)
+    local states={}
     for _,kind in ipairs({"health","power"}) do
         local bar=bars and bars[kind]
+        if not usable(bar) then bar=nil end
         local record=unit[kind]
-        local texture=usable(bar) and bar:GetStatusBarTexture() or nil
-        if not usable(texture) then bar=nil end
+        local texture
+        if bar then
+            local ok,result=pcall(bar.GetStatusBarTexture,bar)
+            if ok and usable(result) then texture=result end
+        end
         if record and (not enabled or record.bar~=bar or record.texture~=texture) then
             self:Visibility(record,false)
             if self:Restore(record) then
@@ -245,19 +341,26 @@ function S:TickUnit(key)
         local g=bar and geometry(bar)
         if g then
             local healthGeometry=bars and geometry(bars.health)
-            g.capScale=healthGeometry and healthGeometry.h/48*healthGeometry.scale/g.scale or g.h/(kind=="health" and 48 or 24)
+            local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
+            local h,p=entry.opening.health,entry.opening.power
+            g.capScale=healthGeometry and healthGeometry.h/(h[4]-h[2])*healthGeometry.scale/g.scale
+                or g.h/(kind=="health" and h[4]-h[2] or p[4]-p[2])
         end
         if bar and g and not record and not InCombatLockdown() then
-            local original=capture(texture)
-            if original then
-                record={bar=bar,texture=texture,original=original,trim=unit.trims[kind]}
-                unit[kind]=record;self:Watch(record)
-            end
+            record={bar=bar,texture=texture,trim=unit.trims[kind]}
+            unit[kind]=record
         end
         if record and bar and g then
-            if not InCombatLockdown() and self:ApplyFill(record,kind,id) then
+            if not InCombatLockdown() then
+                -- Shells need only bar geometry. Unreadable native fill metadata
+                -- must not silently suppress the entire ornamental frame.
                 self:Layout(record,key,kind,config,id,g)
                 unit.trims[kind]=record.trim
+                if not record.original then
+                    local original=capture(texture)
+                    if original then record.original=original;self:Watch(record) end
+                end
+                record.fillReady=record.original and self:ApplyFill(record,kind,id) or false
             elseif InCombatLockdown() then
                 local old=record.geometry
                 if not record.active or record.external or record.id~=id or not old
@@ -265,8 +368,16 @@ function S:TickUnit(key)
                     or old.capScale~=g.capScale or record.trim.applied.strata~=config.strata
                     or record.trim.applied.level~=config.level or record.trim.applied.layer~=config.layer then J.Core.dirty=true end
             end
-            self:Visibility(record,record.active and enabled and record.id==id and not record.external)
+            self:Visibility(record,enabled and record.id==id)
+            states[#states+1]=kind..(record.trim and record.trim.assetOK and
+                (record.fillReady and ": shell + texture" or ": shell; native fill retained") or ": shell asset unavailable")
+                ..(record.barVisible and "" or " (native bar hidden)")
         elseif record then self:Visibility(record,false) end
+    end
+    if enabled then
+        self.status[key]=#states>0 and table.concat(states,"; ") or "Waiting for Blizzard health / power bars"
+        if not fitted and bars and bars.power then self.status[key]="Waiting to fit power-bar spacing; "..self.status[key] end
+        if InCombatLockdown() and J.Core.dirty then self.status[key]="Changes queued until combat ends" end
     end
 end
 

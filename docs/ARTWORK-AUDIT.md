@@ -1,5 +1,7 @@
 # Artwork fitting audit — 0.7.0-art.2
 
+**Historical record — superseded by 0.7.1.** The user requested the original source silhouettes and thicker borders. Version 0.7.1 replaces both the original compressed export and the audit warp with uniform source fitting and measured openings. It also restores Paladin’s crowned-lion class motif. The 126 portrait/hub/minimap assets remain unchanged; the fitting changes and comparison below are historical.
+
 The Priest corner was an export/fitting error. The artwork source was intact; a rectangular name-clearance mask removed its inner carved detail. The same shared mask affected every full shell to varying degrees.
 
 | Finding | Scope | Correction |

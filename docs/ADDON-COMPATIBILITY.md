@@ -1,6 +1,6 @@
 # Portrait addon setup
 
-Build **0.7.0-art.2** adds Player, Target and Focus surrounds for **mMediaTag & Tools** alongside **Blinkii's Portraits**, **ElvUI** and **EllesmereUI**, plus main action-bar anchors for both UI suites. The implementation passes offline checks; fitting and secure behavior still need validation inside WoW.
+Build **0.7.1** supports Player, Target and Focus surrounds for **mMediaTag & Tools** alongside **Blinkii's Portraits**, **ElvUI** and **EllesmereUI**, plus main action-bar anchors for both UI suites. The implementation passes offline checks; fitting and secure behavior still need validation inside WoW.
 
 Install the matching JiberishUI package, keep your preferred frame addon enabled, and fully restart WoW. Open `/jui` and select Player, Target or Focus. **Portrait addon → Automatic (Blinkii first)** follows Blinkii when its active portrait is visible, otherwise mMediaTag, ElvUI, EllesmereUI or Blizzard, in that order. Set a specific provider per unit when multiple frame addons are active. An explicit choice waits for that provider and never silently switches to another. The Following line identifies the resolved anchor.
 
@@ -14,7 +14,7 @@ For addon portraits, width/height are relative to the fitted size, and X/Y prese
 
 **Action hub → Action bar addon** selects Automatic, ElvUI, EllesmereUI or Blizzard. FRAME follows the main bar position; SCREEN retains the screen anchor while following its visibility and scale. Bar row count and layout remain manual fitting concerns. Both suites continue to use the shared Minimap anchor; select a circular minimap for the circular surround. JiberishUI does not change the map mask or bar layout.
 
-The optional Full unit frame style applies only to Blizzard bars. Selecting an external portrait source suspends/restores that native skin while retaining the portrait surround.
+The independent Unit-frame artwork toggle applies only to Blizzard bars. Selecting an external portrait source does not disable artwork on visible Blizzard bars. Hidden Blizzard bars hide the shell; replacement addon bars retain their own styling.
 
 ```text
 /jf set playerFrame portraitSource BLINKII
