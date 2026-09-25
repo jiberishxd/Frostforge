@@ -20,8 +20,10 @@ for _,interface in ipairs({120100,16001}) do
                 assert(bar.fill.path==J.UnitSkinCatalog.entries[r.id][kind] and bar.fill.atlas==nil)
                 assert(r.trim.frame.points[1][2]==bar)
                 near(r.trim.frame:GetEffectiveScale(),bar:GetEffectiveScale())
-                near(r.trim.frame.w,bar.w+212*r.geometry.capScale)
-                near(r.trim.frame.h,bar.h+(kind=="health" and 84*r.geometry.capScale+1 or 96*r.geometry.capScale))
+                local opening=J.UnitSkinCatalog.entries[r.id].opening
+                local h,p=opening.health,opening.power
+                near(r.trim.frame.w,bar.w+(512-h[3]+h[1])*r.geometry.capScale)
+                near(r.trim.frame.h,bar.h+(kind=="health" and (h[2]+p[2]-h[4])*r.geometry.capScale or (256-p[4])*r.geometry.capScale))
                 local config=J.ThemeManager:Resolve(key)
                 assert(r.trim.frame.strata==config.strata and r.trim.frame.level==config.level)
                 assert(r.trim.frame.shown)
@@ -84,7 +86,7 @@ test("enable disable and native redraws never write appearance in combat",functi
     assert(b.fill.atlas=="Native-Combat-Redraw")
 end)
 
-test("skin artwork selection never changes native sizing or the common fit",function(M)
+test("shell themes preserve the health-bar anchor independently of portrait sizing",function(M)
     local J=M.load();enable(J,"targetFrame")
     local r=J.UnitSkins.units.targetFrame.health;local w,h=r.trim.frame.w,r.trim.frame.h
     for id in pairs(J.PortraitCatalog.entries) do
@@ -92,11 +94,13 @@ test("skin artwork selection never changes native sizing or the common fit",func
         J.ProfileManager:Set("targetFrame","portrait",id)
         assert(r.id==id and r.trim.textures["1_1"].path==J.UnitSkinCatalog.entries[id].shell
             and r.texture.path==J.UnitSkinCatalog.entries[id].health)
-        near(r.trim.frame.w,w);near(r.trim.frame.h,h)
+        near(r.trim.textures["1_2"].w,bars(J,"targetFrame").health.w)
+        assert(r.trim.frame.points[1][2]==bars(J,"targetFrame").health)
     end
     J.ProfileManager:Set("targetFrame","portraitMode","CLASS")
     M.unitData.target.class="DEATHKNIGHT";M.tick(J.Core)
     assert(r.id=="CLASS_DEATHKNIGHT")
+    w,h=r.trim.frame.w,r.trim.frame.h
     J.ProfileManager:Set("targetFrame","width",190);J.ProfileManager:Set("targetFrame","x",80)
     near(r.trim.frame.w,w);near(r.trim.frame.h,h)
 end)
@@ -106,7 +110,8 @@ test("native resizing scale and hidden power bars are followed independently",fu
     local b=bars(J);b.health.w=180;b.health.h=24;b.health.scale=1.4;b.power.shown=false
     UIParent.scale=.8;M.tick(J.Core)
     local unit=J.UnitSkins.units.playerFrame
-    near(unit.health.trim.frame.w,180+212*24/48);near(unit.health.trim.frame:GetEffectiveScale(),b.health:GetEffectiveScale())
+    local opening=J.UnitSkinCatalog.entries[unit.health.id].opening.health
+    near(unit.health.trim.frame.w,180+(512-opening[3]+opening[1])*24/(opening[4]-opening[2]));near(unit.health.trim.frame:GetEffectiveScale(),b.health:GetEffectiveScale())
     assert(unit.health.trim.frame.shown and not unit.power.trim.frame.shown)
     b.power.shown=true;M.tick(J.Core);assert(unit.power.trim.frame.shown)
     PlayerFrame.shown=false;M.tick(J.Core);assert(not unit.health.trim.frame.shown)
@@ -228,16 +233,152 @@ test("shell layers follow user settings and defer protected changes in combat",f
     end
 end)
 
-test("restricted redraw hides stale shell until native metadata is readable",function(M)
+test("restricted fill metadata does not hide independently fitted artwork",function(M)
     local J=M.load();enable(J);local b=bars(J).health
     b.fill:SetAtlas("Native-Changed-Health");b.fill.secretCoords=true
     M.tick(J.Core)
     assert(b.fill.atlas=="Native-Changed-Health")
-    assert(not J.UnitSkins.units.playerFrame.health.trim.frame.shown)
+    assert(J.UnitSkins.units.playerFrame.health.trim.frame.shown)
+    assert(J.UnitSkins.status.playerFrame:find("native fill retained",1,true))
     b.fill.secretCoords=false;M.tick(J.Core)
     assert(J.UnitSkins.units.playerFrame.health.trim.frame.shown)
     J.ProfileManager:Set("playerFrame","unitStyle","PORTRAIT")
     assert(b.fill.atlas=="Native-Changed-Health")
+end)
+
+for _,interface in ipairs({120100,16001}) do
+    test("portrait and unit-frame toggles are independent on client "..interface,function(M)
+        local J=M.load({interface=interface})
+        J.SettingsUI:Open()
+        for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
+            J.SettingsUI:Select(key)
+            for _,pair in ipairs({{true,false},{false,false},{false,true},{true,true},{true,false}}) do
+                local portrait,shell=pair[1],pair[2]
+                local c=J.ThemeManager:Resolve(key)
+                if c.shown~=portrait then J.SettingsUI.showButton.scripts.OnClick() end
+                c=J.ThemeManager:Resolve(key)
+                if c.unitFrameShown~=shell then J.SettingsUI.styleButton.scripts.OnClick() end
+                assert(J.Core.modules[key].frame.shown==portrait)
+                local u=J.UnitSkins.units[key]
+                if shell then
+                    assert(u.health.trim.frame.shown and u.power.trim.frame.shown)
+                    assert(u.health.active and u.power.active)
+                elseif u then
+                    for _,trim in pairs(u.trims) do assert(not trim.frame.shown) end
+                end
+                assert(J.SettingsUI.showButton.check.shown==portrait)
+                assert(J.SettingsUI.styleButton.check.shown==shell)
+            end
+        end
+    end)
+end
+
+test("Forever uses initialized native bar bindings when XML child paths differ",function(M)
+    local J=M.load({interface=16001})
+    for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
+        local b=bars(J,key);local root=J.Core.client:Resolve(key)
+        root.healthbar,root.manabar=b.health,b.power
+        root.PlayerFrameContent,root.TargetFrameContent=nil,nil
+        J.ProfileManager:Set(key,"unitFrameShown",true)
+        local u=J.UnitSkins.units[key]
+        assert(u.health.bar==b.health and u.power.bar==b.power)
+        assert(u.health.trim.frame.shown and u.power.trim.frame.shown)
+    end
+end)
+
+test("unreadable fill at first enable leaves shells visible and retries materials",function(M)
+    local J=M.load({interface=16001});local b=bars(J)
+    b.health.fill.secretCoords=true;b.power.fill.forbidden=true
+    enable(J)
+    local u=J.UnitSkins.units.playerFrame
+    assert(u.health.trim.frame.shown and u.power.trim.frame.shown)
+    assert(not M.appearanceWrites)
+    b.health.fill.secretCoords=false;b.power.fill.forbidden=false
+    M.tick(J.Core)
+    assert(u.health.active and u.power.active)
+    J.ProfileManager:Set("playerFrame","unitFrameShown",false)
+    assert(b.health.fill.atlas=="Native-PlayerFrame-Health")
+    assert(b.power.fill.atlas=="Native-PlayerFrame-Mana")
+end)
+
+test("shells are independent of native fill getter failures",function(M)
+    local J=M.load({interface=16001});local b=bars(J)
+    b.health.fill.GetTexCoord=function() error("Texture coordinates unavailable") end
+    b.power.fill.GetAtlas=function() error("Atlas unavailable") end
+    enable(J)
+    local u=J.UnitSkins.units.playerFrame
+    assert(u.health.trim.frame.shown and u.power.trim.frame.shown)
+    assert(not M.appearanceWrites and not next(J.Core.notices))
+end)
+
+test("missing secret and throwing fill objects cannot block the shell",function(M)
+    local J=M.load({interface=16001});local b=bars(J)
+    b.health.GetStatusBarTexture=function() return M.secret end
+    b.power.GetStatusBarTexture=function() error("Texture not ready") end
+    enable(J)
+    local u=J.UnitSkins.units.playerFrame
+    assert(u.health.trim.frame.shown and u.power.trim.frame.shown)
+    assert(not M.appearanceWrites and not next(J.Core.notices))
+    J.ProfileManager:Set("playerFrame","unitFrameShown",false)
+    assert(not u.health and not u.power)
+end)
+
+test("separate toggles migrate and round trip without losing hidden portraits",function(M)
+    local J=M.load({db={phase1={version=2,theme="paladin_ret",modules={
+        playerFrame={shown=false,unitStyle="FULL"},targetFrame={shown=true,unitStyle="PORTRAIT"},
+        focusFrame={shown=false,unitStyle="FULL",unitFrameShown=false},
+    }}}})
+    assert(not J.Core.modules.playerFrame.frame.shown and J.UnitSkins.units.playerFrame.health.trim.frame.shown)
+    assert(not J.ThemeManager:Resolve("focusFrame").unitFrameShown)
+    local backup=J.ProfileManager:Export()
+    assert(backup:find("playerFrame.unitFrameShown=true",1,true) and not backup:find("unitStyle",1,true))
+    J.ProfileManager:Reset();assert(J.ProfileManager:Import(backup))
+    assert(not J.Core.modules.playerFrame.frame.shown and J.UnitSkins.units.playerFrame.health.trim.frame.shown)
+    assert(J.ProfileManager:Import("JF2;paladin_ret;playerFrame.shown=false;playerFrame.unitStyle=FULL"))
+    assert(not J.Core.modules.playerFrame.frame.shown and J.UnitSkins.units.playerFrame.health.trim.frame.shown)
+    assert(not J.ProfileManager:Set("minimap","unitFrameShown",true))
+end)
+
+test("thick source divider gets real spacing and restores native power geometry",function(M)
+    local J=M.load({interface=16001});local b=bars(J)
+    local width,height=b.power.w,b.power.h
+    local point={b.power:GetPoint()}
+    enable(J)
+    local h,p=J.UnitSkinCatalog.entries.CLASS_PALADIN.opening.health,J.UnitSkinCatalog.entries.CLASS_PALADIN.opening.power
+    local k=b.health.h/(h[4]-h[2])
+    assert(-b.power.points[1][5]>5)
+    near(b.power.points[1][5],-(p[2]-h[4])*k)
+    near(b.power.h,(p[4]-p[2])*k)
+    assert(b.power.points[1][2]==b.health and b.power.w==b.health.w)
+    J.ProfileManager:Set("playerFrame","unitFrameShown",false)
+    near(b.power.w,width);near(b.power.h,height)
+    for i,v in ipairs(point) do assert(b.power.points[1][i]==v) end
+end)
+
+test("power layout enable and restoration wait until combat ends",function(M)
+    local J=M.load();local b=bars(J);local point={b.power:GetPoint()}
+    M.combat=true;enable(J);assert(not M.nativeLayoutWrites)
+    M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+    local writes=M.nativeLayoutWrites;assert(writes>0)
+    M.combat=true;J.ProfileManager:Set("playerFrame","unitFrameShown",false);M.tick(J.Core)
+    assert(M.nativeLayoutWrites==writes)
+    M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+    for i,v in ipairs(point) do assert(b.power.points[1][i]==v) end
+end)
+
+test("new native power layout supersedes old restore geometry",function(M)
+    local J=M.load();local b=bars(J);enable(J)
+    b.power.points={{"TOPLEFT",PlayerFrame,"TOPLEFT",94,-80}};b.power.w=160;b.power.h=12
+    M.tick(J.Core)
+    J.ProfileManager:Set("playerFrame","unitFrameShown",false)
+    assert(b.power.points[1][2]==PlayerFrame and b.power.points[1][4]==94 and b.power.points[1][5]==-80)
+    assert(b.power.w==160 and b.power.h==12)
+end)
+
+test("stable full-frame ticks do not repeat native layout writes",function(M)
+    local J=M.load();enable(J);local writes=M.nativeLayoutWrites
+    for i=1,15 do M.tick(J.Core) end
+    assert(M.nativeLayoutWrites==writes)
 end)
 
 end

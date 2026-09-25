@@ -1,4 +1,14 @@
-# Build 0.7.0-art.2 artwork audit
+# Build 0.7.1 independent unit-frame artwork
+
+128 Lua tests pass. Coverage includes four portrait/shell toggle combinations on Retail and Forever; legacy migration/import/export; initialized Forever bar bindings; unavailable or restricted fill metadata; external portrait providers; and source-proportional power-bar fitting. Geometry tests cover restoration, combat deferral, later native layouts and stable ticks without repeated writes. The mock permits only the intended out-of-combat power geometry and fill appearance writes, and rejects functional native mutations.
+
+Five artwork tests verify the 126 unchanged portrait/hub/minimap TGAs against pre-audit commit `72c5c69`, reproduce all 42 source-faithful shells, check transparent interiors and source-proportional dividers, retain shoulder/tip regression markers, and reject invalid geometry. Priest and Draenei separators remain more than six UI units at a 20-unit health height. Source/media/provenance and exact package checks cover all 252 runtime assets.
+
+All 42 shell exports were inspected on a dark contact sheet. Browser checks cover Priest Player and Paladin Target at 1440p, plus Draenei Focus at 1080p, with the original artwork beside the native fitting preview and independent toggles. These are offline estimates, not live screenshots.
+
+No WoW interaction or in-game testing was performed. The reported Forever failure has not been reproduced in a live client; coupled toggles and the all-or-nothing shell/fill path are corrected and tested offline. User validation is still required, especially native layer ordering, names, resources, vehicles, prediction overlays and secure behavior. Use the per-unit `/jui status` lines if an issue remains.
+
+## Historical 0.7.0-art.2 audit (reverted in 0.7.1)
 
 The 42 identities were inspected in both Player and mirrored Target/Focus portrait-and-shell compositions, plus the portrait-only, hub and minimap collection sheets. The same name-clearance crop removed upper-corner pixels in all 42 shells; the outer padding cut a few tip pixels in 27. Shell fit version 2 preserves those details outside the unchanged clear regions. New fitting records require zero visible pixels discarded by either mask.
 

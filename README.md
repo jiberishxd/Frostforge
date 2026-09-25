@@ -1,16 +1,16 @@
 # JiberishUI
 
-**0.7.0-art.2** corrects clipped corners and tips in the optional full Blizzard unit-frame skins alongside automatic portrait surrounds for mMediaTag & Tools, Blinkii's Portraits, ElvUI and EllesmereUI, plus main action-bar anchors for both UI suites. Choose the portrait addon separately for Player, Target and Focus in `/jui`. See [addon setup and limits](docs/ADDON-COMPATIBILITY.md).
+**0.7.1** preserves the original full-shell silhouettes and thick borders and separates **Portrait art** from **Unit-frame artwork** in `/jui`. Either decoration can be enabled independently for Player, Target and Focus. Forever uses its initialized native bar references; shell rendering no longer depends on reading the bar's fill metadata. See [addon setup and limits](docs/ADDON-COMPATIBILITY.md).
 
 The artwork library includes 42 matching minimap surrounds with a shared circular opening, automatic class/race/faction selection and a manual artwork picker. Warrior portrait, hub and minimap artwork now use plain battle cloth without Horde or Alliance insignia. All choices retain the existing decorative architecture; native UI controls remain functional underneath.
 
-Blizzard or the selected UI addon owns every portrait, health/power bar, name, level badge, aura, position, secure click and action button. JiberishUI creates mouse-transparent decorations under UIParent; it does not replace or reparent native controls. Full unit-frame mode changes only the existing bar fill textures and adds a fitted sculpted shell; Blizzard retains values, colors, masks and functional behavior.
+Blizzard or the selected UI addon owns every portrait, health/power value, name, level badge, aura, secure click and action button. JiberishUI creates mouse-transparent decorations under UIParent; it does not replace or reparent native controls. Full unit-frame mode changes the existing fill textures, fits the power bar below the painted divider and adds a sculpted shell; Blizzard retains values, colors, masks and functional behavior.
 
 ## Optional full unit-frame skin
 
-Open `/jui` → Player, Target or Focus → **Style: Full unit frame**. Each unit has its own setting. **Portrait only remains the default** and keeps the existing art and positioning. Switching back restores the original native bar textures.
+Open `/jui` → Player, Target or Focus. **Portrait art** controls only the portrait surround; **Unit-frame artwork** controls the ornamental bar shell and painted fills. You can use either, both, or neither. Portrait art starts on and unit-frame artwork starts off. Existing FULL selections are retained. Turning the unit-frame toggle off restores the original bar textures and power-bar geometry.
 
-Full style adds a large original sculpted shell and matching painted health/power materials for every one of the 42 class/race/faction identities. The designs extend the approved portraits with stone, metal, cloth, wood and class motifs. Native health/reaction and resource colors remain recognizable through the shading. Shared clear openings follow the actual native bars; ornamental endcaps retain their proportions as bar width changes. Portrait width/height/X/Y do not stretch the shell. Names, badges, predictions, class resources and secure clicks remain native. Fill and shell changes wait until combat ends. Full bar skins apply only while the selected portrait source is Blizzard; external portrait providers keep their own bars.
+Full style adds a large original sculpted shell and matching painted health/power materials for every one of the 42 class/race/faction identities. The designs extend the approved portraits with stone, metal, cloth, wood and class motifs. Native health/reaction and resource colors remain recognizable through the shading. Measured source openings align with the native health bar, while the power bar is fitted below the preserved thick separator; ornamental endcaps retain their proportions as bar width changes. Portrait width/height/X/Y do not stretch the shell. Names, badges, predictions, class resources and secure clicks remain native. Fill, power-bar fitting and shell changes wait until combat ends. The unit-frame toggle always follows Blizzard bars, independently of the portrait provider. Hidden Blizzard bars hide their shells; replacement addon bars are not reskinned. If native fill metadata is unavailable, the shell still displays and `/jui status` reports that the native fill was retained.
 
 Standalone comparison and theme gallery: `artwork/unit-frames/`. See [implementation and testing](docs/UNIT-SKINS.md).
 
@@ -56,10 +56,10 @@ The baseline fits are verified offline against the pinned native geometry. **Thi
 
 Components: `playerFrame`, `targetFrame`, `focusFrame`, `minimap`, `actionHub`.
 
-Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitStyle` (PORTRAIT/FULL), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
+Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
 
 ```text
-/jf set playerFrame unitStyle FULL
+/jf set playerFrame unitFrameShown on
 /jf set targetFrame portraitMode CLASS
 /jf set focusFrame portraitMode RACE
 /jf set playerFrame portrait CLASS_PALADIN
@@ -100,9 +100,10 @@ python3 -m pip install -r tools/requirements-artwork.txt
 python3 tools/build_portraits.py
 python3 tools/build_hubs.py
 python3 tools/build_minimaps.py
-python3 tests/test_unit_shell_fit.py
+python3 tools/extract_paladin_crest.py
 python3 tools/fit_unit_shells.py
 python3 tools/build_unit_frame_art.py
+python3 tests/test_unit_shell_fit.py
 python3 tools/render_portrait_review.py
 lua5.1 tools/export_fit_preview.lua
 python3 tools/check.py

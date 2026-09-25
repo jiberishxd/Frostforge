@@ -21,7 +21,7 @@ def save(name,im,refs,kind):
               source_sha256=sha(p),alphaBounds=list(im.getbbox()),kind=kind,
               references=[dict(file=str(r.relative_to(ROOT)),sha256=sha(r)) for r in refs])
     if not args.preview:item['sha256']=sha(t)
-    if kind=='unit-shell':item['registration']={'canvas':[512,256],'health':[96,84,396,132],'power':[96,136,396,160],'name':[96,0,396,70],'margin':4}
+    if kind=='unit-shell':item['registration']=reports[name]['measured']['registration']
     return item
 jobs=json.loads((ART/'generation-prompts.json').read_text())
 reports={r['id']:r for r in json.loads((ART/'fit-report.json').read_text())}
@@ -34,10 +34,14 @@ for job in jobs:
     if name not in reports:continue
     fitted=ROOT/reports[name]['file'];original=ROOT/reports[name]['source']
     shell=Image.open(fitted).convert('RGBA');a=np.asarray(shell).astype(float)/255
-    assets.append(save(name,shell,[original,fitted,ART/'generation-prompts.json'],'unit-shell'))
+    refs=[original,fitted,ART/'generation-prompts.json']
+    if name=='class_paladin':refs += [ART/'paladin-crest-correction.json', ROOT/'artwork/official-crests/originals/class_paladin.png']
+    assets.append(save(name,shell,refs,'unit-shell'))
     # Use original painted brushwork and this shell's actual lower-rail material.
     # These full-bleed materials retain Blizzard's health/resource color tint.
-    band=a[160:192,100:392];opaque=band[:,:,3]>.8
+    registration=reports[name]['measured']['registration']
+    left,_,right,bottom=registration['power']
+    band=a[int(bottom):min(256,int(bottom)+32),int(left)+4:int(right)-4];opaque=band[:,:,3]>.8
     color=np.median(band[:,:,:3][opaque],axis=0) if opaque.any() else np.array([.7,.7,.7])
     tint=.86+.14*color/max(color.max(),.01)
     material=Image.fromarray(np.uint8((band[:,:,:3]*band[:,:,3:4]+.45*(1-band[:,:,3:4]))*255)).convert('L').resize((256,32),Image.Resampling.LANCZOS)
@@ -50,12 +54,16 @@ for job in jobs:
         fill=Image.fromarray(np.uint8(rgb*255),'RGB').convert('RGBA')
         assets.append(save(name+'-'+kind,fill,[source,fitted],'statusbar-fill'))
     entries.append((name.upper(),name))
+(OUT/'layouts.json').write_text(json.dumps({r['id']:r['measured']['registration'] for r in reports.values()},indent=2)+'\n')
 (OUT/'available.json').write_text(json.dumps([stem for _,stem in entries])+'\n')
 if not args.preview:
-    lines=['local _, J = ...','-- Original artwork; data only. Every identity shares the same native-bar registration.','J.UnitSkinCatalog = { entries = {']
+    lines=['local _, J = ...','-- Original artwork; data only. Measured openings preserve each source painting; native bars supply the anchor.','J.UnitSkinCatalog = { entries = {']
     for ident,stem in entries:
         prefix='Interface\\\\AddOns\\\\JiberishUI\\\\Media\\\\UnitFrames\\\\'
-        lines.append('    %s = {shell="%s%s.tga",health="%s%s-health.tga",power="%s%s-power.tga"},'%(ident,prefix,stem,prefix,stem,prefix,stem))
+        reg=reports[stem]['measured']['registration']
+        health=','.join(format(v,'.8f') for v in reg['health'])
+        power=','.join(format(v,'.8f') for v in reg['power'])
+        lines.append('    %s = {shell="%s%s.tga",health="%s%s-health.tga",power="%s%s-power.tga",opening={health={%s},power={%s}}},'%(ident,prefix,stem,prefix,stem,prefix,stem,health,power))
     lines+=['} }'];(ROOT/'JiberishUI/Themes/UnitSkins.lua').write_text('\n'.join(lines)+'\n')
     manifest=ROOT/'docs/phase1-assets.json';data=json.loads(manifest.read_text())
     data['assets']=[a for a in data['assets'] if '/UnitFrames/' not in a['file']]+assets

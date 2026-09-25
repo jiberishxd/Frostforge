@@ -268,17 +268,18 @@ test("disabled or overlay portraits do not decorate hidden Blizzard frames",func
     assert(not next(J.Core.notices))
 end)
 
-test("external portrait sources suspend and restore optional native full skins",function(M)
+test("external portrait source does not switch off Blizzard bar artwork",function(M)
     local J=M.load()
     J.ProfileManager:Set("playerFrame","unitStyle","FULL")
     local skin=J.UnitSkins.units.playerFrame
     assert(skin.health and skin.health.active)
-    local original=skin.health.original.atlas
-    local native=skin.health.texture
     local bp=blinkii(M,"player");M.tick(J.Core)
     assert(J.Core.modules.playerFrame.snapshot.frame==bp)
-    assert(not skin.health and native.atlas==original)
+    assert(skin.health and skin.health.active and skin.health.trim.frame.shown)
+    PlayerFrame.shown=false;M.tick(J.Core)
     for _,trim in pairs(skin.trims) do assert(not trim.frame.shown) end
+    PlayerFrame.shown=true;M.tick(J.Core)
+    assert(skin.health.trim.frame.shown)
     local writes=M.appearanceWrites
     M.tick(J.Core);assert(M.appearanceWrites==writes)
     J.ProfileManager:Set("playerFrame","portraitSource","BLIZZARD")
