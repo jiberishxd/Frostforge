@@ -15,3 +15,5 @@ The 42 matching minimaps were created with the built-in image generation tool fr
 ## Plain stone health material
 
 Build 0.7.3 uses a new original stone material generated with the built-in image tool, then cropped, reduced to grayscale and fitted locally for 256 × 32 health fills. The source is `artwork/unit-frames/references/plain-stone.png`; its exact prompt and generation record are in `plain-stone-generation.json` beside it. No reference-addon assets, code or branding were used. All 42 health exports use this unmarked material and retain native tinting. Existing ornamental shells, power materials, portraits, hubs and minimaps are unchanged.
+
+The 0.7.4 Shaman unit-frame revision uses the recorded official Shaman crest as a visual reference for an integrated elemental mask and a carved totem counterpart. The built-in image tool produced the edit; user-authorized local processing removes its painted checkerboard. Sources, prompt and extraction hashes are in `artwork/unit-frames/sculpted/shaman-elemental-correction.json` and `shaman-alpha-report.json`. Other Shaman families retain their existing integrated elemental motifs.

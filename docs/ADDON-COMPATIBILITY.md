@@ -28,3 +28,7 @@ The independent **Unit-frame art** toggle now supports **Blizzard and EllesmereU
 ```
 
 These settings are included in existing JF2 exports. Source code revisions and measured mask hashes are recorded in [addon-sources.json](addon-sources.json). No third-party addon code or textures are shipped.
+
+## Shared status-bar material (0.7.4)
+
+EllesmereUI and ElvUI can select **JiberishUI Stone** through their existing LibSharedMedia texture menus. Choose it in the provider for any supported frame type, including frames beyond JiberishUI's own Player/Target/Focus shells. JiberishUI's default AUTO fill mode now respects Ellesmere choices; PROVIDER keeps native fills on any supported shell provider. JIBERISH explicitly restores the prior override behavior. Existing profiles with no fill setting inherit AUTO. No provider settings or third-party code are copied. See [settings setup](SETTINGS.md).

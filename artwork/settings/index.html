@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>JiberishUI settings preview</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#141916;color:#eee3c9;font:14px system-ui}header{padding:16px 24px;background:#242821}header p{margin:6px 0;color:#bbb9ac;font-size:12px}select{background:#322c20;color:#f5dea1;padding:7px;border:1px solid #766347;margin-right:10px}#stage{position:relative;width:920px;height:700px;margin:22px auto;font-family:Georgia,serif;background:#15120e;box-shadow:0 15px 55px #000b} .node{position:absolute}.panel{border:2px ridge #817052;border-radius:5px;background:repeating-linear-gradient(37deg,#26231ef0 0px,#26231ef0 2px,#302b23f0 3px,#24211cf0 5px);box-shadow:inset 0 0 14px #000c} .outer{border:9px ridge #8b7b60;border-radius:12px}.label{white-space:pre-wrap;line-height:1.28;text-shadow:1px 1px 2px #000;overflow-wrap:break-word}.redbutton{border:2px ridge #89704a;background:linear-gradient(#5c1912,#36100c);box-shadow:inset 0 0 8px #070303}.highlight{background:#9d7a2244;border:1px solid #c9a44f66}.checkbox{border:3px ridge #9b855c;background:#0f1011}.check{text-align:center;color:#fed665;font:bold 22px Georgia}.slider{border:2px ridge #756341;background:#12100e}.thumb{position:absolute;top:-4px;width:12px;height:22px;border:2px ridge #c0aa7e;border-radius:6px;background:#7b6b4e}.art{background-repeat:no-repeat}.edit{padding:4px 6px;color:#f6edd5;font:12px Georgia}
+</style><header><strong>JiberishUI · Settings workshop</strong><p>Layout and text exported from the addon’s actual settings code. Browser approximations of Blizzard’s native textures and fonts; offline preview only.</p><select id="component"><option value="playerFrame">Player</option><option value="minimap">Minimap</option><option value="actionHub">Action hub</option></select><select id="page"><option>artwork</option><option>placement</option><option>advanced</option><option>guide</option><option>collection</option><option>backup</option></select></header><main id="stage"></main>
+<script src="runtime-settings.js"></script><script>
+const stage=document.querySelector('#stage'),component=document.querySelector('#component'),page=document.querySelector('#page');
+const anchor=a=>[a.includes('LEFT')?0:a.includes('RIGHT')?1:.5,a.includes('TOP')?0:a.includes('BOTTOM')?1:.5];
+const vals=x=>Object.keys(x||{}).sort((a,b)=>+a-+b).map(k=>x[k]);
+const textOnly=s=>String(s||'').replace(/\|c[0-9a-f]{8}/gi,'').replace(/\|r/g,'');
+function render(){
+ stage.replaceChildren();const nodes=settingsSnapshots.pages[['collection','backup'].includes(page.value)?page.value:component.value+'-'+page.value],cache={};
+ function rect(id){if(cache[id])return cache[id];const n=nodes[id];if(!n||+id===settingsSnapshots.root)return {x:0,y:0,w:920,h:700,z:0};
+ let w=n.w,h=n.h;if(n.kind==='FontString'){const txt=textOnly(n.text),fs=n.font?.includes('Large')?20:n.font?.includes('Small')?12:14;w=n.justify?n.w:Math.max(1,txt.length*fs*.55);h=n.justify?Math.max(fs*1.28,txt.split('\n').reduce((sum,line)=>sum+Math.max(1,Math.ceil(line.length/(w/(fs*.53))))*fs*1.28,0)):fs*1.28;}
+ if(n.all){const r=rect(n.all);return cache[id]={...r,z:rect(n.parent).z+.02};}
+ const parent=rect(n.parent);const points=vals(n.points);let x=parent.x,y=parent.y;
+ if(points.length){const p=vals(points[0]),r=rect(p[1]),[ax,ay]=anchor(p[0]),[bx,by]=anchor(p[2]);x=r.x+bx*r.w+p[3]-ax*w;y=r.y+by*r.h-p[4]-ay*h;
+ if(points.length===2){const q=vals(points[1]),r2=rect(q[1]);w=r2.x+r2.w+q[3]-x;h=r2.y+r2.h-q[4]-y;}}
+ return cache[id]={x,y,w,h,z:n.level? n.level-200:parent.z+(n.kind==='FontString'?.04:n.color&&!n.path?-.01:.01)};}
+ const sorted=Object.values(nodes).sort((a,b)=>rect(a.id).z-rect(b.id).z||((a.kind==='FontString'?4:a.layer==='BACKGROUND'?0:2)-(b.kind==='FontString'?4:b.layer==='BACKGROUND'?0:2))||a.id-b.id);
+ for(const n of sorted){const r=rect(n.id),d=document.createElement('div');d.className='node';Object.assign(d.style,{left:r.x+'px',top:r.y+'px',width:r.w+'px',height:r.h+'px',opacity:n.alpha??1});if(n.backdrop)d.classList.add('panel',n.backdrop.edgeSize===32?'outer':'inset');
+ if(n.kind==='FontString'){d.classList.add('label');if(!n.justify){d.style.whiteSpace='nowrap';d.style.overflowWrap='normal';}d.textContent=textOnly(n.text);d.style.fontSize=(n.font?.includes('Large')?20:n.font?.includes('Small')?12:14)+'px';d.style.color=n.font?.includes('Highlight')?'#ddd4c1':'#efc451';}
+ if(n.kind==='EditBox'){d.classList.add('edit');d.textContent=textOnly(n.text);d.style.overflow='hidden';d.style.whiteSpace='nowrap';}
+ if(n.kind==='Slider'){d.classList.add('slider');const t=document.createElement('i');t.className='thumb';t.style.left=Math.max(0,Math.min(1,(n.value-n.minimum)/(n.maximum-n.minimum)))*(r.w-12)+'px';d.append(t);}
+ if(n.path?.includes('Panel-Button-Up'))d.classList.add('redbutton');if(n.path?.includes('Highlight'))d.classList.add('highlight');if(n.path?.includes('CheckBox-Up'))d.classList.add('checkbox');if(n.path?.includes('CheckBox-Check')){d.classList.add('check');d.textContent='✓';}
+ if(n.path?.includes('JiberishUI')){const parts=n.path.split('\\'),folder=parts.at(-2).toLowerCase(),stem=parts.at(-1).replace('.tga','.png');d.classList.add('art');d.style.backgroundImage=`url('../${folder}/${folder==='portraits'?'atlases':'assets'}/${stem}')`;const uv=vals(n.uv);d.style.backgroundSize=(uv.length===4?100/(uv[1]-uv[0]):100)+'% 100%';d.style.backgroundPosition=uv[0]>0?'right':'left';}
+ if(n.color&&n.kind==='Texture'&&!n.path){const c=vals(n.color);d.style.background=`rgba(${c[0]*255},${c[1]*255},${c[2]*255},${c[3]??1})`;}
+ stage.append(d);
+ }
+}
+component.onchange=page.onchange=render;render();
+</script></html>

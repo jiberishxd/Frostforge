@@ -303,20 +303,20 @@
     "id": "class_shaman",
     "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/class_shaman.png",
-    "source_sha256": "a6dc2245bc6e2f4226651abfda530f5c91461f737b9e3a0c16247f1d6c01f535",
+    "source_sha256": "51b971563b8db534c382a4b52015a086853f4da4d9164a5fba60e789f8fc5463",
     "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-    "sha256": "4fb47dfd18c93f95625c5949a826acf479e61b825f351237b1221e822208e98c",
+    "sha256": "2a344fe7597503a21ce3e381e042329b3ab60c2cc220cf52eae16715138f66a4",
     "measured": {
       "health": [
         256,
-        353,
-        1419,
-        481
+        352,
+        1420,
+        482
       ],
       "power": [
         256,
         523,
-        1419,
+        1420,
         578
       ],
       "scale": [
@@ -335,17 +335,17 @@
         "margin": 4,
         "health": [
           79.576099210823,
-          102.6967305524239,
-          404.7440811724915,
-          138.4847801578354
+          102.41713641488163,
+          405.0236753100338,
+          138.76437429537768
         ],
         "power": [
           79.576099210823,
           150.22773393461105,
-          404.7440811724915,
+          405.0236753100338,
           165.60541149943631
         ],
-        "divider": 11.742953776775664
+        "divider": 11.463359639233374
       }
     }
   },

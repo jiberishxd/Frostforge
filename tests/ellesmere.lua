@@ -25,7 +25,11 @@ local function eui(M,unit)
     _G[title.."Frame"].shown=false
     return root,health,power,bd
 end
-local function enable(J,key) assert(J.ProfileManager:Set(key or "playerFrame","unitFrameShown",true)) end
+local function enable(J,key)
+    -- Existing material/restoration cases exercise the explicit Jiberish fill mode.
+    assert(J.ProfileManager:Set(key or "playerFrame","unitFrameFill","JIBERISH"))
+    assert(J.ProfileManager:Set(key or "playerFrame","unitFrameShown",true))
+end
 local function clear(J) assert(not next(J.Core.notices), next(J.Core.notices)) end
 
 for _,interface in ipairs({120100,16001}) do
@@ -223,5 +227,48 @@ test("Ellesmere scale changes and partial redraws retain original stack dimensio
     root.scale=.75;M.tick(J.Core);near(h.h-p.points[1][5]+p.h,48)
     h.h=50;M.tick(J.Core);near(h.h-p.points[1][5]+p.h,58)
     J.ProfileManager:Set("playerFrame","unitFrameShown",false);near(h.h,50);near(p.h,8)
+    clear(J)
+end)
+
+test("automatic Ellesmere fills respect provider choices and do not install texture hooks",function(M)
+    local root,h,p=eui(M,"player");local J=M.load()
+    J.ProfileManager:Set("playerFrame","unitFrameShown",true)
+    local u=J.UnitSkins.units.playerFrame
+    assert(u.health.trim.frame.shown and not u.health.active and not M.hooks)
+    assert(not M.appearanceWrites and h.fill.path=="Interface\\Buttons\\WHITE8X8")
+    h.fill:SetTexture("Provider-Stone");p.fill:SetTexture("Provider-Mana")
+    local writes=M.appearanceWrites
+    for i=1,5 do M.tick(J.Core) end
+    assert(h.fill.path=="Provider-Stone" and p.fill.path=="Provider-Mana" and writes==M.appearanceWrites)
+    J.ProfileManager:Set("playerFrame","unitFrameShown",false)
+    assert(h.fill.path=="Provider-Stone" and p.fill.path=="Provider-Mana")
+    clear(J)
+end)
+
+test("provider may select JiberishUI Stone without later being reset to stale media",function(M)
+    local root,h,p=eui(M,"player");local J=M.load();enable(J)
+    h:SetStatusBarTexture(J.Media.stone)
+    J.ProfileManager:Set("playerFrame","unitFrameFill","AUTO")
+    assert(h.fill.path==J.Media.stone and p.fill.path=="Interface\\Buttons\\WHITE8X8")
+    assert(not J.UnitSkins.units.playerFrame.health.active)
+    local writes=M.appearanceWrites
+    M.tick(J.Core);assert(writes==M.appearanceWrites)
+    J.ProfileManager:Set("playerFrame","unitFrameFill","JIBERISH")
+    J.ProfileManager:Set("playerFrame","unitFrameShown",false)
+    assert(h.fill.path==J.Media.stone)
+    clear(J)
+end)
+
+test("switching texture ownership during combat defers writes and keeps latest choice",function(M)
+    local root,h,p=eui(M,"player");local J=M.load();enable(J)
+    local writes=M.appearanceWrites
+    M.combat=true
+    J.ProfileManager:Set("playerFrame","unitFrameFill","PROVIDER")
+    J.ProfileManager:Set("playerFrame","unitFrameFill","JIBERISH")
+    J.ProfileManager:Set("playerFrame","unitFrameFill","AUTO")
+    assert(M.appearanceWrites==writes and J.UnitSkins.units.playerFrame.health.active)
+    M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+    assert(not J.UnitSkins.units.playerFrame.health.active)
+    assert(h.fill.path=="Interface\\Buttons\\WHITE8X8" and J.UnitSkins.units.playerFrame.health.trim.frame.shown)
     clear(J)
 end)

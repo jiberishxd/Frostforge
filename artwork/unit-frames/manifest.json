@@ -644,29 +644,45 @@
       512,
       256
     ],
-    "source_sha256": "4fb47dfd18c93f95625c5949a826acf479e61b825f351237b1221e822208e98c",
+    "source_sha256": "2a344fe7597503a21ce3e381e042329b3ab60c2cc220cf52eae16715138f66a4",
     "alphaBounds": [
+      11,
       9,
-      13,
-      502,
-      246
+      504,
+      248
     ],
     "kind": "unit-shell",
     "references": [
       {
         "file": "artwork/unit-frames/sculpted/references/class_shaman.png",
-        "sha256": "a6dc2245bc6e2f4226651abfda530f5c91461f737b9e3a0c16247f1d6c01f535"
+        "sha256": "51b971563b8db534c382a4b52015a086853f4da4d9164a5fba60e789f8fc5463"
       },
       {
         "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-        "sha256": "4fb47dfd18c93f95625c5949a826acf479e61b825f351237b1221e822208e98c"
+        "sha256": "2a344fe7597503a21ce3e381e042329b3ab60c2cc220cf52eae16715138f66a4"
       },
       {
         "file": "artwork/unit-frames/sculpted/generation-prompts.json",
         "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
+      },
+      {
+        "file": "artwork/unit-frames/sculpted/shaman-elemental-correction.json",
+        "sha256": "9b9bacefdbe6a2a2961269b3e8420b19b6f9c1418e2e20b652766f17752cb7b5"
+      },
+      {
+        "file": "artwork/unit-frames/sculpted/shaman-alpha-report.json",
+        "sha256": "eafdba1fc44597d11b1fa38e9d9229022fd898e2ff42461979c7bc90d03d643d"
+      },
+      {
+        "file": "artwork/unit-frames/sculpted/revisions/shaman-elemental-totem-rgb.png",
+        "sha256": "1ccbeb831202228a30eddcc75e3a59a46f61a930c078972f3ae8c9758e7a77be"
+      },
+      {
+        "file": "artwork/official-crests/originals/class_shaman.png",
+        "sha256": "e779f715615a4fa4db0d4757fb4d7d67b18686e8edab07488344316eaa35dce3"
       }
     ],
-    "sha256": "9672855d148bc5cc27c84fa9d49f7d0a3fecc0ad918ad030575ec00810a0d057",
+    "sha256": "338c1f8e154a025d34db80b0d54c0c281b2b49541c2eff0b2cee03909acbd605",
     "registration": {
       "canvas": [
         512,
@@ -675,17 +691,17 @@
       "margin": 4,
       "health": [
         79.576099210823,
-        102.6967305524239,
-        404.7440811724915,
-        138.4847801578354
+        102.41713641488163,
+        405.0236753100338,
+        138.76437429537768
       ],
       "power": [
         79.576099210823,
         150.22773393461105,
-        404.7440811724915,
+        405.0236753100338,
         165.60541149943631
       ],
-      "divider": 11.742953776775664
+      "divider": 11.463359639233374
     }
   },
   {
@@ -722,7 +738,7 @@
       256,
       32
     ],
-    "source_sha256": "60dd43d9507c3471b05dcd602d80e3e5e797e547f5fc7f4d9016830a316ade3b",
+    "source_sha256": "cd3ba0c2a0553b50c2e9879760cb643d0ef358084ee1f946933c12bf14b6f84c",
     "alphaBounds": [
       0,
       0,
@@ -737,10 +753,10 @@
       },
       {
         "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
-        "sha256": "4fb47dfd18c93f95625c5949a826acf479e61b825f351237b1221e822208e98c"
+        "sha256": "2a344fe7597503a21ce3e381e042329b3ab60c2cc220cf52eae16715138f66a4"
       }
     ],
-    "sha256": "9cbef3042cb6886b85300cffbc08e316d73bd69979ffe15c1699d104c94ce68d"
+    "sha256": "2b5046a946dc6977bf6e98ee93186667f897d5d495d0242be5b14c96863a37b5"
   },
   {
     "file": "JiberishUI/Media/UnitFrames/class_mage.tga",
