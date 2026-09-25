@@ -14,7 +14,7 @@ CLIENTS = {
 TOC = ROOT / "JiberishUI/JiberishUI.toc"
 VERSION = re.search(r"^## Version: (.+)$", TOC.read_text(), re.M).group(1)
 DOCS = ("README.md", "docs/ARCHITECTURE.md", "docs/UNIT-SKINS.md", "docs/ARTWORK.md", "docs/COMPATIBILITY.md",
-        "docs/PERSISTENCE.md", "docs/VALIDATION.md", "docs/TEST-RESULTS.md",
+        "docs/PERSISTENCE.md", "docs/VALIDATION.md", "docs/TEST-RESULTS.md", "docs/NPC-CITIES.md",
         "docs/phase1-assets.json", "docs/phase1-sources.json", "docs/addon-sources.json", "docs/ADDON-COMPATIBILITY.md", "docs/ARTWORK-CREDITS.md", "docs/ARTWORK-SOURCES.json")
 
 

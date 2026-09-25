@@ -14,6 +14,32 @@ from fit_unit_shells import fit
 
 
 class ShellFitTests(unittest.TestCase):
+    def test_health_is_plain_color_neutral_stone_for_every_identity(self):
+        assets = json.loads((ROOT / 'artwork/unit-frames/manifest.json').read_text())
+        health = [a for a in assets if a['file'].endswith('-health.tga')]
+        self.assertEqual(len(health), 42)
+        pixels = None
+        for asset in health:
+            with self.subTest(asset=asset['file']):
+                image = Image.open(ROOT / asset['file']).convert('RGBA')
+                self.assertEqual(image.size, (256, 32))
+                actual = np.asarray(image)
+                self.assertTrue(np.all(actual[:, :, 3] == 255))
+                self.assertTrue(np.array_equal(actual[:, :, 0], actual[:, :, 1]))
+                self.assertTrue(np.array_equal(actual[:, :, 1], actual[:, :, 2]))
+                self.assertGreater(float(actual[:, :, 0].std()), 5)
+                self.assertLess(float(actual[:, :, 0].std()), 40)
+                preview = np.asarray(Image.open(ROOT / asset['source']).convert('RGBA'))
+                self.assertTrue(np.array_equal(actual, preview))
+                if pixels is not None:
+                    self.assertTrue(np.array_equal(actual, pixels))
+                pixels = actual
+                refs = {ref['file'] for ref in asset['references']}
+                self.assertEqual(refs, {
+                    'artwork/unit-frames/references/plain-stone.png',
+                    'artwork/unit-frames/references/plain-stone-generation.json',
+                })
+
     def test_portraits_hubs_and_minimaps_unchanged(self):
         baseline = json.loads((ROOT / 'tests/fixtures/pre-audit-art.json').read_text())
         self.assertEqual(len(baseline['assets']), 126)

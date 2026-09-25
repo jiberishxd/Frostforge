@@ -1,6 +1,6 @@
 # Portrait build validation
 
-Install 0.7.2 and fully restart WoW to load the source-faithful shells and new controls. Keep saved settings. In `/jui`, select Player, Target or Focus and test **Portrait art** and **Unit-frame art** in all four on/off combinations. Unit-frame art is off by default; existing FULL settings migrate. If bars still do not show their artwork, copy the per-unit lines from `/jui status`, including shell and fill status. All in-game testing is performed by the user.
+Install 0.7.3 and fully restart WoW to load the source-faithful shells and new controls. Keep saved settings. In `/jui`, select Player, Target or Focus and test **Portrait art** and **Unit-frame art** in all four on/off combinations. Unit-frame art is off by default; existing FULL settings migrate. If bars still do not show their artwork, copy the per-unit lines from `/jui status`, including shell and fill status. All in-game testing is performed by the user.
 
 1. Open /jui. Confirm textured window borders, red/gold buttons, checkboxes, five component tabs and a movable window. Verify Show artwork and Debug bounds check marks, selected tabs, and gallery selection after switching components. Player, Target and Focus default to Automatic class; Minimap and hub default to automatic player class; existing geometry overrides are retained.
 2. At default portrait dimensions, check Player's teardrop corner, level badge, name and bars. Select players of different classes and verify only Target's portrait background changes; the art should share the same visible envelope without a lower loop or level-badge circle. Verify Mage uses an eye and Hunter uses a skull. Set another class as Focus and verify independent selection. Clear Target/Focus and confirm their decoration disappears.
@@ -41,3 +41,12 @@ Test Retail and Forever separately where the upstream addons run. Test ElvUI alo
 6. Use Automatic with an inactive Blinkii/ElvUI portrait, then with a visible Blinkii portrait over Ellesmere bars. Confirm portrait selection can skip inactive providers and does not control the bar source. Export/import and restart to verify both source settings persist.
 
 Offline tests cannot validate real clip rasterization, secure dependencies or third-party redraw timing. Record those findings with the full per-unit `/jui status` lines.
+
+## Plain stone and city NPCs (user-run)
+
+1. With Unit-frame art enabled, inspect Player/Target/Focus health in several themes and provider colors. The fill should have quiet stone grain with no emblems, cloth or rail markings; power and the sculpted borders should retain their existing appearance.
+2. In Automatic class mode, target an Undercity Guardian, Stormwind City Guard, Ironforge Guard and Orgrimmar Grunt. Expect Undead, Human, Dwarf and Orc artwork respectively. Test other NPCs with matching city affiliation lines, including the client locale you use.
+3. Toggle portrait and unit-frame artwork separately; both should select the same city identity when enabled. Try automatic race/faction and a fixed choice; fixed artwork must win.
+4. Switch between a city NPC, another city NPC, an unrelated NPC, a player and an empty target. No former target artwork should persist. A remote focus should follow its own NPC affiliation. Repeat target changes in combat, checking queued appearance changes after combat.
+
+Unknown NPCs retain the normal fallback; city location alone is not a match. See NPC-CITIES.md for the supported list.
