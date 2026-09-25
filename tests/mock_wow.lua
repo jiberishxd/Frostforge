@@ -1,10 +1,11 @@
 -- Deliberately limited offline host. This does not simulate WoW's secure engine.
-local M = {frames={},textures=0,fonts=0,nativeWrites=0,geometryWrites=0,writes=0,combat=false,messages={}}
+local M = {frames={},objects={},textures=0,fonts=0,nativeWrites=0,geometryWrites=0,writes=0,combat=false,messages={}}
 local methods = {}
 local function object(kind,parent,name)
     local self = setmetatable({kind=kind,parent=parent,name=name,w=100,h=30,scale=1,alpha=1,
         shown=true,points={},scripts={},events={},regions={}}, {__index=methods})
     if kind == "Frame" then M.frames[#M.frames+1]=self end
+    M.objects[#M.objects+1]=self
     return self
 end
 local function readable(self)
@@ -50,7 +51,7 @@ function methods:SetScale(scale) writable(self,true); self.scale=scale end
 function methods:SetPoint(...) writable(self,true); self.points[#self.points+1]={...} end
 function methods:GetPoint(i) return unpack(self.points[i or 1]) end
 function methods:GetNumPoints() readable(self);return #self.points end
-function methods:ClearAllPoints() writable(self,true); self.points={}; self.center=nil end
+function methods:ClearAllPoints() writable(self,true); self.points={}; self.center=nil; self.allPoints=nil end
 function methods:SetAllPoints(relative) writable(self,true); self.allPoints=relative end
 function methods:SetFrameStrata(value) writable(self); self.strata=value end
 function methods:SetFrameLevel(value) writable(self); self.level=value end
@@ -139,14 +140,19 @@ function methods:CreateTexture(_,layer)
     self.regions[#self.regions+1]=texture
     return texture
 end
-function methods:CreateFontString()
+function methods:CreateFontString(_,_,fontObject)
     writable(self)
     M.fonts=M.fonts+1
     local font=object("FontString",self)
+    font.fontObject=fontObject
     self.regions[#self.regions+1]=font
     return font
 end
-function methods:SetText(text) writable(self); self.text=text end
+function methods:SetText(text)
+    writable(self)
+    local changed=self.text~=text;self.text=text
+    if changed and self.scripts.OnTextChanged then self.scripts.OnTextChanged(self,false) end
+end
 function methods:GetText() return self.text end
 function methods:SetTextColor(...) writable(self); self.color={...} end
 function methods:SetJustifyH(value) writable(self); self.justify=value end
@@ -233,6 +239,7 @@ BLINKIISPORTRAITS=nil
 ElvUI_mMediaTag=nil
 mMT=nil
 EllesmereUI=nil
+LibStub=nil
 for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do
     for _,unit in ipairs({"Player","Target","Focus"}) do _G[prefix..unit]=nil end
 end

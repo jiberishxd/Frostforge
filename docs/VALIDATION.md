@@ -50,3 +50,12 @@ Offline tests cannot validate real clip rasterization, secure dependencies or th
 4. Switch between a city NPC, another city NPC, an unrelated NPC, a player and an empty target. No former target artwork should persist. A remote focus should follow its own NPC affiliation. Repeat target changes in combat, checking queued appearance changes after combat.
 
 Unknown NPCs retain the normal fallback; city location alone is not a match. See NPC-CITIES.md for the supported list.
+
+## 0.7.4 user-run checks
+
+- Open `/jui` on both clients. Check all four pages, artwork searches/pages, small-screen fitting, dragged position, scoped reset and backup round-trip.
+- In EllesmereUI, choose JiberishUI Stone and another texture in turn. Confirm neither is replaced in AUTO or PROVIDER fill mode. Repeat after provider profile redraw and a combat transition. Explicit JIBERISH mode should replace fills until switched back or disabled.
+- Select JiberishUI Stone in ElvUI and other shared texture menus; test Player/Target and raid/resource frames using the provider's own settings.
+- Review the Shaman mask/totem shell and thick divider with Player/Target/Focus; check all original portrait toggles remain independent.
+
+These are manual checks for the user. The agent does not operate WoW.
