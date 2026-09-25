@@ -1,3 +1,13 @@
+# Build 0.7.5 inset fitting and neutral Shaman totems
+
+170 Lua 5.1 behavior tests and six Python artwork regressions pass. Five new Lua cases cover all 42 inset themes on Player/Target/Focus, mirrored edge crops, joined shell resizing without native-bar/portrait changes, fitting backups/range validation, combat deferral, stable frame reuse and protected rim retirement.
+
+Browser inspection covered the new Unit frame settings page exported from the actual Lua objects, with native Blizzard textures/fonts approximated for this development preview. The balanced Shaman totem shell was inspected as Player at estimated 1440p size; it retains a 5.6 UI-unit painted divider at 20-unit health height. Priest Target was checked with 98% artwork width and 105% height, including inset edge/shadow placement. Final PNGs and packaged TGAs share the same pixels. Only the Shaman shell and matching power texture changed: the other 250 runtime textures, including all 126 portrait/hub/minimap assets, are unchanged from merged 0.7.4.
+
+Source/media/provenance and exact Retail/Forever 0.7.5 package checks pass. No third-party addon code or textures are bundled. No WoW interaction or in-game testing was performed. Actual renderer clipping, labels, provider redraw timing and secure runtime behavior still require the user's manual checks. See SETTINGS.md and VALIDATION.md.
+
+---
+
 # Build 0.7.4 settings workshop, shared stone and Shaman shell
 
 165 Lua 5.1 behavior tests and six Python artwork regressions pass. Thirteen new Lua cases cover the reorganized settings pages, screen-fit scaling and dragged position, literal collection searches/pagination and selection scope, backup round-trips/invalid input, scoped reset, read-only profiles, optional/late SharedMedia registration, provider-controlled fills, selecting shared Stone without stale restoration, and combat-queued texture ownership. Existing material override tests explicitly select JIBERISH mode; new AUTO checks verify no Ellesmere texture hooks or fill writes are installed.

@@ -51,11 +51,12 @@ Offline tests cannot validate real clip rasterization, secure dependencies or th
 
 Unknown NPCs retain the normal fallback; city location alone is not a match. See NPC-CITIES.md for the supported list.
 
-## 0.7.4 user-run checks
+## 0.7.4–0.7.5 user-run checks
 
 - Open `/jui` on both clients. Check all four pages, artwork searches/pages, small-screen fitting, dragged position, scoped reset and backup round-trip.
 - In EllesmereUI, choose JiberishUI Stone and another texture in turn. Confirm neither is replaced in AUTO or PROVIDER fill mode. Repeat after provider profile redraw and a combat transition. Explicit JIBERISH mode should replace fills until switched back or disabled.
 - Select JiberishUI Stone in ElvUI and other shared texture menus; test Player/Target and raid/resource frames using the provider's own settings.
-- Review the Shaman mask/totem shell and thick divider with Player/Target/Focus; check all original portrait toggles remain independent.
+- Test Unit frame width/height and inset depth on each unit, including 100% defaults, custom values, reset, hidden power bars and queued combat edits. Verify the narrow rim sits above fills without covering central labels, and disappears when unit-frame art is disabled.
+- Review the balanced, faction-neutral Shaman mask/totem shell and thick divider with Player/Target/Focus; check all original portrait toggles remain independent.
 
 These are manual checks for the user. The agent does not operate WoW.
