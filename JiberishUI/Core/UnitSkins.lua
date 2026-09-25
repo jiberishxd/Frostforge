@@ -6,7 +6,7 @@ J.Core.properties.unitFrameShown = {boolean=true}
 J.Core.properties.unitFrameFill = {AUTO=true,PROVIDER=true,JIBERISH=true}
 J.Core.properties.unitFrameWidth = {75,150}
 J.Core.properties.unitFrameHeight = {75,150}
-J.Core.properties.unitFrameInset = {0,3}
+J.Core.properties.unitFrameInset = {0,6}
 J.Core.properties.unitFrameStrata = J.Core:Copy(J.Core.properties.strata)
 J.Core.properties.unitFrameStrata.AUTO=true
 -- Kept as an import/command alias for profiles made before separate toggles.
@@ -364,6 +364,14 @@ local function artTransform(kind,config,entry,g)
     return sx,sy,g.w*(1-sx)/2,(origin-center)*(1-sy)
 end
 
+local strataRank={BACKGROUND=1,LOW=2,MEDIUM=3,HIGH=4,DIALOG=5,FULLSCREEN=6,FULLSCREEN_DIALOG=7,TOOLTIP=8}
+
+local function rimStrata(config,g)
+    local requested=config.unitFrameStrata
+    if requested=="AUTO" or strataRank[requested]<strataRank[g.strata] then return g.strata end
+    return requested
+end
+
 function S:LayoutRim(record,key,kind,config,entry,g)
     local trim=record.trim
     local rim=trim.rim
@@ -379,7 +387,9 @@ function S:LayoutRim(record,key,kind,config,entry,g)
     end
     local sx,sy,dx,dy=artTransform(kind,config,entry,g)
     local w,h=g.w*sx,g.h*sy
-    local inset=math.min(config.unitFrameInset,g.h*.1)
+    -- A deeper painted lip overlaps the native fill. Cap against the smaller
+    -- dimension so even short power bars retain a clear, readable center.
+    local inset=math.min(config.unitFrameInset,g.h*.22,g.w*.22)
     local ix,iy=inset*sx,inset*sy
     local left,top,right,bottom=unpack(entry.opening[kind])
     local d=inset/g.capScale
@@ -391,16 +401,16 @@ function S:LayoutRim(record,key,kind,config,entry,g)
         left={0,iy,ix,h-2*iy,mirror and right+d or left-d,mirror and right or left,top,bottom},
         right={w-ix,iy,ix,h-2*iy,mirror and left or right,mirror and left-d or right+d,top,bottom},
     }
-    local shadows={top={ix,iy,w-2*ix,.65*sy,.45},bottom={ix,h-iy-.45*sy,w-2*ix,.45*sy,.18},
-        left={ix,iy,.65*sx,h-2*iy,.34},right={w-ix-.45*sx,iy,.45*sx,h-2*iy,.18}}
+    local shadow=math.min(inset*.4,.95)
+    local shadows={top={ix,iy,w-2*ix,shadow*sy,.52},bottom={ix,h-iy-shadow*.6*sy,w-2*ix,shadow*.6*sy,.24},
+        left={ix,iy,shadow*sx,h-2*iy,.42},right={w-ix-shadow*.6*sx,iy,shadow*.6*sx,h-2*iy,.24}}
     local f=rim.frame
     f:SetScale(g.scale/g.parentScale);f:SetSize(w,h)
     f:ClearAllPoints();f:SetPoint("TOPLEFT",record.bar,"TOPLEFT",dx,dy)
-    -- Only these narrow inner edges sit over the fill. The large ornamental
-    -- shell retains its normal layering behind names, badges and other UI.
-    local overrides=J.ProfileManager.current.modules[key] or {}
-    f:SetFrameStrata(config.unitFrameStrata~="AUTO" and config.unitFrameStrata or g.strata)
-    f:SetFrameLevel(overrides.level and config.level or g.level+1)
+    -- The surround may sit behind the unit, but its inner lips must remain
+    -- above the fill even when an older profile explicitly saved level zero.
+    f:SetFrameStrata(rimStrata(config,g))
+    f:SetFrameLevel(math.max(config.level,g.level+1))
     rim.assetOK=inset>0 and trim.assetOK
     for side,v in pairs(strips) do
         local t=rim.textures[side]
