@@ -65,6 +65,8 @@ function methods:GetNumPoints() readable(self);return #self.points end
 function methods:ClearAllPoints() writable(self,true); self.points={}; self.center=nil; self.allPoints=nil end
 function methods:SetAllPoints(relative) writable(self,true); self.allPoints=relative end
 function methods:SetFrameStrata(value) writable(self); self.strata=value end
+function methods:SetFixedFrameStrata(value) writable(self);self.fixedStrata=value end
+function methods:SetFixedFrameLevel(value) writable(self);self.fixedLevel=value end
 function methods:SetFrameLevel(value) writable(self); self.level=value end
 function methods:GetFrameStrata() readable(self); return self.strata or "LOW" end
 function methods:GetFrameLevel() readable(self); return self.level or 0 end
@@ -162,10 +164,12 @@ function methods:CreateMaskTexture(_,layer)
     return mask
 end
 function methods:AddMaskTexture(mask)
-    writable(self);self.masks=self.masks or {};self.masks[mask]=true
+    appearance(self);self.masks=self.masks or {};self.masks[mask]=true
 end
+function methods:GetNumMaskTextures() readable(self);local n=0;for _ in pairs(self.masks or {}) do n=n+1 end;return n end
+function methods:GetMaskTexture(i) readable(self);local n=0;for mask in pairs(self.masks or {}) do n=n+1;if n==i then return mask end end end
 function methods:RemoveMaskTexture(mask)
-    writable(self);if self.masks then self.masks[mask]=nil end
+    appearance(self);if self.masks then self.masks[mask]=nil end
 end
 function methods:CreateFontString(_,_,fontObject)
     writable(self)

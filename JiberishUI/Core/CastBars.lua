@@ -78,6 +78,9 @@ function C:Create(key)
     -- Opt into its layout-only template; we have no layout scripts to disable.
     local ok,frame=pcall(CreateFrame,"Frame",nil,UIParent,"DisableUntrustedLayoutScriptsTemplate")
     if not ok or not frame then frame=CreateFrame("Frame",nil,UIParent) end
+    -- Keep native anchor/show propagation from replacing our chosen layer.
+    if frame.SetFixedFrameStrata then frame:SetFixedFrameStrata(true) end
+    if frame.SetFixedFrameLevel then frame:SetFixedFrameLevel(true) end
     local textures={}
     for row=1,3 do for col=1,3 do
         if row~=2 or col~=2 then textures[row..col]=frame:CreateTexture(nil,"ARTWORK") end
@@ -132,10 +135,9 @@ end
 local function changed(module,bar,g,config)
     local old=module.geometry
     if not old or module.bar~=bar then return true end
-    -- Anchoring/native layout propagation must not silently override the
-    -- user's last applied layer while all requested settings remain equal.
-    if module.frame:GetFrameStrata()~=g.artStrata or module.frame:GetFrameLevel()~=g.artLevel then return true end
-    for key,value in pairs(g) do if value~=old[key] then return true end end
+    -- Layers are reconciled separately; only size/scale and preferences
+    -- require a layout update, which must wait outside combat.
+    for _,key in ipairs({"w","h","scale","parentScale"}) do if g[key]~=old[key] then return true end end
     for _,key in ipairs(properties) do if module.config[key]~=config[key] then return true end end
     return false
 end
@@ -196,12 +198,19 @@ function C:TickUnit(key)
         local f=module.frame
         f:SetScale(g.scale/g.parentScale);f:SetSize(g.w,g.h)
         f:ClearAllPoints();f:SetPoint("TOPLEFT",bar,"TOPLEFT",0,0)
-        f:SetFrameStrata(g.artStrata);f:SetFrameLevel(g.artLevel)
         module.applied={shown=true,opacity=1}
         self:Paint(module,id,true)
     elseif module.id~=id then
         if combat and module.frame:IsProtected() then J.Core.dirty=true
         else self:Paint(module,id,false) end
+    end
+    -- Native cast FX can raise their level at cast start. Re-layer only our
+    -- unprotected decoration, without rewriting anchors or hiding it in combat.
+    local f=module.frame
+    if f:GetFrameStrata()~=g.artStrata or f:GetFrameLevel()~=g.artLevel then
+        if not combat or not f:IsProtected() then
+            f:SetFrameStrata(g.artStrata);f:SetFrameLevel(g.artLevel)
+        else J.Core.dirty=true end
     end
     module.active=true
     local shown=visibility(bar)

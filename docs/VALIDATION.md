@@ -96,3 +96,10 @@ Follow the manual checklist in [CAST-BARS.md](CAST-BARS.md) on Blizzard, Ellesme
 - Restore Blizzard health color and texture. Confirm original atlas, tint and native behavior return. Test Dark stone and a disconnected/dead unit.
 - Target an NPC without power: the complete shell and opaque empty opening should remain. Target a unit with power again: the no-power backing must disappear. Test this transition in combat.
 - Confirm ElvUI/Ellesmere provider textures remain in control in Automatic mode. Artwork assets are unchanged.
+
+## 0.8.7 power and placement (user-run)
+
+1. On stock Player with a JUI shell, confirm the power fill reaches the upper edge of the opening after login/reload and resizing. Compare Target, which should retain its current contour. Disable the shell and check native mana-mask restoration, including alternate resources and vehicles.
+2. In Blizzard → Colors & textures → Power colors, exercise native/class/custom, solid/gradient, hex input, picker Cancel/Okay and Party & raid scope. Verify class colors, mana/rage/energy changes, native disconnected tints, profiles and reload; no black cover should appear over visible power.
+3. Enable Target/Focus buff/debuff group offsets; change targets and aura rows. Check hidden aura groups stay hidden, tooltips remain functional, and reset/profile changes restore the native placement. Repeat for cast-bar offsets, with and without aura anchoring. Edits and protected native reanchors reconcile after combat.
+4. On Blizzard Player/Target/Focus, enable cast borders before combat. Check Automatic and highest strata, casts/channels/empower FX, first cast in combat, target aura reanchors, and raising native FX layers while casting. Border visibility must follow the cast; text/timing stay native. Confirm ElvUI/Ellesmere remain unchanged.

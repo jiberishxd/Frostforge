@@ -402,3 +402,18 @@ test("unreadable optional cast chrome does not disable border strata controls",f
     local c=J.CastBars.units.targetFrame
     assert(c.frame.shown and c.frame.strata=="HIGH" and not next(J.Core.notices))
 end)
+
+test("player border keeps selected strata when native cast chrome raises during combat",function(M)
+    local J=M.load();local bar=fixture(M,"BLIZZARD","playerFrame")
+    local fx=M.region(bar,"Frame",180,16);fx.level=50;fx.strata="TOOLTIP"
+    bar.GetChildren=function() return fx end
+    J.ProfileManager:Set("playerFrame","castBarStrata","TOOLTIP");enable(J,"playerFrame","BLIZZARD")
+    local c=J.CastBars.units.playerFrame;assert(c.frame.fixedStrata and c.frame.fixedLevel)
+    M.combat=true;bar.shown=true;fx.level=900
+    local writes=M.geometryWrites;M.tick(J.Core)
+    assert(c.frame.shown and c.active and c.frame.strata=="TOOLTIP" and c.frame.level==901)
+    assert(M.geometryWrites==writes and bar.level==30)
+    c.frame.protected=true;fx.level=950;M.tick(J.Core);assert(c.active and c.frame.level==901)
+    M.combat=false;c.frame.protected=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");assert(c.frame.level==951)
+    assert(not next(J.Core.notices))
+end)
