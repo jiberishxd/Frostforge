@@ -28,18 +28,24 @@ local function snapshot()
     return result
 end
 local out={root=ids[S.frame],pages={}}
-for _,key in ipairs({"playerFrame","minimap","actionHub"}) do
+for _,key in ipairs({"playerFrame","targetFrame","minimap","actionHub"}) do
     S:Select(key)
     for _,page in ipairs({"artwork","placement","fitting","cast","blizzard","advanced","guide","profiles"}) do
         S:SetPage(page);out.pages[key.."-"..page]=snapshot()
     end
-    if key=="playerFrame" then
+    if key=="playerFrame" or key=="targetFrame" then
         S:SetPage("blizzard")
         for _,group in ipairs(J.BlizzardUnits.textGroups) do
             S.textGroup=group;S:Refresh();out.pages[key.."-blizzard-"..group]=snapshot()
         end
         S.textGroup="Name"
-        S.stockStyleButton.scripts.OnClick();out.pages[key.."-blizzard-style"]=snapshot();S:HideMenus()
+        S.stockStyleButton.scripts.OnClick();out.pages[key.."-blizzard-style"]=snapshot()
+        S.powerStyleButton.scripts.OnClick();out.pages[key.."-blizzard-power"]=snapshot()
+        S.powerScopeButtons.party.scripts.OnClick();out.pages[key.."-blizzard-party-power"]=snapshot();S:HideMenus()
+        if key=="targetFrame" then
+            S.stockAurasButton.scripts.OnClick();out.pages[key.."-blizzard-auras"]=snapshot()
+            S.stockCastPositionButton.scripts.OnClick();out.pages[key.."-blizzard-cast-position"]=snapshot();S:HideMenus()
+        end
     end
 end
 S:Select("playerFrame");S:SetPage("artwork");S:ShowPortraitGroup("CLASS",1);S.picker:Show()

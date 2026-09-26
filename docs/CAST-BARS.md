@@ -36,3 +36,5 @@ The Lua mock exercises all three providers on Retail and Forever paths. The brow
 Use `/jui status` for a per-unit cast-border provider/status line. No WoW interaction was performed during development.
 
 The settings status distinguishes **Ellesmere Resource Bars** from **Ellesmere Unit Frames**, and reports whether the border is attached waiting for a cast or following a visible cast. If attachment fails, `/jui status` includes the frame-operation error.
+
+In 0.8.7 the border's own frame fixes its strata and level so native anchor propagation cannot replace the requested layer. Native chrome layer changes during a cast are handled without a geometry rewrite or hiding the border; protected artwork defers those changes. User-requested fitting/layer changes still apply outside combat. **Target / Focus → Blizzard → Cast-bar position...** moves the native stock cast bar with its border, using independent X/Y offsets; reset restores native placement.

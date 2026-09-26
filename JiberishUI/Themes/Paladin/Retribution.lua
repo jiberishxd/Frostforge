@@ -62,11 +62,19 @@ local theme={
 }
 for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
     theme[key].blizzardNameColor="STOCK";theme[key].blizzardHealthColor="STOCK"
+    theme[key].blizzardPowerColor="STOCK";theme[key].blizzardPowerShading="SOLID";theme[key].blizzardPowerCustom="0070DE"
     for _,group in ipairs(J.BlizzardUnits.textGroups) do
         local prefix="blizzard"..group
         for suffix,value in pairs({Enabled=false,X=0,Y=0,Size=12,Align="KEEP",Outline="KEEP"}) do
             if theme[key][prefix..suffix]==nil then theme[key][prefix..suffix]=value end
         end
     end
+end
+theme.playerFrame.blizzardPartyPowerColor="STOCK"
+theme.playerFrame.blizzardPartyPowerShading="SOLID"
+theme.playerFrame.blizzardPartyPowerCustom="0070DE"
+for _,key in ipairs({"targetFrame","focusFrame"}) do
+    theme[key].blizzardCastPositionEnabled=false;theme[key].blizzardCastPositionX=0;theme[key].blizzardCastPositionY=0
+    theme[key].blizzardAurasEnabled=false;theme[key].blizzardAurasX=0;theme[key].blizzardAurasY=0
 end
 J.ThemeManager:Register("paladin_ret",theme)

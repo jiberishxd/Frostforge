@@ -94,6 +94,14 @@ function S:Set(property,value)
 end
 
 function S:HideMenus()
+    if self.powerColorSession then
+        local session=self.powerColorSession
+        if session.picker:IsShown() then session.cancel();session.picker:Hide() end
+        self.powerColorSession=nil
+    end
+    for _,control in pairs(self.controls) do if control.hex then control.edit:ClearFocus() end end
+    if self.powerStyleDialog then self.powerStyleDialog:Hide() end
+    if self.stockPlacementDialog then self.stockPlacementDialog:Hide() end
     if self.profileNameEdit then self.profileNameEdit:ClearFocus() end
     for _,menu in ipairs(self.menus) do menu:Hide() end
     if self.picker then self.picker:Hide() end
@@ -218,7 +226,9 @@ function S:Dropdown(property,label,choices,x,y,parent,width)
     menu:Hide(); self.menus[#self.menus+1]=menu
     control.button=button(parent,"",x,y-22,width,function()
         local show=not menu:IsShown();local stockOpen=self.stockStyleDialog and self.stockStyleDialog:IsShown()
-        self:HideMenus();if stockOpen then self.stockStyleDialog:Show() end;menu:SetShown(show)
+        local powerOpen=self.powerStyleDialog and self.powerStyleDialog:IsShown()
+        self:HideMenus();if stockOpen then self.stockStyleDialog:Show() end
+        if powerOpen then self.powerStyleDialog:Show() end;menu:SetShown(show)
     end)
     text(control.button,"v",width-22,-8,16,"GameFontNormalSmall")
     menu:SetPoint("TOPLEFT",control.button,"BOTTOMLEFT",0,-2)
@@ -417,6 +427,101 @@ function S:RefreshProfiles()
         or "Profiles change only JiberishUI. Your other addons keep their own profiles.")
 end
 
+function S:ColorValue(prefix,value,key)
+    local hex=J.Core:ValidateProperty(prefix.."Custom",value)
+    if not hex then self.message="Enter a six-digit color, for example 0070DE.";self:Refresh();return end
+    self.message=nil
+    key=key or (J.BlizzardUnits.sharedStyleProperties[prefix.."Custom"] and "playerFrame" or self.selected)
+    J.ProfileManager:Set(key,prefix.."Custom",hex)
+    J.ProfileManager:Set(key,prefix.."Color","CUSTOM")
+end
+
+function S:ChoosePowerColor(prefix)
+    local picker=ColorPickerFrame
+    if not picker or type(picker.SetupColorPickerAndShow)~="function" then
+        self.message="Enter the custom color as six hex digits.";self:Refresh();return
+    end
+    local key=J.BlizzardUnits.sharedStyleProperties[prefix.."Custom"] and "playerFrame" or self.selected
+    local profile=J.ProfileManager.current
+    local config=J.ThemeManager:Resolve(key)
+    local color=J.BlizzardUnits:HexColor(config[prefix.."Custom"])
+    local session={};self.powerColorSession=session
+    local function current() return self.powerColorSession==session and J.ProfileManager.current==profile end
+    local function cancel()
+        if not current() then return end
+        self.powerColorSession=nil
+        J.ProfileManager:Set(key,prefix.."Custom",config[prefix.."Custom"])
+        J.ProfileManager:Set(key,prefix.."Color",config[prefix.."Color"])
+    end
+    session.cancel=cancel;session.picker=picker
+    picker:SetupColorPickerAndShow({r=color[1],g=color[2],b=color[3],hasOpacity=false,
+        swatchFunc=function()
+            if not current() then return end
+            local r,g,b=picker:GetColorRGB()
+            if not J.Core:IsNumber(r) or not J.Core:IsNumber(g) or not J.Core:IsNumber(b) then return end
+            local function byte(v) return math.floor(math.max(0,math.min(1,v))*255+.5) end
+            self:ColorValue(prefix,string.format("%02X%02X%02X",byte(r),byte(g),byte(b)),key)
+        end,cancelFunc=cancel})
+    if type(picker.Raise)=="function" then picker:Raise() end
+end
+
+function S:CreatePowerStyleDialog()
+    local dialog=CreateFrame("Frame",nil,self.frame,"BackdropTemplate");self.powerStyleDialog=dialog
+    dialog:SetSize(728,490);dialog:SetPoint("CENTER",self.frame,"CENTER",0,0)
+    dialog:SetFrameStrata("DIALOG");dialog:SetFrameLevel(230);dialog:EnableMouse(true);backdrop(dialog,"outer")
+    self.powerStyleTitle=text(dialog,"Blizzard power colors",24,-24,676,"GameFontNormalLarge")
+    text(dialog,"Choose the resource color and shading independently. Saved with your JUI profile.",24,-62,676)
+    self.powerScope="unit";self.powerScopeButtons={};self.powerPanels={}
+    for i,scope in ipairs({"unit","party"}) do
+        local prefix=scope=="unit" and "blizzardPower" or "blizzardPartyPower"
+        self.powerScopeButtons[scope]=button(dialog,scope=="unit" and "This unit" or "Party & raid",24+(i-1)*350,-100,318,function()
+            self:HideMenus();self.powerScope=scope;dialog:Show();self:Refresh()
+        end,true)
+        local body=CreateFrame("Frame",nil,dialog);body:SetPoint("TOPLEFT",dialog,"TOPLEFT",24,-156);body:SetSize(676,220)
+        self.powerPanels[scope]=body
+        self:Dropdown(prefix.."Color","Power color",{{"STOCK","Native resource color"},{"CLASS","Class color (players)"},{"CUSTOM","Custom color"}},0,0,body)
+        self:Dropdown(prefix.."Shading","Shading",{{"SOLID","Solid"},{"GRADIENT","Gradient"}},350,0,body)
+        text(body,"Custom color",0,-88,250,"GameFontNormal")
+        local swatch=body:CreateTexture(nil,"ARTWORK");swatch:SetPoint("TOPLEFT",body,"TOPLEFT",0,-114);swatch:SetSize(44,28)
+        local edit=CreateFrame("EditBox",nil,body,"BackdropTemplate")
+        edit:SetPoint("TOPLEFT",body,"TOPLEFT",54,-114);edit:SetSize(112,28);edit:SetAutoFocus(false)
+        edit:SetFontObject("GameFontHighlightSmall");edit:SetTextInsets(8,8,0,0);edit:SetMaxLetters(7);edit:EnableMouse(true);backdrop(edit,"inset")
+        self.controls[prefix.."Custom"]={edit=edit,swatch=swatch,hex=true}
+        edit:SetScript("OnEnterPressed",function() local value=edit:GetText();edit:ClearFocus();self:ColorValue(prefix,value) end)
+        edit:SetScript("OnEscapePressed",function() edit:ClearFocus();self:Refresh() end)
+        edit:SetScript("OnEditFocusGained",function() edit:HighlightText() end)
+        edit:SetScript("OnEditFocusLost",function() self:Refresh() end)
+        button(body,"Choose color",182,-114,136,function() self:ChoosePowerColor(prefix) end)
+        text(body,"Type six hex digits and press Enter, or use the color picker. Choosing a color enables Custom.",350,-90,318)
+        text(body,"Gradient runs from a darker shade at the bottom to the chosen color at the top. Native follows mana, rage, energy and other resources.",0,-176,676)
+    end
+    text(dialog,"Blizzard frames only. Uses your selected power texture; custom colors and gradients replace pre-colored stock fills with a neutral texture. Changes apply after combat.",24,-382,676)
+    button(dialog,"Back",24,-440,150,function() self:HideMenus();self.stockStyleDialog:Show() end)
+    button(dialog,"Done",542,-440,150,function() self:HideMenus() end)
+    dialog:Hide()
+end
+
+function S:CreateStockPlacementDialog()
+    local dialog=CreateFrame("Frame",nil,self.frame,"BackdropTemplate");self.stockPlacementDialog=dialog
+    dialog:SetSize(728,410);dialog:SetPoint("CENTER",self.frame,"CENTER",0,0)
+    dialog:SetFrameStrata("DIALOG");dialog:SetFrameLevel(230);dialog:EnableMouse(true);backdrop(dialog,"outer")
+    self.stockPlacementTitle=text(dialog,"Blizzard placement",24,-24,676,"GameFontNormalLarge")
+    self.stockPlacementPanels={};self.stockPlacementToggles={}
+    for _,kind in ipairs({"Auras","CastPosition"}) do
+        local prefix="blizzard"..kind
+        local body=CreateFrame("Frame",nil,dialog);body:SetPoint("TOPLEFT",dialog,"TOPLEFT",24,-80);body:SetSize(676,250)
+        self.stockPlacementPanels[kind]=body
+        self.stockPlacementToggles[kind]=toggle(body,"Customize position",0,0,318,function() self:Set(prefix.."Enabled",not J.ThemeManager:Resolve(self.selected)[prefix.."Enabled"]) end)
+        self:Number(prefix.."X","Horizontal offset",0,-60,1,body)
+        self:Number(prefix.."Y","Vertical offset",350,-60,1,body)
+        text(body,kind=="Auras" and "Moves Blizzard's combined buff/debuff group together. Positive X moves right; positive Y moves up. Native aura order, tooltips and visibility stay unchanged." or "Moves the native Blizzard cast bar and its JUI border together. Offsets follow Blizzard's normal anchor, including its aura placement. Enable the border and choose Blizzard on the Cast bar page.",0,-144,676)
+        text(body,"Changes and restoration apply outside combat. Turn off Customize position to restore Blizzard placement.",0,-211,676)
+        button(body,"Reset position",0,-266,200,function() self:Set(prefix.."Enabled",false);self:Set(prefix.."X",0);self:Set(prefix.."Y",0) end)
+    end
+    button(dialog,"Done",542,-346,150,function() self:HideMenus() end)
+    dialog:Hide()
+end
+
 function S:Create()
     if self.frame then return end
     assert(not InCombatLockdown(),"First options attachment deferred during combat")
@@ -563,7 +668,7 @@ function S:Create()
         end)
     end
     self.nativeNameToggle=self.textToggles.Name
-    self.nativeReset=button(a,"Restore stock portrait & all text",346,-352,318,function()
+    self.nativeReset=button(a,"Restore portrait & text",502,-352,164,function()
         self:Set("blizzardPortraitHidden",false);self:Set("blizzardPortraitFrameHidden",false)
         for _,group in ipairs(J.BlizzardUnits.textGroups) do
             local prefix="blizzard"..group
@@ -572,8 +677,14 @@ function S:Create()
             end
         end
     end)
-    self.stockStyleButton=button(a,"Colors & textures",0,-352,318,function()
+    self.stockStyleButton=button(a,"Colors & textures",0,-352,156,function()
         self:HideMenus();self.stockStyleDialog:Show();self:Refresh()
+    end)
+    self.stockAurasButton=button(a,"Buffs & debuffs...",166,-352,156,function()
+        self:HideMenus();self.stockPlacementKind="Auras";self.stockPlacementDialog:Show();self:Refresh()
+    end)
+    self.stockCastPositionButton=button(a,"Cast-bar position...",332,-352,160,function()
+        self:HideMenus();self.stockPlacementKind="CastPosition";self.stockPlacementDialog:Show();self:Refresh()
     end)
     self.nativeStatus=text(a,"",0,-394,666)
     local dialog=CreateFrame("Frame",nil,self.frame,"BackdropTemplate");self.stockStyleDialog=dialog
@@ -593,9 +704,13 @@ function S:Create()
     self.stockStoneToggle=toggle(dialog,"Stone for Automatic texture",24,-334,318,function()
         J.ProfileManager:Set("playerFrame","blizzardStone",not J.ThemeManager:Resolve("playerFrame").blizzardStone);self:Refresh()
     end)
-    text(dialog,"Class gradients shade the selected texture; Blizzard texture uses a neutral fill for class colors. Dark stone is charcoal. Resource colors stay native. Changes apply after combat.",24,-380,676)
+    text(dialog,"Class gradients shade the selected texture; Blizzard texture uses a neutral fill for class colors. Dark stone is charcoal. Use Power colors for resource tints and gradients. Changes apply after combat.",24,-380,676)
+    self.powerStyleButton=button(dialog,"Power colors...",24,-440,180,function()
+        self:HideMenus();self.powerStyleDialog:Show();self:Refresh()
+    end)
     button(dialog,"Done",542,-440,150,function() self:HideMenus() end)
     dialog:Hide()
+    self:CreatePowerStyleDialog();self:CreateStockPlacementDialog()
 
     a=self.pages.artwork
     self.showButton=toggle(a,"Portrait art",0,0,318,function() self:Set("shown",not J.ThemeManager:Resolve(self.selected).shown) end)
@@ -682,6 +797,17 @@ function S:Refresh()
     self.controls.strata.label:SetText(unit and "Portrait art strata" or "Artwork strata")
     if unit then
         self.stockStoneToggle.check:SetShown(J.ThemeManager:Resolve("playerFrame").blizzardStone)
+        self.powerStyleTitle:SetText("Blizzard power colors — "..names[self.selected])
+        for scope,body in pairs(self.powerPanels) do
+            body:SetShown(scope==self.powerScope);self.powerScopeButtons[scope].selection:SetShown(scope==self.powerScope)
+        end
+        local movable=self.selected=="targetFrame" or self.selected=="focusFrame"
+        self.stockAurasButton:SetShown(movable);self.stockCastPositionButton:SetShown(movable)
+        for kind,body in pairs(self.stockPlacementPanels) do
+            body:SetShown(kind==self.stockPlacementKind)
+            self.stockPlacementToggles[kind].check:SetShown(config["blizzard"..kind.."Enabled"]==true)
+        end
+        self.stockPlacementTitle:SetText(names[self.selected]..(self.stockPlacementKind=="Auras" and " buffs & debuffs" or " Blizzard cast bar"))
         self.stockStyleTitle:SetText("Blizzard colors & textures — "..names[self.selected])
         self.nativePortraitToggle.check:SetShown(config.blizzardPortraitHidden)
         self.nativePortraitFrameToggle.check:SetShown(config.blizzardPortraitFrameHidden)
@@ -757,6 +883,13 @@ function S:Refresh()
         if control.slider and config[property]~=nil then
             control.slider:SetValue(config[property])
             if not control.edit:HasFocus() then control.edit:SetText(string.format("%.2f",config[property]):gsub("%.?0+$","")) end
+        elseif control.hex then
+            local value=J.BlizzardUnits.sharedStyleProperties[property] and J.ThemeManager:Resolve("playerFrame")[property] or config[property]
+            local color=J.BlizzardUnits:HexColor(value)
+            if color then
+                if not control.edit:HasFocus() then control.edit:SetText(value) end
+                control.swatch:SetColorTexture(unpack(color))
+            end
         elseif control.choices then
             for _,choice in ipairs(control.choices) do
                 local value=J.BlizzardUnits.sharedStyleProperties[property] and J.ThemeManager:Resolve("playerFrame")[property] or config[property]
