@@ -6,6 +6,9 @@ J.Core.properties.unitFrameShown = {boolean=true}
 J.Core.properties.unitFrameFill = {AUTO=true,PROVIDER=true,JIBERISH=true}
 J.Core.properties.unitFrameWidth = {75,150}
 J.Core.properties.unitFrameHeight = {75,150}
+J.Core.properties.unitFrameX = {-512,512}
+J.Core.properties.unitFrameY = {-512,512}
+-- Import compatibility only. The old inset strips are no longer rendered.
 J.Core.properties.unitFrameInset = {0,6}
 J.Core.properties.unitFrameStrata = J.Core:Copy(J.Core.properties.strata)
 J.Core.properties.unitFrameStrata.AUTO=true
@@ -150,8 +153,9 @@ function S:CreateTrim(key,kind)
     local textures={}
     for row=1,(kind=="health" and 3 or 2) do
         for column=1,3 do
-            local opening=(kind=="health" and row==2 or kind=="power" and row==1) and column==2
-            if not opening then textures[row.."_"..column]=frame:CreateTexture(nil,"BACKGROUND") end
+            -- Keep the transparent opening cells too: their alpha contains the
+            -- original curved corners and bevels that must cover the fill.
+            textures[row.."_"..column]=frame:CreateTexture(nil,"BACKGROUND")
         end
     end
     if kind=="power" then
@@ -365,65 +369,19 @@ local function artTransform(kind,config,entry,g)
     local sx,sy=config.unitFrameWidth/100,config.unitFrameHeight/100
     local center=(p[4]-h[2])*g.capScale/2
     local origin=kind=="health" and 0 or (p[2]-h[2])*g.capScale
-    return sx,sy,g.w*(1-sx)/2,(origin-center)*(1-sy)
+    -- Place the original side edges one UI unit inside the native bar. This
+    -- is a smaller opening in the single shell, not another set of borders.
+    local openingWidth=math.max(g.w-2*g.artScale,g.w*.8)
+    return sx,sy,(g.w-openingWidth*sx)/2+config.unitFrameX*g.artScale,
+        (origin-center)*(1-sy)+config.unitFrameY*g.artScale,openingWidth
 end
 
 local strataRank={BACKGROUND=1,LOW=2,MEDIUM=3,HIGH=4,DIALOG=5,FULLSCREEN=6,FULLSCREEN_DIALOG=7,TOOLTIP=8}
 
-local function rimStrata(config,g)
-    local requested=config.unitFrameStrata
-    if requested=="AUTO" or strataRank[requested]<strataRank[g.strata] then return g.strata end
+local function shellStrata(config,g)
+    local requested=config.unitFrameStrata=="AUTO" and config.strata or config.unitFrameStrata
+    if strataRank[requested]<strataRank[g.strata] then return g.strata end
     return requested
-end
-
-function S:LayoutRim(record,key,kind,config,entry,g)
-    local trim=record.trim
-    local rim=trim.rim
-    if not rim then
-        rim={key=key.."."..kind.."Inset"};trim.rim=rim
-        local frame=CreateFrame("Frame",nil,UIParent)
-        local textures={}
-        for _,side in ipairs({"top","bottom","left","right"}) do
-            textures[side]=frame:CreateTexture(nil,"ARTWORK")
-        end
-        J.Core:FinishCreate(rim,frame,textures)
-    end
-    local sx,sy,dx,dy=artTransform(kind,config,entry,g)
-    local w,h=g.w*sx,g.h*sy
-    -- A deeper painted lip overlaps the native fill. Cap against the smaller
-    -- dimension so even short power bars retain a clear, readable center.
-    local inset=math.min(config.unitFrameInset,g.h*.22,g.w*.22)
-    local ix,iy=inset*sx,inset*sy
-    local left,top,right,bottom=unpack(entry.opening[kind])
-    -- Sample the painted bevel, not the dark antialiased opening outline.
-    -- Repeating that outline plus a synthetic shadow made a second black box.
-    local guard=1.25
-    local d=math.min(inset/g.capScale,(entry.opening.power[2]-entry.opening.health[4])/2-guard)
-    local mirror=config.unit~="player"
-    local u1,u2=mirror and right or left,mirror and left or right
-    local strips={
-        top={0,0,w,iy,u1,u2,top-d-guard,top-guard},
-        bottom={0,h-iy,w,iy,u1,u2,bottom+guard,bottom+d+guard},
-        left={0,iy,ix,h-2*iy,mirror and right+d+guard or left-d-guard,mirror and right+guard or left-guard,top,bottom},
-        right={w-ix,iy,ix,h-2*iy,mirror and left-guard or right+guard,mirror and left-d-guard or right+d+guard,top,bottom},
-    }
-    local f=rim.frame
-    f:SetScale(g.scale/g.parentScale);f:SetSize(w,h)
-    f:ClearAllPoints();f:SetPoint("TOPLEFT",record.bar,"TOPLEFT",dx,dy)
-    -- The surround may sit behind the unit, but its inner lips must remain
-    -- above the fill even when an older profile explicitly saved level zero.
-    f:SetFrameStrata(rimStrata(config,g))
-    f:SetFrameLevel(math.max(config.level,g.level+1))
-    rim.assetOK=inset>0 and trim.assetOK
-    for side,v in pairs(strips) do
-        local t=rim.textures[side]
-        t:ClearAllPoints();t:SetPoint("TOPLEFT",f,"TOPLEFT",v[1],-v[2])
-        t:SetSize(math.max(.001,v[3]),math.max(.001,v[4]))
-        t:SetTexCoord(v[5]/512,v[6]/512,v[7]/256,v[8]/256)
-        t:SetDrawLayer(config.layer)
-        if t:SetTexture(entry.shell)==false then rim.assetOK=false end
-    end
-    rim.applied=trim.applied
 end
 
 function S:Layout(record,key,kind,config,id,g)
@@ -432,11 +390,11 @@ function S:Layout(record,key,kind,config,id,g)
     local f,t=trim.frame,trim.textures
     local old=record.geometry
     local changed=not old or old.w~=g.w or old.h~=g.h or old.scale~=g.scale or old.parentScale~=g.parentScale
-        or old.capScale~=g.capScale or old.level~=g.level or old.strata~=g.strata
+        or old.capScale~=g.capScale or old.artScale~=g.artScale or old.level~=g.level or old.strata~=g.strata
     local applied=trim.applied
     if changed or record.id~=id or not applied or applied.strata~=config.strata
         or applied.unitFrameStrata~=config.unitFrameStrata or applied.level~=config.level or applied.layer~=config.layer or applied.unitFrameWidth~=config.unitFrameWidth
-        or applied.unitFrameHeight~=config.unitFrameHeight or applied.unitFrameInset~=config.unitFrameInset
+        or applied.unitFrameHeight~=config.unitFrameHeight or applied.unitFrameX~=config.unitFrameX or applied.unitFrameY~=config.unitFrameY
         or trim.debugApplied~=J.ProfileManager.current.debug then
         if InCombatLockdown() then J.Core.dirty=true;return end
         local mirror=config.unit~="player"
@@ -448,15 +406,17 @@ function S:Layout(record,key,kind,config,id,g)
         local heights=kind=="health" and {top,g.h,(power[2]-health[4])*k} or {g.h,(256-power[4])*k}
         local rows=kind=="health" and {0,health[2],health[4],power[2]} or {power[2],power[4],256}
         local cols=mirror and {512,health[3],health[1],0} or {0,health[1],health[3],512}
-        local widths={left,g.w,right}
-        local sx,sy,dx,dy=artTransform(kind,config,entry,g)
+        local sx,sy,dx,dy,openingWidth=artTransform(kind,config,entry,g)
+        local widths={left,openingWidth,right}
         for i,v in ipairs(widths) do widths[i]=v*sx end
         for i,v in ipairs(heights) do heights[i]=v*sy end
         local height=0;for _,v in ipairs(heights) do height=height+v end
         f:SetScale(g.scale/g.parentScale)
-        f:SetSize((g.w+left+right)*sx,height)
+        f:SetSize((openingWidth+left+right)*sx,height)
         f:ClearAllPoints();f:SetPoint("TOPLEFT",record.bar,"TOPLEFT",-left*sx+dx,top*sy+dy)
-        f:SetFrameStrata(config.strata);f:SetFrameLevel(config.level)
+        -- The actual artwork must cover the native fill. Older Background /
+        -- level-zero profiles are safely raised to the owning bar's layer.
+        f:SetFrameStrata(shellStrata(config,g));f:SetFrameLevel(math.max(config.level,g.level+1))
         local path=entry.shell
         trim.assetOK=true
         local y=0
@@ -480,8 +440,8 @@ function S:Layout(record,key,kind,config,id,g)
             -- Only the two cloth/rail spans on either side stretch to bar width.
             local center=(health[1]+health[3])/2
             local half=48
-            local centerWidth=math.min(half*2*k,g.w*.8)
-            local span=(g.w-centerWidth)/2
+            local centerWidth=math.min(half*2*k,openingWidth*.8)
+            local span=(openingWidth-centerWidth)/2
             local cuts=mirror and {health[3],center+half,center-half,health[1]}
                 or {health[1],center-half,center+half,health[3]}
             local sizes={span,centerWidth,span}
@@ -497,14 +457,13 @@ function S:Layout(record,key,kind,config,id,g)
                 x=x+sizes[i]*sx
             end
         end
-        applied={width=(g.w+left+right)*sx,height=height,scale=1,x=-left*sx+dx,y=top*sy+dy,anchor="FRAME",point="TOPLEFT",relativePoint="TOPLEFT",
-            unitFrameStrata=config.unitFrameStrata,unitFrameWidth=config.unitFrameWidth,unitFrameHeight=config.unitFrameHeight,unitFrameInset=config.unitFrameInset,
+        applied={width=(openingWidth+left+right)*sx,height=height,scale=1,x=-left*sx+dx,y=top*sy+dy,anchor="FRAME",point="TOPLEFT",relativePoint="TOPLEFT",
+            unitFrameStrata=config.unitFrameStrata,unitFrameWidth=config.unitFrameWidth,unitFrameHeight=config.unitFrameHeight,unitFrameX=config.unitFrameX,unitFrameY=config.unitFrameY,
             strata=config.strata,level=config.level,layer=config.layer,texture=path,shown=true,opacity=config.opacity,mirror=mirror}
         local snapshot={frame=record.bar,name=key.."."..kind.."Bar",scale=g.scale,visible=true,alpha=1}
         trim.applied,trim.snapshot=applied,snapshot
         J.Core:UpdateDebug(trim,snapshot,applied)
         record.geometry,record.id=g,id
-        self:LayoutRim(record,key,kind,config,entry,g)
     end
     if trim.applied then trim.applied.opacity=config.opacity end
 end
@@ -522,7 +481,6 @@ function S:Visibility(record,enabled)
     end
     record.barVisible=snapshot and snapshot.visible and snapshot.alpha>0 or false
     J.Core:SyncVisibility(trim,snapshot)
-    if trim.rim then J.Core:SyncVisibility(trim.rim,snapshot) end
 end
 
 function S:TickUnit(key)
@@ -564,8 +522,7 @@ function S:TickUnit(key)
         if record and (not enabled or record.bar~=bar or record.texture~=texture) then
             self:Visibility(record,false)
             local trim=record.trim
-            local pendingHide=InCombatLockdown() and trim and
-                (trim.frame:IsProtected() or (trim.rim and trim.rim.frame:IsProtected()))
+            local pendingHide=InCombatLockdown() and trim and trim.frame:IsProtected()
             if self:Restore(record) and not pendingHide then
                 self:Retire(record);unit[kind]=nil;record=nil
             else
@@ -578,6 +535,9 @@ function S:TickUnit(key)
             local healthGeometry=bars and geometry(bars.health)
             local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
             local h,p=entry.opening.health,entry.opening.power
+            -- Offsets and the small side overlap share the health bar's UI
+            -- scale so differently scaled power bars stay joined to the shell.
+            g.artScale=healthGeometry and healthGeometry.scale/g.scale or 1
             g.capScale=healthGeometry and healthGeometry.h/(h[4]-h[2])*healthGeometry.scale/g.scale
                 or g.h/(kind=="health" and h[4]-h[2] or p[4]-p[2])
         end
@@ -605,9 +565,9 @@ function S:TickUnit(key)
                 local old=record.geometry
                 if record.fillManaged~=manageFill or (manageFill and (not record.active or record.external)) or record.id~=id or not old
                     or old.w~=g.w or old.h~=g.h or old.scale~=g.scale or old.parentScale~=g.parentScale
-                    or old.capScale~=g.capScale or not record.trim or not record.trim.applied or record.trim.applied.strata~=config.strata
+                    or old.capScale~=g.capScale or old.artScale~=g.artScale or not record.trim or not record.trim.applied or record.trim.applied.strata~=config.strata
                     or record.trim.applied.unitFrameStrata~=config.unitFrameStrata or old.level~=g.level or old.strata~=g.strata or record.trim.applied.unitFrameWidth~=config.unitFrameWidth
-                    or record.trim.applied.unitFrameHeight~=config.unitFrameHeight or record.trim.applied.unitFrameInset~=config.unitFrameInset
+                    or record.trim.applied.unitFrameHeight~=config.unitFrameHeight or record.trim.applied.unitFrameX~=config.unitFrameX or record.trim.applied.unitFrameY~=config.unitFrameY
                     or record.trim.applied.level~=config.level or record.trim.applied.layer~=config.layer then J.Core.dirty=true end
             end
             self:Visibility(record,enabled and record.id==id and (not external or fitted))
