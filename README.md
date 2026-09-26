@@ -1,4 +1,4 @@
-<p align="center"><img src="docs/images/emblem.png" width="112" alt="JiberishUI gold compass emblem"></p>
+<p align="center"><img src="docs/images/logo.png" width="192" height="192" alt="JiberishUI official penguin logo"></p>
 
 # JiberishUI
 
