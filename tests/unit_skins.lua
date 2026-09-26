@@ -22,10 +22,10 @@ for _,interface in ipairs({120100,16001}) do
                 near(r.trim.frame:GetEffectiveScale(),bar:GetEffectiveScale())
                 local opening=J.UnitSkinCatalog.entries[r.id].opening
                 local h,p=opening.health,opening.power
-                near(r.trim.frame.w,bar.w+(512-h[3]+h[1])*r.geometry.capScale)
+                near(r.trim.frame.w,bar.w-2+(512-h[3]+h[1])*r.geometry.capScale)
                 near(r.trim.frame.h,bar.h+(kind=="health" and (h[2]+p[2]-h[4])*r.geometry.capScale or (256-p[4])*r.geometry.capScale))
                 local config=J.ThemeManager:Resolve(key)
-                assert(r.trim.frame.strata==config.strata and r.trim.frame.level==config.level)
+                assert(r.trim.frame.strata==bar.strata and r.trim.frame.level>bar.level)
                 assert(r.trim.frame.shown)
             end
         end
@@ -94,7 +94,7 @@ test("shell themes preserve the health-bar anchor independently of portrait sizi
         J.ProfileManager:Set("targetFrame","portrait",id)
         assert(r.id==id and r.trim.textures["1_1"].path==J.UnitSkinCatalog.entries[id].shell
             and r.texture.path==J.UnitSkinCatalog.entries[id].health)
-        near(r.trim.textures["1_2"].w,bars(J,"targetFrame").health.w)
+        near(r.trim.textures["1_2"].w,bars(J,"targetFrame").health.w-2)
         assert(r.trim.frame.points[1][2]==bars(J,"targetFrame").health)
     end
     J.ProfileManager:Set("targetFrame","portraitMode","CLASS")
@@ -111,7 +111,7 @@ test("native resizing scale and hidden power bars are followed independently",fu
     UIParent.scale=.8;M.tick(J.Core)
     local unit=J.UnitSkins.units.playerFrame
     local opening=J.UnitSkinCatalog.entries[unit.health.id].opening.health
-    near(unit.health.trim.frame.w,180+(512-opening[3]+opening[1])*24/(opening[4]-opening[2]));near(unit.health.trim.frame:GetEffectiveScale(),b.health:GetEffectiveScale())
+    near(unit.health.trim.frame.w,178+(512-opening[3]+opening[1])*24/(opening[4]-opening[2]));near(unit.health.trim.frame:GetEffectiveScale(),b.health:GetEffectiveScale())
     assert(unit.health.trim.frame.shown and not unit.power.trim.frame.shown)
     b.power.shown=true;M.tick(J.Core);assert(unit.power.trim.frame.shown)
     PlayerFrame.shown=false;M.tick(J.Core);assert(not unit.health.trim.frame.shown)
@@ -190,12 +190,12 @@ test("full-skin profile reload is opt in and saves per unit",function(M)
     assert(restored.ThemeManager:Resolve("focusFrame").unitStyle=="FULL")
 end)
 
-test("sculpted openings contain no art regions and mirror around native bars",function(M)
+test("sculpted shells retain original opening alpha and mirror around native bars",function(M)
     local J=M.load()
     for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
         enable(J,key)
         local u=J.UnitSkins.units[key]
-        assert(not u.health.trim.textures["2_2"] and not u.power.trim.textures["1_2"])
+        assert(u.health.trim.textures["2_2"] and u.power.trim.textures["1_2"])
         local count=0
         for _,r in ipairs({u.health,u.power}) do
             for _,texture in pairs(r.trim.textures) do
@@ -204,7 +204,7 @@ test("sculpted openings contain no art regions and mirror around native bars",fu
                 assert((uv[1]>uv[2])==(key~="playerFrame"))
             end
         end
-        assert(count==15)
+        assert(count==17)
     end
 end)
 
@@ -225,7 +225,7 @@ test("shell layers follow user settings and defer protected changes in combat",f
     J.ProfileManager:Set("playerFrame","unitFrameStrata","HIGH")
     J.ProfileManager:Set("playerFrame","level",42)
     J.ProfileManager:Set("playerFrame","layer","ARTWORK")
-    assert(u.health.trim.frame.strata=="BACKGROUND")
+    assert(u.health.trim.frame.strata==u.health.bar.strata)
     M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
     for _,r in ipairs({u.health,u.power}) do
         assert(r.trim.frame.strata=="HIGH" and r.trim.frame.level==42)
@@ -382,53 +382,62 @@ test("stable full-frame ticks do not repeat native layout writes",function(M)
 end)
 
 
-test("every theme has a recessed painted inset above native fills and outside their center",function(M)
-    local J=M.load();enable(J)
-    J.ProfileManager:Set("playerFrame","portraitMode","FIXED")
+-- Each pixel of the approved shell is sampled once. Extra inner strips would
+-- duplicate source areas; omitting the opening cells would discard curved rims.
+test("all shells cover the source exactly once above both native bars",function(M)
+    local J=M.load()
     for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
-    enable(J,key);J.ProfileManager:Set(key,"portraitMode","FIXED")
-    for id in pairs(J.UnitSkinCatalog.entries) do
-        J.ProfileManager:Set(key,"portrait",id)
-        for _,kind in ipairs({"health","power"}) do
-            local record=J.UnitSkins.units[key][kind];local rim=record.trim.rim
-            assert(rim.frame.shown and rim.frame.mouse==false and rim.frame.level==record.bar:GetFrameLevel()+1)
-            near(rim.frame.w,record.bar.w);near(rim.frame.h,record.bar.h)
-            local depth=rim.textures.top.h
-            assert(depth>=record.bar.h*.15 and depth<=record.bar.h*.22+.001)
-            for name,t in pairs(rim.textures) do
-                local x,y=t.points[1][4],-t.points[1][5]
-                assert(x>=0 and y>=0 and x+t.w<=rim.frame.w+.001 and y+t.h<=rim.frame.h+.001)
-                assert(not (x<rim.frame.w/2 and x+t.w>rim.frame.w/2 and y<rim.frame.h/2 and y+t.h>rim.frame.h/2))
-                if not name:find("Shadow") then
+        enable(J,key);J.ProfileManager:Set(key,"portraitMode","FIXED")
+        for id in pairs(J.UnitSkinCatalog.entries) do
+            J.ProfileManager:Set(key,"portrait",id)
+            local area,rects=0,{}
+            for _,kind in ipairs({"health","power"}) do
+                local r=J.UnitSkins.units[key][kind];local trim=r.trim
+                assert(not trim.rim and trim.frame.shown and trim.frame.mouse==false)
+                assert(trim.frame.strata==r.bar.strata and trim.frame.level>r.bar.level)
+                local opening=trim.textures[kind=="health" and "2_2" or "1_2"]
+                local left=trim.frame.points[1][4]+opening.points[1][4]
+                near(left,1);near(left+opening.w,r.bar.w-1)
+                for _,t in pairs(trim.textures) do
                     assert(t.path==J.UnitSkinCatalog.entries[id].shell)
-                    assert((t.texCoord[1]>t.texCoord[2])==(key~="playerFrame"))
+                    local uv=t.texCoord
+                    assert((uv[1]>uv[2])==(key~="playerFrame"))
+                    local rect={math.min(uv[1],uv[2]),uv[3],math.max(uv[1],uv[2]),uv[4]}
+                    assert(rect[1]>=0 and rect[2]>=0 and rect[3]<=1 and rect[4]<=1)
+                    for _,old in ipairs(rects) do
+                        assert(math.min(old[3],rect[3])-math.max(old[1],rect[1])<.000001
+                            or math.min(old[4],rect[4])-math.max(old[2],rect[2])<.000001)
+                    end
+                    rects[#rects+1]=rect
+                    area=area+(rect[3]-rect[1])*(rect[4]-rect[2])
                 end
             end
+            near(area,1)
         end
-    end
     end
 end)
 
-test("inset lips stay above fills despite saved background strata and level zero",function(M)
+test("single shell covers fills even with saved background strata and old inset values",function(M)
     local J=M.load();enable(J)
     local u=J.UnitSkins.units.playerFrame
     J.ProfileManager:Set("playerFrame","unitFrameStrata","BACKGROUND")
     J.ProfileManager:Set("playerFrame","level",0)
     for _,kind in ipairs({"health","power"}) do
         local r=u[kind]
-        assert(r.trim.frame.strata=="BACKGROUND" and r.trim.frame.level==0)
-        assert(r.trim.rim.frame.strata==r.bar.strata and r.trim.rim.frame.level>r.bar.level)
+        assert(r.trim.frame.strata==r.bar.strata and r.trim.frame.level>r.bar.level and not r.trim.rim)
     end
     J.ProfileManager:Set("playerFrame","unitFrameStrata","HIGH")
     J.ProfileManager:Set("playerFrame","level",42)
-    assert(u.health.trim.rim.frame.strata=="HIGH" and u.health.trim.rim.frame.level==42)
-    local hw,hh=u.health.bar.w,u.health.bar.h
-    J.ProfileManager:Set("playerFrame","unitFrameInset",6)
-    assert(u.health.trim.rim.textures.top.h<=hh*.22+.001)
-    assert(u.health.bar.w==hw and u.health.bar.h==hh)
+    assert(u.health.trim.frame.strata=="HIGH" and u.health.trim.frame.level==42)
+    local hw,hh=u.health.trim.frame.w,u.health.trim.frame.h
+    local frames,textures=#M.frames,M.textures
+    for _,depth in ipairs({0,3,6}) do
+        J.ProfileManager:Set("playerFrame","unitFrameInset",depth)
+        assert(u.health.trim.frame.w==hw and u.health.trim.frame.h==hh)
+        assert(not u.health.trim.rim and #M.frames==frames and M.textures==textures)
+    end
     J.SettingsUI:Open();J.SettingsUI:SetPage("fitting")
-    J.SettingsUI.controls.unitFrameInset.slider:SetValue(3)
-    assert(J.ThemeManager:Resolve("playerFrame").unitFrameInset==3)
+    assert(not J.SettingsUI.controls.unitFrameInset)
 end)
 
 test("shell width and height resize art around one center without changing bars or portraits",function(M)
@@ -446,48 +455,80 @@ test("shell width and height resize art around one center without changing bars 
     local healthBottom=-u.health.trim.frame.points[1][5]+u.health.trim.frame.h
     local powerTop=powerOrigin-u.power.trim.frame.points[1][5]
     near(healthBottom,powerTop)
-    near(u.health.trim.rim.frame.w,hw*1.1);near(u.health.trim.rim.frame.h,hh*1.2)
     assert(b.health.w==hw and b.health.h==hh and b.power.w==pw and b.power.h==ph)
     assert(J.Core.modules.playerFrame.frame.w==portraitW and J.Core.modules.playerFrame.frame.h==portraitH)
     J.SettingsUI:Select("minimap");assert(J.SettingsUI.page=="placement" and not J.SettingsUI.pageButtons.fitting.shown)
 end)
 
-test("inset and fitting changes queue in combat then reuse existing frames",function(M)
-    local J=M.load();enable(J);local trim=J.UnitSkins.units.playerFrame.health.trim
-    local w=trim.frame.w;local frames,textures=#M.frames,M.textures
-    M.combat=true;J.ProfileManager:Set("playerFrame","unitFrameWidth",115);J.ProfileManager:Set("playerFrame","unitFrameInset",0)
-    assert(trim.frame.w==w and trim.rim.frame.shown)
+test("fitting moves original edges inward and offsets both halves without new regions",function(M)
+    local J=M.load();enable(J);local u=J.UnitSkins.units.playerFrame
+    local frames,textures=#M.frames,M.textures
+    local function edge(r)
+        local cell=r.trim.textures[r==u.health and "2_2" or "1_2"]
+        local x=r.trim.frame.points[1][4]+cell.points[1][4]
+        return x,x+cell.w
+    end
+    local left,right=edge(u.health)
+    J.ProfileManager:Set("playerFrame","unitFrameWidth",90)
+    local l,r=edge(u.health);assert(l>left and r<right)
+    local hp,pp=u.health.trim.frame.points[1],u.power.trim.frame.points[1]
+    local hx,hy,px,py=hp[4],hp[5],pp[4],pp[5]
+    M.combat=true
+    J.ProfileManager:Set("playerFrame","unitFrameX",-7)
+    J.ProfileManager:Set("playerFrame","unitFrameY",5)
+    near(u.health.trim.frame.points[1][4],hx)
     M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
-    near(trim.frame.w,w*1.15);assert(not trim.rim.frame.shown and trim.frame.shown)
-    J.ProfileManager:Set("playerFrame","unitFrameInset",2)
-    assert(trim.rim.frame.shown and #M.frames==frames and M.textures==textures)
+    hp,pp=u.health.trim.frame.points[1],u.power.trim.frame.points[1]
+    near(hp[4],hx-7);near(hp[5],hy+5);near(pp[4],px-7);near(pp[5],py+5)
+    assert(#M.frames==frames and M.textures==textures)
     local writes=M.geometryWrites
     for i=1,10 do M.tick(J.Core) end
     assert(writes==M.geometryWrites)
+end)
+
+test("shell halves stay joined with different provider bar scales and custom offsets",function(M)
+    local J=M.load();enable(J)
+    local b=bars(J);b.health.scale=1.25;b.power.scale=.75;UIParent.scale=.8;M.tick(J.Core)
+    J.ProfileManager:Set("playerFrame","unitFrameWidth",90)
+    J.ProfileManager:Set("playerFrame","unitFrameHeight",110)
+    J.ProfileManager:Set("playerFrame","unitFrameX",7)
+    J.ProfileManager:Set("playerFrame","unitFrameY",-3)
+    local u=J.UnitSkins.units.playerFrame
+    local hf,pf=u.health.trim.frame,u.power.trim.frame
+    local hcell,pcell=u.health.trim.textures["2_2"],u.power.trim.textures["1_2"]
+    local hl=(hf.points[1][4]+hcell.points[1][4])*b.health.scale
+    local pl=(pf.points[1][4]+pcell.points[1][4])*b.power.scale
+    near(hl,pl);near(hcell.w*b.health.scale,pcell.w*b.power.scale)
+    local powerOrigin=b.health.h*b.health.scale-b.power.points[1][5]*b.power.scale
+    near((-hf.points[1][5]+hf.h)*b.health.scale,powerOrigin-pf.points[1][5]*b.power.scale)
 end)
 
 test("unit artwork fitting settings validate and round trip independently",function(M)
     local J=M.load()
     assert(J.ProfileManager:Set("targetFrame","unitFrameWidth",90))
     assert(J.ProfileManager:Set("targetFrame","unitFrameHeight",125))
-    assert(J.ProfileManager:Set("targetFrame","unitFrameInset",2))
+    assert(J.ProfileManager:Set("targetFrame","unitFrameInset",2)) -- legacy backup compatibility
+    assert(J.ProfileManager:Set("targetFrame","unitFrameX",-10))
+    assert(J.ProfileManager:Set("targetFrame","unitFrameY",12))
+    assert(not J.ProfileManager:Set("minimap","unitFrameX",5))
+    assert(not J.ProfileManager:Set("targetFrame","unitFrameY",513))
     assert(not J.ProfileManager:Set("minimap","unitFrameWidth",90))
     assert(not J.ProfileManager:Set("targetFrame","unitFrameWidth",0))
     assert(not J.ProfileManager:Set("targetFrame","unitFrameHeight",151))
     assert(not J.ProfileManager:Set("targetFrame","unitFrameInset",7))
     local backup=J.ProfileManager:Export();J.ProfileManager:Reset();assert(J.ProfileManager:Import(backup))
     local c=J.ThemeManager:Resolve("targetFrame")
-    assert(c.unitFrameWidth==90 and c.unitFrameHeight==125 and c.unitFrameInset==2)
+    assert(c.unitFrameWidth==90 and c.unitFrameHeight==125 and c.unitFrameInset==2 and c.unitFrameX==-10 and c.unitFrameY==12)
     assert(J.ThemeManager:Resolve("playerFrame").unitFrameWidth==100)
 end)
 
-test("protected inner rim is retired only after queued hiding completes",function(M)
+test("protected shell is retired only after queued hiding completes",function(M)
     local J=M.load();J.ProfileManager:Set("playerFrame","unitFrameFill","PROVIDER");enable(J)
-    local record=J.UnitSkins.units.playerFrame.health;record.trim.rim.frame.protected=true
+    local record=J.UnitSkins.units.playerFrame.health;record.trim.frame.protected=true
     M.combat=true;J.ProfileManager:Set("playerFrame","unitFrameShown",false);M.tick(J.Core)
-    assert(J.UnitSkins.units.playerFrame.health==record and record.trim.rim.frame.shown)
+    assert(J.UnitSkins.units.playerFrame.health==record and record.trim.frame.shown)
     M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
-    assert(not J.UnitSkins.units.playerFrame.health and not record.trim.rim.frame.shown)
+    assert(not J.UnitSkins.units.playerFrame.health and not record.trim.frame.shown)
 end)
 
 
@@ -507,11 +548,5 @@ test("Night Elf footer keeps its crescent proportions when native bars widen",fu
     local right=u.power.trim.textures.footerRight
     near(left.points[1][4]+left.w,center.points[1][4])
     near(center.points[1][4]+center.w,right.points[1][4])
-    for _,kind in ipairs({"health","power"}) do
-        local rim=u[kind].trim.rim
-        assert(not rim.textures.topShadow and not rim.textures.bottomShadow)
-        local top=J.UnitSkinCatalog.entries.RACE_NIGHTELF.opening[kind][2]
-        assert(rim.textures.top.texCoord[4]*256<=top-1)
-    end
 end)
 end

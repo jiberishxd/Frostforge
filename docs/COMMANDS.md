@@ -16,7 +16,7 @@ Start with `/jui` for the visual settings window. These commands offer the same 
 
 Components: `playerFrame`, `targetFrame`, `focusFrame`, `minimap`, `actionHub`.
 
-Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `unitFrameWidth`/`unitFrameHeight` (75–150%), `unitFrameInset` (0–6, default 3), `unitFrameFill` (AUTO/PROVIDER/JIBERISH), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE), and `unitFrameSource` (AUTO/BLIZZARD/ELLESMERE). Cast-border properties are `castBarShown`, `castBarSource` (AUTO/BLIZZARD/ELLESMERE/ELVUI), `castBarArt` (MATCH or a catalog ID), `castBarWeight` (0.5–2) `castBarPadding` (0–8), and `castBarWidth`/`castBarHeight` (50–150%, default 100). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
+Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `unitFrameWidth`/`unitFrameHeight` (75–150%), `unitFrameX`/`unitFrameY` (−512–512 UI units, default 0), `unitFrameFill` (AUTO/PROVIDER/JIBERISH), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE), and `unitFrameSource` (AUTO/BLIZZARD/ELLESMERE). Cast-border properties are `castBarShown`, `castBarSource` (AUTO/BLIZZARD/ELLESMERE/ELVUI), `castBarArt` (MATCH or a catalog ID), `castBarWeight` (0.5–2) `castBarPadding` (0–8), and `castBarWidth`/`castBarHeight` (50–150%, default 100). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
 
 ```text
 /jf set playerFrame unitFrameShown on
@@ -34,6 +34,8 @@ Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), op
 
 Blizzard defaults use Background strata and level 0. Ellesmere defaults follow its panel/portrait layer so opaque panels do not bury the artwork; explicit saved strata/level choices take priority. Custom dimensions/offsets/strata can change the fit. Use Reset this component to return to the fitted defaults.
 
+
+Legacy `unitFrameInset` (0–6) remains accepted for old backups, but no longer draws anything.
 
 ## Stock appearance and independent strata (0.8.2)
 
