@@ -603,6 +603,7 @@ function S:TickUnit(key)
         if self:RestoreAttachedLayout(key) then fitted=self:FitPowerLayout(key,bars,id,enabled) end
     end
     if config.unitFrameStrata~="AUTO" then config.strata=config.unitFrameStrata end
+    if key=="playerFrame" and enabled and not external and not healthOnly and fitted then self.powerMaskBar=bars.power end
     local states={}
     for _,kind in ipairs({"health","power"}) do
         local bar=bars and bars[kind]
@@ -613,6 +614,7 @@ function S:TickUnit(key)
             local shared=J.ThemeManager:Resolve("playerFrame")
             local selection=shared[kind=="health" and "blizzardHealthTexture" or "blizzardPowerTexture"]
             if selection~="AUTO" or (kind=="health" and config.blizzardHealthColor~="STOCK") then fillThisBar=false end
+            if kind=="power" and (config.blizzardPowerColor~="STOCK" or config.blizzardPowerShading=="GRADIENT") then fillThisBar=false end
         end
         local texture
         if bar then
@@ -754,6 +756,13 @@ function S:StockTexture(info,configs)
     -- Modern stock health atlases are painted green. Class tint needs a
     -- neutral material even when the user otherwise prefers Blizzard textures.
     if info.kind=="health" and healthMode=="CLASS" then return "Interface\\TargetingFrame\\UI-StatusBar" end
+    if info.kind=="power" and info.key then
+        local config=info.key=="party" and shared or (configs and configs[info.key] or J.ThemeManager:Resolve(info.key))
+        local prefix=info.key=="party" and "blizzardPartyPower" or "blizzardPower"
+        if config[prefix.."Color"]~="STOCK" or config[prefix.."Shading"]=="GRADIENT" then
+            return "Interface\\TargetingFrame\\UI-StatusBar"
+        end
+    end
 end
 
 function S:TickStockStone(restoreOnly,bars,configs)
@@ -795,10 +804,52 @@ function S:StockFill(bar)
     end
 end
 
+local function hasMask(texture,mask)
+    if not usable(texture) or not usable(mask) or type(texture.GetNumMaskTextures)~="function"
+        or type(texture.GetMaskTexture)~="function" then return end
+    local count=texture:GetNumMaskTextures()
+    if not J.Core:IsNumber(count) or count<0 or count>16 then return end
+    for i=1,count do
+        local current=texture:GetMaskTexture(i)
+        if not J.Core:IsSafe(current) then return end
+        if current==mask then return true end
+    end
+    return false
+end
+
+-- The stock player mask keeps its original atlas dimensions when the mana
+-- StatusBar is fitted to our shell. Let the existing rectangular fill reach
+-- that opening; the shell provides the contour. Touch only this known mask,
+-- never provider masks, mask artwork, progress, or any other native region.
+function S:TickPowerMask()
+    self.powerMasks=self.powerMasks or {}
+    if InCombatLockdown() then return end
+    local bar=self.powerMaskBar
+    local ok,texture=pcall(function() return usable(bar) and bar:GetStatusBarTexture() end)
+    if not ok then texture=nil end
+    local mask=usable(bar) and bar.ManaBarMask
+    if not usable(texture) or not usable(mask) then texture,mask=nil,nil end
+    for region,record in pairs(self.powerMasks) do
+        if region~=texture or record.mask~=mask then
+            local attached=hasMask(region,record.mask)
+            if attached~=nil then
+                if not attached then region:AddMaskTexture(record.mask) end
+                self.powerMasks[region]=nil
+            end
+        end
+    end
+    if texture and not self.powerMasks[texture] and hasMask(texture,mask)==true then
+        self.powerMasks[texture]={mask=mask}
+    end
+    local record=texture and self.powerMasks[texture]
+    if record and record.mask==mask and hasMask(texture,mask)==true then texture:RemoveMaskTexture(mask) end
+end
+
 function S:Tick()
     local configs={}
     for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do configs[key]=J.ThemeManager:Resolve(key) end
     self.stoneEnabled=configs.playerFrame.blizzardStone
+    self.powerMaskBar=nil
     local bars
     if not InCombatLockdown() then J.Core:Protect("stock bar discovery",function() bars=self:StockBars() end) end
     J.Core:Protect("stock stone restoration",function() self:TickStockStone(true,bars,configs) end)
@@ -806,4 +857,5 @@ function S:Tick()
         J.Core:Protect(key.." skin",function() self:TickUnit(key) end)
     end
     J.Core:Protect("stock stone",function() self:TickStockStone(false,bars,configs) end)
+    J.Core:Protect("stock power contour",function() self:TickPowerMask() end)
 end

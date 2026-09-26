@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.7 — Power styling and Blizzard placement
+
+- Fitted Blizzard player power fills temporarily release their fixed-size native mana mask so the fill reaches the shell opening. Restore that mask when the shell is disabled or the bar changes; preserve unrelated masks and all artwork.
+- Added native-resource, class and custom power colors, with independent solid/gradient shading. Player, Target and Focus have individual choices; Party & raid share a separate set. Custom colors support a picker and six-digit hex input.
+- Added Target/Focus Blizzard buff/debuff group and cast-bar X/Y offsets, independent enable/reset controls, profile persistence and restoration. The stock aura group moves together; placement changes wait until combat ends.
+- Pin cast-border strata/level and handle native cast-layer changes separately from geometry, so a cast beginning in combat does not suppress the border solely because its layer changed. Covers Player, Target and Focus.
+- Artwork images remain unchanged. This is an offline-validated development build; live-client confirmation is still required.
+
 ## 0.8.6 — Stock bar textures, class gradients and power visibility
 
 - Removed the separate dark well behind visible power bars. It could compete with native layering after login/reload; the opaque opening remains only for units without a visible power bar.

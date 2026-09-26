@@ -1,6 +1,6 @@
 local addonName, J = ...
 local Core = {
-    version = "0.8.6",
+    version = "0.8.7",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
     propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset", "unitFrameX", "unitFrameY", "castBarShown", "castBarSource", "castBarStyle", "castBarArt", "castBarWeight", "castBarPadding", "castBarWidth", "castBarHeight", "unitFrameStrata", "castBarStrata", "castBarLevel", "blizzardPortraitHidden", "blizzardPortraitFrameHidden", "blizzardNameEnabled", "blizzardNameX", "blizzardNameY", "blizzardNameSize", "blizzardNameAlign", "blizzardNameOutline", "blizzardStone" },
@@ -43,6 +43,11 @@ function Core:ValidateProperty(property, value)
         if type(value) == "string" then value = tonumber(value) end
         if self:IsNumber(value) and value >= rule[1] and value <= rule[2]
             and (not rule.integer or value == math.floor(value)) then return value end
+    elseif rule.hex then
+        if type(value)=="string" then
+            local hex=value:gsub("^#",""):upper()
+            if #hex==6 and hex:match("^%x+$") then return hex end
+        end
     elseif rule.boolean then
         if value == true or value == "true" or value == "on" then return true end
         if value == false or value == "false" or value == "off" then return false end
@@ -60,6 +65,7 @@ function Core:PropertyHelp(property)
     if not rule then return "Properties: " .. table.concat(self.propertyOrder, ", ") end
     if rule[1] then return property .. ": choose " .. (rule.integer and "a whole number" or "a number") .. " from " .. rule[1] .. " to " .. rule[2] .. "." end
     if rule.boolean then return property .. ": on or off." end
+    if rule.hex then return property .. ": use a six-digit color such as #0070DE." end
     local values = {}
     for value in pairs(rule) do values[#values + 1] = value end
     table.sort(values)
