@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.4 — Blizzard cast layers and independent text controls
+
+- Fixed automatic Blizzard cast-border layering to clear the owning Player/Target/Focus frame and enabled JUI portrait/shell layers. Explicit strata and the level offset are together on **Cast bar**; status reports the resolved layer. Ellesmere and ElvUI retain their provider-based layering.
+- Fixed repeated Blizzard text offsets accumulating after rounded position readback or partial native anchor updates. X/Y settings now use a stable original position and retain the actual applied position separately.
+- Added independent **Name**, **Health**, **Power**, **Level**, **Cast name** and **Cast time** controls on **Blizzard**, each with X/Y, size, alignment, outline, enable and reset. Existing profile name settings are preserved; new groups start disabled. Native text visibility, content and values stay with Blizzard.
+- All presentation edits and restoration wait until combat ends. Artwork files are unchanged. Validation is offline; no WoW interaction was performed.
+
 ## 0.8.3 — Original unit-frame artwork over the bars
 
 - Removed duplicated inset border strips and the Inset edge depth control. Old saved depths have no visual effect.

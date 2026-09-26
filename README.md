@@ -12,7 +12,7 @@ JiberishUI adds sculpted artwork around your portraits, health and power bars, c
 
 *Artwork showcase using the addon's actual textures. See the gallery for labeled previews and an early in-game capture.*
 
-**Current source: 0.8.3 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/JiberishUI-WoW/releases) published yet. To test from source, [build an installable ZIP](docs/DEVELOPMENT.md#build-installable-zips).
+**Current source: 0.8.4 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/JiberishUI-WoW/releases) published yet. To test from source, [build an installable ZIP](docs/DEVELOPMENT.md#build-installable-zips).
 
 ## Make it your own
 
@@ -53,7 +53,7 @@ Third-party addons must support your game client themselves. JiberishUI does not
 4. Enable **Portrait art** and **Unit-frame art** independently. Portraits start on; full shells start off. Choose the correct providers when using multiple UI addons.
 5. Open **Cast bar** to enable its separate border; the provider's cast bar must also be enabled. Then choose matching **Minimap** and **Action hub** artwork if you want a coordinated set.
 
-Settings save as you go. Fitting changes that need to wait for combat apply afterward. Use **Placement** for portraits, **Unit frame** for shell fitting, and **Cast bar** for cast-border fitting. Use **Blizzard** for stock portrait/name controls and the stock-wide stone toggle (on by default); **Cast bar** exposes cast-border strata; **Advanced** has portrait/shell strata and a separate cast-border level. Your provider's settings still control where its functional frames sit.
+Settings save as you go. Fitting changes that need to wait for combat apply afterward. Use **Placement** for portraits, **Unit frame** for shell fitting, and **Cast bar** for cast-border fitting. Use **Blizzard** for stock portrait and text controls and the stock-wide stone toggle (on by default); **Cast bar** has cast-border strata and level together; **Advanced** has portrait/shell strata. Your provider's settings still control where its functional frames sit.
 
 ![The JiberishUI settings workshop with separate portrait and unit-frame controls](docs/images/settings.jpg)
 

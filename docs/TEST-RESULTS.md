@@ -1,3 +1,13 @@
+# Build 0.8.4 Blizzard cast layers and text controls
+
+234 Lua behavior tests and 17 Python artwork tests pass. Blizzard Player/Target/Focus fixtures cover native cast bars below their owning frame, higher stock/JUI chrome, hidden-to-visible casts in combat, explicit strata and levels, overwritten owned-frame layers, and unreadable optional child layers. Existing Ellesmere and ElvUI cast cases still pass.
+
+Text tests cover all six groups on both client paths, rounded coordinate readback, repeated X/Y adjustments without drift or repeated writes, reordered/partially updated native anchors, native-region aliases, hidden labels, independent reset, backup round trips and combat-deferred restoration. Native content, values and visibility remain untouched.
+
+The exported settings preview was inspected on the Blizzard Name and Cast time sections and the revised Cast bar page. Source/media checks and exact Retail/Forever 0.8.4 package validation pass. All artwork images remain unchanged. No WoW interaction or live-client testing was performed; the user's in-game layout and secure-runtime behavior still need manual confirmation.
+
+---
+
 # Build 0.8.3 original shell overlap
 
 225 Lua behavior tests and 17 Python artwork tests pass. All 42 shells are checked on Player, Target and Focus for exact source coverage with no duplicate or missing texture regions. The actual shell sits above its bar even with old Background / level-zero settings, and its original side edges overlap the fill. Legacy inset depths 0, 3 and 6 produce the same single-shell result.
