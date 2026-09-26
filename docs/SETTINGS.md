@@ -18,9 +18,9 @@ The window uses native Blizzard textured panels, red buttons, checks and sliders
 3. In ElvUI, select **JiberishUI Stone** in its status-bar texture settings. Use its general/global or per-frame settings as appropriate for your layout. Other installed addons with LibSharedMedia status-bar menus can use it too.
 4. In `/jui` → Player/Target/Focus → **Advanced**, leave **Health & power textures** on **Automatic (respect UI addon)**, or choose **Keep provider textures**. This prevents JiberishUI from replacing your Ellesmere selection.
 
-Automatic keeps Ellesmere's selected textures and uses JiberishUI fills on Blizzard frames. **Use JiberishUI fills** explicitly overrides the selected unit's fills while unit-frame art is enabled. Native colors, values, labels and clicks remain controlled by the provider. Shared Stone works independently of all JiberishUI artwork toggles, and the selected provider tint supplies health/class/resource color.
+Automatic keeps ElvUI/Ellesmere's selected textures and uses JiberishUI fills on Blizzard frames. **Use JiberishUI fills** explicitly overrides the selected unit's fills while unit-frame art is enabled. Native colors, values, labels and clicks remain controlled by the provider. Shared Stone works independently of all JiberishUI artwork toggles, and the selected provider tint supplies health/class/resource color.
 
-The material is registered through the LibSharedMedia-3.0 already supplied by EllesmereUI or ElvUI; you do not need a duplicate texture pack. If the menu was already open during loading, reopen it. The name is exactly **JiberishUI Stone**. This does not add ElvUI full-shell support; JiberishUI full shells currently support Blizzard and compatible Ellesmere bar layouts.
+The material is registered through the LibSharedMedia-3.0 already supplied by EllesmereUI or ElvUI; you do not need a duplicate texture pack. If the menu was already open during loading, reopen it. The name is exactly **JiberishUI Stone**. Full shells support Blizzard and compatible attached ElvUI/Ellesmere bar layouts. In **Artwork**, enable **Unit-frame art** and choose **Unit-frame provider → ElvUI** or Automatic. When visible, ElvUI power must be full-width, attached and aligned below health; inset, mini/spaced, offset, detached or vertical arrangements retain their provider layout.
 
 ## Preview and verification
 
@@ -31,3 +31,9 @@ The material is registered through the LibSharedMedia-3.0 already supplied by El
 Player, Target and Focus have a **Blizzard** page for hiding their stock portrait image or full surround. Select **Name**, **Health**, **Power**, **Level**, **Cast name** or **Cast time**, then enable customization to adjust that label's X/Y, size, alignment and outline. Health/power controls move the corresponding center/left/right labels together. Offsets are relative to Blizzard's original anchors, without accumulating on redraws. Each group has its own reset; **Restore stock portrait & all text** restores the selected unit.
 
 The shared **Stone on Blizzard health/power** switch starts on and remains active independently of full-shell and fill-mode choices. **Advanced** separates portrait and unit-frame strata. **Cast bar** keeps cast-border strata and **Level above nearby artwork** together. Automatic cast layering also clears Blizzard's owning frame and enabled JUI portrait/shell layers. [Full behavior and restoration](BLIZZARD-CONTROLS.md).
+
+### Blizzard colors and textures
+
+Open **Blizzard → Colors & textures**. The selected Player, Target or Focus has independent **Name color** (Blizzard/Class) and **Health color** (Blizzard/Class/Dark stone). Shared **Party & raid** controls offer the same choices. Class colors apply to players; NPCs retain their native colors. Dark stone is a charcoal health fill; native resource colors remain unchanged.
+
+**Stock health texture** and **Stock power texture** are separate, shared choices: Automatic, JiberishUI Stone, Smooth or Blizzard texture. Automatic follows the existing **Stone for Automatic texture** switch; explicit choices take precedence over shell fills. Dark stone always selects stone for the affected health bars. Everything saves with your character’s JUI profile. These options affect stock Blizzard frames only.

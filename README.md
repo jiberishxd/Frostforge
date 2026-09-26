@@ -12,7 +12,7 @@ JiberishUI adds sculpted artwork around your portraits, health and power bars, c
 
 *Artwork showcase using the addon's actual textures. See the gallery for labeled previews and an early in-game capture.*
 
-**Current source: 0.8.4 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/JiberishUI-WoW/releases) published yet. To test from source, [build an installable ZIP](docs/DEVELOPMENT.md#build-installable-zips).
+**Current source: 0.8.5 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/JiberishUI-WoW/releases) published yet. To test from source, [build an installable ZIP](docs/DEVELOPMENT.md#build-installable-zips).
 
 ## Make it your own
 
@@ -35,13 +35,13 @@ These are the integrations implemented in the current build. Support depends on 
 | --- | --- | --- | --- | --- |
 | **Blizzard UI** | Yes | Yes | Yes | Yes |
 | **EllesmereUI** | Yes, with a separate portrait | Yes, for compatible bar layouts¹ | Yes | Yes |
-| **ElvUI** | Yes, with a separate portrait | Not implemented | Yes | Yes |
+| **ElvUI** | Yes, with a separate portrait | Yes¹ | Yes | Yes |
 | **Blinkii's Portraits** | Yes | Uses another provider | Uses another provider | Uses another provider |
-| **mMediaTag & Tools** | Yes, through ElvUI | Not implemented | Uses ElvUI | Uses ElvUI |
+| **mMediaTag & Tools** | Yes, through ElvUI | Uses ElvUI¹ | Uses ElvUI | Uses ElvUI |
 
-¹ Ellesmere full shells require horizontal health with power attached and aligned below it. Detached, hidden, above-health or vertical power layouts do not receive a full shell. Separate/circular portraits give the closest portrait fit; portraits drawn inside health bars have no separate surround to decorate.
+¹ ElvUI and Ellesmere full shells require horizontal health with power attached and aligned below it. ElvUI inset/mini/offset power and detached, above-health or vertical power layouts do not receive a full shell. When power is hidden or absent, complete artwork follows health with a dark empty power opening. Separate/circular portraits give the closest portrait fit; portraits drawn inside health bars have no separate surround to decorate.
 
-The **minimap surround** follows the shared minimap and is designed for a circular map. Action hubs decorate the main bar; keep your preferred addon in charge of its buttons and layout. **JiberishUI Stone** can also be used on other frames through your provider's texture settings, including ElvUI frames without JiberishUI shells.
+The **minimap surround** follows the shared minimap and is designed for a circular map. Action hubs decorate the main bar; keep your preferred addon in charge of its buttons and layout. **JiberishUI Stone** can also be used on other frames through your provider's texture settings, including party and raid frames.
 
 Third-party addons must support your game client themselves. JiberishUI does not make a Retail-only addon work on Forever. [Detailed provider setup and limitations](docs/ADDON-COMPATIBILITY.md).
 
@@ -70,3 +70,5 @@ For a clean update, close WoW and replace only the existing `Interface/AddOns/Ji
 This build decorates Player, Target, Focus, the main action hub and minimap. The plain stone material also covers stock party, raid, pet, boss, target-of-target and focus-target health/power bars; ornamental shells remain limited to Player/Target/Focus. Nameplates are outside this feature. A reported Forever saved-settings loading issue is documented in the [persistence notes](docs/PERSISTENCE.md); keep a settings backup while testing.
 
 JiberishUI is an independent community project. [Artwork credits and source references](docs/ARTWORK-CREDITS.md) · [Test results](docs/TEST-RESULTS.md) · [Advanced commands](docs/COMMANDS.md).
+
+Blizzard users can open **Player/Target/Focus → Blizzard → Colors & textures** for class-colored names and health, dark stone health, and separate health/power texture choices. Party/raid colors are included; these controls do not require ElvUI or EllesmereUI.

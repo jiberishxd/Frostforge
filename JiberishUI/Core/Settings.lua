@@ -88,7 +88,8 @@ end
 
 function S:Set(property,value)
     self.message=nil
-    local ok,reason=J.ProfileManager:Set(self.selected,property,value)
+    local key=J.BlizzardUnits.sharedStyleProperties[property] and "playerFrame" or self.selected
+    local ok,reason=J.ProfileManager:Set(key,property,value)
     if not ok then self.message=reason; self:Refresh() end
 end
 
@@ -101,6 +102,7 @@ function S:HideMenus()
     if self.castPicker then self.castPicker:Hide() end
     if self.backupDialog then self.backupDialog:Hide();self.backupEdit:ClearFocus() end
     if self.resetDialog then self.resetDialog:Hide() end
+    if self.stockStyleDialog then self.stockStyleDialog:Hide() end
 end
 
 local collectionSpecs={
@@ -215,7 +217,8 @@ function S:Dropdown(property,label,choices,x,y,parent,width)
     menu:EnableMouse(true); menu:SetClampedToScreen(true); backdrop(menu,"inset")
     menu:Hide(); self.menus[#self.menus+1]=menu
     control.button=button(parent,"",x,y-22,width,function()
-        local show=not menu:IsShown(); self:HideMenus(); menu:SetShown(show)
+        local show=not menu:IsShown();local stockOpen=self.stockStyleDialog and self.stockStyleDialog:IsShown()
+        self:HideMenus();if stockOpen then self.stockStyleDialog:Show() end;menu:SetShown(show)
     end)
     text(control.button,"v",width-22,-8,16,"GameFontNormalSmall")
     menu:SetPoint("TOPLEFT",control.button,"BOTTOMLEFT",0,-2)
@@ -569,10 +572,30 @@ function S:Create()
             end
         end
     end)
-    self.stockStoneToggle=toggle(a,"Stone on Blizzard health/power",0,-352,318,function()
-        J.ProfileManager:Set("playerFrame","blizzardStone",not J.ThemeManager:Resolve("playerFrame").blizzardStone);self:Refresh()
+    self.stockStyleButton=button(a,"Colors & textures",0,-352,318,function()
+        self:HideMenus();self.stockStyleDialog:Show();self:Refresh()
     end)
     self.nativeStatus=text(a,"",0,-394,666)
+    local dialog=CreateFrame("Frame",nil,self.frame,"BackdropTemplate");self.stockStyleDialog=dialog
+    dialog:SetSize(728,490);dialog:SetPoint("CENTER",self.frame,"CENTER",0,0)
+    dialog:SetFrameStrata("DIALOG");dialog:SetFrameLevel(230);dialog:EnableMouse(true);backdrop(dialog,"outer")
+    self.stockStyleTitle=text(dialog,"Blizzard colors & textures",24,-24,676,"GameFontNormalLarge")
+    text(dialog,"Names and health are independent. Party & raid and texture choices are shared across stock frames.",24,-60,676)
+    local nameColors={{"STOCK","Blizzard color"},{"CLASS","Class color (players)"}}
+    local healthColors={{"STOCK","Blizzard color"},{"CLASS","Class color (players)"},{"DARK","Dark stone"}}
+    local textures={{"AUTO","Automatic (stone default)"},{"STONE","JiberishUI Stone"},{"SMOOTH","Smooth"},{"STOCK","Blizzard texture"}}
+    self:Dropdown("blizzardNameColor","This unit: name color",nameColors,24,-108,dialog)
+    self:Dropdown("blizzardHealthColor","This unit: health color",healthColors,374,-108,dialog)
+    self:Dropdown("blizzardPartyNameColor","Party & raid: name color",nameColors,24,-186,dialog)
+    self:Dropdown("blizzardPartyHealthColor","Party & raid: health color",healthColors,374,-186,dialog)
+    self:Dropdown("blizzardHealthTexture","Stock health texture",textures,24,-264,dialog)
+    self:Dropdown("blizzardPowerTexture","Stock power texture",textures,374,-264,dialog)
+    self.stockStoneToggle=toggle(dialog,"Stone for Automatic texture",24,-334,318,function()
+        J.ProfileManager:Set("playerFrame","blizzardStone",not J.ThemeManager:Resolve("playerFrame").blizzardStone);self:Refresh()
+    end)
+    text(dialog,"Dark stone uses a charcoal stone health fill. Resource colors remain Blizzard's. NPC class colors stay unchanged. Options apply after combat.",24,-380,676)
+    button(dialog,"Done",542,-440,150,function() self:HideMenus() end)
+    dialog:Hide()
 
     a=self.pages.artwork
     self.showButton=toggle(a,"Portrait art",0,0,318,function() self:Set("shown",not J.ThemeManager:Resolve(self.selected).shown) end)
@@ -593,7 +616,7 @@ function S:Create()
     self.modeHelp=text(a,"",154,-166,496)
     self:Dropdown("portraitSource","Portrait provider",portraitSources,0,-236,a)
     self:Dropdown("hubSource","Action bar provider",hubSources,0,-236,a)
-    self:Dropdown("unitFrameSource","Unit-frame provider",{{"AUTO","Automatic"},{"BLIZZARD","Blizzard"},{"ELLESMERE","EllesmereUI"}},346,-236,a)
+    self:Dropdown("unitFrameSource","Unit-frame provider",{{"AUTO","Automatic"},{"BLIZZARD","Blizzard"},{"ELVUI","ElvUI"},{"ELLESMERE","EllesmereUI"}},346,-236,a)
     self.sourceStatus=text(a,"",0,-304,666)
     self.providerHelp=text(a,"",0,-354,666)
     self:CreatePortraitPicker();self:CreateHubPicker();self:CreateMinimapPicker()
@@ -659,6 +682,7 @@ function S:Refresh()
     self.controls.strata.label:SetText(unit and "Portrait art strata" or "Artwork strata")
     if unit then
         self.stockStoneToggle.check:SetShown(J.ThemeManager:Resolve("playerFrame").blizzardStone)
+        self.stockStyleTitle:SetText("Blizzard colors & textures — "..names[self.selected])
         self.nativePortraitToggle.check:SetShown(config.blizzardPortraitHidden)
         self.nativePortraitFrameToggle.check:SetShown(config.blizzardPortraitFrameHidden)
         for _,group in ipairs(J.BlizzardUnits.textGroups) do
@@ -694,7 +718,7 @@ function S:Refresh()
         if config.shown and module.assetOK==false then portrait="artwork could not be loaded" end
         local frame=not config.unitFrameShown and "off - enable Unit-frame art above" or J.UnitSkins.summary[self.selected] or "waiting for bars"
         self.sourceStatus:SetText("|cffffd38aPortrait:|r "..portrait.."\n|cffffd38aUnit frame:|r "..frame)
-        self.providerHelp:SetText("Ellesmere full frames need horizontal health with attached power below. ElvUI supports portrait art; full-frame styling supports Blizzard and Ellesmere.")
+        self.providerHelp:SetText("Full-frame artwork supports Blizzard, ElvUI and Ellesmere. Use horizontal health with full-width power attached below. Hidden power retains a complete shell with a dark empty opening.")
         self.placementHelp:SetText("Offsets move only the decoration. Use your UI addon's settings to move the portrait or health bars themselves.")
         self.guideHelp:SetText("|cffffd38aArtwork missing?|r Target a unit first, check each artwork toggle, and choose the matching provider. Enable portraits in that provider too. Hidden or inside-health portraits may not support a surround.\n\n|cffffd38aWrong NPC theme?|r Known city affiliations use matching race art. Unknown NPCs use the normal fallback. Choose a fixed design to override it.")
     else
@@ -735,7 +759,8 @@ function S:Refresh()
             if not control.edit:HasFocus() then control.edit:SetText(string.format("%.2f",config[property]):gsub("%.?0+$","")) end
         elseif control.choices then
             for _,choice in ipairs(control.choices) do
-                if choice[1]==config[property] then control.button.caption:SetText(choice[2]) end
+                local value=J.BlizzardUnits.sharedStyleProperties[property] and J.ThemeManager:Resolve("playerFrame")[property] or config[property]
+                if choice[1]==value then control.button.caption:SetText(choice[2]) end
             end
         end
     end

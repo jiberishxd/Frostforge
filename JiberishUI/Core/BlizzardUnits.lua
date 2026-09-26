@@ -10,6 +10,18 @@ J.Core.properties.blizzardNameSize={6,40}
 J.Core.properties.blizzardNameAlign={KEEP=true,LEFT=true,CENTER=true,RIGHT=true}
 J.Core.properties.blizzardNameOutline={KEEP=true,NONE=true,OUTLINE=true,THICKOUTLINE=true}
 
+B.styleProperties={blizzardNameColor=true,blizzardHealthColor=true}
+B.sharedStyleProperties={blizzardPartyNameColor=true,blizzardPartyHealthColor=true,blizzardHealthTexture=true,blizzardPowerTexture=true}
+J.Core.properties.blizzardNameColor={STOCK=true,CLASS=true}
+J.Core.properties.blizzardHealthColor={STOCK=true,CLASS=true,DARK=true}
+J.Core.properties.blizzardPartyNameColor=J.Core:Copy(J.Core.properties.blizzardNameColor)
+J.Core.properties.blizzardPartyHealthColor=J.Core:Copy(J.Core.properties.blizzardHealthColor)
+J.Core.properties.blizzardHealthTexture={AUTO=true,STOCK=true,STONE=true,SMOOTH=true}
+J.Core.properties.blizzardPowerTexture=J.Core:Copy(J.Core.properties.blizzardHealthTexture)
+for _,property in ipairs({"blizzardNameColor","blizzardHealthColor","blizzardPartyNameColor","blizzardPartyHealthColor","blizzardHealthTexture","blizzardPowerTexture"}) do
+    J.Core.propertyOrder[#J.Core.propertyOrder+1]=property
+end
+
 -- The original name keys stay compatible with existing character profiles.
 for _,group in ipairs(B.textGroups) do
     local prefix="blizzard"..group
@@ -88,19 +100,46 @@ function B:PortraitDecorations(key,root)
     local main=field(content,prefix.."ContentMain")
     local contextual=field(content,prefix.."ContentContextual")
     local regions={}
-    local function add(region)
-        if usable(region) and type(region.SetAlpha)=="function" then regions[region]=true end
+    local function add(region,animated)
+        if usable(region) and type(region.SetAlpha)=="function" then regions[region]=animated and "mask" or true end
     end
     -- Stock rim and bar border share one texture. Hide that texture only;
     -- never hide a container holding health, power, names or secure controls.
-    for _,name in ipairs({"FrameTexture","VehicleFrameTexture","AlternatePowerFrameTexture","FrameFlash","Flash","BossPortraitFrameTexture"}) do add(field(container,name)) end
-    for _,name in ipairs({"LevelBackgroundCircle","StatusTexture","PvpBackgroundCircle","PvpBackgroundIcon"}) do add(field(main,name)) end
+    for _,name in ipairs({"FrameTexture","VehicleFrameTexture","AlternatePowerFrameTexture","BossPortraitFrameTexture"}) do add(field(container,name)) end
+    for _,name in ipairs({"FrameFlash","Flash"}) do add(field(container,name),true) end
+    add(field(main,"StatusTexture"),true)
+    for _,name in ipairs({"LevelBackgroundCircle","PvpBackgroundCircle","PvpBackgroundIcon","HitIndicator"}) do add(field(main,name)) end
     add(player and PlayerLevelText or field(main,"LevelText"))
-    for _,name in ipairs({"HighLevelTexture","PlayerPortraitCornerIcon","PrestigePortrait","PrestigeBadge","PVPIcon","PvpIcon","PvpBackgroundCircle","PvpBackgroundIcon"}) do add(field(contextual,name)) end
+    for _,name in ipairs({"HighLevelTexture","PlayerPortraitCornerIcon","PrestigePortrait","PrestigeBadge","PVPIcon","PvpIcon","PvpBackgroundCircle","PvpBackgroundIcon","AttackIcon","PlayerRestLoop"}) do add(field(contextual,name)) end
     return regions
 end
 
+-- Blizzard rewrites both alpha and vertex color on combat flashes. A separate
+-- zero-alpha mask survives those animations and atlas swaps without hooks or
+-- combat writes. Remove only our mask; preserve every native texture/mask.
+function B:SyncEffectMasks(state,wanted)
+    state.effectMasks=state.effectMasks or {}
+    for region,record in pairs(state.effectMasks) do
+        if record.active and wanted[region]~="mask" and usable(region) then
+            region:RemoveMaskTexture(record.mask);record.active=false
+        end
+    end
+    for region,mode in pairs(wanted) do
+        if mode=="mask" and type(region.AddMaskTexture)=="function" and type(region.RemoveMaskTexture)=="function" then
+            local record=state.effectMasks[region]
+            local parent=region:GetParent()
+            if not record and usable(parent) and type(parent.CreateMaskTexture)=="function" then
+                local mask=parent:CreateMaskTexture(nil,"BACKGROUND")
+                mask:SetColorTexture(0,0,0,0);mask:SetAllPoints(region)
+                record={mask=mask};state.effectMasks[region]=record
+            end
+            if record and not record.active then region:AddMaskTexture(record.mask);record.active=true end
+        end
+    end
+end
+
 function B:SyncPortraitDecorations(state,wanted)
+    self:SyncEffectMasks(state,wanted)
     state.decorations=state.decorations or {}
     for region,original in pairs(state.decorations) do
         if not wanted[region] and usable(region) then
@@ -315,8 +354,122 @@ function B:TickUnit(key)
 end
 
 function B:Tick()
+    J.Core:Protect("stock colors",function() self:TickColors() end)
     for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
         local ok=J.Core:Protect(key.." stock appearance",function() self:TickUnit(key) end)
         if not ok then self.status[key]="Stock appearance unavailable; see /jui status." end
+    end
+end
+
+local function safeColor(...)
+    local c={...};if J.Core:IsSafe(c[4]) and c[4]==nil then c[4]=1 end
+    for i=1,4 do if not J.Core:IsNumber(c[i]) then return end end
+    return c
+end
+local function sameColor(a,b)
+    if not a or not b then return false end
+    for i=1,4 do if math.abs(a[i]-b[i])>.0001 then return false end end
+    return true
+end
+local function classColor(info)
+    local token=info.unit
+    if not token then
+        token=field(info.root,"displayedUnit") or field(info.root,"unit") or field(info.root,"unitToken")
+    end
+    if not J.Core:IsSafe(token) or type(token)~="string" or type(UnitIsPlayer)~="function" or type(UnitClass)~="function" then return end
+    local player=UnitIsPlayer(token)
+    if not J.Core:IsSafe(player) or player~=true then return end
+    local _,class=UnitClass(token)
+    if not J.Core:IsSafe(class) or type(class)~="string" then return end
+    local color=RAID_CLASS_COLORS and RAID_CLASS_COLORS[class]
+    if color then return safeColor(color.r,color.g,color.b,1) end
+end
+
+function B:RefreshColor(record)
+    if record.writing or not record.active or not usable(record.region) or not usable(record.info.root) then return end
+    local current=safeColor(record.region[record.get](record.region))
+    -- Never compare restricted client colors or infer any combat value.
+    if not current then return end
+    if not sameColor(current,record.last) then record.original=current end
+    local desired=record.mode=="DARK" and {.12,.12,.13,1} or classColor(record.info)
+    desired=desired or record.original
+    if desired and not sameColor(current,desired) then
+        record.writing=true
+        local ok=J.Core:Protect("stock color",function() record.region[record.set](record.region,unpack(desired)) end)
+        record.writing=false
+        if not ok then return end
+    end
+    record.last=desired
+end
+
+function B:TickColors()
+    self.colors=self.colors or {}
+    if InCombatLockdown() then
+        -- Existing opt-in color records can follow public class identity in
+        -- combat. Hooks/toggles, geometry and restoration still wait outside it.
+        for _,record in pairs(self.colors) do self:RefreshColor(record) end
+        return
+    end
+    local wanted={}
+    local shared=J.ThemeManager:Resolve("playerFrame")
+    local configs={playerFrame=shared,targetFrame=J.ThemeManager:Resolve("targetFrame"),focusFrame=J.ThemeManager:Resolve("focusFrame")}
+    local enabled=shared.blizzardPartyNameColor~="STOCK" or shared.blizzardPartyHealthColor~="STOCK"
+    for _,config in pairs(configs) do enabled=enabled or config.blizzardNameColor~="STOCK" or config.blizzardHealthColor~="STOCK" end
+    local restoring=false
+    for _,record in pairs(self.colors) do restoring=restoring or record.active end
+    if not enabled and not restoring then return end
+    local units=enabled and J.UnitSkins:StockUnits() or {}
+    local function add(region,info,mode,kind)
+        if mode and mode~="STOCK" and usable(region) then
+            wanted[region]={info=info,mode=mode,kind=kind}
+        end
+    end
+    for _,info in pairs(units) do
+        if info.key then
+            local config=info.key=="party" and shared or configs[info.key]
+            local mode=info.key=="party" and config.blizzardPartyNameColor or config.blizzardNameColor
+            local name=field(info.root,"name") or field(info.root,"Name")
+            add(name,info,mode,"name")
+        end
+    end
+    for bar,info in pairs(J.UnitSkins:StockBars(units)) do
+        if info.kind=="health" and info.key then
+            local mode=info.key=="party" and shared.blizzardPartyHealthColor or configs[info.key].blizzardHealthColor
+            add(bar,info,mode,"health")
+        end
+    end
+    for region,record in pairs(self.colors) do
+        if record.active and not wanted[region] and usable(region) then
+            local current=safeColor(region[record.get](region))
+            if current then
+                record.active=false
+                if sameColor(current,record.last) and record.original then region[record.set](region,unpack(record.original)) end
+            end
+        end
+    end
+    for region,options in pairs(wanted) do
+        local record=self.colors[region]
+        local get=options.kind=="health" and "GetStatusBarColor" or "GetTextColor"
+        local set=options.kind=="health" and "SetStatusBarColor" or "SetTextColor"
+        if type(region[get])=="function" and type(region[set])=="function" then
+            local current=safeColor(region[get](region))
+            if current then
+                if not record then
+                    record={region=region,get=get,set=set};self.colors[region]=record
+                    local function changed()
+                        if record.active and not record.writing then self:RefreshColor(record) end
+                    end
+                    hooksecurefunc(region,set,changed)
+                    if options.kind=="name" then
+                        for _,method in ipairs({"SetVertexColor","SetText"}) do
+                            if type(region[method])=="function" then hooksecurefunc(region,method,changed) end
+                        end
+                    end
+                end
+                if not record.active then record.original=current;record.last=nil end
+                record.info,record.mode,record.active=options.info,options.mode,true
+                self:RefreshColor(record)
+            end
+        end
     end
 end

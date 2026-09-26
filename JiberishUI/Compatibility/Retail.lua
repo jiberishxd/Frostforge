@@ -52,10 +52,16 @@ end
 function Retail:UnitBars(key)
     local root=self:Resolve(key)
     if not J.Portraits:IsUnitKey(key) or not J.Core:IsUsableFrame(root) then return end
+    local result={}
+    -- Prefer the initialized live bars across stock layout/vehicle variants.
+    for kind,bar in pairs({health=root.healthbar,power=root.manabar}) do
+        if J.Core:IsUsableFrame(bar) and type(bar.GetStatusBarTexture)=="function" then result[kind]=bar end
+    end
+    if result.health and result.power then return result end
     local content=key=="playerFrame" and root.PlayerFrameContent or root.TargetFrameContent
-    if not J.Core:IsUsableFrame(content) then return end
+    if not J.Core:IsUsableFrame(content) then return next(result) and result or nil end
     local main=key=="playerFrame" and content.PlayerFrameContentMain or content.TargetFrameContentMain
-    if not J.Core:IsUsableFrame(main) then return end
+    if not J.Core:IsUsableFrame(main) then return next(result) and result or nil end
     local health=main.HealthBarsContainer
     if J.Core:IsUsableFrame(health) then health=health.HealthBar else health=nil end
     local power
@@ -63,9 +69,8 @@ function Retail:UnitBars(key)
         local area=main.ManaBarArea
         if J.Core:IsUsableFrame(area) then power=area.ManaBar end
     else power=main.ManaBar end
-    local result={}
     for kind,bar in pairs({health=health,power=power}) do
-        if J.Core:IsUsableFrame(bar) and type(bar.GetStatusBarTexture)=="function" then result[kind]=bar end
+        if not result[kind] and J.Core:IsUsableFrame(bar) and type(bar.GetStatusBarTexture)=="function" then result[kind]=bar end
     end
     return result
 end
