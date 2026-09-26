@@ -32,6 +32,26 @@ J.Core.properties.blizzardPowerTexture=J.Core:Copy(J.Core.properties.blizzardHea
 for _,property in ipairs({"blizzardNameColor","blizzardHealthColor","blizzardPartyNameColor","blizzardPartyHealthColor","blizzardHealthTexture","blizzardPowerTexture"}) do
     J.Core.propertyOrder[#J.Core.propertyOrder+1]=property
 end
+for _,prefix in ipairs({"blizzardPower","blizzardPartyPower"}) do
+    local properties=prefix=="blizzardPower" and B.styleProperties or B.sharedStyleProperties
+    for suffix,rule in pairs({Color={STOCK=true,CLASS=true,CUSTOM=true},Shading={SOLID=true,GRADIENT=true},Custom={hex=true}}) do
+        local property=prefix..suffix
+        properties[property]=true;J.Core.properties[property]=rule
+    end
+    for _,suffix in ipairs({"Color","Shading","Custom"}) do J.Core.propertyOrder[#J.Core.propertyOrder+1]=prefix..suffix end
+end
+
+function B:HexColor(hex)
+    if not J.Core:IsSafe(hex) or type(hex)~="string" or not hex:match("^%x%x%x%x%x%x$") then return end
+    return {tonumber(hex:sub(1,2),16)/255,tonumber(hex:sub(3,4),16)/255,tonumber(hex:sub(5,6),16)/255,1}
+end
+
+B.placementProperties={blizzardAurasEnabled={boolean=true},blizzardAurasX={-600,600},blizzardAurasY={-600,600},
+    blizzardCastPositionEnabled={boolean=true},blizzardCastPositionX={-600,600},blizzardCastPositionY={-600,600}}
+for _,property in ipairs({"blizzardAurasEnabled","blizzardAurasX","blizzardAurasY","blizzardCastPositionEnabled","blizzardCastPositionX","blizzardCastPositionY"}) do
+    J.Core.properties[property]=B.placementProperties[property]
+    J.Core.propertyOrder[#J.Core.propertyOrder+1]=property
+end
 
 -- The original name keys stay compatible with existing character profiles.
 for _,group in ipairs(B.textGroups) do
@@ -187,6 +207,13 @@ local function nameState(name)
     if not J.Core:IsSafe(path) or type(path)~="string" or not J.Core:IsNumber(size)
         or not J.Core:IsSafe(flags) or (flags~=nil and type(flags)~="string")
         or not J.Core:IsSafe(align) or not J.Core.properties.blizzardNameAlign[align] then return end
+    local points=B:AnchorPoints(name)
+    if not points then return end
+    return {font={path,size,flags or ""},align=align,points=points}
+end
+
+function B:AnchorPoints(name)
+    if not usable(name) or type(name.GetNumPoints)~="function" then return end
     local count=name:GetNumPoints()
     if not J.Core:IsNumber(count) or count<1 or count>8 then return end
     local points={}
@@ -195,11 +222,12 @@ local function nameState(name)
         if not J.Core:IsSafe(point) or not J.Core.properties.point[point]
             or not J.Core:IsSafe(relativePoint) or not J.Core.properties.point[relativePoint]
             or not J.Core:IsNumber(x) or not J.Core:IsNumber(y) then return end
+        if not J.Core:IsSafe(relative) then return end
         if relative==nil then relative=name:GetParent() end
         if not usable(relative) then return end
         points[i]={point,relative,relativePoint,x,y}
     end
-    return {font={path,size,flags or ""},align=align,points=points}
+    return points
 end
 
 local function pointFor(points,anchor)
@@ -364,8 +392,52 @@ function B:TickUnit(key)
     self.status[key]=#status>0 and table.concat(status,"; ") or "Stock portrait and text restored."
 end
 
+-- Target/focus expose one public aura container. Move the container only;
+-- do not enumerate aura buttons or read spells, durations, or private layout.
+function B:TickPlacement(key,kind)
+    if InCombatLockdown() then return end
+    self.placements=self.placements or {}
+    local id=key..kind;local prefix="blizzard"..kind
+    local config=J.ThemeManager:Resolve(key)
+    local root=key=="targetFrame" and TargetFrame or FocusFrame
+    local content=field(root,"TargetFrameContent")
+    local region=field(field(content,"TargetFrameContentContextual"),"Auras")
+    if kind=="CastPosition" then region=field(root,"spellbar") end
+    local record=self.placements[id]
+    if not record and not config[prefix.."Enabled"] then return end
+    if record and (record.region~=region or not config[prefix.."Enabled"]) then
+        local current=self:AnchorPoints(record.region)
+        if not current then return end
+        -- A native reanchor already restored its own baseline. Only undo ours.
+        if record.last and samePoints(current,record.last) then
+            record.region:ClearAllPoints()
+            for _,point in ipairs(record.original) do record.region:SetPoint(unpack(point)) end
+        end
+        self.placements[id]=nil;record=nil
+    end
+    if not config[prefix.."Enabled"] then return end
+    local current=self:AnchorPoints(region)
+    if not current then return end
+    if not record then record={region=region,original=current};self.placements[id]=record end
+    -- Each native full reanchor becomes a fresh baseline, never an accumulated offset.
+    if record.last and not samePoints(current,record.last) then record.original=current end
+    local wanted=copyPoints(record.original,config[prefix.."X"],config[prefix.."Y"])
+    if record.last and samePoints(current,record.last) and record.x==config[prefix.."X"] and record.y==config[prefix.."Y"] then return end
+    if not samePoints(current,wanted) then
+        region:ClearAllPoints()
+        for _,point in ipairs(wanted) do region:SetPoint(unpack(point)) end
+    end
+    record.last=self:AnchorPoints(region) or wanted
+    record.x,record.y=config[prefix.."X"],config[prefix.."Y"]
+end
+
 function B:Tick()
     J.Core:Protect("stock colors",function() self:TickColors() end)
+    for _,key in ipairs({"targetFrame","focusFrame"}) do
+        for _,kind in ipairs({"Auras","CastPosition"}) do
+            J.Core:Protect(key.." stock "..kind,function() self:TickPlacement(key,kind) end)
+        end
+    end
     for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
         local ok=J.Core:Protect(key.." stock appearance",function() self:TickUnit(key) end)
         if not ok then self.status[key]="Stock appearance unavailable; see /jui status." end
@@ -395,6 +467,16 @@ local function classColor(info)
     return B.classColors[class]
 end
 
+local function resourceColor(record)
+    local token=field(record.region,"powerToken")
+    local color=type(token)=="string" and PowerBarColor and PowerBarColor[token]
+    if not color then
+        local index=field(record.region,"powerType")
+        if J.Core:IsNumber(index) then color=PowerBarColor and PowerBarColor[index] end
+    end
+    if color then return safeColor(color.r,color.g,color.b,record.original and record.original[4] or 1) end
+end
+
 local function materialColor(record)
     local material=J.UnitSkins:StockFill(record.region)
     if not material or not material.original.atlas then return end
@@ -404,14 +486,9 @@ local function materialColor(record)
     local c=record.original
     if not c or c[1]~=1 or c[2]~=1 or c[3]~=1 then return end
     if record.kind=="health" then return {0,1,0,c[4]} end
-    if material.fillPath~=J.Media.stone and material.fillPath~="Interface\\Buttons\\WHITE8X8" then return end
-    local token=field(record.region,"powerToken")
-    local color=type(token)=="string" and PowerBarColor and PowerBarColor[token]
-    if not color then
-        local index=field(record.region,"powerType")
-        if J.Core:IsNumber(index) then color=PowerBarColor and PowerBarColor[index] end
-    end
-    if color then return safeColor(color.r,color.g,color.b,c[4]) end
+    if material.fillPath~=J.Media.stone and material.fillPath~="Interface\\Buttons\\WHITE8X8"
+        and material.fillPath~="Interface\\TargetingFrame\\UI-StatusBar" then return end
+    return resourceColor(record)
 end
 
 function B:RefreshColor(record)
@@ -422,9 +499,10 @@ function B:RefreshColor(record)
     if not sameColor(current,record.last) then record.original=current end
     local desired=record.mode=="DARK" and {.12,.12,.13,1}
         or record.mode=="CLASS" and classColor(record.info)
+        or record.mode=="CUSTOM" and self:HexColor(record.custom)
     local material=record.kind~="name" and J.UnitSkins:StockFill(record.region)
     local texture=material and material.texture
-    local gradient=desired and record.kind=="health" and record.mode=="CLASS"
+    local gradient=(desired and record.kind=="health" and record.mode=="CLASS" or record.kind=="power" and record.shading=="GRADIENT")
         and usable(texture) and type(texture.SetGradient)=="function" and type(CreateColor)=="function"
     desired=desired or materialColor(record) or record.original
     local changed=not sameColor(desired,record.desired) or record.colorDirty
@@ -460,11 +538,15 @@ function B:TickColors()
     local configs={playerFrame=shared,targetFrame=J.ThemeManager:Resolve("targetFrame"),focusFrame=J.ThemeManager:Resolve("focusFrame")}
     local enabled=next(J.UnitSkins.stockRecords or {})~=nil
         or shared.blizzardPartyNameColor~="STOCK" or shared.blizzardPartyHealthColor~="STOCK"
+        or shared.blizzardPartyPowerColor~="STOCK" or shared.blizzardPartyPowerShading=="GRADIENT"
     for _,unit in pairs(J.UnitSkins.units) do
         enabled=enabled or (unit.health and unit.health.stock and unit.health.active)
             or (unit.power and unit.power.stock and unit.power.active)
     end
-    for _,config in pairs(configs) do enabled=enabled or config.blizzardNameColor~="STOCK" or config.blizzardHealthColor~="STOCK" end
+    for _,config in pairs(configs) do
+        enabled=enabled or config.blizzardNameColor~="STOCK" or config.blizzardHealthColor~="STOCK"
+            or config.blizzardPowerColor~="STOCK" or config.blizzardPowerShading=="GRADIENT"
+    end
     local restoring=false
     for _,record in pairs(self.colors) do restoring=restoring or record.active end
     if not enabled and not restoring then return end
@@ -488,6 +570,13 @@ function B:TickColors()
             mode=info.key=="party" and shared.blizzardPartyHealthColor or configs[info.key].blizzardHealthColor
         end
         add(bar,info,mode,info.kind)
+        if info.kind=="power" and info.key then
+            local config=info.key=="party" and shared or configs[info.key]
+            local prefix=info.key=="party" and "blizzardPartyPower" or "blizzardPower"
+            if config[prefix.."Color"]~="STOCK" or config[prefix.."Shading"]=="GRADIENT" or wanted[bar] then
+                wanted[bar]={info=info,kind="power",mode=config[prefix.."Color"],shading=config[prefix.."Shading"],custom=config[prefix.."Custom"]}
+            end
+        end
     end
     for region,record in pairs(self.colors) do
         if record.active and not wanted[region] and usable(region) then
@@ -519,6 +608,7 @@ function B:TickColors()
                 end
                 if not record.active then record.original=current;record.last=nil end
                 record.info,record.mode,record.kind,record.active=options.info,options.mode,options.kind,true
+                record.shading,record.custom=options.shading,options.custom
                 self:RefreshColor(record)
             end
         end

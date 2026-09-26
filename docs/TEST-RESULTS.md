@@ -1,3 +1,9 @@
+# Build 0.8.7 power appearance, stock placement and cast layering
+
+279 Lua behavior tests and 17 Python artwork tests pass. Regressions cover player-only mana-mask detachment, preservation of other/target masks, restoration and combat/forbidden deferral; native/custom/class power hues and gradients; scoped party/raid colors; hex validation, picker cancellation and profile isolation; Target/Focus aura and cast-bar offsets, native reanchors, restoration and profile backups; fixed cast layers and cast-start layer changes without geometry writes or suppressing the border.
+
+Source/media/provenance and exact Retail/Forever 0.8.7 package checks pass. Settings snapshots include the new power and stock placement dialogs, visually checked in the offline browser preview. All runtime and reference artwork images are unchanged. No WoW interaction, installation or live-client validation was performed. Player power contour, cast-border layering and protected aura/cast reanchoring still need the player's in-game confirmation; the host does not emulate WoW's secure rendering engine.
+
 # Build 0.8.6 stock bar textures and class gradients
 
 265 Lua behavior tests and 17 Python artwork tests pass. New regressions cover texture selection without reading live stock UVs, correct atlas restoration, visible level-zero power after reload, retained opaque no-power openings, all 13 requested class hues and gradient endpoints, stable gradient readback without repeating writes, native color redraws, NPC fallback, texture/color switching and neutral-resource tint restoration. Existing ElvUI/Ellesmere and Retail/Forever coverage remains green.
