@@ -1,4 +1,19 @@
 local test,near=...
+test("reload never lays an opaque well over a visible level-zero power bar",function(M)
+    local J=M.load({interface=16001})
+    local b=J.Core.client:UnitBars("playerFrame");b.power.level=0
+    J.ProfileManager:Set("playerFrame","unitFrameShown",true)
+    local saved=JiberishUIDB
+    J=M.load({interface=16001,db=saved})
+    local u=J.UnitSkins.units.playerFrame
+    assert(u.power.trim.frame.shown and not u.power.trim.well and not u.footer.trim.frame.shown)
+    M.combat=true;b.power.shown=false;M.tick(J.Core)
+    assert(u.footer.trim.frame.shown and u.footer.backing.color[4]==1)
+    b.power.shown=true;M.tick(J.Core)
+    assert(not u.footer.trim.frame.shown and u.power.trim.frame.shown and not u.power.trim.well)
+    M.combat=false
+    assert(not next(J.Core.notices),next(J.Core.notices))
+end)
 local function setup(M,J,provider,key)
     if provider=="BLIZZARD" then
         local bars=J.Core.client:UnitBars(key)
@@ -44,20 +59,19 @@ for _,interface in ipairs({120100,16001}) do
                 J.ProfileManager:Set(key,"unitFrameWidth",125);J.ProfileManager:Set(key,"unitFrameHeight",80)
                 J.ProfileManager:Set(key,"unitFrameX",9);J.ProfileManager:Set(key,"unitFrameY",-7);seam(u)
                 p.shown=true;M.tick(J.Core)
-                assert(not u.footer.trim.frame.shown and u.power.trim.frame.shown and u.power.trim.well.frame.shown)
-                assert(u.power.trim.well.frame.level<p.level and u.power.trim.well.frame.strata==p.strata)
+                assert(not u.footer.trim.frame.shown and u.power.trim.frame.shown and not u.power.trim.well)
                 local frames,textures=#M.frames,M.textures
                 local geometry,writes=M.geometryWrites,M.nativeLayoutWrites
                 M.combat=true;p.shown=false;M.tick(J.Core)
-                assert(u.footer.trim.frame.shown and not u.power.trim.frame.shown and not u.power.trim.well.frame.shown)
+                assert(u.footer.trim.frame.shown and not u.power.trim.frame.shown and not u.power.trim.well)
                 assert(M.geometryWrites==geometry and M.nativeLayoutWrites==writes)
                 seam(u)
-                p.shown=true;M.tick(J.Core);assert(not u.footer.trim.frame.shown and u.power.trim.well.frame.shown)
+                p.shown=true;M.tick(J.Core);assert(not u.footer.trim.frame.shown and not u.power.trim.well)
                 M.combat=false
                 for i=1,4 do p.shown=false;M.tick(J.Core);p.shown=true;M.tick(J.Core) end
                 assert(#M.frames==frames and M.textures==textures)
                 root.shown=false;M.tick(J.Core)
-                assert(not u.health.trim.frame.shown and not u.footer.trim.frame.shown and not u.power.trim.well.frame.shown)
+                assert(not u.health.trim.frame.shown and not u.footer.trim.frame.shown and not u.power.trim.well)
                 J.ProfileManager:Set(key,"unitFrameShown",false)
                 assert(not u.footer.trim.frame.shown and p.shown)
             end
@@ -84,6 +98,6 @@ test("hidden power containers keep full artwork while the health bar remains vis
     local u=J.UnitSkins.units.playerFrame
     assert(bars.power.shown and u.footer.trim.frame.shown and not u.power.trim.frame.shown);seam(u)
     parent.shown=true;parent.alpha=0;M.tick(J.Core);assert(u.footer.trim.frame.shown)
-    parent.alpha=1;M.tick(J.Core);assert(not u.footer.trim.frame.shown and u.power.trim.well.frame.shown)
+    parent.alpha=1;M.tick(J.Core);assert(not u.footer.trim.frame.shown and not u.power.trim.well)
     assert(not next(J.Core.notices),next(J.Core.notices))
 end)

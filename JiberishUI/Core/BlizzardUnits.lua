@@ -1,6 +1,17 @@
 local _,J=...
 local B={units={},status={},textGroups={"Name","Health","Power","Level","CastName","CastTime"},textProperties={}}
 J.BlizzardUnits=B
+-- Stable, user-facing class palette. Do not inherit another addon's overrides.
+B.classColors={
+    DEATHKNIGHT={196,31,59},DEMONHUNTER={163,48,201},DRUID={255,125,10},
+    EVOKER={51,147,127},HUNTER={171,212,115},MAGE={105,204,240},
+    MONK={0,255,186},PALADIN={245,140,186},PRIEST={255,255,255},
+    ROGUE={255,245,105},SHAMAN={0,112,222},WARLOCK={148,130,201},WARRIOR={199,156,110},
+}
+for _,color in pairs(B.classColors) do
+    for i=1,3 do color[i]=color[i]/255 end
+    color[4]=1
+end
 J.Core.properties.blizzardPortraitHidden={boolean=true}
 J.Core.properties.blizzardPortraitFrameHidden={boolean=true}
 J.Core.properties.blizzardNameEnabled={boolean=true}
@@ -381,8 +392,26 @@ local function classColor(info)
     if not J.Core:IsSafe(player) or player~=true then return end
     local _,class=UnitClass(token)
     if not J.Core:IsSafe(class) or type(class)~="string" then return end
-    local color=RAID_CLASS_COLORS and RAID_CLASS_COLORS[class]
-    if color then return safeColor(color.r,color.g,color.b,1) end
+    return B.classColors[class]
+end
+
+local function materialColor(record)
+    local material=J.UnitSkins:StockFill(record.region)
+    if not material or not material.original.atlas then return end
+    -- Blizzard's modern atlases contain their green/blue/etc. pixels and use
+    -- a white tint. Replacing them with neutral stone must supply those hues.
+    -- Preserve native grey/disconnect overrides instead of painting over them.
+    local c=record.original
+    if not c or c[1]~=1 or c[2]~=1 or c[3]~=1 then return end
+    if record.kind=="health" then return {0,1,0,c[4]} end
+    if material.fillPath~=J.Media.stone and material.fillPath~="Interface\\Buttons\\WHITE8X8" then return end
+    local token=field(record.region,"powerToken")
+    local color=type(token)=="string" and PowerBarColor and PowerBarColor[token]
+    if not color then
+        local index=field(record.region,"powerType")
+        if J.Core:IsNumber(index) then color=PowerBarColor and PowerBarColor[index] end
+    end
+    if color then return safeColor(color.r,color.g,color.b,c[4]) end
 end
 
 function B:RefreshColor(record)
@@ -391,15 +420,31 @@ function B:RefreshColor(record)
     -- Never compare restricted client colors or infer any combat value.
     if not current then return end
     if not sameColor(current,record.last) then record.original=current end
-    local desired=record.mode=="DARK" and {.12,.12,.13,1} or classColor(record.info)
-    desired=desired or record.original
-    if desired and not sameColor(current,desired) then
+    local desired=record.mode=="DARK" and {.12,.12,.13,1}
+        or record.mode=="CLASS" and classColor(record.info)
+    local material=record.kind~="name" and J.UnitSkins:StockFill(record.region)
+    local texture=material and material.texture
+    local gradient=desired and record.kind=="health" and record.mode=="CLASS"
+        and usable(texture) and type(texture.SetGradient)=="function" and type(CreateColor)=="function"
+    desired=desired or materialColor(record) or record.original
+    local changed=not sameColor(desired,record.desired) or record.colorDirty
+        or record.texture~=texture or record.textureRevision~=(material and material.revision)
+        or record.gradientActive~=not not gradient
+    if desired and ((gradient and (changed or not sameColor(current,record.last)))
+        or (not gradient and (record.gradientActive or not sameColor(current,desired)))) then
         record.writing=true
-        local ok=J.Core:Protect("stock color",function() record.region[record.set](record.region,unpack(desired)) end)
+        local ok=J.Core:Protect("stock color",function()
+            record.region[record.set](record.region,unpack(desired))
+            if gradient then
+                texture:SetGradient("VERTICAL",CreateColor(desired[1]*.72,desired[2]*.72,desired[3]*.72,desired[4]),CreateColor(unpack(desired)))
+            end
+        end)
         record.writing=false
         if not ok then return end
     end
-    record.last=desired
+    record.last=safeColor(record.region[record.get](record.region))
+    record.desired,record.gradientActive,record.colorDirty=desired,not not gradient,false
+    record.texture,record.textureRevision=texture,material and material.revision
 end
 
 function B:TickColors()
@@ -413,14 +458,19 @@ function B:TickColors()
     local wanted={}
     local shared=J.ThemeManager:Resolve("playerFrame")
     local configs={playerFrame=shared,targetFrame=J.ThemeManager:Resolve("targetFrame"),focusFrame=J.ThemeManager:Resolve("focusFrame")}
-    local enabled=shared.blizzardPartyNameColor~="STOCK" or shared.blizzardPartyHealthColor~="STOCK"
+    local enabled=next(J.UnitSkins.stockRecords or {})~=nil
+        or shared.blizzardPartyNameColor~="STOCK" or shared.blizzardPartyHealthColor~="STOCK"
+    for _,unit in pairs(J.UnitSkins.units) do
+        enabled=enabled or (unit.health and unit.health.stock and unit.health.active)
+            or (unit.power and unit.power.stock and unit.power.active)
+    end
     for _,config in pairs(configs) do enabled=enabled or config.blizzardNameColor~="STOCK" or config.blizzardHealthColor~="STOCK" end
     local restoring=false
     for _,record in pairs(self.colors) do restoring=restoring or record.active end
     if not enabled and not restoring then return end
     local units=enabled and J.UnitSkins:StockUnits() or {}
     local function add(region,info,mode,kind)
-        if mode and mode~="STOCK" and usable(region) then
+        if mode and usable(region) and (mode~="STOCK" or (kind~="name" and J.UnitSkins:StockFill(region))) then
             wanted[region]={info=info,mode=mode,kind=kind}
         end
     end
@@ -433,10 +483,11 @@ function B:TickColors()
         end
     end
     for bar,info in pairs(J.UnitSkins:StockBars(units)) do
+        local mode="STOCK"
         if info.kind=="health" and info.key then
-            local mode=info.key=="party" and shared.blizzardPartyHealthColor or configs[info.key].blizzardHealthColor
-            add(bar,info,mode,"health")
+            mode=info.key=="party" and shared.blizzardPartyHealthColor or configs[info.key].blizzardHealthColor
         end
+        add(bar,info,mode,info.kind)
     end
     for region,record in pairs(self.colors) do
         if record.active and not wanted[region] and usable(region) then
@@ -449,15 +500,15 @@ function B:TickColors()
     end
     for region,options in pairs(wanted) do
         local record=self.colors[region]
-        local get=options.kind=="health" and "GetStatusBarColor" or "GetTextColor"
-        local set=options.kind=="health" and "SetStatusBarColor" or "SetTextColor"
+        local get=options.kind~="name" and "GetStatusBarColor" or "GetTextColor"
+        local set=options.kind~="name" and "SetStatusBarColor" or "SetTextColor"
         if type(region[get])=="function" and type(region[set])=="function" then
             local current=safeColor(region[get](region))
             if current then
                 if not record then
                     record={region=region,get=get,set=set};self.colors[region]=record
                     local function changed()
-                        if record.active and not record.writing then self:RefreshColor(record) end
+                        if record.active and not record.writing then record.colorDirty=true;self:RefreshColor(record) end
                     end
                     hooksecurefunc(region,set,changed)
                     if options.kind=="name" then
@@ -467,7 +518,7 @@ function B:TickColors()
                     end
                 end
                 if not record.active then record.original=current;record.last=nil end
-                record.info,record.mode,record.active=options.info,options.mode,true
+                record.info,record.mode,record.kind,record.active=options.info,options.mode,options.kind,true
                 self:RefreshColor(record)
             end
         end
