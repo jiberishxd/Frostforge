@@ -507,6 +507,7 @@ function S:CreateStockPlacementDialog()
     dialog:SetFrameStrata("DIALOG");dialog:SetFrameLevel(230);dialog:EnableMouse(true);backdrop(dialog,"outer")
     self.stockPlacementTitle=text(dialog,"Blizzard placement",24,-24,676,"GameFontNormalLarge")
     self.stockPlacementPanels={};self.stockPlacementToggles={}
+    self.stockPlacementStatus=text(dialog,"",374,-80,318)
     for _,kind in ipairs({"Auras","CastPosition"}) do
         local prefix="blizzard"..kind
         local body=CreateFrame("Frame",nil,dialog);body:SetPoint("TOPLEFT",dialog,"TOPLEFT",24,-80);body:SetSize(676,250)
@@ -808,6 +809,7 @@ function S:Refresh()
             self.stockPlacementToggles[kind].check:SetShown(config["blizzard"..kind.."Enabled"]==true)
         end
         self.stockPlacementTitle:SetText(names[self.selected]..(self.stockPlacementKind=="Auras" and " buffs & debuffs" or " Blizzard cast bar"))
+        self.stockPlacementStatus:SetText((J.BlizzardUnits.placementStatus or {})[self.selected..(self.stockPlacementKind or "Auras")] or "Enable Customize position to move this group.")
         self.stockStyleTitle:SetText("Blizzard colors & textures — "..names[self.selected])
         self.nativePortraitToggle.check:SetShown(config.blizzardPortraitHidden)
         self.nativePortraitFrameToggle.check:SetShown(config.blizzardPortraitFrameHidden)
