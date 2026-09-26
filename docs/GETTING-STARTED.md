@@ -42,7 +42,7 @@ For **EllesmereUI**, use a separate portrait and horizontal health with power at
 - **Cast bar:** enable its independent Bold border, then set width/height from 50–150%, weight and spacing. Match unit artwork follows the chosen portrait/shell theme; Browse sets a separate cast theme. The provider's own cast bar must be enabled.
 - **Minimap / Action hub:** choose automatic player class/race/faction or fixed artwork, then fit its size and position. The minimap art expects a circular map; action hubs follow the main action bar. Set your actual button layout in its original addon.
 
-**Advanced** has independent strata for portrait art, unit-frame art and cast borders. Automatic shell/cast strata follow the supported default/provider; an explicit choice affects only that artwork.
+**Advanced** has independent strata for portrait art and unit-frame art. **Cast bar** has cast-border strata and level. Automatic shell/cast strata follow the supported default/provider; an explicit choice affects only that artwork.
 
 Settings save immediately. Changes that need to wait for combat apply when combat ends. To reposition a functional frame, use Blizzard Edit Mode or that UI addon's settings.
 
@@ -50,7 +50,7 @@ Settings save immediately. Changes that need to wait for combat apply when comba
 
 Open your provider's status-bar texture menu and choose **JiberishUI Stone**. EllesmereUI and ElvUI supply the shared-media library used to make this available; other addons with compatible LibSharedMedia menus can use it too.
 
-In `/jui → Player/Target/Focus → Advanced`, **Automatic (respect UI addon)** keeps Ellesmere's selected textures and uses JiberishUI fills on Blizzard frames. The separate **Blizzard → Stone textures on all Blizzard health/power bars** toggle is on by default and takes precedence for stock bars, including party, raid, pet, boss and target-of-target/focus-target. Turn it off as well if you want entirely stock fills. **Keep provider textures** leaves the fills with the provider. **Use JiberishUI fills** explicitly applies JiberishUI materials while the shell is enabled. Native class, health and resource tinting stays with the frame provider. [Texture setup details](SETTINGS.md#choose-jiberishui-stone-in-your-other-ui-addon).
+In `/jui → Player/Target/Focus → Advanced`, **Automatic (respect UI addon)** keeps Ellesmere's selected textures and uses JiberishUI fills on Blizzard frames. The separate **Blizzard → Stone on Blizzard health/power** toggle is on by default and takes precedence for stock bars, including party, raid, pet, boss and target-of-target/focus-target. Turn it off as well if you want entirely stock fills. **Keep provider textures** leaves the fills with the provider. **Use JiberishUI fills** explicitly applies JiberishUI materials while the shell is enabled. Native class, health and resource tinting stays with the frame provider. [Texture setup details](SETTINGS.md#choose-jiberishui-stone-in-your-other-ui-addon).
 
 ## Back up and troubleshoot
 

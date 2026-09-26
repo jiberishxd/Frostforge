@@ -265,6 +265,7 @@ TargetFrameToT=nil
 FocusFrameToT=nil
 for i=1,5 do _G["Boss"..i.."TargetFrame"]=nil end
 PlayerName=nil
+PlayerLevelText=nil
 LibStub=nil
 for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do
     for _,unit in ipairs({"Player","Target","Focus"}) do _G[prefix..unit]=nil end

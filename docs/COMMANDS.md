@@ -37,7 +37,7 @@ Blizzard defaults use Background strata and level 0. Ellesmere defaults follow i
 
 Legacy `unitFrameInset` (0–6) remains accepted for old backups, but no longer draws anything.
 
-## Stock appearance and independent strata (0.8.2)
+## Stock appearance and independent strata (0.8.4)
 
 ```text
 /jui set playerFrame blizzardPortraitHidden on
@@ -56,3 +56,16 @@ Legacy `unitFrameInset` (0–6) remains accepted for old backups, but no longer 
 ```
 
 `blizzardStone` is a stock-wide option stored on Player; other new appearance settings are per unit. `AUTO` returns shell/cast strata to automatic fitting. See [stock controls](BLIZZARD-CONTROLS.md).
+
+All six text groups use the same suffixes: `Enabled`, `X`, `Y`, `Size`, `Align`, `Outline`. Prefixes are `blizzardName`, `blizzardHealth`, `blizzardPower`, `blizzardLevel`, `blizzardCastName` and `blizzardCastTime`. `Align` accepts KEEP/LEFT/CENTER/RIGHT; `Outline` accepts KEEP/NONE/OUTLINE/THICKOUTLINE. New groups start disabled and keep native alignment.
+
+```text
+/jui set targetFrame blizzardHealthEnabled on
+/jui set targetFrame blizzardHealthX -10
+/jui set targetFrame blizzardPowerEnabled on
+/jui set targetFrame blizzardPowerY 2
+/jui set playerFrame blizzardCastNameEnabled on
+/jui set playerFrame blizzardCastNameSize 14
+/jui set playerFrame blizzardCastTimeEnabled on
+/jui set playerFrame blizzardCastTimeX 6
+```

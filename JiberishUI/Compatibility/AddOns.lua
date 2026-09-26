@@ -31,7 +31,8 @@ function A:CastBarCandidate(source,key)
         local first
         for _,frame in ipairs(bars or {}) do
             if J.Core:IsUsableFrame(frame) then
-                local result={frame=frame,source=source}
+                local root=unit=="player" and PlayerFrame or unit=="target" and TargetFrame or FocusFrame
+                local result={frame=frame,source=source,nativeRoot=root}
                 if visible(frame) then return result end
                 first=first or result
             end

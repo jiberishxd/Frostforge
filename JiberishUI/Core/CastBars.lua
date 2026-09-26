@@ -90,7 +90,7 @@ end
 local properties={"castBarShown","castBarSource","castBarStyle","castBarArt","castBarWeight","castBarPadding","castBarWidth","castBarHeight","castBarStrata","castBarLevel"}
 
 local ranks={BACKGROUND=1,LOW=2,MEDIUM=3,HIGH=4,DIALOG=5,FULLSCREEN=6,FULLSCREEN_DIALOG=7,TOOLTIP=8}
-function C:Layering(bar,chrome,config,g)
+function C:Layering(bar,chrome,config,g,key,nativeRoot)
     local levels={[g.strata]=g.level}
     local highest=g.strata
     local visited,budget={},64
@@ -98,8 +98,8 @@ function C:Layering(bar,chrome,config,g)
         if budget<=0 or not usable(frame) or visited[frame]
             or type(frame.GetFrameStrata)~="function" or type(frame.GetFrameLevel)~="function" then return end
         budget=budget-1;visited[frame]=true
-        local strata,level=frame:GetFrameStrata(),frame:GetFrameLevel()
-        if J.Core:IsSafe(strata) and ranks[strata] and J.Core:IsNumber(level) then
+        local ok,strata,level=pcall(function() return frame:GetFrameStrata(),frame:GetFrameLevel() end)
+        if ok and J.Core:IsSafe(strata) and ranks[strata] and J.Core:IsNumber(level) then
             levels[strata]=math.max(levels[strata] or 0,level)
             if ranks[strata]>ranks[highest] then highest=strata end
         end
@@ -111,12 +111,30 @@ function C:Layering(bar,chrome,config,g)
         end
     end
     inspect(bar,0);inspect(chrome,0)
+    if usable(nativeRoot) then
+        -- Blizzard target/focus casts start below their unit root (499 vs 500).
+        -- Their border must also clear the stock surround and JUI artwork,
+        -- including hidden artwork that will become visible on the next cast.
+        inspect(nativeRoot,3)
+        local prefix=key=="playerFrame" and "PlayerFrame" or "TargetFrame"
+        inspect(nativeRoot[prefix.."Container"],0)
+        inspect(nativeRoot[prefix.."Content"],0)
+        local portrait=J.Core.modules[key]
+        if config.shown and portrait then inspect(portrait.frame,3) end
+        local skins=J.UnitSkins.units[key]
+        if config.unitFrameShown and skins then
+            for _,trim in pairs(skins.trims) do inspect(trim.frame,3) end
+        end
+    end
     local strata=config.castBarStrata=="AUTO" and highest or config.castBarStrata
     return strata,(levels[strata] or g.level)+config.castBarLevel
 end
 local function changed(module,bar,g,config)
     local old=module.geometry
     if not old or module.bar~=bar then return true end
+    -- Anchoring/native layout propagation must not silently override the
+    -- user's last applied layer while all requested settings remain equal.
+    if module.frame:GetFrameStrata()~=g.artStrata or module.frame:GetFrameLevel()~=g.artLevel then return true end
     for key,value in pairs(g) do if value~=old[key] then return true end end
     for _,key in ipairs(properties) do if module.config[key]~=config[key] then return true end end
     return false
@@ -159,7 +177,7 @@ function C:TickUnit(key)
         if module then module.active=false;J.Core:SyncVisibility(module,nil) end
         return
     end
-    g.artStrata,g.artLevel=self:Layering(bar,candidate.chrome,config,g)
+    g.artStrata,g.artLevel=self:Layering(bar,candidate.chrome,config,g,key,candidate.nativeRoot)
     if not module then
         if combat then J.Core.dirty=true;self.status[key]="Attachment queued until combat ends";return end
         module=self:Create(key)
@@ -188,7 +206,7 @@ function C:TickUnit(key)
     module.active=true
     local shown=visibility(bar)
     self.status[key]=(candidate.name or labels[candidate.source]).." - "..(module.assetOK and
-        (shown and shown.visible and shown.alpha>0 and "attached; cast visible" or "attached; waiting for cast") or "artwork unavailable")
+        (shown and shown.visible and shown.alpha>0 and "attached; cast visible" or "attached; waiting for cast") or "artwork unavailable").." | "..g.artStrata.." / level "..g.artLevel
     J.Core:SyncVisibility(module,shown)
 end
 

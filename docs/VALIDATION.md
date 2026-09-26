@@ -1,6 +1,6 @@
 # Portrait build validation
 
-Install 0.7.3 and fully restart WoW to load the source-faithful shells and new controls. Keep saved settings. In `/jui`, select Player, Target or Focus and test **Portrait art** and **Unit-frame art** in all four on/off combinations. Unit-frame art is off by default; existing FULL settings migrate. If bars still do not show their artwork, copy the per-unit lines from `/jui status`, including shell and fill status. All in-game testing is performed by the user.
+Install 0.8.4 and fully restart WoW to load the source-faithful shells and new controls. Keep saved settings. In `/jui`, select Player, Target or Focus and test **Portrait art** and **Unit-frame art** in all four on/off combinations. Unit-frame art is off by default; existing FULL settings migrate. If bars still do not show their artwork, copy the per-unit lines from `/jui status`, including shell and fill status. All in-game testing is performed by the user.
 
 1. Open /jui. Confirm textured window borders, red/gold buttons, checkboxes, five component tabs and a movable window. Verify Show artwork and Debug bounds check marks, selected tabs, and gallery selection after switching components. Player, Target and Focus default to Automatic class; Minimap and hub default to automatic player class; existing geometry overrides are retained.
 2. At default portrait dimensions, check Player's teardrop corner, level badge, name and bars. Select players of different classes and verify only Target's portrait background changes; the art should share the same visible envelope without a lower loop or level-badge circle. Verify Mage uses an eye and Hunter uses a skull. Set another class as Focus and verify independent selection. Clear Target/Focus and confirm their decoration disappears.
@@ -64,3 +64,10 @@ These are manual checks for the user. The agent does not operate WoW.
 ## 0.8.0 cast-border checks
 
 Follow the manual checklist in [CAST-BARS.md](CAST-BARS.md) on Blizzard, EllesmereUI and ElvUI, for Player/Target/Focus. Include idle-to-cast transitions, fades, channels, interrupts and empower indicators, each style, matching versus fixed artwork, provider resizing/replacement, hidden providers, combat-deferred changes, independent toggles and backup restoration. No gameplay was automated during development.
+
+## 0.8.4 Blizzard cast layering and text (user-run)
+
+1. On Player, Target and Focus, enable the cast border with Blizzard selected. Start with **Cast bar → Cast-border strata → Automatic** and **Level above nearby artwork → 1**. Confirm the border clears the stock surround and enabled JUI shell/portrait when casts begin, including casts first shown in combat. Try High and Dialog with different levels, then return to Automatic. Repeat the existing Ellesmere layout.
+2. On **Blizzard**, test all six label selectors. Enable customization, adjust X and Y repeatedly in both directions and return to zero. Test font size/alignment/outline separately. Unchanged labels should stay put, and the health/power center/left/right variants should move together. Only existing visible native labels should appear.
+3. Change target, UI scale and Blizzard layout; start/stop a cast. Offsets should remain relative to the original layout with no accumulated movement. Disable or reset one group, then restore all stock portrait/text controls. Fonts and positions should return to the current Blizzard defaults. Full portrait removal still hides its level badge.
+4. Adjust and reset in combat, then leave combat. Settings must apply afterward without blocked actions. Verify character profiles and backup round trips retain the separate label and cast-layer choices.

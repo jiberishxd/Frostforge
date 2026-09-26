@@ -362,3 +362,43 @@ test("automatic cast layering clears child chrome and saves an independent level
     J.ProfileManager:Set("playerFrame","castBarStrata","AUTO")
     assert(cast.frame.strata==bar.strata)
 end)
+
+for _,interface in ipairs({120100,16001}) do
+    test("Blizzard cast layers clear high-level target roots and unit art on "..interface,function(M)
+        local J=M.load({interface=interface})
+        for _,key in ipairs(keys) do
+            local bar,root=fixture(M,"BLIZZARD",key)
+            root.level=500;root.strata="LOW";bar.level=499;bar.strata=key=="playerFrame" and "HIGH" or "LOW"
+            local native=J.Core.client:UnitBars(key);native.health.level=503;native.power.level=503
+            J.ProfileManager:Set(key,"unitFrameShown",true)
+            J.ProfileManager:Set(key,"unitFrameStrata","HIGH")
+            enable(J,key,"BLIZZARD")
+            local c=J.CastBars.units[key]
+            assert(c.frame.strata=="HIGH" and c.frame.level==505)
+            -- Prepared while hidden, so showing the cast in combat changes no layout.
+            M.combat=true;bar.shown=true;local writes=M.geometryWrites;M.tick(J.Core)
+            assert(c.frame.shown and c.frame.level==505 and M.geometryWrites==writes)
+            M.combat=false
+            for _,strata in ipairs({"LOW","HIGH","DIALOG","AUTO"}) do
+                J.ProfileManager:Set(key,"castBarStrata",strata)
+                assert(c.frame.strata==(strata=="AUTO" and "HIGH" or strata))
+            end
+            J.ProfileManager:Set(key,"castBarLevel",7);assert(c.frame.level==511)
+            c.frame.strata="BACKGROUND";c.frame.level=0;M.tick(J.Core)
+            assert(c.frame.strata=="HIGH" and c.frame.level==511)
+            assert(bar.level==499 and root.level==500,"Changed a native frame layer")
+        end
+        assert(not next(J.Core.notices))
+    end)
+end
+
+test("unreadable optional cast chrome does not disable border strata controls",function(M)
+    local J=M.load();local bar=fixture(M,"BLIZZARD","targetFrame");bar.shown=true
+    local child=M.region(bar,"Frame",180,16)
+    child.GetFrameStrata=function() error("Restricted child metadata") end
+    bar.GetChildren=function() return child end
+    enable(J,"targetFrame","BLIZZARD")
+    J.ProfileManager:Set("targetFrame","castBarStrata","HIGH")
+    local c=J.CastBars.units.targetFrame
+    assert(c.frame.shown and c.frame.strata=="HIGH" and not next(J.Core.notices))
+end)
