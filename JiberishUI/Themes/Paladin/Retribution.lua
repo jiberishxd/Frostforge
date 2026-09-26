@@ -14,7 +14,7 @@ local hubPieces = {
     rightWing = { leftAnchor=1,rightAnchor=1,leftOffset=-620*240/724,rightOffset=0,
         y=0,height=240,u1=1552/2172,u2=1,v1=0,v2=1,order=2 },
 }
-J.ThemeManager:Register("paladin_ret", {
+local theme={
     name = "Retribution Paladin",
     minimap = {
         minimapMode = "CLASS", minimap = "CLASS_PALADIN",
@@ -59,4 +59,13 @@ J.ThemeManager:Register("paladin_ret", {
         pieces = hubPieces, designHeight = 240, minimumWidth = 600,
         strata = "BACKGROUND", level = 0, layer = "BACKGROUND", opacity = 1, shown = true,
     },
-})
+}
+for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
+    for _,group in ipairs(J.BlizzardUnits.textGroups) do
+        local prefix="blizzard"..group
+        for suffix,value in pairs({Enabled=false,X=0,Y=0,Size=12,Align="KEEP",Outline="KEEP"}) do
+            if theme[key][prefix..suffix]==nil then theme[key][prefix..suffix]=value end
+        end
+    end
+end
+J.ThemeManager:Register("paladin_ret",theme)

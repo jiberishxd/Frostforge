@@ -26,6 +26,7 @@ local function migrateShell(profile)
 end
 
 local function supported(key,property)
+    if J.BlizzardUnits.textProperties[property] then return J.Portraits:IsUnitKey(key) end
     if property=="blizzardStone" then return key=="playerFrame" end
     if property == "castBarShown" or property == "unitFrameStrata" or property == "castBarLevel" or property == "castBarStrata" or property == "blizzardPortraitFrameHidden" or property == "blizzardPortraitHidden" or property == "blizzardNameEnabled" or property == "blizzardNameX" or property == "blizzardNameY" or property == "blizzardNameSize" or property == "blizzardNameAlign" or property == "blizzardNameOutline" or property == "castBarSource" or property == "castBarStyle" or property == "castBarArt" or property == "castBarWeight" or property == "castBarPadding" or property == "castBarWidth" or property == "castBarHeight" or property == "portrait" or property == "portraitMode" or property == "portraitSource" or property == "unitStyle" or property == "unitFrameShown" or property == "unitFrameFill" or property == "unitFrameWidth" or property == "unitFrameHeight" or property == "unitFrameX" or property == "unitFrameY" or property == "unitFrameInset" or property == "unitFrameSource" then return J.Portraits:IsUnitKey(key) end
     if property == "hub" or property == "hubMode" or property == "hubSource" then return key == "actionHub" end

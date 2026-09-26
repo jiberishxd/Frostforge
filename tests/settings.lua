@@ -92,10 +92,10 @@ test("settings backups respect read-only profiles and combat queuing",function(M
     M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");assert(J.Core.modules.playerFrame.applied.x==10)
 end)
 
-test("cast page exposes strata and Advanced exposes its separate level",function(M)
+test("cast page exposes both strata and its separate level",function(M)
     local J=M.load();local S=J.SettingsUI;S:Open();S:SetPage("cast")
     assert(S.controls.castBarStrata.button:IsVisible())
-    assert(not S.controls.castBarLevel.edit:IsVisible())
-    S:SetPage("advanced");assert(S.controls.castBarLevel.edit:IsVisible())
+    assert(S.controls.castBarLevel.edit:IsVisible())
+    S:SetPage("advanced");assert(not S.controls.castBarLevel.edit:IsVisible())
     S:Select("actionHub");assert(not S.controls.castBarLevel.edit:IsVisible())
 end)
