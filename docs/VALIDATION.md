@@ -86,3 +86,13 @@ Follow the manual checklist in [CAST-BARS.md](CAST-BARS.md) on Blizzard, Ellesme
 2. Choose class-colored names and health on Player/Target/Focus and party/raid; switch between different player classes and NPCs, regroup and change combat state. NPC class mode keeps native colors. Dark stone affects health only. Switch back to Blizzard to restore defaults.
 3. With full portrait removal and shell enabled, rest, enter combat and receive damage/healing. No resting animation, combat pulse, attack badge or portrait feedback should remain. Restore the option outside combat and verify normal effects return.
 4. Target a powerless creature/city NPC and a power-using unit, including transitions during combat. Verify the complete bottom artwork, dark empty opening, no fake power bar, original footer proportions, and no black backing covering real resource fill.
+
+
+## 0.8.6 stock bar appearance (user-run)
+
+- On Forever and Retail with stock frames, reload with a visible mana bar and unit-frame artwork enabled. Mana must appear immediately without hovering or clicking. Test login as well as reload.
+- Choose Stone, Smooth and Blizzard independently for health and power. Confirm changes take effect after combat and survive reload. Stock mana/rage/etc. must retain their resource color.
+- Choose Class gradient for Player/Target/Focus and party/raid health. Confirm the base class hue with darker shading below it, including white/grey Priest and blue Shaman. Names should use the matching solid base hue. Test a class change or a new player target, then an NPC.
+- Restore Blizzard health color and texture. Confirm original atlas, tint and native behavior return. Test Dark stone and a disconnected/dead unit.
+- Target an NPC without power: the complete shell and opaque empty opening should remain. Target a unit with power again: the no-power backing must disappear. Test this transition in combat.
+- Confirm ElvUI/Ellesmere provider textures remain in control in Automatic mode. Artwork assets are unchanged.

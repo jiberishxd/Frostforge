@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.6 — Stock bar textures, class gradients and power visibility
+
+- Removed the separate dark well behind visible power bars. It could compete with native layering after login/reload; the opaque opening remains only for units without a visible power bar.
+- Stock texture changes no longer depend on reading the live bar's texture coordinates. Restore the original atlas through the StatusBar API, including its atlas selection, and leave replacement fill regions intact.
+- Class-colored health uses a neutral material so Blizzard's baked-in green cannot distort the class hue. The health option is now **Class gradient (players)**, with subtle vertical shading in the requested 13-class palette. Names use the same base palette.
+- Neutral stone/smooth textures retain stock health green and the native resource hue when Blizzard uses precolored atlases. Native grey/disconnect tints remain in effect with Blizzard color selected.
+- Existing profile choices remain valid. No artwork images changed; checks are offline and live-client confirmation remains outstanding.
+
 ## 0.8.5 — Full frames and Blizzard styling
 
 - Added Player/Target/Focus shell attachment for ElvUI's health and power bars, independent of portrait, hub, map and cast artwork. **Unit-frame provider** now includes ElvUI; Automatic detects its active frames.

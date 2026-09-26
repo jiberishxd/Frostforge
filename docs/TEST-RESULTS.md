@@ -1,3 +1,11 @@
+# Build 0.8.6 stock bar textures and class gradients
+
+265 Lua behavior tests and 17 Python artwork tests pass. New regressions cover texture selection without reading live stock UVs, correct atlas restoration, visible level-zero power after reload, retained opaque no-power openings, all 13 requested class hues and gradient endpoints, stable gradient readback without repeating writes, native color redraws, NPC fallback, texture/color switching and neutral-resource tint restoration. Existing ElvUI/Ellesmere and Retail/Forever coverage remains green.
+
+Source/media/provenance checks and exact Retail/Forever 0.8.6 package checks pass. The settings snapshot was regenerated. All runtime and reference artwork images are unchanged. No WoW interaction or live-client validation was performed. The user's exact Forever reload behavior still requires in-game confirmation; the new regression fixtures cover the identified code failure cases, not WoW's secure rendering engine.
+
+---
+
 # Build 0.8.5 full frames and Blizzard styling
 
 260 Lua behavior tests and 17 Python artwork tests pass. New ElvUI fixtures model opposite-edge health anchors, backdrop-relative power anchors and the provider's public frame structure. Both client paths cover independent Player/Target/Focus shells, retained provider fills, preserved stack size, source selection and backups. Additional checks cover all 42 themes, parent resizing, profile redraws, rounded size readback, unsupported power modes, forbidden regions, hidden providers, combat deferral, media restoration and replaced bars. Existing Blizzard, Ellesmere and cast/text cases pass. New checks cover all 42 themes with hidden/missing/transparent power, complete footer seams and opaque openings, prepared combat transitions, native effect-mask reuse/restoration, independent stock class/dark colors, party/raid pooling, restricted identity/color handling, StatusBar texture application, separate texture selections and profile-backed dialog controls.
