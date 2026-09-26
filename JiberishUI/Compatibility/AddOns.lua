@@ -6,7 +6,7 @@ local units = {playerFrame="player",targetFrame="target",focusFrame="focus"}
 local titles = {player="Player",target="Target",focus="Focus"}
 local labels = {BLINKII="Blinkii's Portraits",MMT="mMediaTag & Tools",ELVUI="ElvUI",ELLESMERE="EllesmereUI"}
 J.Core.properties.portraitSource = {AUTO=true,BLIZZARD=true,BLINKII=true,MMT=true,ELVUI=true,ELLESMERE=true}
-J.Core.properties.unitFrameSource = {AUTO=true,BLIZZARD=true,ELLESMERE=true}
+J.Core.properties.unitFrameSource = {AUTO=true,BLIZZARD=true,ELLESMERE=true,ELVUI=true}
 J.Core.properties.hubSource = {AUTO=true,BLIZZARD=true,ELVUI=true,ELLESMERE=true}
 
 local function field(object,key)
@@ -250,21 +250,51 @@ end
 
 
 -- Full shells select their provider separately from portrait-only addons.
-function A:UnitBars(key,source)
+function A:ExternalUnitBars(key,source)
     local unit=units[key]
-    if not unit then return end
-    source=source or "AUTO"
-    local root=source~="BLIZZARD" and _G["EllesmereUIUnitFrames_"..titles[unit]]
-    local native=J.Core.client:Resolve(key)
-    if source=="ELLESMERE" or (J.Core:IsUsableFrame(root) and (visible(root) or not visible(native))) then
-        if not J.Core:IsUsableFrame(root) then return nil,"Waiting for EllesmereUI unit frames" end
-        local bars={root=root,source="ELLESMERE",name="EllesmereUI"}
-        for kind,member in pairs({health="Health",power="Power"}) do
-            local bar=field(root,member)
-            if J.Core:IsUsableFrame(bar) and type(bar.GetStatusBarTexture)=="function" then bars[kind]=bar end
+    local prefix=source=="ELVUI" and "ElvUF_" or "EllesmereUIUnitFrames_"
+    local root=_G[prefix..titles[unit]]
+    local label=labels[source]
+    if not J.Core:IsUsableFrame(root) then return nil,"Waiting for "..label.." unit frames" end
+    local bars={root=root,source=source,name=label}
+    for kind,member in pairs({health="Health",power="Power"}) do
+        local bar=field(root,member)
+        if J.Core:IsUsableFrame(bar) and type(bar.GetStatusBarTexture)=="function" then bars[kind]=bar end
+    end
+    if source=="ELVUI" then
+        -- These are public layout choices, never health/power values. Detached,
+        -- inset and mini/offset resources are not one horizontal bar stack.
+        for _,flag in ipairs({"POWERBAR_DETACHED","USE_INSET_POWERBAR","USE_MINI_POWERBAR","USE_POWERBAR_OFFSET"}) do
+            local value=root[flag]
+            if not J.Core:IsSafe(value) or value then
+                bars.layoutReason="ElvUI shell needs attached full-width power below health"
+            end
         end
-        if not bars.health then return nil,"Waiting for EllesmereUI health bar" end
-        return bars
+        local enabled=root.USE_POWERBAR
+        if J.Core:IsSafe(enabled) and enabled==false then bars.powerDisabled=true end
+        if not J.Core:IsSafe(enabled) or enabled==false then
+            bars.layoutReason="ElvUI shell needs its power bar enabled"
+        end
+    end
+    return bars,not bars.health and "Waiting for "..label.." health bar" or nil
+end
+
+function A:UnitBars(key,source)
+    if not units[key] then return end
+    source=source or "AUTO"
+    if source=="ELVUI" or source=="ELLESMERE" then return self:ExternalUnitBars(key,source) end
+    local native=J.Core.client:Resolve(key)
+    if source=="AUTO" then
+        local hidden,hiddenReason
+        for _,id in ipairs({"ELVUI","ELLESMERE"}) do
+            local candidate,reason=self:ExternalUnitBars(key,id)
+            if candidate then
+                if visible(candidate.root) then return candidate,reason end
+                hidden,hiddenReason=hidden or candidate,hiddenReason or reason
+            end
+        end
+        -- Prepare hidden target/focus providers before their first appearance.
+        if hidden and not visible(native) then return hidden,hiddenReason end
     end
     local bars=J.Core.client:UnitBars(key)
     if bars then bars.root,bars.source,bars.name=native,"BLIZZARD","Blizzard" end

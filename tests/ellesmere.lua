@@ -231,7 +231,7 @@ test("hidden or detached Ellesmere power restores fitting and keeps provider geo
     local root,h,p=eui(M,"player");local J=M.load();enable(J)
     p.shown=false;M.tick(J.Core)
     near(h.h,40);near(p.h,8)
-    assert(not J.UnitSkins.units.playerFrame.health.trim.frame.shown)
+    assert(J.UnitSkins.units.playerFrame.health.trim.frame.shown and J.UnitSkins.units.playerFrame.footer.trim.frame.shown)
     p.shown=true;M.tick(J.Core);assert(J.UnitSkins.units.playerFrame.health.trim.frame.shown)
     p.parent=root;p.points={{"TOP",h,"BOTTOM",0,-15}};p.h=12
     M.tick(J.Core)

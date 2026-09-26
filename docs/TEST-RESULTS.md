@@ -1,3 +1,11 @@
+# Build 0.8.5 full frames and Blizzard styling
+
+260 Lua behavior tests and 17 Python artwork tests pass. New ElvUI fixtures model opposite-edge health anchors, backdrop-relative power anchors and the provider's public frame structure. Both client paths cover independent Player/Target/Focus shells, retained provider fills, preserved stack size, source selection and backups. Additional checks cover all 42 themes, parent resizing, profile redraws, rounded size readback, unsupported power modes, forbidden regions, hidden providers, combat deferral, media restoration and replaced bars. Existing Blizzard, Ellesmere and cast/text cases pass. New checks cover all 42 themes with hidden/missing/transparent power, complete footer seams and opaque openings, prepared combat transitions, native effect-mask reuse/restoration, independent stock class/dark colors, party/raid pooling, restricted identity/color handling, StatusBar texture application, separate texture selections and profile-backed dialog controls.
+
+Source/provenance and exact Retail/Forever 0.8.5 package validation pass. All runtime and reference artwork images are unchanged. The new settings dialog was also visually inspected in its offline browser preview. No WoW interaction or live-client testing was performed. ElvUI source references and hashes are recorded in addon-sources.json; this does not certify every upstream version or custom layout.
+
+---
+
 # Build 0.8.4 Blizzard cast layers and text controls
 
 234 Lua behavior tests and 17 Python artwork tests pass. Blizzard Player/Target/Focus fixtures cover native cast bars below their owning frame, higher stock/JUI chrome, hidden-to-visible casts in combat, explicit strata and levels, overwritten owned-frame layers, and unreadable optional child layers. Existing Ellesmere and ElvUI cast cases still pass.
@@ -14,7 +22,7 @@ The exported settings preview was inspected on the Blizzard Name and Cast time s
 
 Fitting checks cover inward edge movement, independent X/Y offsets, joined health/power halves at different native scales, unchanged native bar dimensions during artwork adjustment, backup round trips, combat deferral, region reuse, visibility and restoration. The Night Elf footer retains its proportions when native bars widen. Existing Blizzard and Ellesmere client fixtures pass.
 
-The browser preview was inspected with Paladin at default and narrower widths with offsets, and mirrored Night Elf at full health. The exported settings page exposes width, height and position with no inset control. All runtime and reference artwork images are unchanged. Source and Retail/Forever package checks pass. These are offline checks only; no WoW interaction or live-client testing was performed.
+The browser preview was inspected with Paladin at default and narrower widths with offsets, and mirrored Night Elf at full health. The exported settings page exposes width, height and position with no inset control. All runtime and reference artwork images are unchanged. The new settings dialog was also visually inspected in its offline browser preview. Source and Retail/Forever package checks pass. These are offline checks only; no WoW interaction or live-client testing was performed.
 
 ---
 

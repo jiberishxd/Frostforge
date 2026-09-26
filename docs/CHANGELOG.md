@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.8.5 — Full frames and Blizzard styling
+
+- Added Player/Target/Focus shell attachment for ElvUI's health and power bars, independent of portrait, hub, map and cast artwork. **Unit-frame provider** now includes ElvUI; Automatic detects its active frames.
+- Fits the existing 42 shells to attached, aligned, full-width health/power stacks. Preserves total stack size, restores original ElvUI anchors on disable and follows provider redraws/resizing. Detached, inset, mini/spaced, offset or vertical power arrangements retain their layout with a diagnostic.
+- Automatic fill mode respects ElvUI's selected textures. Explicit JiberishUI fills use the existing restore/combat gates. Artwork images and provider settings are unchanged.
+- Fixed lower artwork disappearing when a unit has no visible power. Complete original shells remain, with an opaque near-black empty power opening. Visible empty power bars also receive a dark backing below the native fill.
+- Full Blizzard portrait removal now includes resting, combat/attack effects and portrait damage/healing numbers, with restoration when disabled.
+- Added **Blizzard → Colors & textures**: independent player/target/focus and shared party/raid class colors for names and health, dark stone health, and separate stock-wide health/power texture choices. Power retains its resource color.
+- Stock textures use the native StatusBar texture setter and initialized-bar discovery, including standard party references. Existing artwork is unchanged.
+- Offline fixtures cover both client paths against the inspected ElvUI v15.26 frame structure. Live-client appearance and secure behavior remain user-tested.
+
 ## 0.8.4 — Blizzard cast layers and independent text controls
 
 - Fixed automatic Blizzard cast-border layering to clear the owning Player/Target/Focus frame and enabled JUI portrait/shell layers. Explicit strata and the level offset are together on **Cast bar**; status reports the resolved layer. Ellesmere and ElvUI retain their provider-based layering.

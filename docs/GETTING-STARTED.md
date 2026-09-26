@@ -32,7 +32,7 @@ Select **Player**, **Target** or **Focus** on the left, then open **Artwork**.
 
 Portrait and shell toggles are independent; their theme follows the unit's artwork choice. Player, Target and Focus keep separate settings. Automatic target/focus artwork can change as you select different units. Recognized city NPC affiliations reuse existing race art. Fixed artwork takes priority; unrecognized or unavailable identity information can fall back to Neutral.
 
-For **EllesmereUI**, use a separate portrait and horizontal health with power attached and aligned below it for full shells. For **ElvUI**, portrait art and cast borders are available; full unit-frame shells are not implemented. Choose an explicit provider if Automatic finds a different frame than you intended. [Full compatibility guide](ADDON-COMPATIBILITY.md).
+For **EllesmereUI**, use a separate portrait and horizontal health with power attached and aligned below it for full shells. For **ElvUI**, full unit-frame shells also support horizontal health with attached full-width power below it; inset, mini/spaced, offset and detached power layouts are not fitted. Choose an explicit provider if Automatic finds a different frame than you intended. [Full compatibility guide](ADDON-COMPATIBILITY.md).
 
 ## Fit the artwork
 
@@ -50,7 +50,7 @@ Settings save immediately. Changes that need to wait for combat apply when comba
 
 Open your provider's status-bar texture menu and choose **JiberishUI Stone**. EllesmereUI and ElvUI supply the shared-media library used to make this available; other addons with compatible LibSharedMedia menus can use it too.
 
-In `/jui → Player/Target/Focus → Advanced`, **Automatic (respect UI addon)** keeps Ellesmere's selected textures and uses JiberishUI fills on Blizzard frames. The separate **Blizzard → Stone on Blizzard health/power** toggle is on by default and takes precedence for stock bars, including party, raid, pet, boss and target-of-target/focus-target. Turn it off as well if you want entirely stock fills. **Keep provider textures** leaves the fills with the provider. **Use JiberishUI fills** explicitly applies JiberishUI materials while the shell is enabled. Native class, health and resource tinting stays with the frame provider. [Texture setup details](SETTINGS.md#choose-jiberishui-stone-in-your-other-ui-addon).
+In `/jui → Player/Target/Focus → Advanced`, **Automatic (respect UI addon)** keeps ElvUI/Ellesmere's selected textures and uses JiberishUI fills on Blizzard frames. The separate **Blizzard → Stone on Blizzard health/power** toggle is on by default and takes precedence for stock bars, including party, raid, pet, boss and target-of-target/focus-target. Turn it off as well if you want entirely stock fills. **Keep provider textures** leaves the fills with the provider. **Use JiberishUI fills** explicitly applies JiberishUI materials while the shell is enabled. Native class, health and resource tinting stays with the frame provider. [Texture setup details](SETTINGS.md#choose-jiberishui-stone-in-your-other-ui-addon).
 
 ## Back up and troubleshoot
 
@@ -58,7 +58,7 @@ Open **Guide** to copy a settings backup or restore one. Restore replaces the Ji
 
 | What you see | Check first |
 | --- | --- |
-| Portrait shows, but the health/power shell does not | Enable Unit-frame art separately; select Blizzard or a compatible Ellesmere layout. |
+| Portrait shows, but the health/power shell does not | Enable Unit-frame art separately; select Blizzard or a compatible ElvUI/Ellesmere layout. |
 | No portrait artwork on an addon frame | Enable a separate portrait in that addon; check Portrait provider. Inside-health portraits have no separate surround. |
 | No cast border | Enable Cast-bar border and the provider's cast bar. Its border follows cast visibility. |
 | A border is too wide, too tall or offset | Use that component's fitting controls and reset fitting if needed. |
@@ -67,3 +67,5 @@ Open **Guide** to copy a settings backup or restore one. Restore replaces the Ji
 | Forever settings do not survive restart | Export a backup and check the reported [SavedVariables loading issue](PERSISTENCE.md). |
 
 For a report, include your client/build, JiberishUI and provider versions, the affected component, `/jui status`, and a screenshot showing the problem. [Open an issue](https://github.com/jiberishxd/JiberishUI-WoW/issues/new/choose).
+
+For stock Blizzard colors and textures, open **Player/Target/Focus → Blizzard → Colors & textures**. Choose class-colored names/health or dark stone health, and pick health/power textures separately. The dialog also includes shared party/raid color controls. These choices work independently of decorative shells.

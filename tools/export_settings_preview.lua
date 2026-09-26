@@ -39,6 +39,7 @@ for _,key in ipairs({"playerFrame","minimap","actionHub"}) do
             S.textGroup=group;S:Refresh();out.pages[key.."-blizzard-"..group]=snapshot()
         end
         S.textGroup="Name"
+        S.stockStyleButton.scripts.OnClick();out.pages[key.."-blizzard-style"]=snapshot();S:HideMenus()
     end
 end
 S:Select("playerFrame");S:SetPage("artwork");S:ShowPortraitGroup("CLASS",1);S.picker:Show()
