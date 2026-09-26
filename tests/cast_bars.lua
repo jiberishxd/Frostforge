@@ -323,7 +323,7 @@ test("portrait shell and cast strata are independent and survive backups",functi
     J.ProfileManager:Set("playerFrame","unitFrameStrata","MEDIUM")
     J.ProfileManager:Set("playerFrame","castBarStrata","DIALOG")
     local cast=J.CastBars.units.playerFrame;local shell=J.UnitSkins.units.playerFrame.health.trim
-    assert(J.Core.modules.playerFrame.frame.strata=="HIGH" and shell.frame.strata=="MEDIUM" and shell.rim.frame.strata=="MEDIUM")
+    assert(J.Core.modules.playerFrame.frame.strata=="HIGH" and shell.frame.strata=="MEDIUM" and not shell.rim)
     assert(cast.frame.strata=="DIALOG")
     J.ProfileManager:Set("playerFrame","strata","LOW")
     assert(shell.frame.strata=="MEDIUM" and cast.frame.strata=="DIALOG")

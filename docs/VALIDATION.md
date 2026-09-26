@@ -56,7 +56,7 @@ Unknown NPCs retain the normal fallback; city location alone is not a match. See
 - Open `/jui` on both clients. Check all four pages, artwork searches/pages, small-screen fitting, dragged position, scoped reset and backup round-trip.
 - In EllesmereUI, choose JiberishUI Stone and another texture in turn. Confirm neither is replaced in AUTO or PROVIDER fill mode. Repeat after provider profile redraw and a combat transition. Explicit JIBERISH mode should replace fills until switched back or disabled.
 - Select JiberishUI Stone in ElvUI and other shared texture menus; test Player/Target and raid/resource frames using the provider's own settings.
-- Test Unit frame width/height and inset depth on each unit, including 100% defaults, custom values, reset, hidden power bars and queued combat edits. Verify the narrow rim sits above fills without covering central labels, and disappears when unit-frame art is disabled.
+- Test Unit frame width/height and X/Y offsets on each unit, including 100% defaults, custom values, reset, hidden power bars and queued combat edits. Verify the original shell overlaps the fill, smaller width moves its sides inward, and no second rail appears. Check that center labels stay readable at the selected fit and the shell disappears when disabled. Legacy inset values must not change the result.
 - Review the balanced, faction-neutral Shaman mask/totem shell and thick divider with Player/Target/Focus; check all original portrait toggles remain independent.
 
 These are manual checks for the user. The agent does not operate WoW.

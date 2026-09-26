@@ -498,13 +498,13 @@ function S:Create()
     a=self.pages.fitting
     self:Number("unitFrameWidth","Artwork width (%)",0,-14,1,a)
     self:Number("unitFrameHeight","Artwork height (%)",346,-14,1,a)
-    self:Number("unitFrameInset","Inset edge depth",0,-108,.1,a)
-    text(a,"A painted lip overlaps the health and power fills without adding a black box border.",346,-108,318)
+    self:Number("unitFrameX","Artwork horizontal offset",0,-108,.5,a)
+    self:Number("unitFrameY","Artwork vertical offset",346,-108,.5,a)
     panel(a,0,-196,666,106)
     text(a,"FIT THE FRAME, KEEP YOUR BARS",18,-214,626,"GameFontNormal")
-    text(a,"100% follows the current bars. Width and height resize this unit's artwork. Inset depth lays painted edges over health and power so they sit inside the shell; 3 is the default, 0 removes the edges. Portrait fitting stays on Placement.",18,-244,626)
+    text(a,"The original artwork sits over the bars. Reduce width to bring its side edges inward; adjust height and offsets for your fit. 100% slightly overlaps both sides. No extra borders are added. Portrait fitting stays on Placement.",18,-244,626)
     button(a,"Reset unit-frame fitting",0,-332,318,function()
-        self:Set("unitFrameWidth",100);self:Set("unitFrameHeight",100);self:Set("unitFrameInset",3)
+        self:Set("unitFrameWidth",100);self:Set("unitFrameHeight",100);self:Set("unitFrameX",0);self:Set("unitFrameY",0)
     end)
     text(a,"Fitting changes apply after combat. Native bar values, colors and texture choices stay with your UI addon.",0,-378,666)
 
@@ -610,7 +610,7 @@ function S:Refresh()
     self.heading:SetText(names[self.selected].."  |  "..headings[self.page])
     local hints={artwork=unit and "Choose your portrait surround and full-frame artwork independently." or "Choose a matching theme, then follow your existing UI.",
         placement=unit and "These controls fit the portrait surround. Use Unit frame to fit the shell around the bars." or "Fit the decoration around your existing minimap or action bars.",
-        fitting="Enable Unit-frame art on Artwork; then fit its size and inset.",
+        fitting="Enable Unit-frame art on Artwork; then fit its size and position.",
         cast="A matching border, independent of portraits and full unit-frame shells.",
         blizzard="Optional controls for stock Blizzard Player, Target and Focus only.",
         advanced="Choose who controls bar textures, then fine-tune layering.",guide="A few simple steps, plus tools to keep your settings safe."}
