@@ -1,0 +1,173 @@
+{
+  "scope": "Restyle hubs only to match approved UnitFrame and portrait rendering; keep composition, controls, fitting and transparency.",
+  "themes": {
+    "class_warrior": {
+      "label": "Warrior",
+      "status": "integrated"
+    },
+    "class_paladin": {
+      "label": "Paladin",
+      "status": "integrated"
+    },
+    "class_hunter": {
+      "label": "Hunter",
+      "status": "integrated"
+    },
+    "class_rogue": {
+      "label": "Rogue",
+      "status": "integrated"
+    },
+    "class_priest": {
+      "label": "Priest",
+      "status": "integrated"
+    },
+    "class_deathknight": {
+      "label": "Death Knight",
+      "status": "integrated"
+    },
+    "class_shaman": {
+      "label": "Shaman",
+      "status": "integrated"
+    },
+    "class_mage": {
+      "label": "Mage",
+      "status": "integrated"
+    },
+    "class_warlock": {
+      "label": "Warlock",
+      "status": "integrated"
+    },
+    "class_monk": {
+      "label": "Monk",
+      "status": "integrated"
+    },
+    "class_druid": {
+      "label": "Druid",
+      "status": "integrated"
+    },
+    "class_demonhunter": {
+      "label": "Demon Hunter",
+      "status": "integrated"
+    },
+    "class_evoker": {
+      "label": "Evoker",
+      "status": "integrated"
+    },
+    "race_human": {
+      "label": "Human",
+      "status": "integrated"
+    },
+    "race_dwarf": {
+      "label": "Dwarf",
+      "status": "integrated"
+    },
+    "race_nightelf": {
+      "label": "Night Elf",
+      "status": "integrated"
+    },
+    "race_gnome": {
+      "label": "Gnome",
+      "status": "integrated"
+    },
+    "race_draenei": {
+      "label": "Draenei",
+      "status": "integrated"
+    },
+    "race_worgen": {
+      "label": "Worgen",
+      "status": "integrated"
+    },
+    "race_orc": {
+      "label": "Orc",
+      "status": "integrated"
+    },
+    "race_scourge": {
+      "label": "Undead",
+      "status": "integrated"
+    },
+    "race_tauren": {
+      "label": "Tauren",
+      "status": "integrated"
+    },
+    "race_troll": {
+      "label": "Troll",
+      "status": "integrated"
+    },
+    "race_bloodelf": {
+      "label": "Blood Elf",
+      "status": "integrated"
+    },
+    "race_goblin": {
+      "label": "Goblin",
+      "status": "integrated"
+    },
+    "race_pandaren": {
+      "label": "Pandaren",
+      "status": "integrated"
+    },
+    "race_dracthyr": {
+      "label": "Dracthyr",
+      "status": "integrated"
+    },
+    "race_voidelf": {
+      "label": "Void Elf",
+      "status": "integrated"
+    },
+    "race_lightforgeddraenei": {
+      "label": "Lightforged Draenei",
+      "status": "integrated"
+    },
+    "race_darkirondwarf": {
+      "label": "Dark Iron Dwarf",
+      "status": "integrated"
+    },
+    "race_kultiran": {
+      "label": "Kul Tiran",
+      "status": "integrated"
+    },
+    "race_mechagnome": {
+      "label": "Mechagnome",
+      "status": "integrated"
+    },
+    "race_nightborne": {
+      "label": "Nightborne",
+      "status": "integrated"
+    },
+    "race_highmountaintauren": {
+      "label": "Highmountain Tauren",
+      "status": "integrated"
+    },
+    "race_magharorc": {
+      "label": "Mag'har Orc",
+      "status": "integrated"
+    },
+    "race_zandalaritroll": {
+      "label": "Zandalari Troll",
+      "status": "integrated"
+    },
+    "race_vulpera": {
+      "label": "Vulpera",
+      "status": "integrated"
+    },
+    "race_earthendwarf": {
+      "label": "Earthen",
+      "status": "integrated"
+    },
+    "race_haranir": {
+      "label": "Haranir",
+      "status": "integrated"
+    },
+    "faction_alliance": {
+      "label": "Alliance",
+      "status": "integrated"
+    },
+    "faction_horde": {
+      "label": "Horde",
+      "status": "integrated"
+    },
+    "faction_neutral": {
+      "label": "Neutral",
+      "status": "integrated"
+    }
+  }
+}

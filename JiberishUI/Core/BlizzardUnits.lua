@@ -2,6 +2,7 @@ local _,J=...
 local B={units={},status={}}
 J.BlizzardUnits=B
 J.Core.properties.blizzardPortraitHidden={boolean=true}
+J.Core.properties.blizzardPortraitFrameHidden={boolean=true}
 J.Core.properties.blizzardNameEnabled={boolean=true}
 J.Core.properties.blizzardNameX={-300,300}
 J.Core.properties.blizzardNameY={-300,300}
@@ -32,6 +33,46 @@ function B:Regions(key)
         end
     end
     return root,portrait,name
+end
+
+function B:PortraitDecorations(key,root)
+    local player=key=="playerFrame"
+    local prefix=player and "PlayerFrame" or "TargetFrame"
+    local container=field(root,prefix.."Container")
+    local content=field(root,prefix.."Content")
+    local main=field(content,prefix.."ContentMain")
+    local contextual=field(content,prefix.."ContentContextual")
+    local regions={}
+    local function add(region)
+        if usable(region) and type(region.SetAlpha)=="function" then regions[region]=true end
+    end
+    -- Stock rim and bar border share one texture. Hide that texture only;
+    -- never hide a container holding health, power, names or secure controls.
+    for _,name in ipairs({"FrameTexture","VehicleFrameTexture","AlternatePowerFrameTexture","FrameFlash","Flash","BossPortraitFrameTexture"}) do add(field(container,name)) end
+    for _,name in ipairs({"LevelBackgroundCircle","StatusTexture","PvpBackgroundCircle","PvpBackgroundIcon"}) do add(field(main,name)) end
+    add(player and PlayerLevelText or field(main,"LevelText"))
+    for _,name in ipairs({"HighLevelTexture","PlayerPortraitCornerIcon","PrestigePortrait","PrestigeBadge","PVPIcon","PvpIcon","PvpBackgroundCircle","PvpBackgroundIcon"}) do add(field(contextual,name)) end
+    return regions
+end
+
+function B:SyncPortraitDecorations(state,wanted)
+    state.decorations=state.decorations or {}
+    for region,original in pairs(state.decorations) do
+        if not wanted[region] and usable(region) then
+            local alpha=region:GetAlpha()
+            if J.Core:IsNumber(alpha) then
+                if alpha==0 then region:SetAlpha(original) end
+                state.decorations[region]=nil
+            end
+        end
+    end
+    for region in pairs(wanted) do
+        local alpha=region:GetAlpha()
+        if J.Core:IsNumber(alpha) then
+            if state.decorations[region]==nil or alpha~=0 then state.decorations[region]=alpha end
+            if alpha~=0 then region:SetAlpha(0) end
+        end
+    end
 end
 
 local function equal(a,b)
@@ -104,7 +145,8 @@ end
 function B:TickUnit(key)
     local config=J.ThemeManager:Resolve(key)
     local state=self.units[key]
-    if (not state or (not state.portrait and not state.name)) and not config.blizzardPortraitHidden and not config.blizzardNameEnabled then
+    if (not state or (not state.portrait and not state.name and not next(state.decorations or {})))
+        and not config.blizzardPortraitHidden and not config.blizzardPortraitFrameHidden and not config.blizzardNameEnabled then
         self.status[key]="Stock portrait and name unchanged."
         return
     end
@@ -120,7 +162,9 @@ function B:TickUnit(key)
         local shown,alpha=root:IsVisible(),root:GetEffectiveAlpha()
         active=J.Core:IsSafe(shown) and shown==true and J.Core:IsNumber(alpha) and alpha>0
     end
-    local hide=config.blizzardPortraitHidden and active and usable(portrait)
+    local full=config.blizzardPortraitFrameHidden and config.unitFrameShown and active
+    self:SyncPortraitDecorations(state,full and self:PortraitDecorations(key,root) or {})
+    local hide=(config.blizzardPortraitHidden or full) and active and usable(portrait)
     if state.portrait and (not hide or state.portrait.region~=portrait) then
         local old=state.portrait
         if usable(old.region) then
@@ -157,6 +201,7 @@ function B:TickUnit(key)
         end
     end
     local status={}
+    if config.blizzardPortraitFrameHidden then status[#status+1]=full and "Stock portrait, shared border and level badge hidden" or "Full portrait removal needs Unit-frame art enabled" end
     if config.blizzardPortraitHidden then status[#status+1]=hide and state.portrait and "Stock portrait image hidden" or "Waiting for stock portrait" end
     if config.blizzardNameEnabled then status[#status+1]=customize and state.name and "Stock name customized" or "Waiting for stock name" end
     self.status[key]=#status>0 and table.concat(status,"; ") or "Stock portrait and name restored."

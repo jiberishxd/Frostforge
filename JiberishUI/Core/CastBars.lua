@@ -11,6 +11,7 @@ J.Core.properties.castBarWidth = {50,150}
 J.Core.properties.castBarHeight = {50,150}
 J.Core.properties.castBarStrata = J.Core:Copy(J.Core.properties.strata)
 J.Core.properties.castBarStrata.AUTO=true
+J.Core.properties.castBarLevel={1,100}
 for id in pairs(J.UnitSkinCatalog.entries) do J.Core.properties.castBarArt[id]=true end
 
 local keys={"playerFrame","targetFrame","focusFrame"}
@@ -86,7 +87,33 @@ function C:Create(key)
     return module
 end
 
-local properties={"castBarShown","castBarSource","castBarStyle","castBarArt","castBarWeight","castBarPadding","castBarWidth","castBarHeight","castBarStrata"}
+local properties={"castBarShown","castBarSource","castBarStyle","castBarArt","castBarWeight","castBarPadding","castBarWidth","castBarHeight","castBarStrata","castBarLevel"}
+
+local ranks={BACKGROUND=1,LOW=2,MEDIUM=3,HIGH=4,DIALOG=5,FULLSCREEN=6,FULLSCREEN_DIALOG=7,TOOLTIP=8}
+function C:Layering(bar,chrome,config,g)
+    local levels={[g.strata]=g.level}
+    local highest=g.strata
+    local visited,budget={},64
+    local function inspect(frame,depth)
+        if budget<=0 or not usable(frame) or visited[frame]
+            or type(frame.GetFrameStrata)~="function" or type(frame.GetFrameLevel)~="function" then return end
+        budget=budget-1;visited[frame]=true
+        local strata,level=frame:GetFrameStrata(),frame:GetFrameLevel()
+        if J.Core:IsSafe(strata) and ranks[strata] and J.Core:IsNumber(level) then
+            levels[strata]=math.max(levels[strata] or 0,level)
+            if ranks[strata]>ranks[highest] then highest=strata end
+        end
+        -- Native cast chrome can live in child frames above the StatusBar.
+        -- Inspect public frame layers only; do not modify the provider.
+        if depth<3 and type(frame.GetChildren)=="function" then
+            local ok,children=pcall(function() return {frame:GetChildren()} end)
+            if ok then for _,child in ipairs(children) do inspect(child,depth+1) end end
+        end
+    end
+    inspect(bar,0);inspect(chrome,0)
+    local strata=config.castBarStrata=="AUTO" and highest or config.castBarStrata
+    return strata,(levels[strata] or g.level)+config.castBarLevel
+end
 local function changed(module,bar,g,config)
     local old=module.geometry
     if not old or module.bar~=bar then return true end
@@ -132,12 +159,7 @@ function C:TickUnit(key)
         if module then module.active=false;J.Core:SyncVisibility(module,nil) end
         return
     end
-    g.artLevel=g.level+1
-    if usable(candidate.chrome) then
-        local level=candidate.chrome:GetFrameLevel()
-        local strata=candidate.chrome:GetFrameStrata()
-        if J.Core:IsNumber(level) and J.Core:IsSafe(strata) and strata==g.strata then g.artLevel=math.max(g.artLevel,level+1) end
-    end
+    g.artStrata,g.artLevel=self:Layering(bar,candidate.chrome,config,g)
     if not module then
         if combat then J.Core.dirty=true;self.status[key]="Attachment queued until combat ends";return end
         module=self:Create(key)
@@ -156,7 +178,7 @@ function C:TickUnit(key)
         local f=module.frame
         f:SetScale(g.scale/g.parentScale);f:SetSize(g.w,g.h)
         f:ClearAllPoints();f:SetPoint("TOPLEFT",bar,"TOPLEFT",0,0)
-        f:SetFrameStrata(config.castBarStrata=="AUTO" and g.strata or config.castBarStrata);f:SetFrameLevel(g.artLevel)
+        f:SetFrameStrata(g.artStrata);f:SetFrameLevel(g.artLevel)
         module.applied={shown=true,opacity=1}
         self:Paint(module,id,true)
     elseif module.id~=id then

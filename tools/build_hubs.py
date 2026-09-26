@@ -29,9 +29,14 @@ def extract_chroma(image,matte):
         maximum=backdrop[1]-max(backdrop[0],backdrop[2])
     # Restrict soft keying to the matte and its immediate edge. Violet cloth
     # and embedded gems must not become translucent just for sharing a hue.
-    core=Image.fromarray(np.where(key>maximum-25,255,0).astype('uint8'))
-    edge=np.asarray(core.filter(ImageFilter.MaxFilter(5)))>0
-    alpha=np.where(edge,1-np.clip((key-55)/(maximum-55),0,1),1)
+    # Magenta also survives in small shaded gaps where the generated matte
+    # never reaches its full background intensity. Include those cores and
+    # their blended fringe; ordinary violet material stays below this key.
+    core_limit=maximum-(75 if matte=='magenta' else 25)
+    fade_end=maximum-(55 if matte=='magenta' else 0)
+    core=Image.fromarray(np.where(key>core_limit,255,0).astype('uint8'))
+    edge=np.asarray(core.filter(ImageFilter.MaxFilter(9 if matte=='magenta' else 5)))>0
+    alpha=np.where(edge,1-np.clip((key-55)/(fade_end-55),0,1),1)
     # Remove the chroma backdrop from partially covered edge pixels as well.
     color=(rgb-(1-alpha[:,:,None])*backdrop)/np.maximum(alpha[:,:,None],.001)
     if matte=='green':
@@ -87,15 +92,22 @@ def main(partial=False):
     official={a['id']:a for a in json.loads((ROOT/'artwork/official-crests/sources.json').read_text())}
     entries=json.loads((ROOT/'artwork/portraits/manifest.json').read_text())['assets']
     records={a['id']:a for a in json.loads((ART/'sculpted-generation-results.json').read_text()) if a.get('integrated')}
+    remasters={r['id']:r for p in sorted((ART/'style-remaster/records').glob('*.json'))
+               for r in [json.loads(p.read_text())]}
     if not partial:assert set(records)=={a['id'] for a in entries}, 'Complete sculpted library required'
     reports=[]
     for entry in entries:
         id=entry['id']
         if id not in records:continue
-        original=ART/'sculpted-originals'/f'{id}.png';retain_source(records[id],original)
-        matte=records[id].get('matte')
+        restyle=remasters.get(id)
+        if restyle:
+            original=ROOT/restyle['original']
+        else:
+            original=ART/'sculpted-originals'/f'{id}.png';retain_source(records[id],original)
+        matte=(restyle or records[id]).get('matte')
         raw,method=extract_chroma(Image.open(original),matte) if matte else extract_alpha(Image.open(original))
-        corrected=clean(raw,id)
+        # Earlier alpha masks belong to the old painted silhouettes only.
+        corrected=raw if restyle else clean(raw,id)
         if corrected is not raw:
             method+='; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json)'
         raw=corrected
@@ -115,6 +127,12 @@ def main(partial=False):
             'transform':method+'; continuous vertical registration; all five slices retain full-height alpha',
             'vertical_registration':mapping,'registration':REGISTRATION,
             'clear_points':[[.5,.25],[.4,.5],[.6,.5]],'in_game_qualified':False})
+        if restyle:
+            reports[-1]['style_remaster']={
+                'record':str((ART/'style-remaster/records'/f'{id}.json').relative_to(ROOT)),
+                'target':restyle['target'],'target_sha256':digest(ROOT/restyle['target']),
+                'style_reference':restyle['style_reference'],
+                'style_reference_sha256':digest(ROOT/restyle['style_reference'])}
     manifest={'assets':reports,'geometry':'Shared full-height five-piece atlas; 2172 x 724 design; 1024 x 512 texture',
               'credit':'Official emblem references: Blizzard Entertainment. Sculpted compositions: JiberishUI.',
               'complete':len(reports)==42,'in_game_qualified':False}

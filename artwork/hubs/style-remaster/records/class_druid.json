@@ -1,0 +1,11 @@
+{
+  "id": "class_druid",
+  "matte": "magenta",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: style-transfer. EDIT TARGET: first image, the existing JiberishUI DRUID action-bar hub. STYLE REFERENCE ONLY: second image, our approved Druid unit frame; do not alter or reproduce that unit frame. Create one final horizontal HUB, exact 3:1 layout. Preserve the existing hub's U-shaped composition: tall sculpted nature endcaps, left turquoise crescent emblem with three wooden medallions, right carved standing stone and feathers, low continuous root-and-stone rail, central violet crystal, leafy mantle and violet cloth. Keep these elements in their current positions and proportions, with the same empty button area above the connecting rail, complete unclipped silhouettes, and safe outer margins. Restyle all painted surfaces to MATCH the second image's strong, chunky dimensional Warcraft UI craftsmanship: deeply carved three-dimensional bark and stone, thick roots with rounded lit volume, rich layered forest-green leaves, deep violet cloth, darker recesses, strong ambient occlusion, and crisp broad bevel highlights. Consolidate scratchy thin sketch lines into confident broad sculpted planes. The antlers should have natural balanced upward/outward branching inspired by the unit frame, while keeping their existing endcap placement. Retain the recognizable design, no new ornaments. BACKGROUND REQUIREMENT: every empty area, including all small gaps and the entire center above the rail, must be perfectly uniform solid bright MAGENTA RGB #FF00FF, without texture or checker squares or gradients. This is a removable production matte only. DO NOT copy the green backdrop from the style reference. No glow spilling onto the matte. No buttons, text, new bars, scene or floor; only one completed action-bar hub.",
+  "generated_source": "/Users/kyledelfrancia/.codex/generated_images/01a0c0bc-8370-70b1-9f5b-8c66d15fbe53/exec-6601b50c-9612-4c44-b7b2-c36e31f2a72e.png",
+  "original": "artwork/hubs/style-remaster/originals/class_druid.png",
+  "target": "artwork/hubs/style-remaster/before/assets/class_druid.png",
+  "style_reference": "artwork/unit-frames/sculpted/references/class_druid.png",
+  "status": "generated"
+}

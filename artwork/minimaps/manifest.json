@@ -136,7 +136,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_paladin.png",
+          "file": "artwork/hubs/style-remaster/before/assets/class_paladin.png",
           "sha256": "bd64a27fa31386e0fdbc937f2f8f159bd972a8216055f1a3c38c5c35fac97687"
         },
         {
@@ -282,7 +282,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_rogue.png",
+          "file": "artwork/hubs/style-remaster/before/assets/class_rogue.png",
           "sha256": "cd857589dffc063cf9cf88768aa5d734d9320e7d5f7d3e805c2594625c16876c"
         },
         {
@@ -355,7 +355,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_priest.png",
+          "file": "artwork/hubs/style-remaster/before/assets/class_priest.png",
           "sha256": "22f0c96a0cca762a682a7095dfac1070e08ca5d27f2a0c89a588f9d030ace614"
         },
         {
@@ -428,7 +428,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_deathknight.png",
+          "file": "artwork/hubs/style-remaster/before/assets/class_deathknight.png",
           "sha256": "c05d5ce90dd15e552e066d5640ae5b6e5db78241eec39e4d90fd6933696e40eb"
         },
         {
@@ -501,7 +501,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_shaman.png",
+          "file": "artwork/hubs/style-remaster/before/assets/class_shaman.png",
           "sha256": "950a04b43ec66edde573b16ba57c086c241d8128c94d2b5c413e958023693b32"
         },
         {
@@ -574,7 +574,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_mage.png",
+          "file": "artwork/hubs/style-remaster/before/assets/class_mage.png",
           "sha256": "76f6fc47e3dc7bf7168f5a179c71237b92bec68cf538148c39dbfcdf7a764d3f"
         },
         {
@@ -647,7 +647,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_warlock.png",
+          "file": "artwork/hubs/style-remaster/before/assets/class_warlock.png",
           "sha256": "f229e0cf3677eb0fa0755d72ca012c32dcb1990b5c37aaea387a1d0aabadc79d"
         },
         {
@@ -866,7 +866,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_demonhunter.png",
+          "file": "artwork/hubs/style-remaster/before/assets/class_demonhunter.png",
           "sha256": "b674f5e9d0cd6f800d9cc963287afcfd4b30d4e1b8c0a480b83a0c14ee3ce235"
         },
         {
@@ -939,7 +939,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/class_evoker.png",
+          "file": "artwork/hubs/style-remaster/before/assets/class_evoker.png",
           "sha256": "d2fbcf867a75d82bfced4b22f9928ca52379df5b3f3ad004079f75b0563ca3bf"
         },
         {
@@ -1085,7 +1085,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_dwarf.png",
+          "file": "artwork/hubs/style-remaster/before/assets/race_dwarf.png",
           "sha256": "3bd1049ed91b34a1c814c89a892aba1506095a6cbe22cfed405e234f7b3559b8"
         },
         {
@@ -1304,7 +1304,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_draenei.png",
+          "file": "artwork/hubs/style-remaster/before/assets/race_draenei.png",
           "sha256": "610f006b1ddbe93f055296f0c9f18d75e39a9369c9f5e75409b05e38cec1f537"
         },
         {
@@ -1961,7 +1961,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_dracthyr.png",
+          "file": "artwork/hubs/style-remaster/before/assets/race_dracthyr.png",
           "sha256": "c206901a5f7e65da9fb5132f8e81105ba01ce833c86c83997a3e477a9215a32d"
         },
         {
@@ -2326,7 +2326,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_mechagnome.png",
+          "file": "artwork/hubs/style-remaster/before/assets/race_mechagnome.png",
           "sha256": "31cc121d626bcc06c275965252e3ac545771253dc57e8640000c12e20e0eda85"
         },
         {
@@ -2405,7 +2405,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_nightborne.png",
+          "file": "artwork/hubs/style-remaster/before/assets/race_nightborne.png",
           "sha256": "46cfa7760bc97369cf03e3165771ffaba9fec381d21822f12d4c699f2d3037f4"
         },
         {
@@ -2770,7 +2770,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/race_earthendwarf.png",
+          "file": "artwork/hubs/style-remaster/before/assets/race_earthendwarf.png",
           "sha256": "d70cecb7f2768606f5fcaae69c9b27140d8e1efe2086d7cfaeb073e1fbcd6f50"
         },
         {
@@ -2916,7 +2916,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/faction_alliance.png",
+          "file": "artwork/hubs/style-remaster/before/assets/faction_alliance.png",
           "sha256": "23c5dbcff607aaee765a0dfce1422e1a96a8930b2fa0f7d3f35d7b2d32f0acc0"
         },
         {
@@ -2989,7 +2989,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/faction_horde.png",
+          "file": "artwork/hubs/style-remaster/before/assets/faction_horde.png",
           "sha256": "953e06dbe38b8623e5bc1ce35018ed9ae7822de9c5c121704f908e9f386fc729"
         },
         {
@@ -3062,7 +3062,7 @@
       ],
       "references": [
         {
-          "file": "artwork/hubs/assets/faction_neutral.png",
+          "file": "artwork/hubs/style-remaster/before/assets/faction_neutral.png",
           "sha256": "5cfba11f417ea0cd981305293d2506e562f47c1b6aa7ad963baecaf0518d1215"
         },
         {

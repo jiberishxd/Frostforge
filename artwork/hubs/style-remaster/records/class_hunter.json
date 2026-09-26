@@ -1,0 +1,11 @@
+{
+  "id": "class_hunter",
+  "matte": "magenta",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: style-transfer. EDIT TARGET: first image, our existing JiberishUI Hunter action-bar HUB. STYLE REFERENCE ONLY: second image, our approved matching unit frame; do not alter or reproduce the unit frame. Produce one horizontal HUB at exact 3:1 aspect ratio. Preserve first image's recognizable U-shaped composition, every main ornament and motif in its current location, relative size, and asymmetry, tall endcaps at either edge connected by one low continuous rail, tiny center ornament, and empty center above the rail for action buttons. Keep the central 43% width completely empty through the upper 60% height; rail occupies roughly 73-86% of canvas height. Preserve full unclipped silhouettes, all horns/feathers/cloth and 12-pixel safe margins on every side. Restyle all surfaces to precisely MATCH second image's chunky sculpted hand-painted Warcraft UI finish and colors: strong raised thick bevels, large carved planes, rounded lit volumes, deeper ambient occlusion, rich saturated material colors, broad confident highlights, darker recesses, substantial folds and dimensional ornaments. Replace pale scratchy thin sketch detail with bold sculpted mass. Use second image's MATERIAL COLORS where different, while preserving first image's HUB design. Retain left antlered skull, arrows/quiver and hunting gear on right, feathers, carved wood, iron, tawny ivory bone, olive foliage and rusty red cloth. No extra symbols or repeated emblems, no new rails or health/power bars, no buttons, no text, no scene, no floor. BACKGROUND: uniform solid bright MAGENTA RGB #FF00FF in all empty areas including small enclosed gaps, absolutely no checkerboard, gradients, texture or shadows on background. This is only a removable production matte. Output only the finished HUB.",
+  "generated_source": "/Users/kyledelfrancia/.codex/generated_images/01a0c0bc-8370-70b1-9f5b-8c66d15fbe53/exec-15b5809e-6bd7-460b-83a8-7fdc48d55310.png",
+  "original": "artwork/hubs/style-remaster/originals/class_hunter.png",
+  "target": "artwork/hubs/style-remaster/before/assets/class_hunter.png",
+  "style_reference": "artwork/unit-frames/sculpted/references/class_hunter.png",
+  "status": "generated"
+}
