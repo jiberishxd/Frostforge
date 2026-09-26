@@ -37,7 +37,7 @@ For **EllesmereUI**, use a separate portrait and horizontal health with power at
 ## Fit the artwork
 
 - **Placement:** portrait width/height, X/Y, scale, opacity and anchoring.
-- **Unit frame:** shell width/height from 75–150%, plus inset depth. Reset fitting returns to the measured default without changing portrait settings.
+- **Unit frame:** shell width/height from 75–150%, plus horizontal/vertical offsets. Reduce width to bring the original edges over the fill. Reset fitting returns to the default overlap without changing portrait settings.
 - **Blizzard:** hide the stock portrait image, customize the native name's X/Y, font size, alignment and outline, and toggle stone on all stock health/power bars. The rim and level badge remain native. Name and portrait changes apply outside combat and restore when disabled.
 - **Cast bar:** enable its independent Bold border, then set width/height from 50–150%, weight and spacing. Match unit artwork follows the chosen portrait/shell theme; Browse sets a separate cast theme. The provider's own cast bar must be enabled.
 - **Minimap / Action hub:** choose automatic player class/race/faction or fixed artwork, then fit its size and position. The minimap art expects a circular map; action hubs follow the main action bar. Set your actual button layout in its original addon.

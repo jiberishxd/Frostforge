@@ -1,3 +1,13 @@
+# Build 0.8.3 original shell overlap
+
+225 Lua behavior tests and 17 Python artwork tests pass. All 42 shells are checked on Player, Target and Focus for exact source coverage with no duplicate or missing texture regions. The actual shell sits above its bar even with old Background / level-zero settings, and its original side edges overlap the fill. Legacy inset depths 0, 3 and 6 produce the same single-shell result.
+
+Fitting checks cover inward edge movement, independent X/Y offsets, joined health/power halves at different native scales, unchanged native bar dimensions during artwork adjustment, backup round trips, combat deferral, region reuse, visibility and restoration. The Night Elf footer retains its proportions when native bars widen. Existing Blizzard and Ellesmere client fixtures pass.
+
+The browser preview was inspected with Paladin at default and narrower widths with offsets, and mirrored Night Elf at full health. The exported settings page exposes width, height and position with no inset control. All runtime and reference artwork images are unchanged. Source and Retail/Forever package checks pass. These are offline checks only; no WoW interaction or live-client testing was performed.
+
+---
+
 # Build 0.8.2 sculpted hubs and native frame presentation
 
 224 Lua behavior tests and 17 Python artwork tests pass. New coverage removes synthetic black inset strips, samples the painted bevel away from the opening outline, keeps the center footer ornament proportional when native bars widen, resolves cast borders above native child chrome, and persists an independent cast-border level. Both client fixtures exercise full stock portrait removal and restoration, independent name controls, shared-border visibility and combat deferral.

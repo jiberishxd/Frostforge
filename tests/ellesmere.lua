@@ -60,16 +60,16 @@ for _,interface in ipairs({120100,16001}) do
 end
 
 for _,interface in ipairs({120100,16001}) do
-    test("Ellesmere recessed edges stay above all three unit fills on "..interface,function(M)
+    test("Ellesmere complete shells stay above all three unit fills on "..interface,function(M)
         for _,unit in ipairs({"player","target","focus"}) do eui(M,unit) end
         local J=M.load({interface=interface})
         for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
             enable(J,key)
             J.ProfileManager:Set(key,"unitFrameStrata","BACKGROUND");J.ProfileManager:Set(key,"level",0)
             for _,kind in ipairs({"health","power"}) do
-                local r=J.UnitSkins.units[key][kind];local rim=r.trim.rim
-                assert(rim.frame.shown and rim.frame.strata=="MEDIUM" and rim.frame.level>r.bar.level)
-                assert(rim.textures.top.h>=1.5 and rim.textures.top.h<=r.bar.h*.22+.001)
+                local r=J.UnitSkins.units[key][kind];local trim=r.trim
+                assert(trim.frame.shown and trim.frame.strata=="MEDIUM" and trim.frame.level>r.bar.level)
+                assert(not trim.rim and trim.frame.parent==UIParent)
             end
         end
         clear(J)
@@ -157,7 +157,7 @@ test("all 42 Ellesmere themes fit one stack without cumulative shrink",function(
         J.ProfileManager:Set("playerFrame","portrait",id)
         near(h.h-p.points[1][5]+p.h,48)
         local u=J.UnitSkins.units.playerFrame
-        near(u.health.trim.applied.width-h.w,(512-(J.UnitSkinCatalog.entries[id].opening.health[3]-J.UnitSkinCatalog.entries[id].opening.health[1]))*u.health.geometry.capScale)
+        near(u.health.trim.applied.width-h.w+2,(512-(J.UnitSkinCatalog.entries[id].opening.health[3]-J.UnitSkinCatalog.entries[id].opening.health[1]))*u.health.geometry.capScale)
         assert(u.health.id==id and u.power.id==id)
     end
     local writes,appearance=M.euiLayoutWrites,M.appearanceWrites
@@ -211,16 +211,16 @@ test("Ellesmere default layering follows its provider and respects explicit over
     local J=M.load();enable(J)
     local portrait=J.Core.modules.playerFrame;local skin=J.UnitSkins.units.playerFrame
     assert(portrait.frame.strata=="MEDIUM" and portrait.frame.level==10)
-    assert(skin.health.trim.frame.strata=="MEDIUM" and skin.health.trim.frame.level==11)
+    assert(skin.health.trim.frame.strata=="MEDIUM" and skin.health.trim.frame.level==13)
     root.strata="HIGH";root.level=20;bd.strata="HIGH";bd.level=21
     M.tick(J.Core)
     assert(portrait.frame.strata=="HIGH" and portrait.frame.level==20)
     assert(skin.power.trim.frame.strata=="HIGH" and skin.power.trim.frame.level==21)
     J.ProfileManager:Set("playerFrame","strata","BACKGROUND");J.ProfileManager:Set("playerFrame","level",3)
     assert(portrait.frame.strata=="BACKGROUND" and portrait.frame.level==3)
-    assert(skin.health.trim.frame.strata=="HIGH" and skin.health.trim.frame.level==3)
+    assert(skin.health.trim.frame.strata=="HIGH" and skin.health.trim.frame.level==13)
     J.ProfileManager:Set("playerFrame","unitFrameStrata","BACKGROUND")
-    assert(skin.health.trim.frame.strata=="BACKGROUND")
+    assert(skin.health.trim.frame.strata=="MEDIUM")
     J.Core:Status();local messages=table.concat(M.messages,"\n")
     assert(messages:find("requested AUTO | resolved ELLESMERE",1,true))
     assert(messages:find("unit frame: on | requested AUTO | EllesmereUI:",1,true))

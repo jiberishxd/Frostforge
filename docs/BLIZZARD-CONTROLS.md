@@ -28,7 +28,7 @@ Existing bars and late-created party/raid frames are rediscovered automatically 
 
 ## Independent artwork strata
 
-**Advanced → Portrait art strata**, **Advanced → Unit-frame art strata** and **Cast bar → Cast-border strata** control their respective decorations independently. Shells and casts offer **Automatic**; explicit values such as Medium or High affect only that artwork. Higher strata can cover other UI, including names. Existing profiles' shared strata is copied to the shell setting once to preserve the previous look. The inner lips stay above the owning health/power bar even when the surrounding shell uses a lower strata or level.
+**Advanced → Portrait art strata**, **Advanced → Unit-frame art strata** and **Cast bar → Cast-border strata** control their respective decorations independently. Shells and casts offer **Automatic**; explicit values such as Medium or High affect only that artwork. Higher strata can cover other UI, including names. Existing profiles' shared strata is copied to the shell setting once to preserve the previous look. The complete original shell stays above the owning health/power bar, even when an older profile requests a lower strata or level. No separate inner lips are drawn.
 
 Frame level and texture draw layer retain their existing portrait/shell behavior. Automatic cast layering follows the highest native bar/decorative child strata and level. **Advanced → Cast-border level above bar** adds 1–100 levels (default 1) independently for each unit. Strata and geometry updates wait until combat ends.
 
