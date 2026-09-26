@@ -142,7 +142,7 @@ function S:ApplyFill(record,kind,id,overridePath)
 end
 
 -- Two owned halves follow the actual health/power anchors independently. Their
--- thirteen sections preserve sculpted endcaps while stretching only the spans.
+-- sections preserve sculpted endcaps and the lower central ornament.
 function S:CreateTrim(key,kind)
     local trim={key=key.."."..kind.."Skin"}
     local frame=CreateFrame("Frame",nil,UIParent)
@@ -153,6 +153,10 @@ function S:CreateTrim(key,kind)
             local opening=(kind=="health" and row==2 or kind=="power" and row==1) and column==2
             if not opening then textures[row.."_"..column]=frame:CreateTexture(nil,"BACKGROUND") end
         end
+    end
+    if kind=="power" then
+        textures.footerLeft=frame:CreateTexture(nil,"BACKGROUND")
+        textures.footerRight=frame:CreateTexture(nil,"BACKGROUND")
     end
     J.Core:FinishCreate(trim,frame,textures)
     return trim
@@ -381,7 +385,6 @@ function S:LayoutRim(record,key,kind,config,entry,g)
         local textures={}
         for _,side in ipairs({"top","bottom","left","right"}) do
             textures[side]=frame:CreateTexture(nil,"ARTWORK")
-            textures[side.."Shadow"]=frame:CreateTexture(nil,"OVERLAY")
         end
         J.Core:FinishCreate(rim,frame,textures)
     end
@@ -392,18 +395,18 @@ function S:LayoutRim(record,key,kind,config,entry,g)
     local inset=math.min(config.unitFrameInset,g.h*.22,g.w*.22)
     local ix,iy=inset*sx,inset*sy
     local left,top,right,bottom=unpack(entry.opening[kind])
-    local d=inset/g.capScale
+    -- Sample the painted bevel, not the dark antialiased opening outline.
+    -- Repeating that outline plus a synthetic shadow made a second black box.
+    local guard=1.25
+    local d=math.min(inset/g.capScale,(entry.opening.power[2]-entry.opening.health[4])/2-guard)
     local mirror=config.unit~="player"
     local u1,u2=mirror and right or left,mirror and left or right
     local strips={
-        top={0,0,w,iy,u1,u2,top-d,top},
-        bottom={0,h-iy,w,iy,u1,u2,bottom,bottom+d},
-        left={0,iy,ix,h-2*iy,mirror and right+d or left-d,mirror and right or left,top,bottom},
-        right={w-ix,iy,ix,h-2*iy,mirror and left or right,mirror and left-d or right+d,top,bottom},
+        top={0,0,w,iy,u1,u2,top-d-guard,top-guard},
+        bottom={0,h-iy,w,iy,u1,u2,bottom+guard,bottom+d+guard},
+        left={0,iy,ix,h-2*iy,mirror and right+d+guard or left-d-guard,mirror and right+guard or left-guard,top,bottom},
+        right={w-ix,iy,ix,h-2*iy,mirror and left-guard or right+guard,mirror and left-d-guard or right+d+guard,top,bottom},
     }
-    local shadow=math.min(inset*.4,.95)
-    local shadows={top={ix,iy,w-2*ix,shadow*sy,.52},bottom={ix,h-iy-shadow*.6*sy,w-2*ix,shadow*.6*sy,.24},
-        left={ix,iy,shadow*sx,h-2*iy,.42},right={w-ix-shadow*.6*sx,iy,shadow*.6*sx,h-2*iy,.24}}
     local f=rim.frame
     f:SetScale(g.scale/g.parentScale);f:SetSize(w,h)
     f:ClearAllPoints();f:SetPoint("TOPLEFT",record.bar,"TOPLEFT",dx,dy)
@@ -419,9 +422,6 @@ function S:LayoutRim(record,key,kind,config,entry,g)
         t:SetTexCoord(v[5]/512,v[6]/512,v[7]/256,v[8]/256)
         t:SetDrawLayer(config.layer)
         if t:SetTexture(entry.shell)==false then rim.assetOK=false end
-        local s=shadows[side];t=rim.textures[side.."Shadow"]
-        t:ClearAllPoints();t:SetPoint("TOPLEFT",f,"TOPLEFT",s[1],-s[2]);t:SetSize(s[3],s[4])
-        t:SetColorTexture(0,0,0,s[5])
     end
     rim.applied=trim.applied
 end
@@ -474,6 +474,28 @@ function S:Layout(record,key,kind,config,id,g)
                 x=x+w
             end
             y=y+h
+        end
+        if kind=="power" then
+            -- Keep the moon/crest at the same aspect ratio as the endcaps.
+            -- Only the two cloth/rail spans on either side stretch to bar width.
+            local center=(health[1]+health[3])/2
+            local half=48
+            local centerWidth=math.min(half*2*k,g.w*.8)
+            local span=(g.w-centerWidth)/2
+            local cuts=mirror and {health[3],center+half,center-half,health[1]}
+                or {health[1],center-half,center+half,health[3]}
+            local sizes={span,centerWidth,span}
+            local names={"footerLeft","2_2","footerRight"}
+            local x=left*sx
+            for i,name in ipairs(names) do
+                local texture=t[name]
+                texture:ClearAllPoints();texture:SetPoint("TOPLEFT",f,"TOPLEFT",x,-heights[1])
+                texture:SetSize(sizes[i]*sx,heights[2])
+                texture:SetTexCoord(cuts[i]/512,cuts[i+1]/512,power[4]/256,1)
+                texture:SetDrawLayer(config.layer)
+                if texture:SetTexture(path)==false then trim.assetOK=false end
+                x=x+sizes[i]*sx
+            end
         end
         applied={width=(g.w+left+right)*sx,height=height,scale=1,x=-left*sx+dx,y=top*sy+dy,anchor="FRAME",point="TOPLEFT",relativePoint="TOPLEFT",
             unitFrameStrata=config.unitFrameStrata,unitFrameWidth=config.unitFrameWidth,unitFrameHeight=config.unitFrameHeight,unitFrameInset=config.unitFrameInset,

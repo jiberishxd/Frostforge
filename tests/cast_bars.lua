@@ -336,3 +336,29 @@ test("portrait shell and cast strata are independent and survive backups",functi
     assert(not J.ProfileManager:Set("actionHub","castBarStrata","HIGH"))
     assert(not J.ProfileManager:Set("playerFrame","unitFrameStrata","INVALID"))
 end)
+
+test("automatic cast layering clears child chrome and saves an independent level",function(M)
+    local J=M.load({interface=16001});local bar=fixture(M,"BLIZZARD","playerFrame")
+    local chrome=M.region(bar,"Frame",180,16);chrome.level=80;chrome.strata="HIGH"
+    local border=M.region(chrome,"Frame",180,16);border.level=87;border.strata="HIGH"
+    bar.GetChildren=function() return chrome end
+    chrome.GetChildren=function() return border end
+    enable(J,"playerFrame","BLIZZARD")
+    local cast=J.CastBars.units.playerFrame
+    assert(cast.frame.strata=="HIGH" and cast.frame.level==88)
+    J.ProfileManager:Set("playerFrame","castBarLevel",8)
+    assert(cast.frame.level==95)
+    J.ProfileManager:Set("playerFrame","castBarStrata","DIALOG")
+    assert(cast.frame.strata=="DIALOG")
+    local exported=J.ProfileManager:Export()
+    assert(J.ProfileManager:Import(exported))
+    assert(J.ThemeManager:Resolve("playerFrame").castBarLevel==8)
+    assert(J.ThemeManager:Resolve("targetFrame").castBarLevel==1)
+    M.combat=true;J.ProfileManager:Set("playerFrame","castBarLevel",12)
+    assert(cast.config.castBarLevel==8)
+    M.combat=false;M.tick(J.Core);assert(cast.config.castBarLevel==12)
+    assert(not J.ProfileManager:Set("actionHub","castBarLevel",12))
+    chrome.forbidden=true
+    J.ProfileManager:Set("playerFrame","castBarStrata","AUTO")
+    assert(cast.frame.strata==bar.strata)
+end)

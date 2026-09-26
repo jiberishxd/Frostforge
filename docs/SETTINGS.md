@@ -26,6 +26,6 @@ The material is registered through the LibSharedMedia-3.0 already supplied by El
 
 `artwork/settings/` renders snapshots exported from the real Lua settings objects with `tools/export_settings_preview.lua`. Its Blizzard fonts and panel textures are browser approximations, and controls shown inside the pictured window are snapshots. Use the preview's top selectors to review layouts. It is not a game screenshot. No WoW automation or gameplay testing was performed.
 
-## Stock frames and separate layers (0.8.1)
+## Stock frames and separate layers (0.8.2)
 
-Player, Target and Focus have a **Blizzard** page for their stock portrait image and name label, plus a shared **Stone textures on all Blizzard health/power bars** switch. The switch starts on and remains active independently of full-shell and fill-mode choices. **Advanced** separates portrait, unit-frame and cast-border strata. [Full behavior and restoration](BLIZZARD-CONTROLS.md).
+Player, Target and Focus have a **Blizzard** page for hiding their stock portrait image or full surround and adjusting their name label, plus a shared **Stone textures on all Blizzard health/power bars** switch. The switch starts on and remains active independently of full-shell and fill-mode choices. **Advanced** separates portrait and unit-frame strata and offers a cast-border level. Cast-border strata is on **Cast bar**. [Full behavior and restoration](BLIZZARD-CONTROLS.md).

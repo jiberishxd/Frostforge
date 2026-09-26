@@ -25,7 +25,12 @@ class HubAlphaTests(unittest.TestCase):
 
     def test_reviewed_masks_preserve_art_and_registration(self):
         audit=json.loads((ROOT/'artwork/hubs/alpha-cleanup/manifest.json').read_text())
-        manifest={a['id']:a for a in json.loads((ROOT/'artwork/hubs/manifest.json').read_text())['assets']}
+        # These masks describe the previous painted silhouettes. Keep their
+        # regression audit against that retained edition during the restyle.
+        snapshot=ROOT/'artwork/hubs/style-remaster/before'
+        manifest={a['id']:a for a in json.loads((snapshot/'manifest.json').read_text())['assets']}
+        current=json.loads((ROOT/'artwork/hubs/manifest.json').read_text())['assets']
+        self.assertEqual(set(manifest),{a['id'] for a in current})
         self.assertEqual(set(audit['reviewed_hubs']),set(manifest))
         self.assertEqual(len(audit['reviewed_hubs']),42)
         for identity,r in audit['corrections'].items():
@@ -44,7 +49,7 @@ class HubAlphaTests(unittest.TestCase):
                 self.assertResamplingEquivalent(fitted,canonical)
                 encoded=Image.open(ROOT/manifest[identity]['file'])
                 self.assertResamplingEquivalent(canonical.resize((1024,512),Image.Resampling.LANCZOS),encoded)
-                self.assertEqual(encoded.tobytes(),Image.open(ROOT/'artwork/hubs/game'/f'{identity}.png').tobytes())
+                self.assertEqual(encoded.tobytes(),Image.open(snapshot/'game'/f'{identity}.png').tobytes())
 
     def test_reported_checker_holes_are_clear_and_silver_trim_survives(self):
         samples={'race_human':[(1827,267)],'race_highmountaintauren':[(123,220),(2070,257)],
