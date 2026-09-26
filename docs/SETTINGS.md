@@ -45,3 +45,7 @@ Open **Blizzard → Colors & textures**. The selected Player, Target or Focus ha
 - Open **Target / Focus → Blizzard → Buffs & debuffs...** and enable **Customize position**. X/Y move Blizzard's combined aura group; positive values move right/up. Aura order, spell tooltips and visibility remain Blizzard-controlled.
 - Open **Target / Focus → Blizzard → Cast-bar position...** for equivalent cast-bar offsets. The JUI border follows the native bar. Enable **Cast-bar border** and select the provider on **Cast bar**; its strata and level settings remain there. Moving the aura group may also move the stock cast bar when Blizzard anchors it below those auras.
 - Placement is applied outside combat, reuses native anchors without accumulating offsets, and restores on disable/reset/profile change. If Blizzard reanchors a protected region during combat, JUI reapplies its saved placement after combat.
+
+## Aura position fix (0.8.8)
+
+Target/Focus buff/debuff offsets now reapply after Blizzard's aura-anchor callback, so a native layout refresh cannot erase an out-of-combat X/Y edit before it appears. **Customize position** shows applied offsets or a waiting/error status, also available through `/jui status`. Native updates during combat retain a fresh baseline for reconciliation after combat.

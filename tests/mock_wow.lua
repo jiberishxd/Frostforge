@@ -246,8 +246,9 @@ function methods:SetScript(event,callback) writable(self); self.scripts[event]=c
 function methods:SetParent() error("No reparenting permitted") end
 function methods:SetAttribute() error("No secure attribute writes permitted") end
 function hooksecurefunc(object,method,callback)
-    assert(object.native and (object.fillTexture or object.fill or object.stockPresentation or object.stockColor),"Only stock/skin presentation hooks permitted")
-    assert(method=="SetTexture" or method=="SetAtlas" or method=="SetTexCoord" or method=="SetStatusBarTexture" or method=="SetStatusBarColor" or method=="SetTextColor" or method=="SetVertexColor" or method=="SetText")
+    local auraLayout=(object==TargetFrame or object==FocusFrame) and method=="AnchorAuraContainer"
+    assert(object.native and (object.fillTexture or object.fill or object.stockPresentation or object.stockColor or auraLayout),"Only stock/skin presentation hooks permitted")
+    assert(auraLayout or method=="SetTexture" or method=="SetAtlas" or method=="SetTexCoord" or method=="SetStatusBarTexture" or method=="SetStatusBarColor" or method=="SetTextColor" or method=="SetVertexColor" or method=="SetText")
     M.hooks=(M.hooks or 0)+1
     local original=object[method]
     object[method]=function(self,...)

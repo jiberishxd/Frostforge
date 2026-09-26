@@ -392,50 +392,95 @@ function B:TickUnit(key)
     self.status[key]=#status>0 and table.concat(status,"; ") or "Stock portrait and text restored."
 end
 
--- Target/focus expose one public aura container. Move the container only;
--- do not enumerate aura buttons or read spells, durations, or private layout.
-function B:TickPlacement(key,kind)
-    if InCombatLockdown() then return end
+-- Prefer Blizzard's public accessor; the XML child path is a fallback for
+-- clients that do not expose the mixin yet. Never inspect aura buttons/data.
+function B:PlacementRegion(root,kind)
+    if kind=="CastPosition" then return field(root,"spellbar") end
+    local getter=field(root,"GetAuraContainer")
+    if type(getter)=="function" then
+        local ok,region=pcall(getter,root)
+        if ok and usable(region) then return region end
+    end
+    return field(field(field(root,"TargetFrameContent"),"TargetFrameContentContextual"),"Auras")
+end
+
+function B:WatchAuraLayout(key,root)
+    if not usable(root) or type(field(root,"AnchorAuraContainer"))~="function" then return end
+    self.auraLayoutHooks=self.auraLayoutHooks or setmetatable({}, {__mode="k"})
+    if self.auraLayoutHooks[root] then return end
+    -- Apply after native layout, not only on our periodic scan: Blizzard's
+    -- ApplyLayout callback runs after that scan and otherwise erases X/Y.
+    hooksecurefunc(root,"AnchorAuraContainer",function()
+        local current=key=="targetFrame" and TargetFrame or FocusFrame
+        if not usable(current) or current~=root then return end
+        self:TickPlacement(key,"Auras",true)
+    end)
+    self.auraLayoutHooks[root]=true
+end
+
+function B:ApplyPlacement(key,kind,nativeAnchor)
     self.placements=self.placements or {}
     local id=key..kind;local prefix="blizzard"..kind
     local config=J.ThemeManager:Resolve(key)
-    local root=key=="targetFrame" and TargetFrame or FocusFrame
-    local content=field(root,"TargetFrameContent")
-    local region=field(field(content,"TargetFrameContentContextual"),"Auras")
-    if kind=="CastPosition" then region=field(root,"spellbar") end
     local record=self.placements[id]
-    if not record and not config[prefix.."Enabled"] then return end
-    if record and (record.region~=region or not config[prefix.."Enabled"]) then
+    if record and nativeAnchor then record.nativeAnchor=true end
+    nativeAnchor=nativeAnchor or (record and record.nativeAnchor)
+    local enabled=config[prefix.."Enabled"]
+    if not record and not enabled then self.placementStatus[id]="Blizzard position (customization off).";return end
+    if InCombatLockdown() then
+        J.Core.dirty=true;self.placementStatus[id]="Saved; placement applies after combat.";return
+    end
+    local root=key=="targetFrame" and TargetFrame or FocusFrame
+    if enabled and kind=="Auras" then self:WatchAuraLayout(key,root) end
+    local region=self:PlacementRegion(root,kind)
+    if record and (record.region~=region or not enabled) then
         local current=self:AnchorPoints(record.region)
-        if not current then return end
+        if not current then self.placementStatus[id]="Waiting to restore previous placement.";return end
         -- A native reanchor already restored its own baseline. Only undo ours.
-        if record.last and samePoints(current,record.last) then
+        if not (nativeAnchor and record.region==region) and record.last and samePoints(current,record.last) then
             record.region:ClearAllPoints()
             for _,point in ipairs(record.original) do record.region:SetPoint(unpack(point)) end
         end
         self.placements[id]=nil;record=nil
     end
-    if not config[prefix.."Enabled"] then return end
+    if not enabled then self.placementStatus[id]="Blizzard position restored.";return end
     local current=self:AnchorPoints(region)
-    if not current then return end
+    if not current then self.placementStatus[id]="Waiting for readable Blizzard anchors.";return end
     if not record then record={region=region,original=current};self.placements[id]=record end
-    -- Each native full reanchor becomes a fresh baseline, never an accumulated offset.
-    if record.last and not samePoints(current,record.last) then record.original=current end
-    local wanted=copyPoints(record.original,config[prefix.."X"],config[prefix.."Y"])
-    if record.last and samePoints(current,record.last) and record.x==config[prefix.."X"] and record.y==config[prefix.."Y"] then return end
-    if not samePoints(current,wanted) then
-        region:ClearAllPoints()
-        for _,point in ipairs(wanted) do region:SetPoint(unpack(point)) end
+    -- A native callback supplies a fresh baseline even when its coordinates
+    -- happen to equal our previous offset. Do not compound our own writes.
+    if nativeAnchor or (record.last and not samePoints(current,record.last)) then record.original=current end
+    local x,y=config[prefix.."X"],config[prefix.."Y"]
+    local wanted=copyPoints(record.original,x,y)
+    local unchanged=not nativeAnchor and record.last and samePoints(current,record.last) and record.x==x and record.y==y
+    if not unchanged then
+        if not samePoints(current,wanted) then
+            region:ClearAllPoints()
+            for _,point in ipairs(wanted) do region:SetPoint(unpack(point)) end
+        end
+        record.last=self:AnchorPoints(region) or wanted
+        record.x,record.y=x,y
     end
-    record.last=self:AnchorPoints(region) or wanted
-    record.x,record.y=config[prefix.."X"],config[prefix.."Y"]
+    record.nativeAnchor=nil
+    self.placementStatus[id]=string.format("Applied: X %g / Y %g",x,y)
+end
+
+function B:TickPlacement(key,kind,nativeAnchor)
+    self.placementStatus=self.placementStatus or {}
+    self.placementBusy=self.placementBusy or {}
+    local id=key..kind
+    if self.placementBusy[id] then return end
+    self.placementBusy[id]=true
+    local ok=J.Core:Protect(key.." stock "..kind,function() self:ApplyPlacement(key,kind,nativeAnchor) end)
+    self.placementBusy[id]=nil
+    if not ok then self.placementStatus[id]="Placement unavailable; see /jui status." end
 end
 
 function B:Tick()
     J.Core:Protect("stock colors",function() self:TickColors() end)
     for _,key in ipairs({"targetFrame","focusFrame"}) do
         for _,kind in ipairs({"Auras","CastPosition"}) do
-            J.Core:Protect(key.." stock "..kind,function() self:TickPlacement(key,kind) end)
+            self:TickPlacement(key,kind)
         end
     end
     for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
