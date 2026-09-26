@@ -33,6 +33,13 @@ for _,key in ipairs({"playerFrame","minimap","actionHub"}) do
     for _,page in ipairs({"artwork","placement","fitting","cast","blizzard","advanced","guide","profiles"}) do
         S:SetPage(page);out.pages[key.."-"..page]=snapshot()
     end
+    if key=="playerFrame" then
+        S:SetPage("blizzard")
+        for _,group in ipairs(J.BlizzardUnits.textGroups) do
+            S.textGroup=group;S:Refresh();out.pages[key.."-blizzard-"..group]=snapshot()
+        end
+        S.textGroup="Name"
+    end
 end
 S:Select("playerFrame");S:SetPage("artwork");S:ShowPortraitGroup("CLASS",1);S.picker:Show()
 out.pages.collection=snapshot();S:ShowBackup("export");out.pages.backup=snapshot()

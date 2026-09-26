@@ -480,7 +480,6 @@ function S:Create()
     self:Dropdown("strata","Portrait art strata",strata,0,-14,a)
     self:Number("level","Level within strata",346,-14,1,a)
     self:Dropdown("unitFrameStrata","Unit-frame art strata",automaticStrata,0,-108,a)
-    self:Number("castBarLevel","Cast-border level above bar",0,-202,1,a)
     self:Dropdown("layer","Texture draw layer",layers,346,-202,a)
     self:Dropdown("unitFrameFill","Health & power textures",{{"AUTO","Automatic (respect UI addon)"},{"PROVIDER","Keep provider textures"},{"JIBERISH","Use JiberishUI fills"}},346,-108,a)
     self.debugButton=toggle(a,"Show fitting bounds",0,-350,318,function() J.Core:Command("debug") end)
@@ -510,45 +509,70 @@ function S:Create()
 
     a=self.pages.cast
     self.castToggle=toggle(a,"Cast-bar border",0,0,318,function() self:Set("castBarShown",not J.ThemeManager:Resolve(self.selected).castBarShown) end)
-    text(a,"An independent, minimal surround. Native cast text, colors, icons and timing stay with your provider.",346,0,318)
+    text(a,"Native cast values, timing and text stay with your provider.",346,0,318)
     self:Dropdown("castBarSource","Cast-bar provider",hubSources,0,-50,a)
     self:Dropdown("castBarStrata","Cast-border strata",automaticStrata,346,-50,a)
+    self:Number("castBarLevel","Level above nearby artwork",346,-110,1,a)
     text(a,"Border artwork",0,-114,318,"GameFontNormal")
     self.castMatch=button(a,"Match unit artwork",0,-136,318,function() self:Set("castBarArt","MATCH") end)
-    self.castBrowse=button(a,"Choose border artwork",346,-136,318,function()
+    self.castBrowse=button(a,"Choose border artwork",0,-174,318,function()
         self:HideMenus();self:ShowCollection("cast",self.castGroup or "CLASS",self.castPage);self.castPicker:Show()
     end)
-    self:Number("castBarWeight","Border weight",0,-190,.05,a)
-    self:Number("castBarPadding","Space around the bar",346,-190,.5,a)
-    self:Number("castBarWidth","Border width (%)",0,-260,1,a)
-    self:Number("castBarHeight","Border height (%)",346,-260,1,a)
-    self.castReset=button(a,"Reset border fitting",0,-330,220,function()
+    self:Number("castBarWeight","Border weight",0,-218,.05,a)
+    self:Number("castBarPadding","Space around the bar",346,-218,.5,a)
+    self:Number("castBarWidth","Border width (%)",0,-284,1,a)
+    self:Number("castBarHeight","Border height (%)",346,-284,1,a)
+    self.castReset=button(a,"Reset border fitting",0,-346,220,function()
         self:Set("castBarWidth",100);self:Set("castBarHeight",100)
         self:Set("castBarWeight",1);self:Set("castBarPadding",1)
     end)
-    self.castStatus=text(a,"",242,-330,424)
-    text(a,"100% follows the native cast bar. Width and height adjust only the centered artwork. Automatic strata draws above native cast chrome. Advanced has a separate cast-border level. Changes apply after combat.",0,-376,666)
+    self.castStatus=text(a,"",242,-346,424)
+    text(a,"Strata and level control this border only. Automatic clears nearby frame artwork. Width and height fit the native bar. Changes apply after combat.",0,-392,666)
     self:CreateCollection("cast")
 
     a=self.pages.blizzard
     self.nativePortraitToggle=toggle(a,"Hide Blizzard portrait image",0,0,318,function() self:Set("blizzardPortraitHidden",not J.ThemeManager:Resolve(self.selected).blizzardPortraitHidden) end)
     self.nativePortraitFrameToggle=toggle(a,"Hide full Blizzard portrait",346,0,318,function() self:Set("blizzardPortraitFrameHidden",not J.ThemeManager:Resolve(self.selected).blizzardPortraitFrameHidden) end)
-    self.nativeNameToggle=toggle(a,"Customize Blizzard name",0,-56,318,function() self:Set("blizzardNameEnabled",not J.ThemeManager:Resolve(self.selected).blizzardNameEnabled) end)
-    text(a,"Full hides face, rim, level badge and shared stock border. Requires Unit-frame art enabled.",346,-56,318)
-    self:Number("blizzardNameX","Name horizontal offset",0,-112,1,a)
-    self:Number("blizzardNameY","Name vertical offset",346,-112,1,a)
-    self:Number("blizzardNameSize","Name font size",0,-188,1,a)
-    self:Dropdown("blizzardNameAlign","Name alignment",{{"LEFT","Left"},{"CENTER","Center"},{"RIGHT","Right"}},346,-188,a)
-    self:Dropdown("blizzardNameOutline","Name outline",{{"KEEP","Keep Blizzard outline"},{"NONE","None"},{"OUTLINE","Outline"},{"THICKOUTLINE","Thick outline"}},0,-270,a)
-    self.nativeReset=button(a,"Restore stock portrait & name",346,-292,318,function()
-        self:Set("blizzardPortraitHidden",false);self:Set("blizzardPortraitFrameHidden",false);self:Set("blizzardNameEnabled",false)
-        self:Set("blizzardNameX",0);self:Set("blizzardNameY",0);self:Set("blizzardNameSize",12)
-        self:Set("blizzardNameAlign","CENTER");self:Set("blizzardNameOutline","KEEP")
+    self.textGroup=self.textGroup or "Name"
+    self.textPanels={};self.textButtons={};self.textToggles={}
+    local textLabels={Name="Name",Health="Health",Power="Power",Level="Level",CastName="Cast name",CastTime="Cast time"}
+    for i,group in ipairs(J.BlizzardUnits.textGroups) do
+        local selected=group
+        self.textButtons[group]=button(a,textLabels[group],(i-1)*112,-50,104,function()
+            self:HideMenus();self.textGroup=selected;self:Refresh()
+        end,true)
+        local body=CreateFrame("Frame",nil,a);body:SetPoint("TOPLEFT",a,"TOPLEFT",0,-94);body:SetSize(666,246)
+        self.textPanels[group]=body
+        local prefix="blizzard"..group
+        self.textToggles[group]=toggle(body,"Customize "..textLabels[group]:lower(),0,0,318,function()
+            self:Set(prefix.."Enabled",not J.ThemeManager:Resolve(self.selected)[prefix.."Enabled"])
+        end)
+        text(body,"Offsets use the original Blizzard position. Hidden labels stay hidden.",346,0,318)
+        self:Number(prefix.."X","Horizontal offset",0,-50,1,body)
+        self:Number(prefix.."Y","Vertical offset",346,-50,1,body)
+        self:Number(prefix.."Size","Font size",0,-122,1,body)
+        self:Dropdown(prefix.."Align","Alignment",{{"KEEP","Keep Blizzard alignment"},{"LEFT","Left"},{"CENTER","Center"},{"RIGHT","Right"}},346,-122,body)
+        self:Dropdown(prefix.."Outline","Outline",{{"KEEP","Keep Blizzard outline"},{"NONE","None"},{"OUTLINE","Outline"},{"THICKOUTLINE","Thick outline"}},0,-196,body)
+        button(body,"Reset "..textLabels[group]:lower(),346,-218,318,function()
+            for _,suffix in ipairs({"Enabled","X","Y","Size","Align","Outline"}) do
+                self:Set(prefix..suffix,J.ThemeManager.registry[J.ProfileManager.current.theme][self.selected][prefix..suffix])
+            end
+        end)
+    end
+    self.nativeNameToggle=self.textToggles.Name
+    self.nativeReset=button(a,"Restore stock portrait & all text",346,-352,318,function()
+        self:Set("blizzardPortraitHidden",false);self:Set("blizzardPortraitFrameHidden",false)
+        for _,group in ipairs(J.BlizzardUnits.textGroups) do
+            local prefix="blizzard"..group
+            for _,suffix in ipairs({"Enabled","X","Y","Size","Align","Outline"}) do
+                self:Set(prefix..suffix,J.ThemeManager.registry[J.ProfileManager.current.theme][self.selected][prefix..suffix])
+            end
+        end
     end)
-    self.stockStoneToggle=toggle(a,"Stone textures on all Blizzard health/power bars",0,-342,520,function()
+    self.stockStoneToggle=toggle(a,"Stone on Blizzard health/power",0,-352,318,function()
         J.ProfileManager:Set("playerFrame","blizzardStone",not J.ThemeManager:Resolve("playerFrame").blizzardStone);self:Refresh()
     end)
-    self.nativeStatus=text(a,"",0,-382,666)
+    self.nativeStatus=text(a,"",0,-394,666)
 
     a=self.pages.artwork
     self.showButton=toggle(a,"Portrait art",0,0,318,function() self:Set("shown",not J.ThemeManager:Resolve(self.selected).shown) end)
@@ -605,7 +629,7 @@ function S:Refresh()
     local minimap=self.selected=="minimap"
     local hub=self.selected=="actionHub"
     local module=J.Core.modules[self.selected]
-    local headings={artwork="Artwork",placement="Placement & size",fitting="Unit-frame fitting",cast="Cast-bar border",advanced="Textures, layers & diagnostics",blizzard="Stock portrait & name",guide="Getting started"}
+    local headings={artwork="Artwork",placement="Placement & size",fitting="Unit-frame fitting",cast="Cast-bar border",advanced="Textures, layers & diagnostics",blizzard="Stock portrait & text",guide="Getting started"}
     if not unit and (self.page=="fitting" or self.page=="cast" or self.page=="blizzard") then self.page="placement" end
     self.heading:SetText(names[self.selected].."  |  "..headings[self.page])
     local hints={artwork=unit and "Choose your portrait surround and full-frame artwork independently." or "Choose a matching theme, then follow your existing UI.",
@@ -637,7 +661,11 @@ function S:Refresh()
         self.stockStoneToggle.check:SetShown(J.ThemeManager:Resolve("playerFrame").blizzardStone)
         self.nativePortraitToggle.check:SetShown(config.blizzardPortraitHidden)
         self.nativePortraitFrameToggle.check:SetShown(config.blizzardPortraitFrameHidden)
-        self.nativeNameToggle.check:SetShown(config.blizzardNameEnabled)
+        for _,group in ipairs(J.BlizzardUnits.textGroups) do
+            self.textPanels[group]:SetShown(group==self.textGroup)
+            self.textButtons[group].selection:SetShown(group==self.textGroup)
+            self.textToggles[group].check:SetShown(config["blizzard"..group.."Enabled"])
+        end
         self.nativeStatus:SetText(J.BlizzardUnits.status[self.selected] or "Stock settings unchanged. Changes and restoration apply outside combat.")
         self.styleButton.check:SetShown(config.unitFrameShown)
         self.castToggle.check:SetShown(config.castBarShown)

@@ -1,5 +1,5 @@
 local _,J=...
-local B={units={},status={}}
+local B={units={},status={},textGroups={"Name","Health","Power","Level","CastName","CastTime"},textProperties={}}
 J.BlizzardUnits=B
 J.Core.properties.blizzardPortraitHidden={boolean=true}
 J.Core.properties.blizzardPortraitFrameHidden={boolean=true}
@@ -7,8 +7,24 @@ J.Core.properties.blizzardNameEnabled={boolean=true}
 J.Core.properties.blizzardNameX={-300,300}
 J.Core.properties.blizzardNameY={-300,300}
 J.Core.properties.blizzardNameSize={6,40}
-J.Core.properties.blizzardNameAlign={LEFT=true,CENTER=true,RIGHT=true}
+J.Core.properties.blizzardNameAlign={KEEP=true,LEFT=true,CENTER=true,RIGHT=true}
 J.Core.properties.blizzardNameOutline={KEEP=true,NONE=true,OUTLINE=true,THICKOUTLINE=true}
+
+-- The original name keys stay compatible with existing character profiles.
+for _,group in ipairs(B.textGroups) do
+    local prefix="blizzard"..group
+    local rules={Enabled={boolean=true},X={-300,300},Y={-300,300},Size={6,40},
+        Align={KEEP=true,LEFT=true,CENTER=true,RIGHT=true},Outline={KEEP=true,NONE=true,OUTLINE=true,THICKOUTLINE=true}}
+    for _,suffix in ipairs({"Enabled","X","Y","Size","Align","Outline"}) do
+        local rule=rules[suffix]
+        local property=prefix..suffix
+        if not J.Core.properties[property] then
+            J.Core.properties[property]=rule
+            J.Core.propertyOrder[#J.Core.propertyOrder+1]=property
+        end
+        B.textProperties[property]=true
+    end
+end
 
 local function usable(frame) return J.Core:IsUsableFrame(frame) end
 local function field(frame,key)
@@ -33,6 +49,35 @@ function B:Regions(key)
         end
     end
     return root,portrait,name
+end
+
+function B:TextRegions(key,root,name)
+    local groups={}
+    for _,group in ipairs(self.textGroups) do groups[group]={} end
+    local function add(group,region)
+        if usable(region) and type(region.GetFont)=="function" then groups[group][region]=true end
+    end
+    add("Name",name)
+    local prefix=key=="playerFrame" and "PlayerFrame" or "TargetFrame"
+    local main=field(field(root,prefix.."Content"),prefix.."ContentMain")
+    add("Level",key=="playerFrame" and PlayerLevelText or field(main,"LevelText"))
+    local bars=J.Core.client:UnitBars(key)
+    for kind,group in pairs({health="Health",power="Power"}) do
+        local bar=bars and bars[kind]
+        for _,name in ipairs({"TextString","HealthBarText","ManaBarText","LeftText","RightText","DeadText","UnconsciousText"}) do
+            add(group,field(bar,name))
+        end
+        -- Target health labels belong to the bar container in current XML.
+        if kind=="health" then
+            local container=field(main,"HealthBarsContainer")
+            for _,name in ipairs({"HealthBarText","LeftText","RightText","DeadText","UnconsciousText"}) do add(group,field(container,name)) end
+        end
+    end
+    -- Include idle player variants so text is ready before the first cast.
+    for _,bar in ipairs(J.Core.client:CastBars(key) or {}) do
+        add("CastName",field(bar,"Text"));add("CastTime",field(bar,"CastTimeText"))
+    end
+    return groups
 end
 
 function B:PortraitDecorations(key,root)
@@ -77,7 +122,11 @@ end
 
 local function equal(a,b)
     if #a~=#b then return false end
-    for i,v in ipairs(a) do if v~=b[i] then return false end end
+    for i,v in ipairs(a) do
+        if type(v)=="number" and type(b[i])=="number" then
+            if math.abs(v-b[i])>.001 then return false end
+        elseif v~=b[i] then return false end
+    end
     return true
 end
 
@@ -103,9 +152,15 @@ local function nameState(name)
     return {font={path,size,flags or ""},align=align,points=points}
 end
 
+local function pointFor(points,anchor)
+    for _,point in ipairs(points) do if point[1]==anchor then return point end end
+end
 local function samePoints(a,b)
     if #a~=#b then return false end
-    for i,p in ipairs(a) do for j=1,5 do if p[j]~=b[i][j] then return false end end end
+    for _,point in ipairs(a) do
+        local other=pointFor(b,point[1])
+        if not other or not equal(point,other) then return false end
+    end
     return true
 end
 
@@ -120,7 +175,21 @@ local function adoptChanges(record,current)
     if not record.last then return end
     if not equal(current.font,record.last.font) then record.original.font=current.font end
     if current.align~=record.last.align then record.original.align=current.align end
-    if not samePoints(current.points,record.last.points) then record.original.points=current.points end
+    if not samePoints(current.points,record.last.points) then
+        local baseline={}
+        for i,point in ipairs(current.points) do
+            local previous=pointFor(record.last.points,point[1])
+            local original=pointFor(record.original.points,point[1])
+            -- Blizzard may replace just one anchor or coordinate. Preserve the
+            -- native baseline for every coordinate that still matches our write.
+            if previous and original and point[2]==previous[2] and point[3]==previous[3] then
+                baseline[i]={point[1],point[2],point[3],
+                    math.abs(point[4]-previous[4])<=.001 and original[4] or point[4],
+                    math.abs(point[5]-previous[5])<=.001 and original[5] or point[5]}
+            else baseline[i]={unpack(point)} end
+        end
+        record.original.points=baseline
+    end
 end
 
 local function writeName(name,current,wanted)
@@ -142,17 +211,67 @@ function B:RestoreName(record)
     return writeName(record.region,current,record.original)
 end
 
+function B:ApplyText(record,current,config,group)
+    adoptChanges(record,current)
+    local prefix="blizzard"..group
+    local original=record.original
+    local outline=config[prefix.."Outline"]
+    local flags=outline=="KEEP" and original.font[3] or outline=="NONE" and "" or outline
+    local align=config[prefix.."Align"]
+    local wanted={font={original.font[1],config[prefix.."Size"],flags},
+        align=align=="KEEP" and original.align or align,
+        points=copyPoints(original.points,config[prefix.."X"],config[prefix.."Y"])}
+    -- Engine readback can quantize anchors or font sizes. Do not use desired
+    -- floats as the next comparison baseline or mistake our own result for a
+    -- fresh Blizzard layout. Repeated ticks then need no additional writes.
+    local sameRequest=record.wanted and equal(record.wanted.font,wanted.font)
+        and record.wanted.align==wanted.align and samePoints(record.wanted.points,wanted.points)
+    local sameActual=record.last and equal(current.font,record.last.font)
+        and current.align==record.last.align and samePoints(current.points,record.last.points)
+    if sameRequest and sameActual then return end
+    if writeName(record.region,current,wanted) then
+        record.wanted=wanted
+        record.last=nameState(record.region) or wanted
+    end
+end
+
+function B:SyncText(state,groups,config,active)
+    state.text=state.text or {}
+    local wanted={}
+    for _,group in ipairs(self.textGroups) do
+        -- Player casts can be visible while the stock player frame is hidden.
+        local enabled=config["blizzard"..group.."Enabled"] and (active or group=="CastName" or group=="CastTime")
+        if enabled then for region in pairs(groups[group]) do wanted[region]=group end end
+    end
+    for region,record in pairs(state.text) do
+        if not wanted[region] and self:RestoreName(record) then state.text[region]=nil end
+    end
+    for region,group in pairs(wanted) do
+        local current=nameState(region)
+        if current then
+            local record=state.text[region] or {region=region,original=current}
+            state.text[region]=record
+            self:ApplyText(record,current,config,group)
+        end
+    end
+    -- Preserve the existing name status reference for diagnostics.
+    state.name=nil
+    for region in pairs(groups.Name) do state.name=state.text[region] end
+end
+
 function B:TickUnit(key)
     local config=J.ThemeManager:Resolve(key)
     local state=self.units[key]
-    if (not state or (not state.portrait and not state.name and not next(state.decorations or {})))
-        and not config.blizzardPortraitHidden and not config.blizzardPortraitFrameHidden and not config.blizzardNameEnabled then
-        self.status[key]="Stock portrait and name unchanged."
+    local textEnabled=false
+    for _,group in ipairs(self.textGroups) do if config["blizzard"..group.."Enabled"] then textEnabled=true end end
+    if (not state or (not state.portrait and not next(state.text or {}) and not next(state.decorations or {})))
+        and not config.blizzardPortraitHidden and not config.blizzardPortraitFrameHidden and not textEnabled then
+        self.status[key]="Stock portrait and text unchanged."
         return
     end
     if InCombatLockdown() then
         J.Core.dirty=true
-        self.status[key]="Stock portrait/name changes and restoration wait until combat ends."
+        self.status[key]="Stock portrait/text changes and restoration wait until combat ends."
         return
     end
     if not state then state={};self.units[key]=state end
@@ -182,29 +301,17 @@ function B:TickUnit(key)
             if alpha~=0 then state.portrait.alpha=alpha;portrait:SetAlpha(0) end
         end
     end
-    local customize=config.blizzardNameEnabled and active and usable(name)
-    if state.name and (not customize or state.name.region~=name) then
-        if self:RestoreName(state.name) then state.name=nil end
-    end
-    if customize and (not state.name or state.name.region==name) then
-        local current=nameState(name)
-        if current then
-            local record=state.name or {region=name,original=current}
-            state.name=record
-            adoptChanges(record,current)
-            local original=record.original
-            local flags=config.blizzardNameOutline=="KEEP" and original.font[3]
-                or config.blizzardNameOutline=="NONE" and "" or config.blizzardNameOutline
-            local wanted={font={original.font[1],config.blizzardNameSize,flags},align=config.blizzardNameAlign,
-                points=copyPoints(original.points,config.blizzardNameX,config.blizzardNameY)}
-            if writeName(name,current,wanted) then record.last=wanted end
-        end
-    end
+    self:SyncText(state,self:TextRegions(key,root,name),config,active)
     local status={}
     if config.blizzardPortraitFrameHidden then status[#status+1]=full and "Stock portrait, shared border and level badge hidden" or "Full portrait removal needs Unit-frame art enabled" end
     if config.blizzardPortraitHidden then status[#status+1]=hide and state.portrait and "Stock portrait image hidden" or "Waiting for stock portrait" end
-    if config.blizzardNameEnabled then status[#status+1]=customize and state.name and "Stock name customized" or "Waiting for stock name" end
-    self.status[key]=#status>0 and table.concat(status,"; ") or "Stock portrait and name restored."
+    local labels={Name="name",Health="health",Power="power",Level="level",CastName="cast name",CastTime="cast time"}
+    local enabled={}
+    for _,group in ipairs(self.textGroups) do
+        if config["blizzard"..group.."Enabled"] then enabled[#enabled+1]=labels[group] end
+    end
+    if #enabled>0 then status[#status+1]="Text controls: "..table.concat(enabled,", ") end
+    self.status[key]=#status>0 and table.concat(status,"; ") or "Stock portrait and text restored."
 end
 
 function B:Tick()
