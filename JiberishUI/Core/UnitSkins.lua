@@ -1,5 +1,5 @@
 local _, J = ...
-local S = { units = {}, status = {}, summary = {}, powerLayouts = {}, ellesmereLayouts = {}, watched = setmetatable({}, {__mode="k"}) }
+local S = { units = {}, status = {}, summary = {}, powerLayouts = {}, attachedLayouts = {}, watched = setmetatable({}, {__mode="k"}) }
 J.UnitSkins = S
 J.Core.properties.blizzardStone = {boolean=true}
 J.Core.properties.unitFrameShown = {boolean=true}
@@ -104,7 +104,7 @@ function S:Restore(record)
     if record.external then
         local latest=capture(record.texture)
         if not latest then return false end
-        if record.externalSelection or not isOurFill(latest) then
+        if record.externalSelection or (not isOurFill(latest) and (latest.atlas or latest.path~=record.fillPath)) then
             record.original,record.active,record.external,record.externalSelection=latest,false,false,false
             return true
         end
@@ -112,6 +112,7 @@ function S:Restore(record)
     end
     local old=record.original
     local ok=write(record,function()
+        if record.stock and old.path and type(record.bar.SetStatusBarTexture)=="function" then record.bar:SetStatusBarTexture(old.path) end
         if old.atlas then record.texture:SetAtlas(old.atlas)
         else record.texture:SetTexture(old.path) end
         record.texture:SetTexCoord(unpack(old.coords))
@@ -128,7 +129,7 @@ function S:ApplyFill(record,kind,id,overridePath)
     if record.external or not record.active then
         local latest=capture(record.texture)
         if not latest then return false end
-        if not record.active or record.externalSelection or not isOurFill(latest) then record.original=latest end
+        if not record.active or record.externalSelection or (not isOurFill(latest) and (latest.atlas or latest.path~=record.fillPath)) then record.original=latest end
         record.active,record.external,record.externalSelection=false,false,false
     end
     if record.active and record.fillPath==path then return true end
@@ -136,7 +137,9 @@ function S:ApplyFill(record,kind,id,overridePath)
     -- StatusBar's ownership of its size, fill direction and value animation.
     local loaded
     local ok=write(record,function()
-        loaded=record.texture:SetTexture(path)
+        if record.stock and type(record.bar.SetStatusBarTexture)=="function" then
+            loaded=record.bar:SetStatusBarTexture(path)
+        else loaded=record.texture:SetTexture(path) end
         record.texture:SetTexCoord(0,1,0,1)
     end)
     record.active,record.fillPath=true,path -- also restore after a partially failed write
@@ -257,8 +260,8 @@ function S:FitPowerLayout(key,bars,id,enabled)
     return true
 end
 
--- Ellesmere clips attached bars to their existing container. Reserve the
--- painted divider INSIDE the original stack; never grow or disable that clip.
+-- Reserve the painted divider inside an attached provider stack. Keep the
+-- original outer dimensions, clipping containers and parent relationships.
 local function barRect(bar)
     if not usable(bar) or type(bar.GetRect)~="function" then return end
     local x,y,w,h=bar:GetRect()
@@ -268,8 +271,8 @@ local function barRect(bar)
     return {left=x*scale,bottom=y*scale,right=(x+w)*scale,top=(y+h)*scale}
 end
 
-function S:RestoreEllesmereLayout(key)
-    local record=self.ellesmereLayouts[key]
+function S:RestoreAttachedLayout(key)
+    local record=self.attachedLayouts[key]
     if not record then return true end
     if InCombatLockdown() then J.Core.dirty=true;return false end
     for _,kind in ipairs({"health","power"}) do
@@ -280,19 +283,23 @@ function S:RestoreEllesmereLayout(key)
         local parent=item.bar:GetParent()
         if not J.Core:IsSafe(parent) then J.Core.dirty=true;return false end
         if parent==item.parent and (item.partial or sameLayout(current,item.applied)) then
-            if not J.Core:Protect(key.." Ellesmere layout restore",function() writeLayout(item.bar,item.original) end) then return false end
+            if not J.Core:Protect(key.." attached layout restore",function() writeLayout(item.bar,item.original) end) then return false end
             item.partial=false
         end
     end
-    self.ellesmereLayouts[key]=nil
+    self.attachedLayouts[key]=nil
     return true
 end
 
-function S:FitEllesmereLayout(key,bars,id,enabled)
-    local record=self.ellesmereLayouts[key]
+function S:FitAttachedLayout(key,bars,id,enabled)
+    local record=self.attachedLayouts[key]
     local health,power=bars and bars.health,bars and bars.power
+    if bars and bars.layoutReason then
+        self:RestoreAttachedLayout(key)
+        return false,bars.layoutReason
+    end
     if record and (not enabled or record.health.bar~=health or record.power.bar~=power) then
-        if not self:RestoreEllesmereLayout(key) then return false,"Layout restoration queued" end
+        if not self:RestoreAttachedLayout(key) then return false,"Layout restoration queued" end
         record=nil
     end
     if not enabled then return false end
@@ -301,10 +308,13 @@ function S:FitEllesmereLayout(key,bars,id,enabled)
         return record and record.id==id and not record.health.partial and not record.power.partial or false,"Layout queued until combat ends"
     end
     local hg,pg=geometry(health),geometry(power)
-    if not hg or not pg then return false,"Full shell needs an enabled health and power bar" end
+    if not hg or not pg then
+        self:RestoreAttachedLayout(key)
+        return false,"Full shell needs an enabled health and power bar"
+    end
     local shown,hp,pp=power:IsShown(),health:GetParent(),power:GetParent()
     if not J.Core:IsSafe(shown) or shown~=true or not usable(hp) or not usable(pp) or hp~=pp then
-        self:RestoreEllesmereLayout(key)
+        self:RestoreAttachedLayout(key)
         return false,"Shell needs attached power below health; textures only"
     end
     local current={}
@@ -312,24 +322,32 @@ function S:FitEllesmereLayout(key,bars,id,enabled)
         if type(bar.GetOrientation)=="function" then
             local direction=bar:GetOrientation()
             if not J.Core:IsSafe(direction) or direction~="HORIZONTAL" then
-                self:RestoreEllesmereLayout(key)
+                self:RestoreAttachedLayout(key)
                 return false,"Full shell needs horizontal bars; textures only"
             end
         end
         local ok,state=pcall(layoutState,bar)
-        if not ok or not state then return false,"Waiting for public Ellesmere bar layout" end
+        if not ok or not state then return false,"Waiting for public provider bar layout" end
         current[kind]=state
     end
-    if record and (record.health.partial or record.power.partial
+    local parentBounds
+    if bars.source=="ELVUI" then
+        local ok,bounds=pcall(barRect,hp)
+        if not ok or not bounds then return false,"Waiting for public ElvUI container bounds" end
+        parentBounds={w=bounds.right-bounds.left,h=bounds.top-bounds.bottom}
+    end
+    local parentChanged=record and parentBounds and record.parentBounds and
+        (math.abs(parentBounds.w-record.parentBounds.w)>.001 or math.abs(parentBounds.h-record.parentBounds.h)>.001)
+    if record and (parentChanged or record.health.partial or record.power.partial
         or not sameLayout(current.health,record.health.applied) or not sameLayout(current.power,record.power.applied)
         or hg.scale~=record.healthScale or pg.scale~=record.powerScale) then
-        if not self:RestoreEllesmereLayout(key) then return false,"Waiting to restore Ellesmere layout" end
-        return self:FitEllesmereLayout(key,bars,id,enabled)
+        if not self:RestoreAttachedLayout(key) then return false,"Waiting to restore provider layout" end
+        return self:FitAttachedLayout(key,bars,id,enabled)
     end
     if not record then
         local hok,hr=pcall(barRect,health)
         local pok,pr=pcall(barRect,power)
-        if not hok or not pok or not hr or not pr then return false,"Waiting for public Ellesmere bar bounds" end
+        if not hok or not pok or not hr or not pr then return false,"Waiting for public provider bar bounds" end
         local gap=hr.bottom-pr.top
         -- Detached/off-center/above layouts keep their geometry and receive
         -- materials only. Never drag a separately positioned resource bar.
@@ -337,26 +355,38 @@ function S:FitEllesmereLayout(key,bars,id,enabled)
             return false,"Shell needs power below health and aligned; textures only"
         end
         record={health={bar=health,parent=hp,original=current.health},power={bar=power,parent=pp,original=current.power},
-            gap=math.max(0,gap)/hg.scale,healthScale=hg.scale,powerScale=pg.scale}
-        self.ellesmereLayouts[key]=record
+            gap=math.max(0,gap)/hg.scale,healthScale=hg.scale,powerScale=pg.scale,parentBounds=parentBounds}
+        if bars.source=="ELVUI" then
+            local bounds=barRect(hp)
+            -- ElvUI anchors opposite vertical edges. SetHeight alone cannot
+            -- resize that region: use its current top-left while fitted and
+            -- restore the complete native anchor set when disabled/redrawn.
+            record.health.fittedPoints={{"TOPLEFT",hp,"TOPLEFT",(hr.left-bounds.left)/hg.scale,(hr.top-bounds.top)/hg.scale}}
+        end
+        self.attachedLayouts[key]=record
     end
     local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
     local h,p=entry.opening.health,entry.opening.power
     local total=(record.health.original.h+record.gap)*hg.scale+record.power.original.h*pg.scale
     local scale=total/(p[4]-h[2])
-    local desiredHealth={w=current.health.w,h=(h[4]-h[2])*scale/hg.scale,points=record.health.original.points}
+    local desiredHealth={w=current.health.w,h=(h[4]-h[2])*scale/hg.scale,points=record.health.fittedPoints or record.health.original.points}
     local desiredPower={w=hg.w*hg.scale/pg.scale,h=(p[4]-p[2])*scale/pg.scale,
         points={{"TOPLEFT",health,"BOTTOMLEFT",0,-(p[2]-h[4])*scale/pg.scale}}}
     for _,kind in ipairs({"health","power"}) do
         local desired=kind=="health" and desiredHealth or desiredPower
         local item=record[kind]
-        if not sameLayout(current[kind],desired) then
+        local unchanged=item.wanted and sameLayout(item.wanted,desired) and sameLayout(current[kind],item.applied)
+        if not unchanged and not sameLayout(current[kind],desired) then
             item.partial=true
-            if not J.Core:Protect(key.." Ellesmere "..kind.." fitting",function() writeLayout(item.bar,desired) end) then
-                return false,"Waiting to finish Ellesmere bar fitting"
+            if not J.Core:Protect(key.." attached "..kind.." fitting",function() writeLayout(item.bar,desired) end) then
+                return false,"Waiting to finish provider bar fitting"
             end
         end
-        item.applied,item.partial=desired,false
+        -- Record engine readback rather than treating rounded dimensions as
+        -- a provider redraw on the next tick. Keep the request separately.
+        item.wanted=desired
+        item.applied=layoutState(item.bar) or desired
+        item.partial=false
     end
     record.id=id
     return true
@@ -390,7 +420,7 @@ function S:Layout(record,key,kind,config,id,g)
     local f,t=trim.frame,trim.textures
     local old=record.geometry
     local changed=not old or old.w~=g.w or old.h~=g.h or old.scale~=g.scale or old.parentScale~=g.parentScale
-        or old.capScale~=g.capScale or old.artScale~=g.artScale or old.level~=g.level or old.strata~=g.strata
+        or old.capScale~=g.capScale or old.artScale~=g.artScale or old.anchorY~=g.anchorY or old.level~=g.level or old.strata~=g.strata
     local applied=trim.applied
     if changed or record.id~=id or not applied or applied.strata~=config.strata
         or applied.unitFrameStrata~=config.unitFrameStrata or applied.level~=config.level or applied.layer~=config.layer or applied.unitFrameWidth~=config.unitFrameWidth
@@ -413,7 +443,7 @@ function S:Layout(record,key,kind,config,id,g)
         local height=0;for _,v in ipairs(heights) do height=height+v end
         f:SetScale(g.scale/g.parentScale)
         f:SetSize((openingWidth+left+right)*sx,height)
-        f:ClearAllPoints();f:SetPoint("TOPLEFT",record.bar,"TOPLEFT",-left*sx+dx,top*sy+dy)
+        f:ClearAllPoints();f:SetPoint("TOPLEFT",record.bar,"TOPLEFT",-left*sx+dx,top*sy+dy+(g.anchorY or 0))
         -- The actual artwork must cover the native fill. Older Background /
         -- level-zero profiles are safely raised to the owning bar's layer.
         f:SetFrameStrata(shellStrata(config,g));f:SetFrameLevel(math.max(config.level,g.level+1))
@@ -456,8 +486,29 @@ function S:Layout(record,key,kind,config,id,g)
                 if texture:SetTexture(path)==false then trim.assetOK=false end
                 x=x+sizes[i]*sx
             end
+            if record.backing then
+                -- Only the empty resource opening is opaque. Keep all outside
+                -- silhouette cutouts transparent and the bevels above it.
+                record.backing:ClearAllPoints()
+                record.backing:SetPoint("TOPLEFT",f,"TOPLEFT",left*sx,0)
+                record.backing:SetSize(openingWidth*sx,heights[1])
+                record.backing:SetDrawLayer("BACKGROUND",-8)
+            else
+                -- Keep a dark well behind a visible but empty native power
+                -- bar too. Its separate layer must never cover the live fill.
+                if not trim.well then
+                    local frame=CreateFrame("Frame",nil,UIParent);frame:EnableMouse(false)
+                    local fill=frame:CreateTexture(nil,"BACKGROUND")
+                    fill:SetAllPoints(frame);fill:SetColorTexture(.025,.022,.019,1)
+                    trim.well={frame=frame,textures={fill=fill},assetOK=true}
+                end
+                local well=trim.well.frame
+                well:SetScale(g.scale/g.parentScale);well:SetSize(openingWidth*sx,heights[1])
+                well:ClearAllPoints();well:SetPoint("TOPLEFT",record.bar,"TOPLEFT",dx,dy)
+                well:SetFrameStrata(g.strata);well:SetFrameLevel(math.max(0,g.level-1))
+            end
         end
-        applied={width=(openingWidth+left+right)*sx,height=height,scale=1,x=-left*sx+dx,y=top*sy+dy,anchor="FRAME",point="TOPLEFT",relativePoint="TOPLEFT",
+        applied={width=(openingWidth+left+right)*sx,height=height,scale=1,x=-left*sx+dx,y=top*sy+dy+(g.anchorY or 0),anchor="FRAME",point="TOPLEFT",relativePoint="TOPLEFT",
             unitFrameStrata=config.unitFrameStrata,unitFrameWidth=config.unitFrameWidth,unitFrameHeight=config.unitFrameHeight,unitFrameX=config.unitFrameX,unitFrameY=config.unitFrameY,
             strata=config.strata,level=config.level,layer=config.layer,texture=path,shown=true,opacity=config.opacity,mirror=mirror}
         local snapshot={frame=record.bar,name=key.."."..kind.."Bar",scale=g.scale,visible=true,alpha=1}
@@ -481,6 +532,52 @@ function S:Visibility(record,enabled)
     end
     record.barVisible=snapshot and snapshot.visible and snapshot.alpha>0 or false
     J.Core:SyncVisibility(trim,snapshot)
+    if trim.well then
+        local well=trim.well
+        well.applied=trim.applied
+        J.Core:SyncVisibility(well,snapshot)
+    end
+end
+
+-- The footer belongs to the shell, not to the existence of a resource bar.
+-- Prepare a decoration-only lower half against health, even while power is
+-- visible, so a no-power target can keep its artwork when combat begins.
+function S:Footer(unit,key,bars,config,id,enabled)
+    local health=bars and bars.health
+    local g=geometry(health)
+    local record=unit.footer
+    if g and not InCombatLockdown() then
+        if not record then record={trim=unit.trims.footer};unit.footer=record end
+        if not record.trim then record.trim=self:CreateTrim(key,"power") end
+        if not record.backing then
+            record.backing=record.trim.frame:CreateTexture(nil,"BACKGROUND",nil,-8)
+            record.backing:SetColorTexture(.025,.022,.019,1)
+        end
+        if record.bar~=health then record.bar=health;record.geometry=nil end
+        local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
+        local h,p=entry.opening.health,entry.opening.power
+        g.capScale=g.h/(h[4]-h[2]);g.artScale=1
+        g.h=(p[4]-p[2])*g.capScale
+        g.anchorY=-(p[2]-h[2])*g.capScale
+        self:Layout(record,key,"power",config,id,g)
+        unit.trims.footer=record.trim
+    end
+    if record then self:Visibility(record,enabled and g~=nil and record.bar==health and record.id==id) end
+end
+
+local function noPower(bars)
+    if not bars or not usable(bars.health) then return false end
+    if not bars.power or bars.powerDisabled then return true end
+    if not usable(bars.power) then return false end
+    local shown=bars.power:IsShown()
+    local height=bars.power:GetHeight()
+    local alpha=bars.power:GetAlpha()
+    local healthVisible,powerVisible=bars.health:IsVisible(),bars.power:IsVisible()
+    local healthAlpha,powerAlpha=bars.health:GetEffectiveAlpha(),bars.power:GetEffectiveAlpha()
+    return (J.Core:IsSafe(shown) and shown==false) or (J.Core:IsNumber(height) and height<=0)
+        or (J.Core:IsNumber(alpha) and alpha<=0)
+        or (J.Core:IsSafe(healthVisible) and healthVisible==true and J.Core:IsSafe(powerVisible) and powerVisible==false)
+        or (J.Core:IsNumber(healthAlpha) and healthAlpha>0 and J.Core:IsNumber(powerAlpha) and powerAlpha<=0)
 end
 
 function S:TickUnit(key)
@@ -496,7 +593,8 @@ function S:TickUnit(key)
     if enabled then bars,reason=J.AddOnAnchors:UnitBars(key,config.unitFrameSource) end
     local id=J.Portraits:Resolve(config)
     local fitted,fitReason
-    local external=bars and bars.source=="ELLESMERE"
+    local healthOnly=enabled and noPower(bars)
+    local external=bars and (bars.source=="ELLESMERE" or bars.source=="ELVUI")
     -- Portrait strata no longer drives the independent shell.
     config.strata=J.ThemeManager.registry[J.ProfileManager.current.theme][key].strata
     local manageFill=(external or not self.stoneEnabled) and (config.unitFrameFill=="JIBERISH" or (config.unitFrameFill=="AUTO" and not external))
@@ -504,9 +602,14 @@ function S:TickUnit(key)
         local strata,level=bars.root:GetFrameStrata(),bars.root:GetFrameLevel()
         J.AddOnAnchors:Layer(key,config,strata,J.Core:IsNumber(level) and level+1 or nil)
         if J.Core:IsSafe(strata) and J.Core.properties.strata[strata] then config.strata=strata end
-        if self:RestorePowerLayout(key) then fitted,fitReason=self:FitEllesmereLayout(key,bars,id,enabled) end
+    end
+    if healthOnly then
+        self:RestorePowerLayout(key);self:RestoreAttachedLayout(key)
+        fitted=true -- Only artwork follows health; no resource bar is created.
+    elseif external then
+        if self:RestorePowerLayout(key) then fitted,fitReason=self:FitAttachedLayout(key,bars,id,enabled) end
     else
-        if self:RestoreEllesmereLayout(key) then fitted=self:FitPowerLayout(key,bars,id,enabled) end
+        if self:RestoreAttachedLayout(key) then fitted=self:FitPowerLayout(key,bars,id,enabled) end
     end
     if config.unitFrameStrata~="AUTO" then config.strata=config.unitFrameStrata end
     local states={}
@@ -514,6 +617,12 @@ function S:TickUnit(key)
         local bar=bars and bars[kind]
         if not usable(bar) then bar=nil end
         local record=unit[kind]
+        local fillThisBar=manageFill and not (healthOnly and kind=="power")
+        if not external then
+            local shared=J.ThemeManager:Resolve("playerFrame")
+            local selection=shared[kind=="health" and "blizzardHealthTexture" or "blizzardPowerTexture"]
+            if selection~="AUTO" or (kind=="health" and config.blizzardHealthColor=="DARK") then fillThisBar=false end
+        end
         local texture
         if bar then
             local ok,result=pcall(bar.GetStatusBarTexture,bar)
@@ -551,11 +660,11 @@ function S:TickUnit(key)
                 -- must not silently suppress the entire ornamental frame.
                 if not external or fitted then self:Layout(record,key,kind,config,id,g) end
                 unit.trims[kind]=record.trim
-                if manageFill and not record.original then
+                if fillThisBar and not record.original then
                     local original=capture(texture)
                     if original then record.original=original;self:Watch(record) end
                 end
-                if manageFill then
+                if fillThisBar then
                     record.fillReady=record.original and self:ApplyFill(record,kind,id) or false
                     record.fillManaged=true
                 elseif self:Restore(record) then
@@ -563,14 +672,14 @@ function S:TickUnit(key)
                 end
             elseif InCombatLockdown() then
                 local old=record.geometry
-                if record.fillManaged~=manageFill or (manageFill and (not record.active or record.external)) or record.id~=id or not old
+                if record.fillManaged~=fillThisBar or (fillThisBar and (not record.active or record.external)) or record.id~=id or not old
                     or old.w~=g.w or old.h~=g.h or old.scale~=g.scale or old.parentScale~=g.parentScale
                     or old.capScale~=g.capScale or old.artScale~=g.artScale or not record.trim or not record.trim.applied or record.trim.applied.strata~=config.strata
                     or record.trim.applied.unitFrameStrata~=config.unitFrameStrata or old.level~=g.level or old.strata~=g.strata or record.trim.applied.unitFrameWidth~=config.unitFrameWidth
                     or record.trim.applied.unitFrameHeight~=config.unitFrameHeight or record.trim.applied.unitFrameX~=config.unitFrameX or record.trim.applied.unitFrameY~=config.unitFrameY
                     or record.trim.applied.level~=config.level or record.trim.applied.layer~=config.layer then J.Core.dirty=true end
             end
-            self:Visibility(record,enabled and record.id==id and (not external or fitted))
+            self:Visibility(record,enabled and not (healthOnly and kind=="power") and record.id==id and (not external or fitted))
             local shellReady=record.trim and record.trim.assetOK and (not external or fitted)
             states[#states+1]=kind..(shellReady and
                 (record.fillReady and ": shell + texture" or ": shell; native fill retained") or
@@ -578,8 +687,10 @@ function S:TickUnit(key)
                 ..(shellReady and not record.barVisible and " (native bar hidden)" or "")
         elseif record then self:Visibility(record,false) end
     end
+    self:Footer(unit,key,bars,config,id,enabled and healthOnly)
     if enabled then
         self.status[key]=#states>0 and ((bars.name or "Blizzard")..": "..table.concat(states,"; ")) or reason or "Waiting for unit-frame bars"
+        if healthOnly then self.status[key]=self.status[key].."; complete artwork follows health (no power bar)" end
         if not fitted and bars and (external or bars.power) then self.status[key]=(fitReason or "Waiting to fit power-bar spacing").."; "..self.status[key] end
         if InCombatLockdown() and J.Core.dirty then self.status[key]="Changes queued until combat ends" end
         if bars then
@@ -592,74 +703,102 @@ end
 -- Shared stone on Blizzard's existing health/power regions. Discovery is
 -- limited to stock roots and their own party/raid registries, never nameplates
 -- or third-party frames. No health, power, unit identity or progress is read.
-function S:StockBars()
-    local bars={}
-    local function add(bar)
-        if usable(bar) and type(bar.GetStatusBarTexture)=="function" then bars[bar]=true end
+function S:StockUnits()
+    local units={}
+    local function add(root,key,token)
+        if usable(root) then units[root]={root=root,key=key,unit=token} end
     end
-    local function unit(frame)
-        if not usable(frame) then return end
-        for _,field in ipairs({"healthbar","manabar","healthBar","powerBar"}) do add(frame[field]) end
+    for key,root in pairs({playerFrame=PlayerFrame,targetFrame=TargetFrame,focusFrame=FocusFrame}) do
+        add(root,key,key:gsub("Frame",""))
     end
-    for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
-        local found=J.Core.client:UnitBars(key)
-        if found then add(found.health);add(found.power) end
-    end
-    for _,name in ipairs({"PetFrame","TargetFrameToT","FocusFrameToT"}) do unit(_G[name]) end
-    for i=1,5 do unit(_G["Boss"..i.."TargetFrame"]) end
+    for _,name in ipairs({"PetFrame","TargetFrameToT","FocusFrameToT"}) do add(_G[name]) end
+    for i=1,5 do add(_G["Boss"..i.."TargetFrame"]) end
+    local function party(frame) add(frame,"party");if usable(frame) then add(frame.PetFrame,"party") end end
     if usable(PartyFrame) then
         local pool=PartyFrame.PartyMemberFramePool
         if J.Core:IsSafe(pool) and type(pool)=="table" and type(pool.EnumerateActive)=="function" then
-            for frame in pool:EnumerateActive() do
-                if usable(frame) then unit(frame);unit(frame.PetFrame) end
-            end
+            for frame in pool:EnumerateActive() do party(frame) end
         end
     end
     if usable(CompactPartyFrame) then
         for _,key in ipairs({"memberUnitFrames","petUnitFrames"}) do
             local list=CompactPartyFrame[key]
             if J.Core:IsSafe(list) and type(list)=="table" then
-                for i=1,5 do unit(list[i]) end
+                for i=1,5 do party(list[i]) end
             end
         end
     end
     if usable(CompactRaidFrameContainer) and type(CompactRaidFrameContainer.ApplyToFrames)=="function" then
-        CompactRaidFrameContainer:ApplyToFrames("all",unit)
+        CompactRaidFrameContainer:ApplyToFrames("all",party)
+    end
+    return units
+end
+
+function S:StockBars(units)
+    local bars={}
+    for root,info in pairs(units or self:StockUnits()) do
+        local function add(bar,kind)
+            if usable(bar) and type(bar.GetStatusBarTexture)=="function" then
+                bars[bar]={root=root,key=info.key,unit=info.unit,kind=kind}
+            end
+        end
+        for _,field in ipairs({"healthbar","healthBar","HealthBar"}) do add(root[field],"health") end
+        for _,field in ipairs({"manabar","powerBar","ManaBar"}) do add(root[field],"power") end
+        if info.key and info.key~="party" then
+            local found=J.Core.client:UnitBars(info.key)
+            if found then add(found.health,"health");add(found.power,"power") end
+        end
     end
     return bars
 end
 
-function S:TickStockStone(enabled)
+function S:StockTexture(info,configs)
+    local shared=configs and configs.playerFrame or J.ThemeManager:Resolve("playerFrame")
+    local selection=shared[info.kind=="health" and "blizzardHealthTexture" or "blizzardPowerTexture"]
+    local healthMode=info.key=="party" and shared.blizzardPartyHealthColor
+        or info.key and (configs and configs[info.key] or J.ThemeManager:Resolve(info.key)).blizzardHealthColor
+    if info.kind=="health" and healthMode=="DARK" then return J.Media.stone end
+    if selection=="STONE" or (selection=="AUTO" and shared.blizzardStone) then return J.Media.stone end
+    if selection=="SMOOTH" then return "Interface\\Buttons\\WHITE8X8" end
+end
+
+function S:TickStockStone(restoreOnly,bars,configs)
     self.stockRecords=self.stockRecords or {}
     if InCombatLockdown() then J.Core.dirty=true;return end
-    local bars=enabled and self:StockBars() or {}
+    bars=bars or self:StockBars()
+    for bar,info in pairs(bars) do if not self:StockTexture(info,configs) then bars[bar]=nil end end
     for bar,record in pairs(self.stockRecords) do
         local texture=bars[bar] and usable(bar) and bar:GetStatusBarTexture()
         if not bars[bar] or texture~=record.texture then
             if self:Restore(record) then self:Retire(record);self.stockRecords[bar]=nil end
         end
     end
+    if restoreOnly then return end
     local ready=0
-    for bar in pairs(bars) do
+    for bar,info in pairs(bars) do
         local texture=bar:GetStatusBarTexture()
         local record=self.stockRecords[bar]
         if not record and usable(texture) then
             local original=capture(texture)
             if original then
-                record={bar=bar,texture=texture,original=original}
+                record={bar=bar,texture=texture,original=original,stock=true}
                 self.stockRecords[bar]=record;self:Watch(record)
             end
         end
-        if record and record.texture==texture and self:ApplyFill(record,"health","CLASS_PALADIN",J.Media.stone) then ready=ready+1 end
+        if record and record.texture==texture and self:ApplyFill(record,info.kind,"CLASS_PALADIN",self:StockTexture(info,configs)) then ready=ready+1 end
     end
-    self.stockStatus=enabled and ("Stone on "..ready.." stock health/power bars; new bars update outside combat.") or "Stock-wide stone off."
+    self.stockStatus="Custom textures on "..ready.." stock bars; health and power choices are independent."
 end
 
 function S:Tick()
-    self.stoneEnabled=J.ThemeManager:Resolve("playerFrame").blizzardStone
-    if not self.stoneEnabled then J.Core:Protect("stock stone restoration",function() self:TickStockStone(false) end) end
+    local configs={}
+    for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do configs[key]=J.ThemeManager:Resolve(key) end
+    self.stoneEnabled=configs.playerFrame.blizzardStone
+    local bars
+    if not InCombatLockdown() then J.Core:Protect("stock bar discovery",function() bars=self:StockBars() end) end
+    J.Core:Protect("stock stone restoration",function() self:TickStockStone(true,bars,configs) end)
     for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
         J.Core:Protect(key.." skin",function() self:TickUnit(key) end)
     end
-    if self.stoneEnabled then J.Core:Protect("stock stone",function() self:TickStockStone(true) end) end
+    J.Core:Protect("stock stone",function() self:TickStockStone(false,bars,configs) end)
 end

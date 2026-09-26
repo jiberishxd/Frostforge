@@ -13,11 +13,12 @@ local function readable(self)
     M.reads = (M.reads or 0) + 1
 end
 local function writable(self,geometry)
-    if self.native and (self.powerLayoutBar or self.euiLayoutBar) and geometry then
+    if self.native and (self.powerLayoutBar or self.euiLayoutBar or self.elvLayoutBar) and geometry then
         readable(self)
         assert(not M.combat,"Native power layout written in combat")
         M.nativeLayoutWrites=(M.nativeLayoutWrites or 0)+1
         if self.euiLayoutBar then M.euiLayoutWrites=(M.euiLayoutWrites or 0)+1 end
+        if self.elvLayoutBar then M.elvLayoutWrites=(M.elvLayoutWrites or 0)+1 end
         return
     end
     if self.native and self.stockPresentation then
@@ -124,7 +125,8 @@ function methods:SetAtlas(value) appearance(self);self.atlas=value;self.path="at
 function methods:GetStatusBarTexture() readable(self); return self.fill end
 function methods:SetStatusBarTexture(value)
     assert(self.native and self.fill);assert(not M.combat)
-    self.fill:SetTexture(value)
+    self.selectedTexture=value;self.fill:SetTexture(value)
+    return not M.missingTexture
 end
 function methods:SetTexture(value)
     appearance(self)
@@ -150,6 +152,18 @@ function methods:CreateTexture(_,layer)
     self.regions[#self.regions+1]=texture
     return texture
 end
+function methods:CreateMaskTexture(_,layer)
+    readable(self);assert(not M.combat,"Native effect mask created in combat")
+    M.masks=(M.masks or 0)+1
+    local mask=object("MaskTexture",self);mask.layer=layer
+    return mask
+end
+function methods:AddMaskTexture(mask)
+    writable(self);self.masks=self.masks or {};self.masks[mask]=true
+end
+function methods:RemoveMaskTexture(mask)
+    writable(self);if self.masks then self.masks[mask]=nil end
+end
 function methods:CreateFontString(_,_,fontObject)
     writable(self)
     M.fonts=M.fonts+1
@@ -164,7 +178,18 @@ function methods:SetText(text)
     if changed and self.scripts.OnTextChanged then self.scripts.OnTextChanged(self,false) end
 end
 function methods:GetText() return self.text end
-function methods:SetTextColor(...) writable(self); self.color={...} end
+local function colorWrite(self)
+    readable(self)
+    if self.native then
+        assert(self.stockColor or self.stockPresentation or self.fill,"Unexpected color target")
+        M.colorWrites=(M.colorWrites or 0)+1
+    else writable(self) end
+end
+function methods:SetTextColor(...) colorWrite(self);self.color={...} end
+function methods:GetTextColor() readable(self);return unpack(self.color or {1,.82,0,1}) end
+function methods:SetVertexColor(...) colorWrite(self);self.color={...} end
+function methods:GetStatusBarColor() readable(self);return unpack(self.barColor or {0,1,0,1}) end
+function methods:SetStatusBarColor(...) colorWrite(self);self.barColor={...} end
 function methods:SetJustifyH(value) writable(self); self.justify=value end
 function methods:SetAutoFocus(value) writable(self); self.autoFocus=value end
 function methods:GetFont() readable(self);return unpack(self.font or {"Fonts/FRIZQT__.TTF",12,"OUTLINE"}) end
@@ -207,8 +232,8 @@ function methods:SetScript(event,callback) writable(self); self.scripts[event]=c
 function methods:SetParent() error("No reparenting permitted") end
 function methods:SetAttribute() error("No secure attribute writes permitted") end
 function hooksecurefunc(object,method,callback)
-    assert(object.native and (object.fillTexture or object.fill),"Only skin presentation hooks permitted")
-    assert(method=="SetTexture" or method=="SetAtlas" or method=="SetTexCoord" or method=="SetStatusBarTexture")
+    assert(object.native and (object.fillTexture or object.fill or object.stockPresentation or object.stockColor),"Only stock/skin presentation hooks permitted")
+    assert(method=="SetTexture" or method=="SetAtlas" or method=="SetTexCoord" or method=="SetStatusBarTexture" or method=="SetStatusBarColor" or method=="SetTextColor" or method=="SetVertexColor" or method=="SetText")
     M.hooks=(M.hooks or 0)+1
     local original=object[method]
     object[method]=function(self,...)
@@ -266,6 +291,7 @@ FocusFrameToT=nil
 for i=1,5 do _G["Boss"..i.."TargetFrame"]=nil end
 PlayerName=nil
 PlayerLevelText=nil
+RAID_CLASS_COLORS={PALADIN={r=.96,g=.55,b=.73},MAGE={r=.25,g=.78,b=.92},ROGUE={r=1,g=.96,b=.41},HUNTER={r=.67,g=.83,b=.45}}
 LibStub=nil
 for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do
     for _,unit in ipairs({"Player","Target","Focus"}) do _G[prefix..unit]=nil end

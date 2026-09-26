@@ -16,7 +16,7 @@ Start with `/jui` for the visual settings window. These commands offer the same 
 
 Components: `playerFrame`, `targetFrame`, `focusFrame`, `minimap`, `actionHub`.
 
-Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `unitFrameWidth`/`unitFrameHeight` (75–150%), `unitFrameX`/`unitFrameY` (−512–512 UI units, default 0), `unitFrameFill` (AUTO/PROVIDER/JIBERISH), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE), and `unitFrameSource` (AUTO/BLIZZARD/ELLESMERE). Cast-border properties are `castBarShown`, `castBarSource` (AUTO/BLIZZARD/ELLESMERE/ELVUI), `castBarArt` (MATCH or a catalog ID), `castBarWeight` (0.5–2) `castBarPadding` (0–8), and `castBarWidth`/`castBarHeight` (50–150%, default 100). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
+Properties: width/height (16–2048), X/Y (−2048–2048), scale (0.25–3), opacity, shown, anchor (FRAME/SCREEN), anchor points, strata, frame level (0–128), and texture layer. Minimap additionally exposes `minimapMode` (CLASS/RACE/FACTION/FIXED) and a catalog `minimap` ID. Action hub additionally exposes `hubMode` (CLASS/RACE/FACTION/FIXED) and a catalog `hub` ID. Portrait components additionally expose `unitFrameShown` (on/off; legacy `unitStyle` commands are still accepted), `unitFrameWidth`/`unitFrameHeight` (75–150%), `unitFrameX`/`unitFrameY` (−512–512 UI units, default 0), `unitFrameFill` (AUTO/PROVIDER/JIBERISH), `portraitMode` (CLASS/RACE/FACTION/FIXED), a catalog `portrait` ID, and `portraitSource` (AUTO/BLIZZARD/BLINKII/MMT/ELVUI/ELLESMERE), and `unitFrameSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE). Cast-border properties are `castBarShown`, `castBarSource` (AUTO/BLIZZARD/ELLESMERE/ELVUI), `castBarArt` (MATCH or a catalog ID), `castBarWeight` (0.5–2) `castBarPadding` (0–8), and `castBarWidth`/`castBarHeight` (50–150%, default 100). The action hub also supports `hubSource` (AUTO/BLIZZARD/ELVUI/ELLESMERE).
 
 ```text
 /jf set playerFrame unitFrameShown on
@@ -69,3 +69,18 @@ All six text groups use the same suffixes: `Enabled`, `X`, `Y`, `Size`, `Align`,
 /jui set playerFrame blizzardCastTimeEnabled on
 /jui set playerFrame blizzardCastTimeX 6
 ```
+
+ElvUI full unit-frame artwork (0.8.5), with attached full-width power below health:
+
+```text
+/jui set playerFrame unitFrameSource ELVUI
+/jui set playerFrame unitFrameShown on
+/jui set targetFrame unitFrameSource ELVUI
+/jui set targetFrame unitFrameShown on
+/jui set focusFrame unitFrameSource ELVUI
+/jui set focusFrame unitFrameShown on
+```
+
+Keep `unitFrameFill AUTO` to retain ElvUI's selected textures; choose JiberishUI Stone in ElvUI's texture menu if desired.
+
+Stock styling keys: per-unit `blizzardNameColor STOCK|CLASS`, `blizzardHealthColor STOCK|CLASS|DARK`; Player-scoped shared `blizzardPartyNameColor`, `blizzardPartyHealthColor`, `blizzardHealthTexture AUTO|STOCK|STONE|SMOOTH` and `blizzardPowerTexture AUTO|STOCK|STONE|SMOOTH`. The Blizzard Colors & textures dialog is the recommended way to edit them.

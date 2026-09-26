@@ -27,7 +27,7 @@ Test Retail and Forever separately where the upstream addons run. Test ElvUI alo
 
 1. Keep Player/Target/Focus on Blizzard sources. Test Portrait art and Unit-frame art independently on each tab; existing portrait dimensions/offsets and other units must not change.
 2. Switch class, race, faction and fixed choices. Check the sculpted shell and both functional openings follow native edges without covering names, level badges, percentages, prediction/absorb overlays, auras or class resources. Resize native frames at multiple UI scales; no per-theme X/Y correction should be needed.
-3. Lose/gain health and power, change mana/rage/energy type, target dead/NPC/friendly/hostile units and enter/exit vehicles. Fill proportions, native color semantics, tooltips, right-click menus and secure clicks must remain correct. Native hidden bars hide their shell half.
+3. Lose/gain health and power, change mana/rage/energy type, target dead/NPC/friendly/hostile units and enter/exit vehicles. Fill proportions, native color semantics, tooltips, right-click menus and secure clicks must remain correct. Hidden power keeps complete artwork and an opaque dark empty opening; hidden health/root hides the entire shell.
 4. Toggle each artwork setting, reset, import profiles, change source and enter/exit combat. All native appearance and power-layout writes defer. Check thick separator clearance and continuous shoulders. Confirm switching off restores the latest native texture and original power-bar points/size, including after a vehicle or resource redraw. Check /reload and a full restart with the mode on/off.
 5. Turn on /jf debug and inspect the two additional health/power shell bounds per opted-in unit. Inspect target/focus clearing, native fades, forbidden/missing children and replacement texture regions. No taint or secret-value errors are acceptable.
 
@@ -71,3 +71,18 @@ Follow the manual checklist in [CAST-BARS.md](CAST-BARS.md) on Blizzard, Ellesme
 2. On **Blizzard**, test all six label selectors. Enable customization, adjust X and Y repeatedly in both directions and return to zero. Test font size/alignment/outline separately. Unchanged labels should stay put, and the health/power center/left/right variants should move together. Only existing visible native labels should appear.
 3. Change target, UI scale and Blizzard layout; start/stop a cast. Offsets should remain relative to the original layout with no accumulated movement. Disable or reset one group, then restore all stock portrait/text controls. Fonts and positions should return to the current Blizzard defaults. Full portrait removal still hides its level badge.
 4. Adjust and reset in combat, then leave combat. Settings must apply afterward without blocked actions. Verify character profiles and backup round trips retain the separate label and cast-layer choices.
+
+## 0.8.5 ElvUI full shells (user-run)
+
+1. Use ElvUI with attached full-width power below horizontal health. In `/jui` select each of Player, Target and Focus, enable **Unit-frame art**, and choose **ElvUI** or Automatic as its provider. Portraits may be disabled or supplied separately. Check the full shell appears, its divider fits between the bars and values/clicks/labels remain functional.
+2. Retain **Automatic (respect UI addon)** fill mode and choose textures in ElvUI. Confirm those choices remain; optionally select JiberishUI Stone there. Explicit JiberishUI fills should restore the latest provider selection when disabled.
+3. Resize/move frames and switch ElvUI profiles, resources and targets. Turn artwork off and verify original health/power anchors and total size return. Test all artwork categories and independent fitting controls.
+4. Try detached, inset, mini/spaced, offset and vertical power layouts: the shell should hide with a diagnostic, leaving the new ElvUI layout alone. Return to full-width attached power and confirm recovery. Check hidden/auto-hidden power and missing targets.
+5. Test login, reload, first target/focus appearance, combat transitions and saved character profiles. No blocked actions or secure-value errors are acceptable. Fitting/restoration wait until combat ends. Capture `/jui status` if your layout differs.
+
+## 0.8.5 stock styling and no-power regression checks (user-run)
+
+1. On Retail and Forever with stock Blizzard frames, choose Stone/Smooth/Blizzard independently for health and power. Repeat with shell art off/on. Confirm values, prediction overlays, class/resource colors and clicks remain functional.
+2. Choose class-colored names and health on Player/Target/Focus and party/raid; switch between different player classes and NPCs, regroup and change combat state. NPC class mode keeps native colors. Dark stone affects health only. Switch back to Blizzard to restore defaults.
+3. With full portrait removal and shell enabled, rest, enter combat and receive damage/healing. No resting animation, combat pulse, attack badge or portrait feedback should remain. Restore the option outside combat and verify normal effects return.
+4. Target a powerless creature/city NPC and a power-using unit, including transitions during combat. Verify the complete bottom artwork, dark empty opening, no fake power bar, original footer proportions, and no black backing covering real resource fill.
