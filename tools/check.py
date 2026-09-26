@@ -32,9 +32,9 @@ def source_checks():
         code = (ROOT / "JiberishUI" / name).read_text()
         code = re.sub(r"--[^\n]*", "", code)
         # Only the opt-in skin renderer may restore an existing fill atlas.
-        rules = forbidden.replace("|SetAtlas", "") if name == "Core/UnitSkins.lua" else forbidden
+        rules = forbidden.replace("|SetAtlas", "").replace("|SetStatusBarTexture", "") if name == "Core/UnitSkins.lua" else forbidden
         assert not re.search(rules, code), name
-        if name != "Core/UnitSkins.lua":
+        if name not in {"Core/UnitSkins.lua", "Core/BlizzardUnits.lua"}:
             assert not re.search(r"\bhooksecurefunc\s*\(", code), name
         assert not re.search(r"\b(PlayerFrame|TargetFrame|FocusFrame|MainActionBar|Minimap|UIParent)\s*[:.]\s*Set\w*\s*\(", code), name
         if name == "Core/CastBars.lua":

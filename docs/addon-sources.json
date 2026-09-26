@@ -30,8 +30,33 @@
         {
           "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI/Game/Shared/Modules/ActionBars/ActionBars.lua",
           "sha256": "2bb5eee9a05302129002d8f43488a6951bb40a186ac652c5cd964adf18d5ce52"
+        },
+        {
+          "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI/Game/Shared/Modules/UnitFrames/UnitFrames.lua",
+          "sha256": "011f796b0f9679556bfa48d82ec5487d944119560ba6d5b54e58e7bdeb04a209"
+        },
+        {
+          "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI/Game/Shared/Modules/UnitFrames/Elements/Health.lua",
+          "sha256": "fe19c775faaa09a9c759d52be71b55cde3832dc1127fe022468bacd01347028c"
+        },
+        {
+          "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI/Game/Shared/Modules/UnitFrames/Elements/Power.lua",
+          "sha256": "08f3a36d62ab400bf7511f35eeb370b00681fdda8ba91ab855852bab430b7f05"
+        },
+        {
+          "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI/Game/Shared/Modules/UnitFrames/Units/Player.lua",
+          "sha256": "31632a18507aa11b3361dd31681c5da66334214fdba78fd11f7ea53838959790"
+        },
+        {
+          "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI/Game/Shared/Modules/UnitFrames/Units/Target.lua",
+          "sha256": "8bb607971d5c68d94544b99eff07916960aceb239b7cab8d4b322561c9955793"
+        },
+        {
+          "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI/Game/Shared/Modules/UnitFrames/Units/Focus.lua",
+          "sha256": "887e8870cd94fd8d47bc0cd9eefef91a0e4d6f8f1a0bb5b284dd49be2b456aa6"
         }
-      ]
+      ],
+      "unit_frame_shells_inspected_on": "2026-09-25"
     },
     {
       "project": "EllesmereGaming/EllesmereUI",

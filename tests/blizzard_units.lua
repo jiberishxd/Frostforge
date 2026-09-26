@@ -249,3 +249,76 @@ test("text selectors and backups retain each label's separate setup",function(M)
     S.nativeReset.scripts.OnClick()
     for _,group in ipairs(J.BlizzardUnits.textGroups) do assert(not J.ThemeManager:Resolve("playerFrame")["blizzard"..group.."Enabled"]) end
 end)
+
+for _,interface in ipairs({120100,16001}) do
+    test("full portrait removal survives resting combat flashes and feedback on "..interface,function(M)
+        local J=M.load({interface=interface})
+        local root,portrait,name=J.BlizzardUnits:Regions("playerFrame")
+        local content=root.PlayerFrameContent;local main=content.PlayerFrameContentMain
+        local context=M.region(content,"Frame",232,100);content.PlayerFrameContentContextual=context
+        local function region(parent,kind)
+            local r=M.region(parent,kind,40,40);r.stockPresentation=true;return r
+        end
+        local rest=region(context,"Frame");rest.alpha=.8;context.PlayerRestLoop=rest
+        local restTexture=region(rest,"Texture")
+        local hit=region(main,"Frame");hit.alpha=.6;main.HitIndicator=hit
+        local hitText=region(hit,"FontString")
+        local attack=region(context,"Texture");context.AttackIcon=attack
+        local flash=region(root.PlayerFrameContainer,"Texture");root.PlayerFrameContainer.FrameFlash=flash
+        local status=region(main,"Texture");main.StatusTexture=status
+        local nativeMask={};flash.masks={[nativeMask]=true}
+        J.ProfileManager:Set("playerFrame","unitFrameShown",true)
+        J.ProfileManager:Set("playerFrame","blizzardPortraitHidden",true)
+        assert(rest.alpha==.8 and hit.alpha==.6 and not M.masks,"Image-only option hid independent effects")
+        J.ProfileManager:Set("playerFrame","blizzardPortraitFrameHidden",true)
+        assert(rest.alpha==0 and hit.alpha==0 and attack.alpha==0)
+        local state=J.BlizzardUnits.units.playerFrame
+        for _,texture in ipairs({flash,status}) do
+            local record=state.effectMasks[texture]
+            assert(record.active and texture.masks[record.mask] and record.mask.color[4]==0)
+            assert(record.mask.allPoints==texture)
+        end
+        assert(flash.masks[nativeMask],"Native mask replaced")
+        local writes,masks=M.stockWrites,M.masks
+        for i=1,5 do M.tick(J.Core) end
+        assert(M.stockWrites==writes and M.masks==masks)
+        -- Engine animation/redraw, not addon writes. Parent suppression and
+        -- attached masks survive Show/alpha/color/atlas changes in combat.
+        M.combat=true;rest.shown=true;restTexture.alpha=1;hitText.alpha=1
+        flash.alpha=.85;status.alpha=.9;status.color={1,0,0,1};flash.atlas="Vehicle-Combat-Flash"
+        M.tick(J.Core)
+        assert(restTexture:GetEffectiveAlpha()==0 and hitText:GetEffectiveAlpha()==0)
+        assert(flash.masks[state.effectMasks[flash].mask] and status.masks[state.effectMasks[status].mask])
+        assert(name.alpha==1 and portrait.alpha==0 and M.stockWrites==writes and M.masks==masks)
+        J.ProfileManager:Set("playerFrame","blizzardPortraitFrameHidden",false)
+        assert(rest.alpha==0 and state.effectMasks[flash].active)
+        M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+        near(rest.alpha,.8);near(hit.alpha,.6);near(attack.alpha,1)
+        near(flash.alpha,.85);near(status.alpha,.9)
+        assert(flash.atlas=="Vehicle-Combat-Flash" and flash.masks[nativeMask])
+        assert(not state.effectMasks[flash].active and not flash.masks[state.effectMasks[flash].mask])
+        for i=1,4 do
+            J.ProfileManager:Set("playerFrame","blizzardPortraitFrameHidden",true)
+            J.ProfileManager:Set("playerFrame","blizzardPortraitFrameHidden",false)
+        end
+        assert(M.masks==masks,"Effect masks leaked on toggles")
+        assert(not next(J.Core.notices),next(J.Core.notices))
+    end)
+end
+
+test("target and focus flash masks defer forbidden restoration and recover",function(M)
+    local J=M.load()
+    for _,key in ipairs({"targetFrame","focusFrame"}) do
+        local root=J.BlizzardUnits:Regions(key)
+        local flash=M.region(root.TargetFrameContainer,"Texture",232,100);flash.stockPresentation=true
+        root.TargetFrameContainer.Flash=flash
+        J.ProfileManager:Set(key,"unitFrameShown",true)
+        flash.forbidden=true;J.ProfileManager:Set(key,"blizzardPortraitFrameHidden",true)
+        local state=J.BlizzardUnits.units[key];assert(not state.effectMasks[flash])
+        flash.forbidden=false;M.tick(J.Core);assert(state.effectMasks[flash].active)
+        flash.forbidden=true;J.ProfileManager:Set(key,"blizzardPortraitFrameHidden",false)
+        assert(state.effectMasks[flash].active)
+        flash.forbidden=false;M.tick(J.Core);assert(not state.effectMasks[flash].active and flash.alpha==1)
+    end
+    assert(not next(J.Core.notices),next(J.Core.notices))
+end)

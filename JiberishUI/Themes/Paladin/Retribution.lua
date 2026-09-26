@@ -24,7 +24,7 @@ local theme={
         strata = "BACKGROUND", level = 0, layer = "BACKGROUND", opacity = 1, shown = true,
     },
     playerFrame = {
-        blizzardStone = true,
+        blizzardStone = true, blizzardPartyNameColor="STOCK", blizzardPartyHealthColor="STOCK", blizzardHealthTexture="AUTO", blizzardPowerTexture="AUTO",
         texture = J.PortraitCatalog.entries.CLASS_PALADIN.texture,
         unit = "player", portraitMode = "CLASS", portrait = "CLASS_PALADIN", unitFrameShown = false, unitFrameFill = "AUTO", unitFrameWidth = 100, unitFrameHeight = 100, unitFrameInset = 0, unitFrameX = 0, unitFrameY = 0, unitFrameSource = "AUTO", portraitSource = "AUTO",
         castBarShown = false, castBarSource = "AUTO", castBarStyle = "CAPPED", castBarArt = "MATCH", castBarWeight = 1, castBarPadding = 1, castBarWidth = 100, castBarHeight = 100, castBarStrata = "AUTO", castBarLevel = 1, unitFrameStrata = "AUTO",
@@ -61,6 +61,7 @@ local theme={
     },
 }
 for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
+    theme[key].blizzardNameColor="STOCK";theme[key].blizzardHealthColor="STOCK"
     for _,group in ipairs(J.BlizzardUnits.textGroups) do
         local prefix="blizzard"..group
         for suffix,value in pairs({Enabled=false,X=0,Y=0,Size=12,Align="KEEP",Outline="KEEP"}) do
