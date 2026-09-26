@@ -1,6 +1,6 @@
 local addonName, J = ...
 local Core = {
-    version = "0.8.7",
+    version = "0.8.8",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
     propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset", "unitFrameX", "unitFrameY", "castBarShown", "castBarSource", "castBarStyle", "castBarArt", "castBarWeight", "castBarPadding", "castBarWidth", "castBarHeight", "unitFrameStrata", "castBarStrata", "castBarLevel", "blizzardPortraitHidden", "blizzardPortraitFrameHidden", "blizzardNameEnabled", "blizzardNameX", "blizzardNameY", "blizzardNameSize", "blizzardNameAlign", "blizzardNameOutline", "blizzardStone" },
@@ -374,6 +374,7 @@ function Core:Status()
     if J.UnitSkins.stockStatus then self:Print(J.UnitSkins.stockStatus) end
     if J.BlizzardUnits then
         for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do self:Print(key.." stock appearance: "..(J.BlizzardUnits.status[key] or "unchanged")) end
+        for key,message in pairs(J.BlizzardUnits.placementStatus or {}) do self:Print(key.." placement: "..message) end
     end
     for key, message in pairs(self.notices) do self:Print(key .. ": " .. message) end
     if self.client and self.client.id == "forever" then
