@@ -1,5 +1,5 @@
 -- Deliberately limited offline host. This does not simulate WoW's secure engine.
-local M = {frames={},objects={},textures=0,fonts=0,nativeWrites=0,geometryWrites=0,writes=0,combat=false,messages={}}
+local M = {frames={},objects={},textures=0,fonts=0,nativeWrites=0,geometryWrites=0,writes=0,combat=false,messages={},atlasUVs={}}
 local methods = {}
 local function object(kind,parent,name)
     local self = setmetatable({kind=kind,parent=parent,name=name,w=100,h=30,scale=1,alpha=1,
@@ -121,7 +121,10 @@ function methods:GetTexCoord()
 end
 function methods:GetAtlas() readable(self); return self.atlas end
 function methods:GetTexture() readable(self); return self.path end
-function methods:SetAtlas(value) appearance(self);self.atlas=value;self.path="atlas-file" end
+function methods:SetAtlas(value)
+    appearance(self);self.atlas=value;self.path="atlas-file"
+    self.texCoord=M.atlasUVs[value] or {0,1,0,1}
+end
 function methods:GetStatusBarTexture() readable(self); return self.fill end
 function methods:SetStatusBarTexture(value)
     assert(self.native and self.fill);assert(not M.combat)
@@ -181,15 +184,22 @@ function methods:GetText() return self.text end
 local function colorWrite(self)
     readable(self)
     if self.native then
-        assert(self.stockColor or self.stockPresentation or self.fill,"Unexpected color target")
+        assert(self.stockColor or self.stockPresentation or self.fill or self.fillTexture,"Unexpected color target")
         M.colorWrites=(M.colorWrites or 0)+1
     else writable(self) end
 end
 function methods:SetTextColor(...) colorWrite(self);self.color={...} end
 function methods:GetTextColor() readable(self);return unpack(self.color or {1,.82,0,1}) end
-function methods:SetVertexColor(...) colorWrite(self);self.color={...} end
+function methods:SetVertexColor(...) colorWrite(self);self.color={...};self.gradient=nil end
 function methods:GetStatusBarColor() readable(self);return unpack(self.barColor or {0,1,0,1}) end
-function methods:SetStatusBarColor(...) colorWrite(self);self.barColor={...} end
+function methods:SetStatusBarColor(...)
+    colorWrite(self);self.barColor={...}
+    if self.fill then self.fill.color={...};self.fill.gradient=nil end
+end
+function methods:SetGradient(orientation,low,high)
+    colorWrite(self);self.gradient={orientation=orientation,low=low,high=high}
+end
+function CreateColor(r,g,b,a) return {r=r,g=g,b=b,a=a or 1} end
 function methods:SetJustifyH(value) writable(self); self.justify=value end
 function methods:SetAutoFocus(value) writable(self); self.autoFocus=value end
 function methods:GetFont() readable(self);return unpack(self.font or {"Fonts/FRIZQT__.TTF",12,"OUTLINE"}) end
@@ -322,6 +332,7 @@ function M.native(name,w,h,scale)
             b.powerLayoutBar=kind=="Mana";b.points={{"TOPLEFT",parent,"TOPLEFT",0,-20}}
             b.fill=object("Texture",b);b.fill.native=true;b.fill.fillTexture=true
             b.fill.atlas="Native-"..name.."-"..kind;b.fill.path="native-textures";b.fill.texCoord={.1,.2,.1,.4,.7,.2,.7,.4}
+            M.atlasUVs[b.fill.atlas]=b.fill.texCoord
             return b
         end
         local nameLabel=object("FontString",main)

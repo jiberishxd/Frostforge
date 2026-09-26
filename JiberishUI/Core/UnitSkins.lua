@@ -18,9 +18,9 @@ J.Core.properties.unitStyle = {PORTRAIT=true,FULL=true}
 -- Presentation only. The full shell fits the existing power bar below the
 -- painted divider. Never read values, change ranges or secure attributes.
 local function usable(frame) return J.Core:IsUsableFrame(frame) end
-local function readCapture(texture)
+local function readCapture(texture,stock)
     if not usable(texture) then return end
-    if type(texture.GetTexture)~="function" or type(texture.GetTexCoord)~="function" then return end
+    if type(texture.GetTexture)~="function" then return end
     local atlas = type(texture.GetAtlas)=="function" and texture:GetAtlas() or nil
     local path = texture:GetTexture()
     if not J.Core:IsSafe(atlas) or not J.Core:IsSafe(path) then return end
@@ -30,13 +30,18 @@ local function readCapture(texture)
     if atlas ~= nil and type(atlas) ~= "string" then return end
     if not atlas and type(path) ~= "string" and not J.Core:IsNumber(path) then return end
     if not atlas and (path=="" or (type(path)=="number" and path<=0)) then return end
+    -- A stock StatusBar owns its live UVs. They can be restricted and encode
+    -- current fill, so capture only the public asset and let its setter restore
+    -- the atlas coordinates. Third-party custom UVs still require a safe copy.
+    if stock then return {atlas=atlas,path=path} end
+    if type(texture.GetTexCoord)~="function" then return end
     local coords = {texture:GetTexCoord()}
     if #coords ~= 8 then return end
     for _,v in ipairs(coords) do if not J.Core:IsNumber(v) then return end end
     return {atlas=atlas,path=path,coords=coords}
 end
-local function capture(texture)
-    local ok,state=pcall(readCapture,texture)
+local function capture(texture,stock)
+    local ok,state=pcall(readCapture,texture,stock)
     if ok then return state end
 end
 
@@ -102,7 +107,7 @@ function S:Restore(record)
     -- An external redraw supersedes our replacement. Never restore stale art
     -- over a later Blizzard atlas (vehicle/power-type changes in particular).
     if record.external then
-        local latest=capture(record.texture)
+        local latest=capture(record.texture,record.stock)
         if not latest then return false end
         if record.externalSelection or (not isOurFill(latest) and (latest.atlas or latest.path~=record.fillPath)) then
             record.original,record.active,record.external,record.externalSelection=latest,false,false,false
@@ -112,10 +117,13 @@ function S:Restore(record)
     end
     local old=record.original
     local ok=write(record,function()
-        if record.stock and old.path and type(record.bar.SetStatusBarTexture)=="function" then record.bar:SetStatusBarTexture(old.path) end
+        local current=record.stock and record.bar:GetStatusBarTexture()
+        if record.stock and J.Core:IsSafe(current) and current==record.texture and type(record.bar.SetStatusBarTexture)=="function" then
+            record.bar:SetStatusBarTexture(old.atlas or old.path)
+        end
         if old.atlas then record.texture:SetAtlas(old.atlas)
         else record.texture:SetTexture(old.path) end
-        record.texture:SetTexCoord(unpack(old.coords))
+        if old.coords then record.texture:SetTexCoord(unpack(old.coords)) end
     end)
     if ok then record.active=false end
     return ok
@@ -127,7 +135,7 @@ function S:ApplyFill(record,kind,id,overridePath)
     if InCombatLockdown() then J.Core.dirty=true; return false end
     if not usable(record.bar) or not usable(record.texture) then return false end
     if record.external or not record.active then
-        local latest=capture(record.texture)
+        local latest=capture(record.texture,record.stock)
         if not latest then return false end
         if not record.active or record.externalSelection or (not isOurFill(latest) and (latest.atlas or latest.path~=record.fillPath)) then record.original=latest end
         record.active,record.external,record.externalSelection=false,false,false
@@ -144,6 +152,7 @@ function S:ApplyFill(record,kind,id,overridePath)
     end)
     record.active,record.fillPath=true,path -- also restore after a partially failed write
     if not ok or loaded==false then self:Restore(record);return false end
+    record.revision=(record.revision or 0)+1
     return true
 end
 
@@ -493,19 +502,6 @@ function S:Layout(record,key,kind,config,id,g)
                 record.backing:SetPoint("TOPLEFT",f,"TOPLEFT",left*sx,0)
                 record.backing:SetSize(openingWidth*sx,heights[1])
                 record.backing:SetDrawLayer("BACKGROUND",-8)
-            else
-                -- Keep a dark well behind a visible but empty native power
-                -- bar too. Its separate layer must never cover the live fill.
-                if not trim.well then
-                    local frame=CreateFrame("Frame",nil,UIParent);frame:EnableMouse(false)
-                    local fill=frame:CreateTexture(nil,"BACKGROUND")
-                    fill:SetAllPoints(frame);fill:SetColorTexture(.025,.022,.019,1)
-                    trim.well={frame=frame,textures={fill=fill},assetOK=true}
-                end
-                local well=trim.well.frame
-                well:SetScale(g.scale/g.parentScale);well:SetSize(openingWidth*sx,heights[1])
-                well:ClearAllPoints();well:SetPoint("TOPLEFT",record.bar,"TOPLEFT",dx,dy)
-                well:SetFrameStrata(g.strata);well:SetFrameLevel(math.max(0,g.level-1))
             end
         end
         applied={width=(openingWidth+left+right)*sx,height=height,scale=1,x=-left*sx+dx,y=top*sy+dy+(g.anchorY or 0),anchor="FRAME",point="TOPLEFT",relativePoint="TOPLEFT",
@@ -532,11 +528,6 @@ function S:Visibility(record,enabled)
     end
     record.barVisible=snapshot and snapshot.visible and snapshot.alpha>0 or false
     J.Core:SyncVisibility(trim,snapshot)
-    if trim.well then
-        local well=trim.well
-        well.applied=trim.applied
-        J.Core:SyncVisibility(well,snapshot)
-    end
 end
 
 -- The footer belongs to the shell, not to the existence of a resource bar.
@@ -621,7 +612,7 @@ function S:TickUnit(key)
         if not external then
             local shared=J.ThemeManager:Resolve("playerFrame")
             local selection=shared[kind=="health" and "blizzardHealthTexture" or "blizzardPowerTexture"]
-            if selection~="AUTO" or (kind=="health" and config.blizzardHealthColor=="DARK") then fillThisBar=false end
+            if selection~="AUTO" or (kind=="health" and config.blizzardHealthColor~="STOCK") then fillThisBar=false end
         end
         local texture
         if bar then
@@ -651,7 +642,7 @@ function S:TickUnit(key)
                 or g.h/(kind=="health" and h[4]-h[2] or p[4]-p[2])
         end
         if bar and g and not record and not InCombatLockdown() then
-            record={bar=bar,texture=texture,trim=unit.trims[kind]}
+            record={bar=bar,texture=texture,trim=unit.trims[kind],stock=not external}
             unit[kind]=record
         end
         if record and bar and g then
@@ -661,7 +652,7 @@ function S:TickUnit(key)
                 if not external or fitted then self:Layout(record,key,kind,config,id,g) end
                 unit.trims[kind]=record.trim
                 if fillThisBar and not record.original then
-                    local original=capture(texture)
+                    local original=capture(texture,record.stock)
                     if original then record.original=original;self:Watch(record) end
                 end
                 if fillThisBar then
@@ -760,6 +751,9 @@ function S:StockTexture(info,configs)
     if info.kind=="health" and healthMode=="DARK" then return J.Media.stone end
     if selection=="STONE" or (selection=="AUTO" and shared.blizzardStone) then return J.Media.stone end
     if selection=="SMOOTH" then return "Interface\\Buttons\\WHITE8X8" end
+    -- Modern stock health atlases are painted green. Class tint needs a
+    -- neutral material even when the user otherwise prefers Blizzard textures.
+    if info.kind=="health" and healthMode=="CLASS" then return "Interface\\TargetingFrame\\UI-StatusBar" end
 end
 
 function S:TickStockStone(restoreOnly,bars,configs)
@@ -779,7 +773,7 @@ function S:TickStockStone(restoreOnly,bars,configs)
         local texture=bar:GetStatusBarTexture()
         local record=self.stockRecords[bar]
         if not record and usable(texture) then
-            local original=capture(texture)
+            local original=capture(texture,true)
             if original then
                 record={bar=bar,texture=texture,original=original,stock=true}
                 self.stockRecords[bar]=record;self:Watch(record)
@@ -788,6 +782,17 @@ function S:TickStockStone(restoreOnly,bars,configs)
         if record and record.texture==texture and self:ApplyFill(record,info.kind,"CLASS_PALADIN",self:StockTexture(info,configs)) then ready=ready+1 end
     end
     self.stockStatus="Custom textures on "..ready.." stock bars; health and power choices are independent."
+end
+
+function S:StockFill(bar)
+    local record=self.stockRecords and self.stockRecords[bar]
+    if record and record.active then return record end
+    for _,unit in pairs(self.units) do
+        for _,kind in ipairs({"health","power"}) do
+            record=unit[kind]
+            if record and record.bar==bar and record.stock and record.active then return record end
+        end
+    end
 end
 
 function S:Tick()

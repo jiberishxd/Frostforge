@@ -582,7 +582,7 @@ function S:Create()
     self.stockStyleTitle=text(dialog,"Blizzard colors & textures",24,-24,676,"GameFontNormalLarge")
     text(dialog,"Names and health are independent. Party & raid and texture choices are shared across stock frames.",24,-60,676)
     local nameColors={{"STOCK","Blizzard color"},{"CLASS","Class color (players)"}}
-    local healthColors={{"STOCK","Blizzard color"},{"CLASS","Class color (players)"},{"DARK","Dark stone"}}
+    local healthColors={{"STOCK","Blizzard color"},{"CLASS","Class gradient (players)"},{"DARK","Dark stone"}}
     local textures={{"AUTO","Automatic (stone default)"},{"STONE","JiberishUI Stone"},{"SMOOTH","Smooth"},{"STOCK","Blizzard texture"}}
     self:Dropdown("blizzardNameColor","This unit: name color",nameColors,24,-108,dialog)
     self:Dropdown("blizzardHealthColor","This unit: health color",healthColors,374,-108,dialog)
@@ -593,7 +593,7 @@ function S:Create()
     self.stockStoneToggle=toggle(dialog,"Stone for Automatic texture",24,-334,318,function()
         J.ProfileManager:Set("playerFrame","blizzardStone",not J.ThemeManager:Resolve("playerFrame").blizzardStone);self:Refresh()
     end)
-    text(dialog,"Dark stone uses a charcoal stone health fill. Resource colors remain Blizzard's. NPC class colors stay unchanged. Options apply after combat.",24,-380,676)
+    text(dialog,"Class gradients shade the selected texture; Blizzard texture uses a neutral fill for class colors. Dark stone is charcoal. Resource colors stay native. Changes apply after combat.",24,-380,676)
     button(dialog,"Done",542,-440,150,function() self:HideMenus() end)
     dialog:Hide()
 

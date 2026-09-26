@@ -129,11 +129,11 @@ test("repeated style toggles reuse shell halves and secure hook dispatchers",fun
     assert(#M.frames==frames and M.textures==textures and M.hooks==hooks)
 end)
 
-test("missing forbidden and restricted native fill regions stay untouched",function(M)
+test("forbidden fills stay untouched while safe stock assets ignore restricted UVs",function(M)
     local J=M.load();local b=bars(J)
     b.health.fill.forbidden=true;b.power.fill.secretCoords=true
     enable(J)
-    assert(not M.appearanceWrites and not next(J.Core.notices))
+    assert(not J.UnitSkins.units.playerFrame.health.active and J.UnitSkins.units.playerFrame.power.active and not next(J.Core.notices))
     b.health.fill.forbidden=false;b.power.fill.secretCoords=false;M.tick(J.Core)
     assert(J.UnitSkins.units.playerFrame.health.active)
     b.health.fill.forbidden=true
@@ -235,12 +235,12 @@ end)
 
 test("restricted fill metadata does not hide independently fitted artwork",function(M)
     local J=M.load();enable(J);local b=bars(J).health
-    b.fill:SetAtlas("Native-Changed-Health");b.fill.secretCoords=true
+    b.fill:SetAtlas("Native-Changed-Health");b.fill.GetAtlas=function() return M.secret end
     M.tick(J.Core)
     assert(b.fill.atlas=="Native-Changed-Health")
     assert(J.UnitSkins.units.playerFrame.health.trim.frame.shown)
     assert(J.UnitSkins.status.playerFrame:find("native fill retained",1,true))
-    b.fill.secretCoords=false;M.tick(J.Core)
+    b.fill.GetAtlas=nil;M.tick(J.Core)
     assert(J.UnitSkins.units.playerFrame.health.trim.frame.shown)
     J.ProfileManager:Set("playerFrame","unitStyle","PORTRAIT")
     assert(b.fill.atlas=="Native-Changed-Health")
@@ -286,13 +286,13 @@ test("Forever uses initialized native bar bindings when XML child paths differ",
     end
 end)
 
-test("unreadable fill at first enable leaves shells visible and retries materials",function(M)
+test("stock materials do not require live UVs and retry forbidden textures",function(M)
     local J=M.load({interface=16001});local b=bars(J)
     b.health.fill.secretCoords=true;b.power.fill.forbidden=true
     enable(J)
     local u=J.UnitSkins.units.playerFrame
     assert(u.health.trim.frame.shown and u.power.trim.frame.shown)
-    assert(not M.appearanceWrites)
+    assert(u.health.active and not u.power.active)
     b.health.fill.secretCoords=false;b.power.fill.forbidden=false
     M.tick(J.Core)
     assert(u.health.active and u.power.active)
@@ -308,7 +308,7 @@ test("shells are independent of native fill getter failures",function(M)
     enable(J)
     local u=J.UnitSkins.units.playerFrame
     assert(u.health.trim.frame.shown and u.power.trim.frame.shown)
-    assert(not M.appearanceWrites and not next(J.Core.notices))
+    assert(u.health.active and not u.power.active and not next(J.Core.notices))
 end)
 
 test("missing secret and throwing fill objects cannot block the shell",function(M)
