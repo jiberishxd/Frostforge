@@ -28,6 +28,8 @@ Open **Power colors...** within Colors & textures. **This unit** applies to the 
 
 The **Buffs & debuffs...** and **Cast-bar position...** buttons are on the selected Target/Focus **Blizzard** page. Enable **Customize position** and set X/Y offsets from −600 to 600. Buffs and debuffs move together as Blizzard's combined aura group. Cast-bar movement carries the JUI border with it; its enable/provider/strata controls remain on **Cast bar**. Blizzard may anchor that bar below the aura group, so moving auras can also move the bar.
 
+JUI reapplies offsets immediately after Blizzard reanchors the aura group, including above/below layout changes. The status beside **Customize position** reports the applied X/Y or whether placement is waiting for readable anchors or combat to end; `/jui status` includes the same diagnostic.
+
 Reset or disable to restore native anchors. These controls are profile-specific and do not move third-party frames or read aura content. Position changes and restoration apply outside combat; native protected reanchors during combat reconcile afterward.
 
 ## Stone on all stock health and power bars

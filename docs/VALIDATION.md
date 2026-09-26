@@ -103,3 +103,11 @@ Follow the manual checklist in [CAST-BARS.md](CAST-BARS.md) on Blizzard, Ellesme
 2. In Blizzard → Colors & textures → Power colors, exercise native/class/custom, solid/gradient, hex input, picker Cancel/Okay and Party & raid scope. Verify class colors, mana/rage/energy changes, native disconnected tints, profiles and reload; no black cover should appear over visible power.
 3. Enable Target/Focus buff/debuff group offsets; change targets and aura rows. Check hidden aura groups stay hidden, tooltips remain functional, and reset/profile changes restore the native placement. Repeat for cast-bar offsets, with and without aura anchoring. Edits and protected native reanchors reconcile after combat.
 4. On Blizzard Player/Target/Focus, enable cast borders before combat. Check Automatic and highest strata, casts/channels/empower FX, first cast in combat, target aura reanchors, and raising native FX layers while casting. Border visibility must follow the cast; text/timing stay native. Confirm ElvUI/Ellesmere remain unchanged.
+
+## 0.8.8 aura offsets (user-run)
+
+1. On stock Target, open Blizzard → Buffs & debuffs, enable Customize position, and change both X and Y by slider and typed input outside combat. Confirm the group visibly moves and the status shows those offsets. Repeat on Focus.
+2. Change targets, add/remove aura rows, switch Blizzard's above/below placement and show/hide numeric threat. Confirm saved offsets persist relative to the new native position without drifting. Check native cast-bar anchoring below the moved auras.
+3. Edit offsets or disable customization during combat; confirm placement changes wait until combat ends. Reset, switch to a clean profile and reload; verify restoration and persistence. If a setting remains ineffective, capture the displayed placement status or `/jui status` output.
+
+Offline tests reproduce native aura reanchoring after JUI's scan; the mock does not emulate the secure client or render real aura icons. No game was operated during development.

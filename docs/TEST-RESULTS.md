@@ -1,3 +1,9 @@
+# Build 0.8.8 Target/Focus aura positioning
+
+286 Lua behavior tests and 17 Python artwork tests pass. New regressions reproduce a native aura-layout callback after JUI's scan on Retail and Forever; both the actual vertical slider and typed horizontal edit survive that callback. Coverage includes the public accessor without the XML fallback, Target/Focus offsets, above/below flips and threat spacing, native coordinates coinciding with previous offsets, combat deferral, profile restoration, container replacement, forbidden/secret anchors, duplicate-hook prevention and recovery after a rejected write.
+
+Source/media/provenance and exact Retail/Forever 0.8.8 package checks pass. The regenerated settings dialog was visually checked in the offline browser preview. All artwork images are unchanged. No WoW interaction, installation or live-client validation was performed; actual secure aura positioning still needs player confirmation.
+
 # Build 0.8.7 power appearance, stock placement and cast layering
 
 279 Lua behavior tests and 17 Python artwork tests pass. Regressions cover player-only mana-mask detachment, preservation of other/target masks, restoration and combat/forbidden deferral; native/custom/class power hues and gradients; scoped party/raid colors; hex validation, picker cancellation and profile isolation; Target/Focus aura and cast-bar offsets, native reanchors, restoration and profile backups; fixed cast layers and cast-start layer changes without geometry writes or suppressing the border.

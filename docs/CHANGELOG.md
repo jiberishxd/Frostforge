@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.8 — Target/Focus aura positioning
+
+- Fix Blizzard aura layout updates overwriting both horizontal and vertical offsets. Reapply the saved position directly after the native anchor update, using the public aura-container accessor with the existing XML path as a fallback.
+- Keep fresh native anchor baselines, including above/below flips, threat spacing and updates deferred during combat. Disable, reset and profile changes restore native positioning.
+- Show placement status beside **Customize position** and in `/jui status`, including waiting, combat deferral and restricted-operation states.
+- No artwork changes or game interaction. Validation is offline; live-client confirmation remains required.
+
 ## 0.8.7 — Power styling and Blizzard placement
 
 - Fitted Blizzard player power fills temporarily release their fixed-size native mana mask so the fill reaches the shell opening. Restore that mask when the shell is disabled or the bar changes; preserve unrelated masks and all artwork.
