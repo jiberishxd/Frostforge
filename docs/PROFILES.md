@@ -1,6 +1,6 @@
 # Profiles for your characters
 
-Open `/jui` and choose **Profiles** on the left. Each character remembers its assigned JiberishUI profile and loads it automatically at login. A new character gets a separate setup with automatic class artwork, so a Paladin's fixed artwork and offsets are not automatically applied to a Hunter alt.
+Open `/frostforge` and choose **Profiles** on the left. Each character remembers its assigned Frostforge profile and loads it automatically at login. A new character gets a separate setup with automatic class artwork, so a Paladin's fixed artwork and offsets are not automatically applied to a Hunter alt.
 
 ## Save and assign a setup
 
@@ -11,7 +11,7 @@ Open `/jui` and choose **Profiles** on the left. Each character remembers its as
 
 **Save as new profile** makes an independent copy of the current setup, gives it the entered name and assigns it to this character. **New profile from defaults** creates and assigns a clean setup with automatic class artwork. Neither overwrites the previous profile. Create or switch profiles outside combat; the page explains when an action cannot run.
 
-If two characters deliberately select the same saved profile, they share future edits. Use **Save as new profile** to give an alt its own copy before changing it. Profiles cover all JiberishUI components and controls, including artwork, providers, fitting, strata, native appearance options and window position. Other addons retain their own separate profiles.
+If two characters deliberately select the same saved profile, they share future edits. Use **Save as new profile** to give an alt its own copy before changing it. Profiles cover all Frostforge components and controls, including artwork, providers, fitting, strata, native appearance options and window position. Other addons retain their own separate profiles.
 
 ## Existing settings and backups
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.0 — Jiberish's Frostforge
+
+- Rename the addon display, chat prefix, documentation and release archives; add `/frostforge` while retaining existing aliases, folder, saved settings and backups.
+- Use the approved transparent penguin logo in the settings header, The Igloo page and AddOns listing.
+- Restyle shared settings controls with frosted-blue stone buttons, white labels, subtle stone panels and restrained native Blizzard borders.
+- Add **The Igloo** sidebar tab with a selectable `https://theigloo.io` link and a README website link.
+- Register **Frostforge Stone** in SharedMedia while preserving **JiberishUI Stone** for existing selections.
+
+
 ## 0.8.8 — Target/Focus aura positioning
 
 - Fix Blizzard aura layout updates overwriting both horizontal and vertical offsets. Reapply the saved position directly after the native anchor update, using the public aura-container accessor with the existing XML path as a fallback.

@@ -17954,6 +17954,79 @@
           "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
         }
       ]
+    },
+    {
+      "id": "frostforge-logo",
+      "label": "Jiberish's Frostforge",
+      "kind": "brand-logo",
+      "file": "JiberishUI/Media/Branding/frostforge-logo.tga",
+      "source": "docs/images/logo.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "source_sha256": "03959cf7a2826487eda1d1c268639e062787f3adbec9f7084b8b558f16dd2da7",
+      "sha256": "16861ffea516fd5f9c08c3ac14d443ef161cd1b9023dcef4c4a9eb1e5fd09e89",
+      "size": [
+        512,
+        512
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        512,
+        510
+      ],
+      "clear_points": [
+        [
+          0,
+          0
+        ],
+        [
+          0.99,
+          0
+        ],
+        [
+          0,
+          0.99
+        ],
+        [
+          0.99,
+          0.99
+        ]
+      ],
+      "transform": "Approved transparent PNG resampled to 512x512 with Lanczos; uncompressed 32-bit RGBA TGA.",
+      "provenance": "docs/images/LOGO-SOURCE.md"
+    },
+    {
+      "id": "frostforge-stone",
+      "label": "Frostforge settings stone",
+      "kind": "settings-background",
+      "file": "JiberishUI/Media/Branding/frostforge-stone.tga",
+      "source": "artwork/settings/sources/frostforge-frame.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "source_sha256": "f00ed8e2a46a2e483feaff886e05d71393c19b93b8e760571156733d319e8395",
+      "sha256": "78f25ed5981727746cc168bd41a1dc54fb5ffe8bf70fc663734c0e8622e39187",
+      "size": [
+        256,
+        256
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "source_crop": [
+        314,
+        314,
+        940,
+        940
+      ],
+      "transform": "Center half of the retained generated rough-stone frame, resampled to 256x256 with Lanczos; tinted in Lua."
     }
   ],
   "in_game_qualified": false,

@@ -26,6 +26,9 @@ def source_checks():
     toc = (ROOT / "JiberishUI/JiberishUI.toc").read_text()
     assert "## SavedVariables: JiberishUIDB" in toc
     assert "## SavedVariablesPerCharacter: JiberishUICharacterDB" in toc
+    assert "## Title: Jiberish's Frostforge" in toc
+    assert "## X-Website: https://theigloo.io" in toc
+    assert "Media\\Branding\\frostforge-logo.tga" in toc
     assert VERSION in (ROOT / "JiberishUI/Core/Core.lua").read_text()
     forbidden = r"\b(loadstring|loadfile|dofile|UnitHealth|UnitPower|SetAttribute|SetParent|SetStatusBarTexture|SetStatusBarColor|SetAtlas|RegisterForClicks|SetBinding)\s*\("
     for name in sources:
@@ -58,7 +61,7 @@ def source_checks():
 def asset_checks():
     manifest = json.loads((ROOT / "docs/phase1-assets.json").read_text())
     assets = manifest["assets"]
-    assert len(assets) == 294
+    assert len(assets) == 296
     groups = [{Path(a["file"]).stem for a in assets if "/"+kind+"/" in a["file"]} for kind in ("Portraits", "Hubs", "Minimaps")]
     assert all(len(g) == 42 and g == groups[0] for g in groups), "Artwork catalogs must match"
     assert {Path(a["file"]).stem for a in assets if a.get("kind")=="unit-shell"} == groups[0]
@@ -109,7 +112,7 @@ def asset_checks():
         bounds = [min(x for x,y in visible), min(y for x,y in visible),
                   max(x for x,y in visible)+1, max(y for x,y in visible)+1]
         assert bounds == asset["alphaBounds"]
-        if asset.get("kind") != "statusbar-fill":
+        if asset.get("kind") not in ("statusbar-fill", "settings-background"):
             assert min(pixels[3::4]) == 0, "Surround artwork must have transparency"
         for fx, fy in asset.get("clear_points", []):
             x, y = int(fx*w), int(fy*h)
@@ -207,7 +210,7 @@ def asset_checks():
                     assert pixels[(row*w+x)*4+3]==0, 'Hub art covers reserved button region'
             if asset.get('official_crest') or asset.get('emblem_reference'):
                 crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
-    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 294 RGBA assets (including 42 complete cast borders, 42 sculpted shells and 84 painted fills) and provenance hashes")
+    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 296 RGBA assets (including the official transparent logo and stone interface, 42 complete cast borders, 42 sculpted shells and 84 painted fills) and provenance hashes")
 
 
 def reference_checks():
@@ -238,7 +241,7 @@ def archive_checks(directory):
             assert set(archive.namelist()) == set(expected)
             for name, content in expected.items():
                 assert archive.read(name) == content, name
-        assert len([p for p in expected if p.endswith(".tga")]) == 294
+        assert len([p for p in expected if p.endswith(".tga")]) == 296
     print("PASS both exact client archives; no legacy code/themes or unrelated textures packaged")
 
 

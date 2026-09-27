@@ -1,5 +1,47 @@
 local test,near=...
 for _,interface in ipairs({120100,16001}) do
+    test("Frostforge branding and website navigation preserve profiles on client "..interface,function(M)
+        local J=M.load({interface=interface});local S=J.SettingsUI;S:Open()
+        local before=J.ProfileManager:Export()
+        assert(S.crest.path==J.Media.logo and S.crest.texCoord[2]==1)
+        assert(SLASH_JIBERISHFANTASY4=="/frostforge" and SLASH_JIBERISHFANTASY2=="/jui")
+        S.websiteButton.scripts.OnClick()
+        assert(S.pages.website:IsVisible() and not S.pages.artwork:IsVisible())
+        assert(not S.resetButton:IsVisible() and not S.pageButtons.artwork:IsVisible())
+        assert(S.websiteButton.selection:IsVisible() and not S.tabs.playerFrame.selection:IsVisible())
+        S.websiteCopyButton.scripts.OnClick()
+        assert(S.websiteEdit:HasFocus() and S.websiteEdit:GetText()=="https://theigloo.io")
+        S.websiteEdit:SetText("accidental edit")
+        assert(S.websiteEdit:GetText()==J.Brand.website)
+        S.websiteEdit.scripts.OnEscapePressed();assert(not S.websiteEdit:HasFocus())
+        S.websiteCopyButton.scripts.OnClick();S:SetPage("profiles")
+        assert(not S.websiteEdit:HasFocus() and not S.pages.website:IsVisible() and S.pages.profiles:IsVisible())
+        S:SetPage("website");S:Select("targetFrame")
+        assert(S.page=="artwork" and S.pageButtons.artwork:IsVisible() and S.crest.path==J.Media.logo)
+        S:Select("minimap");assert(S.crest.path==J.Media.logo)
+        S:SetPage("website");S.websiteCopyButton.scripts.OnClick();S.frame:Hide()
+        assert(not S.websiteEdit:HasFocus() and J.ProfileManager:Export()==before)
+        assert(not next(J.Core.notices))
+    end)
+end
+
+test("frosted stone buttons keep white labels and reset hover and pressed states",function(M)
+    local J=M.load();local S=J.SettingsUI;S:Open()
+    local b=S.pageButtons.artwork
+    assert(b.up.desaturated and b.up.color[3]>b.up.color[1])
+    assert(b.caption.color[1]==1 and b.caption.color[2]==1 and b.caption.color[3]==1)
+    b.scripts.OnEnter();b.scripts.OnMouseDown();assert(b.hover.shown and b.down.shown)
+    b.scripts.OnMouseUp();assert(not b.down.shown and b.hover.shown)
+    b.scripts.OnMouseDown();b.scripts.OnLeave();assert(not b.down.shown and not b.hover.shown)
+    b.scripts.OnEnter();b.scripts.OnMouseDown();b:Hide();assert(not b.down.shown and not b.hover.shown)
+    for _,o in ipairs(M.objects) do
+        if o.path and o.path:find("UI-Panel-Button-",1,true) then
+            assert(o.desaturated and o.color[3]>o.color[1])
+        end
+    end
+end)
+
+for _,interface in ipairs({120100,16001}) do
     test("settings pages isolate advanced controls and preserve unsaved input on client "..interface,function(M)
         local J=M.load({interface=interface});local S=J.SettingsUI;S:Open()
         local original=J.ProfileManager:Export()

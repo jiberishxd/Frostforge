@@ -1,6 +1,6 @@
-# Getting started with JiberishUI
+# Getting started with Jiberish's Frostforge
 
-JiberishUI decorates your existing interface. Start with one component, choose its provider and artwork, then adjust the fit before moving on to the rest of your layout.
+Frostforge decorates your existing interface. Start with one component, choose its provider and artwork, then adjust the fit before moving on to the rest of your layout.
 
 ## Install or update
 
@@ -9,7 +9,7 @@ Use the package for your game client: **Retail** or **Forever**. GitHub currentl
 1. Close WoW.
 2. Extract the package. Place the entire `JiberishUI` folder inside your client's `Interface/AddOns/` directory. The final path should be `Interface/AddOns/JiberishUI/JiberishUI.toc`, without an extra nested folder.
 3. For an update, replace only the old `JiberishUI` addon folder. Keep `WTF` and your saved settings. Replacing the folder avoids leaving retired artwork files behind.
-4. Fully restart the client, enable JiberishUI in the AddOns list, and open `/jui` after logging in.
+4. Fully restart the client, enable **Jiberish's Frostforge** in the AddOns list, and open `/frostforge` after logging in.
 
 Keep the complete package together: Lua code, theme data and all five active media folders—Portraits, Hubs, Minimaps, UnitFrames and CastBars—are needed. An integration also requires its original UI addon and the relevant frame/portrait/cast-bar module to be enabled.
 
@@ -48,13 +48,13 @@ Settings save immediately. Changes that need to wait for combat apply when comba
 
 ## Match health and power textures
 
-Open your provider's status-bar texture menu and choose **JiberishUI Stone**. EllesmereUI and ElvUI supply the shared-media library used to make this available; other addons with compatible LibSharedMedia menus can use it too.
+Open your provider's status-bar texture menu and choose **Frostforge Stone**. EllesmereUI and ElvUI supply the shared-media library used to make this available; other addons with compatible LibSharedMedia menus can use it too.
 
-In `/jui → Player/Target/Focus → Advanced`, **Automatic (respect UI addon)** keeps ElvUI/Ellesmere's selected textures and uses JiberishUI fills on Blizzard frames. The separate **Blizzard → Stone on Blizzard health/power** toggle is on by default and takes precedence for stock bars, including party, raid, pet, boss and target-of-target/focus-target. Turn it off as well if you want entirely stock fills. **Keep provider textures** leaves the fills with the provider. **Use JiberishUI fills** explicitly applies JiberishUI materials while the shell is enabled. Native class, health and resource tinting stays with the frame provider. [Texture setup details](SETTINGS.md#choose-jiberishui-stone-in-your-other-ui-addon).
+In `/jui → Player/Target/Focus → Advanced`, **Automatic (respect UI addon)** keeps ElvUI/Ellesmere's selected textures and uses Frostforge fills on Blizzard frames. The separate **Blizzard → Stone on Blizzard health/power** toggle is on by default and takes precedence for stock bars, including party, raid, pet, boss and target-of-target/focus-target. Turn it off as well if you want entirely stock fills. **Keep provider textures** leaves the fills with the provider. **Use Frostforge fills** explicitly applies Frostforge materials while the shell is enabled. Native class, health and resource tinting stays with the frame provider. [Texture setup details](SETTINGS.md#choose-frostforge-stone-in-your-other-ui-addon).
 
 ## Back up and troubleshoot
 
-Open **Guide** to copy a settings backup or restore one. Restore replaces the JiberishUI settings for all five components; **Reset component** restores only the selected component. `/jui status` prints attachment and settings diagnostics. `/jf export` and `/jf import` remain available for command-based backups.
+Open **Guide** to copy a settings backup or restore one. Restore replaces the Frostforge settings for all five components; **Reset component** restores only the selected component. `/jui status` prints attachment and settings diagnostics. `/jf export` and `/jf import` remain available for command-based backups.
 
 | What you see | Check first |
 | --- | --- |
@@ -62,10 +62,16 @@ Open **Guide** to copy a settings backup or restore one. Restore replaces the Ji
 | No portrait artwork on an addon frame | Enable a separate portrait in that addon; check Portrait provider. Inside-health portraits have no separate surround. |
 | No cast border | Enable Cast-bar border and the provider's cast bar. Its border follows cast visibility. |
 | A border is too wide, too tall or offset | Use that component's fitting controls and reset fitting if needed. |
-| The health texture keeps changing | Select JiberishUI Stone in the provider and use Automatic or Keep provider textures in JiberishUI. |
+| The health texture keeps changing | Select Frostforge Stone in the provider and use Automatic or Keep provider textures in Frostforge. |
 | New artwork files are missing after updating | Check the installed folder path and fully restart the client. |
 | Forever settings do not survive restart | Export a backup and check the reported [SavedVariables loading issue](PERSISTENCE.md). |
 
-For a report, include your client/build, JiberishUI and provider versions, the affected component, `/jui status`, and a screenshot showing the problem. [Open an issue](https://github.com/jiberishxd/JiberishUI-WoW/issues/new/choose).
+For a report, include your client/build, Frostforge and provider versions, the affected component, `/jui status`, and a screenshot showing the problem. [Open an issue](https://github.com/jiberishxd/JiberishUI-WoW/issues/new/choose).
 
 For stock Blizzard colors and textures, open **Player/Target/Focus → Blizzard → Colors & textures**. Choose class-colored names/health or dark stone health, and pick health/power textures separately. The dialog also includes shared party/raid color controls. These choices work independently of decorative shells.
+
+## Upgrading to Frostforge
+
+The display name changed in 0.9.0. Keep the `JiberishUI` folder and existing saved settings: profiles and backups remain compatible. `/frostforge`, `/jui`, `/jf` and `/jiberishui` open the same window. The old **JiberishUI Stone** texture name remains an alias for **Frostforge Stone** so existing provider selections still load.
+
+Choose **The Igloo** in the sidebar to select `https://theigloo.io`. Copy with Ctrl+C (Command+C on Mac) and paste into your browser.

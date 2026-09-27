@@ -1,6 +1,8 @@
 local addonName, J = ...
+-- Keep the addon folder and saved-variable keys stable for existing installs.
+J.Brand = { name="Jiberish's Frostforge", shortName="Frostforge", website="https://theigloo.io" }
 local Core = {
-    version = "0.8.8",
+    version = "0.9.0",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
     propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset", "unitFrameX", "unitFrameY", "castBarShown", "castBarSource", "castBarStyle", "castBarArt", "castBarWeight", "castBarPadding", "castBarWidth", "castBarHeight", "unitFrameStrata", "castBarStrata", "castBarLevel", "blizzardPortraitHidden", "blizzardPortraitFrameHidden", "blizzardNameEnabled", "blizzardNameX", "blizzardNameY", "blizzardNameSize", "blizzardNameAlign", "blizzardNameOutline", "blizzardStone" },
@@ -73,7 +75,7 @@ function Core:PropertyHelp(property)
 end
 
 function Core:Print(message)
-    if DEFAULT_CHAT_FRAME then DEFAULT_CHAT_FRAME:AddMessage("|cffffd36aJiberishUI|r " .. message) end
+    if DEFAULT_CHAT_FRAME then DEFAULT_CHAT_FRAME:AddMessage("|cff9edfff" .. J.Brand.name .. "|r " .. message) end
 end
 
 function Core:Notice(key, message)
@@ -476,4 +478,5 @@ end)
 SLASH_JIBERISHFANTASY1 = "/jf"
 SLASH_JIBERISHFANTASY2 = "/jui"
 SLASH_JIBERISHFANTASY3 = "/jiberishui"
+SLASH_JIBERISHFANTASY4 = "/frostforge"
 SlashCmdList.JIBERISHFANTASY = function(input) Core:Protect("command",function() Core:Command(input or "") end) end

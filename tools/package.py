@@ -13,9 +13,9 @@ CLIENTS = {
 }
 TOC = ROOT / "JiberishUI/JiberishUI.toc"
 VERSION = re.search(r"^## Version: (.+)$", TOC.read_text(), re.M).group(1)
-DOCS = ("README.md", "SUPPORT.md", "CONTRIBUTING.md", "docs/HUB-TRANSPARENCY.md", "docs/images/minimal-stone.jpg", "docs/PROFILES.md", "docs/images/profiles.jpg",
+DOCS = ("README.md", "SUPPORT.md", "CONTRIBUTING.md", "docs/HUB-TRANSPARENCY.md", "docs/images/minimal-stone.jpg", "docs/PROFILES.md", "docs/images/profiles.jpg", "docs/images/the-igloo.jpg",
         "docs/GETTING-STARTED.md", "docs/GALLERY.md", "docs/DEVELOPMENT.md", "docs/COMMANDS.md", "docs/BLIZZARD-CONTROLS.md", "docs/stock-frame-sources.json",
-        "docs/images/emblem.png", "docs/images/overview.jpg", "docs/images/unit-frames.jpg", "docs/images/settings.jpg", "docs/images/blizzard-controls.jpg", "docs/images/paladin-ingame.png", "docs/ARCHITECTURE.md", "docs/UNIT-SKINS.md", "docs/ARTWORK.md", "docs/COMPATIBILITY.md",
+        "docs/images/logo.png", "docs/images/LOGO-SOURCE.md", "docs/images/emblem.png", "docs/images/overview.jpg", "docs/images/unit-frames.jpg", "docs/images/settings.jpg", "docs/images/blizzard-controls.jpg", "docs/images/paladin-ingame.png", "docs/ARCHITECTURE.md", "docs/UNIT-SKINS.md", "docs/ARTWORK.md", "docs/COMPATIBILITY.md",
         "docs/PERSISTENCE.md", "docs/VALIDATION.md", "docs/TEST-RESULTS.md", "docs/NPC-CITIES.md", "docs/SETTINGS.md", "docs/CAST-BARS.md", "docs/cast-bar-sources.json",
         "docs/phase1-assets.json", "docs/phase1-sources.json", "docs/addon-sources.json", "docs/ADDON-COMPATIBILITY.md", "docs/ARTWORK-CREDITS.md", "docs/ARTWORK-SOURCES.json")
 
@@ -45,7 +45,7 @@ def package(destination):
     reports = []
     for client, (interface, baseline, revision) in CLIENTS.items():
         files = payload(client)
-        path = destination / f"JiberishUI-{client}-{VERSION}.zip"
+        path = destination / f"Jiberishs-Frostforge-{client}-{VERSION}.zip"
         with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
             for name, content in sorted(files.items()):
                 entry = zipfile.ZipInfo(name, date_time=(2026, 9, 21, 0, 0, 0))

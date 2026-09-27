@@ -21,19 +21,19 @@ local function backdrop(frame,kind)
     local slider=kind=="slider"
     if kind=="outer" and not frame.underlay then
         frame.underlay=frame:CreateTexture(nil,"BACKGROUND",nil,-8)
-        frame.underlay:SetPoint("TOPLEFT",frame,"TOPLEFT",11,-12)
-        frame.underlay:SetPoint("BOTTOMRIGHT",frame,"BOTTOMRIGHT",-12,11)
-        frame.underlay:SetColorTexture(0.06,0.045,0.025,1)
+        frame.underlay:SetPoint("TOPLEFT",frame,"TOPLEFT",10,-10)
+        frame.underlay:SetPoint("BOTTOMRIGHT",frame,"BOTTOMRIGHT",-10,10)
+        frame.underlay:SetColorTexture(0.025,0.03,0.035,1)
     end
     frame:SetBackdrop({
-        bgFile=slider and "Interface\\Buttons\\UI-SliderBar-Background" or "Interface\\DialogFrame\\UI-DialogBox-Background",
+        bgFile=slider and "Interface\\Buttons\\UI-SliderBar-Background" or J.Media.panelStone,
         edgeFile=slider and "Interface\\Buttons\\UI-SliderBar-Border" or
             (kind=="outer" and "Interface\\DialogFrame\\UI-DialogBox-Border" or "Interface\\Tooltips\\UI-Tooltip-Border"),
-        tile=true,tileSize=slider and 8 or 32,edgeSize=slider and 8 or (kind=="outer" and 32 or 16),
-        insets=kind=="outer" and {left=11,right=12,top=12,bottom=11} or {left=4,right=4,top=4,bottom=4},
+        tile=true,tileSize=slider and 8 or 128,edgeSize=slider and 8 or (kind=="outer" and 32 or 12),
+        insets=kind=="outer" and {left=11,right=12,top=12,bottom=11} or {left=3,right=3,top=3,bottom=3},
     })
-    frame:SetBackdropColor(0.42,0.36,0.28,1)
-    frame:SetBackdropBorderColor(0.62,0.48,0.27,1)
+    frame:SetBackdropColor(0.48,0.54,0.62,1)
+    frame:SetBackdropBorderColor(0.48,0.50,0.52,1)
 end
 local function panel(parent,x,y,width,height)
     local p=CreateFrame("Frame",nil,parent,"BackdropTemplate")
@@ -50,30 +50,44 @@ local function text(parent,value,x,y,width,font)
     local label=parent:CreateFontString(nil,"OVERLAY",font or "GameFontHighlightSmall")
     label:SetPoint("TOPLEFT",parent,"TOPLEFT",x,y)
     label:SetWidth(width); label:SetJustifyH("LEFT"); label:SetText(value)
+    if font and font:find("Normal",1,true) then label:SetTextColor(0.68,0.86,0.96,1)
+    else label:SetTextColor(0.88,0.93,0.97,1) end
     return label
 end
 local function button(parent,value,x,y,width,callback,card)
     local b=CreateFrame("Button",nil,parent,"BackdropTemplate")
     b:SetPoint("TOPLEFT",parent,"TOPLEFT",x,y); b:SetSize(width,28)
     b:EnableMouse(true)
-    if card then backdrop(b,"inset")
-    else
-        b.up=art(b,"Interface\\Buttons\\UI-Panel-Button-Up")
-        b.down=art(b,"Interface\\Buttons\\UI-Panel-Button-Down","BORDER");b.down:Hide()
-        b.up:SetTexCoord(0,0.625,0,0.6875);b.down:SetTexCoord(0,0.625,0,0.6875)
+    local function nativeButton(path,layer)
+        local t=art(b,path,layer)
+        t:SetTexCoord(0,0.625,0,0.6875)
+        -- Retain Blizzard's original sculpted bevel; remove the red before tinting.
+        t:SetDesaturated(true);t:SetVertexColor(0.50,0.74,0.94,1)
+        return t
     end
-    b.hover=art(b,"Interface\\Buttons\\UI-Panel-Button-Highlight","HIGHLIGHT")
-    b.hover:SetTexCoord(0,0.625,0,0.6875);b.hover:SetBlendMode("ADD");b.hover:Hide()
+    if card then
+        backdrop(b,"inset")
+        b:SetBackdropColor(0.48,0.62,0.78,1)
+        b.down=art(b,J.Media.panelStone,"BORDER")
+        b.down:ClearAllPoints();b.down:SetPoint("TOPLEFT",b,"TOPLEFT",4,-4);b.down:SetPoint("BOTTOMRIGHT",b,"BOTTOMRIGHT",-4,4)
+        b.down:SetVertexColor(0.28,0.40,0.55,1)
+    else
+        b.up=nativeButton("Interface\\Buttons\\UI-Panel-Button-Up")
+        b.down=nativeButton("Interface\\Buttons\\UI-Panel-Button-Down","BORDER")
+    end
+    b.down:Hide()
+    b.selection=nativeButton("Interface\\Buttons\\UI-Panel-Button-Highlight","BORDER")
+    b.selection:SetBlendMode("ADD");b.selection:SetAlpha(0.25);b.selection:Hide()
+    b.hover=nativeButton("Interface\\Buttons\\UI-Panel-Button-Highlight","HIGHLIGHT")
+    b.hover:SetBlendMode("ADD");b.hover:SetAlpha(0.20);b.hover:Hide()
     b.caption=b:CreateFontString(nil,"OVERLAY","GameFontNormalSmall")
-    b.caption:SetPoint("CENTER",b,"CENTER",0,0); b.caption:SetText(value)
+    b.caption:SetPoint("CENTER",b,"CENTER",0,0);b.caption:SetText(value);b.caption:SetTextColor(1,1,1,1)
     b:SetScript("OnClick",callback)
     b:SetScript("OnEnter",function() b.hover:Show() end)
-    b:SetScript("OnLeave",function() b.hover:Hide();if b.down then b.down:Hide() end end)
-    b:SetScript("OnMouseDown",function() if b.down then b.down:Show() end end)
-    b:SetScript("OnMouseUp",function() if b.down then b.down:Hide() end end)
-    b:SetScript("OnHide",function() b.hover:Hide();if b.down then b.down:Hide() end end)
-    b.selection=art(b,"Interface\\Buttons\\UI-Panel-Button-Highlight","BORDER")
-    b.selection:SetTexCoord(0,0.625,0,0.6875);b.selection:SetBlendMode("ADD");b.selection:SetAlpha(0.45);b.selection:Hide()
+    b:SetScript("OnLeave",function() b.hover:Hide();b.down:Hide() end)
+    b:SetScript("OnMouseDown",function() b.down:Show() end)
+    b:SetScript("OnMouseUp",function() b.down:Hide() end)
+    b:SetScript("OnHide",function() b.hover:Hide();b.down:Hide() end)
     return b
 end
 local function toggle(parent,value,x,y,width,callback)
@@ -103,6 +117,7 @@ function S:HideMenus()
     if self.powerStyleDialog then self.powerStyleDialog:Hide() end
     if self.stockPlacementDialog then self.stockPlacementDialog:Hide() end
     if self.profileNameEdit then self.profileNameEdit:ClearFocus() end
+    if self.websiteEdit then self.websiteEdit:ClearFocus() end
     for _,menu in ipairs(self.menus) do menu:Hide() end
     if self.picker then self.picker:Hide() end
     if self.hubPicker then self.hubPicker:Hide() end
@@ -169,7 +184,7 @@ function S:CreateCollection(kind)
     p.search=CreateFrame("EditBox",nil,p,"BackdropTemplate")
     p.search:SetPoint("TOPLEFT",p,"TOPLEFT",118,-106);p.search:SetSize(408,30)
     p.search:EnableMouse(true);p.search:SetAutoFocus(false);p.search:SetFontObject("GameFontHighlightSmall")
-    p.search:SetTextInsets(8,8,0,0);p.search:SetMaxLetters(64);backdrop(p.search,"inset");p.search:SetText("")
+    p.search:SetTextInsets(8,8,0,0);p.search:SetMaxLetters(64);backdrop(p.search,"button");p.search:SetText("")
     p.search:SetScript("OnTextChanged",function() if not p.updatingSearch then self:ShowCollection(kind,self[spec.group] or "CLASS",1) end end)
     p.search:SetScript("OnEscapePressed",function() p.search:ClearFocus();p:Hide() end)
     p.search:SetScript("OnEnterPressed",function() p.search:ClearFocus() end)
@@ -213,7 +228,7 @@ function S:Select(key)
     for _,control in pairs(self.controls) do
         if control.edit then control.edit:ClearFocus() end
     end
-    if self.page=="profiles" then self.page="artwork" end
+    if self.page=="profiles" or self.page=="website" then self.page="artwork" end
     self.selected=key; self.message=nil; self:Refresh()
 end
 
@@ -250,7 +265,7 @@ function S:Number(property,label,x,y,step,parent)
     edit:SetPoint("TOPLEFT",parent,"TOPLEFT",x+238,y+4); edit:SetSize(80,24)
     edit:EnableMouse(true)
     edit:SetAutoFocus(false); edit:SetFontObject("GameFontHighlightSmall")
-    edit:SetTextInsets(6,6,0,0); edit:SetMaxLetters(12); backdrop(edit,"inset")
+    edit:SetTextInsets(6,6,0,0); edit:SetMaxLetters(12); backdrop(edit,"button")
     local slider=CreateFrame("Slider",nil,parent,"BackdropTemplate")
     slider:SetPoint("TOPLEFT",parent,"TOPLEFT",x,y-32); slider:SetSize(318,18)
     slider:SetOrientation("HORIZONTAL"); slider:SetMinMaxValues(rule[1],rule[2])
@@ -335,7 +350,7 @@ function S:CreateDialogs()
     local edit=CreateFrame("EditBox",nil,p,"BackdropTemplate");self.backupEdit=edit
     edit:SetPoint("TOPLEFT",p,"TOPLEFT",24,-116);edit:SetSize(628,36)
     edit:EnableMouse(true);edit:SetAutoFocus(false);edit:SetFontObject("GameFontHighlightSmall")
-    edit:SetTextInsets(10,10,0,0);edit:SetMaxLetters(8192);backdrop(edit,"inset")
+    edit:SetTextInsets(10,10,0,0);edit:SetMaxLetters(8192);backdrop(edit,"button")
     edit:SetScript("OnEscapePressed",function() edit:ClearFocus();self.backupDialog:Hide() end)
     self.backupResult=text(p,"",24,-164,628)
     self.restoreButton=button(p,"Restore all artwork settings",24,-208,280,function()
@@ -372,6 +387,30 @@ function S:ProfileAction(action)
     self:Refresh()
 end
 
+function S:CreateWebsitePage()
+    local p=CreateFrame("Frame",nil,self.frame);self.pages.website=p
+    p:SetPoint("TOPLEFT",self.frame,"TOPLEFT",218,-214);p:SetSize(666,400);p:SetFrameLevel(202)
+    local logo=p:CreateTexture(nil,"ARTWORK")
+    logo:SetPoint("TOP",p,"TOP",0,-2);logo:SetSize(154,154);logo:SetTexture(J.Media.logo)
+    local heading=text(p,J.Brand.name,0,-174,666,"GameFontNormalLarge");heading:SetJustifyH("CENTER")
+    local description=text(p,"Craft your interface. Make it your own.",0,-209,666);description:SetJustifyH("CENTER")
+    local edit=CreateFrame("EditBox",nil,p,"BackdropTemplate");self.websiteEdit=edit
+    edit:SetPoint("TOPLEFT",p,"TOPLEFT",123,-244);edit:SetSize(420,34)
+    edit:EnableMouse(true);edit:SetAutoFocus(false);edit:SetFontObject("GameFontHighlight")
+    edit:SetTextInsets(12,12,0,0);backdrop(edit,"button");edit:SetText(J.Brand.website)
+    edit:SetScript("OnTextChanged",function()
+        if edit:GetText()~=J.Brand.website then edit:SetText(J.Brand.website);edit:HighlightText() end
+    end)
+    edit:SetScript("OnEditFocusGained",function() edit:HighlightText() end)
+    edit:SetScript("OnEscapePressed",function() edit:ClearFocus() end)
+    edit:SetScript("OnEnterPressed",function() edit:ClearFocus() end)
+    self.websiteCopyButton=button(p,"Select website link",223,-296,220,function()
+        edit:SetFocus();edit:HighlightText()
+    end)
+    local hint=text(p,"Select the link, then press Ctrl+C (Command+C on Mac).\nPaste it into your browser to visit The Igloo.",0,-342,666)
+    hint:SetJustifyH("CENTER")
+end
+
 function S:CreateProfilesPage()
     local p=CreateFrame("Frame",nil,self.frame);self.pages.profiles=p
     p:SetPoint("TOPLEFT",self.frame,"TOPLEFT",218,-214);p:SetSize(666,400);p:SetFrameLevel(202)
@@ -393,12 +432,12 @@ function S:CreateProfilesPage()
     end)
     self.useProfileButton=button(p,"Use selected for this character",0,-350,318,function() self:ProfileAction("use") end)
     self.activeProfileLabel=text(p,"",346,0,318,"GameFontNormalSmall")
-    text(p,"Artwork, fitting, providers and all JUI controls save into the active profile as you change them.",346,-52,318)
+    text(p,"Artwork, fitting, providers and all Frostforge controls save into the active profile as you change them.",346,-52,318)
     text(p,"Profile name",346,-112,318,"GameFontNormalSmall")
     local edit=CreateFrame("EditBox",nil,p,"BackdropTemplate");self.profileNameEdit=edit
     edit:SetPoint("TOPLEFT",p,"TOPLEFT",346,-134);edit:SetSize(318,30)
     edit:EnableMouse(true);edit:SetAutoFocus(false);edit:SetFontObject("GameFontHighlightSmall")
-    edit:SetTextInsets(8,8,0,0);edit:SetMaxLetters(64);backdrop(edit,"inset");edit:SetText("")
+    edit:SetTextInsets(8,8,0,0);edit:SetMaxLetters(64);backdrop(edit,"button");edit:SetText("")
     edit:SetScript("OnEscapePressed",function() edit:ClearFocus() end)
     edit:SetScript("OnEnterPressed",function() self:ProfileAction("copy") end)
     self.saveProfileButton=button(p,"Save as new profile",346,-184,318,function() self:ProfileAction("copy") end)
@@ -424,7 +463,7 @@ function S:RefreshProfiles()
     self.profilesPrevious:SetAlpha(self.profilePage>1 and 1 or .45)
     self.profilesNext:SetAlpha(self.profilePage<pages and 1 or .45)
     self.status:SetText(not J.ProfileManager.writable and J.ProfileManager.notice or self.message
-        or "Profiles change only JiberishUI. Your other addons keep their own profiles.")
+        or "Profiles change only Frostforge. Your other addons keep their own profiles.")
 end
 
 function S:ColorValue(prefix,value,key)
@@ -470,7 +509,7 @@ function S:CreatePowerStyleDialog()
     dialog:SetSize(728,490);dialog:SetPoint("CENTER",self.frame,"CENTER",0,0)
     dialog:SetFrameStrata("DIALOG");dialog:SetFrameLevel(230);dialog:EnableMouse(true);backdrop(dialog,"outer")
     self.powerStyleTitle=text(dialog,"Blizzard power colors",24,-24,676,"GameFontNormalLarge")
-    text(dialog,"Choose the resource color and shading independently. Saved with your JUI profile.",24,-62,676)
+    text(dialog,"Choose the resource color and shading independently. Saved with your Frostforge profile.",24,-62,676)
     self.powerScope="unit";self.powerScopeButtons={};self.powerPanels={}
     for i,scope in ipairs({"unit","party"}) do
         local prefix=scope=="unit" and "blizzardPower" or "blizzardPartyPower"
@@ -485,7 +524,7 @@ function S:CreatePowerStyleDialog()
         local swatch=body:CreateTexture(nil,"ARTWORK");swatch:SetPoint("TOPLEFT",body,"TOPLEFT",0,-114);swatch:SetSize(44,28)
         local edit=CreateFrame("EditBox",nil,body,"BackdropTemplate")
         edit:SetPoint("TOPLEFT",body,"TOPLEFT",54,-114);edit:SetSize(112,28);edit:SetAutoFocus(false)
-        edit:SetFontObject("GameFontHighlightSmall");edit:SetTextInsets(8,8,0,0);edit:SetMaxLetters(7);edit:EnableMouse(true);backdrop(edit,"inset")
+        edit:SetFontObject("GameFontHighlightSmall");edit:SetTextInsets(8,8,0,0);edit:SetMaxLetters(7);edit:EnableMouse(true);backdrop(edit,"button")
         self.controls[prefix.."Custom"]={edit=edit,swatch=swatch,hex=true}
         edit:SetScript("OnEnterPressed",function() local value=edit:GetText();edit:ClearFocus();self:ColorValue(prefix,value) end)
         edit:SetScript("OnEscapePressed",function() edit:ClearFocus();self:Refresh() end)
@@ -515,7 +554,7 @@ function S:CreateStockPlacementDialog()
         self.stockPlacementToggles[kind]=toggle(body,"Customize position",0,0,318,function() self:Set(prefix.."Enabled",not J.ThemeManager:Resolve(self.selected)[prefix.."Enabled"]) end)
         self:Number(prefix.."X","Horizontal offset",0,-60,1,body)
         self:Number(prefix.."Y","Vertical offset",350,-60,1,body)
-        text(body,kind=="Auras" and "Moves Blizzard's combined buff/debuff group together. Positive X moves right; positive Y moves up. Native aura order, tooltips and visibility stay unchanged." or "Moves the native Blizzard cast bar and its JUI border together. Offsets follow Blizzard's normal anchor, including its aura placement. Enable the border and choose Blizzard on the Cast bar page.",0,-144,676)
+        text(body,kind=="Auras" and "Moves Blizzard's combined buff/debuff group together. Positive X moves right; positive Y moves up. Native aura order, tooltips and visibility stay unchanged." or "Moves the native Blizzard cast bar and its Frostforge border together. Offsets follow Blizzard's normal anchor, including its aura placement. Enable the border and choose Blizzard on the Cast bar page.",0,-144,676)
         text(body,"Changes and restoration apply outside combat. Turn off Customize position to restore Blizzard placement.",0,-211,676)
         button(body,"Reset position",0,-266,200,function() self:Set(prefix.."Enabled",false);self:Set(prefix.."X",0);self:Set(prefix.."Y",0) end)
     end
@@ -531,17 +570,17 @@ function S:Create()
     f:Hide();f:SetSize(920,700);f:SetFrameStrata("DIALOG");f:SetFrameLevel(200)
     f:EnableMouse(true);f:SetMovable(true);f:SetClampedToScreen(true)
     backdrop(f,"outer")
-    panel(f,16,-98,178,538);panel(f,200,-98,704,538);panel(f,16,-640,888,44)
-    local rule=f:CreateTexture(nil,"ARTWORK");rule:SetColorTexture(.51,.37,.17,.75)
+    panel(f,20,-98,174,538);panel(f,200,-98,700,538);panel(f,20,-640,880,40)
+    local rule=f:CreateTexture(nil,"ARTWORK");rule:SetColorTexture(.38,.64,.81,.75)
     rule:SetPoint("TOPLEFT",f,"TOPLEFT",218,-152);rule:SetSize(666,1)
 
     local title=CreateFrame("Frame",nil,f);self.titleBar=title
     title:SetPoint("TOPLEFT",f,"TOPLEFT",0,0);title:SetSize(850,94)
     title:EnableMouse(true);title:RegisterForDrag("LeftButton")
     self.crest=title:CreateTexture(nil,"ARTWORK")
-    self.crest:SetPoint("TOPLEFT",title,"TOPLEFT",22,-6);self.crest:SetSize(82,82);self.crest:SetTexCoord(0,0.5,0,1)
-    text(title,"JiberishUI",112,-24,440,"GameFontNormalLarge")
-    text(title,"Craft your interface. Keep the spirit of Warcraft.",112,-50,510)
+    self.crest:SetPoint("TOPLEFT",title,"TOPLEFT",26,-14);self.crest:SetSize(76,76);self.crest:SetTexCoord(0,1,0,1);self.crest:SetTexture(J.Media.logo)
+    text(title,J.Brand.name,112,-28,440,"GameFontNormalLarge")
+    text(title,"Craft your interface. Keep the spirit of Warcraft.",112,-54,510)
     text(title,"v"..J.Core.version,772,-29,72,"GameFontNormalSmall")
     title:SetScript("OnDragStart",function()
         if not InCombatLockdown() or not f:IsProtected() then self.dragging=true;f:StartMoving() end
@@ -566,9 +605,9 @@ function S:Create()
         local b=button(f,names[key],28,-148-(i-1)*54,154,function() self:Select(selected) end,true)
         b:SetHeight(44);self.tabs[key]=b
     end
-    text(f,"Choose a component, then shape its artwork.",32,-438,140)
-    self.profilesButton=button(f,"Profiles",28,-482,154,function() self:SetPage("profiles") end,true)
-    text(f,"Changes save as you go.",32,-522,146)
+    text(f,"Choose a component to shape its artwork.",32,-424,140)
+    self.profilesButton=button(f,"Profiles",28,-470,154,function() self:SetPage("profiles") end,true)
+    self.websiteButton=button(f,"The Igloo",28,-508,154,function() self:SetPage("website") end,true)
     self.resetButton=button(f,"Reset component",28,-552,154,function()
         self:HideMenus();self.resetKey=self.selected
         self.resetTitle:SetText("Reset "..names[self.selected].." artwork?");self.resetDialog:Show()
@@ -583,6 +622,7 @@ function S:Create()
         body:SetFrameLevel(202);self.pages[key]=body
     end
     self:CreateProfilesPage()
+    self:CreateWebsitePage()
     self.heading=text(f,"",220,-165,650,"GameFontNormalLarge")
     self.pageHint=text(f,"",220,-192,652)
     local a=self.pages.advanced
@@ -590,9 +630,9 @@ function S:Create()
     self:Number("level","Level within strata",346,-14,1,a)
     self:Dropdown("unitFrameStrata","Unit-frame art strata",automaticStrata,0,-108,a)
     self:Dropdown("layer","Texture draw layer",layers,346,-202,a)
-    self:Dropdown("unitFrameFill","Health & power textures",{{"AUTO","Automatic (respect UI addon)"},{"PROVIDER","Keep provider textures"},{"JIBERISH","Use JiberishUI fills"}},346,-108,a)
+    self:Dropdown("unitFrameFill","Health & power textures",{{"AUTO","Automatic (respect UI addon)"},{"PROVIDER","Keep provider textures"},{"JIBERISH","Use Frostforge fills"}},346,-108,a)
     self.debugButton=toggle(a,"Show fitting bounds",0,-350,318,function() J.Core:Command("debug") end)
-    text(a,"Strata controls which artwork draws in front. Each decoration has its own setting. Higher strata may cover names. Choose JiberishUI Stone in your UI addon to share the stone texture across its bars.",0,-286,666)
+    text(a,"Strata controls which artwork draws in front. Each decoration has its own setting. Higher strata may cover names. Choose Frostforge Stone in your UI addon to share the stone texture across its bars.",0,-286,666)
     self.diagnosticsButton=button(a,"Print support details to chat",346,-350,318,function() J.Core:Command("status");self.message="Support details printed to chat. Include them with your screenshot.";self:Refresh() end)
 
     a=self.pages.placement
@@ -695,7 +735,7 @@ function S:Create()
     text(dialog,"Names and health are independent. Party & raid and texture choices are shared across stock frames.",24,-60,676)
     local nameColors={{"STOCK","Blizzard color"},{"CLASS","Class color (players)"}}
     local healthColors={{"STOCK","Blizzard color"},{"CLASS","Class gradient (players)"},{"DARK","Dark stone"}}
-    local textures={{"AUTO","Automatic (stone default)"},{"STONE","JiberishUI Stone"},{"SMOOTH","Smooth"},{"STOCK","Blizzard texture"}}
+    local textures={{"AUTO","Automatic (stone default)"},{"STONE","Frostforge Stone"},{"SMOOTH","Smooth"},{"STOCK","Blizzard texture"}}
     self:Dropdown("blizzardNameColor","This unit: name color",nameColors,24,-108,dialog)
     self:Dropdown("blizzardHealthColor","This unit: health color",healthColors,374,-108,dialog)
     self:Dropdown("blizzardPartyNameColor","Party & raid: name color",nameColors,24,-186,dialog)
@@ -740,7 +780,7 @@ function S:Create()
     a=self.pages.guide
     panel(a,0,0,666,180)
     text(a,"FIRST STEPS",18,-18,626,"GameFontNormal")
-    text(a,"1. Choose Player, Target, Focus, Minimap or Action hub on the left.\n\n2. On Artwork, turn on the decorations you want. Portrait and unit-frame art can be used separately or together.\n\n3. Keep Automatic class, or browse the collection for a fixed design.\n\n4. Keep providers on Automatic, or select your UI addon. Advanced lets you keep its bar textures or use JiberishUI fills.",18,-46,626)
+    text(a,"1. Choose Player, Target, Focus, Minimap or Action hub on the left.\n\n2. On Artwork, turn on the decorations you want. Portrait and unit-frame art can be used separately or together.\n\n3. Keep Automatic class, or browse the collection for a fixed design.\n\n4. Keep providers on Automatic, or select your UI addon. Advanced lets you keep its bar textures or use Frostforge fills.",18,-46,626)
     self.guideHelp=text(a,"",0,-198,666)
     button(a,"Copy settings backup",0,-326,318,function() self:ShowBackup("export") end)
     button(a,"Restore from backup",346,-326,318,function() self:ShowBackup("import") end)
@@ -755,12 +795,20 @@ function S:Refresh()
     self.refreshing=true
     local profiles=self.page=="profiles"
     self.pages.profiles:SetShown(profiles);self.profilesButton.selection:SetShown(profiles)
-    self.resetButton:SetShown(not profiles)
-    if profiles then
-        for key,page in pairs(self.pages) do if key~="profiles" then page:Hide() end end
+    local website=self.page=="website"
+    self.pages.website:SetShown(website);self.websiteButton.selection:SetShown(website)
+    self.resetButton:SetShown(not profiles and not website)
+    if profiles or website then
+        for key,page in pairs(self.pages) do if key~=self.page then page:Hide() end end
         for _,b in pairs(self.pageButtons) do b:Hide() end
         for _,b in pairs(self.tabs) do b.selection:Hide() end
-        self:RefreshProfiles();self.refreshing=false;return
+        if profiles then self:RefreshProfiles()
+        else
+            self.heading:SetText("The Igloo  |  Jiberish's home")
+            self.pageHint:SetText("Find more from Jiberish at The Igloo.")
+            self.status:SetText("Copy the website address and paste it into your browser.")
+        end
+        self.refreshing=false;return
     end
     for _,b in pairs(self.pageButtons) do b:Show() end
     local config=J.ThemeManager:Resolve(self.selected)
@@ -845,26 +893,25 @@ function S:Refresh()
         local portrait=not config.shown and "off" or module.snapshot and ((sources[module.snapshot.source] or module.snapshot.source)..(module.nativeVisible and " - ready" or " - portrait hidden")) or "waiting for a visible portrait"
         if config.shown and module.assetOK==false then portrait="artwork could not be loaded" end
         local frame=not config.unitFrameShown and "off - enable Unit-frame art above" or J.UnitSkins.summary[self.selected] or "waiting for bars"
-        self.sourceStatus:SetText("|cffffd38aPortrait:|r "..portrait.."\n|cffffd38aUnit frame:|r "..frame)
+        self.sourceStatus:SetText("|cff9edfffPortrait:|r "..portrait.."\n|cff9edfffUnit frame:|r "..frame)
         self.providerHelp:SetText("Full-frame artwork supports Blizzard, ElvUI and Ellesmere. Use horizontal health with full-width power attached below. Hidden power retains a complete shell with a dark empty opening.")
         self.placementHelp:SetText("Offsets move only the decoration. Use your UI addon's settings to move the portrait or health bars themselves.")
-        self.guideHelp:SetText("|cffffd38aArtwork missing?|r Target a unit first, check each artwork toggle, and choose the matching provider. Enable portraits in that provider too. Hidden or inside-health portraits may not support a surround.\n\n|cffffd38aWrong NPC theme?|r Known city affiliations use matching race art. Unknown NPCs use the normal fallback. Choose a fixed design to override it.")
+        self.guideHelp:SetText("|cff9edfffArtwork missing?|r Target a unit first, check each artwork toggle, and choose the matching provider. Enable portraits in that provider too. Hidden or inside-health portraits may not support a surround.\n\n|cff9edfffWrong NPC theme?|r Known city affiliations use matching race art. Unknown NPCs use the normal fallback. Choose a fixed design to override it.")
     else
         id=minimap and J.Minimaps:Resolve(config) or J.Hubs:Resolve(config)
         entry=minimap and J.MinimapCatalog.entries[id] or J.HubCatalog.entries[id]
         mode=minimap and config.minimapMode or config.hubMode
         local b=minimap and self.minimapButton or self.hubButton;b.caption:SetText(entry.label.."  -  Browse")
-        self.sourceStatus:SetText("|cffffd38aArtwork:|r "..(not config.shown and "off" or module.snapshot and ("following "..module.snapshot.name) or module.status or "waiting for frame"))
+        self.sourceStatus:SetText("|cff9edfffArtwork:|r "..(not config.shown and "off" or module.snapshot and ("following "..module.snapshot.name) or module.status or "waiting for frame"))
         self.providerHelp:SetText(minimap and "The map, buttons and labels stay native. Leave room near screen edges for tall crests." or "Choose the addon that owns your main action bar. Buttons, bags and menus stay functional and keep their existing positions.")
         self.placementHelp:SetText("Follow selected frame keeps artwork attached. Screen anchors the decoration to the display. Neither option moves native controls.")
-        self.guideHelp:SetText(minimap and "|cffffd38aMinimap fitting|r\nAutomatic modes follow your character. Width, height and scale adjust the surround only. Move the native map with its owning UI; leave room for crests at the screen edge." or "|cffffd38aAction hub fitting|r\nAutomatic modes follow your character, not your target. Pick the addon that owns the main bar, then adjust width and offsets around your layout. The hub never moves buttons or changes keybindings.")
+        self.guideHelp:SetText(minimap and "|cff9edfffMinimap fitting|r\nAutomatic modes follow your character. Width, height and scale adjust the surround only. Move the native map with its owning UI; leave room for crests at the screen edge." or "|cff9edfffAction hub fitting|r\nAutomatic modes follow your character, not your target. Pick the addon that owns the main bar, then adjust width and offsets around your layout. The hub never moves buttons or changes keybindings.")
     end
     self.themePreview:SetTexture(entry.texture)
     self.themePreview:ClearAllPoints();self.themePreview:SetPoint("CENTER",self.pages.artwork,"TOPLEFT",65,-149)
     self.themePreview:SetSize(104,hub and 52 or 104)
     if unit then local u1,u2=J.Portraits:TexCoords(config.unit);self.themePreview:SetTexCoord(u1,u2,0,1)
     else self.themePreview:SetTexCoord(0,1,0,1) end
-    self.crest:SetTexture((J.PortraitCatalog.entries[id] or J.PortraitCatalog.entries.CLASS_PALADIN).texture)
     self.modeHelp:SetText(mode=="FIXED" and "Your chosen design stays fixed. Select an automatic mode to follow the unit again."
         or unit and "Follows this unit. Known city NPCs use matching race art. Browse chooses a fixed design."
         or "Follows your character's identity. Browse chooses a fixed design.")
@@ -872,7 +919,7 @@ function S:Refresh()
     self.debugButton.check:SetShown(J.ProfileManager.current.debug)
     for key,b in pairs(self.tabs) do
         b.selection:SetShown(key==self.selected)
-        b.caption:SetText((key==self.selected and "|cffffe5a0" or "|cffffd100")..names[key].."|r")
+        b.caption:SetText(names[key])
     end
     for choice,b in pairs(self.portraitButtons) do
         local u1,u2=J.Portraits:TexCoords(config.unit or "player")
