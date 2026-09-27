@@ -47,7 +47,8 @@ end
 
 function S:Watch(record)
     local function changed(frame, selection)
-        -- Hooks only observe redraws; all writes happen in the out-of-combat tick.
+        -- Observe redraws here. The color controller may reassert an already
+        -- prepared power material; layout and other fills wait outside combat.
         if not usable(frame) or record.writing or not record.active then return end
         record.external = true
         if selection then record.externalSelection = true end
@@ -814,6 +815,29 @@ function S:StockFill(bar)
             if record and record.bar==bar and record.stock and record.active then return record end
         end
     end
+end
+
+-- A precolored Focus/Rage/etc. atlas changes the result of a custom tint.
+-- Reassert only an already prepared stock material on the same native fill.
+-- The StatusBar owns its live UVs and progress; do not move, recreate or refit it.
+function S:RefreshCombatPowerTexture(bar)
+    local record=self:StockFill(bar)
+    if not InCombatLockdown() or not record or record.writing or not record.externalSelection
+        or not usable(bar) or not usable(record.texture) or type(bar.SetStatusBarTexture)~="function" then return end
+    local ok,current=pcall(bar.GetStatusBarTexture,bar)
+    if not ok or not J.Core:IsSafe(current) or current~=record.texture then return end
+    local latest=capture(record.texture,true)
+    if not latest then return end
+    if latest.atlas or latest.path~=record.fillPath then
+        record.original=latest
+        record.writing=true
+        local loaded
+        ok=J.Core:Protect("stock power material",function() loaded=bar:SetStatusBarTexture(record.fillPath) end)
+        record.writing=false
+        if not ok or not J.Core:IsSafe(loaded) or loaded==false then J.Core.dirty=true;return end
+        record.revision=(record.revision or 0)+1
+    end
+    record.external,record.externalSelection=false,false
 end
 
 local function hasMask(texture,mask)

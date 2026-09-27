@@ -109,7 +109,7 @@ function methods:SetDrawLayer(value,sub) writable(self); self.layer,self.sub=val
 local function appearance(self)
     if self.native and self.fillTexture then
         readable(self)
-        assert(not M.combat,"Native appearance written in combat")
+        assert(not M.combat or M.statusBarTextureWrite==self,"Native appearance written in combat")
         M.appearanceWrites=(M.appearanceWrites or 0)+1
     else writable(self) end
 end
@@ -129,8 +129,14 @@ function methods:SetAtlas(value)
 end
 function methods:GetStatusBarTexture() readable(self); return self.fill end
 function methods:SetStatusBarTexture(value)
-    assert(self.native and self.fill);assert(not M.combat)
-    self.selectedTexture=value;self.fill:SetTexture(value)
+    assert(self.native and self.fill)
+    -- Opt-in fixtures model asset selection on an existing native region.
+    -- Direct texture/UV and all native geometry writes stay combat-gated.
+    assert(not M.combat or self.combatTextureAllowed,"Unprepared combat texture selection")
+    local previous=M.statusBarTextureWrite;M.statusBarTextureWrite=self.fill
+    self.selectedTexture=value
+    if M.atlasUVs[value] then self.fill:SetAtlas(value) else self.fill:SetTexture(value) end
+    M.statusBarTextureWrite=previous
     return not M.missingTexture
 end
 function methods:SetTexture(value)

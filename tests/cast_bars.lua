@@ -417,3 +417,81 @@ test("player border keeps selected strata when native cast chrome raises during 
     M.combat=false;c.frame.protected=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");assert(c.frame.level==951)
     assert(not next(J.Core.notices))
 end)
+
+local function chrome(M,bar)
+    for _,key in ipairs({"Border","TextBorder","BorderShield","Spark","Icon","Text","CastTimeText","Background"}) do
+        local region=M.region(bar,"Texture",180,16);region.stockPresentation=true
+        region.path="native-"..key;region.alpha=.7;bar[key]=region
+    end
+end
+
+for _,interface in ipairs({120100,16001}) do
+    test("Blizzard cast skin replaces only static trim and survives combat redraws on "..interface,function(M)
+        local J=M.load({interface=interface})
+        for _,key in ipairs(keys) do
+            local bar=fixture(M,"BLIZZARD",key);chrome(M,bar)
+            local nativeMask={};bar.Border.masks={[nativeMask]=true}
+            J.ProfileManager:Set(key,"castBarStrata","TOOLTIP");enable(J,key,"BLIZZARD")
+            local c=J.CastBars.units[key]
+            assert(bar.Border:GetNumMaskTextures()==2 and bar.TextBorder:GetNumMaskTextures()==1)
+            for _,name in ipairs({"BorderShield","Spark","Icon","Text","CastTimeText","Background"}) do
+                assert(bar[name]:GetNumMaskTextures()==0 and bar[name].alpha==.7 and bar[name].shown)
+            end
+            local record=J.CastBars.chrome.effectMasks[bar.Border]
+            assert(record.active and record.mask.allPoints==bar.Border and record.mask.color[4]==0)
+            local writes,masks,hooks=M.stockWrites,M.masks,M.hooks
+            M.combat=true;bar.shown=true
+            -- Native engine redraws are independent of addon writes.
+            bar.Border.shown=true;bar.Border.alpha=1;bar.Border.path="redrawn-border"
+            bar.TextBorder.shown=true;bar.TextBorder.alpha=1
+            for i=1,5 do M.tick(J.Core);J.CastBars:Sync() end
+            assert(c.frame.shown and c.frame.strata=="TOOLTIP" and record.active)
+            assert(M.stockWrites==writes and M.masks==masks and M.hooks==hooks)
+            J.ProfileManager:Set(key,"castBarShown",false)
+            assert(c.frame.shown and record.active)
+            M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+            assert(not c.frame.shown and not record.active)
+            assert(bar.Border:GetNumMaskTextures()==1 and bar.Border.masks[nativeMask])
+            assert(bar.TextBorder:GetNumMaskTextures()==0)
+            assert(bar.Border.path=="redrawn-border" and bar.Border.alpha==1 and bar.Border.shown)
+            enable(J,key,"BLIZZARD");assert(record.active and M.masks==masks)
+        end
+        assert((M.nativeLayoutWrites or 0)==0 and not next(J.Core.notices))
+    end)
+
+    test("cast trim restores across provider replacement disabled art and missing textures on "..interface,function(M)
+        local J=M.load({interface=interface});local bar=fixture(M,"BLIZZARD","playerFrame");chrome(M,bar)
+        enable(J,"playerFrame","BLIZZARD")
+        local replacement=fixture(M,"BLIZZARD","playerFrame");chrome(M,replacement)
+        M.tick(J.Core)
+        assert(bar.Border:GetNumMaskTextures()==0 and replacement.Border:GetNumMaskTextures()==1)
+        local thirdParty=fixture(M,"ELVUI","playerFrame");chrome(M,thirdParty)
+        J.ProfileManager:Set("playerFrame","castBarSource","ELVUI")
+        assert(replacement.Border:GetNumMaskTextures()==0 and thirdParty.Border:GetNumMaskTextures()==0)
+        J.ProfileManager:Set("playerFrame","castBarSource","BLIZZARD")
+        assert(replacement.Border:GetNumMaskTextures()==1)
+        local texture=J.CastBars.units.playerFrame.textures['12'];local setTexture=texture.SetTexture
+        texture.SetTexture=function() return false end
+        J.ProfileManager:Set("playerFrame","castBarArt","RACE_NIGHTELF")
+        assert(not J.CastBars.units.playerFrame.assetOK and replacement.Border:GetNumMaskTextures()==0)
+        texture.SetTexture=setTexture;J.ProfileManager:Set("playerFrame","castBarArt","CLASS_MAGE")
+        assert(replacement.Border:GetNumMaskTextures()==1)
+        J.ProfileManager:Reset("playerFrame");assert(replacement.Border:GetNumMaskTextures()==0)
+        assert(not next(J.Core.notices))
+    end)
+
+    test("cast trim waits for safe attachment and restores temporarily forbidden regions on "..interface,function(M)
+        local J=M.load({interface=interface});local bar=fixture(M,"BLIZZARD","playerFrame");chrome(M,bar)
+        M.combat=true;enable(J,"playerFrame","BLIZZARD")
+        assert(not J.CastBars.units.playerFrame and bar.Border:GetNumMaskTextures()==0)
+        M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+        assert(bar.Border:GetNumMaskTextures()==1)
+        bar.Border.forbidden=true;J.ProfileManager:Set("playerFrame","castBarShown",false)
+        assert(J.CastBars.chrome.effectMasks[bar.Border].active)
+        bar.Border.forbidden=false;M.tick(J.Core)
+        assert(bar.Border:GetNumMaskTextures()==0)
+        local broken=bar.Border;bar.Border=nil;enable(J,"playerFrame","BLIZZARD")
+        assert(broken:GetNumMaskTextures()==0 and bar.TextBorder:GetNumMaskTextures()==1)
+        assert(not next(J.Core.notices))
+    end)
+end

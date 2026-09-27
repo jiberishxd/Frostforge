@@ -1,6 +1,98 @@
 local test,near=...
 local function rgb(c,r,g,b) near(c[1],r);near(c[2],g);near(c[3],b) end
 for _,interface in ipairs({120100,16001}) do
+    test("Hunter custom power survives unreadable combat colors on "..interface,function(M)
+        local J=M.load({interface=interface});M.unitData.player.class="HUNTER"
+        local b=J.Core.client:UnitBars("playerFrame").power
+        b.powerToken="FOCUS";b:SetStatusBarColor(1,1,1)
+        J.ProfileManager:Set("playerFrame","blizzardPowerCustom","33CCFF")
+        J.ProfileManager:Set("playerFrame","blizzardPowerColor","CUSTOM")
+        local getter=b.GetStatusBarColor
+        for _,shading in ipairs({"SOLID","GRADIENT"}) do
+            J.ProfileManager:Set("playerFrame","blizzardPowerShading",shading)
+            b.GetStatusBarColor=function() return M.secret,M.secret,M.secret,M.secret end
+            M.combat=true;b:SetStatusBarColor(1,.5,.25)
+            rgb(b.barColor,.2,.8,1)
+            if shading=="GRADIENT" then near(b.fill.gradient.high.g,.8) end
+            local writes=M.colorWrites
+            for i=1,5 do M.tick(J.Core) end
+            assert(M.colorWrites==writes,"Unreadable color caused repeated writes")
+            b.GetStatusBarColor=function() error("Color not readable") end
+            b:SetStatusBarColor(1,1,1);rgb(b.barColor,.2,.8,1)
+            b.GetStatusBarColor=function(self)
+                local g=self.fill.gradient
+                if g then return g.low.r,g.low.g,g.low.b,g.low.a end
+                return getter(self)
+            end
+            M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+            rgb(J.BlizzardUnits.colors[b].original,1,1,1)
+            writes=M.colorWrites;for i=1,5 do M.tick(J.Core) end;assert(M.colorWrites==writes)
+        end
+        J.ProfileManager:Set("playerFrame","blizzardPowerShading","SOLID")
+        J.ProfileManager:Set("playerFrame","blizzardPowerColor","STOCK")
+        rgb(b.barColor,1,1,1);assert(not b.fill.gradient and not next(J.Core.notices))
+        b.GetStatusBarColor=getter
+    end)
+
+    test("Hunter combat atlas redraw retains custom power material and restores the latest atlas on "..interface,function(M)
+        local J=M.load({interface=interface});M.unitData.player.class="HUNTER"
+        local b=J.Core.client:UnitBars("playerFrame").power
+        b.powerToken="FOCUS";b.combatTextureAllowed=true
+        M.atlasUVs["Native-Hunter-Focus"]={.1,.8,.2,.4}
+        b:SetStatusBarColor(1,1,1)
+        J.ProfileManager:Set("playerFrame","blizzardPowerCustom","33CCFF")
+        J.ProfileManager:Set("playerFrame","blizzardPowerColor","CUSTOM")
+        J.ProfileManager:Set("playerFrame","blizzardPowerShading","GRADIENT")
+        local material=J.UnitSkins:StockFill(b);local texture=b.fill
+        local geometry,frames,hooks=M.geometryWrites,#M.frames,M.hooks
+        M.combat=true
+        -- Match Blizzard's UnitFrameManaBar_UpdateType order: atlas, then tint.
+        b:SetStatusBarTexture("Native-Hunter-Focus")
+        b:SetStatusBarColor(1,1,1)
+        assert(b.fill==texture and b.fill.path==material.fillPath and not b.fill.atlas,
+            "Native Focus atlas replaced the neutral material during combat")
+        rgb(b.barColor,.2,.8,1);near(b.fill.gradient.high.g,.8)
+        assert(material.original.atlas=="Native-Hunter-Focus")
+        local writes,appearance=M.colorWrites,M.appearanceWrites
+        for i=1,5 do M.tick(J.Core) end
+        assert(M.colorWrites==writes and M.appearanceWrites==appearance)
+        assert(M.geometryWrites==geometry and #M.frames==frames and M.hooks==hooks)
+        -- A newly selected setting still waits until combat ends.
+        J.ProfileManager:Set("playerFrame","blizzardPowerCustom","FF3300")
+        rgb(b.barColor,.2,.8,1)
+        M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");rgb(b.barColor,1,.2,0)
+        J.ProfileManager:Set("playerFrame","blizzardPowerShading","SOLID")
+        J.ProfileManager:Set("playerFrame","blizzardPowerColor","STOCK")
+        assert(b.fill.atlas=="Native-Hunter-Focus" and not b.fill.gradient)
+        rgb(b.barColor,1,1,1);assert(not next(J.Core.notices))
+    end)
+
+    test("combat power material recovery defers forbidden and replacement fills on "..interface,function(M)
+        local J=M.load({interface=interface});local b=J.Core.client:UnitBars("playerFrame").power
+        b.combatTextureAllowed=true;M.atlasUVs["Native-Hunter-Focus"]={.1,.8,.2,.4}
+        local replacement=M.region(b,"Texture",124,10);replacement.fillTexture=true
+        replacement.path="replacement-power"
+        J.ProfileManager:Set("playerFrame","blizzardPowerColor","CUSTOM")
+        J.ProfileManager:Set("playerFrame","blizzardPowerShading","GRADIENT")
+        local old=b.fill;local oldGradient=old.gradient
+        M.combat=true;old.forbidden=true
+        local material=J.UnitSkins:StockFill(b);material.external,material.externalSelection=true,true
+        local appearance=M.appearanceWrites;M.tick(J.Core)
+        assert(M.appearanceWrites==appearance)
+        old.forbidden=false;b.fill=replacement
+        b:SetStatusBarTexture("Native-Hunter-Focus")
+        assert(b.fill==replacement and replacement.atlas=="Native-Hunter-Focus")
+        assert(old.gradient==oldGradient,"Replacement fill recolored the retired texture")
+        appearance=M.appearanceWrites;local frames,hooks=#M.frames,M.hooks
+        for i=1,5 do M.tick(J.Core) end
+        assert(M.appearanceWrites==appearance and #M.frames==frames and M.hooks==hooks)
+        M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+        assert(J.UnitSkins:StockFill(b).texture==replacement and not replacement.atlas and replacement.gradient)
+        assert(not next(J.Core.notices))
+    end)
+end
+
+for _,interface in ipairs({120100,16001}) do
     test("fitted player power releases only its native clipping mask on "..interface,function(M)
         local J=M.load({interface=interface,stockStone=true})
         local b=J.Core.client:UnitBars("playerFrame").power
