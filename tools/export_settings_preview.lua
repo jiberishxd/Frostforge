@@ -14,13 +14,19 @@ local function json(v)
 end
 local ids={};for i,o in ipairs(M.objects) do ids[o]=i end
 local function inside(o) return o and (o==S.frame or inside(o.parent)) end
+local function hoverOwner(o)
+    if not o or not o.parent then return end
+    if o==o.parent.hover then return o.parent end
+    return hoverOwner(o.parent)
+end
 local function snapshot()
     local result={}
     for _,o in ipairs(M.objects) do
-        if inside(o) and o:IsVisible() then
+        local hover=hoverOwner(o)
+        if inside(o) and (o:IsVisible() or (hover and hover:IsVisible())) then
             local item={id=ids[o],parent=ids[o.parent],kind=o.kind,w=o.w,h=o.h,level=o.level,layer=o.layer,alpha=o.alpha,
                 text=o.text,font=o.fontObject,justify=o.justify,path=o.path,uv=o.texCoord,backdrop=o.backdrop,color=o.color,backdropColor=o.backdropColor,borderColor=o.backdropBorderColor,blend=o.blend,desaturated=o.desaturated,
-                value=o.value,minimum=o.minimum,maximum=o.maximum,all=ids[o.allPoints],points={}}
+                value=o.value,minimum=o.minimum,maximum=o.maximum,all=ids[o.allPoints],hoverFor=ids[hover],points={}}
             for i,p in ipairs(o.points) do item.points[i]={p[1],ids[p[2]],p[3],p[4] or 0,p[5] or 0} end
             result[ids[o]]=item
         end

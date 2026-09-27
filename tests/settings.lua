@@ -41,6 +41,33 @@ test("frosted stone buttons keep white labels and reset hover and pressed states
     end
 end)
 
+test("chosen buttons keep their frost outline after hover and follow actual settings",function(M)
+    local J=M.load();local S=J.SettingsUI;S:Open()
+    local active=S.pageButtons.artwork
+    active.scripts.OnEnter();active.scripts.OnLeave()
+    assert(active.selection:IsShown() and not active.hover:IsShown())
+    S.pageButtons.placement.scripts.OnClick()
+    assert(not active.selection:IsShown() and S.pageButtons.placement.selection:IsShown())
+    S:SetPage("artwork")
+    local toggle=S.showButton
+    assert(toggle.selection:IsShown() and toggle.check:IsShown())
+    toggle.scripts.OnClick();toggle.scripts.OnEnter();toggle.scripts.OnLeave()
+    assert(not toggle.selection:IsShown() and not toggle.check:IsShown())
+    toggle.scripts.OnClick()
+    assert(toggle.selection:IsShown() and toggle.check:IsShown())
+    local dropdown=S.controls.portraitMode
+    dropdown.button.scripts.OnClick()
+    assert(dropdown.button.selection:IsShown() and dropdown.options.CLASS.selection:IsVisible())
+    dropdown.options.FIXED.scripts.OnClick()
+    assert(not dropdown.button.selection:IsShown())
+    dropdown.button.scripts.OnClick()
+    assert(dropdown.options.FIXED.selection:IsVisible() and not dropdown.options.CLASS.selection:IsShown())
+    S:HideMenus();assert(not dropdown.button.selection:IsShown())
+    S.frame:Hide();S:Open()
+    assert(toggle.selection:IsVisible() and not toggle.hover:IsShown())
+    assert(not next(J.Core.notices))
+end)
+
 for _,interface in ipairs({120100,16001}) do
     test("settings pages isolate advanced controls and preserve unsaved input on client "..interface,function(M)
         local J=M.load({interface=interface});local S=J.SettingsUI;S:Open()

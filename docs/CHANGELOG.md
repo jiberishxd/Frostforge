@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.1 — Combat artwork recovery and clearer button states
+
+- Recover existing portrait surrounds during combat after a temporary unreadable target or focus frame. A genuinely different anchor still waits until combat ends.
+- Keep an already fitted unit-frame shell visible when switching targets in combat; apply the new unit's shell design after combat, when its different bar openings can be fitted safely.
+- Keep decorative bar attachments through temporary native fill failures and recover the same bars after temporary unavailability, without moving protected frames during combat.
+- Add brighter hover highlights and fitted frost-blue borders for selected tabs, enabled toggles, dropdown choices, profiles and artwork cards. Native Blizzard corner sizes stay fixed as buttons change size; white labels and stone surfaces remain.
+
 ## 0.9.0 — Jiberish's Frostforge
 
 - Rename the addon display, chat prefix, documentation and release archives; add `/frostforge` while retaining existing aliases, folder, saved settings and backups.

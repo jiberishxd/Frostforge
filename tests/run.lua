@@ -612,6 +612,7 @@ test("reported Forever fit profile reproduces geometry without changing native f
     assert(not next(J.Core.notices))
 end)
 assert(loadfile("tests/portraits.lua"))(test,near,count)
+assert(loadfile("tests/combat_artwork.lua"))(test)
 assert(loadfile("tests/hubs.lua"))(test,near,count)
 assert(loadfile("tests/minimaps.lua"))(test,near,count)
 assert(loadfile("tests/compatibility.lua"))(test,near,count)

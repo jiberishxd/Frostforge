@@ -583,6 +583,13 @@ function S:TickUnit(key)
     local bars,reason
     if enabled then bars,reason=J.AddOnAnchors:UnitBars(key,config.unitFrameSource) end
     local id=J.Portraits:Resolve(config)
+    -- Each shell has different measured openings. Keep the already fitted
+    -- design on this same health bar during combat, rather than hiding it or
+    -- swapping an incompatible atlas into its old geometry. Refit after combat.
+    local attached=unit.health
+    if InCombatLockdown() and bars and attached and attached.bar==bars.health and attached.id then
+        if id~=attached.id then J.Core.dirty=true;id=attached.id end
+    end
     local fitted,fitReason
     local healthOnly=enabled and noPower(bars)
     local external=bars and (bars.source=="ELLESMERE" or bars.source=="ELVUI")
@@ -622,14 +629,19 @@ function S:TickUnit(key)
             if ok and usable(result) then texture=result end
         end
         if record and (not enabled or record.bar~=bar or record.texture~=texture) then
-            self:Visibility(record,false)
-            local trim=record.trim
-            local pendingHide=InCombatLockdown() and trim and trim.frame:IsProtected()
-            if self:Restore(record) and not pendingHide then
-                self:Retire(record);unit[kind]=nil;record=nil
+            if InCombatLockdown() then
+                -- Fill identity is independent of the decorative bar anchor.
+                -- Reconcile native textures after combat. Preserve the record
+                -- so a temporarily missing bar can resume on the same object.
+                J.Core.dirty=true
+                if not enabled or record.bar~=bar then self:Visibility(record,false);bar=nil end
             else
-                -- Keep the pending original until the forbidden/combat state ends.
-                J.Core.dirty=true;bar=nil
+                self:Visibility(record,false)
+                if self:Restore(record) then
+                    self:Retire(record);unit[kind]=nil;record=nil
+                else
+                    J.Core.dirty=true;bar=nil
+                end
             end
         end
         local g=bar and geometry(bar)
