@@ -1,3 +1,11 @@
+# Build 0.9.2 — Combat power colors and Blizzard cast trim
+
+312 Lua behavior tests pass. New Hunter fixtures reproduce a precolored Focus-atlas reset and unreadable/throwing native tint reads during combat on both Retail and Forever paths. Saved custom colors and gradients persist on the same prepared fill, without geometry writes, hook creation or repeated polling writes. Tests cover queued settings, forbidden/replacement fills, and restoration of the latest native atlas and tint.
+
+Blizzard cast fixtures cover Player/Target/Focus at highest strata, replacement of only the static rim/textbox, retained native masks and cast indicators, repeated combat redraws without mask writes, restoration on disable/reset/provider changes, unavailable artwork, replacement bars, forbidden regions and mask reuse. The cast border's fitting and all 296 runtime artwork images are unchanged. No live WoW session was used; the reported Hunter color and cast appearance still require in-game confirmation.
+
+17 Python artwork tests, source/media/provenance checks, unchanged cast-preview export and exact Retail/Forever 0.9.2 package checks pass. The settings export changes only its displayed version.
+
 # Build 0.9.1 — Combat recovery and button highlights
 
 300 Lua behavior tests and 17 Python artwork tests pass. New Retail and Forever regressions reproduce transient target/focus anchor failures, target identity changes while fighting, power visibility transitions, secret/throwing native fill getters and temporarily unavailable shell-only bars. Existing attachments recover during combat without allocation or geometry/native appearance writes; replacement portrait roots still wait until combat ends. The fitted shell retains its design during combat and resolves the current target's design afterward.

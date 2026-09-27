@@ -499,6 +499,13 @@ local function sameColor(a,b)
     for i=1,4 do if math.abs(a[i]-b[i])>.0001 then return false end end
     return true
 end
+local function readColor(record)
+    local ok,r,g,b,a=pcall(record.region[record.get],record.region)
+    if ok then return safeColor(r,g,b,a) end
+end
+local function gradientStart(color)
+    return {color[1]*.72,color[2]*.72,color[3]*.72,color[4]}
+end
 local function classColor(info)
     local token=info.unit
     if not token then
@@ -538,23 +545,41 @@ end
 
 function B:RefreshColor(record)
     if record.writing or not record.active or not usable(record.region) or not usable(record.info.root) then return end
-    local current=safeColor(record.region[record.get](record.region))
-    -- Never compare restricted client colors or infer any combat value.
-    if not current then return end
-    if not sameColor(current,record.last) then record.original=current end
+    local current=readColor(record)
+    local custom=record.mode=="CUSTOM" and self:HexColor(record.custom)
+    -- A saved custom RGB is public configuration and does not depend on the
+    -- live tint. Preserve the last readable native color for restoration.
+    if not current and not custom then return end
+    if current and not sameColor(current,record.last) then
+        local ownReadback=record.unreadableApplied and record.desired and
+            (sameColor(current,record.desired) or (record.gradientActive and sameColor(current,gradientStart(record.desired))))
+        if not ownReadback then record.original=current end
+    end
+    if record.kind=="power" and (record.mode~="STOCK" or record.shading=="GRADIENT") then
+        record.writing=true
+        J.UnitSkins:RefreshCombatPowerTexture(record.region)
+        record.writing=false
+    end
     local desired=record.mode=="DARK" and {.12,.12,.13,1}
         or record.mode=="CLASS" and classColor(record.info)
-        or record.mode=="CUSTOM" and self:HexColor(record.custom)
+        or custom
     local material=record.kind~="name" and J.UnitSkins:StockFill(record.region)
     local texture=material and material.texture
+    if texture then
+        local ok,currentTexture=pcall(record.region.GetStatusBarTexture,record.region)
+        if not ok or not J.Core:IsSafe(currentTexture) or currentTexture~=texture then texture=nil
+        elseif not usable(texture) then return end
+    end
     local gradient=(desired and record.kind=="health" and record.mode=="CLASS" or record.kind=="power" and record.shading=="GRADIENT")
         and usable(texture) and type(texture.SetGradient)=="function" and type(CreateColor)=="function"
     desired=desired or materialColor(record) or record.original
     local changed=not sameColor(desired,record.desired) or record.colorDirty
         or record.texture~=texture or record.textureRevision~=(material and material.revision)
         or record.gradientActive~=not not gradient
-    if desired and ((gradient and (changed or not sameColor(current,record.last)))
-        or (not gradient and (record.gradientActive or not sameColor(current,desired)))) then
+    local needsWrite=not current and (changed or not record.unreadableApplied)
+        or current and ((gradient and (changed or not sameColor(current,record.last)))
+            or (not gradient and (record.gradientActive or not sameColor(current,desired))))
+    if desired and needsWrite then
         record.writing=true
         local ok=J.Core:Protect("stock color",function()
             record.region[record.set](record.region,unpack(desired))
@@ -565,7 +590,8 @@ function B:RefreshColor(record)
         record.writing=false
         if not ok then return end
     end
-    record.last=safeColor(record.region[record.get](record.region))
+    record.last=readColor(record)
+    record.unreadableApplied=not record.last
     record.desired,record.gradientActive,record.colorDirty=desired,not not gradient,false
     record.texture,record.textureRevision=texture,material and material.revision
 end
@@ -645,6 +671,10 @@ function B:TickColors()
                         if record.active and not record.writing then record.colorDirty=true;self:RefreshColor(record) end
                     end
                     hooksecurefunc(region,set,changed)
+                    if options.kind=="power" and type(region.SetStatusBarTexture)=="function" then
+                        -- Run after Blizzard has finished selecting its atlas.
+                        hooksecurefunc(region,"SetStatusBarTexture",changed)
+                    end
                     if options.kind=="name" then
                         for _,method in ipairs({"SetVertexColor","SetText"}) do
                             if type(region[method])=="function" then hooksecurefunc(region,method,changed) end
