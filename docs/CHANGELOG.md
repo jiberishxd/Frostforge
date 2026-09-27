@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.2 — Combat power colors and Blizzard cast trim
+
+- Keep saved custom power colors when Blizzard's current tint is restricted during combat. Reassert the prepared neutral material when Blizzard selects a precolored Focus/resource atlas on the same existing power bar, preserving the latest native atlas for restoration.
+- Replace Blizzard's static cast rim and textbox decoration while cast artwork is attached, so the native trim cannot show through the artwork even at the highest strata. Preserve the fill, text, spark, shield, icons and cast effects; disabling the skin or switching providers restores the original trim.
+- Keep new attachments, replacement fills, setting changes, layout and restoration outside combat. Existing cast trim masks survive native redraws without combat writes. Artwork and fitting settings are unchanged.
+
 ## 0.9.1 — Combat artwork recovery and clearer button states
 
 - Recover existing portrait surrounds during combat after a temporary unreadable target or focus frame. A genuinely different anchor still waits until combat ends.

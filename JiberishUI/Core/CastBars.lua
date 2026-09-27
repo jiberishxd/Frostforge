@@ -212,11 +212,30 @@ function C:TickUnit(key)
             f:SetFrameStrata(g.artStrata);f:SetFrameLevel(g.artLevel)
         else J.Core.dirty=true end
     end
-    module.active=true
+    module.active=true;module.source=candidate.source
     local shown=visibility(bar)
     self.status[key]=(candidate.name or labels[candidate.source]).." - "..(module.assetOK and
         (shown and shown.visible and shown.alpha>0 and "attached; cast visible" or "attached; waiting for cast") or "artwork unavailable").." | "..g.artStrata.." / level "..g.artLevel
     J.Core:SyncVisibility(module,shown)
+end
+
+-- Strata cannot cover native trim through the artwork's transparent opening.
+-- Replace only Blizzard's static rim/textbox while a usable skin is attached.
+-- Reuse the reversible effect masks so native show/alpha/atlas updates cannot
+-- bring the trim back mid-cast; no combat hooks or native visibility writes.
+function C:SyncBlizzardChrome()
+    if InCombatLockdown() then return end
+    local wanted={}
+    for _,module in pairs(self.units) do
+        if module.active and module.assetOK and module.source=="BLIZZARD" and usable(module.bar) then
+            for _,key in ipairs({"Border","TextBorder"}) do
+                local region=module.bar[key]
+                if usable(region) then wanted[region]="mask" end
+            end
+        end
+    end
+    self.chrome=self.chrome or {}
+    J.BlizzardUnits:SyncEffectMasks(self.chrome,wanted)
 end
 
 function C:Tick()
@@ -228,6 +247,7 @@ function C:Tick()
             J.Core:Protect(key.." cast cleanup",function() J.Core:SyncVisibility(module,nil) end)
         end
     end
+    J.Core:Protect("Blizzard cast trim",function() self:SyncBlizzardChrome() end)
 end
 
 -- Short visibility-only poll avoids leaving a decorative border behind when a
