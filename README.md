@@ -2,6 +2,8 @@
 
 # Jiberish's Frostforge
 
+[Join the Discord](https://discord.com/servers/igloo-460933747731070996)
+
 **Bring the grit, craft, and character of Warcraft into your interface.**
 
 Jiberish's Frostforge adds sculpted artwork around your portraits, health and power bars, cast bars, action bars, and minimap. Build a matching look for your class, race, or faction—from Paladin wings and Priest stonework to Druid roots and Shaman totems.
