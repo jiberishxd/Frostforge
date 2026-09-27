@@ -1,6 +1,6 @@
 # Portrait build validation
 
-Install 0.8.4 and fully restart WoW to load the source-faithful shells and new controls. Keep saved settings. In `/jui`, select Player, Target or Focus and test **Portrait art** and **Unit-frame art** in all four on/off combinations. Unit-frame art is off by default; existing FULL settings migrate. If bars still do not show their artwork, copy the per-unit lines from `/jui status`, including shell and fill status. All in-game testing is performed by the user.
+Install 0.8.4 and fully restart WoW to load the source-faithful shells and new controls. Keep saved settings. In `/frostforge`, select Player, Target or Focus and test **Portrait art** and **Unit-frame art** in all four on/off combinations. Unit-frame art is off by default; existing FULL settings migrate. If bars still do not show their artwork, copy the per-unit lines from `/jui status`, including shell and fill status. All in-game testing is performed by the user.
 
 1. Open /jui. Confirm textured window borders, red/gold buttons, checkboxes, five component tabs and a movable window. Verify Show artwork and Debug bounds check marks, selected tabs, and gallery selection after switching components. Player, Target and Focus default to Automatic class; Minimap and hub default to automatic player class; existing geometry overrides are retained.
 2. At default portrait dimensions, check Player's teardrop corner, level badge, name and bars. Select players of different classes and verify only Target's portrait background changes; the art should share the same visible envelope without a lower loop or level-badge circle. Verify Mage uses an eye and Hunter uses a skull. Set another class as Focus and verify independent selection. Clear Target/Focus and confirm their decoration disappears.
@@ -17,7 +17,7 @@ Record client/build, resolution, UI/frame scale, mode/artwork, /jf status and ex
 
 Test Retail and Forever separately where the upstream addons run. Test ElvUI alone, EllesmereUI alone, Blinkii with each suite, mMediaTag with ElvUI, and coexistence with per-unit manual source choices. Test mMediaTag 4.x on Retail and 3.x only on clients supported by that upstream build.
 
-1. In `/jui`, leave Portrait addon on Automatic. Enable Player/Target/Focus portraits in the provider. For the closest fit use Blinkii/mMediaTag Circle or Ellesmere detached Circle. Confirm the printed Following anchor, opening center, artwork mirroring and click-through behavior. When mMediaTag and ElvUI portraits coexist, Automatic should choose mMediaTag; visible Blinkii portraits retain first priority.
+1. In `/frostforge`, leave Portrait addon on Automatic. Enable Player/Target/Focus portraits in the provider. For the closest fit use Blinkii/mMediaTag Circle or Ellesmere detached Circle. Confirm the printed Following anchor, opening center, artwork mirroring and click-through behavior. When mMediaTag and ElvUI portraits coexist, Automatic should choose mMediaTag; visible Blinkii portraits retain first priority.
 2. Resize, move, fade, hide and change portrait shapes/profiles. Toggle Blinkii clickable mode, mMediaTag mirrored masks and zoom, ElvUI 2D/3D/class modes and Ellesmere attached/detached modes. Turn portraits off, clear target/focus and remove/re-enable providers. No stale surround should remain. Health-overlay portraits intentionally have no separate surround.
 3. Change source and size in combat; test clickable Blinkii portraits and protected dependencies. Deferred changes must apply after combat without blocked-action errors. Target identity artwork should still update when permitted.
 4. Select ElvUI or EllesmereUI as the Action bar addon. Confirm SCREEN and FRAME anchors, alpha/visibility, paging, vehicle transitions and click-through. Use a circular minimap for the existing circular surround. Arbitrary bar layouts and square maps need manual fitting.
@@ -53,9 +53,9 @@ Unknown NPCs retain the normal fallback; city location alone is not a match. See
 
 ## 0.7.4–0.7.5 user-run checks
 
-- Open `/jui` on both clients. Check all four pages, artwork searches/pages, small-screen fitting, dragged position, scoped reset and backup round-trip.
-- In EllesmereUI, choose JiberishUI Stone and another texture in turn. Confirm neither is replaced in AUTO or PROVIDER fill mode. Repeat after provider profile redraw and a combat transition. Explicit JIBERISH mode should replace fills until switched back or disabled.
-- Select JiberishUI Stone in ElvUI and other shared texture menus; test Player/Target and raid/resource frames using the provider's own settings.
+- Open `/frostforge` on both clients. Check all four pages, artwork searches/pages, small-screen fitting, dragged position, scoped reset and backup round-trip.
+- In EllesmereUI, choose Frostforge Stone and another texture in turn. Confirm neither is replaced in AUTO or PROVIDER fill mode. Repeat after provider profile redraw and a combat transition. Explicit JIBERISH mode should replace fills until switched back or disabled.
+- Select Frostforge Stone in ElvUI and other shared texture menus; test Player/Target and raid/resource frames using the provider's own settings.
 - Test Unit frame width/height and X/Y offsets on each unit, including 100% defaults, custom values, reset, hidden power bars and queued combat edits. Verify the original shell overlaps the fill, smaller width moves its sides inward, and no second rail appears. Check that center labels stay readable at the selected fit and the shell disappears when disabled. Legacy inset values must not change the result.
 - Review the balanced, faction-neutral Shaman mask/totem shell and thick divider with Player/Target/Focus; check all original portrait toggles remain independent.
 
@@ -67,15 +67,15 @@ Follow the manual checklist in [CAST-BARS.md](CAST-BARS.md) on Blizzard, Ellesme
 
 ## 0.8.4 Blizzard cast layering and text (user-run)
 
-1. On Player, Target and Focus, enable the cast border with Blizzard selected. Start with **Cast bar → Cast-border strata → Automatic** and **Level above nearby artwork → 1**. Confirm the border clears the stock surround and enabled JUI shell/portrait when casts begin, including casts first shown in combat. Try High and Dialog with different levels, then return to Automatic. Repeat the existing Ellesmere layout.
+1. On Player, Target and Focus, enable the cast border with Blizzard selected. Start with **Cast bar → Cast-border strata → Automatic** and **Level above nearby artwork → 1**. Confirm the border clears the stock surround and enabled Frostforge shell/portrait when casts begin, including casts first shown in combat. Try High and Dialog with different levels, then return to Automatic. Repeat the existing Ellesmere layout.
 2. On **Blizzard**, test all six label selectors. Enable customization, adjust X and Y repeatedly in both directions and return to zero. Test font size/alignment/outline separately. Unchanged labels should stay put, and the health/power center/left/right variants should move together. Only existing visible native labels should appear.
 3. Change target, UI scale and Blizzard layout; start/stop a cast. Offsets should remain relative to the original layout with no accumulated movement. Disable or reset one group, then restore all stock portrait/text controls. Fonts and positions should return to the current Blizzard defaults. Full portrait removal still hides its level badge.
 4. Adjust and reset in combat, then leave combat. Settings must apply afterward without blocked actions. Verify character profiles and backup round trips retain the separate label and cast-layer choices.
 
 ## 0.8.5 ElvUI full shells (user-run)
 
-1. Use ElvUI with attached full-width power below horizontal health. In `/jui` select each of Player, Target and Focus, enable **Unit-frame art**, and choose **ElvUI** or Automatic as its provider. Portraits may be disabled or supplied separately. Check the full shell appears, its divider fits between the bars and values/clicks/labels remain functional.
-2. Retain **Automatic (respect UI addon)** fill mode and choose textures in ElvUI. Confirm those choices remain; optionally select JiberishUI Stone there. Explicit JiberishUI fills should restore the latest provider selection when disabled.
+1. Use ElvUI with attached full-width power below horizontal health. In `/frostforge` select each of Player, Target and Focus, enable **Unit-frame art**, and choose **ElvUI** or Automatic as its provider. Portraits may be disabled or supplied separately. Check the full shell appears, its divider fits between the bars and values/clicks/labels remain functional.
+2. Retain **Automatic (respect UI addon)** fill mode and choose textures in ElvUI. Confirm those choices remain; optionally select Frostforge Stone there. Explicit Frostforge fills should restore the latest provider selection when disabled.
 3. Resize/move frames and switch ElvUI profiles, resources and targets. Turn artwork off and verify original health/power anchors and total size return. Test all artwork categories and independent fitting controls.
 4. Try detached, inset, mini/spaced, offset and vertical power layouts: the shell should hide with a diagnostic, leaving the new ElvUI layout alone. Return to full-width attached power and confirm recovery. Check hidden/auto-hidden power and missing targets.
 5. Test login, reload, first target/focus appearance, combat transitions and saved character profiles. No blocked actions or secure-value errors are acceptable. Fitting/restoration wait until combat ends. Capture `/jui status` if your layout differs.
@@ -99,7 +99,7 @@ Follow the manual checklist in [CAST-BARS.md](CAST-BARS.md) on Blizzard, Ellesme
 
 ## 0.8.7 power and placement (user-run)
 
-1. On stock Player with a JUI shell, confirm the power fill reaches the upper edge of the opening after login/reload and resizing. Compare Target, which should retain its current contour. Disable the shell and check native mana-mask restoration, including alternate resources and vehicles.
+1. On stock Player with a Frostforge shell, confirm the power fill reaches the upper edge of the opening after login/reload and resizing. Compare Target, which should retain its current contour. Disable the shell and check native mana-mask restoration, including alternate resources and vehicles.
 2. In Blizzard → Colors & textures → Power colors, exercise native/class/custom, solid/gradient, hex input, picker Cancel/Okay and Party & raid scope. Verify class colors, mana/rage/energy changes, native disconnected tints, profiles and reload; no black cover should appear over visible power.
 3. Enable Target/Focus buff/debuff group offsets; change targets and aura rows. Check hidden aura groups stay hidden, tooltips remain functional, and reset/profile changes restore the native placement. Repeat for cast-bar offsets, with and without aura anchoring. Edits and protected native reanchors reconcile after combat.
 4. On Blizzard Player/Target/Focus, enable cast borders before combat. Check Automatic and highest strata, casts/channels/empower FX, first cast in combat, target aura reanchors, and raising native FX layers while casting. Border visibility must follow the cast; text/timing stay native. Confirm ElvUI/Ellesmere remain unchanged.
@@ -110,4 +110,4 @@ Follow the manual checklist in [CAST-BARS.md](CAST-BARS.md) on Blizzard, Ellesme
 2. Change targets, add/remove aura rows, switch Blizzard's above/below placement and show/hide numeric threat. Confirm saved offsets persist relative to the new native position without drifting. Check native cast-bar anchoring below the moved auras.
 3. Edit offsets or disable customization during combat; confirm placement changes wait until combat ends. Reset, switch to a clean profile and reload; verify restoration and persistence. If a setting remains ineffective, capture the displayed placement status or `/jui status` output.
 
-Offline tests reproduce native aura reanchoring after JUI's scan; the mock does not emulate the secure client or render real aura icons. No game was operated during development.
+Offline tests reproduce native aura reanchoring after Frostforge's scan; the mock does not emulate the secure client or render real aura icons. No game was operated during development.

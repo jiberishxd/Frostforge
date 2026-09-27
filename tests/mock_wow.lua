@@ -192,6 +192,7 @@ local function colorWrite(self)
         M.colorWrites=(M.colorWrites or 0)+1
     else writable(self) end
 end
+function methods:SetDesaturated(value) writable(self);self.desaturated=value end
 function methods:SetTextColor(...) colorWrite(self);self.color={...} end
 function methods:GetTextColor() readable(self);return unpack(self.color or {1,.82,0,1}) end
 function methods:SetVertexColor(...) colorWrite(self);self.color={...};self.gradient=nil end

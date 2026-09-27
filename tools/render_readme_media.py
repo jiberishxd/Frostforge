@@ -6,10 +6,10 @@ from PIL import Image, ImageDraw, ImageFont, ImageChops
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs/images'
-GOLD = '#e2c180'
-INK = '#ede7d8'
-MUTED = '#b5afa0'
-BACK = '#171d20'
+GOLD = '#a6ddf5'
+INK = '#e1edf4'
+MUTED = '#a3b4c0'
+BACK = '#111b25'
 
 
 def font(size, serif=False):
@@ -96,9 +96,10 @@ def main():
     OUT.mkdir(exist_ok=True)
     canvas=Image.new('RGB',(1400,860),BACK)
     draw=ImageDraw.Draw(canvas)
-    draw.text((42,28),'JiberishUI',font=font(48,True),fill=GOLD)
-    draw.text((44,91),'42 themes. One coordinated Warcraft interface.',font=font(23),fill=INK)
-    draw.line((42,136,1358,136),fill='#594c35',width=2)
+    place(canvas,Image.open(ROOT/'docs/images/logo.png'),(35,18,104,104))
+    draw.text((158,28),"Jiberish's Frostforge",font=font(48,True),fill=GOLD)
+    draw.text((160,91),'42 themes. One coordinated Warcraft interface.',font=font(23),fill=INK)
+    draw.line((42,136,1358,136),fill='#3c596c',width=2)
     draw.text((44,163),'SCULPTED UNIT FRAMES',font=font(18),fill=GOLD)
     place(canvas,shell('class_paladin','#f58cba'),(40,192,600,300))
     draw.text((720,163),'PORTRAIT SURROUNDS',font=font(18),fill=GOLD)
@@ -107,7 +108,7 @@ def main():
         draw.text((735+i*155,345),label,font=font(17),fill=MUTED)
     draw.text((720,393),'MATCHING CAST BORDERS',font=font(18),fill=GOLD)
     place(canvas,Image.open(ROOT/'artwork/cast-bars/assets/class_mage.png'),(717,422,615,110))
-    draw.line((42,556,1358,556),fill='#594c35',width=1)
+    draw.line((42,556,1358,556),fill='#3c596c',width=1)
     draw.text((44,586),'ACTION HUBS',font=font(18),fill=GOLD)
     place(canvas,hub('class_paladin'),(42,619,870,195))
     draw.text((1050,586),'MINIMAP ART',font=font(18),fill=GOLD)
@@ -130,8 +131,9 @@ def main():
 
     # A dedicated 2:1 share-card asset, ready for GitHub's social preview field.
     social=Image.new('RGB',(1280,640),BACK);draw=ImageDraw.Draw(social)
-    draw.text((50,42),'JiberishUI',font=font(60,True),fill=GOLD)
-    draw.text((52,122),'Class, race & faction artwork for your Warcraft UI',font=font(26),fill=INK)
+    place(social,Image.open(ROOT/'docs/images/logo.png'),(42,35,112,112))
+    draw.text((174,42),"Jiberish's Frostforge",font=font(60,True),fill=GOLD)
+    draw.text((176,122),'Class, race & faction artwork for your Warcraft UI',font=font(26),fill=INK)
     place(social,shell('class_paladin','#f58cba'),(34,195,620,310))
     place(social,shell('class_shaman','#379ee0'),(654,195,590,310))
     draw.text((52,558),'Portraits · Unit frames · Cast bars · Action hubs · Minimap',font=font(23),fill=GOLD)

@@ -1,8 +1,8 @@
 # Commands and advanced fitting
 
-Start with `/jui` for the visual settings window. These commands offer the same appearance controls for advanced use.
+Start with `/frostforge` for the visual settings window. These commands offer the same appearance controls for advanced use.
 
-`/jui`, `/jiberishui` and `/jf` open the movable options window. Commands:
+`/frostforge`, `/jui`, `/jiberishui` and `/jf` open the movable options window. Commands:
 
 | Command | Effect |
 |---|---|
@@ -81,6 +81,6 @@ ElvUI full unit-frame artwork (0.8.5), with attached full-width power below heal
 /jui set focusFrame unitFrameShown on
 ```
 
-Keep `unitFrameFill AUTO` to retain ElvUI's selected textures; choose JiberishUI Stone in ElvUI's texture menu if desired.
+Keep `unitFrameFill AUTO` to retain ElvUI's selected textures; choose Frostforge Stone in ElvUI's texture menu if desired.
 
 Stock styling keys: per-unit `blizzardNameColor STOCK|CLASS`, `blizzardHealthColor STOCK|CLASS|DARK`; Player-scoped shared `blizzardPartyNameColor`, `blizzardPartyHealthColor`, `blizzardHealthTexture AUTO|STOCK|STONE|SMOOTH` and `blizzardPowerTexture AUTO|STOCK|STONE|SMOOTH`. The Blizzard Colors & textures dialog is the recommended way to edit them.

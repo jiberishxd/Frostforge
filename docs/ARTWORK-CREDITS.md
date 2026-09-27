@@ -1,10 +1,10 @@
 # Artwork credits and provenance
 
-Class, race, Alliance and Horde crest images: Blizzard Entertainment. World of Warcraft and Warcraft are trademarks or registered trademarks of Blizzard Entertainment. JiberishUI is an independent addon and is not endorsed by Blizzard.
+Class, race, Alliance and Horde crest images: Blizzard Entertainment. World of Warcraft and Warcraft are trademarks or registered trademarks of Blizzard Entertainment. Frostforge is an independent addon and is not endorsed by Blizzard.
 
 The requested website emblems are visual references for the generated portrait ornaments and action hubs. Their central symbols are integrated into layered artwork; the website's circular icon holders are not pasted onto it. Exact source pages, asset URLs and original hashes are recorded in ARTWORK-SOURCES.json. Original downloads are retained under artwork/official-crests/originals in the development workspace; only prepared decorative textures are installed.
 
-Surrounds, rails and the neutral compass use JiberishUI compositions generated through the built-in image tool, then locally processed under the user's instruction. Prompt sets and originals are retained in artwork/portraits and artwork/hubs. The official emblems and the underlying Warcraft designs are not claimed as JiberishUI original artwork.
+Surrounds, rails and the neutral compass use Frostforge compositions generated through the built-in image tool, then locally processed under the user's instruction. Prompt sets and originals are retained in artwork/portraits and artwork/hubs. The official emblems and the underlying Warcraft designs are not claimed as Frostforge original artwork.
 
 No separate written permission from Blizzard has been obtained or is implied by this credit. This record documents provenance, not a license or legal opinion.
 
@@ -14,7 +14,7 @@ The 42 matching minimaps were created with the built-in image generation tool fr
 
 ## Painted stone and hub transparency revision (0.8.1)
 
-The shared stone material now uses a new original hand-painted fantasy surface with broad, restrained shading and quiet wear. It was generated with the built-in image tool; the exact prompt is retained in `artwork/unit-frames/references/plain-stone-generation.json`, beside the original `plain-stone.png`. Earlier material versions are retained under `references/revisions/`. Authorized local processing crops, converts to grayscale and encodes the 256 × 32 fill. All 42 health exports and the existing **JiberishUI Stone** SharedMedia entry use this source. No reference-addon artwork, code or branding is bundled.
+The shared stone material now uses a new original hand-painted fantasy surface with broad, restrained shading and quiet wear. It was generated with the built-in image tool; the exact prompt is retained in `artwork/unit-frames/references/plain-stone-generation.json`, beside the original `plain-stone.png`. Earlier material versions are retained under `references/revisions/`. Authorized local processing crops, converts to grayscale and encodes the 256 × 32 fill. All 42 health exports and the existing **Frostforge Stone** SharedMedia entry use this source. No reference-addon artwork, code or branding is bundled.
 
 All 42 hubs were reviewed for enclosed matte/checkerboard residue. Twenty-four received alpha-only corrections using retained source-space masks; their original painted RGB and fitting geometry are preserved. Mask hashes, source hashes and review sheets are in `artwork/hubs/alpha-cleanup/`; [hub transparency notes](HUB-TRANSPARENCY.md) explain the verification. Original generated hub sources remain unchanged.
 
@@ -33,3 +33,7 @@ The 42 cast borders are separate built-in image-tool generations inspired by the
 The supplied Mage class emblem guides localized corrections on the portrait, unit shell and cast border: a horizontal arcane lens with a pale diamond center, stacked gemstones, fluted lower rays and cyan book runes. Exact built-in editing prompts, before/generated images and the localized application record are in `artwork/mage-emblem-correction/`. Unchanged hub/minimap designs retain their historical portrait reference snapshots so their source hashes stay accurate.
 
 The Mage cast-border ends were subsequently simplified with the built-in image tool into compact bronze brackets, violet crystals and cyan rune accents. The exact edit prompt is in `artwork/cast-bars/mage-simplification/generation.json`; its `before.png` retains the earlier book/eye cast border. Portrait and unit-shell emblems were not changed by this cast-only simplification.
+
+## Frostforge identity and settings material (0.9.0)
+
+The owner-approved transparent penguin logo is retained in `docs/images/logo.png`, with its generation and alpha-processing record in [LOGO-SOURCE.md](images/LOGO-SOURCE.md). A 512 × 512 RGBA TGA supplies the in-game icon and header. The subtle settings background is a square center crop from an original built-in image-tool generation; its full source and exact prompt are retained in `artwork/settings/sources/`. Native Blizzard borders and desaturated, blue-tinted button textures supply the controls. The generated border is not used at runtime.

@@ -1,6 +1,6 @@
 # Development and local previews
 
-JiberishUI is a Lua addon with retained artwork sources and offline previews. The game installs only the packaged `JiberishUI` directory. The repository itself also includes editing references, tooling and tests.
+Frostforge is a Lua addon with retained artwork sources and offline previews. The game installs only the packaged `JiberishUI` directory. The repository itself also includes editing references, tooling and tests.
 
 ## Build installable ZIPs
 
@@ -10,7 +10,7 @@ Requires Python 3. From the repository root, run:
 python3 tools/package.py
 ```
 
-This writes separate Retail and Forever ZIPs into `dist/`. Use the archive matching your client; each contains a single top-level `JiberishUI` folder. Keep the complete folder together.
+This writes `Jiberishs-Frostforge-Retail-<version>.zip` and `Jiberishs-Frostforge-Forever-<version>.zip` into `dist/`. Use the archive matching your client; each contains a single top-level `JiberishUI` folder. Keep the complete folder together.
 
 ## Local checks
 
@@ -35,6 +35,7 @@ python3 tools/apply_druid_antlers.py
 python3 tools/fit_unit_shells.py
 python3 tools/build_unit_frame_art.py
 python3 tools/fit_cast_borders.py
+python3 tools/build_branding.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 tools/render_portrait_review.py
 lua5.1 tools/export_fit_preview.lua

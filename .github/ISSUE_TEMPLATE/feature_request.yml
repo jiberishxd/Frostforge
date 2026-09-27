@@ -1,5 +1,5 @@
 name: Feature, artwork feedback, or shared layout
-description: Suggest an improvement or show how you use JiberishUI.
+description: Suggest an improvement or show how you use Frostforge.
 body:
   - type: dropdown
     id: kind
@@ -8,7 +8,7 @@ body:
       options:
         - Feature request
         - Artwork feedback
-        - A JiberishUI layout
+        - A Frostforge layout
     validations:
       required: true
   - type: textarea
