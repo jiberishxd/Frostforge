@@ -10,7 +10,9 @@ Open `/frostforge`. Choose Player, Target, Focus, Minimap or Action hub on the l
 - **The Igloo:** Select and copy [theigloo.io](https://theigloo.io) into your browser to visit Jiberish's website.
 - **Guide:** Setup help and troubleshooting, plus copy/paste backup and restore. Restore replaces Frostforge settings for all five components; invalid backups leave current settings intact. Reset component asks before restoring just that component's defaults.
 
-The window uses native Blizzard borders, subtle rough-stone panels, muted frost-blue Blizzard buttons and white button labels, alongside native Blizzard checks and sliders. The official transparent penguin logo stays in the header across every component. It scales to fit shorter screens, remembers dragged position, and supports Escape to close. Search matches plain label text within the selected class/race/faction category; long collections have pages.
+The window uses native Blizzard borders, subtle rough-stone panels, muted frost-blue Blizzard buttons and white button labels, alongside native Blizzard checks and sliders. Hover brightens a fitted icy outline; selected tabs, enabled toggles and chosen options keep their blue border after the pointer leaves. The official transparent penguin logo stays in the header across every component. It scales to fit shorter screens, remembers dragged position, and supports Escape to close. Search matches plain label text within the selected class/race/faction category; long collections have pages.
+
+When you change targets in combat, the full unit-frame shell keeps its already fitted design until combat ends, then fits the current unit's design. Portrait surrounds can update immediately when the game permits. Briefly unreadable frames hide their decorations safely and recover on the same attachment when readable again; attaching to a different frame still waits until combat ends.
 
 ## Choose Frostforge Stone in your other UI addon
 

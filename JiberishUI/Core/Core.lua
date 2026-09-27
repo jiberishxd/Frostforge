@@ -2,7 +2,7 @@ local addonName, J = ...
 -- Keep the addon folder and saved-variable keys stable for existing installs.
 J.Brand = { name="Jiberish's Frostforge", shortName="Frostforge", website="https://theigloo.io" }
 local Core = {
-    version = "0.9.0",
+    version = "0.9.1",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
     propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset", "unitFrameX", "unitFrameY", "castBarShown", "castBarSource", "castBarStyle", "castBarArt", "castBarWeight", "castBarPadding", "castBarWidth", "castBarHeight", "unitFrameStrata", "castBarStrata", "castBarLevel", "blizzardPortraitHidden", "blizzardPortraitFrameHidden", "blizzardNameEnabled", "blizzardNameX", "blizzardNameY", "blizzardNameSize", "blizzardNameAlign", "blizzardNameOutline", "blizzardStone" },
@@ -267,7 +267,7 @@ function Core:Apply(module, snapshot)
         texture:SetTexCoord(u1,u2,v1,v2)
         if texture:SetTexture(config.texture) == false then module.assetOK = false end
     end
-    module.applied, module.snapshot = config, snapshot
+    module.applied, module.snapshot, module.attachment = config, snapshot, snapshot
     module.status = module.assetOK and "attached" or "Artwork could not be loaded"
     if not module.assetOK then self:Notice(module.key,module.status) end
     self:UpdateDebug(module,snapshot,config)
@@ -310,14 +310,20 @@ function Core:Tick()
         local module = self.modules[key]
         local ok = self:Protect(key,function()
             local snapshot, reason = self:ReadAnchor(key)
+            -- A failed observation does not undo the last successful SetPoint.
+            -- Keep that attachment separately so a temporary combat read failure
+            -- can recover without creating or moving a protected dependency.
+            local attached=module.attachment
             if not snapshot then
                 module.status, module.snapshot = reason, nil
                 self:SyncVisibility(module,nil)
-            elseif not combat and (refresh or geometryChanged(module.snapshot,snapshot)) then
+            elseif not combat and (refresh or geometryChanged(attached,snapshot)) then
                 self:Apply(module,snapshot)
             else
-                if combat and (refresh or geometryChanged(module.snapshot,snapshot)) then self.dirty = true end
-                local sameAnchor = module.snapshot and module.snapshot.frame == snapshot.frame
+                if combat and (refresh or geometryChanged(attached,snapshot)) then self.dirty = true end
+                local sameAnchor = attached and attached.frame == snapshot.frame and attached.source == snapshot.source
+                module.snapshot=sameAnchor and snapshot or nil
+                if sameAnchor then module.status=module.assetOK and "attached" or "Artwork could not be loaded" end
                 -- Identity changes only replace addon texture bytes. Recheck
                 -- protection because anchoring may establish a secure dependency.
                 if sameAnchor and module.applied and module.applied.unit then
