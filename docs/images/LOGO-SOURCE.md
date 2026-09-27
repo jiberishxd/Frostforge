@@ -1,10 +1,10 @@
-# Official JiberishUI logo
+# Official Jiberish's Frostforge logo
 
-`logo.png` is the official JiberishUI penguin logo, selected by the project owner on September 25, 2026. It replaces the gold compass emblem in the project README. The full-resolution square PNG is the canonical public branding asset.
+`logo.png` is the official Frostforge penguin logo, selected by the project owner on September 25, 2026. It replaces the gold compass emblem in the project README. The full-resolution square PNG is the canonical public branding asset.
 
 The design uses the owner-supplied Warcraft penguin reference, preserving its long golden beak, cyan eye and distinctive headpiece. Blue ice fills the weathered metal medallion, with small ice accents attached around its rim. The design was created with the built-in image generation tool.
 
-The Warcraft character reference and underlying game designs belong to their respective owners; see [artwork credits](../ARTWORK-CREDITS.md). This logo is documentation/branding media, not an addon runtime texture.
+The Warcraft character reference and underlying game designs belong to their respective owners; see [artwork credits](../ARTWORK-CREDITS.md). The canonical PNG is used in documentation; `tools/build_branding.py` exports a 512 × 512 RGBA TGA for the in-game header, The Igloo tab, and AddOns icon. The addon was named **Jiberish's Frostforge** on September 26, 2026.
 
 ## Transparent export
 

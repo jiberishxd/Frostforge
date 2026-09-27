@@ -1,3 +1,11 @@
+# Build 0.9.0 — Frostforge branding and settings
+
+289 Lua behavior tests and 17 Python artwork tests pass. Branding checks cover the fixed transparent header logo, new and legacy command aliases, website navigation and selection, preserved profile data, and native button desaturation/tint/interaction states on Retail and Forever. SharedMedia tests verify both Frostforge Stone and its legacy alias.
+
+The settings use native Blizzard borders and button bevels, with blue tint, white button labels and a subtle square stone tile. The artwork, profiles, Blizzard controls and The Igloo pages were visually inspected in the offline preview; the heavier custom border experiment is not shipped. Source, transparency, provenance and both exact 0.9.0 package checks pass. There are 296 runtime textures: the existing 294 plus the approved transparent logo and settings stone.
+
+No live WoW session was used. Native Blizzard texture rendering and in-game appearance still need player validation.
+
 # Build 0.8.8 Target/Focus aura positioning
 
 286 Lua behavior tests and 17 Python artwork tests pass. New regressions reproduce a native aura-layout callback after JUI's scan on Retail and Forever; both the actual vertical slider and typed horizontal edit survive that callback. Coverage includes the public accessor without the XML fallback, Target/Focus offsets, above/below flips and threat spacing, native coordinates coinciding with previous offsets, combat deferral, profile restoration, container replacement, forbidden/secret anchors, duplicate-hook prevention and recovery after a rejected write.

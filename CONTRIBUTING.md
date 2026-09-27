@@ -1,6 +1,6 @@
-# Contributing to JiberishUI
+# Contributing to Frostforge
 
-JiberishUI brings class, race and faction artwork to existing Warcraft frames. Useful contributions include reproducible bug reports, provider compatibility fixes, fitting corrections, documentation and clearly scoped artwork improvements.
+Frostforge brings class, race and faction artwork to existing Warcraft frames. Useful contributions include reproducible bug reports, provider compatibility fixes, fitting corrections, documentation and clearly scoped artwork improvements.
 
 For a substantial feature or visual redesign, open an issue describing the intended result before implementing it. Preserve the established artwork direction and shared fitting geometry when making corrections.
 

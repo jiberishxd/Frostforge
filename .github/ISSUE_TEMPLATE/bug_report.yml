@@ -5,7 +5,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: JiberishUI version
+      label: Frostforge version
       placeholder: "For example: 0.8.1"
     validations:
       required: true
@@ -59,4 +59,4 @@ body:
     id: evidence
     attributes:
       label: Screenshots and diagnostics
-      description: Attach a screenshot of the problem and relevant JiberishUI settings. Paste /jui status output and any Lua error text when available.
+      description: Attach a screenshot of the problem and relevant Frostforge settings. Paste /jui status output and any Lua error text when available.

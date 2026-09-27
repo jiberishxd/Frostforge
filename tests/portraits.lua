@@ -149,7 +149,7 @@ test("classic options toggle states and collection tabs reflect saved settings",
     assert(S.groupButtons.RACE.selection:IsShown() and not S.groupButtons.CLASS.selection:IsShown())
     S.portraitButtons.CLASS_MAGE.scripts.OnClick()
     assert(S.portraitButtons.CLASS_MAGE.selection:IsShown())
-    assert(S.crest.path==J.PortraitCatalog.entries.CLASS_MAGE.texture)
+    assert(S.crest.path==J.Media.logo)
     assert(M.nativeWrites==0)
 end)
 

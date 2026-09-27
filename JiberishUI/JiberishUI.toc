@@ -1,8 +1,10 @@
 ## Interface: 120100, 16001
-## Title: JiberishUI
+## Title: Jiberish's Frostforge
+## IconTexture: Interface\AddOns\JiberishUI\Media\Branding\frostforge-logo.tga
+## X-Website: https://theigloo.io
 ## Notes: Optional sculpted unit-frame skins and fantasy portrait surrounds with Blinkii, mMediaTag, ElvUI and EllesmereUI support, matching cast-bar borders, action hubs and minimap artwork. In-game validation pending.
-## Author: JiberishUI
-## Version: 0.8.8
+## Author: Jiberish
+## Version: 0.9.0
 ## SavedVariables: JiberishUIDB
 ## SavedVariablesPerCharacter: JiberishUICharacterDB
 ## OptionalDeps: LibSharedMedia-3.0, Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_Minimap, Blinkiis_Portraits, ElvUI, ElvUI_mMediaTag, EllesmereUI, EllesmereUIUnitFrames, EllesmereUIResourceBars, EllesmereUIActionBars, EllesmereUIMinimap
