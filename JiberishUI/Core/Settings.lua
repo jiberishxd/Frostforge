@@ -57,9 +57,10 @@ end
 local function button(parent,value,x,y,width,callback,card)
     local b=CreateFrame("Button",nil,parent,"BackdropTemplate")
     b:SetPoint("TOPLEFT",parent,"TOPLEFT",x,y); b:SetSize(width,28)
+    b:SetFrameLevel(parent:GetFrameLevel()+1)
     b:EnableMouse(true)
-    local function nativeButton(path,layer)
-        local t=art(b,path,layer)
+    local function nativeButton(path,layer,parent)
+        local t=art(parent or b,path,layer)
         t:SetTexCoord(0,0.625,0,0.6875)
         -- Retain Blizzard's original sculpted bevel; remove the red before tinting.
         t:SetDesaturated(true);t:SetVertexColor(0.50,0.74,0.94,1)
@@ -76,10 +77,23 @@ local function button(parent,value,x,y,width,callback,card)
         b.down=nativeButton("Interface\\Buttons\\UI-Panel-Button-Down","BORDER")
     end
     b.down:Hide()
-    b.selection=nativeButton("Interface\\Buttons\\UI-Panel-Button-Highlight","BORDER")
-    b.selection:SetBlendMode("ADD");b.selection:SetAlpha(0.25);b.selection:Hide()
-    b.hover=nativeButton("Interface\\Buttons\\UI-Panel-Button-Highlight","HIGHLIGHT")
-    b.hover:SetBlendMode("ADD");b.hover:SetAlpha(0.20);b.hover:Hide()
+    local function frostOutline(hover)
+        local rim=CreateFrame("Frame",nil,b,"BackdropTemplate")
+        rim:SetPoint("TOPLEFT",b,"TOPLEFT",1,-1);rim:SetPoint("BOTTOMRIGHT",b,"BOTTOMRIGHT",-1,1)
+        rim:SetFrameLevel(b:GetFrameLevel()+1);rim:EnableMouse(false)
+        -- Native fixed-size corners and tiled edges fit both short buttons and
+        -- tall artwork cards without stretching a border image across them.
+        rim:SetBackdrop({edgeFile="Interface\\Tooltips\\UI-Tooltip-Border",edgeSize=12})
+        if hover then rim:SetBackdropBorderColor(0.80,0.94,1,1)
+        else rim:SetBackdropBorderColor(0.52,0.82,1,1) end
+        if not card then
+            rim.glow=nativeButton("Interface\\Buttons\\UI-Panel-Button-Highlight","BACKGROUND",rim)
+            rim.glow:SetBlendMode("ADD");rim.glow:SetAlpha(hover and 0.42 or 0.34)
+        end
+        rim:Hide();return rim
+    end
+    b.selection=frostOutline(false)
+    b.hover=frostOutline(true)
     b.caption=b:CreateFontString(nil,"OVERLAY","GameFontNormalSmall")
     b.caption:SetPoint("CENTER",b,"CENTER",0,0);b.caption:SetText(value);b.caption:SetTextColor(1,1,1,1)
     b:SetScript("OnClick",callback)
@@ -97,6 +111,9 @@ local function toggle(parent,value,x,y,width,callback)
     b.check=art(b,"Interface\\Buttons\\UI-CheckBox-Check","OVERLAY")
     b.check:ClearAllPoints();b.check:SetAllPoints(box)
     b.caption:ClearAllPoints();b.caption:SetPoint("LEFT",b,"LEFT",28,0)
+    function b:SetChecked(checked)
+        self.check:SetShown(checked);self.selection:SetShown(checked)
+    end
     return b
 end
 
@@ -247,6 +264,8 @@ function S:Dropdown(property,label,choices,x,y,parent,width)
     end)
     text(control.button,"v",width-22,-8,16,"GameFontNormalSmall")
     menu:SetPoint("TOPLEFT",control.button,"BOTTOMLEFT",0,-2)
+    menu:SetScript("OnShow",function() control.button.selection:Show() end)
+    menu:SetScript("OnHide",function() control.button.selection:Hide() end)
     control.options={}
     for i,entry in ipairs(choices) do
         local choice=entry
@@ -845,7 +864,7 @@ function S:Refresh()
     for _,part in ipairs({"edit","slider","label"}) do self.controls.castBarLevel[part]:SetShown(unit) end
     self.controls.strata.label:SetText(unit and "Portrait art strata" or "Artwork strata")
     if unit then
-        self.stockStoneToggle.check:SetShown(J.ThemeManager:Resolve("playerFrame").blizzardStone)
+        self.stockStoneToggle:SetChecked(J.ThemeManager:Resolve("playerFrame").blizzardStone)
         self.powerStyleTitle:SetText("Blizzard power colors — "..names[self.selected])
         for scope,body in pairs(self.powerPanels) do
             body:SetShown(scope==self.powerScope);self.powerScopeButtons[scope].selection:SetShown(scope==self.powerScope)
@@ -854,21 +873,21 @@ function S:Refresh()
         self.stockAurasButton:SetShown(movable);self.stockCastPositionButton:SetShown(movable)
         for kind,body in pairs(self.stockPlacementPanels) do
             body:SetShown(kind==self.stockPlacementKind)
-            self.stockPlacementToggles[kind].check:SetShown(config["blizzard"..kind.."Enabled"]==true)
+            self.stockPlacementToggles[kind]:SetChecked(config["blizzard"..kind.."Enabled"]==true)
         end
         self.stockPlacementTitle:SetText(names[self.selected]..(self.stockPlacementKind=="Auras" and " buffs & debuffs" or " Blizzard cast bar"))
         self.stockPlacementStatus:SetText((J.BlizzardUnits.placementStatus or {})[self.selected..(self.stockPlacementKind or "Auras")] or "Enable Customize position to move this group.")
         self.stockStyleTitle:SetText("Blizzard colors & textures — "..names[self.selected])
-        self.nativePortraitToggle.check:SetShown(config.blizzardPortraitHidden)
-        self.nativePortraitFrameToggle.check:SetShown(config.blizzardPortraitFrameHidden)
+        self.nativePortraitToggle:SetChecked(config.blizzardPortraitHidden)
+        self.nativePortraitFrameToggle:SetChecked(config.blizzardPortraitFrameHidden)
         for _,group in ipairs(J.BlizzardUnits.textGroups) do
             self.textPanels[group]:SetShown(group==self.textGroup)
             self.textButtons[group].selection:SetShown(group==self.textGroup)
-            self.textToggles[group].check:SetShown(config["blizzard"..group.."Enabled"])
+            self.textToggles[group]:SetChecked(config["blizzard"..group.."Enabled"])
         end
         self.nativeStatus:SetText(J.BlizzardUnits.status[self.selected] or "Stock settings unchanged. Changes and restoration apply outside combat.")
-        self.styleButton.check:SetShown(config.unitFrameShown)
-        self.castToggle.check:SetShown(config.castBarShown)
+        self.styleButton:SetChecked(config.unitFrameShown)
+        self.castToggle:SetChecked(config.castBarShown)
         self.castMatch.selection:SetShown(config.castBarArt=="MATCH")
         local castID=J.CastBars:Artwork(config)
         self.castBrowse.caption:SetText(J.PortraitCatalog.entries[castID].label.." - Browse")
@@ -915,8 +934,8 @@ function S:Refresh()
     self.modeHelp:SetText(mode=="FIXED" and "Your chosen design stays fixed. Select an automatic mode to follow the unit again."
         or unit and "Follows this unit. Known city NPCs use matching race art. Browse chooses a fixed design."
         or "Follows your character's identity. Browse chooses a fixed design.")
-    self.showButton.check:SetShown(config.shown)
-    self.debugButton.check:SetShown(J.ProfileManager.current.debug)
+    self.showButton:SetChecked(config.shown)
+    self.debugButton:SetChecked(J.ProfileManager.current.debug)
     for key,b in pairs(self.tabs) do
         b.selection:SetShown(key==self.selected)
         b.caption:SetText(names[key])
@@ -940,9 +959,10 @@ function S:Refresh()
                 control.swatch:SetColorTexture(unpack(color))
             end
         elseif control.choices then
+            local value=J.BlizzardUnits.sharedStyleProperties[property] and J.ThemeManager:Resolve("playerFrame")[property] or config[property]
             for _,choice in ipairs(control.choices) do
-                local value=J.BlizzardUnits.sharedStyleProperties[property] and J.ThemeManager:Resolve("playerFrame")[property] or config[property]
                 if choice[1]==value then control.button.caption:SetText(choice[2]) end
+                control.options[choice[1]].selection:SetShown(choice[1]==value)
             end
         end
     end

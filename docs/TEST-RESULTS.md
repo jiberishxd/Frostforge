@@ -1,3 +1,11 @@
+# Build 0.9.1 — Combat recovery and button highlights
+
+300 Lua behavior tests and 17 Python artwork tests pass. New Retail and Forever regressions reproduce transient target/focus anchor failures, target identity changes while fighting, power visibility transitions, secret/throwing native fill getters and temporarily unavailable shell-only bars. Existing attachments recover during combat without allocation or geometry/native appearance writes; replacement portrait roots still wait until combat ends. The fitted shell retains its design during combat and resolves the current target's design afterward.
+
+Settings checks cover persistent selected outlines, hover/press cleanup, navigation, toggle changes, dropdown choices and menu closure. The refreshed offline preview was visually inspected for selected tabs, an enabled toggle, hovered buttons and tall artwork cards. It uses exported runtime states; Blizzard's actual textures and fonts are approximated in the browser.
+
+Source/media/provenance, unchanged cast-preview export and exact Retail/Forever 0.9.1 package checks pass. All 296 runtime images are unchanged. No live WoW session was used; the reported disappearance and actual in-game button rendering still need player confirmation.
+
 # Build 0.9.0 — Frostforge branding and settings
 
 289 Lua behavior tests and 17 Python artwork tests pass. Branding checks cover the fixed transparent header logo, new and legacy command aliases, website navigation and selection, preserved profile data, and native button desaturation/tint/interaction states on Retail and Forever. SharedMedia tests verify both Frostforge Stone and its legacy alias.
