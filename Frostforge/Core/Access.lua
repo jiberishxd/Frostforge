@@ -28,6 +28,29 @@ function A:Open()
     J.Core:Protect("open settings",function() J.SettingsUI:Open() end)
 end
 
+function A:RegisterGameMenu()
+    local menu=GameMenuFrame
+    if self.gameMenu==menu or not J.Core:IsUsableFrame(menu)
+        or type(menu.AddButton)~="function" or type(menu.InitButtons)~="function"
+        or type(hooksecurefunc)~="function" then return end
+    -- Join Blizzard's pooled button list during construction, before its
+    -- layout and ElvUI/Ellesmere skin passes. Never move native menu buttons.
+    hooksecurefunc(menu,"AddButton",function(frame,label)
+        if label~=ADDONS or not J.Core:IsUsableFrame(frame) then return end
+        J.Core:Protect("game menu button",function()
+            frame:AddButton(J.Brand.shortName,function()
+                if InCombatLockdown() then
+                    J.Core:Print("Open Frostforge from the Game Menu after combat.");return
+                end
+                HideUIPanel(frame)
+                self:Open()
+            end,InCombatLockdown(),"Available after combat.")
+        end)
+    end)
+    self.gameMenu=menu
+    if menu:IsShown() then menu:InitButtons() end
+end
+
 function A:RegisterCompartment()
     local compartment=AddonCompartmentFrame
     if self.compartment==compartment or not J.Core:IsUsableFrame(compartment)
@@ -104,7 +127,7 @@ end
 
 function A:Tick()
     if InCombatLockdown() then return end
-    self:RegisterCompartment();self:RegisterElvUI()
+    self:RegisterGameMenu();self:RegisterCompartment();self:RegisterElvUI()
     local enabled=self:IconEnabled()
     if enabled and not self.icon then self:CreateIcon() end
     if self.icon then

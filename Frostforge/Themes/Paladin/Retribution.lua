@@ -54,7 +54,7 @@ local theme={
     actionHub = {
         hubMode = "CLASS", hub = "CLASS_PALADIN", hubSource = "AUTO",
         texture = J.Media.hub,
-        width = 1480, height = 240, x = 0, y = -14, scale = 1,
+        width = 900, height = 240, x = 0, y = -14, scale = 1,
         anchor = "SCREEN", point = "BOTTOM", relativePoint = "BOTTOM",
         pieces = hubPieces, designHeight = 240, minimumWidth = 600,
         strata = "BACKGROUND", level = 0, layer = "BACKGROUND", opacity = 1, shown = true,
@@ -85,7 +85,7 @@ for _,key in ipairs(J.SmallFrames.keys) do
         anchor="FRAME",point="CENTER",relativePoint="CENTER",strata="LOW",level=1,layer="ARTWORK",
         unitFrameShown=false,unitFrameSource="AUTO",unitFrameWidth=100,unitFrameHeight=100,
         unitFrameX=0,unitFrameY=0,unitFrameStrata="AUTO",
-        smallFrameArt="MATCH",smallFrameWeight=.7,smallFramePadding=1,
+        smallFrameArt="MATCH",smallFrameWeight=.7,smallFramePadding=1,smallFrameLevel=1,
     }
 end
 J.ThemeManager:Register("paladin_ret",theme)

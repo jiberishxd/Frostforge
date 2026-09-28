@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.10
+
+- Start Action Hubs at 900 × 240, screen anchored, with offsets 0 / -14, scale 1 and opacity 1. Saved custom placement is preserved.
+
+## 0.9.9
+
+- Fix Party and Target of Target layering above provider borders and highlights, including combat layer changes. Add an independent compact-border level control under Advanced.
+- Add **Frostforge** to the Escape Game Menu, opening the addon settings directly.
+
 ## 0.9.8
 
 - Compact castbar-style borders for Target of Target and Party frames, using all 42 existing designs.

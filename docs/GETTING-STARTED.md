@@ -4,7 +4,7 @@
 2. Restart WoW, enable **Jiberish's Frostforge** and follow the first-login setup tour.
 3. Open `/frostforge`, choose a component, select its artwork and provider, then enable and fit it. Portrait art and full unit-frame art have separate switches and browsers.
 
-Settings also open from the AddOn Compartment, ElvUI's Frostforge section or the optional minimap icon. Rerun the tour from **Guide → Run quick setup**. Changes involving protected frames wait until combat ends.
+Settings also open from **Escape → Frostforge**, the AddOn Compartment, ElvUI's Frostforge section or the optional minimap icon. Rerun the tour from **Guide → Run quick setup**. Changes involving protected frames wait until combat ends.
 
 ## UI addons
 
@@ -20,4 +20,4 @@ Full shells need full-width power aligned below health; inset, detached, offset 
 
 Replace the addon folder when updating; keep `WTF` and all saved settings. An earlier Forever saved-data loading issue still needs live verification, so retain backups. For help or missing settings, [ask in The Igloo Discord](https://discord.com/servers/igloo-460933747731070996); include your version, client, UI addons and `/jf status`.
 
-**Party / Target of Target:** enable **Compact frame border** to use the smaller castbar designs around the bars. **Frame border** adjusts fit and weight. Portrait art is independent; enable separate portraits in your UI addon first. Automatic themes match each member individually. Blizzard compact party frames have no portraits; Ellesmere party support uses its Raid Frames module.
+**Party / Target of Target:** enable **Compact frame border** to use the smaller castbar designs around the bars. **Frame border** adjusts fit and weight; **Advanced** has separate portrait and compact-border strata/level controls. Portrait art is independent; enable separate portraits in your UI addon first. Automatic themes match each member individually. Blizzard compact party frames have no portraits; Ellesmere party support uses its Raid Frames module.

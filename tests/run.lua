@@ -77,6 +77,7 @@ test("portrait size controls resize only the owned portrait texture",function(M)
 end)
 test("hub width does not inflate wings or the sun crest",function(M)
     local J=M.load()
+    J.ProfileManager:Set("actionHub","width",1480)
     local hub=J.Core.modules.actionHub
     local wingWidth,wingHeight=hub.textures.leftWing.w,hub.textures.leftWing.h
     local sunWidth,railWidth=hub.textures.sun.w,hub.textures.leftRail.w
@@ -242,7 +243,7 @@ test("combat stores only the latest requested configuration",function(M)
     J.ProfileManager:Set("actionHub","width",700)
     J.ProfileManager:Set("actionHub","width",800)
     J.ProfileManager:Set("actionHub","x",25)
-    assert(frame.w==1480 and M.geometryWrites==writes)
+    assert(frame.w==900 and M.geometryWrites==writes)
     M.combat=false
     M.event(J.Core,"PLAYER_REGEN_ENABLED")
     assert(frame.w==800 and frame.points[1][4]==25 and not J.Core.dirty)
@@ -632,6 +633,7 @@ assert(loadfile("tests/power_appearance.lua"))(test,near)
 assert(loadfile("tests/stock_placement.lua"))(test,near)
 assert(loadfile("tests/named_profiles.lua"))(test)
 assert(loadfile("tests/usability.lua"))(test,near)
+assert(loadfile("tests/game_menu.lua"))(test)
 assert(loadfile("tests/performance.lua"))(test,near)
 
 print(string.format("%d tests passed. In-game testing is still required.",passed))
