@@ -321,7 +321,7 @@ AddonCompartmentFrame=nil
 GameTooltip=nil
 GetCursorPosition=function() return 0,0 end
 for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do
-    for _,unit in ipairs({"Player","Target","Focus"}) do _G[prefix..unit]=nil end
+    for _,unit in ipairs({"Player","Target","Focus","TargetTarget","PartyGroup1"}) do _G[prefix..unit]=nil end
 end
 ElvUI_Bar1=nil
 EABBar_MainBar=nil

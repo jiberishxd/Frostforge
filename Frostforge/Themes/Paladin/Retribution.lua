@@ -77,4 +77,15 @@ for _,key in ipairs({"targetFrame","focusFrame"}) do
     theme[key].blizzardCastPositionEnabled=false;theme[key].blizzardCastPositionX=0;theme[key].blizzardCastPositionY=0
     theme[key].blizzardAurasEnabled=false;theme[key].blizzardAurasX=0;theme[key].blizzardAurasY=0
 end
+for _,key in ipairs(J.SmallFrames.keys) do
+    theme[key]={
+        texture=J.PortraitCatalog.entries.FACTION_NEUTRAL.texture,
+        portraitMode="CLASS",portrait="FACTION_NEUTRAL",portraitSource="AUTO",shown=false,
+        width=128,height=128,x=0,y=0,scale=1,opacity=1,
+        anchor="FRAME",point="CENTER",relativePoint="CENTER",strata="LOW",level=1,layer="ARTWORK",
+        unitFrameShown=false,unitFrameSource="AUTO",unitFrameWidth=100,unitFrameHeight=100,
+        unitFrameX=0,unitFrameY=0,unitFrameStrata="AUTO",
+        smallFrameArt="MATCH",smallFrameWeight=.7,smallFramePadding=1,
+    }
+end
 J.ThemeManager:Register("paladin_ret",theme)

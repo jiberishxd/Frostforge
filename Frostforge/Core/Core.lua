@@ -2,9 +2,10 @@ local addonName, J = ...
 -- Keep the addon folder and saved-variable keys stable for existing installs.
 J.Brand = { name="Jiberish's Frostforge", shortName="Frostforge", website="https://theigloo.io" }
 local Core = {
-    version = "0.9.7",
+    version = "0.9.8",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
+    settingsOrder = { "minimap", "playerFrame", "targetFrame", "focusFrame", "targetTargetFrame", "partyFrames", "actionHub" },
     propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset", "unitFrameX", "unitFrameY", "castBarShown", "castBarSource", "castBarStyle", "castBarArt", "castBarWeight", "castBarPadding", "castBarWidth", "castBarHeight", "unitFrameStrata", "castBarStrata", "castBarLevel", "blizzardPortraitHidden", "blizzardPortraitFrameHidden", "blizzardNameEnabled", "blizzardNameX", "blizzardNameY", "blizzardNameSize", "blizzardNameAlign", "blizzardNameOutline", "blizzardStone" },
     dirty = true,
 }
@@ -347,6 +348,7 @@ function Core:Tick()
     if J.UnitSkins then J.UnitSkins:Tick() end
     if J.BlizzardUnits then J.BlizzardUnits:Tick() end
     if J.CastBars then J.CastBars:Tick() end
+    if J.SmallFrames then J.SmallFrames:Tick() end
     self:Protect("minimap presentation",function() J.Minimaps:Tick() end)
     self:Protect("settings access",function() J.Access:Tick() end)
     J.ThemeManager.readPass = nil
@@ -385,6 +387,7 @@ function Core:Status()
     if J.CastBars then
         for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do self:Print(key.." cast border: "..(J.CastBars.status[key] or "waiting")) end
     end
+    for _,key in ipairs(J.SmallFrames.keys) do self:Print(key..": "..(J.SmallFrames.status[key] or "off")) end
     if J.UnitSkins.stockStatus then self:Print(J.UnitSkins.stockStatus) end
     if J.BlizzardUnits then
         for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do self:Print(key.." stock appearance: "..(J.BlizzardUnits.status[key] or "unchanged")) end
@@ -427,7 +430,7 @@ function Core:Command(input)
     else
         self:Print("/jui opens the movable options window. Phase 1: /jf theme paladin_ret | reloadtheme | debug [on|off] | status")
         self:Print("/jf set <component> <property> <value> | show/hide <component> | reset [component] | export | import <backup>")
-        self:Print("Components: " .. table.concat(self.order,", "))
+        self:Print("Components: " .. table.concat(self.settingsOrder,", "))
         self:Print("Properties: " .. table.concat(self.propertyOrder,", "))
         self:Print("Example: /jf set actionHub width 800")
         return
@@ -469,7 +472,7 @@ driver:EnableMouse(false)
 driver:SetSize(1,1)
 Core.driver = driver
 for _, event in ipairs({"ADDON_LOADED","PLAYER_LOGIN","PLAYER_ENTERING_WORLD","PLAYER_REGEN_ENABLED",
-    "PLAYER_TARGET_CHANGED","PLAYER_FOCUS_CHANGED","UNIT_PORTRAIT_UPDATE","UNIT_FACTION",
+    "PLAYER_TARGET_CHANGED","PLAYER_FOCUS_CHANGED","UNIT_PORTRAIT_UPDATE","UNIT_FACTION","UNIT_TARGET","GROUP_ROSTER_UPDATE",
     "UI_SCALE_CHANGED","DISPLAY_SIZE_CHANGED","EDIT_MODE_LAYOUTS_UPDATED"}) do
     Core:Protect("event " .. event,function() driver:RegisterEvent(event) end)
 end
@@ -481,7 +484,8 @@ driver:SetScript("OnEvent",function(_,event,name)
     if event == "PLAYER_LOGIN" or (event == "ADDON_LOADED" and name == addonName and IsLoggedIn and IsLoggedIn()) then
         Core:Protect("startup",function() Core:Start() end)
     elseif Core.started then
-        if event=="PLAYER_TARGET_CHANGED" or event=="PLAYER_FOCUS_CHANGED" or event=="UNIT_PORTRAIT_UPDATE" or event=="UNIT_FACTION" then
+        if event=="UNIT_TARGET" and (not Core:IsSafe(name) or name~="target") then return end
+        if event=="PLAYER_TARGET_CHANGED" or event=="PLAYER_FOCUS_CHANGED" or event=="UNIT_PORTRAIT_UPDATE" or event=="UNIT_FACTION" or event=="UNIT_TARGET" then
             Core:Tick()
             if J.SettingsUI.frame and J.SettingsUI.frame:IsShown() then
                 Core:Protect("settings",function() J.SettingsUI:Refresh() end)

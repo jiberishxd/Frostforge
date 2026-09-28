@@ -19,3 +19,5 @@ Full shells need full-width power aligned below health; inset, detached, offset 
 **Profiles** manages character setups; **Save as new profile** makes an independent copy. Characters using the same profile share edits. **Guide → Copy settings backup** backs up the active profile's artwork settings, not the entire profile library.
 
 Replace the addon folder when updating; keep `WTF` and all saved settings. An earlier Forever saved-data loading issue still needs live verification, so retain backups. For help or missing settings, [ask in The Igloo Discord](https://discord.com/servers/igloo-460933747731070996); include your version, client, UI addons and `/jf status`.
+
+**Party / Target of Target:** enable **Compact frame border** to use the smaller castbar designs around the bars. **Frame border** adjusts fit and weight. Portrait art is independent; enable separate portraits in your UI addon first. Automatic themes match each member individually. Blizzard compact party frames have no portraits; Ellesmere party support uses its Raid Frames module.

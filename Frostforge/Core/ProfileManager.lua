@@ -26,6 +26,8 @@ local function migrateShell(profile)
 end
 
 local function supported(key,property)
+    if J.SmallFrames:IsKey(key) then return J.SmallFrames:Supports(property) end
+    if J.SmallFrames.properties[property] then return false end
     if J.BlizzardUnits.placementProperties[property] then return key=="targetFrame" or key=="focusFrame" end
     if J.BlizzardUnits.textProperties[property] then return J.Portraits:IsUnitKey(key) end
     if J.BlizzardUnits.styleProperties[property] then return J.Portraits:IsUnitKey(key) end
@@ -35,6 +37,13 @@ local function supported(key,property)
     if property == "hub" or property == "hubMode" or property == "hubSource" then return key == "actionHub" end
     if property == "minimap" or property == "minimapMode" or property=="minimapRound" then return key == "minimap" end
     return true
+end
+
+local function validate(key,property,value)
+    if not supported(key,property) then return nil end
+    local valid=J.Core:ValidateProperty(property,value)
+    if J.SmallFrames:IsKey(key) and property=="portraitSource" and valid~="AUTO" and valid~="BLIZZARD" and valid~="ELVUI" and valid~="ELLESMERE" then return nil end
+    return valid
 end
 
 local function migrateUnitToggles(profile)
@@ -59,11 +68,11 @@ function Profiles:Sanitize(source)
         current.window={x=source.window.x,y=source.window.y}
     end
     if type(source.modules)=="table" then
-        for _,key in ipairs(J.Core.order) do
+        for _,key in ipairs(J.Core.settingsOrder) do
             if type(source.modules[key])=="table" then
                 local target={}
                 for property,value in pairs(source.modules[key]) do
-                    local valid=J.Core:ValidateProperty(property,value)
+                    local valid=validate(key,property,value)
                     if valid~=nil and supported(key,property) then target[property]=valid end
                 end
                 current.modules[key]=target
@@ -115,8 +124,8 @@ function Profiles:SetMany(changes)
     local validated={}
     for _,item in ipairs(changes) do
         local key,property,value=item[1],item[2],item[3]
-        if not J.Core.modules[key] or not supported(key,property) then return false,"Unsupported component setting." end
-        local valid=J.Core:ValidateProperty(property,value)
+        if (not J.Core.modules[key] and not J.SmallFrames:IsKey(key)) or not supported(key,property) then return false,"Unsupported component setting." end
+        local valid=validate(key,property,value)
         if valid==nil then return false,J.Core:PropertyHelp(property) end
         validated[#validated+1]={key,property,valid}
     end
@@ -138,9 +147,9 @@ end
 
 function Profiles:Set(key, property, value)
     if not self.writable then return false, self.notice end
-    if not J.Core.modules[key] then return false, "Unknown component." end
+    if (not J.Core.modules[key] and not J.SmallFrames:IsKey(key)) then return false, "Unknown component." end
     if not supported(key,property) then return false, "Artwork selection does not apply to this component." end
-    local valid = J.Core:ValidateProperty(property, value)
+    local valid = validate(key,property,value)
     if valid == nil then return false, J.Core:PropertyHelp(property) end
     if property=="unitStyle" then property,valid="unitFrameShown",valid=="FULL" end
     local overrides = self.current.modules[key] or {}
@@ -152,7 +161,7 @@ end
 
 function Profiles:Reset(key)
     if not self.writable then return false, self.notice end
-    if key and not J.Core.modules[key] then return false, "Unknown component." end
+    if key and (not J.Core.modules[key] and not J.SmallFrames:IsKey(key)) then return false, "Unknown component." end
     if key then self.current.modules[key] = nil else self.current.modules = {} end
     J.Core:RequestRefresh(true)
     return true
@@ -161,7 +170,7 @@ end
 -- A bounded command-format backup. No Lua or other code is ever evaluated.
 function Profiles:Export()
     local fields = { "JF2", self.current.theme }
-    for _, key in ipairs(J.Core.order) do
+    for _, key in ipairs(J.Core.settingsOrder) do
         local config = self.current.modules[key] or {}
         for _, property in ipairs(J.Core.propertyOrder) do
             if config[property] ~= nil then
@@ -183,9 +192,9 @@ function Profiles:Import(text)
     candidate.window = J.Core:Copy(self.current.window)
     while tail ~= "" do
         local key, property, value, rest = tail:match("^;(%w+)%.(%w+)=([^;]+)(.*)$")
-        if not key or not J.Core.modules[key] then return false, "Invalid backup component." end
+        if not key or (not J.Core.modules[key] and not J.SmallFrames:IsKey(key)) then return false, "Invalid backup component." end
         local id = key .. "." .. property
-        local valid = J.Core:ValidateProperty(property, value)
+        local valid = validate(key,property,value)
         if seen[id] or valid == nil or not supported(key,property) then return false, "Invalid or duplicate backup property." end
         seen[id] = true
         candidate.modules[key] = candidate.modules[key] or {}
