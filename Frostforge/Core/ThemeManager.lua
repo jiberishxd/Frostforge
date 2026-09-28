@@ -19,7 +19,7 @@ function Themes:Register(id, theme)
     assert(not self.registry[id], "Duplicate theme")
     assert(configurationOnly(theme, 0), "Themes must contain configuration only")
     assert(type(theme.name) == "string", "Theme name required")
-    for _, key in ipairs(J.Core.order) do
+    for _, key in ipairs(J.Core.settingsOrder) do
         local config = assert(theme[key], "Missing theme component: " .. key)
         local units = {playerFrame="player",targetFrame="target",focusFrame="focus"}
         assert(config.unit == units[key], "Invalid portrait unit token: " .. key)
@@ -47,7 +47,8 @@ function Themes:Register(id, theme)
             local portrait = J.BlizzardUnits.styleProperties[property] or J.BlizzardUnits.textProperties[property] or property == "portraitMode" or property == "unitFrameStrata" or property == "castBarLevel" or property == "castBarStrata" or property == "blizzardPortraitFrameHidden" or property == "blizzardPortraitHidden" or property == "blizzardNameEnabled" or property == "blizzardNameX" or property == "blizzardNameY" or property == "blizzardNameSize" or property == "blizzardNameAlign" or property == "blizzardNameOutline" or property == "castBarShown" or property == "castBarSource" or property == "castBarStyle" or property == "castBarArt" or property == "castBarWeight" or property == "castBarPadding" or property == "castBarWidth" or property == "castBarHeight" or property == "portrait" or property == "unitStyle" or property == "unitFrameShown" or property == "unitFrameFill" or property == "unitFrameWidth" or property == "unitFrameHeight" or property == "unitFrameX" or property == "unitFrameY" or property == "unitFrameInset" or property == "unitFrameSource" or property == "portraitSource"
             local hub = property == "hubMode" or property == "hub" or property == "hubSource"
             local minimap = property == "minimapMode" or property == "minimap" or property=="minimapRound"
-            if (not J.BlizzardUnits.placementProperties[property] or key=="targetFrame" or key=="focusFrame") and (not J.BlizzardUnits.sharedStyleProperties[property] or key=="playerFrame") and (property~="blizzardStone" or key=="playerFrame") and property~="unitStyle" and (not portrait or config.unit) and (not hub or key == "actionHub") and (not minimap or key == "minimap") then
+            local small=J.SmallFrames:IsKey(key)
+            if small and J.SmallFrames:Supports(property) or not small and not J.SmallFrames.properties[property] and (not J.BlizzardUnits.placementProperties[property] or key=="targetFrame" or key=="focusFrame") and (not J.BlizzardUnits.sharedStyleProperties[property] or key=="playerFrame") and (property~="blizzardStone" or key=="playerFrame") and property~="unitStyle" and (not portrait or config.unit) and (not hub or key == "actionHub") and (not minimap or key == "minimap") then
                 assert(J.Core:ValidateProperty(property, config[property]) ~= nil,
                     "Invalid theme property: " .. key .. "." .. property)
             end

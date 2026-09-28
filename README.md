@@ -4,7 +4,7 @@
 
 # Jiberish's Frostforge
 
-Give your Warcraft interface a matching look with **42 class, race and faction themes** for portraits, unit frames, cast bars, the minimap and action bars. Supports Blizzard frames and compatible ElvUI, EllesmereUI, Blinkii and mMediaTag layouts.
+Give your Warcraft interface a matching look with **42 class, race and faction themes** for portraits, unit frames, cast bars, the minimap and action bars—including compact borders for Party and Target of Target. Supports Blizzard frames and compatible ElvUI, EllesmereUI, Blinkii and mMediaTag layouts.
 
 ![Frostforge artwork showcase](docs/images/overview.jpg)
 

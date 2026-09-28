@@ -56,7 +56,7 @@ def package(destination):
                         "source_revision": revision, "version": VERSION, "file": path.name, "addon_folder": ADDON,
                         "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
                         "files": len(files), "themes": ["paladin_ret"],
-                        "modules": ["minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub"],
+                        "modules": ["minimap", "playerFrame", "targetFrame", "focusFrame", "targetTargetFrame", "partyFrames", "actionHub"],
                         "in_game_validated": False})
     (destination / "packages.json").write_text(json.dumps(reports, indent=2) + "\n")
     print(json.dumps(reports, indent=2))
