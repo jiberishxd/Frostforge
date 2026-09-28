@@ -1,8 +1,5 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
-  - name: Installation and first-time setup
-    url: https://github.com/jiberishxd/Frostforge/blob/main/docs/GETTING-STARTED.md
-    about: Install the correct package, choose providers, enable artwork and adjust fitting.
-  - name: Supported UI integrations
-    url: https://github.com/jiberishxd/Frostforge/blob/main/docs/ADDON-COMPATIBILITY.md
-    about: Check portrait, unit-frame, action-hub and cast-bar compatibility.
+  - name: The Igloo Discord — support and questions
+    url: https://discord.com/servers/igloo-460933747731070996
+    about: Get setup help, report a problem, suggest artwork improvements, or share your layout.
