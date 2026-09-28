@@ -2,7 +2,7 @@ local _, J = ...
 local S = { selected="playerFrame", page="artwork", controls={}, menus={} }
 J.SettingsUI = S
 
-local names = {minimap="Minimap",playerFrame="Player",targetFrame="Target",focusFrame="Focus",actionHub="Action hub"}
+local names = {minimap="Minimap",playerFrame="Player",targetFrame="Target",focusFrame="Focus",targetTargetFrame="Target of Target",partyFrames="Party",actionHub="Action hub"}
 local modes = {{"CLASS","Automatic class"},{"RACE","Automatic race"},{"FACTION","Automatic faction"},{"FIXED","Chosen artwork"}}
 local strata = {
     {"BACKGROUND","Background"},{"LOW","Low"},{"MEDIUM","Medium"},{"HIGH","High"},
@@ -121,9 +121,10 @@ S.widgets={backdrop=backdrop,panel=panel,text=text,button=button,toggle=toggle}
 
 function S:Set(property,value)
     self.message=nil
+    if property=="smallPortraitSource" then property="portraitSource" end
     local key=J.BlizzardUnits.sharedStyleProperties[property] and "playerFrame" or self.selected
     local ok,reason
-    if property=="portraitSize" and J.Portraits:IsUnitKey(key) then
+    if property=="portraitSize" and (J.Portraits:IsUnitKey(key) or J.SmallFrames:IsKey(key)) then
         ok,reason=J.ProfileManager:SetMany({{key,"width",value},{key,"height",value}})
     else ok,reason=J.ProfileManager:Set(key,property,value) end
     if not ok then self.message=reason; self:Refresh() end
@@ -146,12 +147,14 @@ function S:HideMenus()
     if self.minimapPicker then self.minimapPicker:Hide() end
     if self.castPicker then self.castPicker:Hide() end
     if self.unitPicker then self.unitPicker:Hide() end
+    if self.smallPicker then self.smallPicker:Hide() end
     if self.backupDialog then self.backupDialog:Hide();self.backupEdit:ClearFocus() end
     if self.resetDialog then self.resetDialog:Hide() end
     if self.stockStyleDialog then self.stockStyleDialog:Hide() end
 end
 
 local collectionSpecs={
+    small={catalog="PortraitCatalog",property="smallFrameArt",picker="smallPicker",buttons="smallButtons",groups="smallGroupButtons",group="smallGroup",page="smallPage",label="smallPageLabel",title="Compact frame borders"},
     unit={catalog="PortraitCatalog",property="portrait",mode="portraitMode",picker="unitPicker",buttons="unitButtons",groups="unitGroupButtons",group="unitGroup",page="unitPage",label="unitPageLabel",title="Unit-frame artwork collection"},
     cast={catalog="PortraitCatalog",property="castBarArt",picker="castPicker",buttons="castButtons",groups="castGroupButtons",group="castGroup",page="castPage",label="castPageLabel",title="Cast-bar border artwork"},
     portrait={catalog="PortraitCatalog",property="portrait",mode="portraitMode",picker="picker",buttons="portraitButtons",groups="groupButtons",group="portraitGroup",page="portraitPage",label="portraitPageLabel",title="Unit artwork collection"},
@@ -181,7 +184,7 @@ function S:ShowCollection(kind,group,page)
     for slot=1,12 do
         local id=visible[(self[spec.page]-1)*12+slot]
         if id then
-            local b=self[spec.buttons][id];b.image:SetTexture(kind=="unit" and J.UnitSkinCatalog.entries[id].shell or J[spec.catalog].entries[id].texture)
+            local b=self[spec.buttons][id];b.image:SetTexture(kind=="unit" and J.UnitSkinCatalog.entries[id].shell or (kind=="small" or kind=="cast") and J.UnitSkinCatalog.entries[id].cast or J[spec.catalog].entries[id].texture)
             b:ClearAllPoints();b:SetPoint("TOPLEFT",p,"TOPLEFT",24+((slot-1)%4)*182,-156-math.floor((slot-1)/4)*126)
             b:Show()
         end
@@ -192,7 +195,7 @@ function S:ShowCollection(kind,group,page)
     p.previous:SetAlpha(self[spec.page]>1 and 1 or .45)
     p.next:SetAlpha(self[spec.page]<pages and 1 or .45)
     self:Refresh()
-    p.hint:SetText(kind=="unit" and ("Sets the shared portrait / unit-frame theme for "..names[self.selected]..". Enable Unit-frame art separately on Artwork.") or "Applies to "..names[self.selected]..(kind=="cast" and " cast border only. Match unit artwork returns to automatic matching." or " only. Choosing a design switches to Chosen artwork."))
+    p.hint:SetText(kind=="unit" and ("Sets the shared portrait / unit-frame theme for "..names[self.selected]..". Enable Unit-frame art separately on Artwork.") or "Applies to "..names[self.selected]..((kind=="cast" or kind=="small") and " border only. Match unit artwork returns to automatic matching." or " only. Choosing a design switches to Chosen artwork."))
 end
 
 function S:CreateCollection(kind)
@@ -226,9 +229,10 @@ function S:CreateCollection(kind)
         end,true)
         b:SetHeight(118)
         b.image=b:CreateTexture(nil,"ARTWORK")
-        b.image:SetSize((kind=="hub" or kind=="unit") and 156 or 78,kind=="hub" and 52 or 78)
-        b.image:SetPoint("TOP",b,"TOP",0,kind=="hub" and -18 or -4)
-        if kind=="portrait" or kind=="cast" then b.image:SetTexCoord(0,.5,0,1) end
+        local border=kind=="small" or kind=="cast"
+        b.image:SetSize((kind=="hub" or kind=="unit" or border) and 156 or 78,border and 39 or kind=="hub" and 52 or 78)
+        b.image:SetPoint("TOP",b,"TOP",0,border and -22 or kind=="hub" and -18 or -4)
+        if kind=="portrait" then b.image:SetTexCoord(0,.5,0,1) end
         local caption=text(b,entry.label,6,-86,156);caption:SetJustifyH("CENTER")
         self[spec.buttons][id]=b
     end
@@ -629,12 +633,11 @@ function S:Create()
 
     text(f,"YOUR INTERFACE",30,-118,146,"GameFontNormalSmall")
     self.tabs={}
-    for i,key in ipairs({"playerFrame","targetFrame","focusFrame","minimap","actionHub"}) do
+    for i,key in ipairs({"playerFrame","targetFrame","focusFrame","targetTargetFrame","partyFrames","minimap","actionHub"}) do
         local selected=key
-        local b=button(f,names[key],28,-148-(i-1)*54,154,function() self:Select(selected) end,true)
-        b:SetHeight(44);self.tabs[key]=b
+        local b=button(f,names[key],28,-148-(i-1)*43,154,function() self:Select(selected) end,true)
+        b:SetHeight(36);self.tabs[key]=b
     end
-    text(f,"Choose a component to shape its artwork.",32,-424,140)
     self.profilesButton=button(f,"Profiles",28,-470,154,function() self:SetPage("profiles") end,true)
     self.websiteButton=button(f,"The Igloo",28,-508,154,function() self:SetPage("website") end,true)
     self.resetButton=button(f,"Reset component",28,-552,154,function()
@@ -682,11 +685,14 @@ function S:Create()
     self:Number("unitFrameHeight","Artwork height (%)",346,-14,1,a)
     self:Number("unitFrameX","Artwork horizontal offset",0,-108,.5,a)
     self:Number("unitFrameY","Artwork vertical offset",346,-108,.5,a)
-    panel(a,0,-196,666,106)
-    text(a,"FIT THE FRAME, KEEP YOUR BARS",18,-214,626,"GameFontNormal")
-    text(a,"The original artwork sits over the bars. Reduce width to bring its side edges inward; adjust height and offsets for your fit. 100% slightly overlaps both sides. No extra borders are added. Portrait fitting stays on Placement.",18,-244,626)
-    button(a,"Reset unit-frame fitting",0,-332,318,function()
+    self.fittingPanel=panel(a,0,-196,666,106)
+    self.fittingTitle=text(a,"FIT THE FRAME, KEEP YOUR BARS",18,-214,626,"GameFontNormal")
+    self.fittingHelp=text(a,"The original artwork sits over the bars. Reduce width to bring its side edges inward; adjust height and offsets for your fit. 100% slightly overlaps both sides. No extra borders are added. Portrait fitting stays on Placement.",18,-244,626)
+    self:Number("smallFrameWeight","Border weight",0,-218,.05,a)
+    self:Number("smallFramePadding","Space around the bars",346,-218,.5,a)
+    self.frameFitReset=button(a,"Reset unit-frame fitting",0,-332,318,function()
         self:Set("unitFrameWidth",100);self:Set("unitFrameHeight",100);self:Set("unitFrameX",0);self:Set("unitFrameY",0)
+        if J.SmallFrames:IsKey(self.selected) then self:Set("smallFrameWeight",.7);self:Set("smallFramePadding",1) end
     end)
     text(a,"Fitting changes apply after combat. Native bar values, colors and texture choices stay with your UI addon.",0,-378,666)
 
@@ -797,8 +803,11 @@ function S:Create()
     self.unitPreview:SetPoint("TOPLEFT",a,"TOPLEFT",356,-98);self.unitPreview:SetSize(156,78)
     self.unitCaption=text(a,"",518,-102,138,"GameFontNormal")
     self.unitBrowse=button(a,"Browse frame art",518,-148,138,function()
-        self:HideMenus();self:ShowCollection("unit",self.unitGroup or "CLASS",self.unitPage);self.unitPicker:Show()
+        self:HideMenus()
+        if J.SmallFrames:IsKey(self.selected) then self:ShowCollection("small",self.smallGroup or "CLASS",self.smallPage);self.smallPicker:Show()
+        else self:ShowCollection("unit",self.unitGroup or "CLASS",self.unitPage);self.unitPicker:Show() end
     end)
+    self.smallMatch=button(a,"Match unit artwork",346,-240,318,function() self:Set("smallFrameArt","MATCH") end)
     self.themePreview=a:CreateTexture(nil,"ARTWORK");self.themePreview:SetPoint("TOPLEFT",a,"TOPLEFT",13,-97);self.themePreview:SetSize(104,104)
     self:Dropdown("portraitMode","Shared artwork theme",modes,0,-218,a,318)
     self:Dropdown("hubMode","Choose automatically",modes,154,-102,a,244)
@@ -811,6 +820,7 @@ function S:Create()
     self.minimapButton=button(a,"Browse artwork",414,-124,236,function() self:HideMenus();self:ShowMinimapGroup(self.minimapGroup or "CLASS",self.minimapPage);self.minimapPicker:Show() end)
     self.modeHelp=text(a,"",154,-166,496)
     self:Dropdown("portraitSource","Portrait provider",portraitSources,0,-282,a)
+    self:Dropdown("smallPortraitSource","Portrait provider",hubSources,0,-282,a)
     self:Dropdown("hubSource","Action bar provider",hubSources,0,-236,a)
     self:Dropdown("unitFrameSource","Unit-frame provider",{{"AUTO","Automatic"},{"BLIZZARD","Blizzard"},{"ELVUI","ElvUI"},{"ELLESMERE","EllesmereUI"}},346,-282,a)
     self.sourceStatus=text(a,"",0,-304,666)
@@ -831,7 +841,7 @@ function S:Create()
     text(a,"Open Frostforge from the AddOn Compartment or ElvUI settings. The minimap icon is optional.",0,-288,666)
     button(a,"Copy settings backup",0,-326,318,function() self:ShowBackup("export") end)
     button(a,"Restore from backup",346,-326,318,function() self:ShowBackup("import") end)
-    text(a,"Back up before making broad changes or reinstalling. Backups cover all five components.",0,-360,666)
+    text(a,"Back up before making broad changes or reinstalling. Backups cover all components.",0,-360,666)
     self.artworkCredit=text(a,"Blizzard artwork/game assets © Blizzard Entertainment, Inc. Warcraft and World of Warcraft are Blizzard trademarks. Independent fan addon; not affiliated with, sponsored by or endorsed by Blizzard.",0,-382,666,"GameFontNormalSmall")
     self:CreateDialogs()
     self.status=text(f,"",30,-655,858)
@@ -860,10 +870,15 @@ function S:Refresh()
     end
     for _,b in pairs(self.pageButtons) do b:Show() end
     local config=J.ThemeManager:Resolve(self.selected)
-    local unit=J.Portraits:IsUnitKey(self.selected)
+    local small=J.SmallFrames:IsKey(self.selected)
+    local unit=J.Portraits:IsUnitKey(self.selected) or small
     local minimap=self.selected=="minimap"
     local hub=self.selected=="actionHub"
-    local module=J.Core.modules[self.selected]
+    local module=J.Core.modules[self.selected] or {}
+    if small then
+        -- The party preview is illustrative; live members resolve separately.
+        config.unit=self.selected=="targetTargetFrame" and "targettarget" or "player"
+    end
     for _,part in ipairs({"edit","slider","label"}) do
         self.controls.portraitSize[part]:SetShown(unit and not self.separatePortraitSize)
         self.controls.width[part]:SetShown(not unit or self.separatePortraitSize==true)
@@ -876,6 +891,8 @@ function S:Refresh()
     self.minimapIconToggle:SetChecked(J.Access:IconEnabled())
     local headings={artwork="Artwork",placement="Placement & size",fitting="Unit-frame fitting",cast="Cast-bar border",advanced="Textures, layers & diagnostics",blizzard="Stock portrait & text",guide="Getting started"}
     if not unit and (self.page=="fitting" or self.page=="cast" or self.page=="blizzard") then self.page="placement" end
+    if small and (self.page=="cast" or self.page=="blizzard") then self.page="artwork" end
+    if small then headings.fitting="Compact border fitting" end
     self.heading:SetText(names[self.selected].."  |  "..headings[self.page])
     local hints={artwork=unit and "Preview both art collections. Their visibility toggles are independent." or "Choose a matching theme, then follow your existing UI.",
         placement=unit and "These controls fit the portrait surround. Use Unit frame to fit the shell around the bars." or "Fit the decoration around your existing minimap or action bars.",
@@ -884,25 +901,41 @@ function S:Refresh()
         blizzard="Optional controls for stock Blizzard Player, Target and Focus only.",
         advanced="Choose who controls bar textures, then fine-tune layering.",guide="A few simple steps, plus tools to keep your settings safe."}
     self.pageHint:SetText(hints[self.page])
+    if small and self.page=="artwork" then self.pageHint:SetText("Compact castbar-style artwork around health and power; each member matches independently.") end
+    if small and self.page=="fitting" then self.pageHint:SetText("Enable Compact frame border on Artwork; then fit its size, position and weight.") end
+    if small and self.page=="placement" then self.pageHint:SetText("Fit the portrait surrounds together. Use Frame border for the borders around the bars.") end
     for key,page in pairs(self.pages) do
         page:SetShown(key==self.page)
         if self.pageButtons[key] then self.pageButtons[key].selection:SetShown(key==self.page) end
     end
-    local visiblePages=unit and {"artwork","placement","fitting","cast","blizzard","advanced","guide"} or {"artwork","placement","advanced","guide"}
-    self.pageButtons.fitting:SetShown(unit);self.pageButtons.cast:SetShown(unit);self.pageButtons.blizzard:SetShown(unit)
+    local visiblePages=small and {"artwork","placement","fitting","advanced","guide"} or unit and {"artwork","placement","fitting","cast","blizzard","advanced","guide"} or {"artwork","placement","advanced","guide"}
+    self.pageButtons.fitting:SetShown(unit);self.pageButtons.cast:SetShown(unit and not small);self.pageButtons.blizzard:SetShown(unit and not small)
     for i,key in ipairs(visiblePages) do
-        local b=self.pageButtons[key];local step=unit and 96 or 168
+        local b=self.pageButtons[key];local step=672/#visiblePages
         b:ClearAllPoints();b:SetPoint("TOPLEFT",self.frame,"TOPLEFT",218+(i-1)*step,-114);b:SetWidth(step-8)
     end
+    self.pageButtons.fitting.caption:SetText(small and "Frame border" or "Unit frame")
+    self.styleButton.caption:SetText(small and "Compact frame border" or "Unit-frame art")
+    self.styleHelp:SetText(small and "The smaller castbar artwork, fitted to your bars." or "Separate shell around health and power.")
+    self.unitBrowse.caption:SetText(small and "Browse borders" or "Browse frame art")
+    self.frameFitReset.caption:SetText(small and "Reset border fitting" or "Reset unit-frame fitting")
+    self.debugButton:SetShown(not small)
+    self.controls.level.label:SetText(small and "Levels above portrait" or "Level within strata")
+    self.smallMatch:SetShown(small);self.smallMatch.selection:SetShown(small and config.smallFrameArt=="MATCH")
+    for _,v in ipairs({self.fittingPanel,self.fittingTitle,self.fittingHelp}) do v:SetShown(not small) end
+    for _,property in ipairs({"smallFrameWeight","smallFramePadding"}) do
+        for _,part in ipairs({"edit","slider","label"}) do self.controls[property][part]:SetShown(small) end
+    end
+    self.controls.anchor.button:SetShown(not small);self.controls.anchor.label:SetShown(not small)
     self.styleButton:SetShown(unit);self.styleHelp:SetShown(unit)
     self.controls.unitFrameSource.button:SetShown(unit);self.controls.unitFrameSource.label:SetShown(unit)
-    self.controls.unitFrameFill.button:SetShown(unit);self.controls.unitFrameFill.label:SetShown(unit)
+    self.controls.unitFrameFill.button:SetShown(unit and not small);self.controls.unitFrameFill.label:SetShown(unit and not small)
     for _,property in ipairs({"unitFrameStrata","castBarStrata"}) do
         self.controls[property].button:SetShown(unit);self.controls[property].label:SetShown(unit)
     end
     for _,part in ipairs({"edit","slider","label"}) do self.controls.castBarLevel[part]:SetShown(unit) end
     self.controls.strata.label:SetText(unit and "Portrait art strata" or "Artwork strata")
-    if unit then
+    if unit and not small then
         self.stockStoneToggle:SetChecked(J.ThemeManager:Resolve("playerFrame").blizzardStone)
         self.powerStyleTitle:SetText("Blizzard power colors — "..names[self.selected])
         for scope,body in pairs(self.powerPanels) do
@@ -937,7 +970,8 @@ function S:Refresh()
     self.showHelp:SetText(unit and "Decorative surround for the unit portrait." or minimap and "Decorative border around the native minimap." or "Decorative endcaps and rail for the action bars.")
     self.controls.minimapMode.button:SetShown(minimap);self.controls.minimapMode.label:SetShown(minimap)
     self.minimapCaption:SetShown(minimap);self.minimapButton:SetShown(minimap)
-    self.controls.portraitSource.button:SetShown(unit);self.controls.portraitSource.label:SetShown(unit)
+    self.controls.portraitSource.button:SetShown(unit and not small);self.controls.portraitSource.label:SetShown(unit and not small)
+    self.controls.smallPortraitSource.button:SetShown(small);self.controls.smallPortraitSource.label:SetShown(small)
     self.controls.hubSource.button:SetShown(hub);self.controls.hubSource.label:SetShown(hub)
     self.controls.hubMode.button:SetShown(hub);self.controls.hubMode.label:SetShown(hub)
     self.hubCaption:SetShown(hub);self.hubButton:SetShown(hub)
@@ -965,6 +999,17 @@ function S:Refresh()
         self.providerHelp:SetText("Full shells fit Blizzard, ElvUI and Ellesmere: horizontal health with full-width power below. No power keeps a dark empty opening.")
         self.placementHelp:SetText("Offsets move only the decoration. Use your UI addon's settings to move the portrait or health bars themselves.")
         self.guideHelp:SetText("|cff9edfffArtwork missing?|r Target a unit, check its artwork toggle and provider, and enable portraits in that provider.\n|cff9edfffWrong NPC theme?|r Browse for a fixed design to override automatic matching.")
+        if small then
+            local group=J.SmallFrames.groups[self.selected]
+            local borderID=config.smallFrameArt=="MATCH" and id or config.smallFrameArt
+            self.unitPreview:SetTexture(J.UnitSkinCatalog.entries[borderID].cast)
+            self.unitPreview:SetTexCoord(0,1,0,1);self.unitPreview:SetSize(156,39)
+            self.unitCaption:SetText(J.PortraitCatalog.entries[borderID].label)
+            self.styleButton:SetChecked(config.unitFrameShown)
+            self.sourceStatus:SetText("|cff9edfffPortrait:|r "..(group and group.portraitStatus or "off").."\n|cff9edfffFrame border:|r "..(group and group.borderStatus or "off"))
+            self.providerHelp:SetText("Enable portraits in your provider first. Blizzard compact party frames have no portraits. Adjust group spacing in your UI addon.")
+            self.guideHelp:SetText("|cff9edfffParty artwork|r\nEnable compact borders and portrait art independently. Automatic class, race or faction follows each member, including sorted party frames.\n|cff9edfffPortrait missing?|r Enable separate portraits in ElvUI / EllesmereUI, or use Blizzard's portrait party layout.")
+        else self.unitPreview:SetSize(156,78) end
     else
         id=minimap and J.Minimaps:Resolve(config) or J.Hubs:Resolve(config)
         entry=minimap and J.MinimapCatalog.entries[id] or J.HubCatalog.entries[id]
@@ -984,7 +1029,7 @@ function S:Refresh()
     self.modeHelp:SetText(mode=="FIXED" and "Your chosen design stays fixed. Select an automatic mode to follow the unit again."
         or unit and "Follows this unit. Known city NPCs use matching race art. Browse chooses a fixed design."
         or "Follows your character's identity. Browse chooses a fixed design.")
-    if unit then self.modeHelp:SetText("Portrait and unit-frame art share this theme. Browse either collection for a fixed design.") end
+    if unit then self.modeHelp:SetText(small and "Choose a border, or match each unit's theme." or "Portrait and unit-frame art share this theme. Browse either collection for a fixed design.") end
     self.showButton:SetChecked(config.shown)
     self.debugButton:SetChecked(J.ProfileManager.current.debug)
     for key,b in pairs(self.tabs) do
@@ -1000,6 +1045,7 @@ function S:Refresh()
         b.image:SetTexCoord(config.unit=="player" and 0 or 1,config.unit=="player" and 1 or 0,0,1)
         b.selection:SetShown(unit and config.portraitMode=="FIXED" and config.portrait==choice)
     end
+    for choice,b in pairs(self.smallButtons or {}) do b.selection:SetShown(small and config.smallFrameArt==choice) end
     for choice,b in pairs(self.hubButtons or {}) do b.selection:SetShown(hub and config.hubMode=="FIXED" and config.hub==choice) end
     for choice,b in pairs(self.minimapButtons or {}) do b.selection:SetShown(minimap and config.minimapMode=="FIXED" and config.minimap==choice) end
     for property,control in pairs(self.controls) do
@@ -1015,7 +1061,7 @@ function S:Refresh()
                 control.swatch:SetColorTexture(unpack(color))
             end
         elseif control.choices then
-            local value=J.BlizzardUnits.sharedStyleProperties[property] and J.ThemeManager:Resolve("playerFrame")[property] or config[property]
+            local value=property=="smallPortraitSource" and config.portraitSource or J.BlizzardUnits.sharedStyleProperties[property] and J.ThemeManager:Resolve("playerFrame")[property] or config[property]
             for _,choice in ipairs(control.choices) do
                 if choice[1]==value then control.button.caption:SetText(choice[2]) end
                 control.options[choice[1]].selection:SetShown(choice[1]==value)
