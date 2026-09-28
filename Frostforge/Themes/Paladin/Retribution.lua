@@ -54,7 +54,7 @@ local theme={
     actionHub = {
         hubMode = "CLASS", hub = "CLASS_PALADIN", hubSource = "AUTO",
         texture = J.Media.hub,
-        width = 1480, height = 240, x = 0, y = -14, scale = 1,
+        width = 900, height = 240, x = 0, y = -14, scale = 1,
         anchor = "SCREEN", point = "BOTTOM", relativePoint = "BOTTOM",
         pieces = hubPieces, designHeight = 240, minimumWidth = 600,
         strata = "BACKGROUND", level = 0, layer = "BACKGROUND", opacity = 1, shown = true,

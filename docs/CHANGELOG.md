@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.10
+
+- Start Action Hubs at 900 × 240, screen anchored, with offsets 0 / -14, scale 1 and opacity 1. Saved custom placement is preserved.
+
 ## 0.9.9
 
 - Fix Party and Target of Target layering above provider borders and highlights, including combat layer changes. Add an independent compact-border level control under Advanced.
