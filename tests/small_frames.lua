@@ -408,6 +408,103 @@ test("retired party attachments reuse a bounded frame pool after repeated roster
     assert(#M.objects==objects and not next(J.Core.notices))
 end)
 
+local function partyReport(M,J,command)
+    M.messages={}
+    local writes,objects=M.writes,#M.objects
+    local profile=J.ProfileManager:Export()
+    J.Core:Command(command or "partydebug")
+    local text=table.concat(M.messages,"\n")
+    assert(text:find("Party diagnostics "..J.Core.version,1,true) and text:find("End party diagnostics.",1,true),text)
+    assert(M.writes==writes and #M.objects==objects and J.ProfileManager:Export()==profile,"Diagnostic mutated UI or settings")
+    return text
+end
+
+test("party diagnostic always explains disabled and not-yet-attached states",function(M)
+    local J=M.load()
+    assert(partyReport(M,J):find("border: off",1,true))
+    enable(J,"partyFrames","ELLESMERE")
+    local text=partyReport(M,J,"status party")
+    assert(text:find("border: on | requested=ELLESMERE | provider=EllesmereUI | candidates=0",1,true))
+    assert(text:find("no cached party frames",1,true) and not next(J.Core.notices))
+end)
+
+for _,interface in ipairs({120100,16001}) do
+    for _,source in ipairs({"BLIZZARD","ELVUI","ELLESMERE"}) do
+        test("party diagnostic reads each "..source.." border and portrait without mutation "..interface,function(M)
+            local J=M.load({interface=interface});fixture(M,source);enable(J,"partyFrames",source,true)
+            M.combat=true
+            local text=partyReport(M,J,"diagnostics party")
+            assert(text:find("combat=yes",1,true))
+            for _,kind in ipairs({"border","portrait"}) do
+                for i=1,2 do
+                    local prefix=kind.." #"..i
+                    assert(text:find(prefix.." unit=party",1,true))
+                    assert(text:find(prefix.." attached=yes | eligible=yes | artwork=ready | shown=yes",1,true))
+                    assert(text:find(prefix.." root: gate=yes | visible=yes | effectiveAlpha=1 | alpha=1",1,true))
+                end
+            end
+            assert(not next(J.Core.notices))
+        end)
+    end
+end
+
+test("party diagnostic separates unreadable effective alpha from secret alpha without stopping",function(M)
+    local J=M.load({interface=16001});local roots=fixture(M,"ELLESMERE")
+    local self=member(M,"ELLESMERE","player",6)
+    for _,root in ipairs(roots) do
+        root.GetEffectiveAlpha=function() error(M.secret) end
+        root.GetAlpha=function() return M.secret end
+    end
+    enable(J,"partyFrames","ELLESMERE")
+    assert(J.SmallFrames.status.partyFrames:find("1 visible / 3 attached",1,true))
+    local text=partyReport(M,J)
+    for i=1,2 do
+        assert(text:find("border #"..i.." attached=yes | eligible=no | artwork=ready | shown=no",1,true))
+        assert(text:find("border #"..i.." root: gate=no | visible=yes | effectiveAlpha=error | alpha=restricted",1,true))
+        assert(text:find("border #"..i.." health: gate=no | visible=yes | effectiveAlpha=error | alpha=1",1,true))
+    end
+    assert(text:find("border #3 unit=player",1,true) and record(J,"partyFrames",self).frame.shown)
+    assert(not next(J.Core.notices))
+end)
+
+test("party diagnostic distinguishes restricted and failed identity reads and continues to other frames",function(M)
+    local J=M.load();local roots=fixture(M,"ELLESMERE");enable(J,"partyFrames","ELLESMERE")
+    roots[1].GetAttribute=function() return M.secret end
+    roots[1].IsVisible=function() return M.secret end
+    roots[1].secretAlpha=true
+    roots[2].GetAttribute=function() error(M.secret) end
+    M.tick(J.Core)
+    local text=partyReport(M,J)
+    assert(text:find("border #1 unit=none | attribute=restricted | exists=not checked | present=no",1,true))
+    assert(text:find("border #1 root: gate=no | visible=restricted | effectiveAlpha=restricted",1,true))
+    assert(text:find("border #2 unit=none | attribute=error",1,true))
+    assert(not text:find("diagnostic read failed",1,true) and not next(J.Core.notices))
+end)
+
+test("party diagnostic reports removed units, zero alpha and forbidden cached frames",function(M)
+    local J=M.load();local roots=fixture(M,"ELLESMERE");enable(J,"partyFrames","ELLESMERE")
+    M.unitData.party2=nil;roots[1].alpha=0
+    M.combat=true;M.tick(J.Core)
+    roots[2].forbidden=true
+    local text=partyReport(M,J)
+    assert(text:find("border #1 unit=party2 | attribute=party2 | exists=no | present=no",1,true))
+    assert(text:find("border #1 root: gate=no | visible=yes | effectiveAlpha=0 | alpha=0",1,true))
+    assert(text:find("border #2 root: gate=no | visible=unavailable | effectiveAlpha=unavailable",1,true))
+    assert(not next(J.Core.notices))
+end)
+
+test("party diagnostic never treats restricted existence as an absent member",function(M)
+    local J=M.load();local roots=fixture(M,"ELLESMERE");enable(J,"partyFrames","ELLESMERE")
+    local original=UnitExists
+    UnitExists=function(unit) if unit=="party2" then return M.secret end;return original(unit) end
+    roots[1].secretAlpha=true;M.tick(J.Core)
+    local text=partyReport(M,J)
+    assert(text:find("border #1 unit=party2 | attribute=party2 | exists=restricted | present=yes",1,true))
+    assert(text:find("border #1 attached=yes | eligible=yes | artwork=ready | shown=yes",1,true))
+    assert(text:find("border #1 root: gate=yes | visible=yes | effectiveAlpha=restricted",1,true))
+    assert(not next(J.Core.notices))
+end)
+
 test("party profile switches and sanitation preserve separate settings",function(M)
     local J=M.load();local root=fixture(M,"ELVUI")[1];enable(J,"partyFrames","ELVUI",true)
     J.ProfileManager:Set("partyFrames","smallFrameArt","RACE_TAUREN")

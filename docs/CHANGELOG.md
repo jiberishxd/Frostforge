@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.13
+
+- Add `/jf partydebug` (also `/jf status party`) to report each party frame's attachment, unit assignment and visibility/opacity checks. It handles unavailable or restricted reads without requiring a pasted script. This diagnostic update does not change rendering; the remaining EllesmereUI party-border issue is still under investigation.
+
 ## 0.9.12
 
 - Fix missing EllesmereUI party-member borders and portraits when native range fading uses protected opacity. Keep provider fading, Frostforge opacity and party sorting intact.

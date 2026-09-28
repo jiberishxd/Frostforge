@@ -17,6 +17,8 @@ Upload the appropriate client ZIP from `dist/`. Each contains one `Frostforge/` 
 
 Preserve saved settings, combat deferral and provider ownership. Decorations must not capture input or change gameplay. Keep changes scoped; report automated checks separately from [in-game checks](VALIDATION.md).
 
+For missing party borders, a player can run `/jf partydebug` while grouped and share the output. It reports cached attachments and current visibility checks without changing frames, printing character names or exposing restricted values.
+
 ## Artwork and records
 
 [Current source records](ARTWORK.md) describe the retained art and manifests. Active builders are in `tools/`; run only the builder for the asset being changed, then check its hashes and fitting. Full source artwork and its original history are retained in the separate artwork library and migration backup, not in addon Git history. See the artwork guide for source-builder and optional audit instructions.
