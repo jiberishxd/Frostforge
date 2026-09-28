@@ -208,11 +208,19 @@ function S:Update(key,kind,state,candidate,config,combat,changed,layerCache)
         if not combat or not module.frame:IsProtected() then module.frame:SetFrameStrata(strata);module.frame:SetFrameLevel(level)
         else J.Core.dirty=true end
     end
-    local visible,alpha=J.SmallFrameAnchors:Visible(candidate.root)
+    local visible,alpha,secret=J.SmallFrameAnchors:Visible(candidate.root)
     local part=kind=="portrait" and candidate.portrait and candidate.portrait.region or candidate.health
-    local partVisible,partAlpha=J.SmallFrameAnchors:Visible(part)
+    local partVisible,partAlpha,partSecret=J.SmallFrameAnchors:Visible(part)
     module.unit, module.active=unit,true
-    J.Core:SyncVisibility(module,present and visible and partVisible and {visible=true,alpha=math.min(alpha,partAlpha)} or nil)
+    local snapshot
+    if present and visible and partVisible then
+        -- The part's effective alpha includes its native parent range fade.
+        -- Never compare, multiply or cache restricted opacity values in Lua.
+        if partSecret then alpha=partAlpha
+        elseif not secret then alpha=math.min(alpha,partAlpha) end
+        snapshot={visible=true,alpha=alpha,secretAlpha=secret or partSecret}
+    end
+    J.Core:SyncVisibility(module,snapshot)
     return true
 end
 

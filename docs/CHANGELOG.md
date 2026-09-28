@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.12
+
+- Fix missing EllesmereUI party-member borders and portraits when native range fading uses protected opacity. Keep provider fading, Frostforge opacity and party sorting intact.
+
 ## 0.9.11
 
 - Align all 42 castbar borders to the same painted opening so class, race and faction changes retain a consistent fit, including during combat. Also applies to the shared Party and Target of Target borders. Original artwork and saved fitting settings are preserved.

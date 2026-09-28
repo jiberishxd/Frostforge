@@ -26,7 +26,7 @@ local function fixture(M,source,tot)
     M.unitData.party1={player=true,class="DRUID",race="NightElf",faction="Alliance"}
     M.unitData.party2={player=true,class="HUNTER",race="Orc",faction="Horde"}
     M.unitData.targettarget={player=true,class="MAGE",race="Gnome",faction="Alliance"}
-    if tot then return {member(M,source,"targettarget",1,true)} end
+    if tot then return {(member(M,source,"targettarget",1,true))} end
     if source=="BLIZZARD" then
         PartyFrame=M.native("PartyFrame",200,500)
         local list={}
@@ -42,7 +42,7 @@ local function fixture(M,source,tot)
     else
         local ns={_partyAllButtons={},data={}};ns.GetFFD=function(root) return ns.data[root] end
         EllesmereUI={_ModuleNS={EllesmereUIRaidFrames=ns}}
-        return {member(M,source,"party2",1),member(M,source,"party1",2)}
+        return {member(M,source,"party2",1),(member(M,source,"party1",2))}
     end
 end
 local function enable(J,key,source,portrait)
@@ -347,6 +347,56 @@ test("Ellesmere kit portrait and sixth self-first button are discovered",functio
     assert(m and m.frame.shown and m.id=="CLASS_PALADIN")
     near(m.geometry.w,128*36/58)
 end)
+
+for _,interface in ipairs({120100,16001}) do
+    for _,source in ipairs({"AUTO","ELLESMERE"}) do
+        test("Ellesmere protected range fading keeps every party member decorated "..source.." "..interface,function(M)
+            local J=M.load({interface=interface});local roots=fixture(M,"ELLESMERE")
+            M.unitData.party3={player=true,class="PRIEST"};M.unitData.party4={player=true,class="MAGE"}
+            roots[3]=member(M,"ELLESMERE","party3",3);roots[4]=member(M,"ELLESMERE","party4",4)
+            local parked=member(M,"ELLESMERE",nil,5);parked.shown=false
+            local self=member(M,"ELLESMERE","player",6)
+            -- EUI 9.3 gives self a plain alpha, but range-fades the other four
+            -- with SetAlphaFromBoolean(UnitInRange(...)). Children inherit it.
+            for _,root in ipairs(roots) do root.secretAlpha=true end
+            J.ProfileManager:Set("partyFrames","opacity",.6)
+            enable(J,"partyFrames",source,true)
+            local function check()
+                for _,root in ipairs(roots) do
+                    for _,kind in ipairs({"border","portrait"}) do
+                        local m=record(J,"partyFrames",root,kind)
+                        assert(m and m.frame.shown and m.id=="CLASS_"..M.unitData[root.unit].class,
+                            "Range-faded "..root.unit.." lost "..kind..": "..tostring(m and m.id).." / "..tostring(m and m.frame.shown).." / "..tostring(next(J.Core.notices)))
+                        assert(issecretvalue(m.frame.alpha),"Native range alpha was not passed directly to the renderer")
+                        for _,t in pairs(m.textures) do assert(t.shown);near(t.alpha,.6) end
+                    end
+                end
+                assert(record(J,"partyFrames",self).frame.shown)
+                assert(not record(J,"partyFrames",parked).frame.shown)
+                assert(not next(J.Core.notices))
+            end
+            check()
+            local geometry=M.frameGeometryWrites;local frames,textures=#M.frames,M.textures
+            M.combat=true;roots[1].unit,roots[2].unit=roots[2].unit,roots[1].unit
+            M.event(J.Core,"GROUP_ROSTER_UPDATE");M.tick(J.Core);check()
+            assert(M.frameGeometryWrites==geometry and #M.frames==frames and M.textures==textures)
+            local root=roots[1];root.shown=false;M.tick(J.Core)
+            assert(not record(J,"partyFrames",root).frame.shown)
+            root.shown=true;root.secretAlpha=false;root.alpha=.4;M.tick(J.Core)
+            for _,kind in ipairs({"border","portrait"}) do
+                local m=record(J,"partyFrames",root,kind)
+                assert(m.frame.shown);near(m.frame.alpha,.24)
+                for _,t in pairs(m.textures) do near(t.alpha,1) end
+            end
+            root.alpha=0;M.tick(J.Core);assert(not record(J,"partyFrames",root).frame.shown)
+            root.secretAlpha=true;M.tick(J.Core);check()
+            local m=record(J,"partyFrames",root);m.frame.protected=true
+            J.SmallFrames:Tick();assert(J.Core.dirty)
+            M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");check()
+            assert((M.nativeLayoutWrites or 0)==0 and (M.appearanceWrites or 0)==0)
+        end)
+    end
+end
 
 test("retired party attachments reuse a bounded frame pool after repeated roster changes",function(M)
     local J=M.load();local roots,list=fixture(M,"BLIZZARD");enable(J,"partyFrames","BLIZZARD",true)

@@ -51,8 +51,9 @@ function methods:IsVisible() readable(self); return self.shown and (not self.par
 function methods:GetAlpha() readable(self); return self.alpha end
 function methods:GetEffectiveAlpha()
     readable(self)
-    if self.secretAlpha then return M.secret end
-    return self.alpha * (self.parent and self.parent:GetEffectiveAlpha() or 1)
+    local parentAlpha=self.parent and self.parent:GetEffectiveAlpha() or 1
+    if self.secretAlpha or issecretvalue(self.alpha) or issecretvalue(parentAlpha) then return M.secret end
+    return self.alpha * parentAlpha
 end
 function methods:SetSize(w,h) writable(self,true); self.w,self.h=w,h end
 function methods:SetWidth(w) writable(self,true); self.w=w end
