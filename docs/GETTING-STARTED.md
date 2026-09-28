@@ -15,7 +15,7 @@ Keep the complete package together: Lua code, theme data and all five active med
 
 ## Quick setup and opening settings
 
-The first-launch wizard has three steps: choose automatic Class/Race/Faction art, choose the decorations to enable, then choose an optional minimap icon and round ElvUI map. Nothing changes until **Finish & open settings**. Skip or Escape dismisses it; rerun it from **Guide → Run quick setup**. Existing installations keep their current setup without an automatic wizard.
+The first-launch tour has four screens: an in-game artwork example, illustrated tips for **Blizzard UI / ElvUI / EllesmereUI**, starting themes and decorations, then easy ways to open settings. Click the interface tabs to read the tips; this does not change your provider. Nothing changes until **Finish & open settings**. **Skip setup** completes the tour without changes. Escape postpones an unfinished first-run tour until next login; loading screens preserve it. Rerun it anytime from **Guide → Run quick setup**. Existing installations keep their setup without an automatic tour.
 
 Open settings from the **AddOn Compartment**, the **Frostforge** section of ElvUI settings, or `/frostforge`. Enable **Show minimap settings icon** in Guide if you want a clickable penguin beside the map; drag it around the map to reposition it. These access preferences apply across characters. Protected changes and opening the window wait until combat ends.
 
@@ -90,3 +90,7 @@ For just the active profile's artwork settings, an alternative is **Guide → Co
 Fresh installs need no transfer; later `Frostforge` updates use the same saved files. Database variable names stay `JiberishUIDB` and `JiberishUICharacterDB` for compatibility. `/frostforge`, `/jui`, `/jf` and `/jiberishui` open the same window. The old **JiberishUI Stone** texture name remains an alias for **Frostforge Stone** so existing provider selections still load.
 
 Choose **The Igloo** in the sidebar to select `https://theigloo.io`. Copy with Ctrl+C (Command+C on Mac) and paste into your browser.
+
+## ElvUI portraits and frame artwork
+
+For Frostforge’s circular portrait art, we recommend **Blinkii’s Portraits** or **mMediaTag & Tools** and their circular portrait customization. Use **ElvUI’s own unit frames** for Frostforge’s full unit-frame artwork: horizontal health with full-width power attached below. In Frostforge, choose your portrait addon under **Portrait provider** and **ElvUI** under **Unit-frame provider**, or keep Automatic when it detects the intended frames. These choices are independent. The setup tour includes the same guidance.

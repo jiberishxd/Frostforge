@@ -40,7 +40,7 @@ class PackagingTests(unittest.TestCase):
                     if name.endswith((".lua", ".toc")):
                         code = data.decode().replace("\\\\", "/").replace("\\", "/")
                         paths.update(re.findall(r'Interface/AddOns/([^"\s]+)', code))
-                self.assertEqual(len(paths), 296)
+                self.assertEqual(len(paths), 298)
                 for path in paths:
                     self.assertIn(path, files)
                     self.assertTrue(path.startswith("Frostforge/"))

@@ -14,7 +14,7 @@ CLIENTS = {
 }
 TOC = ROOT / ADDON / f"{ADDON}.toc"
 VERSION = re.search(r"^## Version: (.+)$", TOC.read_text(), re.M).group(1)
-DOCS = ("README.md", "SUPPORT.md", "CONTRIBUTING.md", "docs/HUB-TRANSPARENCY.md", "docs/images/minimal-stone.jpg", "docs/PROFILES.md", "docs/images/profiles.jpg", "docs/images/the-igloo.jpg",
+DOCS = ("README.md", "docs/CURSEFORGE.md", "docs/PERFORMANCE.md", "docs/performance-0.9.7.csv", "SUPPORT.md", "CONTRIBUTING.md", "docs/HUB-TRANSPARENCY.md", "docs/images/minimal-stone.jpg", "docs/PROFILES.md", "docs/images/profiles.jpg", "docs/images/the-igloo.jpg",
         "docs/GETTING-STARTED.md", "docs/GALLERY.md", "docs/DEVELOPMENT.md", "docs/COMMANDS.md", "docs/BLIZZARD-CONTROLS.md", "docs/stock-frame-sources.json",
         "docs/images/logo.png", "docs/images/LOGO-SOURCE.md", "docs/images/emblem.png", "docs/images/overview.jpg", "docs/images/unit-frames.jpg", "docs/images/settings.jpg", "docs/images/blizzard-controls.jpg", "docs/images/paladin-ingame.png", "docs/ARCHITECTURE.md", "docs/UNIT-SKINS.md", "docs/ARTWORK.md", "docs/COMPATIBILITY.md",
         "docs/PERSISTENCE.md", "docs/VALIDATION.md", "docs/TEST-RESULTS.md", "docs/NPC-CITIES.md", "docs/SETTINGS.md", "docs/CAST-BARS.md", "docs/cast-bar-sources.json",

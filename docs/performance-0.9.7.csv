@@ -1,0 +1,19 @@
+version,trial,workload,iterations,seconds,temporary_KiB,retained_KiB
+baseline-0.9.6,1,idle two shells,1000,0.493992,156066.50,0.14
+baseline-0.9.6,1,native fill animation,1000,0.597861,192949.60,0.14
+baseline-0.9.6,1,combat target switches,1000,0.388968,124621.48,0.14
+baseline-0.9.6,2,idle two shells,1000,0.489514,156066.50,0.14
+baseline-0.9.6,2,native fill animation,1000,0.602736,192949.60,0.14
+baseline-0.9.6,2,combat target switches,1000,0.386377,124621.48,0.14
+baseline-0.9.6,3,idle two shells,1000,0.484618,156066.50,0.14
+baseline-0.9.6,3,native fill animation,1000,0.599154,192949.60,0.14
+baseline-0.9.6,3,combat target switches,1000,0.390393,124621.48,0.14
+optimized-0.9.7,1,idle two shells,1000,0.328365,69910.25,0.14
+optimized-0.9.7,1,native fill animation,1000,0.328256,70035.53,0.14
+optimized-0.9.7,1,combat target switches,1000,0.257110,53666.20,0.00
+optimized-0.9.7,2,idle two shells,1000,0.331943,69910.25,0.14
+optimized-0.9.7,2,native fill animation,1000,0.325011,70035.53,0.14
+optimized-0.9.7,2,combat target switches,1000,0.253415,53666.20,0.00
+optimized-0.9.7,3,idle two shells,1000,0.326917,69910.25,0.14
+optimized-0.9.7,3,native fill animation,1000,0.326432,70035.53,0.14
+optimized-0.9.7,3,combat target switches,1000,0.252684,53666.20,0.00

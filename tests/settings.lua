@@ -132,8 +132,8 @@ end)
 test("all artwork collections search literal names and keep pagination and selection scoped",function(M)
     local J=M.load();local S=J.SettingsUI;S:Open()
     for _,case in ipairs({{"playerFrame","portrait","picker","portraitButtons"},{"actionHub","hub","hubPicker","hubButtons"},{"minimap","minimap","minimapPicker","minimapButtons"}}) do
-        S:Select(case[1]);local p=S[case[3]]
-        S:ShowCollection(case[2],"RACE",3);p:Show()
+        S:Select(case[1]);S:ShowCollection(case[2],"RACE",3)
+        local p=S[case[3]];p:Show()
         p.search:SetText("  night elf  ")
         assert(S[case[4]].RACE_NIGHTELF:IsVisible())
         local visible=0

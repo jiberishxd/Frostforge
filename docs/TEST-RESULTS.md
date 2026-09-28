@@ -1,3 +1,13 @@
+# Build 0.9.7 — first-run tour, credits and performance
+
+346 Lua behavior checks cover both client paths, including late startup, inherited loading-screen hides, Escape/relogin, atomic setup changes, provider tips, delayed collection creation, bounded transient allocation and retained objects, profile-cache isolation, live target previews and native fill UV ownership. Existing combat switching, custom power colors, secure/forbidden frames and all provider regressions remain included.
+
+Offline benchmarks show 55–64% lower temporary allocation across the sampled workloads and 35% less retained mock-host memory when first opening settings. These are not live-game CPU/memory measurements; [methodology and samples](PERFORMANCE.md) distinguish them from the user’s 0.9.3 tooltip.
+
+The four-screen tour includes the owner-supplied screenshot, the current settings capture, and tips for Blizzard UI, ElvUI and EllesmereUI. ElvUI guidance recommends Blinkii’s Portraits or mMediaTag & Tools for circular portrait art and ElvUI’s own unit frames for full shells. The new captures add two assets; all 296 existing runtime images remain unchanged. Blizzard ownership and independence notices appear in Guide, README and a prepared CurseForge notice.
+
+23 Python artwork/package tests also pass. Source/provenance checks and exact Retail/Forever archives pass with 298 runtime textures and 371 files per archive. All four tour screens, the revised ElvUI guidance and the in-game credits were inspected in the exported browser preview. The GitHub source-folder correction and combat artwork fix below remain part of this update. In-game validation remains user-run.
+
 # Build 0.9.6 — Frostforge source folder on GitHub
 
 337 Lua behavior tests and 23 Python tests pass locally. The source-tree regression requires `Frostforge/Frostforge.toc` and rejects a remaining `JiberishUI` source folder. Packaged Lua now matches the source bytes directly, except for client-specific `Build.lua`; both package startup fixtures still preserve supplied saved tables and exercise the combat identity fix.

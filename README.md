@@ -14,7 +14,7 @@ Jiberish's Frostforge adds sculpted artwork around your portraits, health and po
 
 *Artwork showcase using the addon's actual textures. See the gallery for labeled previews and an early in-game capture.*
 
-**Current source: 0.9.6 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/Frostforge/releases) published yet. Use the `Frostforge` folder from **Code → Download ZIP**, or [build a client-specific ZIP](docs/DEVELOPMENT.md#build-installable-zips).
+**Current source: 0.9.7 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/Frostforge/releases) published yet. Use the `Frostforge` folder from **Code → Download ZIP**, or [build a client-specific ZIP](docs/DEVELOPMENT.md#build-installable-zips).
 
 ## Make it your own
 
@@ -79,3 +79,9 @@ This build decorates Player, Target, Focus, the main action hub and minimap. The
 Frostforge is an independent community project. [Artwork credits and source references](docs/ARTWORK-CREDITS.md) · [Test results](docs/TEST-RESULTS.md) · [Advanced commands](docs/COMMANDS.md).
 
 Blizzard users can open **Player/Target/Focus → Blizzard → Colors & textures** for class-colored names, class-gradient health, dark stone health, and separate health/power texture choices. Party/raid colors are included; these controls do not require ElvUI or EllesmereUI.
+
+## Artwork credits
+
+Blizzard artwork, icons, emblems and other Blizzard game assets depicted or referenced are © Blizzard Entertainment, Inc. World of Warcraft and Warcraft are trademarks or registered trademarks of Blizzard Entertainment, Inc. Jiberish's Frostforge is an independent fan-made addon and is not affiliated with, sponsored by or endorsed by Blizzard Entertainment.
+
+See [artwork credits and provenance](docs/ARTWORK-CREDITS.md). Credit does not grant permission to reuse an asset.

@@ -18041,6 +18041,61 @@
         940
       ],
       "transform": "Center half of the retained generated rough-stone frame, resampled to 256x256 with Lanczos; tinted in Lua."
+    },
+    {
+      "id": "setup-ingame",
+      "label": "Frostforge onboarding screenshot",
+      "kind": "setup-screenshot",
+      "file": "Frostforge/Media/Setup/setup-ingame.tga",
+      "source": "docs/images/setup-ingame.png",
+      "source_size": [
+        2048,
+        1152
+      ],
+      "source_crop": null,
+      "source_sha256": "c8b756eae27afba94954d4c6fe4831861b23e81b92120be6f6cb6041c1744806",
+      "sha256": "1fdec31e0f44404ab6a79e9e6d56e674750448b4d6f1eb6dc98d79512cb42bb1",
+      "size": [
+        1024,
+        512
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        910,
+        512
+      ],
+      "transform": "Screenshot fitted without stretching, with transparent padding. Existing artwork files unchanged."
+    },
+    {
+      "id": "setup-settings",
+      "label": "Frostforge onboarding screenshot",
+      "kind": "setup-screenshot",
+      "file": "Frostforge/Media/Setup/setup-settings.tga",
+      "source": "artwork/settings/setup-settings-capture.png",
+      "source_size": [
+        836,
+        863
+      ],
+      "source_crop": [
+        10,
+        10,
+        826,
+        632
+      ],
+      "source_sha256": "f56c2cb12463de5b145da410bcd3aecc72d60244bede4b8970df6b973895e4eb",
+      "sha256": "5d664daa84e8c2c37f87e17af18dd148e3a8fd2bd93c4bb3e7346e8e7c4df454",
+      "size": [
+        512,
+        512
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        512,
+        390
+      ],
+      "transform": "Screenshot fitted without stretching, with transparent padding. Existing artwork files unchanged."
     }
   ],
   "in_game_qualified": false,

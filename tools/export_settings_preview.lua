@@ -13,6 +13,7 @@ local function json(v)
     table.sort(result);return "{"..table.concat(result,",").."}"
 end
 J.Setup:Create()
+for _,kind in ipairs({"portrait","cast","hub","minimap"}) do S:CreateCollection(kind) end
 local ids={};for i,o in ipairs(M.objects) do ids[o]=i end
 local snapshotRoot=S.frame
 local function inside(o) return o and (o==snapshotRoot or inside(o.parent)) end
@@ -61,8 +62,12 @@ end
 S:Select("playerFrame");S:SetPage("artwork");S:ShowPortraitGroup("CLASS",1);S.picker:Show()
 out.pages.collection=snapshot();S:ShowBackup("export");out.pages.backup=snapshot()
 S:HideMenus();S.frame:Hide();J.Setup:Open();snapshotRoot=J.Setup.frame
-for step=1,3 do
+for step=1,4 do
     J.Setup.step=step;J.Setup:Refresh();local name="setup-"..step
     out.pages[name]=snapshot();out.roots[name]=ids[J.Setup.frame]
+end
+for _,provider in ipairs({"BLIZZARD","ELVUI","ELLESMERE"}) do
+    J.Setup.step=2;J.Setup.provider=provider;J.Setup:Refresh()
+    local name="setup-2-"..provider:lower();out.pages[name]=snapshot();out.roots[name]=ids[J.Setup.frame]
 end
 local f=assert(io.open("artwork/settings/runtime-settings.js","w"));f:write("// Generated from Core/Settings.lua by tools/export_settings_preview.lua\nwindow.settingsSnapshots=",json(out),";\n");f:close()

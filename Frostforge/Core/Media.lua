@@ -2,6 +2,8 @@ local _, J = ...
 
 -- Sculpted RGBA test assets; the RGB design references are never packaged.
 J.Media = {
+    setupInGame = "Interface\\AddOns\\Frostforge\\Media\\Setup\\setup-ingame.tga",
+    setupSettings = "Interface\\AddOns\\Frostforge\\Media\\Setup\\setup-settings.tga",
     logo = "Interface\\AddOns\\Frostforge\\Media\\Branding\\frostforge-logo.tga",
     panelStone = "Interface\\AddOns\\Frostforge\\Media\\Branding\\frostforge-stone.tga",
     minimap = "Interface\\AddOns\\Frostforge\\Media\\Minimaps\\class_paladin.tga",

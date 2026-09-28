@@ -8,7 +8,8 @@ for _,interface in ipairs({120100,16001}) do
         M.combat=true;M.event(J.Core,"PLAYER_ENTERING_WORLD");assert(not W.frame)
         M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
         assert(W.frame:IsShown() and W.step==1 and not J.SettingsUI.frame)
-        W.choices.RACE.scripts.OnClick();W.next.scripts.OnClick()
+        W.next.scripts.OnClick();W.providers.ELVUI.scripts.OnClick();W.next.scripts.OnClick()
+        W.choices.RACE.scripts.OnClick()
         W.toggles.frames.scripts.OnClick();W.toggles.casts.scripts.OnClick()
         W.next.scripts.OnClick();W.toggles.icon.scripts.OnClick()
         assert(J.ProfileManager:Export()==before and not J.Access:IconEnabled())
@@ -43,12 +44,12 @@ test("wizard resumes after interrupted first login and refuses profile changes",
     local J=M.load();assert(JiberishUIDB.setupVersion==0)
     J=M.load({db=JiberishUIDB});M.event(J.Core,"PLAYER_ENTERING_WORLD")
     local W=J.Setup;assert(W.frame:IsShown())
-    W.step=3;W:Refresh();J.ProfileManager:SaveAs("Other",false)
+    W.step=4;W:Refresh();J.ProfileManager:SaveAs("Other",false)
     local before=J.ProfileManager:Export();W:Finish()
     assert(W.frame:IsShown() and J.ProfileManager:Export()==before and W.message.text:find("profile changed",1,true))
     W:Dismiss();M.combat=true;W:Open();assert(W.pending)
     M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");assert(W.frame:IsShown())
-    UIParent.w,UIParent.h=800,500;W:Fit();assert(W.frame.scale<=468/480)
+    UIParent.w,UIParent.h=800,500;W:Fit();assert(W.frame.scale<=468/640)
 end)
 
 test("wizard and access preferences preserve future saved-data formats",function(M)
@@ -204,3 +205,29 @@ test("optional minimap launcher persists drags hides with map and reuses its but
     local saved=JiberishUIDB;J=M.load({db=saved});assert(J.Access:IconEnabled() and JiberishUIDB.access.angle==angle)
     assert(not next(J.Core.notices))
 end)
+
+for _,interface in ipairs({120100,16001}) do
+    test("fresh install loaded after world entry still launches setup on "..interface,function(M)
+        local J=M.load({interface=interface,noStart=true});M.loggedIn=true
+        M.event(J.Core,"ADDON_LOADED","Frostforge")
+        assert(J.Setup.frame and J.Setup.frame:IsVisible() and JiberishUIDB.setupVersion==0)
+        assert(not next(J.Core.notices))
+    end)
+    test("loading screens and Escape never silently complete setup on "..interface,function(M)
+        UIParent.shown=false
+        local J=M.load({interface=interface});M.event(J.Core,"PLAYER_ENTERING_WORLD")
+        assert(J.Setup.pending and not J.Setup.frame)
+        UIParent.shown=true;M.tick(J.Core)
+        local W=J.Setup;assert(W.frame:IsVisible());W.next.scripts.OnClick()
+        W.providers.ELLESMERE.scripts.OnClick();assert(W.step==2 and W.providerTips.text:find("Ellesmere",1,true))
+        UIParent.shown=false;W.frame.scripts.OnHide() -- inherited OnHide, frame remains shown
+        assert(JiberishUIDB.setupVersion==0 and W.pending)
+        for _,item in ipairs(W.pictures) do assert(item.texture.path==nil) end
+        UIParent.shown=true;M.tick(J.Core)
+        assert(W.step==2 and W.provider=="ELLESMERE" and not W.pending)
+        W.frame:Hide();M.tick(J.Core);assert(not W.frame:IsShown() and JiberishUIDB.setupVersion==0)
+        J=M.load({interface=interface,db=JiberishUIDB});M.event(J.Core,"PLAYER_ENTERING_WORLD")
+        assert(J.Setup.frame:IsVisible());J.Setup.skip.scripts.OnClick();assert(JiberishUIDB.setupVersion==1)
+        assert(not next(J.Core.notices))
+    end)
+end

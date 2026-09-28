@@ -61,7 +61,7 @@ def source_checks():
 def asset_checks():
     manifest = json.loads((ROOT / "docs/phase1-assets.json").read_text())
     assets = manifest["assets"]
-    assert len(assets) == 296
+    assert len(assets) == 298
     groups = [{Path(a["file"]).stem for a in assets if "/"+kind+"/" in a["file"]} for kind in ("Portraits", "Hubs", "Minimaps")]
     assert all(len(g) == 42 and g == groups[0] for g in groups), "Artwork catalogs must match"
     assert {Path(a["file"]).stem for a in assets if a.get("kind")=="unit-shell"} == groups[0]
@@ -210,7 +210,7 @@ def asset_checks():
                     assert pixels[(row*w+x)*4+3]==0, 'Hub art covers reserved button region'
             if asset.get('official_crest') or asset.get('emblem_reference'):
                 crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
-    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 296 RGBA assets (including the official transparent logo and stone interface, 42 complete cast borders, 42 sculpted shells and 84 painted fills) and provenance hashes")
+    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 298 RGBA assets (including the official transparent logo and stone interface, 42 complete cast borders, 42 sculpted shells and 84 painted fills) and provenance hashes")
 
 
 def reference_checks():
@@ -252,7 +252,7 @@ def archive_checks(directory):
                 code = archive.read(name).decode().replace("\\\\", "/").replace("\\", "/")
                 for asset in re.findall(r'Interface/AddOns/([^"\s]+)', code):
                     assert asset.startswith("Frostforge/") and asset in archive.namelist(), (name, asset)
-        assert len([p for p in expected if p.endswith(".tga")]) == 296
+        assert len([p for p in expected if p.endswith(".tga")]) == 298
     print("PASS both exact client archives; no legacy code/themes or unrelated textures packaged")
 
 

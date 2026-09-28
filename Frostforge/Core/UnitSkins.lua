@@ -50,9 +50,13 @@ function S:Watch(record)
         -- Observe redraws here. The color controller may reassert an already
         -- prepared power material; layout and other fills wait outside combat.
         if not usable(frame) or record.writing or not record.active then return end
+        -- Stock StatusBars own live fill UVs (health/power animation). Only
+        -- asset selection needs reapplication; UV movement is not a new skin.
+        if record.stock and not selection then return end
         record.external = true
         if selection then record.externalSelection = true end
-        J.Core.dirty = true
+        -- The regular skin pass observes this record. A native fill redraw
+        -- must not invalidate every portrait, minimap and action-hub layout.
     end
     for _,item in ipairs({{record.bar,"SetStatusBarTexture"},{record.texture,"SetTexture"},
                           {record.texture,"SetAtlas"},{record.texture,"SetTexCoord"}}) do
@@ -660,7 +664,7 @@ function S:TickUnit(key)
         local record=unit[kind]
         local fillThisBar=manageFill and not (healthOnly and kind=="power")
         if not external then
-            local shared=J.ThemeManager:Resolve("playerFrame")
+            local shared=J.ThemeManager:Read("playerFrame")
             local selection=shared[kind=="health" and "blizzardHealthTexture" or "blizzardPowerTexture"]
             if selection~="AUTO" or (kind=="health" and config.blizzardHealthColor~="STOCK") then fillThisBar=false end
             if kind=="power" and (config.blizzardPowerColor~="STOCK" or config.blizzardPowerShading=="GRADIENT") then fillThisBar=false end
@@ -801,10 +805,10 @@ function S:StockBars(units)
 end
 
 function S:StockTexture(info,configs)
-    local shared=configs and configs.playerFrame or J.ThemeManager:Resolve("playerFrame")
+    local shared=configs and configs.playerFrame or J.ThemeManager:Read("playerFrame")
     local selection=shared[info.kind=="health" and "blizzardHealthTexture" or "blizzardPowerTexture"]
     local healthMode=info.key=="party" and shared.blizzardPartyHealthColor
-        or info.key and (configs and configs[info.key] or J.ThemeManager:Resolve(info.key)).blizzardHealthColor
+        or info.key and (configs and configs[info.key] or J.ThemeManager:Read(info.key)).blizzardHealthColor
     if info.kind=="health" and healthMode=="DARK" then return J.Media.stone end
     if selection=="STONE" or (selection=="AUTO" and shared.blizzardStone) then return J.Media.stone end
     if selection=="SMOOTH" then return "Interface\\Buttons\\WHITE8X8" end
@@ -812,7 +816,7 @@ function S:StockTexture(info,configs)
     -- neutral material even when the user otherwise prefers Blizzard textures.
     if info.kind=="health" and healthMode=="CLASS" then return "Interface\\TargetingFrame\\UI-StatusBar" end
     if info.kind=="power" and info.key then
-        local config=info.key=="party" and shared or (configs and configs[info.key] or J.ThemeManager:Resolve(info.key))
+        local config=info.key=="party" and shared or (configs and configs[info.key] or J.ThemeManager:Read(info.key))
         local prefix=info.key=="party" and "blizzardPartyPower" or "blizzardPower"
         if config[prefix.."Color"]~="STOCK" or config[prefix.."Shading"]=="GRADIENT" then
             return "Interface\\TargetingFrame\\UI-StatusBar"
@@ -925,7 +929,7 @@ end
 
 function S:Tick()
     local configs={}
-    for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do configs[key]=J.ThemeManager:Resolve(key) end
+    for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do configs[key]=J.ThemeManager:Read(key) end
     self.stoneEnabled=configs.playerFrame.blizzardStone
     self.powerMaskBar=nil
     local bars

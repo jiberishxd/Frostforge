@@ -160,7 +160,7 @@ function C:Paint(module,id,layout)
 end
 
 function C:TickUnit(key)
-    local config=J.ThemeManager:Resolve(key)
+    local config=J.ThemeManager:Read(key)
     local module=self.units[key]
     local combat=InCombatLockdown()
     -- Configuration changes are queued; native visibility is always respected.

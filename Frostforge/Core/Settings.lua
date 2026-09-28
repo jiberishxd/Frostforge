@@ -158,7 +158,9 @@ local collectionSpecs={
 }
 
 function S:ShowCollection(kind,group,page)
-    local spec=collectionSpecs[kind];local p=self[spec.picker]
+    local spec=collectionSpecs[kind]
+    if not self[spec.picker] then self:CreateCollection(kind) end
+    local p=self[spec.picker]
     if self[spec.group]~=group then
         p.updatingSearch=true;p.search:SetText("");p.updatingSearch=nil
     end
@@ -187,6 +189,7 @@ function S:ShowCollection(kind,group,page)
     p.empty:SetShown(#visible==0)
     p.previous:SetAlpha(self[spec.page]>1 and 1 or .45)
     p.next:SetAlpha(self[spec.page]<pages and 1 or .45)
+    self:Refresh()
     p.hint:SetText("Applies to "..names[self.selected]..(kind=="cast" and " cast border only. Match unit artwork returns to automatic matching." or " only. Choosing a design switches to Chosen artwork."))
 end
 
@@ -235,7 +238,7 @@ function S:CreateCollection(kind)
         p.search:ClearFocus()
         for _,b in pairs(self[spec.buttons]) do b.image:SetTexture(nil) end
     end)
-    self:ShowCollection(kind,"CLASS");p:Hide()
+    p:Hide()
 end
 
 function S:ShowPortraitGroup(group,page) self:ShowCollection("portrait",group,page) end
@@ -706,7 +709,6 @@ function S:Create()
     end)
     self.castStatus=text(a,"",242,-346,424)
     text(a,"Strata and level control this border only. Automatic clears nearby frame artwork. Width and height fit the native bar. Changes apply after combat.",0,-392,666)
-    self:CreateCollection("cast")
 
     a=self.pages.blizzard
     self.nativePortraitToggle=toggle(a,"Hide Blizzard portrait image",0,0,318,function() self:Set("blizzardPortraitHidden",not J.ThemeManager:Resolve(self.selected).blizzardPortraitHidden) end)
@@ -807,7 +809,6 @@ function S:Create()
     self.roundMinimap=toggle(a,"Use a round minimap (ElvUI)",0,-236,318,function()
         self:Set("minimapRound",not J.ThemeManager:Resolve("minimap").minimapRound)
     end)
-    self:CreatePortraitPicker();self:CreateHubPicker();self:CreateMinimapPicker()
 
     a=self.pages.guide
     panel(a,0,0,666,154)
@@ -821,7 +822,8 @@ function S:Create()
     text(a,"Open Frostforge from the AddOn Compartment or ElvUI settings. The minimap icon is optional.",0,-288,666)
     button(a,"Copy settings backup",0,-326,318,function() self:ShowBackup("export") end)
     button(a,"Restore from backup",346,-326,318,function() self:ShowBackup("import") end)
-    text(a,"Back up before making broad changes or reinstalling. Backups cover all five components.",0,-370,666)
+    text(a,"Back up before making broad changes or reinstalling. Backups cover all five components.",0,-360,666)
+    self.artworkCredit=text(a,"Blizzard artwork/game assets © Blizzard Entertainment, Inc. Warcraft and World of Warcraft are Blizzard trademarks. Independent fan addon; not affiliated with, sponsored by or endorsed by Blizzard.",0,-382,666,"GameFontNormalSmall")
     self:CreateDialogs()
     self.status=text(f,"",30,-655,858)
     self:FitWindow()
@@ -920,7 +922,7 @@ function S:Refresh()
         local castID=J.CastBars:Artwork(config)
         self.castBrowse.caption:SetText(J.PortraitCatalog.entries[castID].label.." - Browse")
         self.castStatus:SetText((config.castBarArt=="MATCH" and "Matching unit artwork: " or "Chosen border artwork: ")..J.PortraitCatalog.entries[castID].label.."\n"..(J.CastBars.status[self.selected] or "Waiting for cast-bar provider"))
-        for choice,b in pairs(self.castButtons) do b.selection:SetShown(config.castBarArt==choice) end
+        for choice,b in pairs(self.castButtons or {}) do b.selection:SetShown(config.castBarArt==choice) end
     end
     self.showButton.caption:SetText(unit and "Portrait art" or "Show artwork")
     self.showHelp:SetText(unit and "Decorative surround for the unit portrait." or minimap and "Decorative border around the native minimap." or "Decorative endcaps and rail for the action bars.")
@@ -968,13 +970,13 @@ function S:Refresh()
         b.selection:SetShown(key==self.selected)
         b.caption:SetText(names[key])
     end
-    for choice,b in pairs(self.portraitButtons) do
+    for choice,b in pairs(self.portraitButtons or {}) do
         local u1,u2=J.Portraits:TexCoords(config.unit or "player")
         b.image:SetTexCoord(u1,u2,0,1)
         b.selection:SetShown(unit and config.portraitMode=="FIXED" and config.portrait==choice)
     end
-    for choice,b in pairs(self.hubButtons) do b.selection:SetShown(hub and config.hubMode=="FIXED" and config.hub==choice) end
-    for choice,b in pairs(self.minimapButtons) do b.selection:SetShown(minimap and config.minimapMode=="FIXED" and config.minimap==choice) end
+    for choice,b in pairs(self.hubButtons or {}) do b.selection:SetShown(hub and config.hubMode=="FIXED" and config.hub==choice) end
+    for choice,b in pairs(self.minimapButtons or {}) do b.selection:SetShown(minimap and config.minimapMode=="FIXED" and config.minimap==choice) end
     for property,control in pairs(self.controls) do
         local number=property=="portraitSize" and config.width or config[property]
         if control.slider and number~=nil then

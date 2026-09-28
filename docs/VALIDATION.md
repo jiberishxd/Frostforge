@@ -1,6 +1,6 @@
 # Portrait build validation
 
-Install 0.9.6 and fully restart WoW to load the source-faithful shells and new controls. If upgrading from the old `JiberishUI` folder, follow the [one-time saved-file transfer](GETTING-STARTED.md#upgrading-to-frostforge) first. In `/frostforge`, select Player, Target or Focus and test **Portrait art** and **Unit-frame art** in all four on/off combinations. Unit-frame art is off by default; existing FULL settings migrate. If bars still do not show their artwork, copy the per-unit lines from `/jui status`, including shell and fill status. All in-game testing is performed by the user.
+Install 0.9.7 and fully restart WoW to load the source-faithful shells and new controls. If upgrading from the old `JiberishUI` folder, follow the [one-time saved-file transfer](GETTING-STARTED.md#upgrading-to-frostforge) first. In `/frostforge`, select Player, Target or Focus and test **Portrait art** and **Unit-frame art** in all four on/off combinations. Unit-frame art is off by default; existing FULL settings migrate. If bars still do not show their artwork, copy the per-unit lines from `/jui status`, including shell and fill status. All in-game testing is performed by the user.
 
 1. Open /jui. Confirm textured window borders, frost-blue buttons with white labels and fitted hover/selected outlines, checkboxes, five component tabs and a movable window. Verify Show artwork and Debug bounds check marks, selected tabs, and gallery selection after switching components. Player, Target and Focus default to Automatic class; Minimap and hub default to automatic player class; existing geometry overrides are retained.
 2. At default portrait dimensions, check Player's teardrop corner, level badge, name and bars. Select players of different classes and verify only Target's portrait background changes; the art should share the same visible envelope without a lower loop or level-badge circle. Verify Mage uses an eye and Hunter uses a skull. Set another class as Focus and verify independent selection. Clear Target/Focus and confirm their decoration disappears.
@@ -151,3 +151,11 @@ Offline tests reproduce native aura reanchoring after Frostforge's scan; the moc
 
 1. Download a fresh Code → Download ZIP from GitHub's main branch. Inside `Frostforge-main`, confirm the addon folder is `Frostforge` with `Frostforge.toc`; there should be no `JiberishUI` source folder.
 2. Copy only `Frostforge` into `Interface/AddOns/`, following the saved-file transfer guide when upgrading from the old folder. Restart the client and confirm the addon and artwork load. The source folder supports both Retail and Forever; client-specific packages use the same name.
+
+## 0.9.7 tour and performance (user-run)
+
+- On a fresh account WTF, login outside combat and check the four-screen setup tour. If UI loading temporarily hides it, it should return without marking setup complete. Escape should retry next login; Skip and Finish should not nag next login.
+- Check each interface help tab. With ElvUI, verify the portrait recommendation names Blinkii’s Portraits and mMediaTag & Tools separately from the ElvUI unit-frame provider.
+- Confirm the full supplied in-game screenshot and the settings screenshot retain their shape. Finish applies choices only once, after combat; switching profiles while the tour is open requires reopening it.
+- Open Guide and check the Blizzard artwork/trademark/independence notice.
+- Follow the comparable-session measurements in [Performance](PERFORMANCE.md), then verify native power animation, custom colors, target switching, all four artwork collections and cast visibility.

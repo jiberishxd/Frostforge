@@ -64,8 +64,9 @@ end)
 test("hub gallery pages have opaque backing and only load visible thumbnails",function(M)
     local J=M.load();local S=J.SettingsUI;S:Open();S:Select("actionHub")
     assert(S.hubButton.shown and S.controls.hubMode.button.shown and not S.portraitButton.shown)
-    assert(S.hubPicker.underlay and S.picker.underlay and S.frame.underlay)
+    assert(not S.hubPicker and not S.picker)
     S.hubButton.scripts.OnClick();S:ShowHubGroup("RACE",1)
+    assert(S.hubPicker.underlay and S.frame.underlay)
     local countVisible=0
     for _,b in pairs(S.hubButtons) do
         if b.shown then countVisible=countVisible+1;assert(b.image.path) else assert(b.image.path==nil) end
