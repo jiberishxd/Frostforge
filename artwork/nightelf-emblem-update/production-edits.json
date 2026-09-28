@@ -1,0 +1,23 @@
+[
+  {
+    "key": "unit-final",
+    "prompt": "Edit this existing painted World of Warcraft unit-frame artwork, preserving the entire layout and all foreground artwork except the small correction specified. The new right-side silver Night Elf emblem has a clipped tip at the extreme right edge. Compact the emblem's swept right silver shoulder blade so its complete pointed tip fits inside the canvas with at least 22 pixels of pure green margin. Preserve the clear crescent-and-dark-orb disc, pointed violet helmet, curved lower blade, surrounding feathers and foliage. Also retain the original footprint of the right endcap: leave at least 15 pixels of green margin at its bottom and top. Keep the left owl and all horizontal rails, bar holes and lower hanging details PIXEL IDENTICAL. Entire canvas must remain 1774x887 and the same composition. All background including both bar holes remains solid pure neon GREEN #00FF00, no checkerboard, no gradients or shadows on the green. Do not add anything.",
+    "file": "unit-generated.png",
+    "mode": "built-in imagegen",
+    "generated": "/Users/kyledelfrancia/.codex/generated_images/01a0c635-f40f-7af2-b0c3-0b1105a760f7/exec-05c0b0ef-d902-4db1-977f-073928498c5d.png"
+  },
+  {
+    "key": "minimap-final",
+    "prompt": "Keep this entire painted Night Elf circular minimap surround and its new engraved silver crescent moon exactly the same. Replace ONLY the gray and white checkerboard background (both outside the art AND inside the entire round minimap aperture AND between the two tips of the top crescent and every other gap) with solid pure neon GREEN #00FF00. No checkerboard, no white or gray backdrop, no shadows cast onto the green. Keep all painted silver crescent, owl, feathers, purple drapes, teal leaves, wood and trim exactly unchanged, same size and positions on the square canvas. Do not add, remove, redraw or rescale any foreground subjects. This is production artwork using a flat chroma-key green matte.",
+    "file": "minimap-generated.png",
+    "mode": "built-in imagegen",
+    "generated": "/Users/kyledelfrancia/.codex/generated_images/01a0c635-f40f-7af2-b0c3-0b1105a760f7/exec-d5435c74-bc75-4b9d-a2f9-86c46f79e412.png"
+  },
+  {
+    "key": "hub-final",
+    "prompt": "Keep this entire painted Night Elf three-to-one wide hub exactly the same, including the new left emblem and long central rail and right owl crystal endpoint. Replace ONLY the gray and white checkerboard background with solid pure neon GREEN #00FF00, including every gap between feathers/blades and inside the silver crescent. No checkerboard, no white gray backdrop, no shadows on green. All painted artwork must remain unchanged, at the same positions and same size. Preserve canvas dimensions 2172x724. Do not redraw, add, remove, rescale or warp any foreground art. This is production artwork with a flat chroma-key green matte.",
+    "file": "hub-generated.png",
+    "mode": "built-in imagegen",
+    "generated": "/Users/kyledelfrancia/.codex/generated_images/01a0c635-f40f-7af2-b0c3-0b1105a760f7/exec-98e2046f-cea4-46d9-84d8-5c0a9a782274.png"
+  }
+]

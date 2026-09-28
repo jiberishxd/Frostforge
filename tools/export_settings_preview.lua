@@ -12,8 +12,10 @@ local function json(v)
     for k,x in pairs(v) do result[#result+1]=json(tostring(k))..":"..json(x) end
     table.sort(result);return "{"..table.concat(result,",").."}"
 end
+J.Setup:Create()
 local ids={};for i,o in ipairs(M.objects) do ids[o]=i end
-local function inside(o) return o and (o==S.frame or inside(o.parent)) end
+local snapshotRoot=S.frame
+local function inside(o) return o and (o==snapshotRoot or inside(o.parent)) end
 local function hoverOwner(o)
     if not o or not o.parent then return end
     if o==o.parent.hover then return o.parent end
@@ -33,13 +35,15 @@ local function snapshot()
     end
     return result
 end
-local out={root=ids[S.frame],pages={}}
+local out={root=ids[S.frame],pages={},roots={}}
 for _,key in ipairs({"playerFrame","targetFrame","minimap","actionHub"}) do
     S:Select(key)
     for _,page in ipairs({"artwork","placement","fitting","cast","blizzard","advanced","guide","profiles","website"}) do
         S:SetPage(page);out.pages[key.."-"..page]=snapshot()
     end
     if key=="playerFrame" or key=="targetFrame" then
+        S:SetPage("placement");S.separatePortraitSize=true;S:Refresh();out.pages[key.."-placement-advanced"]=snapshot()
+        S.separatePortraitSize=false;S:Refresh()
         S:SetPage("blizzard")
         for _,group in ipairs(J.BlizzardUnits.textGroups) do
             S.textGroup=group;S:Refresh();out.pages[key.."-blizzard-"..group]=snapshot()
@@ -56,4 +60,9 @@ for _,key in ipairs({"playerFrame","targetFrame","minimap","actionHub"}) do
 end
 S:Select("playerFrame");S:SetPage("artwork");S:ShowPortraitGroup("CLASS",1);S.picker:Show()
 out.pages.collection=snapshot();S:ShowBackup("export");out.pages.backup=snapshot()
+S:HideMenus();S.frame:Hide();J.Setup:Open();snapshotRoot=J.Setup.frame
+for step=1,3 do
+    J.Setup.step=step;J.Setup:Refresh();local name="setup-"..step
+    out.pages[name]=snapshot();out.roots[name]=ids[J.Setup.frame]
+end
 local f=assert(io.open("artwork/settings/runtime-settings.js","w"));f:write("// Generated from Core/Settings.lua by tools/export_settings_preview.lua\nwindow.settingsSnapshots=",json(out),";\n");f:close()

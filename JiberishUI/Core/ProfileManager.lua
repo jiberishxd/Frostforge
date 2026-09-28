@@ -33,7 +33,7 @@ local function supported(key,property)
     if property=="blizzardStone" then return key=="playerFrame" end
     if property == "castBarShown" or property == "unitFrameStrata" or property == "castBarLevel" or property == "castBarStrata" or property == "blizzardPortraitFrameHidden" or property == "blizzardPortraitHidden" or property == "blizzardNameEnabled" or property == "blizzardNameX" or property == "blizzardNameY" or property == "blizzardNameSize" or property == "blizzardNameAlign" or property == "blizzardNameOutline" or property == "castBarSource" or property == "castBarStyle" or property == "castBarArt" or property == "castBarWeight" or property == "castBarPadding" or property == "castBarWidth" or property == "castBarHeight" or property == "portrait" or property == "portraitMode" or property == "portraitSource" or property == "unitStyle" or property == "unitFrameShown" or property == "unitFrameFill" or property == "unitFrameWidth" or property == "unitFrameHeight" or property == "unitFrameX" or property == "unitFrameY" or property == "unitFrameInset" or property == "unitFrameSource" then return J.Portraits:IsUnitKey(key) end
     if property == "hub" or property == "hubMode" or property == "hubSource" then return key == "actionHub" end
-    if property == "minimap" or property == "minimapMode" then return key == "minimap" end
+    if property == "minimap" or property == "minimapMode" or property=="minimapRound" then return key == "minimap" end
     return true
 end
 
@@ -77,6 +77,7 @@ end
 
 function Profiles:Initialize()
     local source
+    self.firstRun=JiberishUIDB==nil or (type(JiberishUIDB)=="table" and next(JiberishUIDB)==nil)
     if JiberishUIDB == nil then
         self.notice = "No saved settings table received; first run or client loading failure."
         JiberishUIDB = {}
@@ -105,6 +106,27 @@ function Profiles:Initialize()
     if self.writable then self:InitializeNamed(source) end
     -- Never convert, erase, or apply the previous renderer's profiles.
     if self.writable then JiberishUIDB.phase1 = self.current end
+end
+
+-- Validate a small group of settings before applying any of them. A linked
+-- size change and the setup wizard each need one refresh, not partial layouts.
+function Profiles:SetMany(changes)
+    if not self.writable then return false,self.notice end
+    local validated={}
+    for _,item in ipairs(changes) do
+        local key,property,value=item[1],item[2],item[3]
+        if not J.Core.modules[key] or not supported(key,property) then return false,"Unsupported component setting." end
+        local valid=J.Core:ValidateProperty(property,value)
+        if valid==nil then return false,J.Core:PropertyHelp(property) end
+        validated[#validated+1]={key,property,valid}
+    end
+    for _,item in ipairs(validated) do
+        local key,property,value=unpack(item)
+        self.current.modules[key]=self.current.modules[key] or {}
+        self.current.modules[key][property]=value
+    end
+    J.Core:RequestRefresh(true)
+    return true
 end
 
 function Profiles:SetWindowPosition(x,y)

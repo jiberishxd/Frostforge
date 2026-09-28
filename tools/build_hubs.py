@@ -9,6 +9,7 @@ import numpy as np
 from PIL import Image, ImageFilter
 from build_portraits import ROOT, extract_alpha, digest, retain_source
 from clean_hub_alpha import clean
+from apply_nightelf_emblem import apply_overlay
 
 ART = ROOT / 'artwork/hubs'
 WIDTH, HEIGHT = 2172, 724
@@ -112,6 +113,7 @@ def main(partial=False):
             method+='; reviewed enclosed-background alpha mask (artwork/hubs/alpha-cleanup/manifest.json)'
         raw=corrected
         canvas,mapping=register(raw)
+        if id=='race_nightelf': canvas=apply_overlay('hub')
         assert canvas.crop((620,0,1552,440)).getchannel('A').getbbox() is None
         png=ART/'assets'/f'{id}.png';canvas.save(png)
         encoded=canvas.resize((1024,512),Image.Resampling.LANCZOS)
@@ -133,6 +135,9 @@ def main(partial=False):
                 'target':restyle['target'],'target_sha256':digest(ROOT/restyle['target']),
                 'style_reference':restyle['style_reference'],
                 'style_reference_sha256':digest(ROOT/restyle['style_reference'])}
+        if id=='race_nightelf':
+            reports[-1]['emblem_correction']='artwork/nightelf-emblem-update/applied.json'
+            reports[-1]['transform']+='; localized generated left-emblem inlay on retained registration'
     manifest={'assets':reports,'geometry':'Shared full-height five-piece atlas; 2172 x 724 design; 1024 x 512 texture',
               'credit':'Official emblem references: Blizzard Entertainment. Sculpted compositions: JiberishUI.',
               'complete':len(reports)==42,'in_game_qualified':False}

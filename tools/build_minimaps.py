@@ -7,6 +7,7 @@ from PIL import Image, ImageDraw
 from build_portraits import extract_alpha, digest
 from build_hubs import extract_chroma
 from fit_minimaps import conform, SIZE, CENTER, RADIUS
+from apply_nightelf_emblem import apply_overlay
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / 'artwork/minimaps'
@@ -34,6 +35,7 @@ def main(partial=False):
         else:
             raw, method = extract_alpha(Image.open(original))
         result, fitted = conform(raw)
+        if job['id']=='race_nightelf': result=apply_overlay('minimap')
         alpha = np.asarray(result.getchannel('A'))
         assert .10 < (alpha > 0).mean() < .65, job['id']
         png = ART/'assets'/(job['id']+'.png'); result.save(png)
@@ -50,6 +52,9 @@ def main(partial=False):
             'clear_points':[[.5,.5],[.5,.3],[.3,.5]], 'default_display_size':[340,340],
             'references':[{'file':p,'sha256':digest(ROOT/p)} for p in job['references']],
             'in_game_qualified':False})
+        if job['id']=='race_nightelf':
+            reports[-1]['emblem_correction']='artwork/nightelf-emblem-update/applied.json'
+            reports[-1]['transform']+='; localized generated silver-crescent inlay above unchanged aperture'
     (ART/'manifest.json').write_text(json.dumps({'assets':reports,'complete':len(reports)==42,'in_game_qualified':False},indent=2)+'\n')
     (ART/'gallery-data.js').write_text('const minimapAssets = '+json.dumps(reports)+';\n')
     sheet = Image.new('RGB',(7*240, ((len(reports)+6)//7)*260),'#26322d')

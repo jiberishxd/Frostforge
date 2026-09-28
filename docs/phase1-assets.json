@@ -4815,7 +4815,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_nightelf.tga",
       "source": "artwork/hubs/assets/race_nightelf.png",
-      "source_sha256": "de0663cf4546b0d51bd40907bb5b1e12285ba148b7b41fbadf503d0f773edc7d",
+      "source_sha256": "de6f79d2c61ce2c2903fd33ded89e6b0b794a93ebd241212f856271febae39ba",
       "source_size": [
         2172,
         724
@@ -4826,9 +4826,9 @@
         1024,
         512
       ],
-      "sha256": "be4a5493cf322299bfbaa6cd486460a27ec23c8a2b0f2a4004c23a0d54a07fea",
+      "sha256": "40a962795fc3369077dbaa800084c28f60fad9240b8b8ac554c3da2625a5229d",
       "alphaBounds": [
-        2,
+        4,
         13,
         1020,
         495
@@ -4845,7 +4845,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Magenta backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Magenta backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha; localized generated left-emblem inlay on retained registration",
       "vertical_registration": [
         [
           0,
@@ -4909,9 +4909,10 @@
         "record": "artwork/hubs/style-remaster/records/race_nightelf.json",
         "target": "artwork/hubs/style-remaster/before/assets/race_nightelf.png",
         "target_sha256": "b401cec83d1eb91f3427a4e511dbd869e0b964c7cbdc2e9cbf8e21d0e9957e27",
-        "style_reference": "artwork/unit-frames/sculpted/references/race_nightelf.png",
+        "style_reference": "artwork/nightelf-emblem-update/unit-frame-before.png",
         "style_reference_sha256": "f83fac82e9bda503901116016097c72a991665b25df7962ed2715f09b46753be"
-      }
+      },
+      "emblem_correction": "artwork/nightelf-emblem-update/applied.json"
     },
     {
       "id": "race_gnome",
@@ -8708,7 +8709,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Minimaps/race_nightelf.tga",
       "source": "artwork/minimaps/assets/race_nightelf.png",
-      "source_sha256": "201bd96bd75bf63c783c4664884bd3daf68e6b508f1f03a3500e51d02102a1db",
+      "source_sha256": "cfee3ba4a3cb2786ba75592b5c43bff790a37f0888fbf7686e580abac9ff8e2d",
       "source_size": [
         512,
         512
@@ -8720,14 +8721,14 @@
         512,
         512
       ],
-      "sha256": "3de0fc23b611ce5672a52ec675d2a938cbfd16c432f9a40b896beac42d7b2ba9",
+      "sha256": "f928300c5352de6da87997659dca4e7e1e586fe4e14ff54d80c99a7ae4208099",
       "alphaBounds": [
         15,
-        13,
+        8,
         498,
         497
       ],
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed; localized generated silver-crescent inlay above unchanged aperture",
       "source_circle": [
         255.25030648425405,
         259.7656110419916,
@@ -8773,7 +8774,8 @@
           "sha256": "47d962a72d1107aa1f050aa1440899215542537afe31d650f956a7e9b7e9929f"
         }
       ],
-      "in_game_qualified": false
+      "in_game_qualified": false,
+      "emblem_correction": "artwork/nightelf-emblem-update/applied.json"
     },
     {
       "id": "race_gnome",
@@ -12309,10 +12311,10 @@
         512,
         256
       ],
-      "source_sha256": "bcc11b58be7ef127ca06ebec5e22c57c52f6644c8bcfd114450edb25eaf7b6f1",
+      "source_sha256": "7f6063a9cd8fc093d298849a8040eacd4ff0a6954a4cb2cb34026c76bf11331f",
       "alphaBounds": [
         10,
-        6,
+        7,
         503,
         250
       ],
@@ -12320,18 +12322,30 @@
       "references": [
         {
           "file": "artwork/unit-frames/sculpted/references/race_nightelf.png",
-          "sha256": "f83fac82e9bda503901116016097c72a991665b25df7962ed2715f09b46753be"
+          "sha256": "beda611e377e43cec83600218bc208c0f6c861d9f0b267ce1829bcf609b7a7ba"
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-          "sha256": "bcc11b58be7ef127ca06ebec5e22c57c52f6644c8bcfd114450edb25eaf7b6f1"
+          "sha256": "7f6063a9cd8fc093d298849a8040eacd4ff0a6954a4cb2cb34026c76bf11331f"
         },
         {
           "file": "artwork/unit-frames/sculpted/generation-prompts.json",
           "sha256": "db102e27302d1ed600e47e22b2135e60cb0ef7dfa01478b1152ff981feb77496"
+        },
+        {
+          "file": "artwork/nightelf-emblem-update/generation.json",
+          "sha256": "5f711c137fec76b3750686f138156bf459126e7037053cc1a5bc33242ab85891"
+        },
+        {
+          "file": "artwork/nightelf-emblem-update/applied.json",
+          "sha256": "0e3289adb97881c8627b36d4b6bc76e3365f7d857ea07caf688dfa38bd3f42cf"
+        },
+        {
+          "file": "artwork/nightelf-emblem-update/emblem-reference.png",
+          "sha256": "21d9313505e6f05dbd943d1575e1aa71d5ae480b0b5f9b59c05905e358fd5242"
         }
       ],
-      "sha256": "640ae86de56a591b6c1af7e6265c8f6b25202148704927d0024c6da877c40f07",
+      "sha256": "f0f5e08196cb770a9b557ba5dbb2d1b218b9e2d347325a65e121099d3e842b96",
       "registration": {
         "canvas": [
           512,
@@ -12402,7 +12416,7 @@
         },
         {
           "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-          "sha256": "bcc11b58be7ef127ca06ebec5e22c57c52f6644c8bcfd114450edb25eaf7b6f1"
+          "sha256": "7f6063a9cd8fc093d298849a8040eacd4ff0a6954a4cb2cb34026c76bf11331f"
         }
       ],
       "sha256": "8f46b58e094ae629b88bf5e13a401a44ed3f1b5897baf19d7f5441e8edc0f9f1"
@@ -15200,7 +15214,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -15267,7 +15281,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -15334,7 +15348,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -15401,7 +15415,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -15468,7 +15482,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -15535,7 +15549,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         },
         {
           "file": "artwork/cast-bars/mage-simplification/generation.json",
@@ -15606,7 +15620,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -15673,7 +15687,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -15740,7 +15754,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -15807,7 +15821,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -15874,7 +15888,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -15941,7 +15955,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16008,7 +16022,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16075,7 +16089,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16142,7 +16156,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16209,7 +16223,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16276,7 +16290,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16343,7 +16357,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16410,7 +16424,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16477,7 +16491,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16544,7 +16558,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16611,7 +16625,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16678,7 +16692,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16745,7 +16759,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16812,7 +16826,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16879,7 +16893,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -16946,7 +16960,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17013,7 +17027,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17080,7 +17094,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17147,7 +17161,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17214,7 +17228,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17281,7 +17295,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17348,7 +17362,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17415,7 +17429,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17482,7 +17496,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17549,7 +17563,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17616,7 +17630,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17683,7 +17697,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17750,7 +17764,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17817,7 +17831,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17884,7 +17898,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },
@@ -17951,7 +17965,7 @@
       "references": [
         {
           "file": "artwork/cast-bars/generation-prompts.json",
-          "sha256": "3836e178837bb006382131112cfdfbfc5b52ebcbd4f0212a8b22dfd5ae28eb47"
+          "sha256": "bd350c4e3afc1d393070a717a3527f0a9b580a1e357407cb8738809d34b200bb"
         }
       ]
     },

@@ -1,18 +1,24 @@
 # Settings workshop and shared stone
 
-Open `/frostforge`. Choose Player, Target, Focus, Minimap or Action hub on the left. Settings save immediately; changes that need protected frames wait until combat ends.
+Open the AddOn Compartment entry, ElvUI’s Frostforge section, the optional minimap icon, or `/frostforge`. Choose Player, Target, Focus, Minimap or Action hub on the left. Settings save immediately; changes that need protected frames wait until combat ends.
 
 - **Artwork:** Independent portrait and unit-frame toggles, automatic class/race/faction choices, providers and attachment status. Browse opens a searchable collection; picking a design makes it fixed for that component.
-- **Placement:** Size, offsets, scale, opacity and anchor. For units, these fit portrait art; full shells follow the actual bars. Move the native frames in their owning UI's settings.
+- **Placement:** Size, offsets, scale, opacity and anchor. For units, one size slider adjusts width and height together; Advanced sizing reveals separate dimensions. These fit portrait art; full shells follow the actual bars. Move the native frames in their owning UI's settings.
 - **Unit frame** (Player/Target/Focus): Artwork width/height from 75–150%, plus independent horizontal/vertical offsets. The original shell sits above the bars, with a small side overlap at 100%. Reduce width to move its sides inward. Reset restores 100%/100% and zero offsets without changing portraits. The former inset strips and depth control have been removed; saved depth values are ignored.
 - **Advanced:** Health/power texture ownership, layers, fitting bounds and support details printed to chat.
 - **Cast bar (Player/Target/Focus):** Independent enable toggle, one Bold artwork style, automatic or explicit Blizzard/EllesmereUI/ElvUI provider, Match unit artwork or a separate collection choice, border width, height, weight and spacing, plus strata and level. Off by default; the provider must have its own cast bar enabled. [Cast-bar details](CAST-BARS.md).
 - **The Igloo:** Select and copy [theigloo.io](https://theigloo.io) into your browser to visit Jiberish's website.
-- **Guide:** Setup help and troubleshooting, plus copy/paste backup and restore. Restore replaces Frostforge settings for all five components; invalid backups leave current settings intact. Reset component asks before restoring just that component's defaults.
+- **Guide:** Rerun the three-step setup wizard, toggle the optional minimap icon, read setup help, or copy/paste a settings backup. Restore replaces Frostforge settings for all five components; invalid backups leave current settings intact. Reset component asks before restoring just that component's defaults.
 
-The window uses native Blizzard borders, subtle rough-stone panels, muted frost-blue Blizzard buttons and white button labels, alongside native Blizzard checks and sliders. Hover brightens a fitted icy outline; selected tabs, enabled toggles and chosen options keep their blue border after the pointer leaves. The official transparent penguin logo stays in the header across every component. It scales to fit shorter screens, remembers dragged position, and supports Escape to close. Search matches plain label text within the selected class/race/faction category; long collections have pages.
+The window uses native Blizzard borders, quiet solid dark panels, muted frost-blue Blizzard buttons and white button labels, alongside native Blizzard checks and sliders. Hover brightens a fitted icy outline; selected tabs, enabled toggles and chosen options keep their blue border after the pointer leaves. The official transparent penguin logo stays in the header across every component. It scales to fit shorter screens, remembers dragged position, and supports Escape to close. Search matches plain label text within the selected class/race/faction category; long collections have pages.
 
 When you change targets in combat, the full unit-frame shell keeps its already fitted design until combat ends, then fits the current unit's design. Portrait surrounds can update immediately when the game permits. Briefly unreadable frames hide their decorations safely and recover on the same attachment when readable again; attaching to a different frame still waits until combat ends.
+
+## Minimap shape and layering
+
+Minimap artwork automatically clears the native map, backdrop and immediate parent layer, including old saved Background settings. Its transparent center leaves map clicks intact. The optional settings icon remains above the artwork.
+
+**Minimap → Artwork → Use a round minimap (ElvUI)** uses ElvUI’s native circle option outside combat, provided its minimap module is enabled and initialized. The original shape is journaled per ElvUI profile across reloads and restored when art or round shape is turned off. Profile changes restore the previous profile before adopting the new one. Other addons retain their own shape controls.
 
 ## Choose Frostforge Stone in your other UI addon
 

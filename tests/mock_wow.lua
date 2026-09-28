@@ -315,6 +315,10 @@ PlayerName=nil
 PlayerLevelText=nil
 RAID_CLASS_COLORS={PALADIN={r=.96,g=.55,b=.73},MAGE={r=.25,g=.78,b=.92},ROGUE={r=1,g=.96,b=.41},HUNTER={r=.67,g=.83,b=.45}}
 LibStub=nil
+ElvUI=nil
+AddonCompartmentFrame=nil
+GameTooltip=nil
+GetCursorPosition=function() return 0,0 end
 for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do
     for _,unit in ipairs({"Player","Target","Focus"}) do _G[prefix..unit]=nil end
 end

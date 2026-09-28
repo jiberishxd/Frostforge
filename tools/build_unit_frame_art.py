@@ -50,6 +50,7 @@ for job in jobs:
     if name=='class_shaman':refs += [ART/'shaman-elemental-correction.json', ART/'shaman-alpha-report.json', ART/'revisions/shaman-neutral-totems-rgb.png', ART/'shaman-neutral-correction.json', ROOT/'artwork/official-crests/originals/class_shaman.png']
     if name=='class_mage': refs += [ROOT/'artwork/mage-emblem-correction/unit-frame-generation.json', ROOT/'artwork/mage-emblem-correction/applied.json']
     if name=='class_druid': refs += [ART/'druid-antler-correction/generation.json', ART/'druid-antler-correction/applied.json', ROOT/'artwork/official-crests/originals/class_druid.png']
+    if name=='race_nightelf': refs += [ROOT/'artwork/nightelf-emblem-update/generation.json', ROOT/'artwork/nightelf-emblem-update/applied.json', ROOT/'artwork/nightelf-emblem-update/emblem-reference.png']
     assets.append(save(name,shell,refs,'unit-shell'))
     # Power retains the existing brushwork and lower-rail material. Health uses
     # the separate unmarked stone above; both retain the provider's color tint.

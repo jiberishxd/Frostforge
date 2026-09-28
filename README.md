@@ -14,7 +14,7 @@ Jiberish's Frostforge adds sculpted artwork around your portraits, health and po
 
 *Artwork showcase using the addon's actual textures. See the gallery for labeled previews and an early in-game capture.*
 
-**Current source: 0.9.2 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/JiberishUI-WoW/releases) published yet. To test from source, [build an installable ZIP](docs/DEVELOPMENT.md#build-installable-zips).
+**Current source: 0.9.3 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/JiberishUI-WoW/releases) published yet. To test from source, [build an installable ZIP](docs/DEVELOPMENT.md#build-installable-zips).
 
 ## Make it your own
 
@@ -24,7 +24,8 @@ Jiberish's Frostforge adds sculpted artwork around your portraits, health and po
 - **Fit your layout:** adjust size, offsets, scale and layers. Portrait art, unit-frame art and cast borders each have their own strata. Unit-frame shells have separate width, height and position controls. Bold cast borders have their own width, height, weight and spacing.
 - **Stock Blizzard controls:** hide the portrait image or surround, adjust text, use stone and class gradients on health, and choose custom power colors or gradients—including party and raid bars. Move Target/Focus buff/debuff groups and cast bars with separate position controls.
 - **A shared stone material:** choose **Frostforge Stone** in compatible EllesmereUI, ElvUI and other LibSharedMedia status-bar texture menus.
-- **A Warcraft-style settings workshop:** searchable artwork collections, per-component controls, reset options and copy/paste settings backups.
+- **Easy setup:** a short first-launch wizard, one portrait size slider with optional advanced dimensions, and settings accessible through the AddOn Compartment, ElvUI or an optional minimap icon.
+- **A Warcraft-style settings workshop:** quiet dark panels, frosted buttons, searchable artwork collections, per-component controls and copy/paste backups.
 - **Character profiles:** save named setups and assign them per character. New alts start separately; copy a layout or deliberately share one. [Profile guide](docs/PROFILES.md).
 
 Your frame provider continues to handle health and power values, casts, names, portraits, auras and clicks. Frostforge's decorations are click-through. Full unit-frame styling can apply fill textures and fit power-bar spacing to the artwork; disabling it restores the provider's layout and any fills it managed. The separate stock-wide stone toggle can keep Blizzard bars textured even without shells.
@@ -43,14 +44,14 @@ These are the integrations implemented in the current build. Support depends on 
 
 ¹ ElvUI and Ellesmere full shells require horizontal health with power attached and aligned below it. ElvUI inset/mini/offset power and detached, above-health or vertical power layouts do not receive a full shell. When power is hidden or absent, complete artwork follows health with a dark empty power opening. Separate/circular portraits give the closest portrait fit; portraits drawn inside health bars have no separate surround to decorate.
 
-The **minimap surround** follows the shared minimap and is designed for a circular map. Action hubs decorate the main bar; keep your preferred addon in charge of its buttons and layout. **Frostforge Stone** can also be used on other frames through your provider's texture settings, including party and raid frames.
+The **minimap surround** follows the shared minimap and is designed for a circular map, sits above the map, and can use ElvUI’s native round shape with automatic restoration when disabled. Action hubs decorate the main bar; keep your preferred addon in charge of its buttons and layout. **Frostforge Stone** can also be used on other frames through your provider's texture settings, including party and raid frames.
 
 Third-party addons must support your game client themselves. Frostforge does not make a Retail-only addon work on Forever. [Detailed provider setup and limitations](docs/ADDON-COMPATIBILITY.md).
 
 ## Get started
 
 1. Install the matching **Retail** or **Forever** ZIP. Put its `JiberishUI` folder directly inside your client's `Interface/AddOns/` directory, then fully restart WoW.
-2. Enable Frostforge and your preferred UI addon. Open **`/frostforge`**.
+2. Enable Frostforge and your preferred UI addon. Follow the first-launch setup wizard, or open the **AddOn Compartment** entry / **`/frostforge`**.
 3. Choose **Player**, **Target** or **Focus**. In **Artwork**, select automatic class/race/faction matching or browse for a fixed design.
 4. Enable **Portrait art** and **Unit-frame art** independently. Portraits start on; full shells start off. Choose the correct providers when using multiple UI addons.
 5. Open **Cast bar** to enable its separate border; the provider's cast bar must also be enabled. Then choose matching **Minimap** and **Action hub** artwork if you want a coordinated set.

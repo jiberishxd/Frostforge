@@ -753,9 +753,9 @@
     "id": "race_nightelf",
     "fit_version": 3,
     "source": "artwork/unit-frames/sculpted/references/race_nightelf.png",
-    "source_sha256": "f83fac82e9bda503901116016097c72a991665b25df7962ed2715f09b46753be",
+    "source_sha256": "beda611e377e43cec83600218bc208c0f6c861d9f0b267ce1829bcf609b7a7ba",
     "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
-    "sha256": "bcc11b58be7ef127ca06ebec5e22c57c52f6644c8bcfd114450edb25eaf7b6f1",
+    "sha256": "7f6063a9cd8fc093d298849a8040eacd4ff0a6954a4cb2cb34026c76bf11331f",
     "measured": {
       "health": [
         256,

@@ -15,7 +15,7 @@ local function expectFive(J,M)
     for _,key in ipairs(J.Core.order) do
         local m=J.Core.modules[key]
         assert(m.frame.parent==UIParent and m.frame.mouse==false and m.frame.keyboard==false and m.frame.wheel==false)
-        assert(m.crest==nil and m.frame.strata=="BACKGROUND")
+        assert(m.crest==nil and m.frame.strata==(key=="minimap" and "LOW" or "BACKGROUND"))
         for _,texture in pairs(m.textures) do
             assert(texture.parent==m.frame and texture.layer=="BACKGROUND")
         end
@@ -630,4 +630,6 @@ assert(loadfile("tests/stock_styles.lua"))(test,near)
 assert(loadfile("tests/power_appearance.lua"))(test,near)
 assert(loadfile("tests/stock_placement.lua"))(test,near)
 assert(loadfile("tests/named_profiles.lua"))(test)
-print(string.format("%d tests passed; no functional native-frame writes. In-game testing is still required.",passed))
+assert(loadfile("tests/usability.lua"))(test,near)
+
+print(string.format("%d tests passed. In-game testing is still required.",passed))
