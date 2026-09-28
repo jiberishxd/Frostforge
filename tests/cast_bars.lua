@@ -47,7 +47,7 @@ for _,interface in ipairs({120100,16001}) do
     end
 end
 
-test("all 42 Bold cast identities have empty centers and fixed fitting",function(M)
+test("all 42 Bold cast identities share a registered opening and intact corners",function(M)
     local J=M.load();local bar=fixture(M,"BLIZZARD","targetFrame");bar.shown=true
     enable(J,"targetFrame","BLIZZARD")
     local c=J.CastBars.units.targetFrame
@@ -58,8 +58,6 @@ test("all 42 Bold cast identities have empty centers and fixed fitting",function
             assert(c.id==id and c.frame.w==180 and c.frame.h==16)
             for _,texture in pairs(c.textures) do
                 assert(texture.path==entry.cast and texture.w>0 and texture.h>0)
-                local _,_,_,x,ny=texture:GetPoint();local y=-ny
-                assert(x+texture.w<=0 or x>=180 or y+texture.h<=0 or y>=16,"Border overlaps native fill")
                 local uv=texture.texCoord
                 assert(uv[1]>uv[2],"Target crop not mirrored")
                 for _,value in ipairs(uv) do assert(value>=0 and value<=1) end
@@ -67,7 +65,13 @@ test("all 42 Bold cast identities have empty centers and fixed fitting",function
             for _,weight in ipairs({.5,2}) do
                 for _,padding in ipairs({0,8}) do
                     local pieces=J.CastBars:Pieces(entry,8,4,weight,padding,false)
-                    for _,p in pairs(pieces) do assert(p.w>0 and p.h>0 and (p.x+p.w<=0 or p.x>=8 or p.y+p.h<=0 or p.y>=4)) end
+                    for _,p in pairs(pieces) do assert(p.w>0 and p.h>0) end
+                    local scale=pieces['11'].w/48
+                    near(pieces['11'].h/48,scale)
+                    near(pieces['21'].x+(48-entry.castInsets[1])*scale,-padding)
+                    near(pieces['23'].x+entry.castInsets[3]*scale,8+padding)
+                    near(pieces['12'].y+(48-entry.castInsets[2])*scale,-padding)
+                    near(pieces['32'].y+entry.castInsets[4]*scale,4+padding)
                 end
             end
         end
@@ -84,8 +88,8 @@ test("cast theme matching follows identity and selections independently of other
     assert(c.id=="RACE_DWARF")
     M.combat=true;M.tick(J.Core);assert(c.id=="RACE_DWARF","Matching selection reverted in combat")
     M.combat=false;J.ProfileManager:Set("targetFrame","portraitMode","CLASS")
-    M.combat=true;M.unitData.target.class="SHAMAN";local writes=M.geometryWrites;M.tick(J.Core)
-    assert(c.id=="CLASS_SHAMAN" and M.geometryWrites==writes)
+    M.combat=true;M.unitData.target.class="SHAMAN";local writes=M.frameGeometryWrites;M.tick(J.Core)
+    assert(c.id=="CLASS_SHAMAN" and M.frameGeometryWrites==writes)
     c.frame.protected=true;M.unitData.target.class="MAGE";M.tick(J.Core);assert(c.id=="CLASS_SHAMAN")
     M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");assert(c.id=="CLASS_MAGE")
     J.ProfileManager:Set("targetFrame","castBarArt","RACE_SCOURGE")
@@ -93,6 +97,48 @@ test("cast theme matching follows identity and selections independently of other
     J.ProfileManager:Set("targetFrame","castBarShown",false);assert(not c.frame.shown)
     J.ProfileManager:Set("targetFrame","shown",true);assert(not c.frame.shown and J.Core.modules.targetFrame.frame.shown)
 end)
+
+for _,interface in ipairs({120100,16001}) do
+    for _,source in ipairs({"BLIZZARD","ELLESMERE","ELVUI"}) do
+        test(source.." cast fit stays registered through combat class swaps on "..interface,function(M)
+            local J=M.load({interface=interface});local bar=fixture(M,source,"targetFrame");bar.shown=true
+            enable(J,"targetFrame",source)
+            J.ProfileManager:SetMany({{"targetFrame","castBarWidth",125},{"targetFrame","castBarHeight",75}})
+            local c=J.CastBars.units.targetFrame
+            local frames,textures,writes=#M.frames,M.textures,M.frameGeometryWrites
+            M.combat=true
+            local cornerScale
+            for id,entry in pairs(J.UnitSkinCatalog.entries) do
+                if id:match("^CLASS_") then
+                    M.unitData.target.class=id:sub(7);M.event(J.Core,"PLAYER_TARGET_CHANGED");M.tick(J.Core)
+                    assert(c.id==id and c.frame.shown and c.frame.w==180 and c.frame.h==16)
+                    local scale=c.textures['11'].w/48
+                    cornerScale=cornerScale or scale;near(scale,cornerScale)
+                    local function xy(name)
+                        local _,relative,_,x,y=c.textures[name]:GetPoint()
+                        assert(relative==c.frame and c.textures[name].path==entry.cast)
+                        return x,-y
+                    end
+                    -- Target artwork is mirrored: source right is displayed left.
+                    local left=xy('21');local right=xy('23')
+                    local _,top=xy('12');local _,bottom=xy('32')
+                    near(left+(48-entry.castInsets[3])*scale,-23.5)
+                    near(right+entry.castInsets[1]*scale,203.5)
+                    near(top+(48-entry.castInsets[2])*scale,1)
+                    near(bottom+entry.castInsets[4]*scale,15)
+                end
+            end
+            assert(M.frameGeometryWrites==writes and #M.frames==frames and M.textures==textures)
+            local geometry=M.geometryWrites;M.tick(J.Core);assert(M.geometryWrites==geometry)
+            c.frame.protected=true;local previous=c.id
+            M.unitData.target.class=previous=="CLASS_MAGE" and "DRUID" or "MAGE"
+            M.tick(J.Core);assert(c.id==previous and M.geometryWrites==geometry)
+            M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+            assert(c.id=="CLASS_"..M.unitData.target.class)
+            assert((M.nativeLayoutWrites or 0)==0)
+        end)
+    end
+end
 
 test("cast border appearance restores without touching providers and reuses owned frames",function(M)
     local J=M.load();local bar=fixture(M,"ELVUI","playerFrame");bar.shown=true
@@ -216,10 +262,13 @@ test("cast width and height resize only centered artwork and persist independent
     enable(J,"playerFrame","ELLESMERE");local c=J.CastBars.units.playerFrame
     J.ProfileManager:Set("playerFrame","castBarWidth",125)
     J.ProfileManager:Set("playerFrame","castBarHeight",150)
+    local inset=J.UnitSkinCatalog.entries[c.id].castInsets
+    local scale=c.textures['11'].w/48
     local _,_,_,x,ny=c.textures['12']:GetPoint()
-    near(x,(180-225)/2-1);near(c.textures['12'].w,227)
+    near(x-inset[1]*scale,(180-225)/2-1)
+    near(c.textures['12'].w+(inset[1]+inset[3])*scale,227)
     local _,_,_,_,bottomY=c.textures['32']:GetPoint()
-    near(-bottomY,(16-24)/2+24+1)
+    near(-bottomY+inset[4]*scale,(16-24)/2+24+1)
     assert(c.frame.w==180 and c.frame.h==16 and bar.w==180 and bar.h==16)
     assert(J.ThemeManager:Resolve("targetFrame").castBarWidth==100)
     assert(J.ThemeManager:Resolve("focusFrame").castBarHeight==100)
@@ -272,7 +321,7 @@ test("retired cast styles migrate to Bold without losing fitting or artwork",fun
         player=J.ThemeManager:Resolve("playerFrame")
         assert(player.castBarStyle=="CAPPED" and player.castBarWidth==115)
     end
-    local corner=J.CastBars:Pieces(nil,180,16,1,1,false)['11']
+    local corner=J.CastBars:Pieces(J.UnitSkinCatalog.entries.CLASS_MAGE,180,16,1,1,false)['11']
     near(corner.w,30);near(corner.h,30) -- The previous Bold geometry.
 end)
 

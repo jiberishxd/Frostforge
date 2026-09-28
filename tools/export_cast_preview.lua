@@ -7,13 +7,13 @@ local function json(v)
     for k,x in pairs(v) do result[#result+1]=json(tostring(k))..":"..json(x) end
     table.sort(result);return "{"..table.concat(result,",").."}"
 end
-local out={width=180,height=16,themes={},fittings={}}
-for _,width in ipairs({50,75,100,125,150}) do for _,height in ipairs({50,75,100,125,150}) do
-    out.fittings[width.."x"..height]={CAPPED=J.CastBars:FitPieces(nil,180,16,1,1,false,width,height)}
-end end
+local out={width=180,height=16,themes={}}
 for id,entry in pairs(J.UnitSkinCatalog.entries) do
     local art=J.PortraitCatalog.entries[id]
-    local theme={label=art.label,group=art.group,styles={},file=entry.cast:match("([^\\]+)%.tga$")}
+    local theme={label=art.label,group=art.group,styles={},fittings={},file=entry.cast:match("([^\\]+)%.tga$")}
+    for _,width in ipairs({50,75,100,125,150}) do for _,height in ipairs({50,75,100,125,150}) do
+        theme.fittings[width.."x"..height]={CAPPED=J.CastBars:FitPieces(entry,180,16,1,1,false,width,height)}
+    end end
     theme.styles.CAPPED=J.CastBars:Pieces(entry,180,16,1,1,false)
     out.themes[id]=theme
 end
