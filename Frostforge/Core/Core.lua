@@ -2,7 +2,7 @@ local addonName, J = ...
 -- Keep the addon folder and saved-variable keys stable for existing installs.
 J.Brand = { name="Jiberish's Frostforge", shortName="Frostforge", website="https://theigloo.io" }
 local Core = {
-    version = "0.9.12",
+    version = "0.9.13",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
     settingsOrder = { "minimap", "playerFrame", "targetFrame", "focusFrame", "targetTargetFrame", "partyFrames", "actionHub" },
@@ -438,10 +438,14 @@ function Core:Command(input)
     elseif command == "reset" then ok, message = J.ProfileManager:Reset(rest ~= "" and rest or nil)
     elseif command == "export" then self:Print(J.ProfileManager:Export()); return
     elseif command == "import" then ok, message = J.ProfileManager:Import(rest)
-    elseif command == "status" or command == "diagnostics" then self:Status(); return
+    elseif command == "partydebug" then J.SmallFrames:PartyDiagnostics(); return
+    elseif command == "status" or command == "diagnostics" then
+        if rest:lower()=="party" then J.SmallFrames:PartyDiagnostics() else self:Status() end
+        return
     else
         self:Print("/jui opens the movable options window. Phase 1: /jf theme paladin_ret | reloadtheme | debug [on|off] | status")
         self:Print("/jf set <component> <property> <value> | show/hide <component> | reset [component] | export | import <backup>")
+        self:Print("/jf partydebug reports party-frame attachment and visibility details.")
         self:Print("Components: " .. table.concat(self.settingsOrder,", "))
         self:Print("Properties: " .. table.concat(self.propertyOrder,", "))
         self:Print("Example: /jf set actionHub width 800")

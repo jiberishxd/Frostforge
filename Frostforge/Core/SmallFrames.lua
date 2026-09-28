@@ -291,3 +291,71 @@ function S:Tick()
         else self.status[key]="off" end
     end
 end
+
+-- On-demand only: report each visibility gate without refreshing, mutating
+-- provider frames or formatting secret values (including error payloads).
+local function diagnosticValue(ok,value)
+    if not ok then return "error" end
+    if not J.Core:IsSafe(value) then return "restricted" end
+    if value==nil then return "none" end
+    if value==true then return "yes" end
+    if value==false then return "no" end
+    if J.Core:IsNumber(value) then return string.format("%.3g",value) end
+    if type(value)=="string" and (value=="player" or value:match("^party[1-4]$") or value:match("^raid%d%d?$")) then return value end
+    return "unavailable"
+end
+local function diagnosticCall(fn,...)
+    return diagnosticValue(pcall(fn,...))
+end
+local function diagnosticRead(frame,method,...)
+    if not usable(frame) then return "unavailable" end
+    if type(frame[method])~="function" then return "unsupported" end
+    return diagnosticCall(frame[method],frame,...)
+end
+local function diagnosticFrame(prefix,frame)
+    J.Core:Print(prefix..": gate="..diagnosticCall(J.SmallFrameAnchors.Visible,J.SmallFrameAnchors,frame)
+        .." | visible="..diagnosticRead(frame,"IsVisible")
+        .." | effectiveAlpha="..diagnosticRead(frame,"GetEffectiveAlpha")
+        .." | alpha="..diagnosticRead(frame,"GetAlpha"))
+end
+function S:PartyDiagnostics()
+    J.Core:Print("Party diagnostics "..J.Core.version.." | combat="..diagnosticCall(InCombatLockdown))
+    J.Core:Print("Current reads; attached/eligible/artwork describe the last update. Restricted values are not printed.")
+    local group=self.groups.partyFrames or {}
+    local config=group.config or J.ThemeManager:Read("partyFrames")
+    for _,kind in ipairs({"border","portrait"}) do
+        local enabled=kind=="border" and config.unitFrameShown or kind=="portrait" and config.shown
+        local source=kind=="border" and config.unitFrameSource or config.portraitSource
+        local state=group[kind]
+        local candidates=state and state.candidates or {}
+        J.Core:Print(kind..": "..(enabled and "on" or "off").." | requested="..source
+            .." | provider="..(state and state.provider or "unresolved").." | candidates="..#candidates)
+        if enabled then
+            if #candidates==0 then J.Core:Print(kind..": no cached party frames; attachment may be waiting for a group or combat to end.") end
+            for i,candidate in ipairs(candidates) do
+                local prefix=kind.." #"..i
+                local ok=pcall(function()
+                    local unitOK,unit=pcall(J.SmallFrameAnchors.Unit,J.SmallFrameAnchors,candidate)
+                    local unitLabel=diagnosticValue(unitOK,unit)
+                    if not unitOK then unit=nil end
+                    local present=unit and diagnosticCall(J.Portraits.HasToken,J.Portraits,unit) or "no"
+                    local module=state.records[candidate.root]
+                    J.Core:Print(prefix.." unit="..unitLabel
+                        .." | attribute="..diagnosticRead(candidate.root,"GetAttribute","unit")
+                        .." | exists="..(unit and diagnosticCall(UnitExists,unit) or "not checked")
+                        .." | present="..present)
+                    J.Core:Print(prefix.." attached="..diagnosticValue(true,module~=nil and module.active==true)
+                        .." | eligible="..diagnosticValue(true,module~=nil and module.nativeVisible==true)
+                        .." | artwork="..(module and (module.assetOK and "ready" or "unavailable") or "not fitted")
+                        .." | shown="..diagnosticRead(module and module.frame,"IsShown")
+                        .." | protected="..diagnosticRead(module and module.frame,"IsProtected"))
+                    diagnosticFrame(prefix.." root",candidate.root)
+                    local part=kind=="portrait" and candidate.portrait and candidate.portrait.region or candidate.health
+                    diagnosticFrame(prefix..(kind=="portrait" and " portrait" or " health"),part)
+                end)
+                if not ok then J.Core:Print(prefix..": diagnostic read failed; continuing with the next frame.") end
+            end
+        end
+    end
+    J.Core:Print("End party diagnostics.")
+end
