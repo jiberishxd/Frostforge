@@ -11,6 +11,7 @@ import math
 from package import ROOT, CLIENTS, VERSION, active_sources, payload
 
 REQUIRED = {
+    "Core/SmallFrames.lua", "Compatibility/SmallFrames.lua",
     "Build.lua", "Core/Core.lua", "Core/ThemeManager.lua", "Core/ProfileManager.lua", "Core/Media.lua", "Core/Settings.lua", "Core/Portraits.lua", "Themes/Portraits.lua", "Themes/NPCCities.lua", "Core/Hubs.lua", "Themes/Hubs.lua", "Core/Minimaps.lua", "Themes/Minimaps.lua",
     "Compatibility/Retail.lua", "Compatibility/Forever.lua", "Compatibility/AddOns.lua", "Themes/PortraitMaskFits.lua", "Core/NamedProfiles.lua", "Core/Access.lua", "Core/Setup.lua",
     "Modules/Minimap.lua", "Modules/PlayerFrame.lua", "Modules/TargetFrame.lua", "Modules/FocusFrame.lua", "Modules/ActionHub.lua",

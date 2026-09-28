@@ -2,8 +2,8 @@ local _, J = ...
 local A = {}
 J.AddOnAnchors = A
 
-local units = {playerFrame="player",targetFrame="target",focusFrame="focus"}
-local titles = {player="Player",target="Target",focus="Focus"}
+local units = {playerFrame="player",targetFrame="target",focusFrame="focus",targetTargetFrame="targettarget"}
+local titles = {player="Player",target="Target",focus="Focus",targettarget="TargetTarget"}
 local labels = {BLINKII="Blinkii's Portraits",MMT="mMediaTag & Tools",ELVUI="ElvUI",ELLESMERE="EllesmereUI"}
 J.Core.properties.portraitSource = {AUTO=true,BLIZZARD=true,BLINKII=true,MMT=true,ELVUI=true,ELLESMERE=true}
 J.Core.properties.unitFrameSource = {AUTO=true,BLIZZARD=true,ELLESMERE=true,ELVUI=true}
