@@ -7,7 +7,6 @@
 - `profiles.jpg`: the same exported settings preview on the Profiles page, with illustrative Paladin/Hunter names. No real character data is used.
 - `paladin-ingame.png`: player-supplied earlier Paladin/EllesmereUI test capture. It predates the plain-stone health update. Retained unedited.
 - `logo.png`: the official Frostforge penguin logo, with blue ice inside a weathered metal medallion and small icy accents on its rim. The 1254 × 1254 PNG has a transparent exterior. Use this image for the README and public addon branding. Its source, generation prompt and transparency verification are retained in `LOGO-SOURCE.md`.
-- `emblem.png`: the former gold compass documentation emblem, retained for reference. Its generation record is `EMBLEM-SOURCE.md`; use `logo.png` for current branding.
 - `social-preview.jpg`: 1280 × 640 sharing image made from the existing Paladin/Shaman textures and text. Prepared for GitHub's social preview field; not a game screenshot.
 
 The composition tool uses existing images only; it does not generate or replace addon artwork. The game loads exported TGA textures; it does not load these PNG/JPEG documentation files. All images have captions identifying previews versus game captures.
