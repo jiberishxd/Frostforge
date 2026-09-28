@@ -59,7 +59,7 @@ for _,interface in ipairs({120100,16001}) do
             local first,second=record(J,"partyFrames",roots[1]),record(J,"partyFrames",roots[2])
             assert(first.id=="CLASS_HUNTER" and second.id=="CLASS_DRUID")
             near(first.frame.h,30);near(first.frame.w,110)
-            assert(first.frame.strata=="MEDIUM" and first.frame.level==13 and first.frame.fixedStrata and first.frame.fixedLevel)
+            assert(first.frame.strata=="MEDIUM" and first.frame.level==(source=="BLIZZARD" and 13 or 14) and first.frame.fixedStrata and first.frame.fixedLevel)
             local portrait=record(J,"partyFrames",roots[2],"portrait")
             assert(portrait.id=="CLASS_DRUID" and portrait.frame.shown)
             for _,m in ipairs({first,second,portrait}) do
@@ -107,6 +107,98 @@ test("compact artwork retains every race class faction design and independent to
     J.ProfileManager:Set("partyFrames","unitFrameShown",false);assert(not m.frame.shown and portrait.frame.shown)
     J.ProfileManager:Set("partyFrames","shown",false);assert(not portrait.frame.shown)
     J.ProfileManager:Set("partyFrames","unitFrameShown",true);assert(m.frame.shown and not portrait.frame.shown)
+end)
+
+for _,interface in ipairs({120100,16001}) do
+    for _,source in ipairs({"BLIZZARD","ELVUI","ELLESMERE"}) do
+        for _,key in ipairs({"partyFrames","targetTargetFrame"}) do
+            test(source.." "..key.." clears nested chrome and combat layer changes on "..interface,function(M)
+                local J=M.load({interface=interface});local root=fixture(M,source,key=="targetTargetFrame")[1]
+                local chrome=M.region(root,"Frame",150,45);chrome.level=700;chrome.strata="HIGH"
+                local highlight=M.region(chrome,"Frame",150,45);highlight.level=900;highlight.strata="TOOLTIP"
+                root.GetChildren=function() return chrome end
+                chrome.GetChildren=function() return highlight end
+                enable(J,key,source,true)
+                local border,portrait=record(J,key,root),record(J,key,root,"portrait")
+                assert(border.frame.strata=="TOOLTIP" and border.frame.level==901)
+                assert(portrait and portrait.frame.strata=="TOOLTIP" and portrait.frame.level==901)
+                assert(J.ProfileManager:Set(key,"smallFrameLevel",8));assert(border.frame.level==908 and portrait.frame.level==901)
+                J.ProfileManager:Set(key,"strata","HIGH");J.ProfileManager:Set(key,"level",4)
+                assert(portrait.frame.strata=="HIGH" and portrait.frame.level==704 and border.frame.level==908)
+                J.ProfileManager:Set(key,"unitFrameStrata","HIGH")
+                assert(border.frame.strata=="HIGH" and border.frame.level==708)
+                J.ProfileManager:Set(key,"unitFrameStrata","TOOLTIP")
+                local writes=M.geometryWrites;M.combat=true;highlight.level=950;chrome.level=750;M.tick(J.Core)
+                assert(border.frame.strata=="TOOLTIP" and border.frame.level==958 and portrait.frame.level==754)
+                assert(M.geometryWrites==writes,"Layer change refitted artwork during combat")
+                J.ProfileManager:Set(key,"smallFrameLevel",12)
+                assert(border.frame.level==958,"Combat setting was not deferred")
+                border.frame.protected=true;highlight.level=980;M.tick(J.Core)
+                assert(border.frame.level==958 and J.Core.dirty)
+                M.combat=false;border.frame.protected=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+                assert(border.frame.level==992 and portrait.frame.level==754)
+                local backup=J.ProfileManager:Export();J.ProfileManager:Reset(key);assert(J.ProfileManager:Import(backup))
+                assert(J.ThemeManager:Resolve(key).smallFrameLevel==12 and border.frame.level==992)
+                for i=1,10 do M.tick(J.Core) end
+                assert(border.frame.level==992,"Frame level grew on every tick")
+                assert(highlight.level==980 and chrome.level==750 and root.level==10 and M.nativeWrites==0)
+                assert(not next(J.Core.notices))
+            end)
+        end
+    end
+end
+
+test("small frame layer discovery is bounded shared and tolerant of restricted children",function(M)
+    local J=M.load();local root=fixture(M,"ELVUI")[1]
+    local broken=M.region(root,"Frame",150,45);broken.GetFrameStrata=function() error("Restricted metadata") end
+    local forbidden=M.region(root,"Frame",150,45);forbidden.forbidden=true
+    local secret=M.region(root,"Frame",150,45);secret.GetFrameLevel=function() return M.secret end
+    local chrome=M.region(root,"Frame",150,45);chrome.strata="HIGH";chrome.level=90
+    local scans=0
+    root.GetChildren=function() scans=scans+1;return broken,forbidden,secret,chrome,root end
+    chrome.GetChildren=function() error("Restricted children") end
+    enable(J,"partyFrames","ELVUI",true)
+    local border=record(J,"partyFrames",root);local portrait=record(J,"partyFrames",root,"portrait")
+    assert(border.frame.strata=="HIGH" and border.frame.level==91 and portrait.frame.level==91)
+    scans=0;M.tick(J.Core);assert(scans==1,"Portrait and border rescanned the same provider tree")
+    local own=M.region(root,"Frame",150,45);own.strata="TOOLTIP";own.level=9000;J.Core.owned[own]="test"
+    local children={own};local reads=0
+    for i=1,200 do
+        local child=M.region(root,"Frame",1,1);child.GetFrameLevel=function() reads=reads+1;return 50 end
+        children[#children+1]=child
+    end
+    root.GetChildren=function() return unpack(children) end
+    M.tick(J.Core)
+    assert(reads<64 and border.frame.strata=="MEDIUM" and not next(J.Core.notices))
+end)
+
+test("Target of Target clears parent layers without inspecting other party members",function(M)
+    local J=M.load();local root=fixture(M,"BLIZZARD",true)[1]
+    local parent=M.native("TargetHost",200,100);parent.level=500;parent.strata="DIALOG"
+    parent.GetChildren=function() error("Parent subtree must not be traversed") end
+    root.parent=parent;enable(J,"targetTargetFrame","BLIZZARD")
+    local border=record(J,"targetTargetFrame",root)
+    assert(border.frame.strata=="DIALOG" and border.frame.level==501)
+    J.ProfileManager:Set("targetTargetFrame","unitFrameStrata","TOOLTIP")
+    assert(border.frame.strata=="TOOLTIP" and border.frame.level==501 and not next(J.Core.notices))
+end)
+
+test("compact border level controls are independent and persist in old profiles",function(M)
+    local J=M.load();local S=J.SettingsUI;S:Open()
+    for _,key in ipairs(J.SmallFrames.keys) do
+        S:Select(key);S:SetPage("advanced")
+        assert(S.controls.smallFrameLevel.slider:IsVisible() and S.controls.unitFrameStrata.label.text=="Compact border strata")
+        assert(not S.controls.unitFrameFill.button:IsVisible())
+        S.controls.unitFrameStrata.options.TOOLTIP.scripts.OnClick()
+        S:Set("smallFrameLevel",20)
+        local c=J.ThemeManager:Resolve(key)
+        assert(c.unitFrameStrata=="TOOLTIP" and c.smallFrameLevel==20 and c.level==1)
+        assert(not J.ProfileManager:Set(key,"smallFrameLevel",0) and not J.ProfileManager:Set(key,"smallFrameLevel",101))
+    end
+    S:Select("playerFrame");assert(not S.controls.smallFrameLevel.slider:IsVisible() and S.controls.unitFrameFill.button:IsVisible())
+    assert(not J.ProfileManager:Set("playerFrame","smallFrameLevel",20))
+    assert(J.ProfileManager:Import("JF2;paladin_ret;partyFrames.unitFrameStrata=HIGH"))
+    assert(J.ThemeManager:Resolve("partyFrames").smallFrameLevel==1 and not next(J.Core.notices))
 end)
 
 test("compact party frames with no portraits still support bar borders",function(M)
