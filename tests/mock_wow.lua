@@ -30,7 +30,10 @@ local function writable(self,geometry)
     if self.native then M.nativeWrites=M.nativeWrites+1; error("Attempt to mutate Blizzard frame") end
     if M.combat and self.protected then error("Protected artwork changed during combat") end
     M.writes=M.writes+1
-    if geometry then M.geometryWrites=M.geometryWrites+1 end
+    if geometry then
+        M.geometryWrites=M.geometryWrites+1
+        if self.kind~="Texture" then M.frameGeometryWrites=(M.frameGeometryWrites or 0)+1 end
+    end
 end
 function methods:IsForbidden() return self.forbidden or false end
 function methods:IsProtected() return self.protected or false end
