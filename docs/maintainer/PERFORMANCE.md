@@ -29,7 +29,7 @@ Reproduce with `lua tools/benchmark.lua [path-to-addon-folder] [iterations]`. Ga
 
 The supplied AddOns-tooltip screenshot shows **0.9.3**, **3% average CPU** and **52 MB**; the earlier reported values were 4% and 63 MB. These are observations from the older installed build, not measurements of this update.
 
-1. Install the new `Frostforge` folder, remove the old `JiberishUI` addon folder, and fully restart WoW. Preserve or transfer saved settings as described in [Getting started](GETTING-STARTED.md#upgrading-to-frostforge). Confirm **0.9.7** in the AddOns tooltip.
+1. Install the new `Frostforge` folder, remove the old `JiberishUI` addon folder, and fully restart WoW. Preserve or transfer saved settings as described in [Getting started](../GETTING-STARTED.md#upgrading-to-frostforge). Confirm **0.9.7** in the AddOns tooltip.
 2. Compare similar sessions with the same UI addons, artwork, location, and encounter. Record the tooltip after login, after several minutes with settings closed, and after opening/closing the artwork browsers.
 3. Check target/focus switching in combat, a Hunter's custom power color, casts, provider redraws and the minimap. Functionality should remain the same.
 4. If memory continues rising over a longer session or CPU stays high, report the tooltip/version, client, enabled UI addons, elapsed time, and whether settings were open. We cannot infer a leak or a guaranteed new CPU percentage from the old tooltip alone.

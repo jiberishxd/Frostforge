@@ -136,7 +136,7 @@ All 42 hubs were visually audited on a solid background; retained masks remove b
 
 Source/media/provenance checks, the exported cast-layout comparison, and exact Retail/Forever 0.8.1 package checks pass. Each archive contains 359 files, including 294 runtime textures. Documentation links resolve locally.
 
-No WoW interaction or in-game testing was performed. Character logout/login persistence, actual Ellesmere cast-border visibility, secure runtime behavior, native text placement and custom layouts remain user-run checks. Retail and Forever keep separate saved files. The previously reported Forever saved-table loading issue remains distinct from profile assignment; see [persistence](PERSISTENCE.md).
+No WoW interaction or in-game testing was performed. Character logout/login persistence, actual Ellesmere cast-border visibility, secure runtime behavior, native text placement and custom layouts remain user-run checks. Retail and Forever keep separate saved files. The previously reported Forever saved-table loading issue remains distinct from profile assignment; see [persistence](../GETTING-STARTED.md#back-up-and-troubleshoot).
 
 ---
 
@@ -146,7 +146,7 @@ No WoW interaction or in-game testing was performed. Character logout/login pers
 
 The artwork checks verify clear cast interiors, transparent outer margins, continuous upper/lower rails and pixel-identical PNG/TGA exports. Mage portrait/unit-shell corrections are confined to the existing emblem regions; the cast border has simplified bronze-and-crystal ends. Only the Mage portrait and unit shell changed among the previous 252 textures; the other 250 remain unchanged. The 42 new cast textures bring the package to 294. The preview is exported from the same Lua fitting code, including width/height examples.
 
-Source/media/provenance and exact Retail/Forever 0.8.0 packages pass. No WoW interaction or in-game testing was performed. Runtime appearance, native shields/stage pips, text placement, secure behavior and provider-specific custom layouts remain user-run checks documented in CAST-BARS.md.
+Source/media/provenance and exact Retail/Forever 0.8.0 packages pass. No WoW interaction or in-game testing was performed. Runtime appearance, native shields/stage pips, text placement, secure behavior and provider-specific custom layouts remain user-run checks documented in the [cast-border checklist](VALIDATION.md#080-cast-border-checks).
 
 ---
 
@@ -156,7 +156,7 @@ Source/media/provenance and exact Retail/Forever 0.8.0 packages pass. No WoW int
 
 Browser inspection covered the new Unit frame settings page exported from the actual Lua objects, with native Blizzard textures/fonts approximated for this development preview. The balanced Shaman totem shell was inspected as Player at estimated 1440p size; it retains a 5.6 UI-unit painted divider at 20-unit health height. Priest Target was checked with 98% artwork width and 105% height, including inset edge/shadow placement. Final PNGs and packaged TGAs share the same pixels. Only the Shaman shell and matching power texture changed: the other 250 runtime textures, including all 126 portrait/hub/minimap assets, are unchanged from merged 0.7.4.
 
-Source/media/provenance and exact Retail/Forever 0.7.5 package checks pass. No third-party addon code or textures are bundled. No WoW interaction or in-game testing was performed. Actual renderer clipping, labels, provider redraw timing and secure runtime behavior still require the user's manual checks. See SETTINGS.md and VALIDATION.md.
+Source/media/provenance and exact Retail/Forever 0.7.5 package checks pass. No third-party addon code or textures are bundled. No WoW interaction or in-game testing was performed. Actual renderer clipping, labels, provider redraw timing and secure runtime behavior still require the user's manual checks. See the [setup guide](../GETTING-STARTED.md) and [validation checklist](VALIDATION.md).
 
 ---
 
@@ -168,7 +168,7 @@ Browser inspection covered the settings Artwork, Advanced, Guide and collection 
 
 Source/media/provenance and exact Retail/Forever 0.7.4 package checks pass. SharedMedia integration uses the consumers' existing library; no third-party addon code or textures are bundled. Shared Stone reuses an already distributed health texture.
 
-No WoW interaction or in-game testing was performed. Provider menu registration was verified from the supplied EllesmereUI source and pinned ElvUI source, with behavior exercised in the offline host. Actual menus, rendering, clipping and secure runtime behavior still require the user's manual checks. See SETTINGS.md and VALIDATION.md.
+No WoW interaction or in-game testing was performed. Provider menu registration was verified from the supplied EllesmereUI source and pinned ElvUI source, with behavior exercised in the offline host. Actual menus, rendering, clipping and secure runtime behavior still require the user's manual checks. See the [setup guide](../GETTING-STARTED.md) and [validation checklist](VALIDATION.md).
 
 ---
 
@@ -210,7 +210,7 @@ The 42 identities were inspected in both Player and mirrored Target/Focus portra
 
 All 126 portrait/hub/minimap runtime textures and 84 fill textures are byte-identical to art.1. Original generated sources are unchanged. The 42 fitted shell textures were rebuilt. Two synthetic fitting regressions check that an inward shoulder and an outer crown tip survive export while every functional opening stays empty, and that invalid source geometry fails. The existing 117 Lua tests and complete source/media/package checks also pass.
 
-Browser checks cover Priest Player at 1440p, Priest Target at 4K, and Gnome Focus at 1080p, including matching gallery orientation and transparent shell inspection. These are synthetic baseline previews. No new live-client result is claimed; custom offsets, UI scale, native masks and real layer ordering still need Retail/Forever confirmation. See [audit findings](ARTWORK-AUDIT.md).
+Browser checks cover Priest Player at 1440p, Priest Target at 4K, and Gnome Focus at 1080p, including matching gallery orientation and transparent shell inspection. These are synthetic baseline previews. No new live-client result is claimed; custom offsets, UI scale, native masks and real layer ordering still need Retail/Forever confirmation. See [audit findings](ARTWORK.md#historical-fitting-audit).
 
 ## Previous validation record (0.7.0-art.1)
 
