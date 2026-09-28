@@ -45,9 +45,13 @@ class ShellFitTests(unittest.TestCase):
                 self.assertEqual(image.tobytes(), game.tobytes())
                 for style, pieces in theme['styles'].items():
                     self.assertEqual(len(pieces), 8)
+                    covered = np.zeros((128,512), dtype=bool)
                     for name, p in pieces.items():
                         x,y,w,h = (p[k] for k in ('x','y','w','h'))
-                        self.assertTrue(x+w<=0 or x>=180 or y+h<=0 or y>=16)
+                        self.assertGreater(w,0)
+                        self.assertGreater(h,0)
+                        covered[round(p['v1']*128):round(p['v2']*128),
+                                round(p['u1']*512):round(p['u2']*512)] = True
                         if name in ('11','13','31','33'):
                             sx=w/((p['u2']-p['u1'])*512)
                             sy=h/((p['v2']-p['v1'])*128)
@@ -56,6 +60,7 @@ class ShellFitTests(unittest.TestCase):
                     self.assertEqual(max(p['u2'] for p in pieces.values()),1)
                     self.assertEqual(min(p['v1'] for p in pieces.values()),0)
                     self.assertEqual(max(p['v2'] for p in pieces.values()),1)
+                    self.assertFalse(alpha[~covered].any(), 'Fitting cropped painted details')
 
     def test_mage_emblem_changes_are_localized_and_keep_frame_openings(self):
         root=ROOT/'artwork/mage-emblem-correction'

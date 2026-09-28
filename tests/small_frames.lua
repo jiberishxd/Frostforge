@@ -50,6 +50,18 @@ local function enable(J,key,source,portrait)
         {key,"unitFrameShown",true},{key,"shown",portrait or false}}))
 end
 local function record(J,key,root,kind) return J.SmallFrames.groups[key][kind or "border"].records[root] end
+local function registered(J,key,m)
+    local g,c=m.geometry,J.ThemeManager:Read(key)
+    local inset=J.UnitSkinCatalog.entries[m.id].castInsets
+    local scale=m.textures['11'].w/48
+    local w,h=g.w*c.unitFrameWidth/100,g.h*c.unitFrameHeight/100
+    local function xy(name) local _,_,_,x,y=m.textures[name]:GetPoint();return x,-y end
+    local left=xy('21');local right=xy('23');local _,top=xy('12');local _,bottom=xy('32')
+    near(left+(48-(g.mirror and inset[3] or inset[1]))*scale,(g.w-w)/2-c.smallFramePadding)
+    near(right+(g.mirror and inset[1] or inset[3])*scale,(g.w+w)/2+c.smallFramePadding)
+    near(top+(48-inset[2])*scale,(g.h-h)/2-c.smallFramePadding)
+    near(bottom+inset[4]*scale,(g.h+h)/2+c.smallFramePadding)
+end
 
 for _,interface in ipairs({120100,16001}) do
     for _,source in ipairs({"BLIZZARD","ELVUI","ELLESMERE"}) do
@@ -65,10 +77,11 @@ for _,interface in ipairs({120100,16001}) do
             for _,m in ipairs({first,second,portrait}) do
                 assert(m.frame.parent==UIParent and not m.frame.mouse and not m.frame.keyboard and not m.frame.wheel)
             end
-            local writes=M.geometryWrites;M.combat=true
+            local writes=M.frameGeometryWrites;M.combat=true
             roots[1].unit="party1";roots[2].unit="party2";M.event(J.Core,"GROUP_ROSTER_UPDATE")
             assert(first.id=="CLASS_DRUID" and second.id=="CLASS_HUNTER" and portrait.id=="CLASS_HUNTER")
-            assert(writes==M.geometryWrites,"Sorting rewrote protected layout")
+            assert(writes==M.frameGeometryWrites,"Sorting rewrote protected layout")
+            registered(J,"partyFrames",first);registered(J,"partyFrames",second)
             M.unitData.party1=nil;M.tick(J.Core)
             assert(not first.frame.shown and first.id=="CLASS_DRUID","Empty slot flashed Neutral")
             roots[2].shown=false;M.tick(J.Core);assert(not second.frame.shown and not portrait.frame.shown)
@@ -81,11 +94,12 @@ for _,interface in ipairs({120100,16001}) do
             local m=record(J,"targetTargetFrame",root)
             assert(m.id=="CLASS_MAGE" and m.frame.shown)
             for _,t in pairs(m.textures) do assert(t.texCoord[1]>t.texCoord[2]) end
-            M.combat=true;local writes=M.geometryWrites
+            M.combat=true;local writes=M.frameGeometryWrites
             M.unitData.targettarget={player=false};M.event(J.Core,"UNIT_TARGET","target")
             assert(m.id=="FACTION_NEUTRAL")
             M.unitData.targettarget={player=true,class="DRUID"};M.event(J.Core,"UNIT_TARGET","target")
-            assert(m.id=="CLASS_DRUID" and m.frame.shown and writes==M.geometryWrites)
+            assert(m.id=="CLASS_DRUID" and m.frame.shown and writes==M.frameGeometryWrites)
+            registered(J,"targetTargetFrame",m)
             M.unitData.targettarget=nil;M.event(J.Core,"PLAYER_TARGET_CHANGED")
             assert(not m.frame.shown and m.id=="CLASS_DRUID")
             assert(not next(J.Core.notices))
@@ -99,6 +113,7 @@ test("compact artwork retains every race class faction design and independent to
     for id,entry in pairs(J.UnitSkinCatalog.entries) do
         assert(J.ProfileManager:Set("partyFrames","smallFrameArt",id));assert(m.id==id)
         for _,t in pairs(m.textures) do assert(t.path==entry.cast and t.w>0 and t.h>0) end
+        registered(J,"partyFrames",m)
     end
     assert(portrait.id=="CLASS_HUNTER")
     J.ProfileManager:Set("partyFrames","smallFrameArt","MATCH")

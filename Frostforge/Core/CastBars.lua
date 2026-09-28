@@ -41,15 +41,23 @@ function C:Artwork(config)
     return config.castBarArt
 end
 
--- Complete cast artwork is registered around one shared transparent opening.
+-- Register the painted rails, not the differently padded transparent canvases.
 -- Outer contours are never sampled out of a thin unit-shell strip. Corners use
 -- the same horizontal/vertical scale; only connecting spans fit the native bar.
 function C:Pieces(entry,w,h,weight,padding,mirror)
     local factor=1.25*weight
     local scale=math.min(h/32, .65)*factor
+    local limits=J.CastBorderFitLimits
+    -- One common cap keeps every design usable at extreme weight / tiny bars.
+    -- A design never changes corner scale just because its class changed.
+    scale=math.min(scale,(w+2*padding)*.95/limits[1],(h+2*padding)*.95/limits[2])
     local side=48*scale
-    local x={-padding-side,-padding,w+padding,w+padding+side}
-    local y={-padding-side,-padding,h+padding,h+padding+side}
+    local inset=entry.castInsets
+    local left=(mirror and inset[3] or inset[1])*scale
+    local right=(mirror and inset[1] or inset[3])*scale
+    local top,bottom=inset[2]*scale,inset[4]*scale
+    local x={-padding-side+left,-padding+left,w+padding-right,w+padding+side-right}
+    local y={-padding-side+top,-padding+top,h+padding-bottom,h+padding+side-bottom}
     local u=mirror and {512,464,48,0} or {0,48,464,512}
     local v={0,48,80,128}
     local pieces={}
@@ -149,7 +157,9 @@ function C:Paint(module,id,layout)
     module.assetOK=true
     for name,piece in pairs(pieces) do
         local texture=module.textures[name]
-        if layout then
+        if layout or module.id~=id then
+            -- Only our unprotected texture regions move on an identity change;
+            -- the native bar and the decoration's frame anchor stay untouched.
             texture:ClearAllPoints();texture:SetPoint("TOPLEFT",module.frame,"TOPLEFT",piece.x,-piece.y)
             texture:SetSize(piece.w,piece.h)
         end

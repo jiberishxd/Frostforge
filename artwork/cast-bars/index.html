@@ -10,7 +10,7 @@
 <script src="runtime-borders.js"></script><script>
 const $=id=>document.getElementById(id),images=new Map();let revision=0;
 function load(id){if(!images.has(id)){const image=new Image;image.src='assets/'+castBorders.themes[id].file+'.png';images.set(id,new Promise((resolve,reject)=>{image.onload=()=>resolve(image);image.onerror=reject}))}return images.get(id)}
-function draw(canvas,image,theme,style,compact=false){canvas.width=780;canvas.height=compact?270:330;const c=canvas.getContext('2d'),w=180,h=16,pieces=Object.values(castBorders.fittings[$('borderWidth').value+'x'+$('borderHeight').value][style]);
+function draw(canvas,image,theme,style,compact=false){canvas.width=780;canvas.height=compact?270:330;const c=canvas.getContext('2d'),w=180,h=16,pieces=Object.values(theme.fittings[$('borderWidth').value+'x'+$('borderHeight').value][style]);
  const left=Math.min(0,...pieces.map(p=>p.x)),right=Math.max(w,...pieces.map(p=>p.x+p.w)),top=Math.min(0,...pieces.map(p=>p.y)),bottom=Math.max(h,...pieces.map(p=>p.y+p.h));
  const zoom=Math.min(3,(canvas.width-32)/(right-left),(canvas.height-32)/(bottom-top));c.translate((canvas.width-zoom*(right+left))/2,(canvas.height-zoom*(bottom+top))/2);c.scale(zoom,zoom);
  c.fillStyle='#101718';c.fillRect(0,0,w,h);const fill=c.createLinearGradient(0,0,0,h);fill.addColorStop(0,'#c7b368');fill.addColorStop(.35,'#a69550');fill.addColorStop(1,'#67582e');c.fillStyle=fill;c.fillRect(0,0,w*Number($('progress').value)/100,h);
