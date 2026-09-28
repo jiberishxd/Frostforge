@@ -163,7 +163,7 @@ end)
 test("compartment and ElvUI launchers register once and open after combat",function(M)
     local J=M.load();local E={Options={args={}},Libs={EP={}}};ElvUI={E}
     function E.Libs.EP:RegisterPlugin(name,callback)
-        assert(name=="JiberishUI");self.calls=(self.calls or 0)+1;self.callback=callback
+        assert(name=="Frostforge");self.calls=(self.calls or 0)+1;self.callback=callback
     end
     AddonCompartmentFrame=M.native("AddonCompartmentFrame",32,32)
     function AddonCompartmentFrame:RegisterAddon(info) self.calls=(self.calls or 0)+1;self.info=info end

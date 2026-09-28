@@ -10,7 +10,7 @@ from PIL import Image, ImageOps
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'artwork/unit-frames/assets';OUT.mkdir(parents=True,exist_ok=True)
 ART=ROOT/'artwork/unit-frames/sculpted'
-MEDIA=ROOT/'JiberishUI/Media/UnitFrames';MEDIA.mkdir(parents=True,exist_ok=True)
+MEDIA=ROOT/'Frostforge/Media/UnitFrames';MEDIA.mkdir(parents=True,exist_ok=True)
 parser=argparse.ArgumentParser();parser.add_argument('--preview',action='store_true');args=parser.parse_args()
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def save(name,im,refs,kind):
@@ -75,12 +75,12 @@ for job in jobs:
 if not args.preview:
     lines=['local _, J = ...','-- Original artwork; data only. Measured openings preserve each source painting; native bars supply the anchor.','J.UnitSkinCatalog = { entries = {']
     for ident,stem in entries:
-        prefix='Interface\\\\AddOns\\\\JiberishUI\\\\Media\\\\UnitFrames\\\\'
+        prefix='Interface\\\\AddOns\\\\Frostforge\\\\Media\\\\UnitFrames\\\\'
         reg=reports[stem]['measured']['registration']
         health=','.join(format(v,'.8f') for v in reg['health'])
         power=','.join(format(v,'.8f') for v in reg['power'])
         lines.append('    %s = {shell="%s%s.tga",cast="%s%s.tga",health="%s%s-health.tga",power="%s%s-power.tga",opening={health={%s},power={%s}}},'%(ident,prefix,stem,prefix.replace("UnitFrames","CastBars"),stem,prefix,stem,prefix,stem,health,power))
-    lines+=['} }'];(ROOT/'JiberishUI/Themes/UnitSkins.lua').write_text('\n'.join(lines)+'\n')
+    lines+=['} }'];(ROOT/'Frostforge/Themes/UnitSkins.lua').write_text('\n'.join(lines)+'\n')
     manifest=ROOT/'docs/phase1-assets.json';data=json.loads(manifest.read_text())
     replacements={a['file']:a for a in assets}
     data['assets']=[replacements.pop(a['file'],a) for a in data['assets']

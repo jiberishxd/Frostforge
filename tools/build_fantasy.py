@@ -23,7 +23,7 @@ def build():
         manifest['sources'].append(dict(path=source.relative_to(ROOT).as_posix(),size=list(original.size),
             alphaBounds=original.getchannel('A').getbbox(),sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
             origin='original built-in image_gen artwork; artwork/fantasy-prompts.json#'+name))
-        target=ROOT/'JiberishUI/Media/fantasy'/f'{name}.tga';target.parent.mkdir(parents=True,exist_ok=True)
+        target=ROOT/'Frostforge/Media/fantasy'/f'{name}.tga';target.parent.mkdir(parents=True,exist_ok=True)
         texture=original.resize((512,256),Image.Resampling.LANCZOS);texture.save(target,compression=None)
         manifest['assets'].append(dict(file=target.relative_to(ROOT).as_posix(),source=source.relative_to(ROOT).as_posix(),
             crop=None,transform='resample to 512x256; display at original 3:1 aspect; preserve alpha',

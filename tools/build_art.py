@@ -44,7 +44,7 @@ for row, race in enumerate(RACES):
     src = ROOT / '.reference/wc3' / f'{race}-border.dds'
     strip = Image.open(src).convert('RGBA')
     assert strip.size == (512,64)
-    base = ROOT / 'JiberishUI/Media' / race
+    base = ROOT / 'Frostforge/Media' / race
     source = f'war3.w3mod:ui\\widgets\\escmenu\\{race}\\{race}-options-menu-border.dds'
     pieces = {}
     for i,key in enumerate(PIECES):
@@ -77,7 +77,7 @@ for row, race in enumerate(RACES):
         sheet.paste(frame,(x,y+130),frame)
     sheet.paste(ornament,(730,y+60),ornament)
     draw.text((28,y+215),'Unit / bar / compact / button (synthetic fitting references; not in-game screenshots)',fill='#aebccc')
-save(Image.new('RGBA',(8,8),'white'), ROOT/'JiberishUI/Media/neutral.tga', 'procedural white fill', transform='neutral tintable status-bar fill')
+save(Image.new('RGBA',(8,8),'white'), ROOT/'Frostforge/Media/neutral.tga', 'procedural white fill', transform='neutral tintable status-bar fill')
 (ROOT/'docs/assets.json').write_text(json.dumps(manifest,indent=2)+'\n')
 sheet.save(ROOT/'docs/skin-reference.png')
 print(f'Built {len(manifest["assets"])} textures and docs/skin-reference.png')

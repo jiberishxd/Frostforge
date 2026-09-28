@@ -1,3 +1,27 @@
+# Build 0.9.6 — Frostforge source folder on GitHub
+
+337 Lua behavior tests and 23 Python tests pass locally. The source-tree regression requires `Frostforge/Frostforge.toc` and rejects a remaining `JiberishUI` source folder. Packaged Lua now matches the source bytes directly, except for client-specific `Build.lua`; both package startup fixtures still preserve supplied saved tables and exercise the combat identity fix.
+
+All preview exports regenerate from the renamed source directory. Source/media/provenance and exact Retail/Forever package checks pass; both ZIPs contain 366 files. All 296 runtime images retain their approved hashes. Artwork inventories and baseline records change only their runtime file paths.
+
+GitHub source downloads now provide the same `Frostforge` addon folder as the client-specific packages. Saved-file transfer instructions remain necessary for upgrades from the old folder. Live-client loading and persistence are still user-run checks.
+
+# Build 0.9.5 — Frostforge install folder
+
+337 Lua behavior tests and 22 Python tests pass locally. New package checks require a single `Frostforge` root, a matching `Frostforge.toc`, every listed Lua file and all 296 media references inside that root. Both client packages boot under the `Frostforge` addon name in the offline host, preserve supplied legacy profile tables/character assignments, register ElvUI settings under the new name, open settings and retain the 0.9.4 combat identity fix.
+
+Source/media/provenance checks, unchanged cast-preview export and exact Retail/Forever 0.9.5 ZIP checks pass. Both archives contain 366 files; all 296 artwork images are byte-for-byte unchanged. The source directory remains `JiberishUI`; only install paths and the packaged manifest name are relocated.
+
+Existing saved files are not automatically moved by the addon. The upgrade guide documents copying account and character `JiberishUI.lua` files to `Frostforge.lua` while WoW is closed, with originals retained. Offline startup checks supply those saved tables directly; actual file loading, logout/login persistence and the secure renderer still require live-client verification.
+
+# Build 0.9.4 — Combat unit-frame identity switching
+
+337 Lua behavior tests and 20 Python artwork tests pass locally. The new Neutral beast → Druid regression failed against 0.9.3's deliberate combat identity freeze and passes with the new painting path on Retail and Forever fixtures. Coverage includes all 42 shell designs on Player/Target/Focus, measured opening UVs and footer seams, independent Focus identity, secret class fallback/recovery, power visibility changes, protected/forbidden art regions, stable polling and ElvUI's existing fitted stack.
+
+Combat identity changes perform no native appearance/layout writes, artwork geometry writes, frame/texture allocation or hook creation. The displayed design changes while the fitted layout identity stays fixed; leaving combat refits the current design. Source/media/provenance checks, unchanged cast-preview export and exact Retail/Forever 0.9.4 package checks pass. All 296 runtime images remain unchanged; each archive contains 366 files.
+
+These checks run in the offline host, not WoW's secure renderer. Live confirmation of the reported target switch, appearance and protected behavior remains user-run; see the 0.9.4 checklist in VALIDATION.md.
+
 # Build 0.9.3 — Quick setup, access and Night Elf artwork
 
 329 Lua behavior tests pass. New coverage checks first launch after entering the world, combat deferral, Skip/reload and existing-profile behavior, atomic setup application, linked and advanced portrait sizing, future data preservation, optional icon persistence/dragging, late AddOn Compartment and ElvUI registration, minimap layering, shape restoration across reloads/profiles, and retry after a provider update fails. Retail and Forever fixtures are included.

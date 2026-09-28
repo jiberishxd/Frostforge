@@ -446,7 +446,7 @@ test("startup is idempotent and slash aliases share one dispatcher",function(M)
     local J=M.load()
     local frames=#M.frames
     M.event(J.Core,"PLAYER_LOGIN")
-    M.event(J.Core,"ADDON_LOADED","JiberishUI")
+    M.event(J.Core,"ADDON_LOADED","Frostforge")
     assert(#M.frames==frames)
     assert(SLASH_JIBERISHFANTASY1=="/jf" and SLASH_JIBERISHFANTASY2=="/jui")
     SlashCmdList.JIBERISHFANTASY("theme paladin_ret")

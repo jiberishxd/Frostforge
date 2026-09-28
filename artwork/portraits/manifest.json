@@ -4,7 +4,7 @@
       "id": "class_warrior",
       "label": "Warrior",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_warrior.tga",
+      "file": "Frostforge/Media/Portraits/class_warrior.tga",
       "source": "artwork/portraits/atlases/class_warrior.png",
       "source_sha256": "617c485dc94b491de98cee9a282c6c9011a7b33216514e64c75c68deceb430e8",
       "source_size": [
@@ -88,7 +88,7 @@
       "id": "class_paladin",
       "label": "Paladin",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_paladin.tga",
+      "file": "Frostforge/Media/Portraits/class_paladin.tga",
       "source": "artwork/portraits/atlases/class_paladin.png",
       "source_sha256": "ebd9e35b754f414978a89e30550cd5c614b2f738c2702504edd9aae92328f3ef",
       "source_size": [
@@ -172,7 +172,7 @@
       "id": "class_hunter",
       "label": "Hunter",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_hunter.tga",
+      "file": "Frostforge/Media/Portraits/class_hunter.tga",
       "source": "artwork/portraits/atlases/class_hunter.png",
       "source_sha256": "258443a0d8388f9d1458d099176a91d2a2986f02087d564f673fb07d31ddc4cd",
       "source_size": [
@@ -256,7 +256,7 @@
       "id": "class_rogue",
       "label": "Rogue",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_rogue.tga",
+      "file": "Frostforge/Media/Portraits/class_rogue.tga",
       "source": "artwork/portraits/atlases/class_rogue.png",
       "source_sha256": "e571786572dc23ad397c34aa7d13ec00234600fda122a4813a93240a60486b53",
       "source_size": [
@@ -340,7 +340,7 @@
       "id": "class_priest",
       "label": "Priest",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_priest.tga",
+      "file": "Frostforge/Media/Portraits/class_priest.tga",
       "source": "artwork/portraits/atlases/class_priest.png",
       "source_sha256": "a90943362ea2e77031d3935e777cb0beb02eb05ad70564e70534a4adc64a831b",
       "source_size": [
@@ -424,7 +424,7 @@
       "id": "class_deathknight",
       "label": "Death Knight",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_deathknight.tga",
+      "file": "Frostforge/Media/Portraits/class_deathknight.tga",
       "source": "artwork/portraits/atlases/class_deathknight.png",
       "source_sha256": "2c9f8594c36d54904e3b24d3bee8c5d9c117288cf5ed1436b1c38fdb207dfb88",
       "source_size": [
@@ -508,7 +508,7 @@
       "id": "class_shaman",
       "label": "Shaman",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_shaman.tga",
+      "file": "Frostforge/Media/Portraits/class_shaman.tga",
       "source": "artwork/portraits/atlases/class_shaman.png",
       "source_sha256": "9e345c285068fc53a92c346816511629bf7c0ffa08d890f7e03c5fb0760b5220",
       "source_size": [
@@ -592,7 +592,7 @@
       "id": "class_mage",
       "label": "Mage",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_mage.tga",
+      "file": "Frostforge/Media/Portraits/class_mage.tga",
       "source": "artwork/portraits/atlases/class_mage.png",
       "source_sha256": "75808a9da3fea17bedbe27e02fdc04353adf8be64e39cfc8af7777e3d5f6f33b",
       "source_size": [
@@ -677,7 +677,7 @@
       "id": "class_warlock",
       "label": "Warlock",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_warlock.tga",
+      "file": "Frostforge/Media/Portraits/class_warlock.tga",
       "source": "artwork/portraits/atlases/class_warlock.png",
       "source_sha256": "569f16b908343901c2dfa13e6a2501fa399b01ac575448f3ec710b4252cc9ad9",
       "source_size": [
@@ -761,7 +761,7 @@
       "id": "class_monk",
       "label": "Monk",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_monk.tga",
+      "file": "Frostforge/Media/Portraits/class_monk.tga",
       "source": "artwork/portraits/atlases/class_monk.png",
       "source_sha256": "e9af248cdb5be1a2d6a866e60501b812a44447d07f16da84db12eed55ce65fc1",
       "source_size": [
@@ -845,7 +845,7 @@
       "id": "class_druid",
       "label": "Druid",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_druid.tga",
+      "file": "Frostforge/Media/Portraits/class_druid.tga",
       "source": "artwork/portraits/atlases/class_druid.png",
       "source_sha256": "076f1d0cbf803d3ada770d9d0ee25e424246f130e91c4e1115e8216c68006e70",
       "source_size": [
@@ -929,7 +929,7 @@
       "id": "class_demonhunter",
       "label": "Demon Hunter",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_demonhunter.tga",
+      "file": "Frostforge/Media/Portraits/class_demonhunter.tga",
       "source": "artwork/portraits/atlases/class_demonhunter.png",
       "source_sha256": "d95cb60f5d4aafe2cf79258ebc19d35f406e11b804b0c9245bf09ddc55a658ab",
       "source_size": [
@@ -1013,7 +1013,7 @@
       "id": "class_evoker",
       "label": "Evoker",
       "group": "class",
-      "file": "JiberishUI/Media/Portraits/class_evoker.tga",
+      "file": "Frostforge/Media/Portraits/class_evoker.tga",
       "source": "artwork/portraits/atlases/class_evoker.png",
       "source_sha256": "06ad5fd25ec39fbfefe51f18fe7187c3ff7628def74835da8e23ff1f871c1cb2",
       "source_size": [
@@ -1097,7 +1097,7 @@
       "id": "race_human",
       "label": "Human",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_human.tga",
+      "file": "Frostforge/Media/Portraits/race_human.tga",
       "source": "artwork/portraits/atlases/race_human.png",
       "source_sha256": "5a90757f288ed19a79536bb2438d8c4757d454485c47a324752044b00da293bd",
       "source_size": [
@@ -1171,7 +1171,7 @@
       "id": "race_dwarf",
       "label": "Dwarf",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_dwarf.tga",
+      "file": "Frostforge/Media/Portraits/race_dwarf.tga",
       "source": "artwork/portraits/atlases/race_dwarf.png",
       "source_sha256": "3d9bddb65413df6e8af7b17a5534440685ded8faf1c402d882f0cacf7874a0ae",
       "source_size": [
@@ -1245,7 +1245,7 @@
       "id": "race_nightelf",
       "label": "Night Elf",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_nightelf.tga",
+      "file": "Frostforge/Media/Portraits/race_nightelf.tga",
       "source": "artwork/portraits/atlases/race_nightelf.png",
       "source_sha256": "77166ed875d054273914354165ac4f521a5140bfc1051ebb0a8085cf8a7a85fc",
       "source_size": [
@@ -1319,7 +1319,7 @@
       "id": "race_gnome",
       "label": "Gnome",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_gnome.tga",
+      "file": "Frostforge/Media/Portraits/race_gnome.tga",
       "source": "artwork/portraits/atlases/race_gnome.png",
       "source_sha256": "dc4f5edac5df60d5a3d67c87eb399f0fd316961666ef734fa815e7317b153d0b",
       "source_size": [
@@ -1393,7 +1393,7 @@
       "id": "race_draenei",
       "label": "Draenei",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_draenei.tga",
+      "file": "Frostforge/Media/Portraits/race_draenei.tga",
       "source": "artwork/portraits/atlases/race_draenei.png",
       "source_sha256": "f343d3fdeab02da7664febdd14856a8bd1c9e0625110eaa4ce74ab9e4ad76a73",
       "source_size": [
@@ -1467,7 +1467,7 @@
       "id": "race_worgen",
       "label": "Worgen",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_worgen.tga",
+      "file": "Frostforge/Media/Portraits/race_worgen.tga",
       "source": "artwork/portraits/atlases/race_worgen.png",
       "source_sha256": "f4aa5b14e8ba45d80ffc42ef4ebec11bf8dc0223a6e67c580c4182a825f9358d",
       "source_size": [
@@ -1541,7 +1541,7 @@
       "id": "race_orc",
       "label": "Orc",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_orc.tga",
+      "file": "Frostforge/Media/Portraits/race_orc.tga",
       "source": "artwork/portraits/atlases/race_orc.png",
       "source_sha256": "09070fe1cdbc8a1e10533b43e8b1122ddeccc2bef02b6d20b30199e0c29915b7",
       "source_size": [
@@ -1615,7 +1615,7 @@
       "id": "race_scourge",
       "label": "Undead",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_scourge.tga",
+      "file": "Frostforge/Media/Portraits/race_scourge.tga",
       "source": "artwork/portraits/atlases/race_scourge.png",
       "source_sha256": "b2604ee5267e8e0088ed8b84057c6499a1f774ce79a66e761fa72d073c8ac4e0",
       "source_size": [
@@ -1699,7 +1699,7 @@
       "id": "race_tauren",
       "label": "Tauren",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_tauren.tga",
+      "file": "Frostforge/Media/Portraits/race_tauren.tga",
       "source": "artwork/portraits/atlases/race_tauren.png",
       "source_sha256": "d2daa912aff02993f5ad8c8bea3f5ef735f293d76e88a305263fa9622d000b85",
       "source_size": [
@@ -1773,7 +1773,7 @@
       "id": "race_troll",
       "label": "Troll",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_troll.tga",
+      "file": "Frostforge/Media/Portraits/race_troll.tga",
       "source": "artwork/portraits/atlases/race_troll.png",
       "source_sha256": "23896884093abad02f638bb9867985359f1aa345874d8cd46e8795ab378db098",
       "source_size": [
@@ -1847,7 +1847,7 @@
       "id": "race_bloodelf",
       "label": "Blood Elf",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_bloodelf.tga",
+      "file": "Frostforge/Media/Portraits/race_bloodelf.tga",
       "source": "artwork/portraits/atlases/race_bloodelf.png",
       "source_sha256": "1eabc80e3a984fb4e5f88483f7a976b04115ff2c3d1b579462a987fd105af7b5",
       "source_size": [
@@ -1921,7 +1921,7 @@
       "id": "race_goblin",
       "label": "Goblin",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_goblin.tga",
+      "file": "Frostforge/Media/Portraits/race_goblin.tga",
       "source": "artwork/portraits/atlases/race_goblin.png",
       "source_sha256": "13646c0cce37e10e7f6336f71196eb156923098e9bbca72df30a6c36ecc86eb4",
       "source_size": [
@@ -1995,7 +1995,7 @@
       "id": "race_pandaren",
       "label": "Pandaren",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_pandaren.tga",
+      "file": "Frostforge/Media/Portraits/race_pandaren.tga",
       "source": "artwork/portraits/atlases/race_pandaren.png",
       "source_sha256": "5c819b4b9723d00216928bbcfc67887db4834c06ffbce66b1dc013459fd9b331",
       "source_size": [
@@ -2069,7 +2069,7 @@
       "id": "race_dracthyr",
       "label": "Dracthyr",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_dracthyr.tga",
+      "file": "Frostforge/Media/Portraits/race_dracthyr.tga",
       "source": "artwork/portraits/atlases/race_dracthyr.png",
       "source_sha256": "7f901c06bc6da3efb25fbe4cbd70149df5605926b871871dc714e01d0640ea67",
       "source_size": [
@@ -2143,7 +2143,7 @@
       "id": "race_voidelf",
       "label": "Void Elf",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_voidelf.tga",
+      "file": "Frostforge/Media/Portraits/race_voidelf.tga",
       "source": "artwork/portraits/atlases/race_voidelf.png",
       "source_sha256": "90bf6ffb9b856331e95cdac1d21334dbe013d461246a37bc938b6b09b69ab579",
       "source_size": [
@@ -2217,7 +2217,7 @@
       "id": "race_lightforgeddraenei",
       "label": "Lightforged Draenei",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_lightforgeddraenei.tga",
+      "file": "Frostforge/Media/Portraits/race_lightforgeddraenei.tga",
       "source": "artwork/portraits/atlases/race_lightforgeddraenei.png",
       "source_sha256": "5c2bf7dac66b4c6d5fd7257a1a33ec86b529a0c84aba8261a31188e43f95f9ac",
       "source_size": [
@@ -2291,7 +2291,7 @@
       "id": "race_darkirondwarf",
       "label": "Dark Iron Dwarf",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_darkirondwarf.tga",
+      "file": "Frostforge/Media/Portraits/race_darkirondwarf.tga",
       "source": "artwork/portraits/atlases/race_darkirondwarf.png",
       "source_sha256": "e78c09d23257a14f326fed8beb35265183c6a5232ad82c45ba27b847b9ad4848",
       "source_size": [
@@ -2365,7 +2365,7 @@
       "id": "race_kultiran",
       "label": "Kul Tiran",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_kultiran.tga",
+      "file": "Frostforge/Media/Portraits/race_kultiran.tga",
       "source": "artwork/portraits/atlases/race_kultiran.png",
       "source_sha256": "c65c5e728af7b6b9feaebc5a2f72fdd2ad17551356c97335e83fb2c37a77d15c",
       "source_size": [
@@ -2439,7 +2439,7 @@
       "id": "race_mechagnome",
       "label": "Mechagnome",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_mechagnome.tga",
+      "file": "Frostforge/Media/Portraits/race_mechagnome.tga",
       "source": "artwork/portraits/atlases/race_mechagnome.png",
       "source_sha256": "de1bcba621157566500d5e5409228b7dcbeb275d89faede7b84035bdeecbfc38",
       "source_size": [
@@ -2513,7 +2513,7 @@
       "id": "race_nightborne",
       "label": "Nightborne",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_nightborne.tga",
+      "file": "Frostforge/Media/Portraits/race_nightborne.tga",
       "source": "artwork/portraits/atlases/race_nightborne.png",
       "source_sha256": "aaa9f8ce3c0f9085f65ea7458b119d048e2ce1340d40c28378dcdfe3eae71d78",
       "source_size": [
@@ -2587,7 +2587,7 @@
       "id": "race_highmountaintauren",
       "label": "Highmountain Tauren",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_highmountaintauren.tga",
+      "file": "Frostforge/Media/Portraits/race_highmountaintauren.tga",
       "source": "artwork/portraits/atlases/race_highmountaintauren.png",
       "source_sha256": "bd274a8252852a23ed73457c2eeab7157439c12e19bc04eaa5250be051049524",
       "source_size": [
@@ -2661,7 +2661,7 @@
       "id": "race_magharorc",
       "label": "Mag'har Orc",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_magharorc.tga",
+      "file": "Frostforge/Media/Portraits/race_magharorc.tga",
       "source": "artwork/portraits/atlases/race_magharorc.png",
       "source_sha256": "63b4dfa39eb79b4ed25f2da9df2f1d7e14dbaf228ea8adc1f6c5174c0279ed9a",
       "source_size": [
@@ -2735,7 +2735,7 @@
       "id": "race_zandalaritroll",
       "label": "Zandalari Troll",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_zandalaritroll.tga",
+      "file": "Frostforge/Media/Portraits/race_zandalaritroll.tga",
       "source": "artwork/portraits/atlases/race_zandalaritroll.png",
       "source_sha256": "6f9e61c8eac4563137946d6c718b9880b89d1a10038df521cdd83cc13dc69633",
       "source_size": [
@@ -2809,7 +2809,7 @@
       "id": "race_vulpera",
       "label": "Vulpera",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_vulpera.tga",
+      "file": "Frostforge/Media/Portraits/race_vulpera.tga",
       "source": "artwork/portraits/atlases/race_vulpera.png",
       "source_sha256": "8fcce9cf2ec953f2b66ec75da622334bf867d4ab782f5dacc1dade26aa0bdb54",
       "source_size": [
@@ -2883,7 +2883,7 @@
       "id": "race_earthendwarf",
       "label": "Earthen",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_earthendwarf.tga",
+      "file": "Frostforge/Media/Portraits/race_earthendwarf.tga",
       "source": "artwork/portraits/atlases/race_earthendwarf.png",
       "source_sha256": "3e88dec24da4ec69b0f0abdc88fa388178103666a70088deb7a9e66fc7287027",
       "source_size": [
@@ -2957,7 +2957,7 @@
       "id": "race_haranir",
       "label": "Haranir",
       "group": "race",
-      "file": "JiberishUI/Media/Portraits/race_haranir.tga",
+      "file": "Frostforge/Media/Portraits/race_haranir.tga",
       "source": "artwork/portraits/atlases/race_haranir.png",
       "source_sha256": "83e9f5b086d157f61846a4a42d94d650bf05a4f6e4d12dfb9ed927337293926a",
       "source_size": [
@@ -3031,7 +3031,7 @@
       "id": "faction_alliance",
       "label": "Alliance",
       "group": "faction",
-      "file": "JiberishUI/Media/Portraits/faction_alliance.tga",
+      "file": "Frostforge/Media/Portraits/faction_alliance.tga",
       "source": "artwork/portraits/atlases/faction_alliance.png",
       "source_sha256": "2f5a94af11d704769d7c00edb2baf29dd481a5f5a13568320702a9e5ffa3e722",
       "source_size": [
@@ -3105,7 +3105,7 @@
       "id": "faction_horde",
       "label": "Horde",
       "group": "faction",
-      "file": "JiberishUI/Media/Portraits/faction_horde.tga",
+      "file": "Frostforge/Media/Portraits/faction_horde.tga",
       "source": "artwork/portraits/atlases/faction_horde.png",
       "source_sha256": "8d735c9bcc270eba6e87aac7b267e94dec14ac4eec45489be936649a654e104d",
       "source_size": [
@@ -3179,7 +3179,7 @@
       "id": "faction_neutral",
       "label": "Neutral",
       "group": "faction",
-      "file": "JiberishUI/Media/Portraits/faction_neutral.tga",
+      "file": "Frostforge/Media/Portraits/faction_neutral.tga",
       "source": "artwork/portraits/atlases/faction_neutral.png",
       "source_sha256": "989a557dc38b12ff8000693e2918f0f4c80fa007457d0872321d6bdfec0516e7",
       "source_size": [

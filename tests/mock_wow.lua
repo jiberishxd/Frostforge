@@ -387,11 +387,12 @@ function M.load(options)
     JiberishUIDB=options.db
     JiberishUICharacterDB=options.characterDB or M.characterDB
     local J={}
-    local toc=assert(io.open("JiberishUI/JiberishUI.toc")):read("*a")
+    local directory,addonName=options.addonDirectory or "Frostforge",options.addonName or "Frostforge"
+    local toc=assert(io.open(directory.."/"..addonName..".toc")):read("*a")
     for path in toc:gmatch("[^\r\n]+") do
         if path:match("%.lua$") then
-            local chunk=assert(loadfile("JiberishUI/"..path:gsub("\\","/")))
-            chunk("JiberishUI",J)
+            local chunk=assert(loadfile(directory.."/"..path:gsub("\\","/")))
+            chunk(addonName,J)
         end
     end
     -- Existing shell tests explicitly isolate the per-unit renderer from the global stock texture option.

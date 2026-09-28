@@ -8,7 +8,7 @@ Edited with the built-in imagegen tool, using the user's Blizzard Night Elf embl
 - [Minimap surround](../minimaps/assets/race_nightelf.png) — 512 × 512; unchanged circular aperture.
 - [Action hub](../hubs/assets/race_nightelf.png) — 2172 × 724; unchanged center, right endpoint and shared seams.
 
-Runtime TGA exports are in `JiberishUI/Media/UnitFrames`, `Minimaps` and `Hubs`. Only these three Night Elf textures differ from the retained 296-texture baseline.
+Runtime TGA exports are in `Frostforge/Media/UnitFrames`, `Minimaps` and `Hubs`. Only these three Night Elf textures differ from the retained 296-texture baseline.
 
 ## Exact editing prompts and provenance
 

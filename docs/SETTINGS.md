@@ -12,7 +12,7 @@ Open the AddOn Compartment entry, ElvUI’s Frostforge section, the optional min
 
 The window uses native Blizzard borders, quiet solid dark panels, muted frost-blue Blizzard buttons and white button labels, alongside native Blizzard checks and sliders. Hover brightens a fitted icy outline; selected tabs, enabled toggles and chosen options keep their blue border after the pointer leaves. The official transparent penguin logo stays in the header across every component. It scales to fit shorter screens, remembers dragged position, and supports Escape to close. Search matches plain label text within the selected class/race/faction category; long collections have pages.
 
-When you change targets in combat, the full unit-frame shell keeps its already fitted design until combat ends, then fits the current unit's design. Portrait surrounds can update immediately when the game permits. Briefly unreadable frames hide their decorations safely and recover on the same attachment when readable again; attaching to a different frame still waits until combat ends.
+When you change targets in combat, the portrait surround and full unit-frame artwork update to the new readable identity when the game permits. The shell remaps the new design into its existing fitted sections, including the footer for units without power. Bar positions, dimensions and native fill textures wait until combat ends, when the design's exact proportions are refitted. Briefly unreadable frames hide their decorations safely and recover on the same attachment when readable again; attaching to a different frame still waits until combat ends.
 
 ## Minimap shape and layering
 

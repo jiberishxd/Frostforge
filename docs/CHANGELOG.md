@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.9.6 — Frostforge source folder on GitHub
+
+- Rename the actual repository addon directory and manifest to `Frostforge/Frostforge.toc`, so GitHub's Code → Download ZIP uses the new name too.
+- Update runtime resource paths, preview exports, media builders, artwork inventory paths and tests to the same source directory. Preserve all image bytes, saved-variable names and compatibility aliases.
+- Simplify packaging to copy runtime code without rewriting its paths. Verify that source downloads and client packages use the same addon folder.
+
+## 0.9.5 — Frostforge install folder
+
+- Package the addon in a single `Frostforge` folder with `Frostforge.toc`, and relocate every runtime artwork path to match. Both Retail and Forever ZIPs retain all 296 unchanged textures.
+- Keep existing saved-variable tables, profile formats, slash commands and SharedMedia aliases. Document the one-time saved-file transfer from `JiberishUI.lua` to `Frostforge.lua` and removal of the old addon folder.
+- Validate installed media references and boot the packaged code under its new addon name on both client fixtures, including the combat identity fix from 0.9.4.
+
+## 0.9.4 — Combat target artwork switching
+
+- Update unit-frame artwork immediately when a readable target/focus identity changes in combat, including Neutral beast → Druid player. Refresh health, power and the no-power footer together on their existing attachments.
+- Remap each design's measured texture openings onto the fitted shell cells. Keep bar geometry and native fills unchanged during combat; reconcile source-proportional fitting afterward.
+- Preserve protected/forbidden-region deferral, provider-owned fills, independent unit selection and region reuse. No artwork files or saved settings change.
+
 ## 0.9.3 — Quick setup and Night Elf refinements
 
 - Add a three-step first-launch wizard for theme, decorations and access. Existing installations keep their setup; rerun it from Guide.

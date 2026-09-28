@@ -46,6 +46,31 @@ local function clear(J) assert(not next(J.Core.notices),next(J.Core.notices)) en
 local function stack(h,p) local _,hy,_,hh=h:GetRect();local _,py=p:GetRect();return hy+hh-py end
 
 for _,interface in ipairs({120100,16001}) do
+    test("ElvUI combat target identity uses the fitted stack without hiding art on "..interface,function(M)
+        local J=M.load({interface=interface})
+        local root,h,p=elv(M,"target")
+        M.unitData.target.player=false;enable(J,"targetFrame")
+        local u=J.UnitSkins.units.targetFrame
+        local healthHeight,powerHeight=h:GetHeight(),p:GetHeight()
+        local geometry,native,appearance,frames=M.geometryWrites,M.elvLayoutWrites,M.appearanceWrites,#M.frames
+        M.combat=true;M.unitData.target.player=true;M.unitData.target.class="DRUID"
+        M.event(J.Core,"PLAYER_TARGET_CHANGED")
+        assert(u.health.id=="CLASS_DRUID" and u.power.id=="CLASS_DRUID" and u.footer.id=="CLASS_DRUID")
+        assert(u.health.trim.frame.shown and u.power.trim.frame.shown)
+        near(h:GetHeight(),healthHeight);near(p:GetHeight(),powerHeight);near(stack(h,p),50)
+        assert(J.UnitSkins.attachedLayouts.targetFrame.id=="FACTION_NEUTRAL")
+        p.shown=false;M.tick(J.Core)
+        assert(u.health.trim.frame.shown and u.footer.trim.frame.shown and not u.power.trim.frame.shown)
+        p.shown=true;M.tick(J.Core)
+        assert(u.health.trim.frame.shown and u.power.trim.frame.shown and not u.footer.trim.frame.shown)
+        assert(M.geometryWrites==geometry and M.elvLayoutWrites==native and M.appearanceWrites==appearance and #M.frames==frames)
+        M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+        assert(J.UnitSkins.attachedLayouts.targetFrame.id=="CLASS_DRUID")
+        near(stack(h,p),50)
+        assert(h.fill.path=="ElvUI-Selected-Health" and p.fill.path=="ElvUI-Selected-Power")
+        clear(J)
+    end)
+
     test("ElvUI full shells attach independently to all units on "..interface,function(M)
         local J=M.load({interface=interface})
         for _,unit in ipairs({"player","target","focus"}) do
