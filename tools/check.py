@@ -38,7 +38,10 @@ def source_checks():
         # Only the opt-in skin renderer may restore an existing fill atlas.
         rules = forbidden.replace("|SetAtlas", "").replace("|SetStatusBarTexture", "") if name == "Core/UnitSkins.lua" else forbidden
         assert not re.search(rules, code), name
-        if name not in {"Core/UnitSkins.lua", "Core/BlizzardUnits.lua"}:
+        if name == "Core/Access.lua":
+            # A post-hook joins the pooled Game Menu list; no unit-frame hooks.
+            assert re.findall(r'\bhooksecurefunc\s*\(\s*([^\n]+)', code) == ['menu,"AddButton",function(frame,label)']
+        elif name not in {"Core/UnitSkins.lua", "Core/BlizzardUnits.lua"}:
             assert not re.search(r"\bhooksecurefunc\s*\(", code), name
         assert not re.search(r"\b(PlayerFrame|TargetFrame|FocusFrame|MainActionBar|Minimap|UIParent)\s*[:.]\s*Set\w*\s*\(", code), name
         if name == "Core/CastBars.lua":

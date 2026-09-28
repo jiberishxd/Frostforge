@@ -254,8 +254,9 @@ function methods:SetParent() error("No reparenting permitted") end
 function methods:SetAttribute() error("No secure attribute writes permitted") end
 function hooksecurefunc(object,method,callback)
     local auraLayout=(object==TargetFrame or object==FocusFrame) and method=="AnchorAuraContainer"
-    assert(object.native and (object.fillTexture or object.fill or object.stockPresentation or object.stockColor or auraLayout),"Only stock/skin presentation hooks permitted")
-    assert(auraLayout or method=="SetTexture" or method=="SetAtlas" or method=="SetTexCoord" or method=="SetStatusBarTexture" or method=="SetStatusBarColor" or method=="SetTextColor" or method=="SetVertexColor" or method=="SetText")
+    local gameMenu=object==GameMenuFrame and method=="AddButton"
+    assert(object.native and (object.fillTexture or object.fill or object.stockPresentation or object.stockColor or auraLayout or gameMenu),"Only stock/skin presentation and Game Menu hooks permitted")
+    assert(gameMenu or auraLayout or method=="SetTexture" or method=="SetAtlas" or method=="SetTexCoord" or method=="SetStatusBarTexture" or method=="SetStatusBarColor" or method=="SetTextColor" or method=="SetVertexColor" or method=="SetText")
     M.hooks=(M.hooks or 0)+1
     local original=object[method]
     object[method]=function(self,...)
@@ -318,6 +319,9 @@ RAID_CLASS_COLORS={PALADIN={r=.96,g=.55,b=.73},MAGE={r=.25,g=.78,b=.92},ROGUE={r
 LibStub=nil
 ElvUI=nil
 AddonCompartmentFrame=nil
+GameMenuFrame=nil
+ADDONS="AddOns"
+HideUIPanel=function(frame) frame.shown=false;M.closedPanel=frame end
 GameTooltip=nil
 GetCursorPosition=function() return 0,0 end
 for _,prefix in ipairs({"ElvUF_","EllesmereUIUnitFrames_"}) do

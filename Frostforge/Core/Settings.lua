@@ -661,10 +661,11 @@ function S:Create()
     self:Dropdown("strata","Portrait art strata",strata,0,-14,a)
     self:Number("level","Level within strata",346,-14,1,a)
     self:Dropdown("unitFrameStrata","Unit-frame art strata",automaticStrata,0,-108,a)
+    self:Number("smallFrameLevel","Border levels above frame",346,-108,1,a)
     self:Dropdown("layer","Texture draw layer",layers,346,-202,a)
     self:Dropdown("unitFrameFill","Health & power textures",{{"AUTO","Automatic (respect UI addon)"},{"PROVIDER","Keep provider textures"},{"JIBERISH","Use Frostforge fills"}},346,-108,a)
     self.debugButton=toggle(a,"Show fitting bounds",0,-350,318,function() J.Core:Command("debug") end)
-    text(a,"Strata controls which artwork draws in front. Each decoration has its own setting. Higher strata may cover names. Choose Frostforge Stone in your UI addon to share the stone texture across its bars.",0,-286,666)
+    self.layerHelp=text(a,"",0,-286,666)
     self.diagnosticsButton=button(a,"Print support details to chat",346,-350,318,function() J.Core:Command("status");self.message="Support details printed to chat. Include them with your screenshot.";self:Refresh() end)
 
     a=self.pages.placement
@@ -838,7 +839,7 @@ function S:Create()
     self.minimapIconToggle=toggle(a,"Show minimap settings icon",346,-246,318,function()
         J.Access:SetIcon(not J.Access:IconEnabled());self:Refresh()
     end)
-    text(a,"Open Frostforge from the AddOn Compartment or ElvUI settings. The minimap icon is optional.",0,-288,666)
+    text(a,"Open Frostforge from Escape → Frostforge, the AddOn Compartment or ElvUI settings. The minimap icon is optional.",0,-288,666)
     button(a,"Copy settings backup",0,-326,318,function() self:ShowBackup("export") end)
     button(a,"Restore from backup",346,-326,318,function() self:ShowBackup("import") end)
     text(a,"Back up before making broad changes or reinstalling. Backups cover all components.",0,-360,666)
@@ -904,6 +905,7 @@ function S:Refresh()
     if small and self.page=="artwork" then self.pageHint:SetText("Compact castbar-style artwork around health and power; each member matches independently.") end
     if small and self.page=="fitting" then self.pageHint:SetText("Enable Compact frame border on Artwork; then fit its size, position and weight.") end
     if small and self.page=="placement" then self.pageHint:SetText("Fit the portrait surrounds together. Use Frame border for the borders around the bars.") end
+    if small and self.page=="advanced" then self.pageHint:SetText("Set portrait and compact border layers independently.") end
     for key,page in pairs(self.pages) do
         page:SetShown(key==self.page)
         if self.pageButtons[key] then self.pageButtons[key].selection:SetShown(key==self.page) end
@@ -921,9 +923,13 @@ function S:Refresh()
     self.frameFitReset.caption:SetText(small and "Reset border fitting" or "Reset unit-frame fitting")
     self.debugButton:SetShown(not small)
     self.controls.level.label:SetText(small and "Levels above portrait" or "Level within strata")
+    self.controls.unitFrameStrata.label:SetText(small and "Compact border strata" or "Unit-frame art strata")
+    self.controls.layer.label:SetText(small and "Portrait texture layer" or "Texture draw layer")
+    self.layerHelp:SetText(small and "Portrait and compact border layers are independent. Automatic border strata clears your frame's borders and highlights. Raise Border levels above frame for more overlap. Setting changes apply after combat."
+        or "Strata controls which artwork draws in front. Each decoration has its own setting. Higher strata may cover names. Choose Frostforge Stone in your UI addon to share the stone texture across its bars.")
     self.smallMatch:SetShown(small);self.smallMatch.selection:SetShown(small and config.smallFrameArt=="MATCH")
     for _,v in ipairs({self.fittingPanel,self.fittingTitle,self.fittingHelp}) do v:SetShown(not small) end
-    for _,property in ipairs({"smallFrameWeight","smallFramePadding"}) do
+    for _,property in ipairs({"smallFrameWeight","smallFramePadding","smallFrameLevel"}) do
         for _,part in ipairs({"edit","slider","label"}) do self.controls[property][part]:SetShown(small) end
     end
     self.controls.anchor.button:SetShown(not small);self.controls.anchor.label:SetShown(not small)
