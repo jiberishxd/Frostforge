@@ -78,7 +78,7 @@ def write():
         fields.extend(['tint={'+','.join(map(str,s['tint']))+'}',f"ornament={s['ornament']}",f"thickness={s['thickness']}"])
         lines.append('    {'+','.join(fields)+'},')
     lines.append('}')
-    (ROOT/'JiberishUI/SkinCatalog.lua').write_text('\n'.join(lines)+'\n')
+    (ROOT/'Frostforge/SkinCatalog.lua').write_text('\n'.join(lines)+'\n')
     print(f'Wrote {len(SKINS)} skin choices across {len(set(s["material"] for s in SKINS))} material families')
 
 if __name__=='__main__': write()

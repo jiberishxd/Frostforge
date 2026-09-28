@@ -281,6 +281,7 @@ M.unitData = {
     target={player=true,class="ROGUE",race="Human",faction="Alliance"},
     focus={player=true,class="MAGE",race="Gnome",faction="Alliance"},
 }
+function UnitExists(unit) return M.unitData[unit]~=nil end
 function UnitIsPlayer(unit) return M.unitData[unit] and M.unitData[unit].player end
 function UnitClass(unit) return "localized",M.unitData[unit] and M.unitData[unit].class end
 function UnitRace(unit) return "localized",M.unitData[unit] and M.unitData[unit].race end
@@ -387,11 +388,12 @@ function M.load(options)
     JiberishUIDB=options.db
     JiberishUICharacterDB=options.characterDB or M.characterDB
     local J={}
-    local toc=assert(io.open("JiberishUI/JiberishUI.toc")):read("*a")
+    local directory,addonName=options.addonDirectory or "Frostforge",options.addonName or "Frostforge"
+    local toc=assert(io.open(directory.."/"..addonName..".toc")):read("*a")
     for path in toc:gmatch("[^\r\n]+") do
         if path:match("%.lua$") then
-            local chunk=assert(loadfile("JiberishUI/"..path:gsub("\\","/")))
-            chunk("JiberishUI",J)
+            local chunk=assert(loadfile(directory.."/"..path:gsub("\\","/")))
+            chunk(addonName,J)
         end
     end
     -- Existing shell tests explicitly isolate the per-unit renderer from the global stock texture option.

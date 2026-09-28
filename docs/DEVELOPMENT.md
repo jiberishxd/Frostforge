@@ -1,6 +1,6 @@
 # Development and local previews
 
-Frostforge is a Lua addon with retained artwork sources and offline previews. The game installs only the packaged `JiberishUI` directory. The repository itself also includes editing references, tooling and tests.
+Frostforge is a Lua addon with retained artwork sources and offline previews. The game installs only the packaged `Frostforge` directory. The repository itself also includes editing references, tooling and tests.
 
 ## Build installable ZIPs
 
@@ -10,7 +10,9 @@ Requires Python 3. From the repository root, run:
 python3 tools/package.py
 ```
 
-This writes `Jiberishs-Frostforge-Retail-<version>.zip` and `Jiberishs-Frostforge-Forever-<version>.zip` into `dist/`. Use the archive matching your client; each contains a single top-level `JiberishUI` folder. Keep the complete folder together.
+This writes `Jiberishs-Frostforge-Retail-<version>.zip` and `Jiberishs-Frostforge-Forever-<version>.zip` into `dist/`. Use the archive matching your client; each contains a single top-level `Frostforge` folder and a matching `Frostforge.toc`. Keep the complete folder together.
+
+The repository source and packaged addon both use `Frostforge/Frostforge.toc`. GitHub's **Code → Download ZIP** therefore contains `Frostforge-main/Frostforge`; copy only that inner addon folder into `Interface/AddOns/`. The source manifest supports both clients, while packaging selects a single client and replaces `Build.lua` with its pinned build metadata. No runtime path rewriting is needed. Saved-variable names and compatibility aliases remain unchanged. Validation checks source-folder naming, unchanged packaged Lua, every installed media path and startup under the `Frostforge` addon name with supplied saved tables.
 
 ## Local checks
 

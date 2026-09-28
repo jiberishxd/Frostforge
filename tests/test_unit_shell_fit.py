@@ -41,7 +41,7 @@ class ShellFitTests(unittest.TestCase):
                 self.assertFalse(alpha[:4].any() or alpha[-4:].any() or alpha[:,:4].any() or alpha[:,-4:].any())
                 self.assertTrue((alpha[:48,48:464]>32).any(axis=0).all())
                 self.assertTrue((alpha[80:,48:464]>32).any(axis=0).all())
-                game = Image.open(ROOT / 'JiberishUI/Media/CastBars' / (theme['file']+'.tga')).convert('RGBA')
+                game = Image.open(ROOT / 'Frostforge/Media/CastBars' / (theme['file']+'.tga')).convert('RGBA')
                 self.assertEqual(image.tobytes(), game.tobytes())
                 for style, pieces in theme['styles'].items():
                     self.assertEqual(len(pieces), 8)
@@ -105,7 +105,7 @@ class ShellFitTests(unittest.TestCase):
         retained_hubs={Path(a['file']).stem:a for a in json.loads((ROOT/'artwork/hubs/style-remaster/before/manifest.json').read_text())['assets']}
         for name, expected in baseline['assets'].items():
             if name.endswith('Portraits/class_mage.tga'): continue
-            if name=='JiberishUI/Media/Minimaps/race_nightelf.tga':
+            if name=='Frostforge/Media/Minimaps/race_nightelf.tga':
                 buffer=io.BytesIO()
                 Image.open(ROOT/'artwork/nightelf-emblem-update/minimap-before.png').save(buffer,format='TGA',compression=None)
                 self.assertEqual(hashlib.sha256(buffer.getvalue()).hexdigest(),expected)

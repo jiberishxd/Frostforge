@@ -1,5 +1,7 @@
 # Saved settings and the reported Forever loading issue
 
+The install folder changes to `Frostforge` in 0.9.5. Existing `JiberishUI.lua` saved files must be copied to `Frostforge.lua` while WoW is closed, at both account and character scope; keeping the same Lua table names does not make WoW load the old filenames. See the [one-time upgrade steps](GETTING-STARTED.md#upgrading-to-frostforge). The package does not read or move files in WTF automatically.
+
 Earlier player-reported Forever 1.60.1 build 69913 diagnostics reported that no JiberishUIDB table was received at startup, even though valid saved data had previously been inspected on disk. This refactor does not repair or make a new claim about the client's SavedVariables loader.
 
 Named setups are stored in `JiberishUIDB.profileStore`; the chosen profile ID is stored per character in `JiberishUICharacterDB`. The first character upgrading from a single setup retains it as Imported setup. New characters receive separate automatic-class defaults. `JiberishUIDB.phase1` remains an alias to the active setup for existing diagnostics. Earlier renderer profiles remain untouched and inactive. The two client installations use separate saved files. See [Profiles](PROFILES.md) for copies, shared profiles and migration.

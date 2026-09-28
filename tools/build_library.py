@@ -39,7 +39,7 @@ def build():
     manifest['assets']=[a for a in manifest['assets'] if Path(a['file']).parent.name not in MATERIALS]
     manifest['generatedArtwork']=[]
     def save(im,material,name,source,crop,transform):
-        path=ROOT/'JiberishUI/Media'/material/(name+'.tga');path.parent.mkdir(parents=True,exist_ok=True)
+        path=ROOT/'Frostforge/Media'/material/(name+'.tga');path.parent.mkdir(parents=True,exist_ok=True)
         im=im.convert('RGBA');im.save(path,compression=None)
         manifest['assets'].append(dict(file=path.relative_to(ROOT).as_posix(),source=source,crop=crop,transform=transform,
                                       size=list(im.size),alphaBounds=im.getchannel('A').getbbox(),sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
@@ -91,7 +91,7 @@ def build():
 def build_previews():
     materials={}
     for name in sorted({s['material'] for s in SKINS}):
-        materials[name]={key:Image.open(ROOT/'JiberishUI/Media'/name/(key+'.tga')).convert('RGBA') for key in PIECES}
+        materials[name]={key:Image.open(ROOT/'Frostforge/Media'/name/(key+'.tga')).convert('RGBA') for key in PIECES}
     def panel(skin):
         card=Image.new('RGBA',(450,180),'#141b24');d=ImageDraw.Draw(card)
         d.text((16,12),skin['label'],font=font(19,True),fill='#ecf2ff')

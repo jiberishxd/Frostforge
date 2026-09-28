@@ -21,7 +21,7 @@ class HubRestyleTests(unittest.TestCase):
             if name=='artwork/unit-frames/sculpted/references/race_nightelf.png':
                 self.assertEqual(digest(ROOT/'artwork/nightelf-emblem-update/unit-frame-before.png'),sha)
                 continue
-            if name=='JiberishUI/Media/UnitFrames/race_nightelf.tga':
+            if name=='Frostforge/Media/UnitFrames/race_nightelf.tga':
                 import io
                 buffer=io.BytesIO()
                 Image.open(ROOT/'artwork/nightelf-emblem-update/unit-frame-fitted-before.png').save(buffer,format='TGA',compression=None)

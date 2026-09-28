@@ -8,11 +8,11 @@ Open the AddOn Compartment entry, ElvUI’s Frostforge section, the optional min
 - **Advanced:** Health/power texture ownership, layers, fitting bounds and support details printed to chat.
 - **Cast bar (Player/Target/Focus):** Independent enable toggle, one Bold artwork style, automatic or explicit Blizzard/EllesmereUI/ElvUI provider, Match unit artwork or a separate collection choice, border width, height, weight and spacing, plus strata and level. Off by default; the provider must have its own cast bar enabled. [Cast-bar details](CAST-BARS.md).
 - **The Igloo:** Select and copy [theigloo.io](https://theigloo.io) into your browser to visit Jiberish's website.
-- **Guide:** Rerun the three-step setup wizard, toggle the optional minimap icon, read setup help, or copy/paste a settings backup. Restore replaces Frostforge settings for all five components; invalid backups leave current settings intact. Reset component asks before restoring just that component's defaults.
+- **Guide:** Rerun the four-screen illustrated setup tour, toggle the optional minimap icon, read setup help, or copy/paste a settings backup. Restore replaces Frostforge settings for all five components; invalid backups leave current settings intact. Reset component asks before restoring just that component's defaults.
 
 The window uses native Blizzard borders, quiet solid dark panels, muted frost-blue Blizzard buttons and white button labels, alongside native Blizzard checks and sliders. Hover brightens a fitted icy outline; selected tabs, enabled toggles and chosen options keep their blue border after the pointer leaves. The official transparent penguin logo stays in the header across every component. It scales to fit shorter screens, remembers dragged position, and supports Escape to close. Search matches plain label text within the selected class/race/faction category; long collections have pages.
 
-When you change targets in combat, the full unit-frame shell keeps its already fitted design until combat ends, then fits the current unit's design. Portrait surrounds can update immediately when the game permits. Briefly unreadable frames hide their decorations safely and recover on the same attachment when readable again; attaching to a different frame still waits until combat ends.
+When you change targets in combat, the portrait surround and full unit-frame artwork update to the new readable identity when the game permits. The shell remaps the new design into its existing fitted sections, including the footer for units without power. Bar positions, dimensions and native fill textures wait until combat ends, when the design's exact proportions are refitted. Briefly unreadable frames hide their decorations safely and recover on the same attachment when readable again; attaching to a different frame still waits until combat ends.
 
 ## Minimap shape and layering
 
@@ -58,3 +58,9 @@ Open **Blizzard → Colors & textures**. The selected Player, Target or Focus ha
 ## Aura position fix (0.8.8)
 
 Target/Focus buff/debuff offsets now reapply after Blizzard's aura-anchor callback, so a native layout refresh cannot erase an out-of-combat X/Y edit before it appears. **Customize position** shows applied offsets or a waiting/error status, also available through `/jui status`. Native updates during combat retain a fresh baseline for reconciliation after combat.
+
+## Browse unit-frame art
+
+Player, Target and Focus → **Artwork** now show separate portrait and full-frame previews. **Browse frame art** opens all 42 unit-frame designs in Classes, Races and Factions, with search and pagination. The previews use the actual full-shell artwork and mirror for Target/Focus.
+
+Portrait and unit-frame artwork share the selected theme for that unit. Choosing a frame design changes that shared theme to **Chosen artwork**; it does not enable either artwork toggle or change another unit. Enable **Unit-frame art** separately. Return **Shared artwork theme** to an automatic mode to follow unit identity again. The gallery is created only when opened and clears thumbnails when closed.

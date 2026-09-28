@@ -16,6 +16,8 @@ ElvUI additionally requires full-width attached power: its inset, mini/spaced, o
 
 These provider layout rules differ from the Blizzard power-only fitting described above. Both share the same unmodified artwork and texture restoration/combat gates.
 
+Since 0.9.4, a readable identity change during combat refreshes the existing shell's texture and measured UV cuts immediately. Health, power and the prepared no-power footer all follow the new identity. Their already fitted rectangles stay fixed, keeping the openings aligned with the native bars; exact source proportions are restored after combat. Native fills, anchors and dimensions remain deferred. Protected or forbidden artwork remains untouched until writable, and a different native bar still requires a new attachment outside combat.
+
 Commands:
 
 ```text

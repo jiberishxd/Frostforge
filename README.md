@@ -14,7 +14,7 @@ Jiberish's Frostforge adds sculpted artwork around your portraits, health and po
 
 *Artwork showcase using the addon's actual textures. See the gallery for labeled previews and an early in-game capture.*
 
-**Current source: 0.9.3 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/JiberishUI-WoW/releases) published yet. To test from source, [build an installable ZIP](docs/DEVELOPMENT.md#build-installable-zips).
+**Current source: 0.9.7 · Development preview.** Retail and Forever packages are built separately. Automated checks cover behavior, artwork fitting and packaging; live-client compatibility and custom layouts still need player testing. There are no packaged [GitHub releases](https://github.com/jiberishxd/Frostforge/releases) published yet. Use the `Frostforge` folder from **Code → Download ZIP**, or [build a client-specific ZIP](docs/DEVELOPMENT.md#build-installable-zips).
 
 ## Make it your own
 
@@ -50,7 +50,7 @@ Third-party addons must support your game client themselves. Frostforge does not
 
 ## Get started
 
-1. Install the matching **Retail** or **Forever** ZIP. Put its `JiberishUI` folder directly inside your client's `Interface/AddOns/` directory, then fully restart WoW.
+1. Put the **`Frostforge`** folder directly inside your client's `Interface/AddOns/` directory, then fully restart WoW. In GitHub's **Code → Download ZIP**, this is the inner `Frostforge-main/Frostforge` folder. Client-specific **Retail** and **Forever** packages use the same install folder.
 2. Enable Frostforge and your preferred UI addon. Follow the first-launch setup wizard, or open the **AddOn Compartment** entry / **`/frostforge`**.
 3. Choose **Player**, **Target** or **Focus**. In **Artwork**, select automatic class/race/faction matching or browse for a fixed design.
 4. Enable **Portrait art** and **Unit-frame art** independently. Portraits start on; full shells start off. Choose the correct providers when using multiple UI addons.
@@ -62,11 +62,11 @@ Settings save as you go. Fitting changes that need to wait for combat apply afte
 
 *Offline settings preview exported from the addon's settings code; fonts and native panel textures are browser approximations.*
 
-**Upgrading from JiberishUI?** Your profiles, backups and `/jui` / `/jf` commands still work. Keep the install folder named `JiberishUI`; the in-game title is **Jiberish's Frostforge**.
+**Upgrading from the JiberishUI folder?** Version 0.9.5 uses `Frostforge/Frostforge.toc`. Follow the [one-time settings transfer](docs/GETTING-STARTED.md#upgrading-to-frostforge) before replacing the old folder. Profiles, backup formats and `/jui` / `/jf` commands remain compatible; do not leave both addon folders installed.
 
 Visit **The Igloo** tab to copy [theigloo.io](https://theigloo.io) into your browser.
 
-For a clean update, close WoW and replace only the existing `Interface/AddOns/JiberishUI` folder. Keep your `WTF` folder and saved settings. [Full setup and troubleshooting](docs/GETTING-STARTED.md).
+For subsequent updates, close WoW and replace only the existing `Interface/AddOns/Frostforge` folder. Keep your `WTF` folder and saved settings. [Full setup and troubleshooting](docs/GETTING-STARTED.md).
 
 ## Help, feedback and development
 
@@ -79,3 +79,9 @@ This build decorates Player, Target, Focus, the main action hub and minimap. The
 Frostforge is an independent community project. [Artwork credits and source references](docs/ARTWORK-CREDITS.md) · [Test results](docs/TEST-RESULTS.md) · [Advanced commands](docs/COMMANDS.md).
 
 Blizzard users can open **Player/Target/Focus → Blizzard → Colors & textures** for class-colored names, class-gradient health, dark stone health, and separate health/power texture choices. Party/raid colors are included; these controls do not require ElvUI or EllesmereUI.
+
+## Artwork credits
+
+Blizzard artwork, icons, emblems and other Blizzard game assets depicted or referenced are © Blizzard Entertainment, Inc. World of Warcraft and Warcraft are trademarks or registered trademarks of Blizzard Entertainment, Inc. Jiberish's Frostforge is an independent fan-made addon and is not affiliated with, sponsored by or endorsed by Blizzard Entertainment.
+
+See [artwork credits and provenance](docs/ARTWORK-CREDITS.md). Credit does not grant permission to reuse an asset.

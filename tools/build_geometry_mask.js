@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const root = path.resolve(__dirname, '..');
-const file = 'JiberishUI/Media/outside-rect.tga';
+const file = 'Frostforge/Media/outside-rect.tga';
 const bytes = Buffer.alloc(18 + 8 * 8 * 4);
 bytes[2] = 2; bytes.writeUInt16LE(8, 12); bytes.writeUInt16LE(8, 14);
 bytes[16] = 32; bytes[17] = 40;

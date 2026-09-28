@@ -27,7 +27,7 @@ def stamp(canvas, image, box):
 def main():
     for folder in ('originals','assets','game'):
         (ART/folder).mkdir(parents=True,exist_ok=True)
-    output=ROOT/'JiberishUI/Media/Hubs';output.mkdir(parents=True,exist_ok=True)
+    output=ROOT/'Frostforge/Media/Hubs';output.mkdir(parents=True,exist_ok=True)
     official={a['id']:a for a in json.loads((ROOT/'artwork/official-crests/sources.json').read_text())}
     portraits=json.loads((ROOT/'artwork/portraits/manifest.json').read_text())['assets']
     palettes={}
@@ -101,9 +101,9 @@ def main():
     (ART/'gallery-data.js').write_text('const hubAssets = '+json.dumps(reports)+';\n')
     lines=['local _, J = ...','-- Data only; all variants use the same five-piece fitting template.','J.HubCatalog = { entries = {} }']
     for entry in reports:
-        path='Interface\\AddOns\\JiberishUI\\Media\\Hubs\\'+entry['id']+'.tga'
+        path='Interface\\AddOns\\Frostforge\\Media\\Hubs\\'+entry['id']+'.tga'
         lines.append('J.HubCatalog.entries.'+entry['id'].upper()+' = {label='+json.dumps(entry['label'])+',group='+json.dumps(entry['group'].upper())+',texture='+json.dumps(path)+'}')
-    (ROOT/'JiberishUI/Themes/Hubs.lua').write_text('\n'.join(lines)+'\n')
+    (ROOT/'Frostforge/Themes/Hubs.lua').write_text('\n'.join(lines)+'\n')
     target=ROOT/'docs/phase1-assets.json';data=json.loads(target.read_text())
     data['assets']=[a for a in data['assets'] if '/Hubs/' not in a['file'] and not a['file'].endswith('PaladinRet/action-hub.tga')]+reports
     data['official_crest_sources']='artwork/official-crests/sources.json'

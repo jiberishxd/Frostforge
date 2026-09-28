@@ -338,7 +338,7 @@ function B:SyncText(state,groups,config,active)
 end
 
 function B:TickUnit(key)
-    local config=J.ThemeManager:Resolve(key)
+    local config=J.ThemeManager:Read(key)
     local state=self.units[key]
     local textEnabled=false
     for _,group in ipairs(self.textGroups) do if config["blizzard"..group.."Enabled"] then textEnabled=true end end
@@ -421,7 +421,7 @@ end
 function B:ApplyPlacement(key,kind,nativeAnchor)
     self.placements=self.placements or {}
     local id=key..kind;local prefix="blizzard"..kind
-    local config=J.ThemeManager:Resolve(key)
+    local config=J.ThemeManager:Read(key)
     local record=self.placements[id]
     if record and nativeAnchor then record.nativeAnchor=true end
     nativeAnchor=nativeAnchor or (record and record.nativeAnchor)
@@ -605,8 +605,8 @@ function B:TickColors()
         return
     end
     local wanted={}
-    local shared=J.ThemeManager:Resolve("playerFrame")
-    local configs={playerFrame=shared,targetFrame=J.ThemeManager:Resolve("targetFrame"),focusFrame=J.ThemeManager:Resolve("focusFrame")}
+    local shared=J.ThemeManager:Read("playerFrame")
+    local configs={playerFrame=shared,targetFrame=J.ThemeManager:Read("targetFrame"),focusFrame=J.ThemeManager:Read("focusFrame")}
     local enabled=next(J.UnitSkins.stockRecords or {})~=nil
         or shared.blizzardPartyNameColor~="STOCK" or shared.blizzardPartyHealthColor~="STOCK"
         or shared.blizzardPartyPowerColor~="STOCK" or shared.blizzardPartyPowerShading=="GRADIENT"

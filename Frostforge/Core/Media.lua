@@ -2,13 +2,15 @@ local _, J = ...
 
 -- Sculpted RGBA test assets; the RGB design references are never packaged.
 J.Media = {
-    logo = "Interface\\AddOns\\JiberishUI\\Media\\Branding\\frostforge-logo.tga",
-    panelStone = "Interface\\AddOns\\JiberishUI\\Media\\Branding\\frostforge-stone.tga",
-    minimap = "Interface\\AddOns\\JiberishUI\\Media\\Minimaps\\class_paladin.tga",
-    hub = "Interface\\AddOns\\JiberishUI\\Media\\Hubs\\class_paladin.tga",
+    setupInGame = "Interface\\AddOns\\Frostforge\\Media\\Setup\\setup-ingame.tga",
+    setupSettings = "Interface\\AddOns\\Frostforge\\Media\\Setup\\setup-settings.tga",
+    logo = "Interface\\AddOns\\Frostforge\\Media\\Branding\\frostforge-logo.tga",
+    panelStone = "Interface\\AddOns\\Frostforge\\Media\\Branding\\frostforge-stone.tga",
+    minimap = "Interface\\AddOns\\Frostforge\\Media\\Minimaps\\class_paladin.tga",
+    hub = "Interface\\AddOns\\Frostforge\\Media\\Hubs\\class_paladin.tga",
     -- All health variants contain this same grayscale stone. Reuse the active
     -- asset rather than distributing another copy for SharedMedia consumers.
-    stone = "Interface\\AddOns\\JiberishUI\\Media\\UnitFrames\\class_paladin-health.tga",
+    stone = "Interface\\AddOns\\Frostforge\\Media\\UnitFrames\\class_paladin-health.tga",
 }
 
 function J.Media:RegisterShared()

@@ -122,7 +122,7 @@ end)
 
 test("portrait gallery selects fixed art without mutating other modules",function(M)
     local J=M.load(); local S=J.SettingsUI; S:Open()
-    S.tabs.focusFrame.scripts.OnClick()
+    S.tabs.focusFrame.scripts.OnClick();S.portraitButton.scripts.OnClick()
     assert(S.portraitButtons.CLASS_PALADIN.image.texCoord[1]==0.5)
     assert(S.portraitButtons.CLASS_PALADIN.image.texCoord[2]==1)
     S:ShowPortraitGroup("RACE",2)

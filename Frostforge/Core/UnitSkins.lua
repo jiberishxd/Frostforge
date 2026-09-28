@@ -50,9 +50,13 @@ function S:Watch(record)
         -- Observe redraws here. The color controller may reassert an already
         -- prepared power material; layout and other fills wait outside combat.
         if not usable(frame) or record.writing or not record.active then return end
+        -- Stock StatusBars own live fill UVs (health/power animation). Only
+        -- asset selection needs reapplication; UV movement is not a new skin.
+        if record.stock and not selection then return end
         record.external = true
         if selection then record.externalSelection = true end
-        J.Core.dirty = true
+        -- The regular skin pass observes this record. A native fill redraw
+        -- must not invalidate every portrait, minimap and action-hub layout.
     end
     for _,item in ipairs({{record.bar,"SetStatusBarTexture"},{record.texture,"SetTexture"},
                           {record.texture,"SetAtlas"},{record.texture,"SetTexCoord"}}) do
@@ -246,8 +250,8 @@ function S:FitPowerLayout(key,bars,id,enabled)
     if record and (not enabled or record.bar~=bar or record.partial) and not self:RestorePowerLayout(key) then return false end
     if not enabled or not bars or not bar then return false end
     if InCombatLockdown() then
-        local ready=record and record.id==id or false
-        if not ready then J.Core.dirty=true end
+        local ready=record and record.bar==bar and not record.partial or false
+        if not ready or record.id~=id then J.Core.dirty=true end
         return ready
     end
     local health,power=geometry(bars.health),geometry(bar)
@@ -315,7 +319,7 @@ function S:FitAttachedLayout(key,bars,id,enabled)
     if not enabled then return false end
     if InCombatLockdown() then
         J.Core.dirty=true
-        return record and record.id==id and not record.health.partial and not record.power.partial or false,"Layout queued until combat ends"
+        return record and not record.health.partial and not record.power.partial or false,"Layout queued until combat ends"
     end
     local hg,pg=geometry(health),geometry(power)
     if not hg or not pg then
@@ -424,6 +428,60 @@ local function shellStrata(config,g)
     return requested
 end
 
+local function shellCuts(kind,entry,mirror)
+    local h,p=entry.opening.health,entry.opening.power
+    local rows=kind=="health" and {0,h[2],h[4],p[2]} or {p[2],p[4],256}
+    local cols=mirror and {512,h[3],h[1],0} or {0,h[1],h[3],512}
+    local center=(h[1]+h[3])/2
+    local footer=mirror and {h[3],center+48,center-48,h[1]} or {h[1],center-48,center+48,h[3]}
+    return rows,cols,footer
+end
+
+local function writableArt(trim)
+    if not usable(trim.frame) or (InCombatLockdown() and trim.frame:IsProtected()) then return false end
+    for _,texture in pairs(trim.textures) do
+        if not usable(texture) or (InCombatLockdown() and type(texture.IsProtected)=="function" and texture:IsProtected()) then return false end
+    end
+    return true
+end
+
+-- Identity can change while the native bar layout is locked. Remap the new
+-- painting's measured openings onto the existing cells: swapping only the file
+-- would put bevels inside the fill. No anchors, dimensions or native fills are
+-- written here. The source-proportional fit is reconciled after combat.
+function S:RefreshArt(record,kind,id)
+    local trim=record.trim
+    if not trim or not trim.applied then return false end
+    local mirror=trim.applied.mirror
+    if record.id==id and trim.assetOK and trim.paintMirror==mirror then return true end
+    if not writableArt(trim) then
+        J.Core.dirty=true;return false
+    end
+    local entry=J.UnitSkinCatalog.entries[id] or J.UnitSkinCatalog.entries.FACTION_NEUTRAL
+    local rows,cols,footer=shellCuts(kind,entry,mirror)
+    trim.assetOK=true
+    local function paint(texture,l,r,t,b)
+        texture:SetTexCoord(l/512,r/512,t/256,b/256)
+        if texture:SetTexture(entry.shell)==false then trim.assetOK=false end
+    end
+    for row=1,#rows-1 do
+        for column=1,3 do
+            -- The center of the bottom row is painted with the dedicated
+            -- ornament below, preserving all three footer spans.
+            if kind~="power" or row~=2 or column~=2 then
+                paint(trim.textures[row.."_"..column],cols[column],cols[column+1],rows[row],rows[row+1])
+            end
+        end
+    end
+    if kind=="power" then
+        for i,name in ipairs({"footerLeft","2_2","footerRight"}) do
+            paint(trim.textures[name],footer[i],footer[i+1],rows[2],rows[3])
+        end
+    end
+    record.id,trim.paintMirror,trim.applied.texture=id,mirror,entry.shell
+    return trim.assetOK
+end
+
 function S:Layout(record,key,kind,config,id,g)
     local trim=record.trim
     if not trim then trim=self:CreateTrim(key,kind);record.trim=trim end
@@ -432,7 +490,7 @@ function S:Layout(record,key,kind,config,id,g)
     local changed=not old or old.w~=g.w or old.h~=g.h or old.scale~=g.scale or old.parentScale~=g.parentScale
         or old.capScale~=g.capScale or old.artScale~=g.artScale or old.anchorY~=g.anchorY or old.level~=g.level or old.strata~=g.strata
     local applied=trim.applied
-    if changed or record.id~=id or not applied or applied.strata~=config.strata
+    if changed or record.layoutID~=id or not applied or applied.strata~=config.strata
         or applied.unitFrameStrata~=config.unitFrameStrata or applied.level~=config.level or applied.layer~=config.layer or applied.unitFrameWidth~=config.unitFrameWidth
         or applied.unitFrameHeight~=config.unitFrameHeight or applied.unitFrameX~=config.unitFrameX or applied.unitFrameY~=config.unitFrameY
         or trim.debugApplied~=J.ProfileManager.current.debug then
@@ -444,8 +502,6 @@ function S:Layout(record,key,kind,config,id,g)
         local left,right=(mirror and 512-health[3] or health[1])*k,(mirror and health[1] or 512-health[3])*k
         local top=kind=="health" and health[2]*k or 0
         local heights=kind=="health" and {top,g.h,(power[2]-health[4])*k} or {g.h,(256-power[4])*k}
-        local rows=kind=="health" and {0,health[2],health[4],power[2]} or {power[2],power[4],256}
-        local cols=mirror and {512,health[3],health[1],0} or {0,health[1],health[3],512}
         local sx,sy,dx,dy,openingWidth=artTransform(kind,config,entry,g)
         local widths={left,openingWidth,right}
         for i,v in ipairs(widths) do widths[i]=v*sx end
@@ -458,7 +514,6 @@ function S:Layout(record,key,kind,config,id,g)
         -- level-zero profiles are safely raised to the owning bar's layer.
         f:SetFrameStrata(shellStrata(config,g));f:SetFrameLevel(math.max(config.level,g.level+1))
         local path=entry.shell
-        trim.assetOK=true
         local y=0
         for row,h in ipairs(heights) do
             local x=0
@@ -467,9 +522,7 @@ function S:Layout(record,key,kind,config,id,g)
                 if texture then
                     texture:ClearAllPoints();texture:SetPoint("TOPLEFT",f,"TOPLEFT",x,-y)
                     texture:SetSize(w,h)
-                    texture:SetTexCoord(cols[column]/512,cols[column+1]/512,rows[row]/256,rows[row+1]/256)
                     texture:SetDrawLayer(config.layer)
-                    if texture:SetTexture(path)==false then trim.assetOK=false end
                 end
                 x=x+w
             end
@@ -478,12 +531,9 @@ function S:Layout(record,key,kind,config,id,g)
         if kind=="power" then
             -- Keep the moon/crest at the same aspect ratio as the endcaps.
             -- Only the two cloth/rail spans on either side stretch to bar width.
-            local center=(health[1]+health[3])/2
             local half=48
             local centerWidth=math.min(half*2*k,openingWidth*.8)
             local span=(openingWidth-centerWidth)/2
-            local cuts=mirror and {health[3],center+half,center-half,health[1]}
-                or {health[1],center-half,center+half,health[3]}
             local sizes={span,centerWidth,span}
             local names={"footerLeft","2_2","footerRight"}
             local x=left*sx
@@ -491,9 +541,7 @@ function S:Layout(record,key,kind,config,id,g)
                 local texture=t[name]
                 texture:ClearAllPoints();texture:SetPoint("TOPLEFT",f,"TOPLEFT",x,-heights[1])
                 texture:SetSize(sizes[i]*sx,heights[2])
-                texture:SetTexCoord(cuts[i]/512,cuts[i+1]/512,power[4]/256,1)
                 texture:SetDrawLayer(config.layer)
-                if texture:SetTexture(path)==false then trim.assetOK=false end
                 x=x+sizes[i]*sx
             end
             if record.backing then
@@ -511,14 +559,16 @@ function S:Layout(record,key,kind,config,id,g)
         local snapshot={frame=record.bar,name=key.."."..kind.."Bar",scale=g.scale,visible=true,alpha=1}
         trim.applied,trim.snapshot=applied,snapshot
         J.Core:UpdateDebug(trim,snapshot,applied)
-        record.geometry,record.id=g,id
+        record.geometry,record.layoutID=g,id
     end
+    self:RefreshArt(record,kind,id)
     if trim.applied then trim.applied.opacity=config.opacity end
 end
 
 function S:Visibility(record,enabled)
     local trim=record.trim
     if not trim then return end
+    if not writableArt(trim) then J.Core.dirty=true;return end
     local snapshot
     if enabled and usable(record.bar) then
         local visible=record.bar:IsVisible()
@@ -553,6 +603,8 @@ function S:Footer(unit,key,bars,config,id,enabled)
         g.anchorY=-(p[2]-h[2])*g.capScale
         self:Layout(record,key,"power",config,id,g)
         unit.trims.footer=record.trim
+    elseif g and record and record.bar==health then
+        self:RefreshArt(record,"power",id)
     end
     if record then self:Visibility(record,enabled and g~=nil and record.bar==health and record.id==id) end
 end
@@ -583,14 +635,8 @@ function S:TickUnit(key)
     if not unit then unit={trims={}};self.units[key]=unit end
     local bars,reason
     if enabled then bars,reason=J.AddOnAnchors:UnitBars(key,config.unitFrameSource) end
-    local id=J.Portraits:Resolve(config)
-    -- Each shell has different measured openings. Keep the already fitted
-    -- design on this same health bar during combat, rather than hiding it or
-    -- swapping an incompatible atlas into its old geometry. Refit after combat.
-    local attached=unit.health
-    if InCombatLockdown() and bars and attached and attached.bar==bars.health and attached.id then
-        if id~=attached.id then J.Core.dirty=true;id=attached.id end
-    end
+    local present=J.Portraits:HasUnit(key)
+    local id=present and J.Portraits:Resolve(config) or (unit.health and unit.health.id) or "FACTION_NEUTRAL"
     local fitted,fitReason
     local healthOnly=enabled and noPower(bars)
     local external=bars and (bars.source=="ELLESMERE" or bars.source=="ELVUI")
@@ -619,7 +665,7 @@ function S:TickUnit(key)
         local record=unit[kind]
         local fillThisBar=manageFill and not (healthOnly and kind=="power")
         if not external then
-            local shared=J.ThemeManager:Resolve("playerFrame")
+            local shared=J.ThemeManager:Read("playerFrame")
             local selection=shared[kind=="health" and "blizzardHealthTexture" or "blizzardPowerTexture"]
             if selection~="AUTO" or (kind=="health" and config.blizzardHealthColor~="STOCK") then fillThisBar=false end
             if kind=="power" and (config.blizzardPowerColor~="STOCK" or config.blizzardPowerShading=="GRADIENT") then fillThisBar=false end
@@ -684,8 +730,9 @@ function S:TickUnit(key)
                     or record.trim.applied.unitFrameStrata~=config.unitFrameStrata or old.level~=g.level or old.strata~=g.strata or record.trim.applied.unitFrameWidth~=config.unitFrameWidth
                     or record.trim.applied.unitFrameHeight~=config.unitFrameHeight or record.trim.applied.unitFrameX~=config.unitFrameX or record.trim.applied.unitFrameY~=config.unitFrameY
                     or record.trim.applied.level~=config.level or record.trim.applied.layer~=config.layer then J.Core.dirty=true end
+                if not external or fitted then self:RefreshArt(record,kind,id) end
             end
-            self:Visibility(record,enabled and not (healthOnly and kind=="power") and record.id==id and (not external or fitted))
+            self:Visibility(record,enabled and present and not (healthOnly and kind=="power") and record.id==id and (not external or fitted))
             local shellReady=record.trim and record.trim.assetOK and (not external or fitted)
             states[#states+1]=kind..(shellReady and
                 (record.fillReady and ": shell + texture" or ": shell; native fill retained") or
@@ -693,7 +740,7 @@ function S:TickUnit(key)
                 ..(shellReady and not record.barVisible and " (native bar hidden)" or "")
         elseif record then self:Visibility(record,false) end
     end
-    self:Footer(unit,key,bars,config,id,enabled and healthOnly)
+    self:Footer(unit,key,bars,config,id,enabled and present and healthOnly)
     if enabled then
         self.status[key]=#states>0 and ((bars.name or "Blizzard")..": "..table.concat(states,"; ")) or reason or "Waiting for unit-frame bars"
         if healthOnly then self.status[key]=self.status[key].."; complete artwork follows health (no power bar)" end
@@ -759,10 +806,10 @@ function S:StockBars(units)
 end
 
 function S:StockTexture(info,configs)
-    local shared=configs and configs.playerFrame or J.ThemeManager:Resolve("playerFrame")
+    local shared=configs and configs.playerFrame or J.ThemeManager:Read("playerFrame")
     local selection=shared[info.kind=="health" and "blizzardHealthTexture" or "blizzardPowerTexture"]
     local healthMode=info.key=="party" and shared.blizzardPartyHealthColor
-        or info.key and (configs and configs[info.key] or J.ThemeManager:Resolve(info.key)).blizzardHealthColor
+        or info.key and (configs and configs[info.key] or J.ThemeManager:Read(info.key)).blizzardHealthColor
     if info.kind=="health" and healthMode=="DARK" then return J.Media.stone end
     if selection=="STONE" or (selection=="AUTO" and shared.blizzardStone) then return J.Media.stone end
     if selection=="SMOOTH" then return "Interface\\Buttons\\WHITE8X8" end
@@ -770,7 +817,7 @@ function S:StockTexture(info,configs)
     -- neutral material even when the user otherwise prefers Blizzard textures.
     if info.kind=="health" and healthMode=="CLASS" then return "Interface\\TargetingFrame\\UI-StatusBar" end
     if info.kind=="power" and info.key then
-        local config=info.key=="party" and shared or (configs and configs[info.key] or J.ThemeManager:Resolve(info.key))
+        local config=info.key=="party" and shared or (configs and configs[info.key] or J.ThemeManager:Read(info.key))
         local prefix=info.key=="party" and "blizzardPartyPower" or "blizzardPower"
         if config[prefix.."Color"]~="STOCK" or config[prefix.."Shading"]=="GRADIENT" then
             return "Interface\\TargetingFrame\\UI-StatusBar"
@@ -883,7 +930,7 @@ end
 
 function S:Tick()
     local configs={}
-    for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do configs[key]=J.ThemeManager:Resolve(key) end
+    for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do configs[key]=J.ThemeManager:Read(key) end
     self.stoneEnabled=configs.playerFrame.blizzardStone
     self.powerMaskBar=nil
     local bars

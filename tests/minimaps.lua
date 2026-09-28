@@ -101,8 +101,9 @@ end)
 test("minimap gallery pages have opaque backing and only load visible thumbnails",function(M)
     local J=M.load();local S=J.SettingsUI;S:Open();S:Select("minimap")
     assert(S.minimapButton.shown and S.controls.minimapMode.button.shown and not S.portraitButton.shown)
-    assert(S.minimapPicker.underlay and S.hubPicker.underlay and S.picker.underlay and S.frame.underlay)
+    assert(not S.minimapPicker and not S.picker)
     S.minimapButton.scripts.OnClick();S:ShowMinimapGroup("RACE",1)
+    assert(S.minimapPicker.underlay and S.frame.underlay)
     local countVisible=0
     for _,b in pairs(S.minimapButtons) do
         if b.shown then countVisible=countVisible+1;assert(b.image.path) else assert(b.image.path==nil) end

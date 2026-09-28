@@ -21,18 +21,18 @@ REQUIRED = {
 def source_checks():
     sources = active_sources()
     assert len(sources) == len(set(sources)) and set(sources) == REQUIRED
-    actual = {p.relative_to(ROOT / "JiberishUI").as_posix() for p in (ROOT / "JiberishUI").rglob("*.lua")}
+    actual = {p.relative_to(ROOT / "Frostforge").as_posix() for p in (ROOT / "Frostforge").rglob("*.lua")}
     assert actual == REQUIRED, "Inactive legacy Lua must not remain in the addon folder"
-    toc = (ROOT / "JiberishUI/JiberishUI.toc").read_text()
+    toc = (ROOT / "Frostforge/Frostforge.toc").read_text()
     assert "## SavedVariables: JiberishUIDB" in toc
     assert "## SavedVariablesPerCharacter: JiberishUICharacterDB" in toc
     assert "## Title: Jiberish's Frostforge" in toc
     assert "## X-Website: https://theigloo.io" in toc
     assert "Media\\Branding\\frostforge-logo.tga" in toc
-    assert VERSION in (ROOT / "JiberishUI/Core/Core.lua").read_text()
+    assert VERSION in (ROOT / "Frostforge/Core/Core.lua").read_text()
     forbidden = r"\b(loadstring|loadfile|dofile|UnitHealth|UnitPower|SetAttribute|SetParent|SetStatusBarTexture|SetStatusBarColor|SetAtlas|RegisterForClicks|SetBinding)\s*\("
     for name in sources:
-        code = (ROOT / "JiberishUI" / name).read_text()
+        code = (ROOT / "Frostforge" / name).read_text()
         code = re.sub(r"--[^\n]*", "", code)
         # Only the opt-in skin renderer may restore an existing fill atlas.
         rules = forbidden.replace("|SetAtlas", "").replace("|SetStatusBarTexture", "") if name == "Core/UnitSkins.lua" else forbidden
@@ -51,7 +51,7 @@ def source_checks():
                 assert code.count('J.ThemeManager:Register("paladin_ret"') == 1
         if name.startswith("Compatibility/"):
             assert "IsUsableFrame(frame)" in code
-    core = (ROOT / "JiberishUI/Core/Core.lua").read_text()
+    core = (ROOT / "Frostforge/Core/Core.lua").read_text()
     assert "pcall(frame.IsForbidden, frame)" in core and "PLAYER_REGEN_ENABLED" in core
     assert "IsProtected()" in core and 'EnableMouse(false)' in core
     assert 'SLASH_JIBERISHFANTASY1 = "/jf"' in core
@@ -61,7 +61,7 @@ def source_checks():
 def asset_checks():
     manifest = json.loads((ROOT / "docs/phase1-assets.json").read_text())
     assets = manifest["assets"]
-    assert len(assets) == 296
+    assert len(assets) == 298
     groups = [{Path(a["file"]).stem for a in assets if "/"+kind+"/" in a["file"]} for kind in ("Portraits", "Hubs", "Minimaps")]
     assert all(len(g) == 42 and g == groups[0] for g in groups), "Artwork catalogs must match"
     assert {Path(a["file"]).stem for a in assets if a.get("kind")=="unit-shell"} == groups[0]
@@ -72,16 +72,16 @@ def asset_checks():
             assert hashlib.sha256((ROOT/fitted[field]).read_bytes()).hexdigest()==fitted[hash_field]
     for kind in ('health','power'):
         assert {Path(a['file']).stem.rsplit('-',1)[0] for a in assets if a['file'].endswith('-'+kind+'.tga')} == groups[0]
-    actual_media = {p.relative_to(ROOT).as_posix() for p in (ROOT/"JiberishUI/Media").rglob("*") if p.is_file()}
+    actual_media = {p.relative_to(ROOT).as_posix() for p in (ROOT/"Frostforge/Media").rglob("*") if p.is_file()}
     expected_media = {a["file"] for a in assets}
     assert actual_media == expected_media, (
         "Addon media must contain only active manifest assets; "
         f"unused={sorted(actual_media - expected_media)}, missing={sorted(expected_media - actual_media)}"
     )
-    media = (ROOT / "JiberishUI/Core/Media.lua").read_text() + (ROOT / "JiberishUI/Themes/Portraits.lua").read_text() + (ROOT / "JiberishUI/Themes/Hubs.lua").read_text() + (ROOT / "JiberishUI/Themes/Minimaps.lua").read_text()
-    media += (ROOT / "JiberishUI/Themes/UnitSkins.lua").read_text()
-    references = re.findall(r'"Interface\\\\AddOns\\\\JiberishUI\\\\([^"]+)"', media)
-    expected = {"JiberishUI/" + path.replace("\\\\", "/") for path in references}
+    media = (ROOT / "Frostforge/Core/Media.lua").read_text() + (ROOT / "Frostforge/Themes/Portraits.lua").read_text() + (ROOT / "Frostforge/Themes/Hubs.lua").read_text() + (ROOT / "Frostforge/Themes/Minimaps.lua").read_text()
+    media += (ROOT / "Frostforge/Themes/UnitSkins.lua").read_text()
+    references = re.findall(r'"Interface\\\\AddOns\\\\Frostforge\\\\([^"]+)"', media)
+    expected = {"Frostforge/" + path.replace("\\\\", "/") for path in references}
     assert expected == {a["file"] for a in assets}
     for asset in assets:
         path = ROOT / asset["file"]
@@ -210,7 +210,7 @@ def asset_checks():
                     assert pixels[(row*w+x)*4+3]==0, 'Hub art covers reserved button region'
             if asset.get('official_crest') or asset.get('emblem_reference'):
                 crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
-    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 296 RGBA assets (including the official transparent logo and stone interface, 42 complete cast borders, 42 sculpted shells and 84 painted fills) and provenance hashes")
+    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 298 RGBA assets (including the official transparent logo and stone interface, 42 complete cast borders, 42 sculpted shells and 84 painted fills) and provenance hashes")
 
 
 def reference_checks():
@@ -237,11 +237,22 @@ def archive_checks(directory):
         assert hashlib.sha256(path.read_bytes()).hexdigest() == report["sha256"]
         expected = payload(report["client"])
         with zipfile.ZipFile(path) as archive:
+            assert {name.split("/")[0] for name in archive.namelist()} == {"Frostforge"}, "Wrong install folder"
+            assert "Frostforge/Frostforge.toc" in archive.namelist(), "Manifest must match the install folder"
+            assert report["addon_folder"] == "Frostforge"
             assert len(archive.namelist()) == len(set(archive.namelist())) == report["files"]
             assert set(archive.namelist()) == set(expected)
             for name, content in expected.items():
                 assert archive.read(name) == content, name
-        assert len([p for p in expected if p.endswith(".tga")]) == 296
+            # Check paths against actual ZIP members, independently of payload's
+            # rewrite. Artwork can otherwise pass source checks but fail in game.
+            for name in archive.namelist():
+                if not name.endswith((".lua", ".toc")):
+                    continue
+                code = archive.read(name).decode().replace("\\\\", "/").replace("\\", "/")
+                for asset in re.findall(r'Interface/AddOns/([^"\s]+)', code):
+                    assert asset.startswith("Frostforge/") and asset in archive.namelist(), (name, asset)
+        assert len([p for p in expected if p.endswith(".tga")]) == 298
     print("PASS both exact client archives; no legacy code/themes or unrelated textures packaged")
 
 

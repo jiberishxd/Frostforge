@@ -95,7 +95,7 @@ def main(partial=False):
     integrated={r['id']:r for r in json.loads(integrated_path.read_text())} if integrated_path.exists() else {}
     for folder in ('originals','integrated-originals','assets','round','atlases'):
         (ART/folder).mkdir(exist_ok=True)
-    output=ROOT/'JiberishUI/Media/Portraits'; output.mkdir(parents=True,exist_ok=True)
+    output=ROOT/'Frostforge/Media/Portraits'; output.mkdir(parents=True,exist_ok=True)
     official={a['id']:a for a in json.loads((ROOT/'artwork/official-crests/sources.json').read_text())}
     reports=[]
     for job in jobs:

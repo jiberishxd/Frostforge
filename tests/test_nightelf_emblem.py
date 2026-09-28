@@ -18,7 +18,7 @@ class NightElfEmblemTests(unittest.TestCase):
         before=json.loads((ART/'baseline.json').read_text())['assets']
         self.assertEqual(len(before),296)
         changed={p for p,sha in before.items() if hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=sha}
-        self.assertEqual(changed,{'JiberishUI/Media/'+k+'/race_nightelf.tga' for k in ('UnitFrames','Hubs','Minimaps')})
+        self.assertEqual(changed,{'Frostforge/Media/'+k+'/race_nightelf.tga' for k in ('UnitFrames','Hubs','Minimaps')})
 
     def test_generated_inlays_are_localized_reproducible_and_documented(self):
         records=json.loads((ART/'applied.json').read_text())
@@ -49,5 +49,5 @@ class NightElfEmblemTests(unittest.TestCase):
                 self.assertFalse(alpha[:8].any() or alpha[-8:].any() or alpha[:,:8].any() or alpha[:,-8:].any())
                 y,x=np.indices(alpha.shape)
                 self.assertFalse(alpha[(x-256)**2+(y-256)**2<148**2].any())
-            game=Image.open(ROOT/'JiberishUI/Media'/folder/'race_nightelf.tga')
+            game=Image.open(ROOT/'Frostforge/Media'/folder/'race_nightelf.tga')
             self.assertEqual(a.resize(size,Image.Resampling.LANCZOS).tobytes(),game.tobytes())

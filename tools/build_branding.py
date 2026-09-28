@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = "docs/images/logo.png"
-OUTPUT = "JiberishUI/Media/Branding/frostforge-logo.tga"
+OUTPUT = "Frostforge/Media/Branding/frostforge-logo.tga"
 
 
 def build():
@@ -32,7 +32,7 @@ def build():
     master = Image.open(ROOT / stone_source).convert("RGBA")
     crop = [round(master.width*.25),round(master.height*.25),round(master.width*.75),round(master.height*.75)]
     stone = master.crop(crop).resize((256, 256), Image.Resampling.LANCZOS)
-    stone_output = "JiberishUI/Media/Branding/frostforge-stone.tga"
+    stone_output = "Frostforge/Media/Branding/frostforge-stone.tga"
     stone.save(ROOT / stone_output, compression=None)
     stone.save(ROOT / "artwork/settings/frostforge-stone.png")
     material = {
