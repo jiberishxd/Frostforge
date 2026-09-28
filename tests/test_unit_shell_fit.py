@@ -105,6 +105,11 @@ class ShellFitTests(unittest.TestCase):
         retained_hubs={Path(a['file']).stem:a for a in json.loads((ROOT/'artwork/hubs/style-remaster/before/manifest.json').read_text())['assets']}
         for name, expected in baseline['assets'].items():
             if name.endswith('Portraits/class_mage.tga'): continue
+            if name=='JiberishUI/Media/Minimaps/race_nightelf.tga':
+                buffer=io.BytesIO()
+                Image.open(ROOT/'artwork/nightelf-emblem-update/minimap-before.png').save(buffer,format='TGA',compression=None)
+                self.assertEqual(hashlib.sha256(buffer.getvalue()).hexdigest(),expected)
+                continue  # Only the top moon changes; covered in test_nightelf_emblem.py.
             if '/Hubs/' in name and Path(name).stem in hub_corrections:
                 self.assertEqual(expected,hub_corrections[Path(name).stem]['before_tga_sha256'])
                 continue  # Alpha-only changes are checked in test_hub_alpha.py.

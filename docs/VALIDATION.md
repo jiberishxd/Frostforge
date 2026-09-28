@@ -123,3 +123,11 @@ Offline tests reproduce native aura reanchoring after Frostforge's scan; the moc
 2. Return power color and shading to Blizzard/Solid, then restore Blizzard texture. Confirm the latest native resource appearance returns. Test vehicles/resource changes and watch for blocked-action or secret-value errors.
 3. Enable a Blizzard cast border before combat. Test crafting (including the reported Light Leather cast), spells, channels and an uninterruptible/empowered cast where available. Check Automatic and highest strata with the saved fitting: the native gold rim and dark textbox should no longer compete with the artwork. Fill, spell name, timer, spark, shield and stage cues must remain intact.
 4. Disable the border, switch provider and reset the component outside combat. Blizzard's original trim should return, while ElvUI/Ellesmere trim remains unchanged. Repeat enabling/disabling in combat and confirm it applies after combat. Test first casts, fades, reload and alternate player cast bars. These checks require the live client; offline tests do not emulate its renderer or secure engine.
+
+## 0.9.3 setup, access, minimap and Night Elf art (user-run)
+
+- On a fresh install, confirm the wizard opens after entering the world, has three steps, and applies only on Finish. Skip it and reload: it should stay dismissed. Existing settings must not trigger it. Rerun through Guide and verify small-screen fitting.
+- Adjust portrait Size, then Advanced sizing; both dimensions should change together only when using Size. Verify import, character profiles and combat deferral.
+- Open via AddOn Compartment, ElvUI and the optional minimap icon. Drag the icon, click it again, reload and verify its position and visibility.
+- With ElvUI’s square minimap, enable art and round shape. Check the map becomes round, the surround sits above it and native map clicks/icons work. Disable the art, reload, and switch ElvUI profiles to check restoration. Repeat changes during combat and confirm they apply afterward.
+- Inspect the Night Elf unit-frame right emblem, hub left emblem and top minimap crescent at several UI scales. Check transparent gaps, complete blade tips, unchanged native bar openings and hub seams.

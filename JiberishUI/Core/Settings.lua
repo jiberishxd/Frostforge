@@ -26,13 +26,13 @@ local function backdrop(frame,kind)
         frame.underlay:SetColorTexture(0.025,0.03,0.035,1)
     end
     frame:SetBackdrop({
-        bgFile=slider and "Interface\\Buttons\\UI-SliderBar-Background" or J.Media.panelStone,
+        bgFile=slider and "Interface\\Buttons\\UI-SliderBar-Background" or "Interface\\Buttons\\WHITE8X8",
         edgeFile=slider and "Interface\\Buttons\\UI-SliderBar-Border" or
             (kind=="outer" and "Interface\\DialogFrame\\UI-DialogBox-Border" or "Interface\\Tooltips\\UI-Tooltip-Border"),
         tile=true,tileSize=slider and 8 or 128,edgeSize=slider and 8 or (kind=="outer" and 32 or 12),
         insets=kind=="outer" and {left=11,right=12,top=12,bottom=11} or {left=3,right=3,top=3,bottom=3},
     })
-    frame:SetBackdropColor(0.48,0.54,0.62,1)
+    frame:SetBackdropColor(0.055,0.070,0.085,1)
     frame:SetBackdropBorderColor(0.48,0.50,0.52,1)
 end
 local function panel(parent,x,y,width,height)
@@ -68,8 +68,8 @@ local function button(parent,value,x,y,width,callback,card)
     end
     if card then
         backdrop(b,"inset")
-        b:SetBackdropColor(0.48,0.62,0.78,1)
-        b.down=art(b,J.Media.panelStone,"BORDER")
+        b:SetBackdropColor(0.08,0.12,0.16,1)
+        b.down=art(b,"Interface\\Buttons\\WHITE8X8","BORDER")
         b.down:ClearAllPoints();b.down:SetPoint("TOPLEFT",b,"TOPLEFT",4,-4);b.down:SetPoint("BOTTOMRIGHT",b,"BOTTOMRIGHT",-4,4)
         b.down:SetVertexColor(0.28,0.40,0.55,1)
     else
@@ -117,10 +117,15 @@ local function toggle(parent,value,x,y,width,callback)
     return b
 end
 
+S.widgets={backdrop=backdrop,panel=panel,text=text,button=button,toggle=toggle}
+
 function S:Set(property,value)
     self.message=nil
     local key=J.BlizzardUnits.sharedStyleProperties[property] and "playerFrame" or self.selected
-    local ok,reason=J.ProfileManager:Set(key,property,value)
+    local ok,reason
+    if property=="portraitSize" and J.Portraits:IsUnitKey(key) then
+        ok,reason=J.ProfileManager:SetMany({{key,"width",value},{key,"height",value}})
+    else ok,reason=J.ProfileManager:Set(key,property,value) end
     if not ok then self.message=reason; self:Refresh() end
 end
 
@@ -278,7 +283,7 @@ end
 
 function S:Number(property,label,x,y,step,parent)
     parent=parent or self.frame
-    local rule=J.Core.properties[property]
+    local rule=J.Core.properties[property=="portraitSize" and "width" or property]
     local caption=text(parent,label,x,y,230,"GameFontNormal")
     local edit=CreateFrame("EditBox",nil,parent,"BackdropTemplate")
     edit:SetPoint("TOPLEFT",parent,"TOPLEFT",x+238,y+4); edit:SetSize(80,24)
@@ -656,6 +661,11 @@ function S:Create()
 
     a=self.pages.placement
     self:Number("width","Width",0,-14,1,a);self:Number("height","Height",346,-14,1,a)
+    self:Number("portraitSize","Portrait size",0,-14,1,a)
+    self.sizeHelp=text(a,"Width and height move together.",346,-14,318)
+    self.sizeAdvanced=button(a,"Advanced sizing...",346,-66,318,function()
+        self.separatePortraitSize=not self.separatePortraitSize;self:Refresh()
+    end)
     self:Number("x","Horizontal offset",0,-104,1,a);self:Number("y","Vertical offset",346,-104,1,a)
     self:Number("scale","Artwork scale",0,-194,.01,a);self:Number("opacity","Opacity",346,-194,.01,a)
     self:Dropdown("anchor","Anchor",anchors,0,-292,a)
@@ -794,13 +804,21 @@ function S:Create()
     self:Dropdown("unitFrameSource","Unit-frame provider",{{"AUTO","Automatic"},{"BLIZZARD","Blizzard"},{"ELVUI","ElvUI"},{"ELLESMERE","EllesmereUI"}},346,-236,a)
     self.sourceStatus=text(a,"",0,-304,666)
     self.providerHelp=text(a,"",0,-354,666)
+    self.roundMinimap=toggle(a,"Use a round minimap (ElvUI)",0,-236,318,function()
+        self:Set("minimapRound",not J.ThemeManager:Resolve("minimap").minimapRound)
+    end)
     self:CreatePortraitPicker();self:CreateHubPicker();self:CreateMinimapPicker()
 
     a=self.pages.guide
-    panel(a,0,0,666,180)
+    panel(a,0,0,666,154)
     text(a,"FIRST STEPS",18,-18,626,"GameFontNormal")
-    text(a,"1. Choose Player, Target, Focus, Minimap or Action hub on the left.\n\n2. On Artwork, turn on the decorations you want. Portrait and unit-frame art can be used separately or together.\n\n3. Keep Automatic class, or browse the collection for a fixed design.\n\n4. Keep providers on Automatic, or select your UI addon. Advanced lets you keep its bar textures or use Frostforge fills.",18,-46,626)
-    self.guideHelp=text(a,"",0,-198,666)
+    text(a,"1. Choose a component on the left and turn on its artwork.\n2. Keep an automatic theme, or browse for a fixed design.\n3. Fit portrait size on Placement; use Unit frame for the bar shell.\n4. Keep providers on Automatic, or select the addon you use.",18,-46,626)
+    self.guideHelp=text(a,"",0,-170,666)
+    self.setupButton=button(a,"Run quick setup",0,-246,318,function() J.Setup:Open() end)
+    self.minimapIconToggle=toggle(a,"Show minimap settings icon",346,-246,318,function()
+        J.Access:SetIcon(not J.Access:IconEnabled());self:Refresh()
+    end)
+    text(a,"Open Frostforge from the AddOn Compartment or ElvUI settings. The minimap icon is optional.",0,-288,666)
     button(a,"Copy settings backup",0,-326,318,function() self:ShowBackup("export") end)
     button(a,"Restore from backup",346,-326,318,function() self:ShowBackup("import") end)
     text(a,"Back up before making broad changes or reinstalling. Backups cover all five components.",0,-370,666)
@@ -835,6 +853,16 @@ function S:Refresh()
     local minimap=self.selected=="minimap"
     local hub=self.selected=="actionHub"
     local module=J.Core.modules[self.selected]
+    for _,part in ipairs({"edit","slider","label"}) do
+        self.controls.portraitSize[part]:SetShown(unit and not self.separatePortraitSize)
+        self.controls.width[part]:SetShown(not unit or self.separatePortraitSize==true)
+        self.controls.height[part]:SetShown(not unit or self.separatePortraitSize==true)
+    end
+    self.sizeAdvanced:SetShown(unit);self.sizeHelp:SetShown(unit and not self.separatePortraitSize)
+    self.sizeAdvanced.caption:SetText(self.separatePortraitSize and "Use one size slider" or "Advanced sizing...")
+    self.sizeHelp:SetText(config.width==config.height and "Width and height move together." or "Custom proportions kept. Moving Size makes both dimensions equal.")
+    self.roundMinimap:SetShown(minimap);self.roundMinimap:SetChecked(config.minimapRound==true)
+    self.minimapIconToggle:SetChecked(J.Access:IconEnabled())
     local headings={artwork="Artwork",placement="Placement & size",fitting="Unit-frame fitting",cast="Cast-bar border",advanced="Textures, layers & diagnostics",blizzard="Stock portrait & text",guide="Getting started"}
     if not unit and (self.page=="fitting" or self.page=="cast" or self.page=="blizzard") then self.page="placement" end
     self.heading:SetText(names[self.selected].."  |  "..headings[self.page])
@@ -915,14 +943,14 @@ function S:Refresh()
         self.sourceStatus:SetText("|cff9edfffPortrait:|r "..portrait.."\n|cff9edfffUnit frame:|r "..frame)
         self.providerHelp:SetText("Full-frame artwork supports Blizzard, ElvUI and Ellesmere. Use horizontal health with full-width power attached below. Hidden power retains a complete shell with a dark empty opening.")
         self.placementHelp:SetText("Offsets move only the decoration. Use your UI addon's settings to move the portrait or health bars themselves.")
-        self.guideHelp:SetText("|cff9edfffArtwork missing?|r Target a unit first, check each artwork toggle, and choose the matching provider. Enable portraits in that provider too. Hidden or inside-health portraits may not support a surround.\n\n|cff9edfffWrong NPC theme?|r Known city affiliations use matching race art. Unknown NPCs use the normal fallback. Choose a fixed design to override it.")
+        self.guideHelp:SetText("|cff9edfffArtwork missing?|r Target a unit, check its artwork toggle and provider, and enable portraits in that provider.\n|cff9edfffWrong NPC theme?|r Browse for a fixed design to override automatic matching.")
     else
         id=minimap and J.Minimaps:Resolve(config) or J.Hubs:Resolve(config)
         entry=minimap and J.MinimapCatalog.entries[id] or J.HubCatalog.entries[id]
         mode=minimap and config.minimapMode or config.hubMode
         local b=minimap and self.minimapButton or self.hubButton;b.caption:SetText(entry.label.."  -  Browse")
         self.sourceStatus:SetText("|cff9edfffArtwork:|r "..(not config.shown and "off" or module.snapshot and ("following "..module.snapshot.name) or module.status or "waiting for frame"))
-        self.providerHelp:SetText(minimap and "The map, buttons and labels stay native. Leave room near screen edges for tall crests." or "Choose the addon that owns your main action bar. Buttons, bags and menus stay functional and keep their existing positions.")
+        self.providerHelp:SetText(minimap and ((J.Minimaps.shapeStatus or "Round shape is supported with ElvUI.").." Leave room near screen edges for tall crests.") or "Choose the addon that owns your main action bar. Buttons, bags and menus stay functional and keep their existing positions.")
         self.placementHelp:SetText("Follow selected frame keeps artwork attached. Screen anchors the decoration to the display. Neither option moves native controls.")
         self.guideHelp:SetText(minimap and "|cff9edfffMinimap fitting|r\nAutomatic modes follow your character. Width, height and scale adjust the surround only. Move the native map with its owning UI; leave room for crests at the screen edge." or "|cff9edfffAction hub fitting|r\nAutomatic modes follow your character, not your target. Pick the addon that owns the main bar, then adjust width and offsets around your layout. The hub never moves buttons or changes keybindings.")
     end
@@ -948,9 +976,10 @@ function S:Refresh()
     for choice,b in pairs(self.hubButtons) do b.selection:SetShown(hub and config.hubMode=="FIXED" and config.hub==choice) end
     for choice,b in pairs(self.minimapButtons) do b.selection:SetShown(minimap and config.minimapMode=="FIXED" and config.minimap==choice) end
     for property,control in pairs(self.controls) do
-        if control.slider and config[property]~=nil then
-            control.slider:SetValue(config[property])
-            if not control.edit:HasFocus() then control.edit:SetText(string.format("%.2f",config[property]):gsub("%.?0+$","")) end
+        local number=property=="portraitSize" and config.width or config[property]
+        if control.slider and number~=nil then
+            control.slider:SetValue(number)
+            if not control.edit:HasFocus() then control.edit:SetText(string.format("%.2f",number):gsub("%.?0+$","")) end
         elseif control.hex then
             local value=J.BlizzardUnits.sharedStyleProperties[property] and J.ThemeManager:Resolve("playerFrame")[property] or config[property]
             local color=J.BlizzardUnits:HexColor(value)

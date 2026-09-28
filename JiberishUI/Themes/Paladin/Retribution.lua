@@ -17,7 +17,7 @@ local hubPieces = {
 local theme={
     name = "Retribution Paladin",
     minimap = {
-        minimapMode = "CLASS", minimap = "CLASS_PALADIN",
+        minimapMode = "CLASS", minimap = "CLASS_PALADIN", minimapRound=true,
         texture = J.MinimapCatalog.entries.CLASS_PALADIN.texture,
         width = 340, height = 340, x = 0, y = 0, scale = 1,
         anchor = "FRAME", point = "CENTER", relativePoint = "CENTER",

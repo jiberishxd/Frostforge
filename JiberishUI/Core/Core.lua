@@ -2,7 +2,7 @@ local addonName, J = ...
 -- Keep the addon folder and saved-variable keys stable for existing installs.
 J.Brand = { name="Jiberish's Frostforge", shortName="Frostforge", website="https://theigloo.io" }
 local Core = {
-    version = "0.9.2",
+    version = "0.9.3",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
     propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset", "unitFrameX", "unitFrameY", "castBarShown", "castBarSource", "castBarStyle", "castBarArt", "castBarWeight", "castBarPadding", "castBarWidth", "castBarHeight", "unitFrameStrata", "castBarStrata", "castBarLevel", "blizzardPortraitHidden", "blizzardPortraitFrameHidden", "blizzardNameEnabled", "blizzardNameX", "blizzardNameY", "blizzardNameSize", "blizzardNameAlign", "blizzardNameOutline", "blizzardStone" },
@@ -345,6 +345,9 @@ function Core:Tick()
     if J.UnitSkins then J.UnitSkins:Tick() end
     if J.BlizzardUnits then J.BlizzardUnits:Tick() end
     if J.CastBars then J.CastBars:Tick() end
+    self:Protect("minimap presentation",function() J.Minimaps:Tick() end)
+    self:Protect("settings access",function() J.Access:Tick() end)
+    self:Protect("quick setup",function() J.Setup:Tick() end)
 end
 
 function Core:RequestRefresh(immediate)
@@ -450,6 +453,10 @@ function Core:Start()
         self:Notice("client","Interface differs from the researched baseline; in-game validation required.")
     end
     self:RequestRefresh(true)
+    if J.ProfileManager.writable then
+        if J.ProfileManager.firstRun and JiberishUIDB.setupVersion==nil then JiberishUIDB.setupVersion=0 end
+        J.Setup.pending=JiberishUIDB.setupVersion==0 or nil
+    end
     self:Print("Portrait backgrounds loaded. /jui opens options | /jf debug | /jf help")
 end
 
@@ -464,6 +471,7 @@ for _, event in ipairs({"ADDON_LOADED","PLAYER_LOGIN","PLAYER_ENTERING_WORLD","P
     Core:Protect("event " .. event,function() driver:RegisterEvent(event) end)
 end
 driver:SetScript("OnEvent",function(_,event,name)
+    if event=="PLAYER_ENTERING_WORLD" then Core.worldReady=true end
     if event=="ADDON_LOADED" or event=="PLAYER_LOGIN" then
         Core:Protect("shared media",function() J.Media:RegisterShared() end)
     end
