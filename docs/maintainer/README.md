@@ -24,3 +24,17 @@ Preserve saved settings, combat deferral and provider ownership. Decorations mus
 The [0.9.7 benchmark samples](performance-0.9.7.csv) measure 1,000 offline mock updates, not live CPU or memory. Reproduce with `lua5.1 tools/benchmark.lua Frostforge 1000`. Earlier architecture, validation and performance notes remain in [Git history](https://github.com/jiberishxd/Frostforge/tree/07b6e86cf854de745e8b6bd8b62b656d3a0c91c2/docs/maintainer).
 
 For distribution pages, retain the [artwork notice](../../Frostforge/CREDITS.md) and link support to Discord. Packaging does not establish a new license or live-client compatibility.
+
+## CurseForge updates
+
+One-time setup in GitHub **Settings → Secrets and variables → Actions**:
+
+- Secret `CF_API_TOKEN`: your [CurseForge upload token](https://authors.curseforge.com/account/api-tokens). Keep it out of chat and source files.
+- Variable `CF_PROJECT_ID`: the numeric ID from the CurseForge author dashboard, not the project URL.
+- Variable `CF_CLIENTS`: `Retail`, `Forever`, or `Retail,Forever`.
+
+For each update, update the version in `Frostforge.toc` and `Core/Core.lua`, then publish a GitHub release from that commit with a matching tag (for example `v0.9.8`) and release notes. A GitHub prerelease uploads as **Beta**; a normal release uploads as **Release**. The workflow runs all checks, builds both ZIPs and uploads only the selected clients with exact game-version labels. CurseForge moderation still applies. Ordinary commits do not publish.
+
+**Actions → Publish to CurseForge → Run workflow** is a build-only test requiring no credentials. Download its `frostforge-packages` artifact and extract the outer artifact ZIP to access the individual player ZIPs. Upload those intact for a first manual submission.
+
+If an upload fails or times out, inspect CurseForge and the workflow's upload receipts before retrying. A confirmed file may already exist; retry only missing clients via `CF_CLIENTS`, then restore the normal selection. [Upload API reference](https://support.curseforge.com/support/solutions/articles/9000197321).

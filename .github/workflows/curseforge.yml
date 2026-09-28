@@ -1,0 +1,48 @@
+name: Publish to CurseForge
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch: # Build-only preview; never publishes.
+
+permissions:
+  contents: read
+
+concurrency:
+  group: curseforge-${{ github.event.release.tag_name || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    uses: ./.github/workflows/validate.yml
+
+  publish:
+    needs: validate
+    runs-on: ubuntu-latest
+    env:
+      CF_PROJECT_ID: ${{ vars.CF_PROJECT_ID }}
+      CF_CLIENTS: ${{ vars.CF_CLIENTS }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: frostforge-packages
+          path: dist
+      - name: Preview packages and release metadata
+        run: python3 tools/publish_curseforge.py
+      - name: Upload published release
+        if: github.event_name == 'release'
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: python3 tools/publish_curseforge.py --upload
+      - name: Save upload receipts
+        if: always() && github.event_name == 'release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: curseforge-upload-receipts-${{ github.run_attempt }}
+          path: dist/curseforge-uploads.json
+          if-no-files-found: ignore
+          retention-days: 90
