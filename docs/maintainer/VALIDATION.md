@@ -1,6 +1,6 @@
 # Portrait build validation
 
-Install 0.9.7 and fully restart WoW to load the source-faithful shells and new controls. If upgrading from the old `JiberishUI` folder, follow the [one-time saved-file transfer](GETTING-STARTED.md#upgrading-to-frostforge) first. In `/frostforge`, select Player, Target or Focus and test **Portrait art** and **Unit-frame art** in all four on/off combinations. Unit-frame art is off by default; existing FULL settings migrate. If bars still do not show their artwork, copy the per-unit lines from `/jui status`, including shell and fill status. All in-game testing is performed by the user.
+Install 0.9.7 and fully restart WoW to load the source-faithful shells and new controls. If upgrading from the old `JiberishUI` folder, follow the [one-time saved-file transfer](../GETTING-STARTED.md#upgrading-to-frostforge) first. In `/frostforge`, select Player, Target or Focus and test **Portrait art** and **Unit-frame art** in all four on/off combinations. Unit-frame art is off by default; existing FULL settings migrate. If bars still do not show their artwork, copy the per-unit lines from `/jui status`, including shell and fill status. All in-game testing is performed by the user.
 
 1. Open /jui. Confirm textured window borders, frost-blue buttons with white labels and fitted hover/selected outlines, checkboxes, five component tabs and a movable window. Verify Show artwork and Debug bounds check marks, selected tabs, and gallery selection after switching components. Player, Target and Focus default to Automatic class; Minimap and hub default to automatic player class; existing geometry overrides are retained.
 2. At default portrait dimensions, check Player's teardrop corner, level badge, name and bars. Select players of different classes and verify only Target's portrait background changes; the art should share the same visible envelope without a lower loop or level-badge circle. Verify Mage uses an eye and Hunter uses a skull. Set another class as Focus and verify independent selection. Clear Target/Focus and confirm their decoration disappears.
@@ -63,7 +63,7 @@ These are manual checks for the user. The agent does not operate WoW.
 
 ## 0.8.0 cast-border checks
 
-Follow the manual checklist in [CAST-BARS.md](CAST-BARS.md) on Blizzard, EllesmereUI and ElvUI, for Player/Target/Focus. Include idle-to-cast transitions, fades, channels, interrupts and empower indicators, each style, matching versus fixed artwork, provider resizing/replacement, hidden providers, combat-deferred changes, independent toggles and backup restoration. No gameplay was automated during development.
+Use the [cast-border controls](../GETTING-STARTED.md#cast-bar-borders) on Blizzard, EllesmereUI and ElvUI, for Player/Target/Focus. Include idle-to-cast transitions, fades, channels, interrupts and empower indicators, each style, matching versus fixed artwork, provider resizing/replacement, hidden providers, combat-deferred changes, independent toggles and backup restoration. No gameplay was automated during development.
 
 ## 0.8.4 Blizzard cast layering and text (user-run)
 

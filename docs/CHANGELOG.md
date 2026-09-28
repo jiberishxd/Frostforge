@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.7 — Setup tour, artwork browsing and performance
+
+- Add a four-screen illustrated setup tour with Blizzard UI, ElvUI and EllesmereUI guidance; handle first login and postponed setup more reliably.
+- Add a full unit-frame artwork browser alongside the portrait browser, covering all 42 designs.
+- Prevent the brief Neutral artwork flash when clearing a target or focus.
+- Reduce repeated settings work, unnecessary layout refreshes and initial settings allocations. Runtime artwork quality and existing image files are unchanged; live CPU/memory measurements remain pending.
+- Simplify download contents to the complete working addon plus installation help and credits. Consolidate user guides and keep source/validation records in the repository's maintainer section.
+
 ## 0.9.6 — Frostforge source folder on GitHub
 
 - Rename the actual repository addon directory and manifest to `Frostforge/Frostforge.toc`, so GitHub's Code → Download ZIP uses the new name too.

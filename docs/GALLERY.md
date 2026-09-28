@@ -36,7 +36,7 @@ Offline browser capture exported from the addon's settings objects. Native fonts
 
 ![Frostforge Profiles page with illustrative Paladin and Hunter setups](images/profiles.jpg)
 
-Offline capture of the actual Profiles layout. Example names illustrate separate setups; each character remembers its selected profile. [Saving and assigning profiles](PROFILES.md).
+Offline capture of the actual Profiles layout. Example names illustrate separate setups; each character remembers its selected profile. [Saving and assigning profiles](GETTING-STARTED.md#keep-a-separate-setup-for-each-character).
 
 ## Stock Blizzard options
 
@@ -46,6 +46,6 @@ Offline settings preview of the optional native portrait/name controls and the s
 
 ## Browse every theme locally
 
-The repository includes interactive fitting previews for [portraits](https://github.com/jiberishxd/JiberishUI-WoW/tree/main/artwork/portraits/), [unit frames](https://github.com/jiberishxd/JiberishUI-WoW/tree/main/artwork/unit-frames/), [action hubs](https://github.com/jiberishxd/JiberishUI-WoW/tree/main/artwork/hubs/), [minimaps](https://github.com/jiberishxd/JiberishUI-WoW/tree/main/artwork/minimaps/) and [cast bars](https://github.com/jiberishxd/JiberishUI-WoW/tree/main/artwork/cast-bars/). GitHub shows the source folders; [serve the repository locally](DEVELOPMENT.md#local-checks) to use the preview pages. No game interaction is needed to browse them.
+The repository includes interactive fitting previews for [portraits](https://github.com/jiberishxd/Frostforge/tree/main/artwork/portraits/), [unit frames](https://github.com/jiberishxd/Frostforge/tree/main/artwork/unit-frames/), [action hubs](https://github.com/jiberishxd/Frostforge/tree/main/artwork/hubs/), [minimaps](https://github.com/jiberishxd/Frostforge/tree/main/artwork/minimaps/) and [cast bars](https://github.com/jiberishxd/Frostforge/tree/main/artwork/cast-bars/). GitHub shows the source folders; [serve the repository locally](maintainer/README.md#local-checks) to use the preview pages. No game interaction is needed to browse them.
 
-Have a layout to share? [Open a layout or artwork feedback issue](https://github.com/jiberishxd/JiberishUI-WoW/issues/new?template=feature_request.yml) and include the UI provider, selected themes and a screenshot.
+Have a layout to share? [Open a layout or artwork feedback issue](https://github.com/jiberishxd/Frostforge/issues/new?template=feature_request.yml) and include the UI provider, selected themes and a screenshot.
