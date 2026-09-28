@@ -15,8 +15,13 @@ local function call(object,method,...)
     if ok and J.Core:IsSafe(value) then return value end
 end
 function A:Visible(frame)
-    local shown,alpha=call(frame,"IsVisible"),call(frame,"GetEffectiveAlpha")
-    return shown==true and J.Core:IsNumber(alpha) and alpha>0,alpha
+    if call(frame,"IsVisible")~=true or type(frame.GetEffectiveAlpha)~="function" then return false end
+    local ok,alpha=pcall(frame.GetEffectiveAlpha,frame)
+    if not ok then return false end
+    -- EUI range fading makes other members' effective alpha secret even out
+    -- of combat. Pass it to the renderer; it is not evidence of a hidden frame.
+    local secret=not J.Core:IsSafe(alpha)
+    return secret or (J.Core:IsNumber(alpha) and alpha>0),alpha,secret
 end
 
 -- Secure headers sort/reassign buttons. Never infer a member from slot number.

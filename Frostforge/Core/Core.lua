@@ -2,7 +2,7 @@ local addonName, J = ...
 -- Keep the addon folder and saved-variable keys stable for existing installs.
 J.Brand = { name="Jiberish's Frostforge", shortName="Frostforge", website="https://theigloo.io" }
 local Core = {
-    version = "0.9.11",
+    version = "0.9.12",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
     settingsOrder = { "minimap", "playerFrame", "targetFrame", "focusFrame", "targetTargetFrame", "partyFrames", "actionHub" },
@@ -210,7 +210,7 @@ end
 function Core:UpdateDebugText(module,snapshot,config)
     local state
     if not config.shown then state = "component hidden; debug outline only"
-    elseif not snapshot.visible or snapshot.alpha <= 0 then state = "native anchor hidden; debug outline only"
+    elseif not snapshot.visible or (not snapshot.secretAlpha and snapshot.alpha <= 0) then state = "native anchor hidden; debug outline only"
     elseif not module.assetOK then state = "artwork unavailable; debug outline only"
     else state = "artwork visible" end
     local text = string.format(
@@ -277,7 +277,8 @@ function Core:Apply(module, snapshot)
 end
 
 function Core:SyncVisibility(module, snapshot)
-    module.nativeVisible=snapshot and snapshot.visible and snapshot.alpha>0 or false
+    local secretAlpha=snapshot and snapshot.secretAlpha==true
+    module.nativeVisible=snapshot and snapshot.visible and (secretAlpha or snapshot.alpha>0) or false
     local frame, config = module.frame, module.applied
     if not frame or not config then return end
     -- Anchoring can create protection dependencies. Never assume an owned
@@ -285,13 +286,24 @@ function Core:SyncVisibility(module, snapshot)
     if InCombatLockdown() and frame:IsProtected() then self.dirty = true; return end
     local debug = module.debugApplied
     if debug and snapshot then self:UpdateDebugText(module,snapshot,config) end
-    local nativeVisible = snapshot and snapshot.visible and snapshot.alpha > 0
+    local nativeVisible = module.nativeVisible
     local showArt = nativeVisible and config.shown and module.assetOK or false
+    -- Let WoW composite the protected provider alpha with our public opacity.
+    -- Keep opacity on textures only for this path; ordinary fades stay cached.
+    local textureAlpha=secretAlpha and not debug and config.opacity or 1
+    local textureAlphaChanged=textureAlpha~=(module.textureAlpha or 1)
     for _, texture in pairs(module.textures) do
         if texture:IsShown() ~= showArt then texture:SetShown(showArt) end
+        if textureAlphaChanged then texture:SetAlpha(textureAlpha) end
     end
-    local alpha = debug and 1 or (snapshot and snapshot.alpha or 0) * config.opacity
-    if module.lastAlpha ~= alpha then frame:SetAlpha(alpha); module.lastAlpha = alpha end
+    module.textureAlpha=textureAlpha
+    if secretAlpha and not debug then
+        frame:SetAlpha(snapshot.alpha)
+        module.lastAlpha=nil
+    else
+        local alpha = debug and 1 or (snapshot and snapshot.alpha or 0) * config.opacity
+        if module.lastAlpha ~= alpha then frame:SetAlpha(alpha); module.lastAlpha = alpha end
+    end
     local shown = snapshot ~= nil and (showArt or debug) or false
     if frame:IsShown() ~= shown then frame:SetShown(shown) end
 end
