@@ -632,6 +632,7 @@ assert(loadfile("tests/power_appearance.lua"))(test,near)
 assert(loadfile("tests/stock_placement.lua"))(test,near)
 assert(loadfile("tests/named_profiles.lua"))(test)
 assert(loadfile("tests/usability.lua"))(test,near)
+assert(loadfile("tests/game_menu.lua"))(test)
 assert(loadfile("tests/performance.lua"))(test,near)
 
 print(string.format("%d tests passed. In-game testing is still required.",passed))

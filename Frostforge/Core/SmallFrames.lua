@@ -1,11 +1,12 @@
 local _, J = ...
 local S = {keys={"targetTargetFrame","partyFrames"},groups={},status={}}
 J.SmallFrames = S
-S.properties={smallFrameArt=true,smallFrameWeight=true,smallFramePadding=true}
+S.properties={smallFrameArt=true,smallFrameWeight=true,smallFramePadding=true,smallFrameLevel=true}
 J.Core.properties.smallFrameArt=J.Core:Copy(J.Core.properties.castBarArt)
 J.Core.properties.smallFrameWeight={.25,2}
 J.Core.properties.smallFramePadding={0,8}
-for _,property in ipairs({"smallFrameArt","smallFrameWeight","smallFramePadding"}) do
+J.Core.properties.smallFrameLevel={1,100}
+for _,property in ipairs({"smallFrameArt","smallFrameWeight","smallFramePadding","smallFrameLevel"}) do
     J.Core.propertyOrder[#J.Core.propertyOrder+1]=property
 end
 local supported={width=true,height=true,x=true,y=true,scale=true,opacity=true,shown=true,
@@ -31,19 +32,48 @@ local function same(a,b)
     return true
 end
 local ranks={BACKGROUND=1,LOW=2,MEDIUM=3,HIGH=4,DIALOG=5,FULLSCREEN=6,FULLSCREEN_DIALOG=7,TOOLTIP=8}
-local function layer(candidate,host,requested,offset)
-    local strata,level="LOW",0
-    local function inspect(frame)
-        if not usable(frame) or type(frame.GetFrameLevel)~="function" then return end
-        local s,l=frame:GetFrameStrata(),frame:GetFrameLevel()
-        if not J.Core:IsSafe(s) or not ranks[s] or not J.Core:IsNumber(l) then return end
-        if requested~="AUTO" then
-            if s==requested then level=math.max(level,l) end
-        elseif ranks[s]>ranks[strata] then strata,level=s,l
-        elseif s==strata then level=math.max(level,l) end
+function S:Layers(candidate,cache)
+    local cached=cache[candidate.root]
+    if cached then return cached end
+    local result={highest="BACKGROUND",maximum=0,levels={}}
+    local visited,budget={},64
+    local function inspect(frame,depth)
+        if budget<=0 or not usable(frame) or visited[frame] or J.Core.owned[frame] then return end
+        visited[frame]=true;budget=budget-1
+        if type(frame.GetFrameStrata)=="function" and type(frame.GetFrameLevel)=="function" then
+            local ok,s,l=pcall(function() return frame:GetFrameStrata(),frame:GetFrameLevel() end)
+            if ok and J.Core:IsSafe(s) and ranks[s] and J.Core:IsNumber(l) then
+                result.levels[s]=math.max(result.levels[s] or 0,l)
+                result.maximum=math.max(result.maximum,l)
+                if ranks[s]>ranks[result.highest] then result.highest=s end
+            end
+        end
+        -- Provider borders/highlights can be several child frames above health.
+        -- Bound the traversal and share it between portrait and border per tick.
+        if depth<3 and type(frame.GetChildren)=="function" then
+            local ok,children=pcall(function() return {frame:GetChildren()} end)
+            if ok then for _,child in ipairs(children) do inspect(child,depth+1) end end
+        end
     end
-    inspect(candidate.root);inspect(candidate.health);inspect(candidate.power);inspect(candidate.chrome);inspect(host)
-    return requested=="AUTO" and strata or requested,level+offset
+    inspect(candidate.health,0);inspect(candidate.power,0);inspect(candidate.chrome,0)
+    local portrait=candidate.portrait
+    if portrait then inspect(portrait.host,0);inspect(portrait.bounds,0);inspect(portrait.region,0) end
+    inspect(candidate.root,0)
+    -- ToT may sit inside a higher-level target frame. Read ancestors' layers
+    -- without walking their siblings, the whole party header or UIParent.
+    local parent=candidate.root
+    for _=1,3 do
+        if not usable(parent) or type(parent.GetParent)~="function" then break end
+        local ok,value=pcall(parent.GetParent,parent)
+        if not ok or not usable(value) or value==UIParent then break end
+        inspect(value,3);parent=value
+    end
+    cache[candidate.root]=result
+    return result
+end
+local function layer(layers,requested,offset)
+    local strata=requested=="AUTO" and layers.highest or requested
+    return strata,(layers.levels[strata] or layers.maximum)+offset
 end
 
 -- Use the public bar rectangles, never their changing fill textures or values.
@@ -128,7 +158,7 @@ function S:Paint(module,kind,id,config,layout)
     module.id=id
 end
 
-function S:Update(key,kind,state,candidate,config,combat,changed)
+function S:Update(key,kind,state,candidate,config,combat,changed,layerCache)
     local module=state.records[candidate.root]
     local g
     if combat then g=module and module.geometry else g=self:Geometry(candidate,kind,config) end
@@ -164,14 +194,15 @@ function S:Update(key,kind,state,candidate,config,combat,changed)
         if not combat or not module.frame:IsProtected() then self:Paint(module,kind,id,config,false)
         else J.Core.dirty=true end
     end
-    local strata,level=layer(candidate,g.host,kind=="border" and config.unitFrameStrata or "AUTO",kind=="border" and 1 or config.level)
+    local layers=self:Layers(candidate,layerCache)
+    local strata,level=layer(layers,kind=="border" and config.unitFrameStrata or "AUTO",kind=="border" and config.smallFrameLevel or config.level)
     -- Portrait strata is relative to its provider by default; a saved override
     -- remains available without ever changing provider frame levels.
     local overrides=J.ProfileManager.current.modules[key]
     if kind=="portrait" and not combat and overrides and overrides.strata then
-        strata,level=layer(candidate,g.host,config.strata,config.level)
+        strata,level=layer(layers,config.strata,config.level)
     elseif kind=="portrait" and combat and state.portraitStrata then
-        strata,level=layer(candidate,g.host,state.portraitStrata,config.level)
+        strata,level=layer(layers,state.portraitStrata,config.level)
     end
     if module.frame:GetFrameStrata()~=strata or module.frame:GetFrameLevel()~=level then
         if not combat or not module.frame:IsProtected() then module.frame:SetFrameStrata(strata);module.frame:SetFrameLevel(level)
@@ -211,7 +242,7 @@ function S:TickKind(key,kind,group,config,combat)
     for _,candidate in ipairs(state.candidates or {}) do
         seen[candidate.root]=true
         local ok=J.Core:Protect(key.." "..kind,function()
-            if self:Update(key,kind,state,candidate,config,combat,changed) then attached=attached+1 end
+            if self:Update(key,kind,state,candidate,config,combat,changed,group.layers) then attached=attached+1 end
         end)
         local m=state.records[candidate.root]
         if not ok and m then m.active=false;J.Core:Protect("small frame cleanup",function() J.Core:SyncVisibility(m,nil) end) end
@@ -234,6 +265,7 @@ function S:Tick()
         local group=self.groups[key]
         if group or config.shown or config.unitFrameShown then
             group=group or {};self.groups[key]=group
+            group.layers={}
             if combat then config=group.config or {shown=false,unitFrameShown=false}
             else group.config=config;group.discovery={} end
             local parts={}

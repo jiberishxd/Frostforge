@@ -2,7 +2,7 @@
 
 Record the client/build and provider versions. Offline tests do not replace these checks:
 
-- Fresh settings: first-login tour, skip/reopen, settings access and optional minimap icon.
+- Fresh settings: first-login tour, skip/reopen, settings access and optional minimap icon. Check Escape → Frostforge with Blizzard, ElvUI and Ellesmere menu styles, repeated opens and combat.
 - Profiles: separate characters, shared/copy behavior, backups, reload and full-restart persistence.
 - Artwork: each component, fixed/automatic themes, fit, scale, hiding and restoration on disable.
 - Combat: switch between NPCs and players, clear target/focus, and check artwork recovery afterward.
@@ -11,6 +11,6 @@ Record the client/build and provider versions. Offline tests do not replace thes
 - Casts and action bars: cast/channel visibility, interrupts, empowered casts where available, and vehicle/override transitions.
 - Performance: comparable sessions with settings closed and after browsing artwork; report the installed version and elapsed time.
 
-- Party / Target of Target: all three providers, sorted groups, join/leave, combat identity changes, no-target hiding, separate/disabled portraits and provider switches. Confirm no input blocking or protected-frame errors; artwork-only changes stay deferred during combat.
+- Party / Target of Target: all three providers, sorted groups, join/leave, combat identity changes, no-target hiding, separate/disabled portraits and provider switches. Check automatic/manual strata and separate border levels above native highlights, including layers raised in combat. Confirm no input blocking or protected-frame errors; artwork-only changes stay deferred during combat.
 
 Send results and screenshots to [The Igloo Discord](https://discord.com/servers/igloo-460933747731070996). Preserve saved settings when troubleshooting.
