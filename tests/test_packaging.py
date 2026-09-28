@@ -15,6 +15,24 @@ LUA = shutil.which("lua5.1") or str(ROOT / ".tools/lua-5.1.5/src/lua")
 
 
 class PackagingTests(unittest.TestCase):
+    def test_player_download_contains_only_runtime_install_help_and_credits(self):
+        for client in CLIENTS:
+            with self.subTest(client=client):
+                files = payload(client)
+                extras = {name for name in files if not name.endswith((".toc", ".lua", ".tga"))}
+                self.assertEqual(extras, {"Frostforge/README.md", "Frostforge/CREDITS.md"})
+                # Source-ZIP installs and release-ZIP installs contain the same
+                # files; only client-specific TOC/Build metadata may differ.
+                source_files = {p.relative_to(ROOT).as_posix()
+                                for p in (ROOT / "Frostforge").rglob("*") if p.is_file()}
+                self.assertEqual(set(files), source_files)
+                for name in extras:
+                    self.assertEqual(files[name], (ROOT / name).read_bytes())
+                    for link in re.findall(r'\]\(([^)]+)\)', files[name].decode()):
+                        if "://" not in link:
+                            self.assertIn((Path(name).parent / link).as_posix(), files)
+                self.assertIn("Blizzard Entertainment", files["Frostforge/CREDITS.md"].decode())
+
     def test_github_source_folder_matches_the_installable_addon(self):
         self.assertTrue((ROOT / "Frostforge/Frostforge.toc").is_file())
         self.assertFalse((ROOT / "JiberishUI").exists())

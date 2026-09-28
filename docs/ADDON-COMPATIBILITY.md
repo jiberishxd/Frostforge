@@ -1,42 +1,49 @@
 # UI integrations and compatibility
 
-Build **0.8.8** includes Player, Target and Focus portrait surrounds for **mMediaTag & Tools** alongside **Blinkii's Portraits**, **ElvUI** and **EllesmereUI**, plus main action-bar anchors for both UI suites. The implementation passes offline checks; fitting and secure behavior still need validation inside WoW.
+Frostforge decorates existing frames. Keep the original UI addon and its portrait, unit-frame or cast-bar module enabled. This is a development preview: source inspection and offline tests cover the adapters, but live fitting and secure behavior still need testing on each client/provider combination.
 
-Install the matching Frostforge package, keep your preferred frame addon enabled, and fully restart WoW. Open `/frostforge` and select Player, Target or Focus. **Portrait provider → Automatic (Blinkii first)** follows Blinkii when its active portrait is visible, otherwise mMediaTag, ElvUI, EllesmereUI or Blizzard, in that order. Set a specific provider per unit when multiple frame addons are active. An explicit choice waits for that provider and never silently switches to another. The provider line identifies the resolved anchor; `/jui status` includes requested and resolved sources, portrait visibility, both toggles and bar status. Inactive or transparent portrait providers no longer block a later visible provider.
+| Provider | Portrait surrounds | Full unit-frame art | Cast borders | Action hub |
+| --- | --- | --- | --- | --- |
+| Blizzard | Player, Target, Focus | Player, Target, Focus | Player, Target, Focus | Main action bar |
+| ElvUI | Separate portraits | Compatible horizontal layouts | Horizontal casts | Main bar |
+| EllesmereUI | Detached portraits | Compatible horizontal layouts | Resource Bars / Unit Frames | Main bar |
+| Blinkii's Portraits | Separate portraits | Use Blizzard/ElvUI/Ellesmere bars | Use a supported cast provider | Use a supported bar provider |
+| mMediaTag & Tools | Separate portraits | Use ElvUI bars | Use a supported cast provider | Use ElvUI's main bar |
 
-Enable portraits in the selected provider. Blinkii's **Circle** and EllesmereUI's detached **Circle** give the closest fit. Frostforge follows the portrait center, dimensions, effective scale, visibility and parent alpha. It leaves the portrait, its border, buttons and addon settings under their original owner's control. Blinkii clickable/display switches, late frame creation and profile changes are rediscovered automatically.
+Every external addon must itself support your game client. The inspected mMediaTag 4.x engine is a Retail ElvUI plugin; recognizing its legacy 3.x portraits does not make the current plugin compatible with Forever. Adapter references are pinned in [addon-sources.json](addon-sources.json).
 
-For **mMediaTag & Tools**, enable its Player, Target and Focus portraits in ElvUI's mMediaTag options, then choose **mMediaTag & Tools** or Automatic in Frostforge. **Circle** gives the closest fit. Both the current 4.x engine and older 3.x portrait module are recognized, including mirrored masks, resizing, zoom and profile changes. The current mMediaTag release is a Retail-only ElvUI plugin; the legacy adapter requires an upstream version that actually runs on your client. It does not make Retail mMediaTag run on Classic or Forever. Main action bars use the existing **ElvUI** source, and the minimap keeps the shared Minimap anchor.
+## Portraits
 
-External portraits normally use the round opening. Ellesmere’s Blizzard-style player mask uses the teardrop atlas half and its CircleMask uses the round half; its published portrait-side map determines mirroring. Known Blinkii, mMediaTag and Ellesmere detached masks are fitted inside that opening; angular/asymmetric masks can leave space between their edges and the round artwork. Unmasked ElvUI/Ellesmere rectangular or 3D portraits use a containing circle. Custom Blinkii and mMediaTag masks use a conservative full-texture bound. Use width, height and artwork scale for additional visual adjustment. Health-bar overlay/inside portraits have no separate surround. Large decorative extras from Blinkii or mMediaTag may extend beyond the portrait opening.
+Select Player, Target or Focus → **Artwork → Portrait provider**. Automatic looks for a visible Blinkii portrait first, then mMediaTag, ElvUI, EllesmereUI and Blizzard. Choose a specific provider when several are installed; an explicit choice waits for that provider instead of silently switching.
 
-For addon portraits, width/height are relative to the fitted size, and X/Y preserve the adjustment from the original Blizzard defaults. Scale keeps the opening centered. Reset this component restores the automatic fit. Frame strata and texture layer remain configurable; Blizzard defaults keep other controls above the artwork. Ellesmere defaults follow its panel/portrait level so opaque panels do not bury the art. Explicit saved strata/level settings still win. Geometry and source changes wait until combat ends.
+Enable a separate portrait in the provider. **Blinkii's Portraits** and **mMediaTag & Tools** offer circular portrait customization that fits Frostforge well alongside ElvUI. EllesmereUI's detached Circle mode also fits. Health-bar overlay/inside portraits have no separate surround; unusual masks and extra decorations may need manual fitting. Unmasked rectangular or 3D portraits fit inside a containing circle.
 
-**Action hub → Action bar provider** selects Automatic, ElvUI, EllesmereUI or Blizzard. FRAME follows the main bar position; SCREEN retains the screen anchor while following its visibility and scale. Bar row count and layout remain manual fitting concerns. Both suites continue to use the shared Minimap anchor; select a circular minimap for the circular surround. Frostforge does not change the map mask or bar layout.
+Frostforge follows the portrait's center, size, scale and visibility. New attachments, provider switches and fitting changes wait until combat ends. Existing artwork can follow readable unit identity changes in combat; restricted identity or geometry may temporarily defer an update.
 
-The independent **Unit-frame art** toggle now supports **Blizzard, ElvUI and EllesmereUI** bars. Set **Unit-frame provider → ElvUI/EllesmereUI** (or Automatic) separately from Portrait provider, then enable either or both art toggles. For a complete provider shell, use horizontal bars with power attached below health and aligned to its edges. The thick divider is fitted inside the original stack height, with both bar sizes restored on disable. Above-health, detached or vertical power arrangements keep their geometry and receive fill textures only; `/jui status` explains the limitation. Hidden or absent power instead keeps the full shell and an opaque near-black empty opening anchored to health. A portrait disabled or placed inside health in Ellesmere has no separate surround to decorate. ElvUI uses the public `ElvUF_Player/Target/Focus.Health` and `.Power` bars. Choose its attached full-width power layout; inset, mini (spaced), offset and detached arrangements retain their layout and show a diagnostic instead of a shell. This support is based on inspected v15.26 source; live validation remains pending.
+## Full unit-frame artwork
 
-```text
-/jf set playerFrame portraitSource BLINKII
-/jf set playerFrame portraitSource MMT
-/jf set targetFrame portraitSource ELVUI
-/jf set focusFrame portraitSource ELLESMERE
-/jf set playerFrame unitFrameSource ELLESMERE
-/jf set playerFrame unitFrameShown on
-/jf set actionHub hubSource ELLESMERE
-/jf set playerFrame portraitSource AUTO
-```
+Enable **Unit-frame art** separately from portrait art and select **Unit-frame provider**. Automatic prefers visible ElvUI, then EllesmereUI, then Blizzard. For ElvUI users, use **ElvUI's own unit frames** for the full shells and a separate portrait provider for circular surrounds.
 
-These settings are included in existing JF2 exports. Source code revisions and measured mask hashes are recorded in [addon-sources.json](addon-sources.json). No third-party addon code or textures are shipped.
+ElvUI and EllesmereUI full shells require horizontal health with full-width power attached below and aligned with its edges. ElvUI inset, mini/spaced, offset or detached power, and vertical/above-health layouts are not fitted. Unsupported layouts retain their provider geometry; explicitly requested fill textures can still apply. Hidden/absent power uses the full shell with a dark empty power opening. A hidden unit frame hides its artwork.
 
-## Shared status-bar material (0.7.4)
+Frostforge fits within the original bar stack and restores native geometry and textures when disabled. Shell size/offset controls do not move the underlying functional frame; use the provider's layout controls to move it. `/jf status` reports requested/resolved providers and fitting limits.
 
-EllesmereUI and ElvUI can select **Frostforge Stone** through their existing LibSharedMedia texture menus. Choose it in the provider for any supported frame type, including frames beyond Frostforge's own Player/Target/Focus shells. Frostforge's default AUTO fill mode respects ElvUI and Ellesmere choices; PROVIDER keeps native fills on any supported shell provider. JIBERISH explicitly restores the prior override behavior. Existing profiles with no fill setting inherit AUTO. No provider settings or third-party code are copied. See [settings setup](SETTINGS.md).
+Full shells are for Player, Target and Focus only. Party, raid, pet, boss and secondary-target support is limited to Blizzard color/texture controls; those frames receive no ornamental shell. Nameplates and their indicators are outside this feature.
 
-## Cast-bar borders (0.8.0)
+## Cast-bar borders
 
-Player, Target and Focus support optional minimal borders for Blizzard, EllesmereUI 9.2.9 and ElvUI v15.26 horizontal cast bars. Discovery uses their actual StatusBars; fills, colors, text, progress and native behavior stay with the provider. [Setup, exact anchors and limitations](CAST-BARS.md). Offline checks cover both client paths; live validation remains pending.
+Enable both the provider's cast bar and Frostforge's independent **Cast-bar border**. Supported providers are Blizzard, ElvUI and EllesmereUI horizontal Player/Target/Focus casts.
 
-Ellesmere Player cast discovery includes its **Resource Bars main cast bar** and the **Unit Frames mini cast bar**. A visible main bar wins; otherwise a visible mini bar can be used. With both idle, the main bar is prepared first. Target/Focus use Unit Frames cast bars. Source checks cover the Blizzard-style aura-layout template and drawing above its cast chrome; live validation is still required.
+Ellesmere Player discovery prefers its visible **Resource Bars** main cast bar, then the **Unit Frames** mini cast bar; when both are idle, the main bar is prepared first. Target/Focus use Unit Frames casts. The settings status identifies the chosen source. ElvUI uses its unit-frame cast bars, including their moved holders. An explicit provider never falls back to a different one.
 
-Stock portrait/name controls and stock-wide stone operate only on Blizzard regions. Ellesmere and ElvUI continue to choose their textures through SharedMedia. See [stock controls](BLIZZARD-CONTROLS.md).
+Vertical, restricted, forbidden and unrelated standalone third-party cast bars are not decorated. Progress, timing, colors, text, icons and gameplay remain provider-controlled. Bars first created/resized in combat can wait until combat ends for attachment/refitting. [Fitting and layer controls](GETTING-STARTED.md#cast-bar-borders) are in the setup guide; inspected anchors and hashes are in [cast-bar-sources.json](cast-bar-sources.json).
+
+## Minimap, action hub and textures
+
+The circular minimap artwork follows the shared Minimap frame. **Use a round minimap (ElvUI)** changes an enabled ElvUI map to its native circle option outside combat, remembers the original shape per profile and restores it when disabled. For other minimap addons, select a circular shape in their own settings. Frostforge's map art sits above the map and keeps its center clear for clicks.
+
+**Action hub → Action bar provider** selects Blizzard, ElvUI or EllesmereUI. FRAME follows the main bar's position; SCREEN uses your screen anchor while following visibility and scale. Set rows, paging and functional button layouts in the original UI addon. Vehicle/override transitions need live testing.
+
+Choose **Frostforge Stone** through ElvUI/Ellesmere's existing shared-media texture menus, then use **Automatic (respect UI addon)** or **Keep provider textures** in Frostforge. Stock Blizzard texture/color controls are separate. See [texture setup](GETTING-STARTED.md#match-health-and-power-textures).
+
+No third-party addon code or textures are bundled. Source records and offline coverage are available in the [maintainer documentation](maintainer/README.md).

@@ -1,10 +1,10 @@
 # Help with Frostforge
 
-Start with [Getting started](docs/GETTING-STARTED.md), [provider compatibility](docs/ADDON-COMPATIBILITY.md), or [cast-bar setup](docs/CAST-BARS.md).
+Start with [Getting started](docs/GETTING-STARTED.md), [provider compatibility](docs/ADDON-COMPATIBILITY.md), or [cast-bar setup](docs/GETTING-STARTED.md#cast-bar-borders).
 
 ## Report a bug or fitting problem
 
-[Open a bug report](https://github.com/jiberishxd/JiberishUI-WoW/issues/new?template=bug_report.yml). Include:
+[Open a bug report](https://github.com/jiberishxd/Frostforge/issues/new?template=bug_report.yml). Include:
 
 - Your game client and build: Retail or Forever.
 - Frostforge version and the names/versions of the UI addons involved.
@@ -16,6 +16,6 @@ The development preview has automated checks, but custom layouts and real-client
 
 ## Share an idea or layout
 
-[Request an improvement or share a layout](https://github.com/jiberishxd/JiberishUI-WoW/issues/new?template=feature_request.yml). Describe the goal and the components/providers involved. Artwork feedback is most useful with a screenshot and a precise location: a clipped corner, a gap, an emblem or a fitting issue.
+[Request an improvement or share a layout](https://github.com/jiberishxd/Frostforge/issues/new?template=feature_request.yml). Describe the goal and the components/providers involved. Artwork feedback is most useful with a screenshot and a precise location: a clipped corner, a gap, an emblem or a fitting issue.
 
 Use **Guide → Backup** before experimenting with a layout. Restore and Reset component are available in `/frostforge`; you do not need to delete your saved settings to reset artwork.
