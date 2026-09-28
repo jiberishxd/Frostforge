@@ -28,6 +28,7 @@ The repository includes the final textures and all artwork inputs. To rebuild me
 ```sh
 python3 -m pip install -r tools/requirements-artwork.txt
 python3 tools/build_portraits.py
+python3 tools/apply_nightelf_emblem.py
 python3 tools/build_hubs.py
 python3 tools/build_minimaps.py
 python3 tools/extract_paladin_crest.py

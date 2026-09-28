@@ -1,0 +1,34 @@
+{
+  "inspected_on": "2026-09-27",
+  "in_game_validated": false,
+  "sources": [
+    {
+      "provider": "ElvUI",
+      "revision": "3b9eed355d09da9eca4cb440b4a0bb9e903ac445",
+      "path": "ElvUI/Game/Shared/Modules/Maps/Minimap.lua",
+      "sha256": "358e9650b3cc4cc7778f280ec41e9f7ec52218b8d1537007ef93bf90680a8855",
+      "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI/Game/Shared/Modules/Maps/Minimap.lua"
+    },
+    {
+      "provider": "ElvUI",
+      "revision": "3b9eed355d09da9eca4cb440b4a0bb9e903ac445",
+      "path": "ElvUI_Options/Game/Shared/Maps.lua",
+      "sha256": "c7b05c3e77dc35ebdf77e0e0ab4498e6f6ef6ae31ced6ea820e99091a3b93b24",
+      "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI_Options/Game/Shared/Maps.lua"
+    },
+    {
+      "provider": "ElvUI",
+      "revision": "3b9eed355d09da9eca4cb440b4a0bb9e903ac445",
+      "path": "ElvUI_Libraries/Game/Shared/LibElvUIPlugin-1.0/LibElvUIPlugin-1.0.lua",
+      "sha256": "eaf35f08ae7361560891d911cedcc99c6d810e5a17e38fc27c30fc922198cb0e",
+      "url": "https://github.com/tukui-org/ElvUI/blob/3b9eed355d09da9eca4cb440b4a0bb9e903ac445/ElvUI_Libraries/Game/Shared/LibElvUIPlugin-1.0/LibElvUIPlugin-1.0.lua"
+    },
+    {
+      "provider": "Blizzard",
+      "path": "Interface/AddOns/Blizzard_Minimap/Mainline/AddonCompartment.lua",
+      "sha256": "ce19b42b91feacc6d96aa2732954cb82885b8cb77338683ce24a40ceb25e7471",
+      "api": "AddonCompartmentMixin:RegisterAddon(addonData); text/icon/func callback"
+    }
+  ],
+  "compartment": "Feature-detect AddonCompartmentFrame.RegisterAddon; only register where available."
+}

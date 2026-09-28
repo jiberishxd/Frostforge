@@ -1,0 +1,18 @@
+[
+  {
+    "key": "revision",
+    "prompt": "EDIT ONLY the small silver moon at the very top center of this existing Night Elf minimap ring. Its current bottom tip curls up like a hook and the moon looks lumpy. Replace that moon with a CLEAR, SIMPLE, GEOMETRICALLY CORRECT CRESCENT MOON, opening to the RIGHT. Imagine one perfectly circular silver disk with a second circular disk cut out, offset to the right. Smooth circular convex outside edge and smooth circular concave inside edge. Two fine sharp tapered points at upper-right and lower-right; top and bottom tips are symmetrically balanced and DO NOT curl inward or bend back. The silhouette reads instantly as a real crescent moon at tiny icon size. No horns, no spiral, no hook, no extra lobes. Keep shallow silver bevels and a few subtle engraved marks matching the existing hand-painted Warcraft metal, but let the simple moon silhouette dominate. Occupy the SAME small footprint as the original moon, above the same purple cloth and teal leaves. Keep the owl, all feathers, leaves, wood, cloth, other silver ornaments, circular ring, and central aperture entirely unchanged. Square image, same framing. Background everywhere including the crescent cutout and circular map opening must be FLAT SOLID CHROMA GREEN #00FF00, no checkerboard, no scene. Do not redraw the ring. Output the complete minimap surround with ONLY the corrected top moon.",
+    "target": "minimap-final.png",
+    "mode": "built-in imagegen",
+    "file": "minimap-revision.png",
+    "generated": "/Users/kyledelfrancia/.codex/generated_images/01a0c635-f40f-7af2-b0c3-0b1105a760f7/exec-7a1ba571-49c2-4681-b903-a8b593bc7827.png"
+  },
+  {
+    "key": "upright",
+    "prompt": "Make ONE specific design change to this image: REPLACE the entire silver moon above the purple top cloth. Current moon is rotated and curled, with both tips near the top half. Do NOT preserve that crescent silhouette. The NEW moon must stand perfectly UPRIGHT like a LEFT PARENTHESIS '(', symmetrical top-to-bottom. Opening directly right at 3 o'clock, NOT diagonally upward. Its TOP pointed tip is at 1 o'clock, its BOTTOM pointed tip at 5 o'clock; neither curls or rolls back inward. Both tips are equally far to the RIGHT. Left convex edge is a smooth half-circle and inner concave edge also a smooth circular arc. The top and bottom halves are mirror-balanced in SHAPE, like an astronomical waxing crescent viewed upright. NO curled bottom point anywhere in the middle of the moon. No hook, no ram horn, no irregular C shape. Thin elegant silver with restrained Warcraft bevels and subtle engraving. New silhouette approximately 120 wide by 170 high, positioned within original top ornament area at center of full 1254 square canvas, connecting to the existing cloth at its lower end. All remaining minimap artwork, including every leaf, feather, owl, wooden circle, gems and drapes must remain unchanged. Keep flat pure neon-green production background everywhere empty, including moon cutout and map center. Output full existing minimap with this obviously different, upright balanced moon.",
+    "target": "minimap-revision.png",
+    "mode": "built-in imagegen",
+    "file": "minimap-upright.png",
+    "generated": "/Users/kyledelfrancia/.codex/generated_images/01a0c635-f40f-7af2-b0c3-0b1105a760f7/exec-8ecce75e-c9f8-456b-8a06-2cd65e9e1281.png"
+  }
+]

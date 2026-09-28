@@ -114,3 +114,11 @@ Cast artwork uses fixed strata/level on its own independent frame, following the
 Prefer Target/Focus `GetAuraContainer()` with the known XML path as a fallback. Install one secure post-hook per root on `AnchorAuraContainer`, which the aura layout/threat callbacks call before native spellbar anchoring. The hook immediately reapplies the current profile's offsets outside combat; the periodic scan still handles discovery and restoration. No aura contents or layout internals are read.
 
 A reentrancy guard and protected-call boundary isolate failures. Each native callback marks a fresh baseline, even when coordinates coincide with the previous customized position. This marker survives combat deferral or unreadable anchors. Replacing a container restores the previous one only if it still has Frostforge's last applied anchors. Disabled profiles leave the hook inert. Placement status reports applied, deferred, unavailable or restoring states in the options dialog and `/jui status`.
+
+## First-run setup and settings discovery (0.9.3)
+
+`Core/Setup.lua` reuses the options widgets for a three-step, combat-deferred wizard. New databases set `setupVersion=0` until completion, Skip or Escape; existing databases do not auto-launch it. Draft choices commit through one validated `SetMany` refresh. A profile change refuses the stale draft. Linked portrait sizing writes the existing width/height properties atomically; expanded controls do not introduce a new profile field.
+
+`Core/Access.lua` registers the AddOn Compartment entry and an ElvUI plugin options group when available. An optional, separately owned interactive minimap launcher follows the map; decorative modules remain input-free. Its versioned account-wide preferences retain icon visibility and drag angle, and unknown formats remain untouched.
+
+`Core/Minimaps.lua` floors artwork strata/level above the actual map/backdrop/parent. Existing unprotected artwork may update its layer during combat; native shape changes wait. When enabled, `minimapRound` uses the initialized ElvUI Minimap module's `db.circle`, `SetMinimapMask` and `UpdateSettings`. This is an explicit exception to read-only provider discovery. A saved per-ElvUI-profile restoration journal survives reloads, and failed native refreshes retry before clearing it. Unsupported providers retain their own shape controls.

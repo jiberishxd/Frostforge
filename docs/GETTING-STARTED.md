@@ -9,9 +9,15 @@ Use the package for your game client: **Retail** or **Forever**. GitHub currentl
 1. Close WoW.
 2. Extract the package. Place the entire `JiberishUI` folder inside your client's `Interface/AddOns/` directory. The final path should be `Interface/AddOns/JiberishUI/JiberishUI.toc`, without an extra nested folder.
 3. For an update, replace only the old `JiberishUI` addon folder. Keep `WTF` and your saved settings. Replacing the folder avoids leaving retired artwork files behind.
-4. Fully restart the client, enable **Jiberish's Frostforge** in the AddOns list, and open `/frostforge` after logging in.
+4. Fully restart the client, enable **Jiberish's Frostforge** in the AddOns list, and follow the short setup wizard after logging in for the first time.
 
 Keep the complete package together: Lua code, theme data and all five active media folders—Portraits, Hubs, Minimaps, UnitFrames and CastBars—are needed. An integration also requires its original UI addon and the relevant frame/portrait/cast-bar module to be enabled.
+
+## Quick setup and opening settings
+
+The first-launch wizard has three steps: choose automatic Class/Race/Faction art, choose the decorations to enable, then choose an optional minimap icon and round ElvUI map. Nothing changes until **Finish & open settings**. Skip or Escape dismisses it; rerun it from **Guide → Run quick setup**. Existing installations keep their current setup without an automatic wizard.
+
+Open settings from the **AddOn Compartment**, the **Frostforge** section of ElvUI settings, or `/frostforge`. Enable **Show minimap settings icon** in Guide if you want a clickable penguin beside the map; drag it around the map to reposition it. These access preferences apply across characters. Protected changes and opening the window wait until combat ends.
 
 ## Keep a separate setup for each character
 
@@ -36,11 +42,11 @@ For **EllesmereUI**, use a separate portrait and horizontal health with power at
 
 ## Fit the artwork
 
-- **Placement:** portrait width/height, X/Y, scale, opacity and anchoring.
+- **Placement:** one portrait size slider changes width and height together. **Advanced sizing** exposes separate dimensions. Existing custom proportions stay intact until you change the size. X/Y, scale, opacity and anchoring remain separate.
 - **Unit frame:** shell width/height from 75–150%, plus horizontal/vertical offsets. Reduce width to bring the original edges over the fill. Reset fitting returns to the default overlap without changing portrait settings.
 - **Blizzard:** hide the stock portrait image, customize the native name's X/Y, font size, alignment and outline, and toggle stone on all stock health/power bars. The rim and level badge remain native. Name and portrait changes apply outside combat and restore when disabled.
 - **Cast bar:** enable its independent Bold border, then set width/height from 50–150%, weight and spacing. Match unit artwork follows the chosen portrait/shell theme; Browse sets a separate cast theme. The provider's own cast bar must be enabled.
-- **Minimap / Action hub:** choose automatic player class/race/faction or fixed artwork, then fit its size and position. The minimap art expects a circular map; action hubs follow the main action bar. Set your actual button layout in its original addon.
+- **Minimap / Action hub:** choose automatic player class/race/faction or fixed artwork, then fit its size and position. The minimap art sits above the map and expects a circular opening. **Use a round minimap (ElvUI)** switches an enabled ElvUI map to round while art is applied, then restores the previous shape when either switch is turned off. Other minimap addons keep their own shape controls. Action hubs follow the main action bar. Set your actual button layout in its original addon.
 
 **Advanced** has independent strata for portrait art and unit-frame art. **Cast bar** has cast-border strata and level. Automatic shell/cast strata follow the supported default/provider; an explicit choice affects only that artwork.
 

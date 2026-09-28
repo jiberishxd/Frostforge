@@ -1566,7 +1566,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Hubs/race_nightelf.tga",
       "source": "artwork/hubs/assets/race_nightelf.png",
-      "source_sha256": "de0663cf4546b0d51bd40907bb5b1e12285ba148b7b41fbadf503d0f773edc7d",
+      "source_sha256": "de6f79d2c61ce2c2903fd33ded89e6b0b794a93ebd241212f856271febae39ba",
       "source_size": [
         2172,
         724
@@ -1577,9 +1577,9 @@
         1024,
         512
       ],
-      "sha256": "be4a5493cf322299bfbaa6cd486460a27ec23c8a2b0f2a4004c23a0d54a07fea",
+      "sha256": "40a962795fc3369077dbaa800084c28f60fad9240b8b8ac554c3da2625a5229d",
       "alphaBounds": [
-        2,
+        4,
         13,
         1020,
         495
@@ -1596,7 +1596,7 @@
         "permission_status": "No separate permission obtained"
       },
       "emblem_treatment": "one integrated left motif, no repeated crest stamps or badge holder",
-      "transform": "Magenta backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha",
+      "transform": "Magenta backdrop keyed and edge color decontaminated; neutral sculpture retained; continuous vertical registration; all five slices retain full-height alpha; localized generated left-emblem inlay on retained registration",
       "vertical_registration": [
         [
           0,
@@ -1660,9 +1660,10 @@
         "record": "artwork/hubs/style-remaster/records/race_nightelf.json",
         "target": "artwork/hubs/style-remaster/before/assets/race_nightelf.png",
         "target_sha256": "b401cec83d1eb91f3427a4e511dbd869e0b964c7cbdc2e9cbf8e21d0e9957e27",
-        "style_reference": "artwork/unit-frames/sculpted/references/race_nightelf.png",
+        "style_reference": "artwork/nightelf-emblem-update/unit-frame-before.png",
         "style_reference_sha256": "f83fac82e9bda503901116016097c72a991665b25df7962ed2715f09b46753be"
-      }
+      },
+      "emblem_correction": "artwork/nightelf-emblem-update/applied.json"
     },
     {
       "id": "race_gnome",

@@ -1,0 +1,7 @@
+{
+  "mode": "built-in imagegen",
+  "prompt": "One tiny cleanup edit only. KEEP the new upright SILVER CRESCENT at the top center exactly as it is: its upper point is at about x680 y22 and its lower point at x687 y208 on this 1254x1254 image. Immediately to its RIGHT, inside the crescent opening, there is an unwanted thin BROWN/PURPLE curved hook that rises from the bottom toward x729 y110. REMOVE this brown hooked protrusion completely. It is a leftover piece of the old incorrectly curled moon and confuses the silhouette. Replace its pixels with the appropriate underlying teal leaves or flat neon green background. After cleanup, there must be ONLY ONE moon crescent silhouette, SILVER, upright like '(', with the cutout clearly OPEN TO THE RIGHT and nothing that curls upward from its bottom tip. Do not alter the new silver crescent, other ornaments, frame, owl or foliage outside that tiny old-hook area. Preserve all remaining image pixels and composition. Same square canvas and solid green production background, no checkerboard. Output the whole corrected minimap artwork.",
+  "target": "minimap-upright.png",
+  "file": "minimap-cleanup.png",
+  "generated": "/Users/kyledelfrancia/.codex/generated_images/01a0c635-f40f-7af2-b0c3-0b1105a760f7/exec-d6ce365d-62bd-4db4-aa5a-f3dd110827b7.png"
+}

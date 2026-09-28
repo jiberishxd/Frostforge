@@ -1,3 +1,13 @@
+# Build 0.9.3 — Quick setup, access and Night Elf artwork
+
+329 Lua behavior tests pass. New coverage checks first launch after entering the world, combat deferral, Skip/reload and existing-profile behavior, atomic setup application, linked and advanced portrait sizing, future data preservation, optional icon persistence/dragging, late AddOn Compartment and ElvUI registration, minimap layering, shape restoration across reloads/profiles, and retry after a provider update fails. Retail and Forever fixtures are included.
+
+20 Python artwork tests pass. Exactly three of the 296 runtime textures changed: the Night Elf unit shell, hub and minimap. Tests preserve all pixels outside the reviewed emblem/moon regions, bar registration and fills, hub seams/center, circular map aperture, export pixels and generation provenance. The moon was revised into an upright crescent and its old curled hook removed. Other artwork remains byte-identical.
+
+Source/media/provenance checks, the unchanged cast-preview export, and exact Retail/Forever 0.9.3 package checks pass. Both archives contain 366 files.
+
+The quiet settings background, Guide, linked/advanced sizing, minimap controls and all three setup pages were visually inspected in the exported browser preview. This remains a font/texture approximation; no live WoW validation was performed. Use the user-run 0.9.3 checklist in VALIDATION.md for secure runtime behavior and in-game appearance.
+
 # Build 0.9.2 — Combat power colors and Blizzard cast trim
 
 312 Lua behavior tests pass. New Hunter fixtures reproduce a precolored Focus-atlas reset and unreadable/throwing native tint reads during combat on both Retail and Forever paths. Saved custom colors and gradients persist on the same prepared fill, without geometry writes, hook creation or repeated polling writes. Tests cover queued settings, forbidden/replacement fills, and restoration of the latest native atlas and tint.

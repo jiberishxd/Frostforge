@@ -15,6 +15,18 @@ class HubRestyleTests(unittest.TestCase):
         lock=json.loads((ART/'style-remaster/reference-lock.json').read_text())['files']
         self.assertEqual(len(lock),211)
         for name,sha in lock.items():
+            # The later, user-requested Night Elf correction retains these
+            # exact source pixels as its baseline; localized edits are checked
+            # independently in test_nightelf_emblem.py.
+            if name=='artwork/unit-frames/sculpted/references/race_nightelf.png':
+                self.assertEqual(digest(ROOT/'artwork/nightelf-emblem-update/unit-frame-before.png'),sha)
+                continue
+            if name=='JiberishUI/Media/UnitFrames/race_nightelf.tga':
+                import io
+                buffer=io.BytesIO()
+                Image.open(ROOT/'artwork/nightelf-emblem-update/unit-frame-fitted-before.png').save(buffer,format='TGA',compression=None)
+                self.assertEqual(hashlib.sha256(buffer.getvalue()).hexdigest(),sha)
+                continue
             with self.subTest(file=name):self.assertEqual(digest(ROOT/name),sha)
 
     def test_remastered_library_has_exact_exports_and_clear_openings(self):

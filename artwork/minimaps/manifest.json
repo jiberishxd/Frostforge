@@ -1101,7 +1101,7 @@
       "group": "race",
       "file": "JiberishUI/Media/Minimaps/race_nightelf.tga",
       "source": "artwork/minimaps/assets/race_nightelf.png",
-      "source_sha256": "201bd96bd75bf63c783c4664884bd3daf68e6b508f1f03a3500e51d02102a1db",
+      "source_sha256": "cfee3ba4a3cb2786ba75592b5c43bff790a37f0888fbf7686e580abac9ff8e2d",
       "source_size": [
         512,
         512
@@ -1113,14 +1113,14 @@
         512,
         512
       ],
-      "sha256": "3de0fc23b611ce5672a52ec675d2a938cbfd16c432f9a40b896beac42d7b2ba9",
+      "sha256": "f928300c5352de6da87997659dca4e7e1e586fe4e14ff54d80c99a7ae4208099",
       "alphaBounds": [
         15,
-        13,
+        8,
         498,
         497
       ],
-      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed",
+      "transform": "Neutral checker flood above luminance 90; dark outlines and enclosed painted details retained; radial contour registration to shared circular opening; outer silhouette retained; detached matte specks under 200 pixels removed; localized generated silver-crescent inlay above unchanged aperture",
       "source_circle": [
         255.25030648425405,
         259.7656110419916,
@@ -1166,7 +1166,8 @@
           "sha256": "47d962a72d1107aa1f050aa1440899215542537afe31d650f956a7e9b7e9929f"
         }
       ],
-      "in_game_qualified": false
+      "in_game_qualified": false,
+      "emblem_correction": "artwork/nightelf-emblem-update/applied.json"
     },
     {
       "id": "race_gnome",

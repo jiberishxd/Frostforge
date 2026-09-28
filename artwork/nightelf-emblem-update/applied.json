@@ -1,0 +1,94 @@
+[
+  {
+    "kind": "unit",
+    "file": "artwork/unit-frames/sculpted/references/race_nightelf.png",
+    "sha256": "beda611e377e43cec83600218bc208c0f6c861d9f0b267ce1829bcf609b7a7ba",
+    "source": "artwork/nightelf-emblem-update/unit-frame-before.png",
+    "source_sha256": "f83fac82e9bda503901116016097c72a991665b25df7962ed2715f09b46753be",
+    "generated": "artwork/nightelf-emblem-update/unit-final.png",
+    "generated_sha256": "bf91d40f03aca83b15271d903e8114b183d636e14ed246fabfbae0364a111fe5",
+    "polygon": [
+      [
+        1336,
+        0
+      ],
+      [
+        1774,
+        0
+      ],
+      [
+        1774,
+        887
+      ],
+      [
+        1460,
+        887
+      ],
+      [
+        1460,
+        320
+      ],
+      [
+        1336,
+        278
+      ]
+    ],
+    "note": "Generated inlay only; pixels outside the polygon, registration and functional apertures retained."
+  },
+  {
+    "kind": "hub",
+    "file": "artwork/hubs/assets/race_nightelf.png",
+    "sha256": "de6f79d2c61ce2c2903fd33ded89e6b0b794a93ebd241212f856271febae39ba",
+    "source": "artwork/nightelf-emblem-update/hub-before.png",
+    "source_sha256": "de0663cf4546b0d51bd40907bb5b1e12285ba148b7b41fbadf503d0f773edc7d",
+    "generated": "artwork/nightelf-emblem-update/hub-final.png",
+    "generated_sha256": "4db9e4e0d33e14748eaef237f42d6f18ad45e0644f1c14f595134ee30a27bd3f",
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        592,
+        0
+      ],
+      [
+        592,
+        724
+      ],
+      [
+        0,
+        724
+      ]
+    ],
+    "note": "Generated inlay only; pixels outside the polygon, registration and functional apertures retained."
+  },
+  {
+    "kind": "minimap",
+    "file": "artwork/minimaps/assets/race_nightelf.png",
+    "sha256": "cfee3ba4a3cb2786ba75592b5c43bff790a37f0888fbf7686e580abac9ff8e2d",
+    "source": "artwork/nightelf-emblem-update/minimap-before.png",
+    "source_sha256": "201bd96bd75bf63c783c4664884bd3daf68e6b508f1f03a3500e51d02102a1db",
+    "generated": "artwork/nightelf-emblem-update/minimap-cleanup.png",
+    "generated_sha256": "a2982447c238fc160e19be8eda3c0c99784a02ed85c3f4f8a5b7e140d5bbd75c",
+    "polygon": [
+      [
+        221,
+        4
+      ],
+      [
+        308,
+        4
+      ],
+      [
+        308,
+        96
+      ],
+      [
+        221,
+        96
+      ]
+    ],
+    "note": "Generated inlay only; pixels outside the polygon, registration and functional apertures retained."
+  }
+]

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.3 — Quick setup and Night Elf refinements
+
+- Add a three-step first-launch wizard for theme, decorations and access. Existing installations keep their setup; rerun it from Guide.
+- Link portrait width and height under one size slider, with separate controls under Advanced sizing. Existing non-square dimensions remain unchanged until edited.
+- Add AddOn Compartment and ElvUI settings entries, plus an optional draggable minimap settings icon.
+- Keep minimap artwork above the map and its backdrop. Use ElvUI’s round shape while enabled, with restoration of the prior per-profile shape when turned off.
+- Simplify settings panel backgrounds while retaining native Blizzard borders, frosted buttons and selected/hover highlights.
+- Refine the Night Elf unit-frame right emblem, hub left emblem and minimap crescent using the supplied Blizzard reference. Preserve other artwork, bar openings, hub seams and map aperture.
+
 ## 0.9.2 — Combat power colors and Blizzard cast trim
 
 - Keep saved custom power colors when Blizzard's current tint is restricted during combat. Reassert the prepared neutral material when Blizzard selects a precolored Focus/resource atlas on the same existing power bar, preserving the latest native atlas for restoration.
