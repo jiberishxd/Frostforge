@@ -136,7 +136,7 @@ function S:Paint(module,kind,id,config,layout)
     module.assetOK=true
     if kind=="border" then
         local entry=J.UnitSkinCatalog.entries[id]
-        if layout then
+        if layout or module.id~=id then
             local pieces=J.CastBars:FitPieces(entry,g.w,g.h,config.smallFrameWeight,config.smallFramePadding,g.mirror,config.unitFrameWidth,config.unitFrameHeight)
             for name,p in pairs(pieces) do
                 local t=module.textures[name]
