@@ -16,6 +16,10 @@ end
 local units={playerFrame="player",targetFrame="target",focusFrame="focus"}
 function P:HasUnit(key)
     local unit=units[key]
+    return self:HasToken(unit)
+end
+
+function P:HasToken(unit)
     if not unit or type(UnitExists)~="function" then return true end
     local ok,exists=pcall(UnitExists,unit)
     if not ok or not J.Core:IsSafe(exists) then return true end

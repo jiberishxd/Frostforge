@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.8
+
+- Compact castbar-style borders for Target of Target and Party frames, using all 42 existing designs.
+- Party portrait surrounds for supported Blizzard, ElvUI and EllesmereUI layouts, with individual member matching and independent fitting controls.
+- Existing images and native frame controls are unchanged. Live group/combat validation is still required.
+
 ## 0.9.7
 
 - Illustrated first-login tour with Blizzard, ElvUI and Ellesmere guidance.

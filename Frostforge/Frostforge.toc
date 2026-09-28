@@ -4,10 +4,10 @@
 ## X-Website: https://theigloo.io
 ## Notes: Optional sculpted unit-frame skins and fantasy portrait surrounds with Blinkii, mMediaTag, ElvUI and EllesmereUI support, matching cast-bar borders, action hubs and minimap artwork. In-game validation pending.
 ## Author: Jiberish
-## Version: 0.9.7
+## Version: 0.9.8
 ## SavedVariables: JiberishUIDB
 ## SavedVariablesPerCharacter: JiberishUICharacterDB
-## OptionalDeps: LibSharedMedia-3.0, Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_Minimap, Blinkiis_Portraits, ElvUI, ElvUI_mMediaTag, EllesmereUI, EllesmereUIUnitFrames, EllesmereUIResourceBars, EllesmereUIActionBars, EllesmereUIMinimap
+## OptionalDeps: LibSharedMedia-3.0, Blizzard_UnitFrame, Blizzard_ActionBar, Blizzard_Minimap, Blinkiis_Portraits, ElvUI, ElvUI_mMediaTag, EllesmereUI, EllesmereUIUnitFrames, EllesmereUIRaidFrames, EllesmereUIResourceBars, EllesmereUIActionBars, EllesmereUIMinimap
 
 Build.lua
 Core\Core.lua
@@ -22,6 +22,7 @@ Core\Minimaps.lua
 Themes\UnitSkins.lua
 Core\UnitSkins.lua
 Core\CastBars.lua
+Core\SmallFrames.lua
 Core\BlizzardUnits.lua
 Core\ThemeManager.lua
 Core\ProfileManager.lua
@@ -33,6 +34,7 @@ Compatibility\Retail.lua
 Compatibility\Forever.lua
 Themes\PortraitMaskFits.lua
 Compatibility\AddOns.lua
+Compatibility\SmallFrames.lua
 Modules\Minimap.lua
 Modules\PlayerFrame.lua
 Modules\TargetFrame.lua
