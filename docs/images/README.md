@@ -9,7 +9,7 @@
 - `logo.png`: the official Frostforge penguin logo, with blue ice inside a weathered metal medallion and small icy accents on its rim. The 1254 × 1254 PNG has a transparent exterior. Use this image for the README and public addon branding. Its source, generation prompt and transparency verification are retained in `LOGO-SOURCE.md`.
 - `social-preview.jpg`: 1280 × 640 sharing image made from the existing Paladin/Shaman textures and text. Prepared for GitHub's social preview field; not a game screenshot.
 
-The composition tool uses existing images only; it does not generate or replace addon artwork. The game loads exported TGA textures; it does not load these PNG/JPEG documentation files. All images have captions identifying previews versus game captures.
+The composition tool uses existing images only; it does not generate or replace addon artwork. The addon loads its exported PNG textures from `Frostforge/Media/`; these documentation images are not installed. All images have captions identifying previews versus game captures.
 
 `blizzard-controls.jpg` shows the actual exported stock portrait/name controls and the stock-wide stone switch. Capture mode hides only the preview-page header so the full options panel fits in the browser viewport.
 

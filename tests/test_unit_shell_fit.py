@@ -1,5 +1,6 @@
 """Guard source silhouettes, thick rails, transparency and unrelated artwork."""
 import hashlib
+import os
 import json
 import sys
 import tempfile
@@ -9,6 +10,12 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
+if os.environ.get("FROSTFORGE_ARTWORK_TESTS") != "1":
+    raise unittest.SkipTest("Source-art audit: attach artwork and set FROSTFORGE_ARTWORK_TESTS=1")
+if not (ROOT / "artwork").is_dir():
+    raise RuntimeError("FROSTFORGE_ARTWORK_TESTS=1 requires the separate artwork library")
+from artwork_support import open_asset, legacy_bytes
+
 sys.path.insert(0, str(ROOT / 'tools'))
 from fit_unit_shells import fit
 
@@ -17,8 +24,8 @@ class ShellFitTests(unittest.TestCase):
     def test_druid_antlers_preserve_rails_openings_and_other_source_pixels(self):
         root=ROOT/'artwork/unit-frames/sculpted/druid-antler-correction'
         record=json.loads((root/'generation.json').read_text())
-        before=np.asarray(Image.open(ROOT/record['before']))
-        after=np.asarray(Image.open(ROOT/record['file']))
+        before=np.asarray(open_asset(ROOT/record['before']))
+        after=np.asarray(open_asset(ROOT/record['file']))
         allowed=np.zeros(before.shape[:2],dtype=bool)
         for x1,y1,x2,y2 in record['boxes']: allowed[y1:y2,x1:x2]=True
         self.assertTrue(np.array_equal(before[~allowed],after[~allowed]))
@@ -28,11 +35,11 @@ class ShellFitTests(unittest.TestCase):
         self.assertTrue(np.array_equal(np.asarray(old)[100:],np.asarray(new)[100:]))
 
     def test_complete_cast_silhouettes_have_clear_centers_and_uncropped_details(self):
-        source = (ROOT / 'artwork/cast-bars/runtime-borders.js').read_text()
+        source = (ROOT / 'docs/artwork/cast-borders.js').read_text()
         data = json.loads(source.split('window.castBorders=', 1)[1].rstrip(';\n'))
         self.assertEqual(len(data['themes']), 42)
         for identity, theme in data['themes'].items():
-            image = Image.open(ROOT / 'artwork/cast-bars/assets' / (theme['file'] + '.png')).convert('RGBA')
+            image = open_asset(ROOT / 'artwork/cast-bars/assets' / (theme['file'] + '.png')).convert('RGBA')
             alpha = np.asarray(image)[:,:,3]
             with self.subTest(identity=identity):
                 self.assertEqual(set(theme['styles']), {'CAPPED'})
@@ -41,13 +48,17 @@ class ShellFitTests(unittest.TestCase):
                 self.assertFalse(alpha[:4].any() or alpha[-4:].any() or alpha[:,:4].any() or alpha[:,-4:].any())
                 self.assertTrue((alpha[:48,48:464]>32).any(axis=0).all())
                 self.assertTrue((alpha[80:,48:464]>32).any(axis=0).all())
-                game = Image.open(ROOT / 'Frostforge/Media/CastBars' / (theme['file']+'.tga')).convert('RGBA')
+                game = open_asset(ROOT / 'Frostforge/Media/CastBars' / (theme['file']+'.tga')).convert('RGBA')
                 self.assertEqual(image.tobytes(), game.tobytes())
                 for style, pieces in theme['styles'].items():
                     self.assertEqual(len(pieces), 8)
+                    covered = np.zeros((128,512), dtype=bool)
                     for name, p in pieces.items():
                         x,y,w,h = (p[k] for k in ('x','y','w','h'))
-                        self.assertTrue(x+w<=0 or x>=180 or y+h<=0 or y>=16)
+                        self.assertGreater(w,0)
+                        self.assertGreater(h,0)
+                        covered[round(p['v1']*128):round(p['v2']*128),
+                                round(p['u1']*512):round(p['u2']*512)] = True
                         if name in ('11','13','31','33'):
                             sx=w/((p['u2']-p['u1'])*512)
                             sy=h/((p['v2']-p['v1'])*128)
@@ -56,19 +67,20 @@ class ShellFitTests(unittest.TestCase):
                     self.assertEqual(max(p['u2'] for p in pieces.values()),1)
                     self.assertEqual(min(p['v1'] for p in pieces.values()),0)
                     self.assertEqual(max(p['v2'] for p in pieces.values()),1)
+                    self.assertFalse(alpha[~covered].any(), 'Fitting cropped painted details')
 
     def test_mage_emblem_changes_are_localized_and_keep_frame_openings(self):
         root=ROOT/'artwork/mage-emblem-correction'
         for record in json.loads((root/'applied.json').read_text()):
             with self.subTest(kind=record['kind']):
-                before=np.asarray(Image.open(ROOT/record['source']))
-                after=np.asarray(Image.open(ROOT/record['file']))
+                before=np.asarray(open_asset(ROOT/record['source']))
+                after=np.asarray(open_asset(ROOT/record['file']))
                 allowed=np.zeros(before.shape[:2],dtype=bool)
                 for x1,y1,x2,y2 in record['boxes']: allowed[y1:y2+1,x1:x2+1]=True
                 self.assertTrue(np.array_equal(before[~allowed],after[~allowed]))
                 self.assertFalse(np.array_equal(before[allowed],after[allowed]))
-        before=np.asarray(Image.open(root/'unit-frame-fitted-before.png'))
-        after=np.asarray(Image.open(ROOT/'artwork/unit-frames/assets/class_mage.png'))
+        before=np.asarray(open_asset(root/'unit-frame-fitted-before.png'))
+        after=np.asarray(open_asset(ROOT/'artwork/unit-frames/assets/class_mage.png'))
         self.assertTrue(np.array_equal(before[:,:,3],after[:,:,3]))
 
     def test_health_is_plain_color_neutral_stone_for_every_identity(self):
@@ -78,7 +90,7 @@ class ShellFitTests(unittest.TestCase):
         pixels = None
         for asset in health:
             with self.subTest(asset=asset['file']):
-                image = Image.open(ROOT / asset['file']).convert('RGBA')
+                image = open_asset(ROOT / asset['file']).convert('RGBA')
                 self.assertEqual(image.size, (256, 32))
                 actual = np.asarray(image)
                 self.assertTrue(np.all(actual[:, :, 3] == 255))
@@ -86,7 +98,7 @@ class ShellFitTests(unittest.TestCase):
                 self.assertTrue(np.array_equal(actual[:, :, 1], actual[:, :, 2]))
                 self.assertGreater(float(actual[:, :, 0].std()), 5)
                 self.assertLess(float(actual[:, :, 0].std()), 40)
-                preview = np.asarray(Image.open(ROOT / asset['source']).convert('RGBA'))
+                preview = np.asarray(open_asset(ROOT / asset['source']).convert('RGBA'))
                 self.assertTrue(np.array_equal(actual, preview))
                 if pixels is not None:
                     self.assertTrue(np.array_equal(actual, pixels))
@@ -107,7 +119,7 @@ class ShellFitTests(unittest.TestCase):
             if name.endswith('Portraits/class_mage.tga'): continue
             if name=='Frostforge/Media/Minimaps/race_nightelf.tga':
                 buffer=io.BytesIO()
-                Image.open(ROOT/'artwork/nightelf-emblem-update/minimap-before.png').save(buffer,format='TGA',compression=None)
+                open_asset(ROOT/'artwork/nightelf-emblem-update/minimap-before.png').save(buffer,format='TGA',compression=None)
                 self.assertEqual(hashlib.sha256(buffer.getvalue()).hexdigest(),expected)
                 continue  # Only the top moon changes; covered in test_nightelf_emblem.py.
             if '/Hubs/' in name and Path(name).stem in hub_corrections:
@@ -116,11 +128,11 @@ class ShellFitTests(unittest.TestCase):
             if '/Hubs/' in name:
                 retained=retained_hubs[Path(name).stem]
                 buffer=io.BytesIO()
-                Image.open(ROOT/retained['file']).save(buffer,format='TGA',compression=None)
+                open_asset(ROOT/retained['file']).save(buffer,format='TGA',compression=None)
                 self.assertEqual(expected,hashlib.sha256(buffer.getvalue()).hexdigest())
                 continue  # All current hubs are checked in test_hub_restyle.py.
             with self.subTest(asset=name):
-                self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected)
+                self.assertEqual(hashlib.sha256(legacy_bytes(ROOT / name)).hexdigest(), expected)
 
     def test_all_42_shells_reproduce_with_source_proportions(self):
         reports = json.loads((ROOT / 'artwork/unit-frames/sculpted/fit-report.json').read_text())
@@ -128,7 +140,7 @@ class ShellFitTests(unittest.TestCase):
         for report in reports:
             with self.subTest(artwork=report['id']):
                 image, measured = fit(ROOT / report['source'])
-                expected = np.asarray(Image.open(ROOT / report['file']).convert('RGBA'))
+                expected = np.asarray(open_asset(ROOT / report['file']).convert('RGBA'))
                 self.assertTrue(np.array_equal(np.asarray(image), expected))
                 self.assertEqual(measured, report['measured'])
                 self.assertLess(abs(measured['scale'][0]-measured['scale'][1]), .001)

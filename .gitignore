@@ -7,3 +7,6 @@ __pycache__/
 .DS_Store
 # Downloaded website markup is a local research cache; source URLs and emblems are retained.
 artwork/official-crests/pages/
+
+# Source art is a separately backed-up local library (directory or symlink).
+/artwork

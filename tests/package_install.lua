@@ -25,7 +25,7 @@ assert(J.Build.flavor==(interface==16001 and "forever" or "retail"))
 assert(JiberishUIDB==saved and JiberishUICharacterDB==character)
 assert(J.ProfileManager.activeID==activeID and J.ProfileManager:Export()==backup)
 assert(registered=="Frostforge" and E.Options.args.frostforge)
-assert(J.Media.logo=="Interface\\AddOns\\Frostforge\\Media\\Branding\\frostforge-logo.tga")
+assert(J.Media.logo=="Interface\\AddOns\\Frostforge\\Media\\Branding\\frostforge-logo.png")
 for _,object in ipairs(M.objects) do
     if type(object.path)=="string" and object.path:find("Interface\\AddOns\\",1,true) then
         assert(object.path:find("Interface\\AddOns\\Frostforge\\",1,true)==1,object.path)

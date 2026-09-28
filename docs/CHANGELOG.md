@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.11
+
+- Align all 42 castbar borders to the same painted opening so class, race and faction changes retain a consistent fit, including during combat. Also applies to the shared Party and Target of Target borders. Original artwork and saved fitting settings are preserved.
+
 ## 0.9.10
 
 - Start Action Hubs at 900 × 240, screen anchored, with offsets 0 / -14, scale 1 and opacity 1. Saved custom placement is preserved.

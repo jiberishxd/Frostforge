@@ -597,7 +597,7 @@ test("options preserve newer read-only profiles while remaining usable",function
 end)
 test("reported Forever fit profile reproduces geometry without changing native frames",function(M)
     local J=M.load({interface=16001,flavor="forever"})
-    local file=assert(io.open("artwork/paladin-ret-review/reported-fit-profile.txt"))
+    local file=assert(io.open("tests/fixtures/reported-fit-profile.txt"))
     local backup=file:read("*a"):gsub("%s+$",""); file:close()
     assert(J.ProfileManager:Import(backup))
     local player,hub=J.Core.modules.playerFrame,J.Core.modules.actionHub

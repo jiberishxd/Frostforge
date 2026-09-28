@@ -1,5 +1,6 @@
 """Night Elf corrections must not alter other artwork or functional openings."""
 import hashlib
+import os
 import json
 import sys
 import unittest
@@ -8,6 +9,12 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT=Path(__file__).resolve().parents[1]
+if os.environ.get("FROSTFORGE_ARTWORK_TESTS") != "1":
+    raise unittest.SkipTest("Source-art audit: attach artwork and set FROSTFORGE_ARTWORK_TESTS=1")
+if not (ROOT / "artwork").is_dir():
+    raise RuntimeError("FROSTFORGE_ARTWORK_TESTS=1 requires the separate artwork library")
+from artwork_support import open_asset, legacy_bytes
+
 ART=ROOT/'artwork/nightelf-emblem-update'
 sys.path.insert(0,str(ROOT/'tools'))
 from apply_nightelf_emblem import apply_overlay
@@ -17,7 +24,7 @@ class NightElfEmblemTests(unittest.TestCase):
     def test_only_three_requested_runtime_textures_change(self):
         before=json.loads((ART/'baseline.json').read_text())['assets']
         self.assertEqual(len(before),296)
-        changed={p for p,sha in before.items() if hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=sha}
+        changed={p for p,sha in before.items() if hashlib.sha256(legacy_bytes(ROOT / p)).hexdigest()!=sha}
         self.assertEqual(changed,{'Frostforge/Media/'+k+'/race_nightelf.tga' for k in ('UnitFrames','Hubs','Minimaps')})
 
     def test_generated_inlays_are_localized_reproducible_and_documented(self):
@@ -27,7 +34,7 @@ class NightElfEmblemTests(unittest.TestCase):
             with self.subTest(kind=r['kind']):
                 for field,hashkey in [('source','source_sha256'),('generated','generated_sha256'),('file','sha256')]:
                     self.assertEqual(hashlib.sha256((ROOT/r[field]).read_bytes()).hexdigest(),r[hashkey])
-                before=Image.open(ROOT/r['source']);after=Image.open(ROOT/r['file'])
+                before=open_asset(ROOT/r['source']);after=open_asset(ROOT/r['file'])
                 mask=Image.new('L',before.size);ImageDraw.Draw(mask).polygon([tuple(p) for p in r['polygon']],fill=255)
                 allowed=np.asarray(mask)>0;b,a=np.asarray(before),np.asarray(after)
                 self.assertTrue(np.array_equal(a[~allowed],b[~allowed]))
@@ -41,7 +48,7 @@ class NightElfEmblemTests(unittest.TestCase):
         # Unit rails and both openings are unchanged through the bar region.
         self.assertEqual(before.crop((0,100,405,200)).tobytes(),after.crop((0,100,405,200)).tobytes())
         for kind,folder,size in [('hub','Hubs',(1024,512)),('minimap','Minimaps',(512,512))]:
-            a=Image.open(ROOT/'artwork'/('hubs' if kind=='hub' else 'minimaps')/'assets/race_nightelf.png')
+            a=open_asset(ROOT/'artwork'/('hubs' if kind=='hub' else 'minimaps')/'assets/race_nightelf.png')
             alpha=np.asarray(a)[:,:,3]
             self.assertFalse(alpha[:4].any() or alpha[-4:].any() or alpha[:,:4].any() or alpha[:,-4:].any())
             if kind=='hub':self.assertFalse(alpha[:440,620:1552].any())
@@ -49,5 +56,5 @@ class NightElfEmblemTests(unittest.TestCase):
                 self.assertFalse(alpha[:8].any() or alpha[-8:].any() or alpha[:,:8].any() or alpha[:,-8:].any())
                 y,x=np.indices(alpha.shape)
                 self.assertFalse(alpha[(x-256)**2+(y-256)**2<148**2].any())
-            game=Image.open(ROOT/'Frostforge/Media'/folder/'race_nightelf.tga')
+            game=open_asset(ROOT/'Frostforge/Media'/folder/'race_nightelf.tga')
             self.assertEqual(a.resize(size,Image.Resampling.LANCZOS).tobytes(),game.tobytes())

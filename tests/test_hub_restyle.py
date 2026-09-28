@@ -1,5 +1,6 @@
 """The hub edition must preserve the approved frames and native button aperture."""
 import hashlib
+import os
 import json
 import unittest
 from pathlib import Path
@@ -7,8 +8,14 @@ import numpy as np
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
+if os.environ.get("FROSTFORGE_ARTWORK_TESTS") != "1":
+    raise unittest.SkipTest("Source-art audit: attach artwork and set FROSTFORGE_ARTWORK_TESTS=1")
+if not (ROOT / "artwork").is_dir():
+    raise RuntimeError("FROSTFORGE_ARTWORK_TESTS=1 requires the separate artwork library")
+from artwork_support import open_asset, legacy_bytes
+
 ART=ROOT/'artwork/hubs'
-def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+def digest(path):return hashlib.sha256(legacy_bytes(path)).hexdigest()
 
 class HubRestyleTests(unittest.TestCase):
     def test_approved_unit_frames_and_portraits_are_unchanged(self):
@@ -24,7 +31,7 @@ class HubRestyleTests(unittest.TestCase):
             if name=='Frostforge/Media/UnitFrames/race_nightelf.tga':
                 import io
                 buffer=io.BytesIO()
-                Image.open(ROOT/'artwork/nightelf-emblem-update/unit-frame-fitted-before.png').save(buffer,format='TGA',compression=None)
+                open_asset(ROOT/'artwork/nightelf-emblem-update/unit-frame-fitted-before.png').save(buffer,format='TGA',compression=None)
                 self.assertEqual(hashlib.sha256(buffer.getvalue()).hexdigest(),sha)
                 continue
             with self.subTest(file=name):self.assertEqual(digest(ROOT/name),sha)
@@ -39,14 +46,14 @@ class HubRestyleTests(unittest.TestCase):
             with self.subTest(identity=a['id']):
                 self.assertEqual(a['registration'],old[a['id']]['registration'])
                 self.assertNotEqual(a['source_sha256'],old[a['id']]['source_sha256'])
-                source=Image.open(ROOT/a['source'])
+                source=open_asset(ROOT/a['source'])
                 self.assertEqual(source.mode,'RGBA')
                 self.assertEqual(source.size,(2172,724))
                 alpha=np.asarray(source.getchannel('A'))
                 self.assertFalse(alpha[:440,620:1552].any())
                 self.assertFalse(alpha[:4].any() or alpha[-4:].any() or alpha[:,:4].any() or alpha[:,-4:].any())
-                encoded=Image.open(ROOT/a['file'])
-                self.assertEqual(encoded.tobytes(),Image.open(ART/'game'/(a['id']+'.png')).tobytes())
+                encoded=open_asset(ROOT/a['file'])
+                self.assertEqual(encoded.tobytes(),open_asset(ART/'game'/(a['id']+'.png')).tobytes())
                 self.assertEqual(digest(ROOT/a['original']),a['original_sha256'])
                 r=a['style_remaster']
                 self.assertEqual(digest(ROOT/r['target']),r['target_sha256'])

@@ -1,5 +1,6 @@
 """Background removal must preserve painted RGB, fitting and shipped alpha."""
 import hashlib
+import os
 import json
 import sys
 import unittest
@@ -7,6 +8,12 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
+if os.environ.get("FROSTFORGE_ARTWORK_TESTS") != "1":
+    raise unittest.SkipTest("Source-art audit: attach artwork and set FROSTFORGE_ARTWORK_TESTS=1")
+if not (ROOT / "artwork").is_dir():
+    raise RuntimeError("FROSTFORGE_ARTWORK_TESTS=1 requires the separate artwork library")
+from artwork_support import open_asset, legacy_bytes
+
 sys.path.insert(0,str(ROOT/'tools'))
 from clean_hub_alpha import clean
 from build_hubs import register
@@ -35,9 +42,9 @@ class HubAlphaTests(unittest.TestCase):
         self.assertEqual(len(audit['reviewed_hubs']),42)
         for identity,r in audit['corrections'].items():
             with self.subTest(identity=identity):
-                raw,_=extract_alpha(Image.open(ROOT/manifest[identity]['original']))
+                raw,_=extract_alpha(open_asset(ROOT/manifest[identity]['original']))
                 corrected=clean(raw,identity);before=np.array(raw);after=np.array(corrected)
-                mask=np.array(Image.open(ROOT/r['mask']))>0
+                mask=np.array(open_asset(ROOT/r['mask']))>0
                 self.assertTrue(np.array_equal(before[:,:,:3],after[:,:,:3]))
                 self.assertTrue(np.array_equal(before[~mask],after[~mask]))
                 self.assertFalse(after[mask,3].any())
@@ -45,17 +52,17 @@ class HubAlphaTests(unittest.TestCase):
                 self.assertEqual(old_map,new_map)
                 self.assertEqual(fitted.size,(2172,724))
                 self.assertIsNone(fitted.crop((620,0,1552,440)).getchannel('A').getbbox())
-                canonical=Image.open(ROOT/manifest[identity]['source'])
+                canonical=open_asset(ROOT/manifest[identity]['source'])
                 self.assertResamplingEquivalent(fitted,canonical)
-                encoded=Image.open(ROOT/manifest[identity]['file'])
+                encoded=open_asset(ROOT/manifest[identity]['file'])
                 self.assertResamplingEquivalent(canonical.resize((1024,512),Image.Resampling.LANCZOS),encoded)
-                self.assertEqual(encoded.tobytes(),Image.open(snapshot/'game'/f'{identity}.png').tobytes())
+                self.assertEqual(encoded.tobytes(),open_asset(snapshot/'game'/f'{identity}.png').tobytes())
 
     def test_reported_checker_holes_are_clear_and_silver_trim_survives(self):
         samples={'race_human':[(1827,267)],'race_highmountaintauren':[(123,220),(2070,257)],
                  'class_monk':[(44,199)],'race_voidelf':[(2070,150)]}
         for identity,points in samples.items():
-            raw,_=extract_alpha(Image.open(ROOT/'artwork/hubs/sculpted-originals'/f'{identity}.png'))
+            raw,_=extract_alpha(open_asset(ROOT/'artwork/hubs/sculpted-originals'/f'{identity}.png'))
             image=clean(raw,identity)
             for point in points:
                 with self.subTest(identity=identity,point=point):self.assertEqual(image.getpixel(point)[3],0)

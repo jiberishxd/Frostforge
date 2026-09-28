@@ -4,14 +4,14 @@ import hashlib
 import json
 from pathlib import Path
 import re
-import struct
+from PIL import Image
 import zipfile
 import math
 
 from package import ROOT, CLIENTS, VERSION, active_sources, payload
 
 REQUIRED = {
-    "Core/SmallFrames.lua", "Compatibility/SmallFrames.lua",
+    "Core/SmallFrames.lua", "Compatibility/SmallFrames.lua", "Themes/CastBorders.lua",
     "Build.lua", "Core/Core.lua", "Core/ThemeManager.lua", "Core/ProfileManager.lua", "Core/Media.lua", "Core/Settings.lua", "Core/Portraits.lua", "Themes/Portraits.lua", "Themes/NPCCities.lua", "Core/Hubs.lua", "Themes/Hubs.lua", "Core/Minimaps.lua", "Themes/Minimaps.lua",
     "Compatibility/Retail.lua", "Compatibility/Forever.lua", "Compatibility/AddOns.lua", "Themes/PortraitMaskFits.lua", "Core/NamedProfiles.lua", "Core/Access.lua", "Core/Setup.lua",
     "Modules/Minimap.lua", "Modules/PlayerFrame.lua", "Modules/TargetFrame.lua", "Modules/FocusFrame.lua", "Modules/ActionHub.lua",
@@ -29,7 +29,7 @@ def source_checks():
     assert "## SavedVariablesPerCharacter: JiberishUICharacterDB" in toc
     assert "## Title: Jiberish's Frostforge" in toc
     assert "## X-Website: https://theigloo.io" in toc
-    assert "Media\\Branding\\frostforge-logo.tga" in toc
+    assert "Media\\Branding\\frostforge-logo.png" in toc
     assert VERSION in (ROOT / "Frostforge/Core/Core.lua").read_text()
     forbidden = r"\b(loadstring|loadfile|dofile|UnitHealth|UnitPower|SetAttribute|SetParent|SetStatusBarTexture|SetStatusBarColor|SetAtlas|RegisterForClicks|SetBinding)\s*\("
     for name in sources:
@@ -62,20 +62,27 @@ def source_checks():
     print("PASS manifest, five owned modules, data-only artwork registry, and prohibited API checks")
 
 
-def asset_checks():
+def asset_checks(with_artwork=False):
+    if with_artwork:
+        assert (ROOT / "artwork").is_dir(), "Attach the separate artwork library before --with-artwork"
+
+    def check_source(path, expected):
+        if with_artwork:
+            assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected, path
+
     manifest = json.loads((ROOT / "docs/phase1-assets.json").read_text())
     assets = manifest["assets"]
     assert len(assets) == 298
     groups = [{Path(a["file"]).stem for a in assets if "/"+kind+"/" in a["file"]} for kind in ("Portraits", "Hubs", "Minimaps")]
     assert all(len(g) == 42 and g == groups[0] for g in groups), "Artwork catalogs must match"
     assert {Path(a["file"]).stem for a in assets if a.get("kind")=="unit-shell"} == groups[0]
-    fits=json.loads((ROOT/'artwork/unit-frames/sculpted/fit-report.json').read_text())
+    fits=json.loads((ROOT/'docs/artwork/unit-frame-fit-report.json').read_text())
     assert len(fits)==42 and {f['id'] for f in fits}==groups[0]
     for fitted in fits:
         for field,hash_field in (('source','source_sha256'),('file','sha256')):
-            assert hashlib.sha256((ROOT/fitted[field]).read_bytes()).hexdigest()==fitted[hash_field]
+            check_source(fitted[field], fitted[hash_field])
     for kind in ('health','power'):
-        assert {Path(a['file']).stem.rsplit('-',1)[0] for a in assets if a['file'].endswith('-'+kind+'.tga')} == groups[0]
+        assert {Path(a['file']).stem.rsplit('-',1)[0] for a in assets if Path(a['file']).stem.endswith('-'+kind)} == groups[0]
     actual_media = {p.relative_to(ROOT).as_posix() for p in (ROOT/"Frostforge/Media").rglob("*") if p.is_file()}
     expected_media = {a["file"] for a in assets}
     assert actual_media == expected_media, (
@@ -91,19 +98,20 @@ def asset_checks():
         path = ROOT / asset["file"]
         data = path.read_bytes()
         assert hashlib.sha256(data).hexdigest() == asset["sha256"]
-        assert hashlib.sha256((ROOT / asset["source"]).read_bytes()).hexdigest() == asset["source_sha256"]
+        check_source(asset["source"], asset["source_sha256"])
         if asset.get("original"):
-            assert hashlib.sha256((ROOT / asset["original"]).read_bytes()).hexdigest() == asset["original_sha256"]
-        if asset.get("alpha_processing"):
+            check_source(asset["original"], asset["original_sha256"])
+        if with_artwork and asset.get("alpha_processing"):
             processing = json.loads((ROOT / asset["alpha_processing"]).read_text())
             assert processing["output_sha256"] == asset["source_sha256"]
-            assert hashlib.sha256((ROOT / processing["source"]).read_bytes()).hexdigest() == processing["source_sha256"]
-        _, palette, kind, _, _, _, _, _, w, h, bits, descriptor = struct.unpack("<BBBHHBHHHHBB", data[:18])
-        assert palette == 0 and kind == 2 and bits == 32 and descriptor & 15 == 8
+            check_source(processing["source"], processing["source_sha256"])
+        with Image.open(path) as image:
+            assert image.format == "PNG" and image.mode == "RGBA", asset["file"]
+            w, h = image.size
+            pixels = image.tobytes("raw", "BGRA")
+        descriptor = 32  # The decoded bytes use top-to-bottom rows.
         assert [w, h] == asset["size"]
         assert all(n > 0 and n & (n-1) == 0 for n in (w, h))
-        offset = 18 + data[0]
-        pixels = data[offset:offset+w*h*4]
         assert len(pixels) == w*h*4
         visible = []
         for i in range(w*h):
@@ -130,12 +138,12 @@ def asset_checks():
                 row=y if descriptor & 32 else h-1-y
                 assert all(pixels[(row*w+x)*4+3]==0 for x in range(48,464))
             for ref in asset['references']:
-                assert hashlib.sha256((ROOT/ref['file']).read_bytes()).hexdigest()==ref['sha256']
+                check_source(ref['file'], ref['sha256'])
         if "/UnitFrames/" in asset["file"]:
             assert asset["kind"] in ("unit-shell", "statusbar-fill")
             assert [w,h] == ([512,256] if asset["kind"] == "unit-shell" else [256,32])
             for ref in asset["references"]:
-                assert hashlib.sha256((ROOT/ref["file"]).read_bytes()).hexdigest()==ref["sha256"]
+                check_source(ref["file"], ref["sha256"])
             if asset["kind"]=="unit-shell":
                 assert bounds[0]>=4 and bounds[1]>=4 and bounds[2]<=508 and bounds[3]<=252
                 report=next(f for f in fits if f['id']==path.stem)
@@ -165,7 +173,7 @@ def asset_checks():
             assert bounds[0]>=8 and bounds[1]>=8 and bounds[2]<=470 and bounds[3]<=244
             assert any(y>=190 for x,y in visible), 'Natural side flare must not be chopped off'
             if asset.get('official_crest') or asset.get('emblem_reference'):
-                crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
+                crest=asset.get('official_crest') or asset['emblem_reference'];check_source(crest['file'], crest['sha256'])
             for y in range(h):
                 for x in range(w):
                     # Separate Player and round Target/Focus atlas halves, with
@@ -202,7 +210,7 @@ def asset_checks():
                     if (x-256)**2+(y-256)**2<=149**2:
                         assert pixels[(row*w+x)*4+3]==0, asset['file']
             for ref in asset['references']:
-                assert hashlib.sha256((ROOT/ref['file']).read_bytes()).hexdigest()==ref['sha256']
+                check_source(ref['file'], ref['sha256'])
         if "/Hubs/" in asset["file"]:
             assert [w,h]==[1024,512]
             assert asset['registration']=={'canvas':[2172,724],'seams':[620,980,1210,1552],
@@ -213,8 +221,10 @@ def asset_checks():
                     row=y if descriptor & 32 else h-1-y
                     assert pixels[(row*w+x)*4+3]==0, 'Hub art covers reserved button region'
             if asset.get('official_crest') or asset.get('emblem_reference'):
-                crest=asset.get('official_crest') or asset['emblem_reference'];assert hashlib.sha256((ROOT/crest['file']).read_bytes()).hexdigest()==crest['sha256']
-    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 298 RGBA assets (including the official transparent logo and stone interface, 42 complete cast borders, 42 sculpted shells and 84 painted fills) and provenance hashes")
+                crest=asset.get('official_crest') or asset['emblem_reference'];check_source(crest['file'], crest['sha256'])
+    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 298 RGBA assets (including the official transparent logo and stone interface, 42 complete cast borders, 42 sculpted shells and 84 painted fills) and runtime hashes")
+    if with_artwork:
+        print("PASS separate artwork source and provenance hashes")
 
 
 def reference_checks():
@@ -256,17 +266,18 @@ def archive_checks(directory):
                 code = archive.read(name).decode().replace("\\\\", "/").replace("\\", "/")
                 for asset in re.findall(r'Interface/AddOns/([^"\s]+)', code):
                     assert asset.startswith("Frostforge/") and asset in archive.namelist(), (name, asset)
-        assert len([p for p in expected if p.endswith(".tga")]) == 298
+        assert len([p for p in expected if p.endswith(".png")]) == 298
     print("PASS both exact client archives; no legacy code/themes or unrelated textures packaged")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--packages", action="store_true")
+    parser.add_argument("--with-artwork", action="store_true", help="Also verify the attached source art library")
     parser.add_argument("--dist", type=Path, default=ROOT / "dist")
     args = parser.parse_args()
     source_checks()
-    asset_checks()
+    asset_checks(args.with_artwork)
     reference_checks()
     if args.packages:
         archive_checks(args.dist)

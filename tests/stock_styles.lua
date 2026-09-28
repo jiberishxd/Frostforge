@@ -203,6 +203,6 @@ test("both stock adapters prefer initialized live bars over outdated XML paths",
         local bars=client:UnitBars("playerFrame");assert(bars.health==h and bars.power==p)
     end
     J.ProfileManager:Set("playerFrame","blizzardHealthTexture","STONE")
-    assert(h.selectedTexture==J.Media.stone and old.health.fill.path~="Interface\\AddOns\\Frostforge\\Media\\UnitFrames\\class_paladin-health.tga")
+    assert(h.selectedTexture==J.Media.stone and old.health.fill.path~="Interface\\AddOns\\Frostforge\\Media\\UnitFrames\\class_paladin-health.png")
     assert(not next(J.Core.notices),next(J.Core.notices))
 end)

@@ -19,7 +19,7 @@ class PackagingTests(unittest.TestCase):
         for client in CLIENTS:
             with self.subTest(client=client):
                 files = payload(client)
-                extras = {name for name in files if not name.endswith((".toc", ".lua", ".tga"))}
+                extras = {name for name in files if not name.endswith((".toc", ".lua", ".png"))}
                 self.assertEqual(extras, {"Frostforge/README.md", "Frostforge/CREDITS.md"})
                 # Source-ZIP installs and release-ZIP installs contain the same
                 # files; only client-specific TOC/Build metadata may differ.

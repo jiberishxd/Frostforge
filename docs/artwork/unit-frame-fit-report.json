@@ -1,0 +1,2102 @@
+[
+  {
+    "id": "class_warrior",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_warrior.png",
+    "source_sha256": "9374b66844d117572e8a9ef1057c7980ae709b449ccb4cdb0c9d76a0ac97c6ad",
+    "file": "artwork/unit-frames/sculpted/assets/class_warrior.png",
+    "sha256": "7619f1ffaadf7c1842f66f97a95044bbe08971542765c0eae23dcc070f8ca7df",
+    "measured": {
+      "health": [
+        260,
+        350,
+        1411,
+        479
+      ],
+      "power": [
+        260,
+        526,
+        1411,
+        575
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          80.6944757609921,
+          101.85794813979707,
+          402.5073280721533,
+          137.92559188275084
+        ],
+        "power": [
+          80.6944757609921,
+          151.0665163472379,
+          402.5073280721533,
+          164.76662908680947
+        ],
+        "divider": 13.140924464487057
+      }
+    }
+  },
+  {
+    "id": "class_paladin",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_paladin.png",
+    "source_sha256": "a3cc840c0af520028e54fc8d49f5929f40c2983f7ba66666814cff7edff88a51",
+    "file": "artwork/unit-frames/sculpted/assets/class_paladin.png",
+    "sha256": "d8d990309a6b13dfa99a10a269f378ad3a4899494544cb8ef0b1dc7cbd213232",
+    "measured": {
+      "health": [
+        252,
+        351,
+        1420,
+        477
+      ],
+      "power": [
+        252,
+        521,
+        1420,
+        575
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          78.45772266065389,
+          102.13754227733935,
+          405.0236753100338,
+          137.36640360766629
+        ],
+        "power": [
+          78.45772266065389,
+          149.6685456595265,
+          405.0236753100338,
+          164.76662908680947
+        ],
+        "divider": 12.302142051860216
+      }
+    }
+  },
+  {
+    "id": "class_hunter",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_hunter.png",
+    "source_sha256": "af328c225da0d53f38b44a4c62fd939da843473a8e6c18db73bc8ce37cbb5a4d",
+    "file": "artwork/unit-frames/sculpted/assets/class_hunter.png",
+    "sha256": "7b312710f6d2b41d9c244b642b8aa4782add39dffb83915d4bdab49d37f9e1d3",
+    "measured": {
+      "health": [
+        256,
+        351,
+        1369,
+        481
+      ],
+      "power": [
+        256,
+        522,
+        1369,
+        577
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.13754227733935,
+          390.76437429537765,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          149.94813979706876,
+          390.76437429537765,
+          165.32581736189402
+        ],
+        "divider": 11.463359639233374
+      }
+    }
+  },
+  {
+    "id": "class_rogue",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_rogue.png",
+    "source_sha256": "fab1f16f3f365bfd486c0657d215968e4a3c8a9adc01f674e3209ade82d30c39",
+    "file": "artwork/unit-frames/sculpted/assets/class_rogue.png",
+    "sha256": "efb0842a251ad66cbbe97d0b3787397c997616284414c630422eded201fd2d7c",
+    "measured": {
+      "health": [
+        256,
+        351,
+        1418,
+        481
+      ],
+      "power": [
+        256,
+        522,
+        1418,
+        574
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.13754227733935,
+          404.4644870349493,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          149.94813979706876,
+          404.4644870349493,
+          164.48703494926718
+        ],
+        "divider": 11.463359639233374
+      }
+    }
+  },
+  {
+    "id": "class_priest",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_priest.png",
+    "source_sha256": "5d1ff7c7e7651a491970cf6b7c7c442ac5a2c175bf282d8f71e13bd3b1584946",
+    "file": "artwork/unit-frames/sculpted/assets/class_priest.png",
+    "sha256": "f2cb1023337bb16e235f6274e8c1a77f879a66e698239c21e53ed894e3f7ff4a",
+    "measured": {
+      "health": [
+        257,
+        354,
+        1419,
+        482
+      ],
+      "power": [
+        257,
+        524,
+        1419,
+        577
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.85569334836528,
+          102.97632468996618,
+          404.7440811724915,
+          138.76437429537768
+        ],
+        "power": [
+          79.85569334836528,
+          150.5073280721533,
+          404.7440811724915,
+          165.32581736189402
+        ],
+        "divider": 11.742953776775636
+      }
+    }
+  },
+  {
+    "id": "class_deathknight",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_deathknight.png",
+    "source_sha256": "0dd215058a66a807f631b227f4c14d70624c90e720c50dfe074ef2ab10a76a6d",
+    "file": "artwork/unit-frames/sculpted/assets/class_deathknight.png",
+    "sha256": "4176e904a6ba285ca49dac3f41429ab47128036bf9633d5e6f9693f08e27c8e4",
+    "measured": {
+      "health": [
+        257,
+        352,
+        1419,
+        480
+      ],
+      "power": [
+        257,
+        523,
+        1419,
+        571
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.85569334836528,
+          102.41713641488163,
+          404.7440811724915,
+          138.20518602029313
+        ],
+        "power": [
+          79.85569334836528,
+          150.22773393461105,
+          404.7440811724915,
+          163.64825253664037
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "class_shaman",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_shaman.png",
+    "source_sha256": "7fcaac566a033edc9b03eadbb095903f8e1999e4635e201914ff77e6d974ede0",
+    "file": "artwork/unit-frames/sculpted/assets/class_shaman.png",
+    "sha256": "6574b79e49fcede4467c8332ecf8c89736a59224bacc5217d7c5ef296936d606",
+    "measured": {
+      "health": [
+        254,
+        351,
+        1391,
+        484
+      ],
+      "power": [
+        254,
+        521,
+        1391,
+        580
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.01691093573844,
+          102.13754227733935,
+          396.9154453213078,
+          139.32356257046223
+        ],
+        "power": [
+          79.01691093573844,
+          149.6685456595265,
+          396.9154453213078,
+          166.16459977452087
+        ],
+        "divider": 10.344983089064272
+      }
+    }
+  },
+  {
+    "id": "class_mage",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_mage.png",
+    "source_sha256": "3ce073fb3ad63fdfb7049cb2af0823bacf50932b7723001cb028082da81e2af1",
+    "file": "artwork/unit-frames/sculpted/assets/class_mage.png",
+    "sha256": "fda1ab88fafd4dfe608b19ff3a7abaf112de878a3827a76cc772f32476e2d5cd",
+    "measured": {
+      "health": [
+        252,
+        351,
+        1416,
+        477
+      ],
+      "power": [
+        252,
+        520,
+        1416,
+        573
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          78.45772266065389,
+          102.13754227733935,
+          403.9052987598647,
+          137.36640360766629
+        ],
+        "power": [
+          78.45772266065389,
+          149.3889515219842,
+          403.9052987598647,
+          164.20744081172492
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "class_warlock",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_warlock.png",
+    "source_sha256": "464c8ce3b18d42456c65c9cdf08a0fd416a592961cdbd64978ba94e27e6217a6",
+    "file": "artwork/unit-frames/sculpted/assets/class_warlock.png",
+    "sha256": "a9166f51507ff3f3aaf2f3edf7adeae275be8cc19d2b00f2f804ec0f9a2209ac",
+    "measured": {
+      "health": [
+        256,
+        352,
+        1427,
+        480
+      ],
+      "power": [
+        256,
+        523,
+        1427,
+        576
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.41713641488163,
+          406.9808342728298,
+          138.20518602029313
+        ],
+        "power": [
+          79.576099210823,
+          150.22773393461105,
+          406.9808342728298,
+          165.04622322435173
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "class_monk",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_monk.png",
+    "source_sha256": "7989ba375d535618e63ab480fccc6f50e461e518011ba090d678554d8757795c",
+    "file": "artwork/unit-frames/sculpted/assets/class_monk.png",
+    "sha256": "0ad27945190646d4c9dfbc98b8bce738deb537b3eeb843c799e794866e6558ef",
+    "measured": {
+      "health": [
+        259,
+        350,
+        1421,
+        478
+      ],
+      "power": [
+        259,
+        521,
+        1421,
+        570
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          80.41488162344983,
+          101.85794813979707,
+          405.3032694475761,
+          137.64599774520858
+        ],
+        "power": [
+          80.41488162344983,
+          149.6685456595265,
+          405.3032694475761,
+          163.36865839909808
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "class_druid",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_druid.png",
+    "source_sha256": "b8bf38b274cf9c73d799c2a1a7a817318ffd7052d934d2b71a033728efd85c60",
+    "file": "artwork/unit-frames/sculpted/assets/class_druid.png",
+    "sha256": "399ef7238351b6ecd56f5116cd367ba15353032dd0cdc35a490735feb541ce8b",
+    "measured": {
+      "health": [
+        272,
+        350,
+        1390,
+        471
+      ],
+      "power": [
+        272,
+        516,
+        1390,
+        571
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.04960541149944,
+          101.85794813979707,
+          396.6358511837655,
+          135.68883878241263
+        ],
+        "power": [
+          84.04960541149944,
+          148.2705749718151,
+          396.6358511837655,
+          163.64825253664037
+        ],
+        "divider": 12.581736189402477
+      }
+    }
+  },
+  {
+    "id": "class_demonhunter",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_demonhunter.png",
+    "source_sha256": "4b354682bf1921a60ad3d71c59d9b4cb3dff5bbba33674c80c5cf10302595345",
+    "file": "artwork/unit-frames/sculpted/assets/class_demonhunter.png",
+    "sha256": "28bc95445b98f62bd102b97301604cbaa52770a6e7355564ab5eacf88fe92e54",
+    "measured": {
+      "health": [
+        254,
+        348,
+        1419,
+        476
+      ],
+      "power": [
+        254,
+        520,
+        1419,
+        572
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.01691093573844,
+          101.29875986471251,
+          404.7440811724915,
+          137.08680947012402
+        ],
+        "power": [
+          79.01691093573844,
+          149.3889515219842,
+          404.7440811724915,
+          163.92784667418263
+        ],
+        "divider": 12.302142051860187
+      }
+    }
+  },
+  {
+    "id": "class_evoker",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/class_evoker.png",
+    "source_sha256": "9032c6f480a3d70bdb0b30ae149dd9b09d9836d344bfebd958dfad96fd3de4aa",
+    "file": "artwork/unit-frames/sculpted/assets/class_evoker.png",
+    "sha256": "5afab4bdcbe1615063e3ff8c9c2eff0779fa8f7fa0fbe67b81b516baa30b44be",
+    "measured": {
+      "health": [
+        266,
+        357,
+        1411,
+        479
+      ],
+      "power": [
+        266,
+        528,
+        1411,
+        573
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          82.37204058624577,
+          103.815107102593,
+          402.5073280721533,
+          137.92559188275084
+        ],
+        "power": [
+          82.37204058624577,
+          151.62570462232244,
+          402.5073280721533,
+          164.20744081172492
+        ],
+        "divider": 13.700112739571608
+      }
+    }
+  },
+  {
+    "id": "race_human",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_human.png",
+    "source_sha256": "9c4aecd4bc54a1b41d5c031519ed2842b2359efddbb209b1414bc6a33fc1acfb",
+    "file": "artwork/unit-frames/sculpted/assets/race_human.png",
+    "sha256": "03e3209f7cc3c9b1807eebebcb5a32bfacccad87b2e67746636ec485410bd2a8",
+    "measured": {
+      "health": [
+        285,
+        352,
+        1417,
+        481
+      ],
+      "power": [
+        285,
+        523,
+        1417,
+        575
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          87.68432919954904,
+          102.41713641488163,
+          404.184892897407,
+          138.4847801578354
+        ],
+        "power": [
+          87.68432919954904,
+          150.22773393461105,
+          404.184892897407,
+          164.76662908680947
+        ],
+        "divider": 11.742953776775664
+      }
+    }
+  },
+  {
+    "id": "race_dwarf",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_dwarf.png",
+    "source_sha256": "b9d7ca1f1aa1846d090b28da305df5dc1347366a77d9836ce8c5bd83eae3136f",
+    "file": "artwork/unit-frames/sculpted/assets/race_dwarf.png",
+    "sha256": "59af5b8c6cbb302e6ea9fdc857af8c397975d5ecc1d1989855f26fd5208169f2",
+    "measured": {
+      "health": [
+        272,
+        341,
+        1398,
+        467
+      ],
+      "power": [
+        272,
+        520,
+        1398,
+        574
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.04960541149944,
+          99.34160090191658,
+          398.8726042841037,
+          134.57046223224353
+        ],
+        "power": [
+          84.04960541149944,
+          149.3889515219842,
+          398.8726042841037,
+          164.48703494926718
+        ],
+        "divider": 14.818489289740683
+      }
+    }
+  },
+  {
+    "id": "race_nightelf",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_nightelf.png",
+    "source_sha256": "beda611e377e43cec83600218bc208c0f6c861d9f0b267ce1829bcf609b7a7ba",
+    "file": "artwork/unit-frames/sculpted/assets/race_nightelf.png",
+    "sha256": "7f6063a9cd8fc093d298849a8040eacd4ff0a6954a4cb2cb34026c76bf11331f",
+    "measured": {
+      "health": [
+        256,
+        352,
+        1419,
+        480
+      ],
+      "power": [
+        256,
+        522,
+        1419,
+        576
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.41713641488163,
+          404.7440811724915,
+          138.20518602029313
+        ],
+        "power": [
+          79.576099210823,
+          149.94813979706876,
+          404.7440811724915,
+          165.04622322435173
+        ],
+        "divider": 11.742953776775636
+      }
+    }
+  },
+  {
+    "id": "race_gnome",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_gnome.png",
+    "source_sha256": "4d1292570b4bf230c4cff85afb71be579a14aceb3dd84da9ba4e81f972e3b506",
+    "file": "artwork/unit-frames/sculpted/assets/race_gnome.png",
+    "sha256": "27a19ccbd934fac8fce7acd6151bd1031492cd7bccb5a73bfbfbf58fc6a3ac6c",
+    "measured": {
+      "health": [
+        241,
+        348,
+        1421,
+        475
+      ],
+      "power": [
+        241,
+        516,
+        1421,
+        570
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          75.38218714768884,
+          101.29875986471251,
+          405.3032694475761,
+          136.80721533258173
+        ],
+        "power": [
+          75.38218714768884,
+          148.2705749718151,
+          405.3032694475761,
+          163.36865839909808
+        ],
+        "divider": 11.463359639233374
+      }
+    }
+  },
+  {
+    "id": "race_draenei",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_draenei.png",
+    "source_sha256": "146f025b3baf501e90e52b89440b8a2f830a36474f3283b272d458dc9df0f204",
+    "file": "artwork/unit-frames/sculpted/assets/race_draenei.png",
+    "sha256": "1f71325c364190b021ab7fb1757baf419752e648d3f40ff404c0843d66b54c04",
+    "measured": {
+      "health": [
+        255,
+        353,
+        1419,
+        481
+      ],
+      "power": [
+        255,
+        524,
+        1419,
+        576
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.29650507328073,
+          102.6967305524239,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.29650507328073,
+          150.5073280721533,
+          404.7440811724915,
+          165.04622322435173
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "race_worgen",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_worgen.png",
+    "source_sha256": "d6408e6de9827e762e1da53dfed564d683a4acdc485b1113df0132beef4e07a4",
+    "file": "artwork/unit-frames/sculpted/assets/race_worgen.png",
+    "sha256": "dc5a46c4b259790ead1780749c386554717db4f3098b2432268bc817cc063412",
+    "measured": {
+      "health": [
+        254,
+        351,
+        1446,
+        479
+      ],
+      "power": [
+        254,
+        521,
+        1446,
+        573
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.01691093573844,
+          102.13754227733935,
+          412.293122886133,
+          137.92559188275084
+        ],
+        "power": [
+          79.01691093573844,
+          149.6685456595265,
+          412.293122886133,
+          164.20744081172492
+        ],
+        "divider": 11.742953776775664
+      }
+    }
+  },
+  {
+    "id": "race_orc",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_orc.png",
+    "source_sha256": "aab68b286939c5d6faee2b30effd1d7cd071540f11149a263b69073c061a4feb",
+    "file": "artwork/unit-frames/sculpted/assets/race_orc.png",
+    "sha256": "95bc8c554e198f4c7793053efd556ed878fd658ce0950d9ef825abeaf1bbd9d0",
+    "measured": {
+      "health": [
+        256,
+        351,
+        1418,
+        476
+      ],
+      "power": [
+        256,
+        523,
+        1418,
+        563
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.13754227733935,
+          404.4644870349493,
+          137.08680947012402
+        ],
+        "power": [
+          79.576099210823,
+          150.22773393461105,
+          404.4644870349493,
+          161.41149943630214
+        ],
+        "divider": 13.140924464487028
+      }
+    }
+  },
+  {
+    "id": "race_scourge",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_scourge.png",
+    "source_sha256": "a8d7f6c4a64408e635e917334d88e09d73093933bdda7b64f434ae90478bfb0f",
+    "file": "artwork/unit-frames/sculpted/assets/race_scourge.png",
+    "sha256": "60cd09c32a54c1832fb1e901588093a96ff1159a0fa3ecaeb6751118d0b597a5",
+    "measured": {
+      "health": [
+        257,
+        353,
+        1418,
+        482
+      ],
+      "power": [
+        257,
+        524,
+        1418,
+        577
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.85569334836528,
+          102.6967305524239,
+          404.4644870349493,
+          138.76437429537768
+        ],
+        "power": [
+          79.85569334836528,
+          150.5073280721533,
+          404.4644870349493,
+          165.32581736189402
+        ],
+        "divider": 11.742953776775636
+      }
+    }
+  },
+  {
+    "id": "race_tauren",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_tauren.png",
+    "source_sha256": "020295d088c2af4490e933228a0d52c53b1b36e663713980b91e694dd469029a",
+    "file": "artwork/unit-frames/sculpted/assets/race_tauren.png",
+    "sha256": "08ea3704a89980326c71773746c07c1ddd90442e8734a86840744a0ca5227d19",
+    "measured": {
+      "health": [
+        255,
+        352,
+        1395,
+        477
+      ],
+      "power": [
+        255,
+        522,
+        1395,
+        574
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.29650507328073,
+          102.41713641488163,
+          398.0338218714769,
+          137.36640360766629
+        ],
+        "power": [
+          79.29650507328073,
+          149.94813979706876,
+          398.0338218714769,
+          164.48703494926718
+        ],
+        "divider": 12.581736189402477
+      }
+    }
+  },
+  {
+    "id": "race_troll",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_troll.png",
+    "source_sha256": "9e742bfbc512288e02ca6a083cf64f32431735d06300cb7fbbdcae8ea81157c8",
+    "file": "artwork/unit-frames/sculpted/assets/race_troll.png",
+    "sha256": "c19354a20e9d85dc80b151caa3b5718799d199384d932ecfd8cdae1b5ae1502b",
+    "measured": {
+      "health": [
+        257,
+        354,
+        1419,
+        481
+      ],
+      "power": [
+        257,
+        525,
+        1419,
+        577
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.85569334836528,
+          102.97632468996618,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.85569334836528,
+          150.7869222096956,
+          404.7440811724915,
+          165.32581736189402
+        ],
+        "divider": 12.302142051860216
+      }
+    }
+  },
+  {
+    "id": "race_bloodelf",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_bloodelf.png",
+    "source_sha256": "76675430a13598f6b241bc946eaae5ba550b24527370ee9c86cdae6fe198fd2f",
+    "file": "artwork/unit-frames/sculpted/assets/race_bloodelf.png",
+    "sha256": "94e63127d71bd1c0193a8c00e34dca9634ec30fc15818dbdfa9091088ebba96e",
+    "measured": {
+      "health": [
+        254,
+        351,
+        1425,
+        481
+      ],
+      "power": [
+        254,
+        524,
+        1425,
+        579
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.01691093573844,
+          102.13754227733935,
+          406.4216459977452,
+          138.4847801578354
+        ],
+        "power": [
+          79.01691093573844,
+          150.5073280721533,
+          406.4216459977452,
+          165.88500563697858
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "race_goblin",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_goblin.png",
+    "source_sha256": "29cea0da6a6b5593a69c4e7e1bb344640ad0e7b1b35607908706bc0bfb07f5e2",
+    "file": "artwork/unit-frames/sculpted/assets/race_goblin.png",
+    "sha256": "e62c0e25039b4f6b074927a3798e538afb6104e3c44d6504fde7c916c4d0c9a6",
+    "measured": {
+      "health": [
+        253,
+        353,
+        1403,
+        479
+      ],
+      "power": [
+        253,
+        526,
+        1403,
+        577
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          78.73731679819616,
+          102.6967305524239,
+          400.2705749718151,
+          137.92559188275084
+        ],
+        "power": [
+          78.73731679819616,
+          151.0665163472379,
+          400.2705749718151,
+          165.32581736189402
+        ],
+        "divider": 13.140924464487057
+      }
+    }
+  },
+  {
+    "id": "race_pandaren",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_pandaren.png",
+    "source_sha256": "cab74b9a346a85bc3ced8695d303608ce13ae65378b085519aa0cd65121f2608",
+    "file": "artwork/unit-frames/sculpted/assets/race_pandaren.png",
+    "sha256": "fe8adcebcd52a00a894b33912bc5d70d26089bbce421ac30a1a92046e1cc4793",
+    "measured": {
+      "health": [
+        255,
+        349,
+        1419,
+        479
+      ],
+      "power": [
+        255,
+        522,
+        1419,
+        575
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.29650507328073,
+          101.5783540022548,
+          404.7440811724915,
+          137.92559188275084
+        ],
+        "power": [
+          79.29650507328073,
+          149.94813979706876,
+          404.7440811724915,
+          164.76662908680947
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "race_dracthyr",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_dracthyr.png",
+    "source_sha256": "9790152428a1990a560fdf570f309d4d58d5a987cc7ffb82ee4a274539af2551",
+    "file": "artwork/unit-frames/sculpted/assets/race_dracthyr.png",
+    "sha256": "ec5ba7e16b20ba6a605fc5c6d8251c2a44d1c44f6343b3df08849b019926735a",
+    "measured": {
+      "health": [
+        256,
+        353,
+        1419,
+        481
+      ],
+      "power": [
+        256,
+        524,
+        1419,
+        575
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.6967305524239,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          150.5073280721533,
+          404.7440811724915,
+          164.76662908680947
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "race_voidelf",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_voidelf.png",
+    "source_sha256": "2de85cc215823ea289699372d985f2428d1ae4d793b87f51ad8d208865433323",
+    "file": "artwork/unit-frames/sculpted/assets/race_voidelf.png",
+    "sha256": "d30f70b769a0e11c2599609fbfada49a635b1cf511a77871e844a11607e7eeff",
+    "measured": {
+      "health": [
+        256,
+        352,
+        1418,
+        479
+      ],
+      "power": [
+        256,
+        523,
+        1418,
+        574
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.41713641488163,
+          404.4644870349493,
+          137.92559188275084
+        ],
+        "power": [
+          79.576099210823,
+          150.22773393461105,
+          404.4644870349493,
+          164.48703494926718
+        ],
+        "divider": 12.302142051860216
+      }
+    }
+  },
+  {
+    "id": "race_lightforgeddraenei",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_lightforgeddraenei.png",
+    "source_sha256": "b458cdcb8a5248b8d683faa9a1ceb94c673a93c676caf70d89480a9ea8b7933b",
+    "file": "artwork/unit-frames/sculpted/assets/race_lightforgeddraenei.png",
+    "sha256": "613d670cd7445e1e53a3b46a48f0aff1ce047304cc1e136951bf545d0f7ef9cb",
+    "measured": {
+      "health": [
+        257,
+        350,
+        1419,
+        481
+      ],
+      "power": [
+        257,
+        524,
+        1419,
+        579
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.85569334836528,
+          101.85794813979707,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.85569334836528,
+          150.5073280721533,
+          404.7440811724915,
+          165.88500563697858
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "race_darkirondwarf",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_darkirondwarf.png",
+    "source_sha256": "e8da2a958988a236882aa060b9679bd2a063ccd7418f98305356a6d1810eb229",
+    "file": "artwork/unit-frames/sculpted/assets/race_darkirondwarf.png",
+    "sha256": "c92a7221b78d7bb86718c201f6f383e2fb3b474f3793265a095f3d23e2fe4d2a",
+    "measured": {
+      "health": [
+        256,
+        353,
+        1418,
+        480
+      ],
+      "power": [
+        256,
+        523,
+        1418,
+        575
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.6967305524239,
+          404.4644870349493,
+          138.20518602029313
+        ],
+        "power": [
+          79.576099210823,
+          150.22773393461105,
+          404.4644870349493,
+          164.76662908680947
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "race_kultiran",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_kultiran.png",
+    "source_sha256": "03e844b8686f86296b9fe4f06ff1d2dce95f63ec39254e9f0c067068ea7f361a",
+    "file": "artwork/unit-frames/sculpted/assets/race_kultiran.png",
+    "sha256": "254d7fcb9673c902aa9154ed7a0e21265fd811eeb2553b5e64daef8218a3ba69",
+    "measured": {
+      "health": [
+        258,
+        349,
+        1421,
+        472
+      ],
+      "power": [
+        258,
+        517,
+        1421,
+        573
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          80.13528748590755,
+          101.5783540022548,
+          405.3032694475761,
+          135.9684329199549
+        ],
+        "power": [
+          80.13528748590755,
+          148.5501691093574,
+          405.3032694475761,
+          164.20744081172492
+        ],
+        "divider": 12.581736189402505
+      }
+    }
+  },
+  {
+    "id": "race_mechagnome",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_mechagnome.png",
+    "source_sha256": "e9f85bd9108a944db06935597705b28426a38e1aff7e77e7b10afdd767cf8bd9",
+    "file": "artwork/unit-frames/sculpted/assets/race_mechagnome.png",
+    "sha256": "273e1408eda31268f6a08cb6422287bee6e253e1dbb83268495b6832f99559f9",
+    "measured": {
+      "health": [
+        256,
+        352,
+        1419,
+        481
+      ],
+      "power": [
+        256,
+        524,
+        1419,
+        578
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.41713641488163,
+          404.7440811724915,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          150.5073280721533,
+          404.7440811724915,
+          165.60541149943631
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "race_nightborne",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_nightborne.png",
+    "source_sha256": "0f1d888ae689889151cb0cf3059530898efd56330af590caf8f51a5cb0f67943",
+    "file": "artwork/unit-frames/sculpted/assets/race_nightborne.png",
+    "sha256": "a5884471404421758570aeac9d3ff91a0475de3f9a440c88ba48b45ab7776909",
+    "measured": {
+      "health": [
+        256,
+        352,
+        1422,
+        481
+      ],
+      "power": [
+        256,
+        524,
+        1422,
+        577
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.576099210823,
+          102.41713641488163,
+          405.5828635851184,
+          138.4847801578354
+        ],
+        "power": [
+          79.576099210823,
+          150.5073280721533,
+          405.5828635851184,
+          165.32581736189402
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "race_highmountaintauren",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_highmountaintauren.png",
+    "source_sha256": "2d8ac72978e0776d970e519aad8eba7276ad359e8305be420299e1ed2a23d586",
+    "file": "artwork/unit-frames/sculpted/assets/race_highmountaintauren.png",
+    "sha256": "7be93de43e2bb0cca194201c9c56a8eb9a41c515637bec66aaf4773086b2f4ef",
+    "measured": {
+      "health": [
+        262,
+        353,
+        1413,
+        481
+      ],
+      "power": [
+        262,
+        523,
+        1413,
+        573
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          81.25366403607666,
+          102.6967305524239,
+          403.0665163472379,
+          138.4847801578354
+        ],
+        "power": [
+          81.25366403607666,
+          150.22773393461105,
+          403.0665163472379,
+          164.20744081172492
+        ],
+        "divider": 11.742953776775664
+      }
+    }
+  },
+  {
+    "id": "race_magharorc",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_magharorc.png",
+    "source_sha256": "25157252be4fe1b53d0771847fdfc5319686151a004620345a3755945eb7f0da",
+    "file": "artwork/unit-frames/sculpted/assets/race_magharorc.png",
+    "sha256": "6deb7a99b1a28ff62ebe43b49ec7d19f9dee6c1b80466bd1df943e0d60d0b087",
+    "measured": {
+      "health": [
+        254,
+        353,
+        1422,
+        481
+      ],
+      "power": [
+        254,
+        523,
+        1422,
+        574
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.01691093573844,
+          102.6967305524239,
+          405.5828635851184,
+          138.4847801578354
+        ],
+        "power": [
+          79.01691093573844,
+          150.22773393461105,
+          405.5828635851184,
+          164.48703494926718
+        ],
+        "divider": 11.742953776775664
+      }
+    }
+  },
+  {
+    "id": "race_zandalaritroll",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_zandalaritroll.png",
+    "source_sha256": "9b7e885821be724b930caed4b37d15cda28fa156088675075676a3ba8e9b5646",
+    "file": "artwork/unit-frames/sculpted/assets/race_zandalaritroll.png",
+    "sha256": "cac461d65e3a03962d9bfb615f4c5b03ab1390f382be00657b017c20fcaff407",
+    "measured": {
+      "health": [
+        253,
+        355,
+        1418,
+        471
+      ],
+      "power": [
+        253,
+        520,
+        1418,
+        570
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          78.73731679819616,
+          103.25591882750845,
+          404.4644870349493,
+          135.68883878241263
+        ],
+        "power": [
+          78.73731679819616,
+          149.3889515219842,
+          404.4644870349493,
+          163.36865839909808
+        ],
+        "divider": 13.70011273957158
+      }
+    }
+  },
+  {
+    "id": "race_vulpera",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_vulpera.png",
+    "source_sha256": "8196dd8e5fc0349f1f02ad684ceb12be93c4327611f89f53ac1389be5aed8ea2",
+    "file": "artwork/unit-frames/sculpted/assets/race_vulpera.png",
+    "sha256": "cdce8361bc3d11464f5bbb5eecc241c638b0213866de17fc6a182a46e681382b",
+    "measured": {
+      "health": [
+        267,
+        340,
+        1389,
+        473
+      ],
+      "power": [
+        267,
+        516,
+        1389,
+        568
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          82.65163472378805,
+          99.06200676437429,
+          396.3562570462232,
+          136.24802705749718
+        ],
+        "power": [
+          82.65163472378805,
+          148.2705749718151,
+          396.3562570462232,
+          162.80947012401353
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "race_earthendwarf",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_earthendwarf.png",
+    "source_sha256": "3bb90d072ee831b91b018d268821d49cf3b44a766cccca67c8d526ce1554280b",
+    "file": "artwork/unit-frames/sculpted/assets/race_earthendwarf.png",
+    "sha256": "28a56a5238465a73902765db150beaae25f34ca7f5d6ce7717330967c28bd62d",
+    "measured": {
+      "health": [
+        259,
+        352,
+        1418,
+        479
+      ],
+      "power": [
+        259,
+        522,
+        1418,
+        576
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          80.41488162344983,
+          102.41713641488163,
+          404.4644870349493,
+          137.92559188275084
+        ],
+        "power": [
+          80.41488162344983,
+          149.94813979706876,
+          404.4644870349493,
+          165.04622322435173
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "race_haranir",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/race_haranir.png",
+    "source_sha256": "95a79400eece1c2b133e8a06323289b0e50bd94add69b9fb424c55bdc2b61346",
+    "file": "artwork/unit-frames/sculpted/assets/race_haranir.png",
+    "sha256": "26cf6f83889d0231b2c5f44c26a66db51c6129952df773f8e9a38415151beb85",
+    "measured": {
+      "health": [
+        251,
+        353,
+        1422,
+        479
+      ],
+      "power": [
+        251,
+        523,
+        1422,
+        577
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          78.17812852311161,
+          102.6967305524239,
+          405.5828635851184,
+          137.92559188275084
+        ],
+        "power": [
+          78.17812852311161,
+          150.22773393461105,
+          405.5828635851184,
+          165.32581736189402
+        ],
+        "divider": 12.302142051860216
+      }
+    }
+  },
+  {
+    "id": "faction_alliance",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/faction_alliance.png",
+    "source_sha256": "7ad57bdfc0d48223d0c04038e6684c0034f819651b890bcf3cf187729c0ed1ba",
+    "file": "artwork/unit-frames/sculpted/assets/faction_alliance.png",
+    "sha256": "1157eec9509717be81ff27c2d1059c4d03e230bcd91277c53cffcdc37ba8aed8",
+    "measured": {
+      "health": [
+        258,
+        349,
+        1419,
+        483
+      ],
+      "power": [
+        258,
+        524,
+        1419,
+        574
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          80.13528748590755,
+          101.5783540022548,
+          404.7440811724915,
+          139.04396843291997
+        ],
+        "power": [
+          80.13528748590755,
+          150.5073280721533,
+          404.7440811724915,
+          164.48703494926718
+        ],
+        "divider": 11.463359639233346
+      }
+    }
+  },
+  {
+    "id": "faction_horde",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/faction_horde.png",
+    "source_sha256": "1027b72ffaf7144b915dbbcd952054c2e5305e2d6d71eb466a427b4578ec6941",
+    "file": "artwork/unit-frames/sculpted/assets/faction_horde.png",
+    "sha256": "ebe15eddd9ae8de3dc8f986d83428c1f93792b7f09d8213fafac4f0fa82ce8ce",
+    "measured": {
+      "health": [
+        275,
+        347,
+        1417,
+        468
+      ],
+      "power": [
+        275,
+        514,
+        1417,
+        565
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.88838782412627,
+          101.01916572717023,
+          404.184892897407,
+          134.8500563697858
+        ],
+        "power": [
+          84.88838782412627,
+          147.71138669673056,
+          404.184892897407,
+          161.9706877113867
+        ],
+        "divider": 12.861330326944767
+      }
+    }
+  },
+  {
+    "id": "faction_neutral",
+    "fit_version": 3,
+    "source": "artwork/unit-frames/sculpted/references/faction_neutral.png",
+    "source_sha256": "049916d560b31a3436205ae8dd2fcec6bef627168bc9c7efd28d631c28457919",
+    "file": "artwork/unit-frames/sculpted/assets/faction_neutral.png",
+    "sha256": "688c609d396424345689b3e243577fb8fe28ca1c165000e6fecdaeb9d3f1a649",
+    "measured": {
+      "health": [
+        255,
+        350,
+        1420,
+        479
+      ],
+      "power": [
+        255,
+        523,
+        1420,
+        576
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          79.29650507328073,
+          101.85794813979707,
+          405.0236753100338,
+          137.92559188275084
+        ],
+        "power": [
+          79.29650507328073,
+          150.22773393461105,
+          405.0236753100338,
+          165.04622322435173
+        ],
+        "divider": 12.302142051860216
+      }
+    }
+  }
+]

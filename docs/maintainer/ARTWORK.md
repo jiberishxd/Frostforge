@@ -1,19 +1,27 @@
 # Artwork sources
 
-The [installed credits](../../Frostforge/CREDITS.md) cover Blizzard attribution and the AI-assisted artwork process. Current source images, prompts, editing records and hashes remain available for maintenance.
+The addon ships 298 lossless PNG textures in `Frostforge/Media/`. Their decoded pixels match the approved TGA exports; the tested compressed files are retained without re-encoding. The installed [credits](../../Frostforge/CREDITS.md) describe attribution and the AI-assisted artwork process.
 
-| Artwork | Source records |
-| --- | --- |
-| Runtime inventory and hashes | [phase1-assets.json](../phase1-assets.json) |
-| Referenced Blizzard emblems | [Source URLs](../ARTWORK-SOURCES.json), [retained originals](../../artwork/official-crests/) |
-| Portraits | [Sources, prompts and fitting](../../artwork/portraits/) |
-| Action hubs | [Sources, revisions and alpha masks](../../artwork/hubs/) |
-| Minimaps | [Sources and circular fitting](../../artwork/minimaps/) |
-| Unit frames and bar materials | [Sources and fitting](../../artwork/unit-frames/) |
-| Cast borders | [Sources and fitting](../../artwork/cast-bars/) |
-| Logo | [Canonical PNG](../images/logo.png), [generation and transparency record](../images/LOGO-SOURCE.md) |
-| Settings and setup images | [Sources](../../artwork/settings/), [in-game capture](../images/setup-ingame.png) |
+## Public records
 
-Keep reference snapshots used by current manifests and regression tests, including the Night Elf, Mage, Druid, Shaman and Paladin corrections. They can look redundant but document or verify shipped art.
+The repository retains the [runtime inventory and source hashes](../phase1-assets.json), [reference URLs and hashes](../ARTWORK-SOURCES.json), [unit-frame fitting records](../artwork/unit-frame-fit-report.json), [cast-border geometry](../artwork/cast-borders.js), and [logo provenance](../images/LOGO-SOURCE.md). These small records support independent runtime validation without downloading the production art library.
 
-The retired skin-library preview sheets, generic material masters, fantasy crests and old console were not used by the current addon; they remain recoverable in Git history. The current **Frostforge Stone** material and every runtime image are retained. Earlier production notes are in [Git history](https://github.com/jiberishxd/Frostforge/blob/07b6e86cf854de745e8b6bd8b62b656d3a0c91c2/docs/maintainer/ARTWORK.md).
+Full-resolution sources, intermediate exports, drafts, masks, prompts, and the compressed source-art edition are maintained in a separately backed-up artwork library. They are not required to run, package, or test the addon runtime. The original repository history was archived before source artwork was removed from the published history.
+
+## Work with the local art library
+
+The library's primary `artwork/` directory contains the full-resolution source edition and local drafts. Its separate `compression-test/artwork/` directory retains the compressed branch's source edition. Keep both; the original production builders and provenance audits use the full-resolution edition.
+
+From the addon repository, attach that primary directory as an ignored local `artwork` symlink (or copy it into an ignored `artwork/` directory):
+
+```sh
+ln -s "/path/to/Frostforge Artwork/artwork" artwork
+FROSTFORGE_ARTWORK_TESTS=1 python3 -m unittest discover -s tests -p 'test_*.py'
+python3 tools/check.py --with-artwork
+```
+
+Source-art audits are explicitly opt-in and fail if requested without the library. Standard CI always checks the shipped image hashes, decoded pixels, transparent openings, fitting, addon behavior, and exact package contents. It does not require private source files.
+
+For artwork edits, run only the appropriate source builder in `tools/`. Those builders preserve their historical TGA production records. Then run `python3 tools/finalize_media.py` to export lossless PNGs and update runtime paths, the public inventory, and fitting metadata. Matching existing PNG bytes are retained; no resizing or recoloring occurs. Regenerate `docs/artwork/cast-borders.js` with `lua5.1 tools/export_cast_preview.lua` and run both runtime and source-art checks before packaging.
+
+Back up the separate art library independently. Git ignores the entire local `artwork` path, so edits and drafts there are not saved by addon commits.
