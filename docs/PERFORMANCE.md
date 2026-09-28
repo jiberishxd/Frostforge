@@ -17,11 +17,11 @@ The Lua 5.1 mock host compared the 0.9.6 working baseline (`6a42747`) with 0.9.7
 
 | Workload | Baseline time | Updated time | Temporary allocation, before → after |
 | --- | ---: | ---: | ---: |
-| Idle, two full shells | 0.490 s | 0.328 s | 152.4 → 68.3 MiB (55% less) |
-| Native fill animation | 0.599 s | 0.326 s | 188.4 → 68.4 MiB (64% less) |
-| Combat target switching | 0.389 s | 0.253 s | 121.7 → 52.4 MiB (57% less) |
+| Idle, two full shells | 0.490 s | 0.341 s | 152.4 → 68.3 MiB (55% less) |
+| Native fill animation | 0.599 s | 0.348 s | 188.4 → 68.4 MiB (64% less) |
+| Combat target switching | 0.389 s | 0.275 s | 121.7 → 52.4 MiB (57% less) |
 
-Opening settings creates 2,387 mock UI objects instead of 3,822 (38% fewer); additional retained mock-host memory is 4.73 MiB instead of 7.29 MiB (35% less). That saving applies before browsing collections. Controls for a collection are created the first time it is opened and reused thereafter. Steady passes retain under 1 KiB after collection, with no growing frame/texture count in these workloads.
+Opening settings creates 2,399 mock UI objects instead of 3,822 (37% fewer); additional retained mock-host memory is 4.76 MiB instead of 7.29 MiB (35% less). That saving applies before browsing collections. Controls for a collection are created the first time it is opened and reused thereafter. Steady passes retain under 1 KiB after collection, with no growing frame/texture count in these workloads.
 
 Reproduce with `lua tools/benchmark.lua [path-to-addon-folder] [iterations]`. Garbage collection is stopped temporarily **inside this offline benchmark only** to count temporary allocations, then restarted. The addon itself never changes the collector.
 

@@ -58,3 +58,9 @@ Open **Blizzard → Colors & textures**. The selected Player, Target or Focus ha
 ## Aura position fix (0.8.8)
 
 Target/Focus buff/debuff offsets now reapply after Blizzard's aura-anchor callback, so a native layout refresh cannot erase an out-of-combat X/Y edit before it appears. **Customize position** shows applied offsets or a waiting/error status, also available through `/jui status`. Native updates during combat retain a fresh baseline for reconciliation after combat.
+
+## Browse unit-frame art
+
+Player, Target and Focus → **Artwork** now show separate portrait and full-frame previews. **Browse frame art** opens all 42 unit-frame designs in Classes, Races and Factions, with search and pagination. The previews use the actual full-shell artwork and mirror for Target/Focus.
+
+Portrait and unit-frame artwork share the selected theme for that unit. Choosing a frame design changes that shared theme to **Chosen artwork**; it does not enable either artwork toggle or change another unit. Enable **Unit-frame art** separately. Return **Shared artwork theme** to an automatic mode to follow unit identity again. The gallery is created only when opened and clears thumbnails when closed.

@@ -29,9 +29,9 @@ end)
 
 test("settings defer artwork browsers and release thumbnails when closed",function(M)
     local J=M.load();local S=J.SettingsUI;S:Open()
-    assert(not S.picker and not S.hubPicker and not S.minimapPicker and not S.castPicker)
+    assert(not S.picker and not S.hubPicker and not S.minimapPicker and not S.castPicker and not S.unitPicker)
     S.portraitButton.scripts.OnClick();assert(S.picker:IsShown())
-    assert(not S.hubPicker and not S.minimapPicker and not S.castPicker)
+    assert(not S.hubPicker and not S.minimapPicker and not S.castPicker and not S.unitPicker)
     local objects=#M.objects
     S:HideMenus()
     for _,b in pairs(S.portraitButtons) do assert(not b.image.path) end

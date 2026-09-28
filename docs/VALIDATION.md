@@ -159,3 +159,6 @@ Offline tests reproduce native aura reanchoring after Frostforge's scan; the moc
 - Confirm the full supplied in-game screenshot and the settings screenshot retain their shape. Finish applies choices only once, after combat; switching profiles while the tour is open requires reopening it.
 - Open Guide and check the Blizzard artwork/trademark/independence notice.
 - Follow the comparable-session measurements in [Performance](PERFORMANCE.md), then verify native power animation, custom colors, target switching, all four artwork collections and cast visibility.
+
+- On Player, Target and Focus → Artwork, browse the unit-frame collection by class/race/faction and search a design. Verify both previews follow the shared choice, other units are unchanged and the art toggle remains independent.
+- Target a player and then click empty space, both in and out of combat. The portrait, unit shell/footer and target cast border should hide without a Neutral flash. Repeat for Focus; genuine neutral NPCs must still show Neutral art. Test the first target acquired during combat after logging in without a target.

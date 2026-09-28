@@ -1,8 +1,10 @@
 # Build 0.9.7 — first-run tour, credits and performance
 
-346 Lua behavior checks cover both client paths, including late startup, inherited loading-screen hides, Escape/relogin, atomic setup changes, provider tips, delayed collection creation, bounded transient allocation and retained objects, profile-cache isolation, live target previews and native fill UV ownership. Existing combat switching, custom power colors, secure/forbidden frames and all provider regressions remain included.
+355 Lua behavior checks cover both client paths, including late startup, inherited loading-screen hides, Escape/relogin, atomic setup changes, provider tips, delayed collection creation, bounded transient allocation and retained objects, profile-cache isolation, live target previews and native fill UV ownership. Existing combat switching, custom power colors, secure/forbidden frames and all provider regressions remain included.
 
 Offline benchmarks show 55–64% lower temporary allocation across the sampled workloads and 35% less retained mock-host memory when first opening settings. These are not live-game CPU/memory measurements; [methodology and samples](PERFORMANCE.md) distinguish them from the user’s 0.9.3 tooltip.
+
+Player, Target and Focus Artwork pages now show a full-shell preview beside the portrait preview and a lazy-loaded gallery of all 42 unit-frame designs. Search, pagination, mirroring, shared-theme selection and per-unit scope are tested. A public unit-absence check hides portrait, shell/footer and cast art immediately on deselection, before delayed native visibility catches up, while preserving preparation for the first combat target and genuine Neutral NPCs.
 
 The four-screen tour includes the owner-supplied screenshot, the current settings capture, and tips for Blizzard UI, ElvUI and EllesmereUI. ElvUI guidance recommends Blinkii’s Portraits or mMediaTag & Tools for circular portrait art and ElvUI’s own unit frames for full shells. The new captures add two assets; all 296 existing runtime images remain unchanged. Blizzard ownership and independence notices appear in Guide, README and a prepared CurseForge notice.
 

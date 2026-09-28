@@ -635,7 +635,8 @@ function S:TickUnit(key)
     if not unit then unit={trims={}};self.units[key]=unit end
     local bars,reason
     if enabled then bars,reason=J.AddOnAnchors:UnitBars(key,config.unitFrameSource) end
-    local id=J.Portraits:Resolve(config)
+    local present=J.Portraits:HasUnit(key)
+    local id=present and J.Portraits:Resolve(config) or (unit.health and unit.health.id) or "FACTION_NEUTRAL"
     local fitted,fitReason
     local healthOnly=enabled and noPower(bars)
     local external=bars and (bars.source=="ELLESMERE" or bars.source=="ELVUI")
@@ -731,7 +732,7 @@ function S:TickUnit(key)
                     or record.trim.applied.level~=config.level or record.trim.applied.layer~=config.layer then J.Core.dirty=true end
                 if not external or fitted then self:RefreshArt(record,kind,id) end
             end
-            self:Visibility(record,enabled and not (healthOnly and kind=="power") and record.id==id and (not external or fitted))
+            self:Visibility(record,enabled and present and not (healthOnly and kind=="power") and record.id==id and (not external or fitted))
             local shellReady=record.trim and record.trim.assetOK and (not external or fitted)
             states[#states+1]=kind..(shellReady and
                 (record.fillReady and ": shell + texture" or ": shell; native fill retained") or
@@ -739,7 +740,7 @@ function S:TickUnit(key)
                 ..(shellReady and not record.barVisible and " (native bar hidden)" or "")
         elseif record then self:Visibility(record,false) end
     end
-    self:Footer(unit,key,bars,config,id,enabled and healthOnly)
+    self:Footer(unit,key,bars,config,id,enabled and present and healthOnly)
     if enabled then
         self.status[key]=#states>0 and ((bars.name or "Blizzard")..": "..table.concat(states,"; ")) or reason or "Waiting for unit-frame bars"
         if healthOnly then self.status[key]=self.status[key].."; complete artwork follows health (no power bar)" end

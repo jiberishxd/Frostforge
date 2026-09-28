@@ -231,3 +231,53 @@ for _,interface in ipairs({120100,16001}) do
         assert(not next(J.Core.notices))
     end)
 end
+
+for _,interface in ipairs({120100,16001}) do
+    for _,key in ipairs({"targetFrame","focusFrame"}) do
+        test("clearing "..key.." hides art before a delayed native hide on "..interface,function(M)
+            local J=M.load({interface=interface});local unit=key=="targetFrame" and "target" or "focus"
+            local event=unit=="target" and "PLAYER_TARGET_CHANGED" or "PLAYER_FOCUS_CHANGED"
+            J.ProfileManager:Set(key,"unitFrameShown",true)
+            local portrait=J.Core.modules[key];local skin=J.UnitSkins.units[key]
+            M.unitData[unit].class="DRUID";M.event(J.Core,event)
+            assert(portrait.portraitID=="CLASS_DRUID" and skin.health.id=="CLASS_DRUID")
+            local old=M.unitData[unit];M.combat=true;M.unitData[unit]=nil
+            local geometry=M.geometryWrites;M.event(J.Core,event)
+            assert(not portrait.frame:IsShown() and not skin.health.trim.frame:IsShown() and not skin.power.trim.frame:IsShown())
+            assert(portrait.portraitID=="CLASS_DRUID" and skin.health.id=="CLASS_DRUID","No intermediate Neutral repaint")
+            M.tick(J.Core);assert(not skin.footer.trim.frame:IsShown() and M.geometryWrites==geometry)
+            M.unitData[unit]=old;M.event(J.Core,event)
+            assert(portrait.frame:IsShown() and skin.health.trim.frame:IsShown())
+            old.player=false;M.event(J.Core,event)
+            assert(skin.health.id=="FACTION_NEUTRAL" and skin.health.trim.frame:IsShown(),"Real NPCs keep Neutral artwork")
+            M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+            M.unitData[unit]=nil;M.event(J.Core,event)
+            assert(not portrait.frame:IsShown() and not skin.health.trim.frame:IsShown())
+            assert(not next(J.Core.notices))
+        end)
+    end
+end
+
+test("unavailable or secret existence never becomes a false deselection",function(M)
+    local J=M.load();local P=J.Portraits
+    local saved=UnitExists
+    UnitExists=function() return M.secret end;assert(P:HasUnit("targetFrame"))
+    UnitExists=function() error("restricted") end;assert(P:HasUnit("focusFrame"))
+    UnitExists=nil;assert(P:HasUnit("playerFrame"))
+    UnitExists=function() return nil end;assert(not P:HasUnit("targetFrame"))
+    UnitExists=saved
+end)
+
+test("empty target prepares before combat and hides cast borders without a native hide",function(M)
+    local data=M.unitData.target;M.unitData.target=nil
+    TargetFrame.spellbar=M.native("TargetFrameSpellBar",180,16)
+    local J=M.load();J.ProfileManager:Set("targetFrame","unitFrameShown",true)
+    J.ProfileManager:Set("targetFrame","castBarShown",true)
+    local portrait=J.Core.modules.targetFrame;local skin=J.UnitSkins.units.targetFrame;local cast=J.CastBars.units.targetFrame
+    assert(skin.health.trim and cast.frame and not portrait.frame:IsShown() and not skin.health.trim.frame:IsShown() and not cast.frame:IsShown())
+    M.combat=true;M.unitData.target=data;data.class="DRUID";M.event(J.Core,"PLAYER_TARGET_CHANGED")
+    assert(portrait.frame:IsShown() and skin.health.trim.frame:IsShown() and cast.frame:IsShown())
+    M.unitData.target=nil;J.CastBars:Sync();assert(not cast.frame:IsShown())
+    M.event(J.Core,"PLAYER_TARGET_CHANGED");assert(not skin.health.trim.frame:IsShown() and not portrait.frame:IsShown())
+    assert(not next(J.Core.notices))
+end)

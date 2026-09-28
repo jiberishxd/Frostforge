@@ -10,6 +10,18 @@ function P:IsUnitKey(key)
     return key == "playerFrame" or key == "targetFrame" or key == "focusFrame"
 end
 
+-- Native/provider frames can remain visible for one event after their unit is
+-- cleared. Hide on a public absence immediately, without treating unavailable
+-- or secret identity as proof that a real unit disappeared.
+local units={playerFrame="player",targetFrame="target",focusFrame="focus"}
+function P:HasUnit(key)
+    local unit=units[key]
+    if not unit or type(UnitExists)~="function" then return true end
+    local ok,exists=pcall(UnitExists,unit)
+    if not ok or not J.Core:IsSafe(exists) then return true end
+    return exists~=nil and exists~=false
+end
+
 -- One atlas keeps both native shapes aligned to the same 128-unit frame.
 -- Player has a squared lower corner; Target/Focus use a smaller round opening.
 function P:TexCoords(unit)
@@ -118,6 +130,7 @@ function P:Resolve(config)
 end
 
 function P:Refresh(module,combat)
+    if not self:HasUnit(module.key) then return end
     local id,path = self:Resolve(module.applied)
     if id == module.portraitID then return end
     if combat and module.frame:IsProtected() then J.Core.dirty=true; return end

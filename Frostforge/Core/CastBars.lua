@@ -192,7 +192,8 @@ function C:TickUnit(key)
         return
     end
     if not combat then module.config=config end
-    local id=self:Artwork(config)
+    local present=J.Portraits:HasUnit(key)
+    local id=present and self:Artwork(config) or module.id or "FACTION_NEUTRAL"
     if needsLayout then
         module.config=J.Core:Copy(config);module.geometry=g;module.bar=bar
         local f=module.frame
@@ -213,7 +214,7 @@ function C:TickUnit(key)
         else J.Core.dirty=true end
     end
     module.active=true;module.source=candidate.source
-    local shown=visibility(bar)
+    local shown=present and visibility(bar) or nil
     self.status[key]=(candidate.name or labels[candidate.source]).." - "..(module.assetOK and
         (shown and shown.visible and shown.alpha>0 and "attached; cast visible" or "attached; waiting for cast") or "artwork unavailable").." | "..g.artStrata.." / level "..g.artLevel
     J.Core:SyncVisibility(module,shown)
@@ -255,7 +256,7 @@ end
 function C:Sync()
     for key,module in pairs(self.units) do
         local ok=J.Core:Protect(key.." cast visibility",function()
-            J.Core:SyncVisibility(module,module.active and visibility(module.bar) or nil)
+            J.Core:SyncVisibility(module,module.active and J.Portraits:HasUnit(key) and visibility(module.bar) or nil)
         end)
         if not ok then
             module.active=false

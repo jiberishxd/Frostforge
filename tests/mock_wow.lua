@@ -281,6 +281,7 @@ M.unitData = {
     target={player=true,class="ROGUE",race="Human",faction="Alliance"},
     focus={player=true,class="MAGE",race="Gnome",faction="Alliance"},
 }
+function UnitExists(unit) return M.unitData[unit]~=nil end
 function UnitIsPlayer(unit) return M.unitData[unit] and M.unitData[unit].player end
 function UnitClass(unit) return "localized",M.unitData[unit] and M.unitData[unit].class end
 function UnitRace(unit) return "localized",M.unitData[unit] and M.unitData[unit].race end

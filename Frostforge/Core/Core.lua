@@ -130,6 +130,7 @@ function Core:ReadAnchor(key)
         if not self:IsNumber(rootAlpha) then return nil,"Root visibility unavailable" end
         alpha = math.min(alpha,rootAlpha)
     else visible = visible and self.client:PortraitVisible(key,frame) end
+    visible=visible and J.Portraits:HasUnit(key)
     local providerStrata,providerLevel
     if external and external.source=="ELLESMERE" then
         local strata,level=frame:GetFrameStrata(),frame:GetFrameLevel()
