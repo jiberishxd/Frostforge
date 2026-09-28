@@ -55,7 +55,7 @@ Legacy `unitFrameInset` (0–6) remains accepted for old backups, but no longer 
 /jui set playerFrame castBarStrata HIGH
 ```
 
-`blizzardStone` is a stock-wide option stored on Player; other new appearance settings are per unit. `AUTO` returns shell/cast strata to automatic fitting. See [stock controls](BLIZZARD-CONTROLS.md).
+`blizzardStone` is a stock-wide option stored on Player; other new appearance settings are per unit. `AUTO` returns shell/cast strata to automatic fitting. See [stock controls](GETTING-STARTED.md#blizzard-frame-controls).
 
 All six text groups use the same suffixes: `Enabled`, `X`, `Y`, `Size`, `Align`, `Outline`. Prefixes are `blizzardName`, `blizzardHealth`, `blizzardPower`, `blizzardLevel`, `blizzardCastName` and `blizzardCastTime`. `Align` accepts KEEP/LEFT/CENTER/RIGHT; `Outline` accepts KEEP/NONE/OUTLINE/THICKOUTLINE. New groups start disabled and keep native alignment.
 
