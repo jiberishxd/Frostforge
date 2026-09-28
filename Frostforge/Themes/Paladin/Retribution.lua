@@ -85,7 +85,7 @@ for _,key in ipairs(J.SmallFrames.keys) do
         anchor="FRAME",point="CENTER",relativePoint="CENTER",strata="LOW",level=1,layer="ARTWORK",
         unitFrameShown=false,unitFrameSource="AUTO",unitFrameWidth=100,unitFrameHeight=100,
         unitFrameX=0,unitFrameY=0,unitFrameStrata="AUTO",
-        smallFrameArt="MATCH",smallFrameWeight=.7,smallFramePadding=1,
+        smallFrameArt="MATCH",smallFrameWeight=.7,smallFramePadding=1,smallFrameLevel=1,
     }
 end
 J.ThemeManager:Register("paladin_ret",theme)
