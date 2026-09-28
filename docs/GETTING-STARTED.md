@@ -4,18 +4,18 @@ Frostforge decorates your existing interface. Start with one component, choose i
 
 ## Install or update
 
-Use the package for your game client: **Retail** or **Forever**. GitHub currently has no published release ZIPs; [build the current source](DEVELOPMENT.md#build-installable-zips) to test it. The repository's **Code → Download ZIP** archive contains the whole development project and is not an installable addon package.
+Use the package for your game client: **Retail** or **Forever**, or [build one from source](DEVELOPMENT.md#build-installable-zips). If using GitHub's **Code → Download ZIP**, open `Frostforge-main` and copy only the inner **`Frostforge`** folder into your AddOns directory. That folder contains `Frostforge.toc` and supports both clients; the surrounding artwork, docs, tests and tools are development files.
 
-1. Close WoW.
-2. Extract the package. Place the entire `JiberishUI` folder inside your client's `Interface/AddOns/` directory. The final path should be `Interface/AddOns/JiberishUI/JiberishUI.toc`, without an extra nested folder.
-3. For an update, replace only the old `JiberishUI` addon folder. Keep `WTF` and your saved settings. Replacing the folder avoids leaving retired artwork files behind.
+1. Close WoW. If upgrading from an installation named `JiberishUI`, complete the [one-time settings transfer below](#upgrading-to-frostforge) first.
+2. Extract the package. Place the entire `Frostforge` folder inside your client's `Interface/AddOns/` directory. The final path should be `Interface/AddOns/Frostforge/Frostforge.toc`, without an extra nested folder.
+3. For subsequent updates, replace only the old `Frostforge` addon folder. Keep `WTF` and your saved settings. Replacing the folder avoids leaving retired artwork files behind.
 4. Fully restart the client, enable **Jiberish's Frostforge** in the AddOns list, and follow the short setup wizard after logging in for the first time.
 
 Keep the complete package together: Lua code, theme data and all five active media folders—Portraits, Hubs, Minimaps, UnitFrames and CastBars—are needed. An integration also requires its original UI addon and the relevant frame/portrait/cast-bar module to be enabled.
 
 ## Quick setup and opening settings
 
-The first-launch wizard has three steps: choose automatic Class/Race/Faction art, choose the decorations to enable, then choose an optional minimap icon and round ElvUI map. Nothing changes until **Finish & open settings**. Skip or Escape dismisses it; rerun it from **Guide → Run quick setup**. Existing installations keep their current setup without an automatic wizard.
+The first-launch tour has four screens: an in-game artwork example, illustrated tips for **Blizzard UI / ElvUI / EllesmereUI**, starting themes and decorations, then easy ways to open settings. Click the interface tabs to read the tips; this does not change your provider. Nothing changes until **Finish & open settings**. **Skip setup** completes the tour without changes. Escape postpones an unfinished first-run tour until next login; loading screens preserve it. Rerun it anytime from **Guide → Run quick setup**. Existing installations keep their setup without an automatic tour.
 
 Open settings from the **AddOn Compartment**, the **Frostforge** section of ElvUI settings, or `/frostforge`. Enable **Show minimap settings icon** in Guide if you want a clickable penguin beside the map; drag it around the map to reposition it. These access preferences apply across characters. Protected changes and opening the window wait until combat ends.
 
@@ -78,6 +78,19 @@ For stock Blizzard colors and textures, open **Player/Target/Focus → Blizzard 
 
 ## Upgrading to Frostforge
 
-The display name changed in 0.9.0. Keep the `JiberishUI` folder and existing saved settings: profiles and backups remain compatible. `/frostforge`, `/jui`, `/jf` and `/jiberishui` open the same window. The old **JiberishUI Stone** texture name remains an alias for **Frostforge Stone** so existing provider selections still load.
+Version 0.9.5 changes the install folder from `JiberishUI` to `Frostforge`. WoW loads saved files by addon folder name, so retaining the same database variables alone does not move the old files. This one-time transfer preserves the complete profile library, character assignments, setup progress and access preferences:
+
+1. Fully close WoW and make a backup copy of your client's `WTF` folder.
+2. Under `WTF/Account/<account>/SavedVariables/`, copy `JiberishUI.lua` to `Frostforge.lua` in the same directory.
+3. For each character you use, repeat that copy under `WTF/Account/<account>/<realm>/<character>/SavedVariables/`. Repeat for each account and client installation you use. Keep the original files, and do not change anything inside them. If `Frostforge.lua` already exists, keep both versions backed up and choose the settings you want to retain before replacing it.
+4. Remove the old `Interface/AddOns/JiberishUI` addon folder and install the new package's `Frostforge` folder. Do not run both copies together. Fully restart WoW.
+
+For just the active profile's artwork settings, an alternative is **Guide → Copy settings backup** in the old installation, followed by importing that backup into the new installation. This alternative does not transfer the entire profile library or other characters' assignments.
+
+Fresh installs need no transfer; later `Frostforge` updates use the same saved files. Database variable names stay `JiberishUIDB` and `JiberishUICharacterDB` for compatibility. `/frostforge`, `/jui`, `/jf` and `/jiberishui` open the same window. The old **JiberishUI Stone** texture name remains an alias for **Frostforge Stone** so existing provider selections still load.
 
 Choose **The Igloo** in the sidebar to select `https://theigloo.io`. Copy with Ctrl+C (Command+C on Mac) and paste into your browser.
+
+## ElvUI portraits and frame artwork
+
+For Frostforge’s circular portrait art, we recommend **Blinkii’s Portraits** or **mMediaTag & Tools** and their circular portrait customization. Use **ElvUI’s own unit frames** for Frostforge’s full unit-frame artwork: horizontal health with full-width power attached below. In Frostforge, choose your portrait addon under **Portrait provider** and **ElvUI** under **Unit-frame provider**, or keep Automatic when it detects the intended frames. These choices are independent. The setup tour includes the same guidance.

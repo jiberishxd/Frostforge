@@ -1,7 +1,7 @@
 * text=auto
 *.png binary
 *.tga binary
-JiberishUI/Media/** linguist-generated=true
+Frostforge/Media/** linguist-generated=true
 artwork/**/gallery-data.js linguist-generated=true
 artwork/**/runtime-layout.js linguist-generated=true
 artwork/**/manifest.json linguist-generated=true

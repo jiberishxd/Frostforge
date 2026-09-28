@@ -59,7 +59,7 @@ function Maps:RoundShape(module)
     local saved=JiberishUIDB.minimapShapeRestore
     if saved~=nil and type(saved)~="table" then return end
     saved=saved or {};JiberishUIDB.minimapShapeRestore=saved
-    local c=J.ThemeManager:Resolve("minimap")
+    local c=J.ThemeManager:Read("minimap")
     local wanted=M and c.shown and c.minimapRound and module.assetOK and module.snapshot~=nil
     local old=self.round
     if old and (not wanted or old.db~=db) then

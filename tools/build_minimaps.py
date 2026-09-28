@@ -22,7 +22,7 @@ def main(partial=False):
     if not partial:
         assert set(records) == {j['id'] for j in jobs}, 'All 42 matching minimaps are required'
     (ART/'assets').mkdir(exist_ok=True)
-    output = ROOT/'JiberishUI/Media/Minimaps'; output.mkdir(parents=True, exist_ok=True)
+    output = ROOT/'Frostforge/Media/Minimaps'; output.mkdir(parents=True, exist_ok=True)
     reports = []
     for job in jobs:
         if job['id'] not in records:
@@ -67,9 +67,9 @@ def main(partial=False):
         (ART/'generation-results.json').write_text(json.dumps([records[j['id']] for j in jobs],indent=2)+'\n')
         lines=['local _, J = ...','-- Data only; every identity shares one circular aperture.','J.MinimapCatalog = { entries = {} }']
         for entry in reports:
-            path='Interface\\AddOns\\JiberishUI\\Media\\Minimaps\\'+entry['id']+'.tga'
+            path='Interface\\AddOns\\Frostforge\\Media\\Minimaps\\'+entry['id']+'.tga'
             lines.append('J.MinimapCatalog.entries.'+entry['id'].upper()+' = {label='+json.dumps(entry['label'])+',group='+json.dumps(entry['group'].upper())+',texture='+json.dumps(path)+'}')
-        (ROOT/'JiberishUI/Themes/Minimaps.lua').write_text('\n'.join(lines)+'\n')
+        (ROOT/'Frostforge/Themes/Minimaps.lua').write_text('\n'.join(lines)+'\n')
         p=ROOT/'docs/phase1-assets.json'; data=json.loads(p.read_text())
         data['assets']=[a for a in data['assets'] if '/Minimaps/' not in a['file'] and not a['file'].endswith('PaladinRet/minimap.tga')]+reports
         data['minimap_prompts']='artwork/minimaps/generation-prompts.json'

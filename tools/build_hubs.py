@@ -89,7 +89,7 @@ def register(source):
 
 def main(partial=False):
     for folder in ('sculpted-originals','assets','game'):(ART/folder).mkdir(parents=True,exist_ok=True)
-    output=ROOT/'JiberishUI/Media/Hubs';output.mkdir(parents=True,exist_ok=True)
+    output=ROOT/'Frostforge/Media/Hubs';output.mkdir(parents=True,exist_ok=True)
     official={a['id']:a for a in json.loads((ROOT/'artwork/official-crests/sources.json').read_text())}
     entries=json.loads((ROOT/'artwork/portraits/manifest.json').read_text())['assets']
     records={a['id']:a for a in json.loads((ART/'sculpted-generation-results.json').read_text()) if a.get('integrated')}
@@ -146,9 +146,9 @@ def main(partial=False):
     if not partial:
         lines=['local _, J = ...','-- Data only; all variants use the same five-piece fitting template.','J.HubCatalog = { entries = {} }']
         for entry in reports:
-            path='Interface\\AddOns\\JiberishUI\\Media\\Hubs\\'+entry['id']+'.tga'
+            path='Interface\\AddOns\\Frostforge\\Media\\Hubs\\'+entry['id']+'.tga'
             lines.append('J.HubCatalog.entries.'+entry['id'].upper()+' = {label='+json.dumps(entry['label'])+',group='+json.dumps(entry['group'].upper())+',texture='+json.dumps(path)+'}')
-        (ROOT/'JiberishUI/Themes/Hubs.lua').write_text('\n'.join(lines)+'\n')
+        (ROOT/'Frostforge/Themes/Hubs.lua').write_text('\n'.join(lines)+'\n')
         target=ROOT/'docs/phase1-assets.json';data=json.loads(target.read_text())
         replacements={a['file']:a for a in reports}
         data['assets']=[replacements.pop(a['file'],a) for a in data['assets']

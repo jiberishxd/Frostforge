@@ -132,7 +132,7 @@ def build_review(reports):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('ids',nargs='*');args=parser.parse_args()
     (ART/'assets').mkdir(exist_ok=True)
-    media=ROOT/'JiberishUI/Media/CastBars';media.mkdir(exist_ok=True)
+    media=ROOT/'Frostforge/Media/CastBars';media.mkdir(exist_ok=True)
     reports=[]
     for path in sorted((ART/'references').glob('*.png')):
         if args.ids and path.stem not in args.ids: continue

@@ -1,3 +1,39 @@
+# Build 0.9.7 — first-run tour, credits and performance
+
+355 Lua behavior checks cover both client paths, including late startup, inherited loading-screen hides, Escape/relogin, atomic setup changes, provider tips, delayed collection creation, bounded transient allocation and retained objects, profile-cache isolation, live target previews and native fill UV ownership. Existing combat switching, custom power colors, secure/forbidden frames and all provider regressions remain included.
+
+Offline benchmarks show 55–64% lower temporary allocation across the sampled workloads and 35% less retained mock-host memory when first opening settings. These are not live-game CPU/memory measurements; [methodology and samples](PERFORMANCE.md) distinguish them from the user’s 0.9.3 tooltip.
+
+Player, Target and Focus Artwork pages now show a full-shell preview beside the portrait preview and a lazy-loaded gallery of all 42 unit-frame designs. Search, pagination, mirroring, shared-theme selection and per-unit scope are tested. A public unit-absence check hides portrait, shell/footer and cast art immediately on deselection, before delayed native visibility catches up, while preserving preparation for the first combat target and genuine Neutral NPCs.
+
+The four-screen tour includes the owner-supplied screenshot, the current settings capture, and tips for Blizzard UI, ElvUI and EllesmereUI. ElvUI guidance recommends Blinkii’s Portraits or mMediaTag & Tools for circular portrait art and ElvUI’s own unit frames for full shells. The new captures add two assets; all 296 existing runtime images remain unchanged. Blizzard ownership and independence notices appear in Guide, README and a prepared CurseForge notice.
+
+23 Python artwork/package tests also pass. Source/provenance checks and exact Retail/Forever archives pass with 298 runtime textures and 371 files per archive. All four tour screens, the revised ElvUI guidance and the in-game credits were inspected in the exported browser preview. The GitHub source-folder correction and combat artwork fix below remain part of this update. In-game validation remains user-run.
+
+# Build 0.9.6 — Frostforge source folder on GitHub
+
+337 Lua behavior tests and 23 Python tests pass locally. The source-tree regression requires `Frostforge/Frostforge.toc` and rejects a remaining `JiberishUI` source folder. Packaged Lua now matches the source bytes directly, except for client-specific `Build.lua`; both package startup fixtures still preserve supplied saved tables and exercise the combat identity fix.
+
+All preview exports regenerate from the renamed source directory. Source/media/provenance and exact Retail/Forever package checks pass; both ZIPs contain 366 files. All 296 runtime images retain their approved hashes. Artwork inventories and baseline records change only their runtime file paths.
+
+GitHub source downloads now provide the same `Frostforge` addon folder as the client-specific packages. Saved-file transfer instructions remain necessary for upgrades from the old folder. Live-client loading and persistence are still user-run checks.
+
+# Build 0.9.5 — Frostforge install folder
+
+337 Lua behavior tests and 22 Python tests pass locally. New package checks require a single `Frostforge` root, a matching `Frostforge.toc`, every listed Lua file and all 296 media references inside that root. Both client packages boot under the `Frostforge` addon name in the offline host, preserve supplied legacy profile tables/character assignments, register ElvUI settings under the new name, open settings and retain the 0.9.4 combat identity fix.
+
+Source/media/provenance checks, unchanged cast-preview export and exact Retail/Forever 0.9.5 ZIP checks pass. Both archives contain 366 files; all 296 artwork images are byte-for-byte unchanged. The source directory remains `JiberishUI`; only install paths and the packaged manifest name are relocated.
+
+Existing saved files are not automatically moved by the addon. The upgrade guide documents copying account and character `JiberishUI.lua` files to `Frostforge.lua` while WoW is closed, with originals retained. Offline startup checks supply those saved tables directly; actual file loading, logout/login persistence and the secure renderer still require live-client verification.
+
+# Build 0.9.4 — Combat unit-frame identity switching
+
+337 Lua behavior tests and 20 Python artwork tests pass locally. The new Neutral beast → Druid regression failed against 0.9.3's deliberate combat identity freeze and passes with the new painting path on Retail and Forever fixtures. Coverage includes all 42 shell designs on Player/Target/Focus, measured opening UVs and footer seams, independent Focus identity, secret class fallback/recovery, power visibility changes, protected/forbidden art regions, stable polling and ElvUI's existing fitted stack.
+
+Combat identity changes perform no native appearance/layout writes, artwork geometry writes, frame/texture allocation or hook creation. The displayed design changes while the fitted layout identity stays fixed; leaving combat refits the current design. Source/media/provenance checks, unchanged cast-preview export and exact Retail/Forever 0.9.4 package checks pass. All 296 runtime images remain unchanged; each archive contains 366 files.
+
+These checks run in the offline host, not WoW's secure renderer. Live confirmation of the reported target switch, appearance and protected behavior remains user-run; see the 0.9.4 checklist in VALIDATION.md.
+
 # Build 0.9.3 — Quick setup, access and Night Elf artwork
 
 329 Lua behavior tests pass. New coverage checks first launch after entering the world, combat deferral, Skip/reload and existing-profile behavior, atomic setup application, linked and advanced portrait sizing, future data preservation, optional icon persistence/dragging, late AddOn Compartment and ElvUI registration, minimap layering, shape restoration across reloads/profiles, and retry after a provider update fails. Retail and Forever fixtures are included.

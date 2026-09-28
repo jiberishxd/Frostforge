@@ -132,8 +132,8 @@ end)
 test("all artwork collections search literal names and keep pagination and selection scoped",function(M)
     local J=M.load();local S=J.SettingsUI;S:Open()
     for _,case in ipairs({{"playerFrame","portrait","picker","portraitButtons"},{"actionHub","hub","hubPicker","hubButtons"},{"minimap","minimap","minimapPicker","minimapButtons"}}) do
-        S:Select(case[1]);local p=S[case[3]]
-        S:ShowCollection(case[2],"RACE",3);p:Show()
+        S:Select(case[1]);S:ShowCollection(case[2],"RACE",3)
+        local p=S[case[3]];p:Show()
         p.search:SetText("  night elf  ")
         assert(S[case[4]].RACE_NIGHTELF:IsVisible())
         local visible=0
@@ -168,3 +168,28 @@ test("cast page exposes both strata and its separate level",function(M)
     S:SetPage("advanced");assert(not S.controls.castBarLevel.edit:IsVisible())
     S:Select("actionHub");assert(not S.controls.castBarLevel.edit:IsVisible())
 end)
+
+for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
+    test("full unit-frame gallery previews all designs and scopes shared selection to "..key,function(M)
+        local J=M.load();local S=J.SettingsUI;S:Open();S:Select(key)
+        assert(S.unitPreview:IsVisible() and S.unitBrowse:IsVisible() and not S.unitPicker)
+        local before=J.ThemeManager:Resolve(key);S.unitBrowse.scripts.OnClick()
+        local count=0;for id,b in pairs(S.unitButtons) do
+            count=count+1
+            if b:IsShown() then assert(b.image.path==J.UnitSkinCatalog.entries[id].shell) end
+        end
+        assert(count==42 and S.unitPicker:IsVisible())
+        S:ShowCollection("unit","RACE",1);S.unitPicker.search:SetText("Night Elf")
+        local b=S.unitButtons.RACE_NIGHTELF
+        assert(b:IsVisible() and b.image.w==156 and b.image.h==78)
+        assert(b.image.texCoord[1]==(key=="playerFrame" and 0 or 1))
+        b.scripts.OnClick();local after=J.ThemeManager:Resolve(key)
+        assert(after.portraitMode=="FIXED" and after.portrait=="RACE_NIGHTELF" and after.unitFrameShown==before.unitFrameShown)
+        assert(S.unitPreview.path==J.UnitSkinCatalog.entries.RACE_NIGHTELF.shell and not S.unitPicker:IsShown())
+        for _,button in pairs(S.unitButtons) do assert(not button.image.path) end
+        local other=key=="targetFrame" and "playerFrame" or "targetFrame"
+        assert(J.ThemeManager:Resolve(other).portraitMode=="CLASS")
+        S:Select("minimap");assert(not S.unitBrowse:IsVisible() and not S.unitPreview.path)
+        assert(not next(J.Core.notices))
+    end)
+end

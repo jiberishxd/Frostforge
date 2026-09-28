@@ -65,6 +65,15 @@ function Themes:Resolve(key)
     return result
 end
 
+-- Read-only settings shared within a single update pass. Never retained across
+-- ticks: imports, profile switches and provider changes are visible immediately.
+-- Layout code still uses Resolve() for its independently mutable copy.
+function Themes:Read(key)
+    if not self.readPass then return self:Resolve(key) end
+    if not self.readPass[key] then self.readPass[key]=self:Resolve(key) end
+    return self.readPass[key]
+end
+
 function Themes:Load(id)
     if not self.registry[id] then return false, "Unknown theme. Phase 1 includes only paladin_ret." end
     if not J.ProfileManager.writable then return false, J.ProfileManager.notice end

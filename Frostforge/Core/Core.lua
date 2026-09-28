@@ -2,7 +2,7 @@ local addonName, J = ...
 -- Keep the addon folder and saved-variable keys stable for existing installs.
 J.Brand = { name="Jiberish's Frostforge", shortName="Frostforge", website="https://theigloo.io" }
 local Core = {
-    version = "0.9.3",
+    version = "0.9.7",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
     propertyOrder = { "width", "height", "x", "y", "scale", "anchor", "point", "relativePoint", "strata", "level", "layer", "opacity", "shown", "portraitMode", "portrait", "portraitSource", "hubMode", "hub", "hubSource", "minimapMode", "minimap", "unitFrameShown", "unitFrameSource", "unitFrameFill", "unitFrameWidth", "unitFrameHeight", "unitFrameInset", "unitFrameX", "unitFrameY", "castBarShown", "castBarSource", "castBarStyle", "castBarArt", "castBarWeight", "castBarPadding", "castBarWidth", "castBarHeight", "unitFrameStrata", "castBarStrata", "castBarLevel", "blizzardPortraitHidden", "blizzardPortraitFrameHidden", "blizzardNameEnabled", "blizzardNameX", "blizzardNameY", "blizzardNameSize", "blizzardNameAlign", "blizzardNameOutline", "blizzardStone" },
@@ -130,6 +130,7 @@ function Core:ReadAnchor(key)
         if not self:IsNumber(rootAlpha) then return nil,"Root visibility unavailable" end
         alpha = math.min(alpha,rootAlpha)
     else visible = visible and self.client:PortraitVisible(key,frame) end
+    visible=visible and J.Portraits:HasUnit(key)
     local providerStrata,providerLevel
     if external and external.source=="ELLESMERE" then
         local strata,level=frame:GetFrameStrata(),frame:GetFrameLevel()
@@ -304,6 +305,7 @@ end
 
 function Core:Tick()
     if not self.started or not self.client then return end
+    J.ThemeManager.readPass = {}
     local combat, refresh = InCombatLockdown(), self.dirty
     if not combat then self.dirty = false end
     for _, key in ipairs(self.order) do
@@ -347,6 +349,7 @@ function Core:Tick()
     if J.CastBars then J.CastBars:Tick() end
     self:Protect("minimap presentation",function() J.Minimaps:Tick() end)
     self:Protect("settings access",function() J.Access:Tick() end)
+    J.ThemeManager.readPass = nil
     self:Protect("quick setup",function() J.Setup:Tick() end)
 end
 
@@ -452,11 +455,11 @@ function Core:Start()
     if interface ~= self.client.baseline then
         self:Notice("client","Interface differs from the researched baseline; in-game validation required.")
     end
-    self:RequestRefresh(true)
     if J.ProfileManager.writable then
         if J.ProfileManager.firstRun and JiberishUIDB.setupVersion==nil then JiberishUIDB.setupVersion=0 end
         J.Setup.pending=JiberishUIDB.setupVersion==0 or nil
     end
+    self:RequestRefresh(true)
     self:Print("Portrait backgrounds loaded. /jui opens options | /jf debug | /jf help")
 end
 
@@ -477,7 +480,14 @@ driver:SetScript("OnEvent",function(_,event,name)
     end
     if event == "PLAYER_LOGIN" or (event == "ADDON_LOADED" and name == addonName and IsLoggedIn and IsLoggedIn()) then
         Core:Protect("startup",function() Core:Start() end)
-    elseif Core.started then Core:RequestRefresh(true) end
+    elseif Core.started then
+        if event=="PLAYER_TARGET_CHANGED" or event=="PLAYER_FOCUS_CHANGED" or event=="UNIT_PORTRAIT_UPDATE" or event=="UNIT_FACTION" then
+            Core:Tick()
+            if J.SettingsUI.frame and J.SettingsUI.frame:IsShown() then
+                Core:Protect("settings",function() J.SettingsUI:Refresh() end)
+            end
+        else Core:RequestRefresh(true) end
+    end
 end)
 local elapsedTime,castElapsed = 0,0
 driver:SetScript("OnUpdate",function(_,elapsed)

@@ -6,7 +6,7 @@ from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
 source=ROOT/'artwork/hub-console.png'
-target=ROOT/'JiberishUI/Media/hub/console.tga'
+target=ROOT/'Frostforge/Media/hub/console.tga'
 original=Image.open(source)
 assert original.mode=='RGBA' and original.getchannel('A').getextrema()==(0,255)
 target.parent.mkdir(parents=True,exist_ok=True)

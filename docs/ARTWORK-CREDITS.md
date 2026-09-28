@@ -1,6 +1,6 @@
 # Artwork credits and provenance
 
-Class, race, Alliance and Horde crest images: Blizzard Entertainment. World of Warcraft and Warcraft are trademarks or registered trademarks of Blizzard Entertainment. Frostforge is an independent addon and is not endorsed by Blizzard.
+Blizzard artwork, icons, emblems and other Blizzard game assets depicted or referenced are © Blizzard Entertainment, Inc. World of Warcraft and Warcraft are trademarks or registered trademarks of Blizzard Entertainment, Inc. Jiberish's Frostforge is an independent fan-made addon and is not affiliated with, sponsored by or endorsed by Blizzard Entertainment.
 
 The requested website emblems are visual references for the generated portrait ornaments and action hubs. Their central symbols are integrated into layered artwork; the website's circular icon holders are not pasted onto it. Exact source pages, asset URLs and original hashes are recorded in ARTWORK-SOURCES.json. Original downloads are retained under artwork/official-crests/originals in the development workspace; only prepared decorative textures are installed.
 
@@ -39,3 +39,13 @@ The Mage cast-border ends were subsequently simplified with the built-in image t
 The owner-approved transparent penguin logo is retained in `docs/images/logo.png`, with its generation and alpha-processing record in [LOGO-SOURCE.md](images/LOGO-SOURCE.md). A 512 × 512 RGBA TGA supplies the in-game icon and header. The subtle settings background is a square center crop from an original built-in image-tool generation; its full source and exact prompt are retained in `artwork/settings/sources/`. Native Blizzard borders and desaturated, blue-tinted button textures supply the controls. The generated border is not used at runtime.
 
 Build 0.9.3 refines only the Night Elf unit-frame right emblem, hub left emblem and minimap moon using the supplied Blizzard Night Elf emblem. `artwork/nightelf-emblem-update/` retains the reference, exact built-in imagegen editing prompts, generated production mattes, before images and localized application record. Standard local alpha extraction, fitting and TGA encoding preserve the existing bar openings, hub seams and circular map aperture. Historical style references are retained. This adds no license grant for the referenced Blizzard motif.
+
+## Notices and reuse
+
+The notice above is also available in the in-game Guide and the repository README. Use it on the CurseForge project page; [listing text](CURSEFORGE.md) is provided for that purpose. The notice applies to Blizzard assets and underlying designs, not to all Frostforge code or every original composition.
+
+Blizzard's [Legal FAQ](https://www.blizzard.com/en-sg/legal/c1ae32ac-7ff9-4ac3-a03b-fc04b8697010/blizzard-legal-faq) asks fansites to retain appropriate copyright, trademark and other notices. It describes conditional permissions, not an unrestricted license for every bundled asset or modification. Attribution alone does not grant permission; review the terms applicable to each asset before distribution.
+
+## Illustrated setup tour (0.9.7)
+
+The owner supplied the in-game example retained at `docs/images/setup-ingame.png` specifically for the setup wizard. Its resized runtime capture preserves the complete scene and aspect ratio. The other capture is the current settings preview exported from the addon’s Lua UI in the offline host; native Blizzard fonts/borders are approximated by that preview. `tools/build_setup_media.py` reproducibly exports their padded TGA textures and source hashes. None of the 296 existing art assets is changed.

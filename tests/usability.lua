@@ -8,7 +8,8 @@ for _,interface in ipairs({120100,16001}) do
         M.combat=true;M.event(J.Core,"PLAYER_ENTERING_WORLD");assert(not W.frame)
         M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
         assert(W.frame:IsShown() and W.step==1 and not J.SettingsUI.frame)
-        W.choices.RACE.scripts.OnClick();W.next.scripts.OnClick()
+        W.next.scripts.OnClick();W.providers.ELVUI.scripts.OnClick();W.next.scripts.OnClick()
+        W.choices.RACE.scripts.OnClick()
         W.toggles.frames.scripts.OnClick();W.toggles.casts.scripts.OnClick()
         W.next.scripts.OnClick();W.toggles.icon.scripts.OnClick()
         assert(J.ProfileManager:Export()==before and not J.Access:IconEnabled())
@@ -43,12 +44,12 @@ test("wizard resumes after interrupted first login and refuses profile changes",
     local J=M.load();assert(JiberishUIDB.setupVersion==0)
     J=M.load({db=JiberishUIDB});M.event(J.Core,"PLAYER_ENTERING_WORLD")
     local W=J.Setup;assert(W.frame:IsShown())
-    W.step=3;W:Refresh();J.ProfileManager:SaveAs("Other",false)
+    W.step=4;W:Refresh();J.ProfileManager:SaveAs("Other",false)
     local before=J.ProfileManager:Export();W:Finish()
     assert(W.frame:IsShown() and J.ProfileManager:Export()==before and W.message.text:find("profile changed",1,true))
     W:Dismiss();M.combat=true;W:Open();assert(W.pending)
     M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");assert(W.frame:IsShown())
-    UIParent.w,UIParent.h=800,500;W:Fit();assert(W.frame.scale<=468/480)
+    UIParent.w,UIParent.h=800,500;W:Fit();assert(W.frame.scale<=468/640)
 end)
 
 test("wizard and access preferences preserve future saved-data formats",function(M)
@@ -163,7 +164,7 @@ end)
 test("compartment and ElvUI launchers register once and open after combat",function(M)
     local J=M.load();local E={Options={args={}},Libs={EP={}}};ElvUI={E}
     function E.Libs.EP:RegisterPlugin(name,callback)
-        assert(name=="JiberishUI");self.calls=(self.calls or 0)+1;self.callback=callback
+        assert(name=="Frostforge");self.calls=(self.calls or 0)+1;self.callback=callback
     end
     AddonCompartmentFrame=M.native("AddonCompartmentFrame",32,32)
     function AddonCompartmentFrame:RegisterAddon(info) self.calls=(self.calls or 0)+1;self.info=info end
@@ -202,5 +203,81 @@ test("optional minimap launcher persists drags hides with map and reuses its but
     M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED");assert(not b:IsShown())
     local textures=M.textures;J.Access:SetIcon(true);assert(J.Access.icon==b and M.textures==textures)
     local saved=JiberishUIDB;J=M.load({db=saved});assert(J.Access:IconEnabled() and JiberishUIDB.access.angle==angle)
+    assert(not next(J.Core.notices))
+end)
+
+for _,interface in ipairs({120100,16001}) do
+    test("fresh install loaded after world entry still launches setup on "..interface,function(M)
+        local J=M.load({interface=interface,noStart=true});M.loggedIn=true
+        M.event(J.Core,"ADDON_LOADED","Frostforge")
+        assert(J.Setup.frame and J.Setup.frame:IsVisible() and JiberishUIDB.setupVersion==0)
+        assert(not next(J.Core.notices))
+    end)
+    test("loading screens and Escape never silently complete setup on "..interface,function(M)
+        UIParent.shown=false
+        local J=M.load({interface=interface});M.event(J.Core,"PLAYER_ENTERING_WORLD")
+        assert(J.Setup.pending and not J.Setup.frame)
+        UIParent.shown=true;M.tick(J.Core)
+        local W=J.Setup;assert(W.frame:IsVisible());W.next.scripts.OnClick()
+        W.providers.ELLESMERE.scripts.OnClick();assert(W.step==2 and W.providerTips.text:find("Ellesmere",1,true))
+        UIParent.shown=false;W.frame.scripts.OnHide() -- inherited OnHide, frame remains shown
+        assert(JiberishUIDB.setupVersion==0 and W.pending)
+        for _,item in ipairs(W.pictures) do assert(item.texture.path==nil) end
+        UIParent.shown=true;M.tick(J.Core)
+        assert(W.step==2 and W.provider=="ELLESMERE" and not W.pending)
+        W.frame:Hide();M.tick(J.Core);assert(not W.frame:IsShown() and JiberishUIDB.setupVersion==0)
+        J=M.load({interface=interface,db=JiberishUIDB});M.event(J.Core,"PLAYER_ENTERING_WORLD")
+        assert(J.Setup.frame:IsVisible());J.Setup.skip.scripts.OnClick();assert(JiberishUIDB.setupVersion==1)
+        assert(not next(J.Core.notices))
+    end)
+end
+
+for _,interface in ipairs({120100,16001}) do
+    for _,key in ipairs({"targetFrame","focusFrame"}) do
+        test("clearing "..key.." hides art before a delayed native hide on "..interface,function(M)
+            local J=M.load({interface=interface});local unit=key=="targetFrame" and "target" or "focus"
+            local event=unit=="target" and "PLAYER_TARGET_CHANGED" or "PLAYER_FOCUS_CHANGED"
+            J.ProfileManager:Set(key,"unitFrameShown",true)
+            local portrait=J.Core.modules[key];local skin=J.UnitSkins.units[key]
+            M.unitData[unit].class="DRUID";M.event(J.Core,event)
+            assert(portrait.portraitID=="CLASS_DRUID" and skin.health.id=="CLASS_DRUID")
+            local old=M.unitData[unit];M.combat=true;M.unitData[unit]=nil
+            local geometry=M.geometryWrites;M.event(J.Core,event)
+            assert(not portrait.frame:IsShown() and not skin.health.trim.frame:IsShown() and not skin.power.trim.frame:IsShown())
+            assert(portrait.portraitID=="CLASS_DRUID" and skin.health.id=="CLASS_DRUID","No intermediate Neutral repaint")
+            M.tick(J.Core);assert(not skin.footer.trim.frame:IsShown() and M.geometryWrites==geometry)
+            M.unitData[unit]=old;M.event(J.Core,event)
+            assert(portrait.frame:IsShown() and skin.health.trim.frame:IsShown())
+            old.player=false;M.event(J.Core,event)
+            assert(skin.health.id=="FACTION_NEUTRAL" and skin.health.trim.frame:IsShown(),"Real NPCs keep Neutral artwork")
+            M.combat=false;M.event(J.Core,"PLAYER_REGEN_ENABLED")
+            M.unitData[unit]=nil;M.event(J.Core,event)
+            assert(not portrait.frame:IsShown() and not skin.health.trim.frame:IsShown())
+            assert(not next(J.Core.notices))
+        end)
+    end
+end
+
+test("unavailable or secret existence never becomes a false deselection",function(M)
+    local J=M.load();local P=J.Portraits
+    local saved=UnitExists
+    UnitExists=function() return M.secret end;assert(P:HasUnit("targetFrame"))
+    UnitExists=function() error("restricted") end;assert(P:HasUnit("focusFrame"))
+    UnitExists=nil;assert(P:HasUnit("playerFrame"))
+    UnitExists=function() return nil end;assert(not P:HasUnit("targetFrame"))
+    UnitExists=saved
+end)
+
+test("empty target prepares before combat and hides cast borders without a native hide",function(M)
+    local data=M.unitData.target;M.unitData.target=nil
+    TargetFrame.spellbar=M.native("TargetFrameSpellBar",180,16)
+    local J=M.load();J.ProfileManager:Set("targetFrame","unitFrameShown",true)
+    J.ProfileManager:Set("targetFrame","castBarShown",true)
+    local portrait=J.Core.modules.targetFrame;local skin=J.UnitSkins.units.targetFrame;local cast=J.CastBars.units.targetFrame
+    assert(skin.health.trim and cast.frame and not portrait.frame:IsShown() and not skin.health.trim.frame:IsShown() and not cast.frame:IsShown())
+    M.combat=true;M.unitData.target=data;data.class="DRUID";M.event(J.Core,"PLAYER_TARGET_CHANGED")
+    assert(portrait.frame:IsShown() and skin.health.trim.frame:IsShown() and cast.frame:IsShown())
+    M.unitData.target=nil;J.CastBars:Sync();assert(not cast.frame:IsShown())
+    M.event(J.Core,"PLAYER_TARGET_CHANGED");assert(not skin.health.trim.frame:IsShown() and not portrait.frame:IsShown())
     assert(not next(J.Core.notices))
 end)
