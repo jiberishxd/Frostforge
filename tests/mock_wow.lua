@@ -13,6 +13,12 @@ local function readable(self)
     M.reads = (M.reads or 0) + 1
 end
 local function writable(self,geometry)
+    if self.native and self.gameMenuGeometry and geometry then
+        readable(self)
+        assert(not M.combat,"Game Menu geometry changed during combat")
+        M.gameMenuWrites=(M.gameMenuWrites or 0)+1
+        return
+    end
     if self.native and (self.powerLayoutBar or self.euiLayoutBar or self.elvLayoutBar) and geometry then
         readable(self)
         assert(not M.combat,"Native power layout written in combat")
@@ -191,10 +197,16 @@ function methods:CreateFontString(_,_,fontObject)
 end
 function methods:SetText(text)
     writable(self)
+    if self.template=="MainMenuFrameButtonTemplate" and not self.fontString then
+        self.fontString=self:CreateFontString(nil,"OVERLAY","GameFontHighlightLarge")
+    end
     local changed=self.text~=text;self.text=text
+    if self.fontString then self.fontString.text=text end
     if changed and self.scripts.OnTextChanged then self.scripts.OnTextChanged(self,false) end
 end
 function methods:GetText() return self.text end
+function methods:GetFontString() readable(self);return self.fontString end
+function methods:GetRegions() readable(self);return unpack(self.regions) end
 local function colorWrite(self)
     readable(self)
     if self.native then
@@ -258,8 +270,8 @@ function methods:SetParent() error("No reparenting permitted") end
 function methods:SetAttribute() error("No secure attribute writes permitted") end
 function hooksecurefunc(object,method,callback)
     local auraLayout=(object==TargetFrame or object==FocusFrame) and method=="AnchorAuraContainer"
-    local gameMenu=object==GameMenuFrame and method=="AddButton"
-    assert(object.native and (object.fillTexture or object.fill or object.stockPresentation or object.stockColor or auraLayout or gameMenu),"Only stock/skin presentation and Game Menu hooks permitted")
+    local gameMenu=object==GameMenuFrame and method=="Layout"
+    assert(object.native and (object.fillTexture or object.fill or object.stockPresentation or object.stockColor or auraLayout or gameMenu),"Only presentation hooks permitted")
     assert(gameMenu or auraLayout or method=="SetTexture" or method=="SetAtlas" or method=="SetTexCoord" or method=="SetStatusBarTexture" or method=="SetStatusBarColor" or method=="SetTextColor" or method=="SetVertexColor" or method=="SetText")
     M.hooks=(M.hooks or 0)+1
     local original=object[method]
@@ -268,9 +280,12 @@ function hooksecurefunc(object,method,callback)
     end
 end
 function CreateFrame(kind,name,parent,template)
-    assert(not template or template=="BackdropTemplate" or (template=="DisableUntrustedLayoutScriptsTemplate" and not M.noLayoutTemplate),"Unsupported template")
+    assert(not template or template=="BackdropTemplate" or template=="MainMenuFrameButtonTemplate" or (template=="DisableUntrustedLayoutScriptsTemplate" and not M.noLayoutTemplate),"Unsupported template")
     local frame=object(kind,parent,name)
     frame.template=template
+    if template=="MainMenuFrameButtonTemplate" then
+        frame:CreateTexture(nil,"BACKGROUND")
+    end
     if name then _G[name]=frame end
     return frame
 end
@@ -308,6 +323,8 @@ PlayerCastingBarFrame=nil
 OverlayPlayerCastingBarFrame=nil
 GamepadPlayerCastingBarFrame=nil
 EllesmereUI=nil
+EllesmereUIDB=nil
+C_AddOns=nil
 ERB_CastBarFrame=nil
 ERB_CastBar=nil
 PartyFrame=nil
@@ -325,6 +342,8 @@ ElvUI=nil
 AddonCompartmentFrame=nil
 GameMenuFrame=nil
 ADDONS="AddOns"
+EXIT_GAME="Exit Game"
+GAMEMENU_OPTIONS="Options"
 HideUIPanel=function(frame) frame.shown=false;M.closedPanel=frame end
 GameTooltip=nil
 GetCursorPosition=function() return 0,0 end

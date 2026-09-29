@@ -2,7 +2,7 @@
 
 Record the client/build and provider versions. Offline tests do not replace these checks:
 
-- Fresh settings: first-login tour, skip/reopen, settings access and optional minimap icon. Check Escape → Frostforge with Blizzard, ElvUI and Ellesmere menu styles, repeated opens and combat.
+- Fresh settings: first-login tour, skip/reopen, settings access and optional minimap icon. Check the blue Frostforge row after AddOns inside the Escape menu with Blizzard, ElvUI and Ellesmere menu styles, repeated opens, menu scaling and combat. Confirm the row matches neighboring buttons and remains inside the menu background without overlap or cumulative height growth. After installing the Game Menu fix, reload the UI to clear the previous hook/taint, then verify native Options, AddOns, Return to Game, Logout and Exit Game after repeated menu opens and Frostforge settings visits. Confirm no protected `callback()` errors; offline tests cannot validate the secure engine.
 - Profiles: separate characters, shared/copy behavior, backups, reload and full-restart persistence.
 - Artwork: each component, fixed/automatic themes, fit, scale, hiding and restoration on disable.
 - Combat: switch between NPCs and players, clear target/focus, and check artwork recovery afterward.

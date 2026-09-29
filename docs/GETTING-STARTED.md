@@ -4,7 +4,7 @@
 2. Restart WoW, enable **Jiberish's Frostforge** and follow the first-login setup tour.
 3. Open `/frostforge`, choose a component, select its artwork and provider, then enable and fit it. Portrait art and full unit-frame art have separate switches and browsers.
 
-Settings also open from **Escape → Frostforge**, the AddOn Compartment, ElvUI's Frostforge section or the optional minimap icon. Rerun the tour from **Guide → Run quick setup**. Changes involving protected frames wait until combat ends.
+Settings also open from the blue **Frostforge** row after **AddOns** in the Escape menu, the AddOn Compartment, ElvUI's Frostforge section or the optional minimap icon. Rerun the tour from **Guide → Run quick setup**. Changes involving protected frames wait until combat ends.
 
 ## UI addons
 

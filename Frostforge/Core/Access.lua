@@ -28,27 +28,119 @@ function A:Open()
     J.Core:Protect("open settings",function() J.SettingsUI:Open() end)
 end
 
+function A:StyleGameMenuButton(anchor)
+    local b=self.gameMenuButton
+    local font=b:GetFontString()
+    local source=anchor:GetFontString()
+    if font and source then
+        local path,size,flags=source:GetFont()
+        if path and J.Core:IsNumber(size) then font:SetFont(path,size,flags) end
+    end
+    local euiSkin=type(EllesmereUI)=="table" and C_AddOns and C_AddOns.IsAddOnLoaded
+        and C_AddOns.IsAddOnLoaded("EllesmereUIBlizzardSkin")
+        and (not EllesmereUIDB or EllesmereUIDB.reskinGameMenu~=false)
+    if euiSkin then
+        if not b.inset then
+            for _,region in ipairs({b:GetRegions()}) do
+                if region~=font then region:SetAlpha(0) end
+            end
+            local inset=CreateFrame("Frame",nil,b,"BackdropTemplate")
+            inset:SetPoint("TOPLEFT",b,"TOPLEFT",2,-2)
+            inset:SetPoint("BOTTOMRIGHT",b,"BOTTOMRIGHT",-2,2)
+            inset:SetFrameLevel(b:GetFrameLevel());inset:EnableMouse(false)
+            inset:SetBackdrop({bgFile="Interface\\Buttons\\WHITE8X8",
+                edgeFile="Interface\\Buttons\\WHITE8X8",edgeSize=1})
+            inset:SetBackdropBorderColor(0.25,0.25,0.25,1)
+            b.inset=inset
+            local highlight=b:CreateTexture(nil,"HIGHLIGHT")
+            highlight:SetAllPoints(inset);highlight:SetColorTexture(1,1,1,0.1)
+        end
+        local color=EllesmereUIDB and EllesmereUIDB.popupMenuButtonBackgroundColor
+            or {r=0.1,g=0.1,b=0.1,a=0.8}
+        b.inset:SetBackdropColor(color.r,color.g,color.b,color.a==nil and 0.8 or color.a)
+        if type(EllesmereUI._applyBlizzardConfiguredBorder)=="function" then
+            EllesmereUI._applyBlizzardConfiguredBorder(b.inset,"popupMenuButton",1)
+        end
+    elseif not b.elvuiSkinned then
+        local E=type(ElvUI)=="table" and ElvUI[1]
+        local config=type(E)=="table" and E.private and E.private.skins and E.private.skins.blizzard
+        local skins=config and config.enable and config.misc and E.GetModule and E:GetModule("Skins",true)
+        if skins and type(skins.HandleButton)=="function" then
+            skins:HandleButton(b);b.elvuiSkinned=true
+        end
+    end
+end
+
+function A:LayoutGameMenu(menu,nativeLayout)
+    if menu~=self.gameMenu or not J.Core:IsUsableFrame(menu) then return end
+    -- Each native Layout pass restores its own row positions and height first.
+    -- A deferred/late registration may apply once to the already-open menu.
+    if nativeLayout then self.gameMenuLaidOut=nil end
+    local b=self.gameMenuButton
+    if InCombatLockdown() then
+        if not b:IsProtected() then b:Hide() end
+        return
+    end
+    if self.gameMenuLaidOut or not menu:IsShown() then return end
+    local anchor,exit,options
+    for row in menu.buttonPool:EnumerateActive() do
+        if J.Core:IsUsableFrame(row) then
+            local label=row:GetText()
+            if label==ADDONS then anchor=row
+            elseif label==EXIT_GAME then exit=row
+            elseif label==GAMEMENU_OPTIONS then options=row end
+        end
+    end
+    anchor=anchor or exit or options
+    if not anchor or not J.Core:IsNumber(anchor.layoutIndex) then b:Hide();return end
+    local width,height=anchor:GetWidth(),anchor:GetHeight()
+    if not J.Core:IsNumber(width) or width<=0 or not J.Core:IsNumber(height) or height<=0 then return end
+    -- SetText creates the native template's font string lazily. Initialize it
+    -- before styling; inline color survives the template's hover font changes.
+    b:SetText("|cff4da6ff"..J.Brand.shortName.."|r")
+    -- Optional provider styling must not prevent the row from being laid out.
+    J.Core:Protect("game menu style",function() self:StyleGameMenuButton(anchor) end)
+    b:SetSize(width,height)
+    b:ClearAllPoints();b:SetPoint("TOPLEFT",anchor,"BOTTOMLEFT",0,0)
+    -- Move only geometry, just as ElvUI/Ellesmere do for their own menu rows.
+    -- Never acquire pooled buttons, write layout indices, rebuild the menu,
+    -- replace native scripts, or call the protected Logout/Quit callbacks.
+    for row in menu.buttonPool:EnumerateActive() do
+        if J.Core:IsUsableFrame(row) and J.Core:IsNumber(row.layoutIndex)
+            and row.layoutIndex>anchor.layoutIndex then
+            local point,relative,relativePoint,x,y=row:GetPoint(1)
+            -- Native rows use one menu-relative anchor. A row chained to a
+            -- shifted row already moves with it, so must not be shifted twice.
+            if point and relative==menu and J.Core:IsNumber(x) and J.Core:IsNumber(y) then
+                row:ClearAllPoints();row:SetPoint(point,relative,relativePoint,x,y-height)
+            end
+        end
+    end
+    menu:SetHeight(menu:GetHeight()+height)
+    b:Show();self.gameMenuLaidOut=true
+end
+
 function A:RegisterGameMenu()
     local menu=GameMenuFrame
-    if self.gameMenu==menu or not J.Core:IsUsableFrame(menu)
-        or type(menu.AddButton)~="function" or type(menu.InitButtons)~="function"
-        or type(hooksecurefunc)~="function" then return end
-    -- Join Blizzard's pooled button list during construction, before its
-    -- layout and ElvUI/Ellesmere skin passes. Never move native menu buttons.
-    hooksecurefunc(menu,"AddButton",function(frame,label)
-        if label~=ADDONS or not J.Core:IsUsableFrame(frame) then return end
-        J.Core:Protect("game menu button",function()
-            frame:AddButton(J.Brand.shortName,function()
-                if InCombatLockdown() then
-                    J.Core:Print("Open Frostforge from the Game Menu after combat.");return
-                end
-                HideUIPanel(frame)
-                self:Open()
-            end,InCombatLockdown(),"Available after combat.")
-        end)
+    if not J.Core:IsUsableFrame(menu) or InCombatLockdown() then return end
+    if self.gameMenu==menu then self:LayoutGameMenu(menu);return end
+    if type(menu.Layout)~="function" or type(hooksecurefunc)~="function"
+        or not menu.buttonPool or type(menu.buttonPool.EnumerateActive)~="function" then return end
+    if self.gameMenuButton then self.gameMenuButton:Hide() end
+    local b=CreateFrame("Button",nil,menu,"MainMenuFrameButtonTemplate")
+    b:Hide()
+    b:SetScript("OnClick",function()
+        if InCombatLockdown() then
+            J.Core:Print("Open Frostforge from the Game Menu after combat.");return
+        end
+        HideUIPanel(menu)
+        self:Open()
     end)
-    self.gameMenu=menu
-    if menu:IsShown() then menu:InitButtons() end
+    self.gameMenu,self.gameMenuButton,self.gameMenuLaidOut=menu,b,nil
+    hooksecurefunc(menu,"Layout",function(frame)
+        J.Core:Protect("game menu layout",function() self:LayoutGameMenu(frame,true) end)
+    end)
+    self:LayoutGameMenu(menu)
 end
 
 function A:RegisterCompartment()

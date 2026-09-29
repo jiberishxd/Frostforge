@@ -2,7 +2,7 @@ local addonName, J = ...
 -- Keep the addon folder and saved-variable keys stable for existing installs.
 J.Brand = { name="Jiberish's Frostforge", shortName="Frostforge", website="https://theigloo.io" }
 local Core = {
-    version = "0.9.13",
+    version = "0.9.16",
     modules = {}, clients = {}, owned = {}, notices = {},
     order = { "minimap", "playerFrame", "targetFrame", "focusFrame", "actionHub" },
     settingsOrder = { "minimap", "playerFrame", "targetFrame", "focusFrame", "targetTargetFrame", "partyFrames", "actionHub" },

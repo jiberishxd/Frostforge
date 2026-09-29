@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.9.16
+
+- Fix the missing Game Menu row by assigning its blue label before accessing the native button's lazily created font string. Optional provider styling failures now leave the menu entry visible and usable. Regression tests cover fresh buttons and failed provider styling. The row is confirmed visible in-game with EllesmereUI; combat and protected-action checks remain on the validation checklist.
+
+## 0.9.15
+
+- Place the blue Frostforge button inside the Escape menu, directly after AddOns, matching the native row size and font and supporting EllesmereUI/ElvUI styling. The button stays outside Blizzard's shared pool; only row positions and menu height change after native layout. Combat layout changes wait until combat ends.
+
+## 0.9.14
+
+- Fix Frostforge's Game Menu integration tainting native Logout and Exit Game actions. The launcher now sits below the menu, outside Blizzard's shared button pool, with a blue Frostforge label. Reload the UI after installing to clear the old hook and taint; in-game confirmation is still required.
+
 ## 0.9.13
 
 - Add `/jf partydebug` (also `/jf status party`) to report each party frame's attachment, unit assignment and visibility/opacity checks. It handles unavailable or restricted reads without requiring a pasted script. This diagnostic update does not change rendering; the remaining EllesmereUI party-border issue is still under investigation.
