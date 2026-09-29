@@ -8,4 +8,4 @@ Use the package for your client. Updates replace the addon folder; keep your `WT
 
 [Website](https://theigloo.io) · [Credits](CREDITS.md)
 
-Development preview; live compatibility testing is ongoing.
+Version 1.0.0 has separate packages for Retail 12.1.0 and Forever 1.60.1. Choose the package matching your client.

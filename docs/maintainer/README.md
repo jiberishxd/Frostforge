@@ -35,7 +35,7 @@ One-time setup in GitHub **Settings → Secrets and variables → Actions**:
 - Variable `CF_PROJECT_ID`: the numeric ID from the CurseForge author dashboard, not the project URL.
 - Variable `CF_CLIENTS`: `Retail`, `Forever`, or `Retail,Forever`.
 
-For each update, update the version in `Frostforge.toc` and `Core/Core.lua`, then publish a GitHub release from that commit with a matching tag (for example `v0.9.8`) and release notes. A GitHub prerelease uploads as **Beta**; a normal release uploads as **Release**. The workflow runs all checks, builds both ZIPs and uploads only the selected clients with exact game-version labels. CurseForge moderation still applies. Ordinary commits do not publish.
+For each update, update the version in `Frostforge.toc` and `Core/Core.lua`, then publish a GitHub release from that commit with a matching tag (for example `v1.0.0`) and release notes. A GitHub prerelease uploads as **Beta**; a normal release uploads as **Release**. The workflow runs all checks, builds both ZIPs and uploads only the selected clients with exact game-version labels. Keep `CF_CLIENTS` set to `Retail,Forever` to publish a separate file for each client. CurseForge moderation still applies. Ordinary commits and tags without a published release do not upload.
 
 **Actions → Publish to CurseForge → Run workflow** is a build-only test requiring no credentials. Download its `frostforge-packages` artifact and extract the outer artifact ZIP to access the individual player ZIPs. Upload those intact for a first manual submission.
 

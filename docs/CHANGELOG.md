@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0
+
+- First official release, with separate downloads for Retail 12.1.0 and Forever 1.60.1.
+- Includes 42 class, race and faction themes for portraits, unit frames, cast bars, minimaps and action hubs, plus compact Party and Target of Target borders.
+- Includes the setup tour, saved profiles, supported UI-addon integrations, and the blue Frostforge settings entry inside the Escape menu.
+- Preserves existing Frostforge settings when upgrading from 0.9.x. Choose the package for your client and keep your saved settings.
+
 ## 0.9.16
 
 - Fix the missing Game Menu row by assigning its blue label before accessing the native button's lazily created font string. Optional provider styling failures now leave the menu entry visible and usable. Regression tests cover fresh buttons and failed provider styling. The row is confirmed visible in-game with EllesmereUI; combat and protected-action checks remain on the validation checklist.

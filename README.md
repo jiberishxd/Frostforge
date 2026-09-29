@@ -12,12 +12,12 @@ Give your Warcraft interface a matching look with **42 class, race and faction t
 
 ## Get started
 
-Place the **Frostforge** folder in `Interface/AddOns/`, restart WoW and follow the first-login setup tour. Open settings anytime with `/frostforge`.
+Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). Version 1.0.0 provides separate packages for Retail **12.1.0** and Forever **1.60.1**.
 
-From GitHub's **Download ZIP**, copy only `Frostforge-main/Frostforge`. Keep your `WTF` folder when updating. [Installation and upgrade notes](docs/GETTING-STARTED.md).
+Place the ZIP's **Frostforge** folder in `Interface/AddOns/`, restart WoW and follow the first-login setup tour. Open settings anytime with `/frostforge`. Keep your `WTF` folder when updating. [Installation and upgrade notes](docs/GETTING-STARTED.md).
 
 **Questions, support or artwork feedback? [Join The Igloo Discord](https://discord.com/servers/igloo-460933747731070996).**
 
 [The Igloo](https://theigloo.io) · [Gallery](docs/GALLERY.md) · [Changelog](docs/CHANGELOG.md) · [Credits](Frostforge/CREDITS.md)
 
-Development preview; live compatibility testing is ongoing. Independent fan-made addon, not affiliated with Blizzard Entertainment. Referenced Blizzard artwork is © Blizzard Entertainment, Inc.; Warcraft and World of Warcraft are Blizzard trademarks. See the credits for artwork provenance and reuse information.
+Independent fan-made addon, not affiliated with Blizzard Entertainment. Referenced Blizzard artwork is © Blizzard Entertainment, Inc.; Warcraft and World of Warcraft are Blizzard trademarks. See the credits for artwork provenance and reuse information.
