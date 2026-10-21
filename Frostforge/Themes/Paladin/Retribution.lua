@@ -88,4 +88,5 @@ for _,key in ipairs(J.SmallFrames.keys) do
         smallFrameArt="MATCH",smallFrameWeight=.7,smallFramePadding=1,smallFrameLevel=1,
     }
 end
+for _,key in ipairs({"playerFrame","targetFrame","focusFrame","targetTargetFrame","partyFrames"}) do theme[key].npcArtwork=true end
 J.ThemeManager:Register("paladin_ret",theme)

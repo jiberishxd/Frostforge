@@ -1,6 +1,6 @@
 # Quick start
 
-1. Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). With WoW closed, install its complete **Frostforge** folder in `Interface/AddOns/`. The final path is `Interface/AddOns/Frostforge/Frostforge.toc`. Version 1.0.0 targets Retail **12.1.0** and Forever **1.60.1**; use the package for your client.
+1. Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). With WoW closed, install its complete **Frostforge** folder in `Interface/AddOns/`. The final path is `Interface/AddOns/Frostforge/Frostforge.toc`. Version 1.0.1 targets Retail **12.1.0** and Forever **1.60.1**; use the package for your client.
 2. Restart WoW, enable **Jiberish's Frostforge** and follow the first-login setup tour.
 3. Open `/frostforge`, choose a component, select its artwork and provider, then enable and fit it. Portrait art and full unit-frame art have separate switches and browsers.
 
@@ -21,3 +21,9 @@ Full shells need full-width power aligned below health; inset, detached, offset 
 Replace the addon folder when updating; keep `WTF` and all saved settings. An earlier Forever saved-data loading issue still needs live verification, so retain backups. For help or missing settings, [ask in The Igloo Discord](https://discord.com/servers/igloo-460933747731070996); include your version, client, UI addons and `/jf status`.
 
 **Party / Target of Target:** enable **Compact frame border** to use the smaller castbar designs around the bars. **Frame border** adjusts fit and weight; **Advanced** has separate portrait and compact-border strata/level controls. Portrait art is independent; enable separate portraits in your UI addon first. Automatic themes match each member individually. Blizzard compact party frames have no portraits; Ellesmere party support uses its Raid Frames module.
+
+### NPC creature artwork
+
+In **Target / Focus → Artwork**, leave an automatic theme selected and enable **Match NPC creature types** (on by default). Supported NPC types select a matching portrait and unit-frame shell. Enable **Unit-frame art** separately to show the shell. City affiliations keep their existing race artwork.
+
+Open either artwork browser and choose **Creatures** to select one of the ten designs manually. This switches the shared portrait/frame theme to a fixed design. Turning creature matching off restores the previous NPC selection behavior. Unknown, unavailable or restricted creature types fall back safely. Players keep their class/race/faction selection.

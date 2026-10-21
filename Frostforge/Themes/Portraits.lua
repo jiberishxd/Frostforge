@@ -1,6 +1,6 @@
 local _, J = ...
 -- Data only. Individual hand-painted portrait textures share the same fit template.
-J.PortraitCatalog = { entries = {}, classes = {}, races = {}, factions = {} }
+J.PortraitCatalog = { entries = {}, classes = {}, races = {}, factions = {}, creatures = {} }
 local C = J.PortraitCatalog
 C.entries.CLASS_WARRIOR = {label="Warrior",group="CLASS",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\class_warrior.png"}
 C.classes["WARRIOR"] = "CLASS_WARRIOR"
@@ -89,3 +89,25 @@ C.factions["Neutral"] = "FACTION_NEUTRAL"
 C.races.Undead = C.races.Scourge
 C.races.Earthen = C.races.EarthenDwarf
 C.races.Maghar = C.races.MagharOrc
+
+-- Dedicated creature artwork for public NPC type IDs.
+C.entries.CREATURE_BEAST = {label="Beast",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_beast.png"}
+C.creatures[1] = "CREATURE_BEAST"
+C.entries.CREATURE_DRAGONKIN = {label="Dragonkin",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_dragonkin.png"}
+C.creatures[2] = "CREATURE_DRAGONKIN"
+C.entries.CREATURE_DEMON = {label="Demon",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_demon.png"}
+C.creatures[3] = "CREATURE_DEMON"
+C.entries.CREATURE_ELEMENTAL = {label="Elemental",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_elemental.png"}
+C.creatures[4] = "CREATURE_ELEMENTAL"
+C.entries.CREATURE_GIANT = {label="Giant",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_giant.png"}
+C.creatures[5] = "CREATURE_GIANT"
+C.entries.CREATURE_UNDEAD = {label="Undead",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_undead.png"}
+C.creatures[6] = "CREATURE_UNDEAD"
+C.entries.CREATURE_HUMANOID = {label="Humanoid",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_humanoid.png"}
+C.creatures[7] = "CREATURE_HUMANOID"
+C.entries.CREATURE_CRITTER = {label="Critter",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_critter.png"}
+C.creatures[8] = "CREATURE_CRITTER"
+C.entries.CREATURE_MECHANICAL = {label="Mechanical",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_mechanical.png"}
+C.creatures[9] = "CREATURE_MECHANICAL"
+C.entries.CREATURE_ABERRATION = {label="Aberration",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_aberration.png"}
+C.creatures[14] = "CREATURE_ABERRATION"

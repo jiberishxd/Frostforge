@@ -10,7 +10,7 @@ for _,property in ipairs({"smallFrameArt","smallFrameWeight","smallFramePadding"
     J.Core.propertyOrder[#J.Core.propertyOrder+1]=property
 end
 local supported={width=true,height=true,x=true,y=true,scale=true,opacity=true,shown=true,
-    strata=true,level=true,layer=true,portraitMode=true,portrait=true,portraitSource=true,
+    strata=true,level=true,layer=true,portraitMode=true,portrait=true,portraitSource=true,npcArtwork=true,
     unitFrameShown=true,unitFrameSource=true,unitFrameWidth=true,unitFrameHeight=true,
     unitFrameX=true,unitFrameY=true,unitFrameStrata=true}
 function S:IsKey(key) return key=="targetTargetFrame" or key=="partyFrames" end

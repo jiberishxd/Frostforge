@@ -73,17 +73,18 @@ def asset_checks(with_artwork=False):
 
     manifest = json.loads((ROOT / "docs/phase1-assets.json").read_text())
     assets = manifest["assets"]
-    assert len(assets) == 298
+    assert len(assets) == 318
     groups = [{Path(a["file"]).stem for a in assets if "/"+kind+"/" in a["file"]} for kind in ("Portraits", "Hubs", "Minimaps")]
-    assert all(len(g) == 42 and g == groups[0] for g in groups), "Artwork catalogs must match"
+    assert len(groups[0]) == 52 and len(groups[1]) == 42 and groups[1] == groups[2]
+    assert groups[0] - groups[1] == {"creature_"+name for name in ("beast","humanoid","undead","demon","dragonkin","elemental","mechanical","giant","critter","aberration")}
     assert {Path(a["file"]).stem for a in assets if a.get("kind")=="unit-shell"} == groups[0]
     fits=json.loads((ROOT/'docs/artwork/unit-frame-fit-report.json').read_text())
-    assert len(fits)==42 and {f['id'] for f in fits}==groups[0]
+    assert len(fits)==52 and {f['id'] for f in fits}==groups[0]
     for fitted in fits:
         for field,hash_field in (('source','source_sha256'),('file','sha256')):
             check_source(fitted[field], fitted[hash_field])
     for kind in ('health','power'):
-        assert {Path(a['file']).stem.rsplit('-',1)[0] for a in assets if Path(a['file']).stem.endswith('-'+kind)} == groups[0]
+        assert {Path(a['file']).stem.rsplit('-',1)[0] for a in assets if Path(a['file']).stem.endswith('-'+kind)} == groups[1]
     actual_media = {p.relative_to(ROOT).as_posix() for p in (ROOT/"Frostforge/Media").rglob("*") if p.is_file()}
     expected_media = {a["file"] for a in assets}
     assert actual_media == expected_media, (
@@ -223,7 +224,7 @@ def asset_checks(with_artwork=False):
                     assert pixels[(row*w+x)*4+3]==0, 'Hub art covers reserved button region'
             if asset.get('official_crest') or asset.get('emblem_reference'):
                 crest=asset.get('official_crest') or asset['emblem_reference'];check_source(crest['file'], crest['sha256'])
-    print("PASS 42 portrait openings, 42 shared hub atlases, 42 circular minimaps, 298 RGBA assets (including the official transparent logo and stone interface, 42 complete cast borders, 42 sculpted shells and 84 painted fills) and runtime hashes")
+    print("PASS 52 portraits/shells, 42 hubs/minimaps/cast borders, 84 fills, 318 RGBA assets, transparent openings and runtime hashes")
     if with_artwork:
         print("PASS separate artwork source and provenance hashes")
 
@@ -267,7 +268,7 @@ def archive_checks(directory):
                 code = archive.read(name).decode().replace("\\\\", "/").replace("\\", "/")
                 for asset in re.findall(r'Interface/AddOns/([^"\s]+)', code):
                     assert asset.startswith("Frostforge/") and asset in archive.namelist(), (name, asset)
-        assert len([p for p in expected if p.endswith(".png")]) == 298
+        assert len([p for p in expected if p.endswith(".png")]) == 318
     print("PASS both exact client archives; no legacy code/themes or unrelated textures packaged")
 
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+- Add ten dedicated NPC creature themes: Beast, Humanoid, Undead, Demon, Dragonkin, Elemental, Mechanical, Giant, Critter and Aberration, each with new portrait and unit-frame artwork.
+- Automatic modes recognize public creature types after city affiliations; fixed designs still take priority. Unknown or restricted creature types keep the existing fallback.
+- Add a Creatures tab to portrait/frame browsers and a Match NPC creature types toggle on Target and Focus. Creature themes reuse existing matching cast trims and bar fills.
+
 ## 1.0.0
 
 - First official release, with separate downloads for Retail 12.1.0 and Forever 1.60.1.

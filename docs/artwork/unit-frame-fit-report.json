@@ -2098,5 +2098,505 @@
         "divider": 12.302142051860216
       }
     }
+  },
+  {
+    "id": "creature_beast",
+    "fit_version": 3,
+    "source": "artwork/creatures/v1/beast-frame.png",
+    "source_sha256": "6a266effd63de9a5c08f4c9a8aa062bc2d3b7844e7aadb7ac4dfe2ca7c387ce2",
+    "file": "artwork/creatures/v1/fitted/UnitFrames/creature_beast.png",
+    "sha256": "8ee9830830c6b87036b7b9b5e636759c644d6eb8fad51b37de8f55d696b59dd5",
+    "measured": {
+      "health": [
+        276,
+        347,
+        1422,
+        476
+      ],
+      "power": [
+        276,
+        523,
+        1422,
+        567
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          85.16798196166854,
+          101.01916572717023,
+          405.5828635851184,
+          137.08680947012402
+        ],
+        "power": [
+          85.16798196166854,
+          150.22773393461105,
+          405.5828635851184,
+          162.52987598647124
+        ],
+        "divider": 13.140924464487028
+      }
+    }
+  },
+  {
+    "id": "creature_humanoid",
+    "fit_version": 3,
+    "source": "artwork/creatures/v1/humanoid-frame.png",
+    "source_sha256": "f626de4c6111244cf5135329ea1017eeed652ec123cb5eb651f264d2553d3135",
+    "file": "artwork/creatures/v1/fitted/UnitFrames/creature_humanoid.png",
+    "sha256": "668e02dda446587420662bcc64fddcc5525bddfac4f6061cc8d0f58527a7d16c",
+    "measured": {
+      "health": [
+        283,
+        352,
+        1404,
+        476
+      ],
+      "power": [
+        280,
+        522,
+        1404,
+        567
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          87.12514092446449,
+          102.41713641488163,
+          400.5501691093574,
+          137.08680947012402
+        ],
+        "power": [
+          86.28635851183766,
+          149.94813979706876,
+          400.5501691093574,
+          162.52987598647124
+        ],
+        "divider": 12.861330326944739
+      }
+    }
+  },
+  {
+    "id": "creature_undead",
+    "fit_version": 3,
+    "source": "artwork/creatures/v1/undead-frame.png",
+    "source_sha256": "cf6329b0da35f9528f1aba1ed8ea98da099ded0fdfa3cf1d79fd3fe63c0656fc",
+    "file": "artwork/creatures/v1/fitted/UnitFrames/creature_undead.png",
+    "sha256": "2cd04acb5dd7535604658120894071bb074d42aa963749d54556f68712a034ce",
+    "measured": {
+      "health": [
+        273,
+        345,
+        1443,
+        480
+      ],
+      "power": [
+        272,
+        514,
+        1443,
+        577
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.32919954904172,
+          100.45997745208568,
+          411.4543404735062,
+          138.20518602029313
+        ],
+        "power": [
+          84.04960541149944,
+          147.71138669673056,
+          411.4543404735062,
+          165.32581736189402
+        ],
+        "divider": 9.50620067643743
+      }
+    }
+  },
+  {
+    "id": "creature_demon",
+    "fit_version": 3,
+    "source": "artwork/creatures/v1/demon-frame.png",
+    "source_sha256": "97f9b9552e2c4fa32f3e1c60d0072db5a34bcdea4a8f30662834971733ba7a43",
+    "file": "artwork/creatures/v1/fitted/UnitFrames/creature_demon.png",
+    "sha256": "53f206f1d39226282af50553d826d62c14321803267026e9365680823b390733",
+    "measured": {
+      "health": [
+        273,
+        354,
+        1401,
+        476
+      ],
+      "power": [
+        273,
+        525,
+        1401,
+        571
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.32919954904172,
+          102.97632468996618,
+          399.71138669673053,
+          137.08680947012402
+        ],
+        "power": [
+          84.32919954904172,
+          150.7869222096956,
+          399.71138669673053,
+          163.64825253664037
+        ],
+        "divider": 13.70011273957158
+      }
+    }
+  },
+  {
+    "id": "creature_dragonkin",
+    "fit_version": 3,
+    "source": "artwork/creatures/v1/dragonkin-frame.png",
+    "source_sha256": "87f1214af6bd6c7592f0d823e7270c479b86052a37480cd1fb2f09a13fd1e3b2",
+    "file": "artwork/creatures/v1/fitted/UnitFrames/creature_dragonkin.png",
+    "sha256": "36f64dc35279d62c43176f1a4b7ae8f33fbf981823c3c3d7dba40477a06a346d",
+    "measured": {
+      "health": [
+        273,
+        353,
+        1423,
+        476
+      ],
+      "power": [
+        273,
+        524,
+        1423,
+        572
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.32919954904172,
+          102.6967305524239,
+          405.8624577226607,
+          137.08680947012402
+        ],
+        "power": [
+          84.32919954904172,
+          150.5073280721533,
+          405.8624577226607,
+          163.92784667418263
+        ],
+        "divider": 13.42051860202929
+      }
+    }
+  },
+  {
+    "id": "creature_elemental",
+    "fit_version": 3,
+    "source": "artwork/creatures/v1/elemental-frame.png",
+    "source_sha256": "d8222998c1b7f8f81072045319058215f47bd0607a3dad74ca57248bf6e1fe04",
+    "file": "artwork/creatures/v1/fitted/UnitFrames/creature_elemental.png",
+    "sha256": "bf70591d4c39ba816e2475f2dfec75d24edeed91f6fac0870acf4b7347cf8eda",
+    "measured": {
+      "health": [
+        278,
+        358,
+        1423,
+        476
+      ],
+      "power": [
+        277,
+        527,
+        1423,
+        574
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          85.7271702367531,
+          104.0947012401353,
+          405.8624577226607,
+          137.08680947012402
+        ],
+        "power": [
+          85.44757609921082,
+          151.34611048478016,
+          405.8624577226607,
+          164.48703494926718
+        ],
+        "divider": 14.259301014656131
+      }
+    }
+  },
+  {
+    "id": "creature_mechanical",
+    "fit_version": 3,
+    "source": "artwork/creatures/v1/mechanical-frame.png",
+    "source_sha256": "8c56e828b6f7f196df55ed393fc16ac971fbacc545aca8590048dd6a89fac0c2",
+    "file": "artwork/creatures/v1/fitted/UnitFrames/creature_mechanical.png",
+    "sha256": "d10f5797ddf91218b5281eb761adebc522dbe4beb5b4e0734db5dc95596c9b5f",
+    "measured": {
+      "health": [
+        271,
+        347,
+        1420,
+        478
+      ],
+      "power": [
+        270,
+        514,
+        1420,
+        571
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          83.77001127395715,
+          101.01916572717023,
+          405.0236753100338,
+          137.64599774520858
+        ],
+        "power": [
+          83.49041713641488,
+          147.71138669673056,
+          405.0236753100338,
+          163.64825253664037
+        ],
+        "divider": 10.065388951521982
+      }
+    }
+  },
+  {
+    "id": "creature_giant",
+    "fit_version": 3,
+    "source": "artwork/creatures/v1/giant-frame.png",
+    "source_sha256": "52b6fd00af4be72a76ed3e13b237e3b7c1314244e1d499779da614c7c38341be",
+    "file": "artwork/creatures/v1/fitted/UnitFrames/creature_giant.png",
+    "sha256": "2802ac07d0f3f698d166b7379934c35cdd6cd3cf6aa84cb6971b302d3446660f",
+    "measured": {
+      "health": [
+        276,
+        356,
+        1416,
+        476
+      ],
+      "power": [
+        276,
+        524,
+        1416,
+        565
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          85.16798196166854,
+          103.53551296505073,
+          403.9052987598647,
+          137.08680947012402
+        ],
+        "power": [
+          85.16798196166854,
+          150.5073280721533,
+          403.9052987598647,
+          161.9706877113867
+        ],
+        "divider": 13.42051860202929
+      }
+    }
+  },
+  {
+    "id": "creature_critter",
+    "fit_version": 3,
+    "source": "artwork/creatures/v1/critter-frame.png",
+    "source_sha256": "393df51322902b974e553011be3f535900d8c3f079a28ca6acc671195f6af89a",
+    "file": "artwork/creatures/v1/fitted/UnitFrames/creature_critter.png",
+    "sha256": "d3cc562db80abeb1cd0d169120ce99dabc5441e999ed6a095b3b034b8dc50c18",
+    "measured": {
+      "health": [
+        275,
+        355,
+        1428,
+        474
+      ],
+      "power": [
+        273,
+        520,
+        1429,
+        576
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.88838782412627,
+          103.25591882750845,
+          407.260428410372,
+          136.52762119503947
+        ],
+        "power": [
+          84.32919954904172,
+          149.3889515219842,
+          407.5400225479143,
+          165.04622322435173
+        ],
+        "divider": 12.861330326944739
+      }
+    }
+  },
+  {
+    "id": "creature_aberration",
+    "fit_version": 3,
+    "source": "artwork/creatures/v1/aberration-frame.png",
+    "source_sha256": "afb83478454f79221218c1b4052b023e1cdbcefe870d91a04ce68fe476f78b32",
+    "file": "artwork/creatures/v1/fitted/UnitFrames/creature_aberration.png",
+    "sha256": "7bac9ad9876a110d07fd57ca7521b46d45c053d0baf2d7b5108a1fa679710ce8",
+    "measured": {
+      "health": [
+        282,
+        360,
+        1404,
+        476
+      ],
+      "power": [
+        279,
+        524,
+        1404,
+        564
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          86.84554678692221,
+          104.65388951521984,
+          400.5501691093574,
+          137.08680947012402
+        ],
+        "power": [
+          86.00676437429537,
+          150.5073280721533,
+          400.5501691093574,
+          161.69109357384443
+        ],
+        "divider": 13.42051860202929
+      }
+    }
   }
 ]

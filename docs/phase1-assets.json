@@ -18692,6 +18692,1126 @@
       "transform": "Screenshot fitted without stretching, with transparent padding. Existing artwork files unchanged.",
       "legacy_tga_sha256": "32971cd7cf57d21eb92b46daaf02882acb2fbf1f3fce02ab30d5904bb1e8c47c",
       "encoding": "PNG; lossless pixels verified against the original TGA"
+    },
+    {
+      "file": "Frostforge/Media/Portraits/creature_beast.png",
+      "source": "artwork/creatures/v1/fitted/Portraits/creature_beast.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "b51699b4d89ebc71b70e932fcdac0fc6b5945b573795de467f36a8683fbef5b6",
+      "source_sha256": "b51699b4d89ebc71b70e932fcdac0fc6b5945b573795de467f36a8683fbef5b6",
+      "original": "artwork/creatures/v1/beast-portrait.png",
+      "original_sha256": "b9ebc7b9c705a43b35a5425d43871024701376ac10f9d7ae19dcc87b21cb0796",
+      "legacy_tga_sha256": "4c7365a5c9896871e77ed32cffa99f4f6b75721ae5251a733ab0073543bf1f92",
+      "alphaBounds": [
+        8,
+        8,
+        467,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "creature_beast",
+      "label": "Beast",
+      "group": "CREATURE",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        6,
+        8,
+        223,
+        250
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/creature_beast.png",
+      "source": "artwork/creatures/v1/fitted/UnitFrames/creature_beast.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "8ee9830830c6b87036b7b9b5e636759c644d6eb8fad51b37de8f55d696b59dd5",
+      "source_sha256": "8ee9830830c6b87036b7b9b5e636759c644d6eb8fad51b37de8f55d696b59dd5",
+      "original": "artwork/creatures/v1/beast-frame.png",
+      "original_sha256": "6a266effd63de9a5c08f4c9a8aa062bc2d3b7844e7aadb7ac4dfe2ca7c387ce2",
+      "legacy_tga_sha256": "14a69543d24c4ddcdfd112e10d45752c65a8e5280277db311dbfa38cc18834db",
+      "alphaBounds": [
+        9,
+        13,
+        504,
+        246
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          85.16798196166854,
+          101.01916572717023,
+          405.5828635851184,
+          137.08680947012402
+        ],
+        "power": [
+          85.16798196166854,
+          150.22773393461105,
+          405.5828635851184,
+          162.52987598647124
+        ],
+        "divider": 13.140924464487028
+      },
+      "references": [
+        {
+          "file": "artwork/creatures/v1/beast-frame.png",
+          "sha256": "6a266effd63de9a5c08f4c9a8aa062bc2d3b7844e7aadb7ac4dfe2ca7c387ce2"
+        },
+        {
+          "file": "artwork/creatures/v1/generation-prompts.json",
+          "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Portraits/creature_humanoid.png",
+      "source": "artwork/creatures/v1/fitted/Portraits/creature_humanoid.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "85c0a8b062105ae185ed4d814c0e6f4f6045de0b8489cdd99bf3cf692c94f703",
+      "source_sha256": "85c0a8b062105ae185ed4d814c0e6f4f6045de0b8489cdd99bf3cf692c94f703",
+      "original": "artwork/creatures/v1/humanoid-portrait.png",
+      "original_sha256": "9c02e67c341e3baba4d8a54c5ae2689f3f9be1f63bdc6ce2c54be94499ed78fa",
+      "legacy_tga_sha256": "07b84a9b732f6989a0300579a6aa91a5f59309ed0e06979ccdcd258c0e4838bc",
+      "alphaBounds": [
+        8,
+        8,
+        466,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "creature_humanoid",
+      "label": "Humanoid",
+      "group": "CREATURE",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        8,
+        6,
+        216,
+        248
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/creature_humanoid.png",
+      "source": "artwork/creatures/v1/fitted/UnitFrames/creature_humanoid.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "668e02dda446587420662bcc64fddcc5525bddfac4f6061cc8d0f58527a7d16c",
+      "source_sha256": "668e02dda446587420662bcc64fddcc5525bddfac4f6061cc8d0f58527a7d16c",
+      "original": "artwork/creatures/v1/humanoid-frame.png",
+      "original_sha256": "f626de4c6111244cf5135329ea1017eeed652ec123cb5eb651f264d2553d3135",
+      "legacy_tga_sha256": "095fabea7515115838758c07e13ec407d99f274bc0b7673b08602556f6f2d254",
+      "alphaBounds": [
+        16,
+        17,
+        501,
+        246
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          87.12514092446449,
+          102.41713641488163,
+          400.5501691093574,
+          137.08680947012402
+        ],
+        "power": [
+          86.28635851183766,
+          149.94813979706876,
+          400.5501691093574,
+          162.52987598647124
+        ],
+        "divider": 12.861330326944739
+      },
+      "references": [
+        {
+          "file": "artwork/creatures/v1/humanoid-frame.png",
+          "sha256": "f626de4c6111244cf5135329ea1017eeed652ec123cb5eb651f264d2553d3135"
+        },
+        {
+          "file": "artwork/creatures/v1/generation-prompts.json",
+          "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Portraits/creature_undead.png",
+      "source": "artwork/creatures/v1/fitted/Portraits/creature_undead.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "0a6c59035d8752c1194f407728dd455199b924f1bbef3411e064da77f16895bc",
+      "source_sha256": "0a6c59035d8752c1194f407728dd455199b924f1bbef3411e064da77f16895bc",
+      "original": "artwork/creatures/v1/undead-portrait.png",
+      "original_sha256": "829d076b668804dd11463bfc35aa8034b9798255f0fd10cc2d020a8885c4a0d2",
+      "legacy_tga_sha256": "a645b53bc963df0b58a928ed35151077acb2cb486c85d018e3db8c14c87aa737",
+      "alphaBounds": [
+        8,
+        8,
+        466,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "creature_undead",
+      "label": "Undead",
+      "group": "CREATURE",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        8,
+        7,
+        214,
+        249
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/creature_undead.png",
+      "source": "artwork/creatures/v1/fitted/UnitFrames/creature_undead.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "2cd04acb5dd7535604658120894071bb074d42aa963749d54556f68712a034ce",
+      "source_sha256": "2cd04acb5dd7535604658120894071bb074d42aa963749d54556f68712a034ce",
+      "original": "artwork/creatures/v1/undead-frame.png",
+      "original_sha256": "cf6329b0da35f9528f1aba1ed8ea98da099ded0fdfa3cf1d79fd3fe63c0656fc",
+      "legacy_tga_sha256": "1228542651f58d88cf4ee1e73accc2de6ff48a93c25949d956003e21970cf392",
+      "alphaBounds": [
+        10,
+        6,
+        502,
+        248
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.32919954904172,
+          100.45997745208568,
+          411.4543404735062,
+          138.20518602029313
+        ],
+        "power": [
+          84.04960541149944,
+          147.71138669673056,
+          411.4543404735062,
+          165.32581736189402
+        ],
+        "divider": 9.50620067643743
+      },
+      "references": [
+        {
+          "file": "artwork/creatures/v1/undead-frame.png",
+          "sha256": "cf6329b0da35f9528f1aba1ed8ea98da099ded0fdfa3cf1d79fd3fe63c0656fc"
+        },
+        {
+          "file": "artwork/creatures/v1/generation-prompts.json",
+          "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Portraits/creature_demon.png",
+      "source": "artwork/creatures/v1/fitted/Portraits/creature_demon.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "a433791d60d0cdfb68d0a34821d60fd593fd17da9690c97bd184910db4496242",
+      "source_sha256": "a433791d60d0cdfb68d0a34821d60fd593fd17da9690c97bd184910db4496242",
+      "original": "artwork/creatures/v1/demon-portrait.png",
+      "original_sha256": "a226dfb00bf5ab718aa204944b4ff85f4d6da46ab155152078766e2ef0a1298d",
+      "legacy_tga_sha256": "6a43fb25e42c729d06aa077faf50d90c8baa226d78945f3a977c0aef437504b9",
+      "alphaBounds": [
+        8,
+        8,
+        467,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "creature_demon",
+      "label": "Demon",
+      "group": "CREATURE",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        6,
+        3,
+        230,
+        253
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/creature_demon.png",
+      "source": "artwork/creatures/v1/fitted/UnitFrames/creature_demon.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "53f206f1d39226282af50553d826d62c14321803267026e9365680823b390733",
+      "source_sha256": "53f206f1d39226282af50553d826d62c14321803267026e9365680823b390733",
+      "original": "artwork/creatures/v1/demon-frame.png",
+      "original_sha256": "97f9b9552e2c4fa32f3e1c60d0072db5a34bcdea4a8f30662834971733ba7a43",
+      "legacy_tga_sha256": "4fdac22f923f72b671fb5945eae49dc31539a090f4ec0ae80e756f4a162bac49",
+      "alphaBounds": [
+        12,
+        7,
+        502,
+        245
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.32919954904172,
+          102.97632468996618,
+          399.71138669673053,
+          137.08680947012402
+        ],
+        "power": [
+          84.32919954904172,
+          150.7869222096956,
+          399.71138669673053,
+          163.64825253664037
+        ],
+        "divider": 13.70011273957158
+      },
+      "references": [
+        {
+          "file": "artwork/creatures/v1/demon-frame.png",
+          "sha256": "97f9b9552e2c4fa32f3e1c60d0072db5a34bcdea4a8f30662834971733ba7a43"
+        },
+        {
+          "file": "artwork/creatures/v1/generation-prompts.json",
+          "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Portraits/creature_dragonkin.png",
+      "source": "artwork/creatures/v1/fitted/Portraits/creature_dragonkin.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "f7eec5d2eea199ed9990b752cd64bf5a3e0ca02117df6ff68d9e6ea6eddc7e79",
+      "source_sha256": "f7eec5d2eea199ed9990b752cd64bf5a3e0ca02117df6ff68d9e6ea6eddc7e79",
+      "original": "artwork/creatures/v1/dragonkin-portrait.png",
+      "original_sha256": "7189b3612d2272d220c05d504cbd01d29962f2c468d2fec62f8a059cc86cced2",
+      "legacy_tga_sha256": "b85846a8858644fb4990c6b3631ad424e48969590513de03aa24138368b6e2fe",
+      "alphaBounds": [
+        8,
+        8,
+        467,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "creature_dragonkin",
+      "label": "Dragonkin",
+      "group": "CREATURE",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        7,
+        4,
+        220,
+        252
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/creature_dragonkin.png",
+      "source": "artwork/creatures/v1/fitted/UnitFrames/creature_dragonkin.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "36f64dc35279d62c43176f1a4b7ae8f33fbf981823c3c3d7dba40477a06a346d",
+      "source_sha256": "36f64dc35279d62c43176f1a4b7ae8f33fbf981823c3c3d7dba40477a06a346d",
+      "original": "artwork/creatures/v1/dragonkin-frame.png",
+      "original_sha256": "87f1214af6bd6c7592f0d823e7270c479b86052a37480cd1fb2f09a13fd1e3b2",
+      "legacy_tga_sha256": "7f5d3eebaaea8870df420682ff1dfeb5754182e4db1ea57fb8bf9304c34d80b1",
+      "alphaBounds": [
+        10,
+        6,
+        503,
+        246
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.32919954904172,
+          102.6967305524239,
+          405.8624577226607,
+          137.08680947012402
+        ],
+        "power": [
+          84.32919954904172,
+          150.5073280721533,
+          405.8624577226607,
+          163.92784667418263
+        ],
+        "divider": 13.42051860202929
+      },
+      "references": [
+        {
+          "file": "artwork/creatures/v1/dragonkin-frame.png",
+          "sha256": "87f1214af6bd6c7592f0d823e7270c479b86052a37480cd1fb2f09a13fd1e3b2"
+        },
+        {
+          "file": "artwork/creatures/v1/generation-prompts.json",
+          "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Portraits/creature_elemental.png",
+      "source": "artwork/creatures/v1/fitted/Portraits/creature_elemental.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "0ca9ca79c98cebf4b62025160f56aba0f0ea07b75fdcc6d1c3cd3f55cb7e7280",
+      "source_sha256": "0ca9ca79c98cebf4b62025160f56aba0f0ea07b75fdcc6d1c3cd3f55cb7e7280",
+      "original": "artwork/creatures/v1/elemental-portrait.png",
+      "original_sha256": "ddfa866628d577e3ad836c6d0ab245e40311d4c340a19e6f7a5c4c334d982541",
+      "legacy_tga_sha256": "2fad8406e8a681e306eafc5be207f3a08cbf3654b2667491cee675c024102504",
+      "alphaBounds": [
+        8,
+        8,
+        466,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "creature_elemental",
+      "label": "Elemental",
+      "group": "CREATURE",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        9,
+        5,
+        216,
+        250
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/creature_elemental.png",
+      "source": "artwork/creatures/v1/fitted/UnitFrames/creature_elemental.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "bf70591d4c39ba816e2475f2dfec75d24edeed91f6fac0870acf4b7347cf8eda",
+      "source_sha256": "bf70591d4c39ba816e2475f2dfec75d24edeed91f6fac0870acf4b7347cf8eda",
+      "original": "artwork/creatures/v1/elemental-frame.png",
+      "original_sha256": "d8222998c1b7f8f81072045319058215f47bd0607a3dad74ca57248bf6e1fe04",
+      "legacy_tga_sha256": "532a678fefa485b784e4760d7a64abbadb52e25e779be5742b876faf9d60ca9d",
+      "alphaBounds": [
+        13,
+        8,
+        504,
+        244
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          85.7271702367531,
+          104.0947012401353,
+          405.8624577226607,
+          137.08680947012402
+        ],
+        "power": [
+          85.44757609921082,
+          151.34611048478016,
+          405.8624577226607,
+          164.48703494926718
+        ],
+        "divider": 14.259301014656131
+      },
+      "references": [
+        {
+          "file": "artwork/creatures/v1/elemental-frame.png",
+          "sha256": "d8222998c1b7f8f81072045319058215f47bd0607a3dad74ca57248bf6e1fe04"
+        },
+        {
+          "file": "artwork/creatures/v1/generation-prompts.json",
+          "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Portraits/creature_mechanical.png",
+      "source": "artwork/creatures/v1/fitted/Portraits/creature_mechanical.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "1d532a3809a9a0532f0bc2558ad2991e005d162e007f0bc9566e898416411d44",
+      "source_sha256": "1d532a3809a9a0532f0bc2558ad2991e005d162e007f0bc9566e898416411d44",
+      "original": "artwork/creatures/v1/mechanical-portrait.png",
+      "original_sha256": "d75a5b22073efec28f29926ee1f52eb157363e5a463377cea8db09a1b1e059ad",
+      "legacy_tga_sha256": "c5b3e34862c9aff33556a2f1a17cae7067c2fca510f0e5a8a6e8034afaceb670",
+      "alphaBounds": [
+        8,
+        8,
+        467,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "creature_mechanical",
+      "label": "Mechanical",
+      "group": "CREATURE",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        8,
+        7,
+        218,
+        251
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/creature_mechanical.png",
+      "source": "artwork/creatures/v1/fitted/UnitFrames/creature_mechanical.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "d10f5797ddf91218b5281eb761adebc522dbe4beb5b4e0734db5dc95596c9b5f",
+      "source_sha256": "d10f5797ddf91218b5281eb761adebc522dbe4beb5b4e0734db5dc95596c9b5f",
+      "original": "artwork/creatures/v1/mechanical-frame.png",
+      "original_sha256": "8c56e828b6f7f196df55ed393fc16ac971fbacc545aca8590048dd6a89fac0c2",
+      "legacy_tga_sha256": "29793286eb164ff05c3dabe1e8973205e80832aa5d936d779881d4962e14fa90",
+      "alphaBounds": [
+        16,
+        13,
+        500,
+        246
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          83.77001127395715,
+          101.01916572717023,
+          405.0236753100338,
+          137.64599774520858
+        ],
+        "power": [
+          83.49041713641488,
+          147.71138669673056,
+          405.0236753100338,
+          163.64825253664037
+        ],
+        "divider": 10.065388951521982
+      },
+      "references": [
+        {
+          "file": "artwork/creatures/v1/mechanical-frame.png",
+          "sha256": "8c56e828b6f7f196df55ed393fc16ac971fbacc545aca8590048dd6a89fac0c2"
+        },
+        {
+          "file": "artwork/creatures/v1/generation-prompts.json",
+          "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Portraits/creature_giant.png",
+      "source": "artwork/creatures/v1/fitted/Portraits/creature_giant.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "acef81c5296d46b220802754e8aea222a700978ad5fbe2f4a197a365b057ab53",
+      "source_sha256": "acef81c5296d46b220802754e8aea222a700978ad5fbe2f4a197a365b057ab53",
+      "original": "artwork/creatures/v1/giant-portrait.png",
+      "original_sha256": "edc8c00a881d55fb85d4c150bb49ba6caede9554eafff7c45a2480018c82cc0e",
+      "legacy_tga_sha256": "b2168c9ca6b108a6596e4a0a4c1c81aae3c0143112597e5ea629b56a7826405d",
+      "alphaBounds": [
+        8,
+        8,
+        467,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "creature_giant",
+      "label": "Giant",
+      "group": "CREATURE",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        5,
+        3,
+        217,
+        250
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/creature_giant.png",
+      "source": "artwork/creatures/v1/fitted/UnitFrames/creature_giant.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "2802ac07d0f3f698d166b7379934c35cdd6cd3cf6aa84cb6971b302d3446660f",
+      "source_sha256": "2802ac07d0f3f698d166b7379934c35cdd6cd3cf6aa84cb6971b302d3446660f",
+      "original": "artwork/creatures/v1/giant-frame.png",
+      "original_sha256": "52b6fd00af4be72a76ed3e13b237e3b7c1314244e1d499779da614c7c38341be",
+      "legacy_tga_sha256": "d6eb0b45249d4f8deda6aef20dca299a04156eab7b641f9910f18d9daafd790d",
+      "alphaBounds": [
+        13,
+        13,
+        502,
+        245
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          85.16798196166854,
+          103.53551296505073,
+          403.9052987598647,
+          137.08680947012402
+        ],
+        "power": [
+          85.16798196166854,
+          150.5073280721533,
+          403.9052987598647,
+          161.9706877113867
+        ],
+        "divider": 13.42051860202929
+      },
+      "references": [
+        {
+          "file": "artwork/creatures/v1/giant-frame.png",
+          "sha256": "52b6fd00af4be72a76ed3e13b237e3b7c1314244e1d499779da614c7c38341be"
+        },
+        {
+          "file": "artwork/creatures/v1/generation-prompts.json",
+          "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Portraits/creature_critter.png",
+      "source": "artwork/creatures/v1/fitted/Portraits/creature_critter.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "a23a1a2dc817662631ad341f122ad05cd794f3c9c64c8873ea22f44362bea419",
+      "source_sha256": "a23a1a2dc817662631ad341f122ad05cd794f3c9c64c8873ea22f44362bea419",
+      "original": "artwork/creatures/v1/critter-portrait.png",
+      "original_sha256": "7be33248883bf1d5e18b52258b0ac263be379f3b661d59d2e875d47760583f44",
+      "legacy_tga_sha256": "dce34b2dfe80b4be1fbbdbbfb5d52db33a61ffefd6f8692f3b3db87bb70dd4dc",
+      "alphaBounds": [
+        8,
+        8,
+        467,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "creature_critter",
+      "label": "Critter",
+      "group": "CREATURE",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        10,
+        4,
+        228,
+        249
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/creature_critter.png",
+      "source": "artwork/creatures/v1/fitted/UnitFrames/creature_critter.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "d3cc562db80abeb1cd0d169120ce99dabc5441e999ed6a095b3b034b8dc50c18",
+      "source_sha256": "d3cc562db80abeb1cd0d169120ce99dabc5441e999ed6a095b3b034b8dc50c18",
+      "original": "artwork/creatures/v1/critter-frame.png",
+      "original_sha256": "393df51322902b974e553011be3f535900d8c3f079a28ca6acc671195f6af89a",
+      "legacy_tga_sha256": "61f5524e5adb8697e0224fdab81bf563ba6cc453b7232f3ee88687859419106e",
+      "alphaBounds": [
+        14,
+        14,
+        501,
+        246
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          84.88838782412627,
+          103.25591882750845,
+          407.260428410372,
+          136.52762119503947
+        ],
+        "power": [
+          84.32919954904172,
+          149.3889515219842,
+          407.5400225479143,
+          165.04622322435173
+        ],
+        "divider": 12.861330326944739
+      },
+      "references": [
+        {
+          "file": "artwork/creatures/v1/critter-frame.png",
+          "sha256": "393df51322902b974e553011be3f535900d8c3f079a28ca6acc671195f6af89a"
+        },
+        {
+          "file": "artwork/creatures/v1/generation-prompts.json",
+          "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Portraits/creature_aberration.png",
+      "source": "artwork/creatures/v1/fitted/Portraits/creature_aberration.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "addf68ef8b29149276843730cee82fb9fef4642b73b88148a925e2e5620d9017",
+      "source_sha256": "addf68ef8b29149276843730cee82fb9fef4642b73b88148a925e2e5620d9017",
+      "original": "artwork/creatures/v1/aberration-portrait.png",
+      "original_sha256": "e12eca5054c33f3a2884545510e3903b3f1f0095c5ee4de88890f05df5ce42ca",
+      "legacy_tga_sha256": "4be8af8c32d26a60c7bc7b20d864347b9328635f41b675b54a314e97796c29f2",
+      "alphaBounds": [
+        8,
+        8,
+        467,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "creature_aberration",
+      "label": "Aberration",
+      "group": "CREATURE",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        8,
+        4,
+        224,
+        249
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/creature_aberration.png",
+      "source": "artwork/creatures/v1/fitted/UnitFrames/creature_aberration.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "7bac9ad9876a110d07fd57ca7521b46d45c053d0baf2d7b5108a1fa679710ce8",
+      "source_sha256": "7bac9ad9876a110d07fd57ca7521b46d45c053d0baf2d7b5108a1fa679710ce8",
+      "original": "artwork/creatures/v1/aberration-frame.png",
+      "original_sha256": "afb83478454f79221218c1b4052b023e1cdbcefe870d91a04ce68fe476f78b32",
+      "legacy_tga_sha256": "dcaa1e5f72f409f097617399edbff2f1e05a0e0b880e0dd71e618b08b71539b2",
+      "alphaBounds": [
+        12,
+        8,
+        501,
+        248
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          86.84554678692221,
+          104.65388951521984,
+          400.5501691093574,
+          137.08680947012402
+        ],
+        "power": [
+          86.00676437429537,
+          150.5073280721533,
+          400.5501691093574,
+          161.69109357384443
+        ],
+        "divider": 13.42051860202929
+      },
+      "references": [
+        {
+          "file": "artwork/creatures/v1/aberration-frame.png",
+          "sha256": "afb83478454f79221218c1b4052b023e1cdbcefe870d91a04ce68fe476f78b32"
+        },
+        {
+          "file": "artwork/creatures/v1/generation-prompts.json",
+          "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
+        }
+      ]
     }
   ],
   "in_game_qualified": false,

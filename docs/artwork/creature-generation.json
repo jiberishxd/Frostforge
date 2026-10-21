@@ -1,0 +1,185 @@
+{
+  "in_game_qualified": false,
+  "assets": [
+    {
+      "id": "beast-portrait",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: the supplied Frostforge portrait atlas. Create the BEAST creature-type version, with entirely new sculpted animal motifs: rugged tawny fur, dark brown hide straps, ivory wolf fangs, a small bronze claw crest, natural bone and weathered iron. Rich hand-painted Warcraft fantasy UI style, crisp visible texture at small scale. Keep the exact TWO side-by-side C-shaped portrait surrounds, same geometry, same transparent circular openings and open right sides, same atlas composition and proportions. Left has squared lower inside corner, right round. Replace the compass and cloth motifs completely; no compass, no faction or class logos, no text, no creature faces inside portrait opening. Both surrounds show identical beast design. Genuine alpha transparency everywhere outside ornament and in openings; no background, no checker pattern. This is runtime game artwork, not a presentation.",
+      "reference": "Frostforge/Media/Portraits/faction_neutral.png",
+      "original": "artwork/creatures/v1/beast-portrait.png",
+      "original_sha256": "b9ebc7b9c705a43b35a5425d43871024701376ac10f9d7ae19dcc87b21cb0796",
+      "transparent_background": true
+    },
+    {
+      "id": "beast-frame",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: supplied Frostforge unit-frame shell. Create the BEAST creature-type version: rugged tawny fur, dark brown hide straps, ivory wolf fangs, small bronze claw crests, natural bone and weathered iron. Rich hand-painted Warcraft fantasy UI, crisp texture at small size. Keep the exact wide shell layout: long horizontal thin upper health opening and shorter-height full-width lower power opening separated by a thin straight rail, a modest left ornament and tall right ornament, hanging ornaments below. Exact same opening positions and shell proportions. Replace all compasses and cloth with beast motifs, no compass, faction or class logo, no text. Transparent holes for both bars, fully empty. Genuine alpha background around isolated artwork, no checker pattern. Avoid ornaments overlapping bar openings. Runtime game texture.",
+      "reference": "Frostforge/Media/UnitFrames/faction_neutral.png",
+      "original": "artwork/creatures/v1/beast-frame.png",
+      "original_sha256": "6a266effd63de9a5c08f4c9a8aa062bc2d3b7844e7aadb7ac4dfe2ca7c387ce2",
+      "transparent_background": true
+    },
+    {
+      "id": "humanoid-portrait",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: the supplied Frostforge portrait atlas. Create the HUMANOID creature-type version, with entirely new sculpted creature motifs: worn steel armor plates, burgundy cloth, brown leather straps, rivets, a plain angular shield with two small crossed blades; mercenary craft without any faction crest. Rich hand-painted Warcraft fantasy UI style, crisp visible texture at small scale. Keep the exact TWO side-by-side C-shaped portrait surrounds, same geometry, same transparent circular openings and open right sides, same atlas composition and proportions. Left has squared lower inside corner, right round. Replace the compass and cloth motifs completely; no compass, no faction or class logos, no text, no creature faces inside portrait opening. Both surrounds show identical humanoid design. Genuine alpha transparency everywhere outside ornament and in openings; no background, no checker pattern. This is runtime game artwork, not a presentation.",
+      "reference": "Frostforge/Media/Portraits/faction_neutral.png",
+      "original": "artwork/creatures/v1/humanoid-portrait.png",
+      "original_sha256": "9c02e67c341e3baba4d8a54c5ae2689f3f9be1f63bdc6ce2c54be94499ed78fa",
+      "transparent_background": true
+    },
+    {
+      "id": "humanoid-frame",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: supplied Frostforge unit-frame shell. Create the HUMANOID creature-type version: worn steel armor plates, burgundy cloth, brown leather straps, rivets, a plain angular shield with two small crossed blades; mercenary craft without any faction crest. Rich hand-painted Warcraft fantasy UI, crisp texture at small size. Keep the exact wide shell layout: long horizontal thin upper health opening and shorter-height full-width lower power opening separated by a thin straight rail, a modest left ornament and tall right ornament, hanging ornaments below. Exact same opening positions and shell proportions. Replace all compasses and cloth with humanoid motifs, no compass, faction or class logo, no text. Transparent holes for both bars, fully empty. Genuine alpha background around isolated artwork, no checker pattern. Avoid ornaments overlapping bar openings. Runtime game texture.",
+      "reference": "Frostforge/Media/UnitFrames/faction_neutral.png",
+      "original": "artwork/creatures/v1/humanoid-frame.png",
+      "original_sha256": "f626de4c6111244cf5135329ea1017eeed652ec123cb5eb651f264d2553d3135",
+      "transparent_background": true
+    },
+    {
+      "id": "undead-portrait",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: the supplied Frostforge portrait atlas. Create the UNDEAD creature-type version, with entirely new sculpted creature motifs: aged ivory bone, small sculpted skull crests, vertebrae and rib details, blackened iron, torn desaturated teal cloth; cold blue tiny gems, no gore. Rich hand-painted Warcraft fantasy UI style, crisp visible texture at small scale. Keep the exact TWO side-by-side C-shaped portrait surrounds, same geometry, same transparent circular openings and open right sides, same atlas composition and proportions. Left has squared lower inside corner, right round. Replace the compass and cloth motifs completely; no compass, no faction or class logos, no text, no creature faces inside portrait opening. Both surrounds show identical undead design. Genuine alpha transparency everywhere outside ornament and in openings; no background, no checker pattern. This is runtime game artwork, not a presentation.",
+      "reference": "Frostforge/Media/Portraits/faction_neutral.png",
+      "original": "artwork/creatures/v1/undead-portrait.png",
+      "original_sha256": "829d076b668804dd11463bfc35aa8034b9798255f0fd10cc2d020a8885c4a0d2",
+      "transparent_background": true
+    },
+    {
+      "id": "undead-frame",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: supplied Frostforge unit-frame shell. Create the UNDEAD creature-type version: aged ivory bone, small sculpted skull crests, vertebrae and rib details, blackened iron, torn desaturated teal cloth; cold blue tiny gems, no gore. Rich hand-painted Warcraft fantasy UI, crisp texture at small size. Keep the exact wide shell layout: long horizontal thin upper health opening and shorter-height full-width lower power opening separated by a thin straight rail, a modest left ornament and tall right ornament, hanging ornaments below. Exact same opening positions and shell proportions. Replace all compasses and cloth with undead motifs, no compass, faction or class logo, no text. Transparent holes for both bars, fully empty. Genuine alpha background around isolated artwork, no checker pattern. Avoid ornaments overlapping bar openings. Runtime game texture.",
+      "reference": "Frostforge/Media/UnitFrames/faction_neutral.png",
+      "original": "artwork/creatures/v1/undead-frame.png",
+      "original_sha256": "cf6329b0da35f9528f1aba1ed8ea98da099ded0fdfa3cf1d79fd3fe63c0656fc",
+      "transparent_background": true
+    },
+    {
+      "id": "demon-portrait",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: the supplied Frostforge portrait atlas. Create the DEMON creature-type version, with entirely new sculpted creature motifs: black obsidian metal, swept curved horn crests, dark violet leather, restrained bright fel-green fissures and eye gems; predatory spiked silhouette. Rich hand-painted Warcraft fantasy UI style, crisp visible texture at small scale. Keep the exact TWO side-by-side C-shaped portrait surrounds, same geometry, same transparent circular openings and open right sides, same atlas composition and proportions. Left has squared lower inside corner, right round. Replace the compass and cloth motifs completely; no compass, no faction or class logos, no text, no creature faces inside portrait opening. Both surrounds show identical demon design. Genuine alpha transparency everywhere outside ornament and in openings; no background, no checker pattern. This is runtime game artwork, not a presentation.",
+      "reference": "Frostforge/Media/Portraits/faction_neutral.png",
+      "original": "artwork/creatures/v1/demon-portrait.png",
+      "original_sha256": "a226dfb00bf5ab718aa204944b4ff85f4d6da46ab155152078766e2ef0a1298d",
+      "transparent_background": true
+    },
+    {
+      "id": "demon-frame",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: supplied Frostforge unit-frame shell. Create the DEMON creature-type version: black obsidian metal, swept curved horn crests, dark violet leather, restrained bright fel-green fissures and eye gems; predatory spiked silhouette. Rich hand-painted Warcraft fantasy UI, crisp texture at small size. Keep the exact wide shell layout: long horizontal thin upper health opening and shorter-height full-width lower power opening separated by a thin straight rail, a modest left ornament and tall right ornament, hanging ornaments below. Exact same opening positions and shell proportions. Replace all compasses and cloth with demon motifs, no compass, faction or class logo, no text. Transparent holes for both bars, fully empty. Genuine alpha background around isolated artwork, no checker pattern. Avoid ornaments overlapping bar openings. Runtime game texture.",
+      "reference": "Frostforge/Media/UnitFrames/faction_neutral.png",
+      "original": "artwork/creatures/v1/demon-frame.png",
+      "original_sha256": "97f9b9552e2c4fa32f3e1c60d0072db5a34bcdea4a8f30662834971733ba7a43",
+      "transparent_background": true
+    },
+    {
+      "id": "dragonkin-portrait",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: the supplied Frostforge portrait atlas. Create the DRAGONKIN creature-type version, with entirely new sculpted creature motifs: overlapping deep crimson dragon scales, bronze armor edging, small curled dragon-horn crest and wing webbing; warm amber gemstones. Rich hand-painted Warcraft fantasy UI style, crisp visible texture at small scale. Keep the exact TWO side-by-side C-shaped portrait surrounds, same geometry, same transparent circular openings and open right sides, same atlas composition and proportions. Left has squared lower inside corner, right round. Replace the compass and cloth motifs completely; no compass, no faction or class logos, no text, no creature faces inside portrait opening. Both surrounds show identical dragonkin design. Genuine alpha transparency everywhere outside ornament and in openings; no background, no checker pattern. This is runtime game artwork, not a presentation.",
+      "reference": "Frostforge/Media/Portraits/faction_neutral.png",
+      "original": "artwork/creatures/v1/dragonkin-portrait.png",
+      "original_sha256": "7189b3612d2272d220c05d504cbd01d29962f2c468d2fec62f8a059cc86cced2",
+      "transparent_background": true
+    },
+    {
+      "id": "dragonkin-frame",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: supplied Frostforge unit-frame shell. Create the DRAGONKIN creature-type version: overlapping deep crimson dragon scales, bronze armor edging, small curled dragon-horn crest and wing webbing; warm amber gemstones. Rich hand-painted Warcraft fantasy UI, crisp texture at small size. Keep the exact wide shell layout: long horizontal thin upper health opening and shorter-height full-width lower power opening separated by a thin straight rail, a modest left ornament and tall right ornament, hanging ornaments below. Exact same opening positions and shell proportions. Replace all compasses and cloth with dragonkin motifs, no compass, faction or class logo, no text. Transparent holes for both bars, fully empty. Genuine alpha background around isolated artwork, no checker pattern. Avoid ornaments overlapping bar openings. Runtime game texture.",
+      "reference": "Frostforge/Media/UnitFrames/faction_neutral.png",
+      "original": "artwork/creatures/v1/dragonkin-frame.png",
+      "original_sha256": "87f1214af6bd6c7592f0d823e7270c479b86052a37480cd1fb2f09a13fd1e3b2",
+      "transparent_background": true
+    },
+    {
+      "id": "elemental-portrait",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: the supplied Frostforge portrait atlas. Create the ELEMENTAL creature-type version, with entirely new sculpted creature motifs: rough slate rock and crystal, sculpted stone spiral crest, cool turquoise crystal shards and restrained electric blue seams; grounded rocky silhouette. Rich hand-painted Warcraft fantasy UI style, crisp visible texture at small scale. Keep the exact TWO side-by-side C-shaped portrait surrounds, same geometry, same transparent circular openings and open right sides, same atlas composition and proportions. Left has squared lower inside corner, right round. Replace the compass and cloth motifs completely; no compass, no faction or class logos, no text, no creature faces inside portrait opening. Both surrounds show identical elemental design. Genuine alpha transparency everywhere outside ornament and in openings; no background, no checker pattern. This is runtime game artwork, not a presentation.",
+      "reference": "Frostforge/Media/Portraits/faction_neutral.png",
+      "original": "artwork/creatures/v1/elemental-portrait.png",
+      "original_sha256": "ddfa866628d577e3ad836c6d0ab245e40311d4c340a19e6f7a5c4c334d982541",
+      "transparent_background": true
+    },
+    {
+      "id": "elemental-frame",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: supplied Frostforge unit-frame shell. Create the ELEMENTAL creature-type version: rough slate rock and crystal, sculpted stone spiral crest, cool turquoise crystal shards and restrained electric blue seams; grounded rocky silhouette. Rich hand-painted Warcraft fantasy UI, crisp texture at small size. Keep the exact wide shell layout: long horizontal thin upper health opening and shorter-height full-width lower power opening separated by a thin straight rail, a modest left ornament and tall right ornament, hanging ornaments below. Exact same opening positions and shell proportions. Replace all compasses and cloth with elemental motifs, no compass, faction or class logo, no text. Transparent holes for both bars, fully empty. Genuine alpha background around isolated artwork, no checker pattern. Avoid ornaments overlapping bar openings. Runtime game texture.",
+      "reference": "Frostforge/Media/UnitFrames/faction_neutral.png",
+      "original": "artwork/creatures/v1/elemental-frame.png",
+      "original_sha256": "d8222998c1b7f8f81072045319058215f47bd0607a3dad74ca57248bf6e1fe04",
+      "transparent_background": true
+    },
+    {
+      "id": "mechanical-portrait",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: the supplied Frostforge portrait atlas. Create the MECHANICAL creature-type version, with entirely new sculpted creature motifs: brushed gunmetal, copper gears and rivets, cogwheel crest, brass pipes and turquoise glass lenses; compact engineered angular silhouette. Rich hand-painted Warcraft fantasy UI style, crisp visible texture at small scale. Keep the exact TWO side-by-side C-shaped portrait surrounds, same geometry, same transparent circular openings and open right sides, same atlas composition and proportions. Left has squared lower inside corner, right round. Replace the compass and cloth motifs completely; no compass, no faction or class logos, no text, no creature faces inside portrait opening. Both surrounds show identical mechanical design. Genuine alpha transparency everywhere outside ornament and in openings; no background, no checker pattern. This is runtime game artwork, not a presentation.",
+      "reference": "Frostforge/Media/Portraits/faction_neutral.png",
+      "original": "artwork/creatures/v1/mechanical-portrait.png",
+      "original_sha256": "d75a5b22073efec28f29926ee1f52eb157363e5a463377cea8db09a1b1e059ad",
+      "transparent_background": true
+    },
+    {
+      "id": "mechanical-frame",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: supplied Frostforge unit-frame shell. Create the MECHANICAL creature-type version: brushed gunmetal, copper gears and rivets, cogwheel crest, brass pipes and turquoise glass lenses; compact engineered angular silhouette. Rich hand-painted Warcraft fantasy UI, crisp texture at small size. Keep the exact wide shell layout: long horizontal thin upper health opening and shorter-height full-width lower power opening separated by a thin straight rail, a modest left ornament and tall right ornament, hanging ornaments below. Exact same opening positions and shell proportions. Replace all compasses and cloth with mechanical motifs, no compass, faction or class logo, no text. Transparent holes for both bars, fully empty. Genuine alpha background around isolated artwork, no checker pattern. Avoid ornaments overlapping bar openings. Runtime game texture.",
+      "reference": "Frostforge/Media/UnitFrames/faction_neutral.png",
+      "original": "artwork/creatures/v1/mechanical-frame.png",
+      "original_sha256": "8c56e828b6f7f196df55ed393fc16ac971fbacc545aca8590048dd6a89fac0c2",
+      "transparent_background": true
+    },
+    {
+      "id": "giant-portrait",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: the supplied Frostforge portrait atlas. Create the GIANT creature-type version, with entirely new sculpted creature motifs: massive weathered granite slabs, bronze bindings and huge rivets, angular stone face crest, small amber runestones; heavy primitive monumental silhouette. Rich hand-painted Warcraft fantasy UI style, crisp visible texture at small scale. Keep the exact TWO side-by-side C-shaped portrait surrounds, same geometry, same transparent circular openings and open right sides, same atlas composition and proportions. Left has squared lower inside corner, right round. Replace the compass and cloth motifs completely; no compass, no faction or class logos, no text, no creature faces inside portrait opening. Both surrounds show identical giant design. Genuine alpha transparency everywhere outside ornament and in openings; no background, no checker pattern. This is runtime game artwork, not a presentation.",
+      "reference": "Frostforge/Media/Portraits/faction_neutral.png",
+      "original": "artwork/creatures/v1/giant-portrait.png",
+      "original_sha256": "edc8c00a881d55fb85d4c150bb49ba6caede9554eafff7c45a2480018c82cc0e",
+      "transparent_background": true
+    },
+    {
+      "id": "giant-frame",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: supplied Frostforge unit-frame shell. Create the GIANT creature-type version: massive weathered granite slabs, bronze bindings and huge rivets, angular stone face crest, small amber runestones; heavy primitive monumental silhouette. Rich hand-painted Warcraft fantasy UI, crisp texture at small size. Keep the exact wide shell layout: long horizontal thin upper health opening and shorter-height full-width lower power opening separated by a thin straight rail, a modest left ornament and tall right ornament, hanging ornaments below. Exact same opening positions and shell proportions. Replace all compasses and cloth with giant motifs, no compass, faction or class logo, no text. Transparent holes for both bars, fully empty. Genuine alpha background around isolated artwork, no checker pattern. Avoid ornaments overlapping bar openings. Runtime game texture.",
+      "reference": "Frostforge/Media/UnitFrames/faction_neutral.png",
+      "original": "artwork/creatures/v1/giant-frame.png",
+      "original_sha256": "52b6fd00af4be72a76ed3e13b237e3b7c1314244e1d499779da614c7c38341be",
+      "transparent_background": true
+    },
+    {
+      "id": "critter-portrait",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: the supplied Frostforge portrait atlas. Create the CRITTER creature-type version, with entirely new sculpted creature motifs: twisted hazel branches, fresh moss, ivy leaves and acorns, small sculpted leaf crest, warm wood and muted green; delicate woodland silhouette, no skulls. Rich hand-painted Warcraft fantasy UI style, crisp visible texture at small scale. Keep the exact TWO side-by-side C-shaped portrait surrounds, same geometry, same transparent circular openings and open right sides, same atlas composition and proportions. Left has squared lower inside corner, right round. Replace the compass and cloth motifs completely; no compass, no faction or class logos, no text, no creature faces inside portrait opening. Both surrounds show identical critter design. Genuine alpha transparency everywhere outside ornament and in openings; no background, no checker pattern. This is runtime game artwork, not a presentation.",
+      "reference": "Frostforge/Media/Portraits/faction_neutral.png",
+      "original": "artwork/creatures/v1/critter-portrait.png",
+      "original_sha256": "7be33248883bf1d5e18b52258b0ac263be379f3b661d59d2e875d47760583f44",
+      "transparent_background": true
+    },
+    {
+      "id": "critter-frame",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: supplied Frostforge unit-frame shell. Create the CRITTER creature-type version: twisted hazel branches, fresh moss, ivy leaves and acorns, small sculpted leaf crest, warm wood and muted green; delicate woodland silhouette, no skulls. Rich hand-painted Warcraft fantasy UI, crisp texture at small size. Keep the exact wide shell layout: long horizontal thin upper health opening and shorter-height full-width lower power opening separated by a thin straight rail, a modest left ornament and tall right ornament, hanging ornaments below. Exact same opening positions and shell proportions. Replace all compasses and cloth with critter motifs, no compass, faction or class logo, no text. Transparent holes for both bars, fully empty. Genuine alpha background around isolated artwork, no checker pattern. Avoid ornaments overlapping bar openings. Runtime game texture.",
+      "reference": "Frostforge/Media/UnitFrames/faction_neutral.png",
+      "original": "artwork/creatures/v1/critter-frame.png",
+      "original_sha256": "393df51322902b974e553011be3f535900d8c3f079a28ca6acc671195f6af89a",
+      "transparent_background": true
+    },
+    {
+      "id": "aberration-portrait",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: the supplied Frostforge portrait atlas. Create the ABERRATION creature-type version, with entirely new sculpted creature motifs: dark iridescent indigo chitin, curling tentacle trim, a single violet eye crest, purple crystal nodules and restrained magenta glow; uncanny organic silhouette. Rich hand-painted Warcraft fantasy UI style, crisp visible texture at small scale. Keep the exact TWO side-by-side C-shaped portrait surrounds, same geometry, same transparent circular openings and open right sides, same atlas composition and proportions. Left has squared lower inside corner, right round. Replace the compass and cloth motifs completely; no compass, no faction or class logos, no text, no creature faces inside portrait opening. Both surrounds show identical aberration design. Genuine alpha transparency everywhere outside ornament and in openings; no background, no checker pattern. This is runtime game artwork, not a presentation.",
+      "reference": "Frostforge/Media/Portraits/faction_neutral.png",
+      "original": "artwork/creatures/v1/aberration-portrait.png",
+      "original_sha256": "e12eca5054c33f3a2884545510e3903b3f1f0095c5ee4de88890f05df5ce42ca",
+      "transparent_background": true
+    },
+    {
+      "id": "aberration-frame",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: style-transfer. Edit target: supplied Frostforge unit-frame shell. Create the ABERRATION creature-type version: dark iridescent indigo chitin, curling tentacle trim, a single violet eye crest, purple crystal nodules and restrained magenta glow; uncanny organic silhouette. Rich hand-painted Warcraft fantasy UI, crisp texture at small size. Keep the exact wide shell layout: long horizontal thin upper health opening and shorter-height full-width lower power opening separated by a thin straight rail, a modest left ornament and tall right ornament, hanging ornaments below. Exact same opening positions and shell proportions. Replace all compasses and cloth with aberration motifs, no compass, faction or class logo, no text. Transparent holes for both bars, fully empty. Genuine alpha background around isolated artwork, no checker pattern. Avoid ornaments overlapping bar openings. Runtime game texture.",
+      "reference": "Frostforge/Media/UnitFrames/faction_neutral.png",
+      "original": "artwork/creatures/v1/aberration-frame.png",
+      "original_sha256": "afb83478454f79221218c1b4052b023e1cdbcefe870d91a04ce68fe476f78b32",
+      "transparent_background": true
+    }
+  ]
+}

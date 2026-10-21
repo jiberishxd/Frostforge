@@ -3,7 +3,7 @@ local test,near,count = ...
 
 test("all class/race/faction choices map to independent artwork",function(M)
     local J=M.load()
-    assert(count(J.PortraitCatalog.entries)==42)
+    assert(count(J.PortraitCatalog.entries)==52)
     local paths={}
     for id,entry in pairs(J.PortraitCatalog.entries) do
         assert(not paths[entry.texture]); paths[entry.texture]=true
