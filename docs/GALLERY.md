@@ -24,13 +24,13 @@ Choose **Seasonal** in the portrait, unit-frame, action hub or minimap browser. 
 | --- | --- | --- |
 | Harvest Hollow | Halloween | Glowing pumpkins, autumn leaves, bronze and dark iron |
 | Witching Hour | Halloween | Haunted violet, ghostly turquoise, bats and tattered cloth |
-| Hallow’s End | Halloween | The Horseman’s hood and green fire paired with a distinct burning Wickerman |
+| Hallow’s End | Halloween | Headless Horseman armor and green fire paired with a distinct burning Wickerman |
 | Holly Hearth | Christmas | Crimson bows, evergreen holly, gold bells and candy-cane trim |
 | Winter Starlight | Christmas | Silver snowflakes, blue crystals, frosted evergreen and stars |
 | Winter Veil: Alliance | Christmas | Ironforge’s dwarf Greatfather Winter, blue-and-gold lion trim, gift tree and presents |
 | Winter Veil: Horde | Christmas | Orgrimmar’s orc Great-father Winter, red Horde trim, gift tree and presents |
 
-Winter Veil uses the in-game dwarf Greatfather Winter for Alliance and the orc Great-father Winter for Horde. Frames and hubs have one character on the left and a decorated gift tree on the right, with no gears. Hallow’s End pairs the Horseman’s green-fire hood with a separate burning Wickerman. See the [reference images, sources and generation records](artwork/warcraft-events-revision.json).
+Winter Veil uses the in-game dwarf Greatfather Winter for Alliance and the orc Great-father Winter for Horde. Frames and hubs have one character on the left and a decorated gift tree on the right, with no gears. Hallow’s End pairs the headless Horseman’s armor and green fire with a separate burning Wickerman. See the [reference images, sources and generation records](artwork/warcraft-events-revision.json).
 
 The event sets draw on Blizzard’s [Hallow’s End](https://news.blizzard.com/en-gb/article/22548002/the-horseman-rides-hallows-end-is-nigh) and [Feast of Winter Veil](https://news.blizzard.com/en-us/article/24249604/the-festive-feast-of-winter-veil-is-now-live) descriptions. Their chunky painted armor, timber and holiday props are original fan-made compositions for Frostforge.
 
