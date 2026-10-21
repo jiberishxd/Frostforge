@@ -190,6 +190,6 @@ def gallery(destination, names=None):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--source-dir', type=Path, default=ROOT/'artwork/seasonal/v1')
-    parser.add_argument('--events-dir', type=Path, default=ROOT/'artwork/seasonal/warcraft-events-v4')
+    parser.add_argument('--events-dir', type=Path, default=ROOT/'artwork/seasonal/warcraft-events-v5')
     args = parser.parse_args()
     build(args.source_dir.absolute(), args.events_dir.absolute())

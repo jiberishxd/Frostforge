@@ -1,0 +1,495 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "revision": 4,
+  "transparent_background": true,
+  "processing": "Event characters use uniform scaling and translation. Hub rail spans alone may change width; portrait and minimap openings trim inward rim pixels without radial warping. Unit shells retain uniform source scaling and measured bar openings. Original paintings and rejected frame drafts retained. The compact frame drops encoded alpha below 8 to keep its thin power opening clear.",
+  "in_game_qualified": false,
+  "design_changes": [
+    "Repaint all four Hallow\u2019s End pieces with clearer Horseman armor, spectral fire, burgundy cloth and a distinct Wickerman.",
+    "Retain the action-hub painting explicitly approved by the user and match its full armored Horseman and sword in the unit-frame left cap.",
+    "Correct Hallow\u2019s End and both Winter Veil portrait/hub/minimap fitting to preserve character proportions.",
+    "Make the Hallow\u2019s End unit-frame sides compact and intertwined: a small hood/pauldron corner, gauntlet and sword following the rail, with a smaller Wickerman and woven straw corner."
+  ],
+  "event_references": [
+    {
+      "event": "Winter Veil",
+      "url": "https://news.blizzard.com/en-us/article/24249604/the-festive-feast-of-winter-veil-is-now-live"
+    },
+    {
+      "event": "Hallow's End",
+      "url": "https://news.blizzard.com/en-gb/article/22548002/the-horseman-rides-hallows-end-is-nigh"
+    },
+    {
+      "event": "Horde NPC identity",
+      "url": "https://warcraft.wiki.gg/wiki/Great-father_Winter"
+    },
+    {
+      "event": "Alliance NPC identity",
+      "url": "https://warcraft.wiki.gg/wiki/Greatfather_Winter_(Ironforge)"
+    },
+    {
+      "event": "Hallow's End current official guide",
+      "url": "https://news.blizzard.com/en-gb/article/24310656/hallows-end-brings-frights-delights-and-haunting-rewards"
+    }
+  ],
+  "research_images": [
+    {
+      "file": "artwork/seasonal/warcraft-events-v2/references/winter-orc.jpg",
+      "url": "https://static1-us.millenium.gg/articles/9/10/38/9/%40/118821-hordefather-article_m-1.jpg",
+      "page": "https://us.millenium.gg/guide/10389.html",
+      "role": "Horde Great-father Winter in-game orc model",
+      "sha256": "feb52d53791fc57d8974e051d63766e4c81180de241791c4be9908e5da563833"
+    },
+    {
+      "file": "artwork/seasonal/warcraft-events-v2/references/winter-dwarf.jpg",
+      "url": "https://wow.zamimg.com/uploads/screenshots/normal/1136270-.jpg",
+      "page": "https://www.wowhead.com/quest=7022/greatfather-winter-is-here",
+      "role": "Alliance Greatfather Winter in-game dwarf model and holiday props",
+      "sha256": "b437f590eaf302632d1a3e1f7e0149524a06d60ef76542b276f668fa5257abec"
+    },
+    {
+      "file": "artwork/seasonal/warcraft-events-v2/references/horseman.jpg",
+      "url": "https://wow.zamimg.com/uploads/screenshots/normal/386626-headless-horseman.jpg",
+      "page": "https://www.wowhead.com/mop-classic/npc=23682/headless-horseman",
+      "role": "Headless Horseman in-game armor and spectral fire",
+      "sha256": "c7d5f1a76888afe623e5d9ec719ef9b70463a739e2e19c9eb42712790c504c9d"
+    },
+    {
+      "file": "artwork/seasonal/warcraft-events-v2/references/wickerman.jpg",
+      "url": "https://media.mmo-champion.com/images/news/2011/october/hallowsend.jpg",
+      "page": "https://monchew.wordpress.com/tag/neilyo/",
+      "role": "In-game burning Wickerman effigy and event decorations",
+      "sha256": "d87dcd48a172f570f629f689c5bce920dc3852ce23ecec36fc8adaa436a40614"
+    },
+    {
+      "file": "artwork/seasonal/warcraft-events-v2/references/wicker-curses.jpg",
+      "url": "https://images.mein-mmo.de/medien/2023/10/WoW-Headless-Horseman-Wicker-Statues.jpg",
+      "page": "https://mein-mmo.de/en/wow-this-is-how-you-start-the-hard-mode-with-the-headless-horseman-and-get-better-loot,1048296/",
+      "role": "In-game wicker curse effigies and silhouette",
+      "sha256": "0b49f21cd48f72598ae759eb0de18b304ce6c6bdd55876af12c3f89663e33c12"
+    },
+    {
+      "file": "artwork/seasonal/warcraft-events-v2/references/winter-event.jpg",
+      "url": "https://bnetcmseu-a.akamaihd.net/cms/gallery/2QMWO453PC4I1355129914296.jpg",
+      "page": "https://worldofwarcraft.blizzard.com/ru-ru/news/10055900/",
+      "role": "Blizzard Winter Veil event decorations",
+      "sha256": "7bff416af733142b0e6511b9e127b05a814127331e88f2659793ba4cabb10b65"
+    },
+    {
+      "file": "artwork/seasonal/warcraft-events-v2/references/horseman-model.jpg",
+      "url": "https://wow.zamimg.com/uploads/screenshots/normal/254692-shade-of-the-horseman.jpg",
+      "page": "https://www.wowhead.com/npc=23543/shade-of-the-horseman",
+      "role": "Visible Headless Horseman model: pointed metal hood, green visage, red mantle and dark armor",
+      "sha256": "0fbf5d22767ffe40017640d47541a8c672bb28fe21280bf229ef3617b7ce4151"
+    },
+    {
+      "file": "artwork/seasonal/warcraft-events-v2/references/horde-winter-event.jpg",
+      "url": "https://wow.res.netease.com/images/20241219/1734572759765_d12f8de2f2.jpg",
+      "page": "https://wow.blizzard.cn/news/24165123/",
+      "role": "Official Winter Veil holiday tree, lights, gifts and Orgrimmar architecture",
+      "sha256": "48f70f03147b5628bf9cc8280b29688b5163ad455ff0147a2f419b1024089ab6"
+    }
+  ],
+  "assets": [
+    {
+      "id": "winter_veil-portrait",
+      "set": "winter_veil",
+      "component": "portrait",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-portrait.png",
+      "sha256": "eeb1b2c05e112bd8b854ad1dcc5d0b73c0e9f6a195ad30b141fe4a9bdb665cea",
+      "prompt": "Use case: stylized-concept.\nAsset: Frostforge WoW addon portrait surround, new corrected event design.\nInput 1: GEOMETRY ONLY, match C-shape, empty hole and footprint; replace neutral expedition decoration completely. Input 2: actual in-game NPC anatomy, clothing and colors, integrate a small painted relief bust in border. Input 3: exact faction symbol reference; accurately reproduce symbol as one small border ornament. Input 4: in-game holiday environment and prop reference only.\nTheme: World of Warcraft Winter Veil in Ironforge, ALLIANCE version. The actual DWARF Greatfather Winter: broad stocky face, very large nose, pale warm skin, receding/bald crown with gray side hair, heavy brows, long thick GRAY beard and mustache, RED winter coat with white shoulder trim and dark gray apron/robe. Follow screenshot facial anatomy and garments. NO Santa hat, no human Santa, no gears, cogs, cogwheels, machinery, or mechanical decorations anywhere. Border materials: chunky Ironforge carved stone and warm timber with squared gold/brass bands, blue Alliance cloth accents, painted gold lion shield ornament, evergreen, red/green paper-wrapped Winter Veil gifts, simple colored baubles and a few tiny light bulbs. Gifts are paper-wrapped boxes as in-game, not mechanical crates.\nStyle: hand-painted World of Warcraft UI ornament with recognizable in-game NPC likenesses and low-poly prop design, chunky contours and broad painted bevels, bold readable silhouette, restrained surface detail. Matte painted wood, cloth, stone and iron. Do not reinterpret as generic modern Santa/Christmas decor or hyper-glossy baroque fantasy.\nComposition: production transparent wide 2:1 atlas containing TWO MATCHING right-facing C-shaped portrait surrounds side by side, as image 1. Each has art above/left/below a fully TRANSPARENT lower-right circular portrait opening and an OPEN RIGHT EDGE for health bars. Both same orientation, not mirrored. Atlas duplicates the same single surround for the addon\u2019s two portrait shapes; this is NOT a two-sided action hub. Whole artwork within safe outer margins.\nDetail placement: At TOP/LEFT of EACH C, integrate ONE small sculpted bust of the DWARF Greatfather Winter from screenshot. A modest BLUE AND GOLD ALLIANCE LION SHIELD sits low on the outside left flank beside wrapped presents. Use source faction crest accurately. Keep gray beard and dwarf features readable; no face in the actual portrait aperture.\nConstraints: true alpha transparency around art AND in functional holes; no backdrop/checkerboard, no text, no screenshot UI or nameplates, no watermark. No gears or toothed discs. Do not fill holes with characters.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Portraits/faction_neutral.png",
+          "sha256": "1f33c2e2db054ff1f62989317368b571086ac907c6ce479cc643b78b9f406b0a",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-dwarf.jpg",
+          "sha256": "b437f590eaf302632d1a3e1f7e0149524a06d60ef76542b276f668fa5257abec",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/official-crests/originals/faction_alliance.png",
+          "sha256": "30ae0e592177665eecaaca0f8cf3dc6bca2bad1055ae682702c37dbd570f57bb",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-event.jpg",
+          "sha256": "7bff416af733142b0e6511b9e127b05a814127331e88f2659793ba4cabb10b65",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 2
+    },
+    {
+      "id": "winter_veil_horde-portrait",
+      "set": "winter_veil_horde",
+      "component": "portrait",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-portrait.png",
+      "sha256": "85ae7af91bbd3841568efb53b3d988fb88914e23bfe7b39f41809840e0651c4f",
+      "prompt": "Use case: stylized-concept.\nAsset: Frostforge WoW addon portrait surround, new corrected event design.\nInput 1: GEOMETRY ONLY, match C-shape, empty hole and footprint; replace neutral expedition decoration completely. Input 2: actual in-game NPC anatomy, clothing and colors, integrate a small painted relief bust in border. Input 3: exact faction symbol reference; accurately reproduce symbol as one small border ornament. Input 4: in-game holiday environment and prop reference only.\nTheme: World of Warcraft Winter Veil in Orgrimmar, HORDE version. The actual ORC Great-father Winter: bright olive GREEN skin, huge square protruding jaw, pointed ears, small upward tusks, broad flattened nose, receding/bald crown, very long white-gray beard split into bound braids, RED robe/cape with white jagged shoulder trim, broad dark belt and dark-gray apron/robe. Closely follow the in-game NPC reference. NO human or dwarf Santa, no Santa hat, no gears, cogs, cogwheels, machinery, or mechanical decorations anywhere. Border materials: rugged Orgrimmar dark timber and black riveted iron, a few broad upward spikes, oxblood-red leather and small bone lashings, the exact RED HORDE SIGIL on a dark shield, evergreen boughs, multicolored holiday bulbs, red/green paper-wrapped Winter Veil gifts. Holiday cheer within Horde craftsmanship, not generic Christmas with recolored metal.\nStyle: hand-painted World of Warcraft UI ornament with recognizable in-game NPC likenesses and low-poly prop design, chunky contours and broad painted bevels, bold readable silhouette, restrained surface detail. Matte painted wood, cloth, stone and iron. Do not reinterpret as generic modern Santa/Christmas decor or hyper-glossy baroque fantasy.\nComposition: production transparent wide 2:1 atlas containing TWO MATCHING right-facing C-shaped portrait surrounds side by side, as image 1. Each has art above/left/below a fully TRANSPARENT lower-right circular portrait opening and an OPEN RIGHT EDGE for health bars. Both same orientation, not mirrored. Atlas duplicates the same single surround for the addon\u2019s two portrait shapes; this is NOT a two-sided action hub. Whole artwork within safe outer margins.\nDetail placement: At TOP/LEFT of EACH C, integrate ONE clearly ORC Great-father Winter bust from screenshot, readable GREEN face and tusks above braided white beard. A modest RED HORDE SIGIL ON DARK SHIELD sits low on the outside left flank with paper-wrapped gifts. Use source faction crest accurately. No face inside actual portrait aperture.\nConstraints: true alpha transparency around art AND in functional holes; no backdrop/checkerboard, no text, no screenshot UI or nameplates, no watermark. No gears or toothed discs. Do not fill holes with characters.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Portraits/faction_neutral.png",
+          "sha256": "1f33c2e2db054ff1f62989317368b571086ac907c6ce479cc643b78b9f406b0a",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-orc.jpg",
+          "sha256": "feb52d53791fc57d8974e051d63766e4c81180de241791c4be9908e5da563833",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/official-crests/originals/faction_horde.png",
+          "sha256": "e596a8fbbd0e542ad8496a1a87c4f91147070853be029f1cf9966f0004d6c011",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/horde-winter-event.jpg",
+          "sha256": "48f70f03147b5628bf9cc8280b29688b5163ad455ff0147a2f419b1024089ab6",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 2
+    },
+    {
+      "id": "winter_veil-frame",
+      "set": "winter_veil",
+      "component": "frame",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-frame.png",
+      "sha256": "28644d63b69503c710de36abe3b0095403c55a2b4dfcfecdca9782d97fabe5f8",
+      "prompt": "Use case: stylized-concept.\nAsset: corrected Winter Veil: Alliance frame decoration for Frostforge WoW addon.\nImage1 = GEOMETRY reference only, preserve functional openings; replace all expedition decoration. Image2 = matching newly approved portrait materials, paint treatment and NPC likeness, NOT its duplicated atlas layout. Image3 = actual in-game NPC appearance. Image4 = exact faction symbol. Image5 = actual Winter Veil gift/tree event decorations.\nTheme: World of Warcraft Winter Veil in Ironforge, ALLIANCE version. The actual DWARF Greatfather Winter: broad stocky face, very large nose, pale warm skin, receding/bald crown with gray side hair, heavy brows, long thick GRAY beard and mustache, RED winter coat with white shoulder trim and dark gray apron/robe. Follow screenshot facial anatomy and garments. NO Santa hat, no human Santa, no gears, cogs, cogwheels, machinery, or mechanical decorations anywhere. Border materials: chunky Ironforge carved stone and warm timber with squared gold/brass bands, blue Alliance cloth accents, painted gold lion shield ornament, evergreen, red/green paper-wrapped Winter Veil gifts, simple colored baubles and a few tiny light bulbs. Gifts are paper-wrapped boxes as in-game, not mechanical crates.\nStyle: hand-painted World of Warcraft UI ornament with recognizable in-game NPC likenesses and low-poly prop design, chunky contours and broad painted bevels, bold readable silhouette, restrained surface detail. Matte painted wood, cloth, stone and iron. Do not reinterpret as generic modern Santa/Christmas decor or hyper-glossy baroque fantasy.\nFunctional composition: Wide 2:1 unit-frame shell with TWO completely transparent horizontally aligned rectangular bar slots: larger health x18\u201378%, y40\u201354%, thinner power x18\u201378%, y59\u201365%. Three continuous narrow horizontal rails separate the two slots. Left and right ornamental endcaps confined to outer18\u201322% and NEVER fill the slots. No portrait circle. Central rails can have subtle materials but no tall crests crossing slot interiors. Small hanging ornaments below bottom rail only. Clear outer margins, all tips visible.\nSubject placement: CRITICAL ASYMMETRY: LEFT endcap = ONE DWARF with bald crown and long gray beard Greatfather Winter head-and-shoulder relief matching image2 and actual NPC in image3. RIGHT endcap = an ENTIRELY DIFFERENT decorated evergreen GIFT TREE, paper-wrapped presents below, colorful bulbs and the gold Alliance lion on a blue shield and Ironforge stone/gold supports; NO humanoid, Santa, head, face or beard on right. Exactly ONE Greatfather figure in the entire image, only at LEFT. Preserve clearly different endcap silhouettes. No repeating portrait badges. No gears, cogs, toothed rings or mechanical toys anywhere.\nThe two ends must be DIFFERENT SUBJECTS, not the same figure reflected. True alpha transparency outside art and in every opening. No text, labels, logos outside the requested faction emblems, watermark, checkerboard, screenshot or scenery background. No gears. Border art only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/UnitFrames/faction_neutral.png",
+          "sha256": "f1aee8097b91c270682318e13a98265b4a9673759efa5907a51290880d27ee80",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/winter_veil-portrait.png",
+          "sha256": "eeb1b2c05e112bd8b854ad1dcc5d0b73c0e9f6a195ad30b141fe4a9bdb665cea",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-dwarf.jpg",
+          "sha256": "b437f590eaf302632d1a3e1f7e0149524a06d60ef76542b276f668fa5257abec",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/official-crests/originals/faction_alliance.png",
+          "sha256": "30ae0e592177665eecaaca0f8cf3dc6bca2bad1055ae682702c37dbd570f57bb",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-event.jpg",
+          "sha256": "7bff416af733142b0e6511b9e127b05a814127331e88f2659793ba4cabb10b65",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 2
+    },
+    {
+      "id": "winter_veil-hub",
+      "set": "winter_veil",
+      "component": "hub",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-hub.png",
+      "sha256": "be44a5ae8ca790b49a8db0da9daae93f9dc7b3ad49f54c77af50445b59d5d1ae",
+      "prompt": "Use case: stylized-concept.\nAsset: corrected Winter Veil: Alliance hub decoration for Frostforge WoW addon.\nImage1 = GEOMETRY reference only, preserve functional openings; replace all expedition decoration. Image2 = matching newly approved portrait materials, paint treatment and NPC likeness, NOT its duplicated atlas layout. Image3 = actual in-game NPC appearance. Image4 = exact faction symbol. Image5 = actual Winter Veil gift/tree event decorations.\nTheme: World of Warcraft Winter Veil in Ironforge, ALLIANCE version. The actual DWARF Greatfather Winter: broad stocky face, very large nose, pale warm skin, receding/bald crown with gray side hair, heavy brows, long thick GRAY beard and mustache, RED winter coat with white shoulder trim and dark gray apron/robe. Follow screenshot facial anatomy and garments. NO Santa hat, no human Santa, no gears, cogs, cogwheels, machinery, or mechanical decorations anywhere. Border materials: chunky Ironforge carved stone and warm timber with squared gold/brass bands, blue Alliance cloth accents, painted gold lion shield ornament, evergreen, red/green paper-wrapped Winter Veil gifts, simple colored baubles and a few tiny light bulbs. Gifts are paper-wrapped boxes as in-game, not mechanical crates.\nStyle: hand-painted World of Warcraft UI ornament with recognizable in-game NPC likenesses and low-poly prop design, chunky contours and broad painted bevels, bold readable silhouette, restrained surface detail. Matte painted wood, cloth, stone and iron. Do not reinterpret as generic modern Santa/Christmas decor or hyper-glossy baroque fantasy.\nFunctional composition: Wide 2:1 single open-U action hub. LEFT and RIGHT decorated endcaps each confined to outer 28% of canvas. Entire central button area x29\u201371%, y0\u201361% MUST remain completely transparent. One continuous connected near-horizontal bottom rail at y73\u201385%, connecting both endcaps; only modest ornaments below it. No upper rail and no filled panel. No buttons or icons. Substantial art above the bottom rail allowed ONLY at outer ends, never over button space. All extremities within canvas.\nSubject placement: CRITICAL ASYMMETRY: LEFT endcap = ONE DWARF with bald crown and long gray beard Greatfather Winter head-and-shoulder relief matching image2 and actual NPC in image3. RIGHT endcap = an ENTIRELY DIFFERENT decorated evergreen GIFT TREE, paper-wrapped presents below, colorful bulbs and the gold Alliance lion on a blue shield and Ironforge stone/gold supports; NO humanoid, Santa, head, face or beard on right. Exactly ONE Greatfather figure in the entire image, only at LEFT. Preserve clearly different endcap silhouettes. No repeating portrait badges. No gears, cogs, toothed rings or mechanical toys anywhere.\nThe two ends must be DIFFERENT SUBJECTS, not the same figure reflected. True alpha transparency outside art and in every opening. No text, labels, logos outside the requested faction emblems, watermark, checkerboard, screenshot or scenery background. No gears. Border art only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Hubs/faction_neutral.png",
+          "sha256": "264ed6cb4d4e2c0452e6b0429627a80ea4b5da426a28b8f8a56860a939c924b3",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/winter_veil-portrait.png",
+          "sha256": "eeb1b2c05e112bd8b854ad1dcc5d0b73c0e9f6a195ad30b141fe4a9bdb665cea",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-dwarf.jpg",
+          "sha256": "b437f590eaf302632d1a3e1f7e0149524a06d60ef76542b276f668fa5257abec",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/official-crests/originals/faction_alliance.png",
+          "sha256": "30ae0e592177665eecaaca0f8cf3dc6bca2bad1055ae682702c37dbd570f57bb",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-event.jpg",
+          "sha256": "7bff416af733142b0e6511b9e127b05a814127331e88f2659793ba4cabb10b65",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 2
+    },
+    {
+      "id": "winter_veil-minimap",
+      "set": "winter_veil",
+      "component": "minimap",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-minimap.png",
+      "sha256": "0b7fbb4a0787759212b06b3e6301d3fa40927943967f43acf34aaab1ef2c4465",
+      "prompt": "Use case: stylized-concept.\nAsset: corrected Winter Veil: Alliance minimap decoration for Frostforge WoW addon.\nImage1 = GEOMETRY reference only, preserve functional openings; replace all expedition decoration. Image2 = matching newly approved portrait materials, paint treatment and NPC likeness, NOT its duplicated atlas layout. Image3 = actual in-game NPC appearance. Image4 = exact faction symbol. Image5 = actual Winter Veil gift/tree event decorations.\nTheme: World of Warcraft Winter Veil in Ironforge, ALLIANCE version. The actual DWARF Greatfather Winter: broad stocky face, very large nose, pale warm skin, receding/bald crown with gray side hair, heavy brows, long thick GRAY beard and mustache, RED winter coat with white shoulder trim and dark gray apron/robe. Follow screenshot facial anatomy and garments. NO Santa hat, no human Santa, no gears, cogs, cogwheels, machinery, or mechanical decorations anywhere. Border materials: chunky Ironforge carved stone and warm timber with squared gold/brass bands, blue Alliance cloth accents, painted gold lion shield ornament, evergreen, red/green paper-wrapped Winter Veil gifts, simple colored baubles and a few tiny light bulbs. Gifts are paper-wrapped boxes as in-game, not mechanical crates.\nStyle: hand-painted World of Warcraft UI ornament with recognizable in-game NPC likenesses and low-poly prop design, chunky contours and broad painted bevels, bold readable silhouette, restrained surface detail. Matte painted wood, cloth, stone and iron. Do not reinterpret as generic modern Santa/Christmas decor or hyper-glossy baroque fantasy.\nFunctional composition: Square 1:1 complete O-shaped minimap surround; full unbroken circular inner rim; perfectly transparent round map hole centered at50%,50%, diameter58%. Decorations outside circle on left/right, not in hole. Whole art within outer margins. This must be a closed O ring, not the portrait's C.\nSubject placement: ASYMMETRIC motifs: ONE DWARF Greatfather Winter relief on the LEFT upper outer arc, matching image2 and image3; RIGHT outer arc has the faction shield and a small evergreen gift arrangement with colorful bulbs and paper-wrapped presents. Only ONE Greatfather in this entire minimap image. No second face, portrait, statue or head on right or bottom. No gears, cogs or toothed ornaments anywhere.\nThe two ends must be DIFFERENT SUBJECTS, not the same figure reflected. True alpha transparency outside art and in every opening. No text, labels, logos outside the requested faction emblems, watermark, checkerboard, screenshot or scenery background. No gears. Border art only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Minimaps/faction_neutral.png",
+          "sha256": "5f1d12aeab8c884df83ee886056a1e5c4fd683d434419e5b95c04f7966ab01ec",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/winter_veil-portrait.png",
+          "sha256": "eeb1b2c05e112bd8b854ad1dcc5d0b73c0e9f6a195ad30b141fe4a9bdb665cea",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-dwarf.jpg",
+          "sha256": "b437f590eaf302632d1a3e1f7e0149524a06d60ef76542b276f668fa5257abec",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/official-crests/originals/faction_alliance.png",
+          "sha256": "30ae0e592177665eecaaca0f8cf3dc6bca2bad1055ae682702c37dbd570f57bb",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-event.jpg",
+          "sha256": "7bff416af733142b0e6511b9e127b05a814127331e88f2659793ba4cabb10b65",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 2
+    },
+    {
+      "id": "winter_veil_horde-frame",
+      "set": "winter_veil_horde",
+      "component": "frame",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-frame.png",
+      "sha256": "97d94bf684de2c58f39cd64ac063c9dec63f9c717fea1ee122fc4046f095deed",
+      "prompt": "Use case: stylized-concept.\nAsset: corrected Winter Veil: Horde frame decoration for Frostforge WoW addon.\nImage1 = GEOMETRY reference only, preserve functional openings; replace all expedition decoration. Image2 = matching newly approved portrait materials, paint treatment and NPC likeness, NOT its duplicated atlas layout. Image3 = actual in-game NPC appearance. Image4 = exact faction symbol. Image5 = actual Winter Veil gift/tree event decorations.\nTheme: World of Warcraft Winter Veil in Orgrimmar, HORDE version. The actual ORC Great-father Winter: bright olive GREEN skin, huge square protruding jaw, pointed ears, small upward tusks, broad flattened nose, receding/bald crown, very long white-gray beard split into bound braids, RED robe/cape with white jagged shoulder trim, broad dark belt and dark-gray apron/robe. Closely follow the in-game NPC reference. NO human or dwarf Santa, no Santa hat, no gears, cogs, cogwheels, machinery, or mechanical decorations anywhere. Border materials: rugged Orgrimmar dark timber and black riveted iron, a few broad upward spikes, oxblood-red leather and small bone lashings, the exact RED HORDE SIGIL on a dark shield, evergreen boughs, multicolored holiday bulbs, red/green paper-wrapped Winter Veil gifts. Holiday cheer within Horde craftsmanship, not generic Christmas with recolored metal.\nStyle: hand-painted World of Warcraft UI ornament with recognizable in-game NPC likenesses and low-poly prop design, chunky contours and broad painted bevels, bold readable silhouette, restrained surface detail. Matte painted wood, cloth, stone and iron. Do not reinterpret as generic modern Santa/Christmas decor or hyper-glossy baroque fantasy.\nFunctional composition: Wide 2:1 unit-frame shell with TWO completely transparent horizontally aligned rectangular bar slots: larger health x18\u201378%, y40\u201354%, thinner power x18\u201378%, y59\u201365%. Three continuous narrow horizontal rails separate the two slots. Left and right ornamental endcaps confined to outer18\u201322% and NEVER fill the slots. No portrait circle. Central rails can have subtle materials but no tall crests crossing slot interiors. Small hanging ornaments below bottom rail only. Clear outer margins, all tips visible.\nSubject placement: CRITICAL ASYMMETRY: LEFT endcap = ONE GREEN ORC with tusks and braided white beard Greatfather Winter head-and-shoulder relief matching image2 and actual NPC in image3. RIGHT endcap = an ENTIRELY DIFFERENT decorated evergreen GIFT TREE, paper-wrapped presents below, colorful bulbs and the red Horde sigil on a black iron shield and Orgrimmar timber spikes; NO humanoid, Santa, head, face or beard on right. Exactly ONE Greatfather figure in the entire image, only at LEFT. Preserve clearly different endcap silhouettes. No repeating portrait badges. No gears, cogs, toothed rings or mechanical toys anywhere.\nThe two ends must be DIFFERENT SUBJECTS, not the same figure reflected. True alpha transparency outside art and in every opening. No text, labels, logos outside the requested faction emblems, watermark, checkerboard, screenshot or scenery background. No gears. Border art only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/UnitFrames/faction_neutral.png",
+          "sha256": "f1aee8097b91c270682318e13a98265b4a9673759efa5907a51290880d27ee80",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/winter_veil_horde-portrait.png",
+          "sha256": "85ae7af91bbd3841568efb53b3d988fb88914e23bfe7b39f41809840e0651c4f",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-orc.jpg",
+          "sha256": "feb52d53791fc57d8974e051d63766e4c81180de241791c4be9908e5da563833",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/official-crests/originals/faction_horde.png",
+          "sha256": "e596a8fbbd0e542ad8496a1a87c4f91147070853be029f1cf9966f0004d6c011",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/horde-winter-event.jpg",
+          "sha256": "48f70f03147b5628bf9cc8280b29688b5163ad455ff0147a2f419b1024089ab6",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 2
+    },
+    {
+      "id": "winter_veil_horde-hub",
+      "set": "winter_veil_horde",
+      "component": "hub",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-hub.png",
+      "sha256": "34ad74ab61ba0bc444f307ffe3b10db7cd0ec3327915a2e44d5d9bd75f398379",
+      "prompt": "Use case: stylized-concept.\nAsset: corrected Winter Veil: Horde hub decoration for Frostforge WoW addon.\nImage1 = GEOMETRY reference only, preserve functional openings; replace all expedition decoration. Image2 = matching newly approved portrait materials, paint treatment and NPC likeness, NOT its duplicated atlas layout. Image3 = actual in-game NPC appearance. Image4 = exact faction symbol. Image5 = actual Winter Veil gift/tree event decorations.\nTheme: World of Warcraft Winter Veil in Orgrimmar, HORDE version. The actual ORC Great-father Winter: bright olive GREEN skin, huge square protruding jaw, pointed ears, small upward tusks, broad flattened nose, receding/bald crown, very long white-gray beard split into bound braids, RED robe/cape with white jagged shoulder trim, broad dark belt and dark-gray apron/robe. Closely follow the in-game NPC reference. NO human or dwarf Santa, no Santa hat, no gears, cogs, cogwheels, machinery, or mechanical decorations anywhere. Border materials: rugged Orgrimmar dark timber and black riveted iron, a few broad upward spikes, oxblood-red leather and small bone lashings, the exact RED HORDE SIGIL on a dark shield, evergreen boughs, multicolored holiday bulbs, red/green paper-wrapped Winter Veil gifts. Holiday cheer within Horde craftsmanship, not generic Christmas with recolored metal.\nStyle: hand-painted World of Warcraft UI ornament with recognizable in-game NPC likenesses and low-poly prop design, chunky contours and broad painted bevels, bold readable silhouette, restrained surface detail. Matte painted wood, cloth, stone and iron. Do not reinterpret as generic modern Santa/Christmas decor or hyper-glossy baroque fantasy.\nFunctional composition: Wide 2:1 single open-U action hub. LEFT and RIGHT decorated endcaps each confined to outer 28% of canvas. Entire central button area x29\u201371%, y0\u201361% MUST remain completely transparent. One continuous connected near-horizontal bottom rail at y73\u201385%, connecting both endcaps; only modest ornaments below it. No upper rail and no filled panel. No buttons or icons. Substantial art above the bottom rail allowed ONLY at outer ends, never over button space. All extremities within canvas.\nSubject placement: CRITICAL ASYMMETRY: LEFT endcap = ONE GREEN ORC with tusks and braided white beard Greatfather Winter head-and-shoulder relief matching image2 and actual NPC in image3. RIGHT endcap = an ENTIRELY DIFFERENT decorated evergreen GIFT TREE, paper-wrapped presents below, colorful bulbs and the red Horde sigil on a black iron shield and Orgrimmar timber spikes; NO humanoid, Santa, head, face or beard on right. Exactly ONE Greatfather figure in the entire image, only at LEFT. Preserve clearly different endcap silhouettes. No repeating portrait badges. No gears, cogs, toothed rings or mechanical toys anywhere.\nThe two ends must be DIFFERENT SUBJECTS, not the same figure reflected. True alpha transparency outside art and in every opening. No text, labels, logos outside the requested faction emblems, watermark, checkerboard, screenshot or scenery background. No gears. Border art only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Hubs/faction_neutral.png",
+          "sha256": "264ed6cb4d4e2c0452e6b0429627a80ea4b5da426a28b8f8a56860a939c924b3",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/winter_veil_horde-portrait.png",
+          "sha256": "85ae7af91bbd3841568efb53b3d988fb88914e23bfe7b39f41809840e0651c4f",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-orc.jpg",
+          "sha256": "feb52d53791fc57d8974e051d63766e4c81180de241791c4be9908e5da563833",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/official-crests/originals/faction_horde.png",
+          "sha256": "e596a8fbbd0e542ad8496a1a87c4f91147070853be029f1cf9966f0004d6c011",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/horde-winter-event.jpg",
+          "sha256": "48f70f03147b5628bf9cc8280b29688b5163ad455ff0147a2f419b1024089ab6",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 2
+    },
+    {
+      "id": "winter_veil_horde-minimap",
+      "set": "winter_veil_horde",
+      "component": "minimap",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-minimap.png",
+      "sha256": "efaa5c3543fc7774668f405c4c57f747393a0d6b531b9d3eb39a44230016e2f2",
+      "prompt": "Use case: stylized-concept.\nAsset: corrected Winter Veil: Horde minimap decoration for Frostforge WoW addon.\nImage1 = GEOMETRY reference only, preserve functional openings; replace all expedition decoration. Image2 = matching newly approved portrait materials, paint treatment and NPC likeness, NOT its duplicated atlas layout. Image3 = actual in-game NPC appearance. Image4 = exact faction symbol. Image5 = actual Winter Veil gift/tree event decorations.\nTheme: World of Warcraft Winter Veil in Orgrimmar, HORDE version. The actual ORC Great-father Winter: bright olive GREEN skin, huge square protruding jaw, pointed ears, small upward tusks, broad flattened nose, receding/bald crown, very long white-gray beard split into bound braids, RED robe/cape with white jagged shoulder trim, broad dark belt and dark-gray apron/robe. Closely follow the in-game NPC reference. NO human or dwarf Santa, no Santa hat, no gears, cogs, cogwheels, machinery, or mechanical decorations anywhere. Border materials: rugged Orgrimmar dark timber and black riveted iron, a few broad upward spikes, oxblood-red leather and small bone lashings, the exact RED HORDE SIGIL on a dark shield, evergreen boughs, multicolored holiday bulbs, red/green paper-wrapped Winter Veil gifts. Holiday cheer within Horde craftsmanship, not generic Christmas with recolored metal.\nStyle: hand-painted World of Warcraft UI ornament with recognizable in-game NPC likenesses and low-poly prop design, chunky contours and broad painted bevels, bold readable silhouette, restrained surface detail. Matte painted wood, cloth, stone and iron. Do not reinterpret as generic modern Santa/Christmas decor or hyper-glossy baroque fantasy.\nFunctional composition: Square 1:1 complete O-shaped minimap surround; full unbroken circular inner rim; perfectly transparent round map hole centered at50%,50%, diameter58%. Decorations outside circle on left/right, not in hole. Whole art within outer margins. This must be a closed O ring, not the portrait's C.\nSubject placement: ASYMMETRIC motifs: ONE ORC Greatfather Winter relief on the LEFT upper outer arc, matching image2 and image3; RIGHT outer arc has the faction shield and a small evergreen gift arrangement with colorful bulbs and paper-wrapped presents. Only ONE Greatfather in this entire minimap image. No second face, portrait, statue or head on right or bottom. No gears, cogs or toothed ornaments anywhere.\nThe two ends must be DIFFERENT SUBJECTS, not the same figure reflected. True alpha transparency outside art and in every opening. No text, labels, logos outside the requested faction emblems, watermark, checkerboard, screenshot or scenery background. No gears. Border art only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Minimaps/faction_neutral.png",
+          "sha256": "5f1d12aeab8c884df83ee886056a1e5c4fd683d434419e5b95c04f7966ab01ec",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/winter_veil_horde-portrait.png",
+          "sha256": "85ae7af91bbd3841568efb53b3d988fb88914e23bfe7b39f41809840e0651c4f",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/winter-orc.jpg",
+          "sha256": "feb52d53791fc57d8974e051d63766e4c81180de241791c4be9908e5da563833",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/official-crests/originals/faction_horde.png",
+          "sha256": "e596a8fbbd0e542ad8496a1a87c4f91147070853be029f1cf9966f0004d6c011",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/horde-winter-event.jpg",
+          "sha256": "48f70f03147b5628bf9cc8280b29688b5163ad455ff0147a2f419b1024089ab6",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 2
+    },
+    {
+      "id": "hallows_end-hub",
+      "set": "hallows_end",
+      "component": "hub",
+      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-hub.png",
+      "sha256": "6792ec4a962a4b4697fcc4f4359155e038142589ab09ecd66f88e464dd3f87dc",
+      "prompt": "Use case: stylized-concept. Production replacement artwork for the Frostforge World of Warcraft addon, Hallow's End collection. Repaint at polished game key-art quality, with clear readable volumes, controlled brushwork, beautifully shaped bevels and crisp alpha silhouettes. Broad dark blue-black steel surfaces, worn silver trim, subdued burgundy cloak, selective emerald spectral light and warm pumpkin orange. Restrained detail, authentic Warcraft proportions; no melted/tangled/cracked-lava surfaces or excessive ropes. Reference 1 is the ACTUAL Headless Horseman model: use his pointed dark metal hood/cowl, deep recessed faceless green spectral fire, distinctive wide tiered plate shoulders with round fasteners, and red mantle. Strong clear knight silhouette, detailed hollow hood rim, dark negative space inside the hood with luminous green wisps; NOT an opaque green blob, not a human face, not a skull face. Reference 2 is the ACTUAL Wickerman: a simple bound straw/wood human effigy with a rectangular wooden mask and short branch crown; NOT a spiky treant monster. Both are painted relief ornaments integrated into functional UI, not copied screenshot cutouts. All surroundings and functional openings true transparent alpha. No text, letters, labels, backdrop, checkerboard or watermark.\nAsset: one wide action-bar hub in an EXACT 3:1 canvas, ideally 2172 x 724. This is the intended DISPLAY aspect; absolutely do not use a 2:1 composition. Left end: one superbly rendered Horseman upper-body relief, tall and naturally proportioned, complete hood and pauldrons, short deep burgundy cloak, one downward sword at outer left and a small pumpkin lantern near the base. Confine entire left sculpture to x 25\u2013580. Right end: a completely DIFFERENT burning Wickerman effigy with clear wood and straw silhouette, orange fire behind it, pumpkin candy bucket near its base, entirely x 1590\u20132140. No duplicated knight. Both endcaps occupy y 35\u2013675. A simple continuous blackened steel rail with silver edge connects them, across the central space at y 535\u2013610. One small pumpkin relief medallion centered x1086 and entirely below y485; understated burgundy cloth under the rail ending by y675. The large rectangle x620\u20131552 and y0\u2013445 must be EMPTY TRANSPARENCY for game buttons. Keep material lighting coherent, large calm shapes, balanced opposing silhouettes. No giant weapons across button space. Every detail within canvas margins.",
+      "references": [
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/horseman-model.jpg",
+          "sha256": "0fbf5d22767ffe40017640d47541a8c672bb28fe21280bf229ef3617b7ce4151",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/wickerman.jpg",
+          "sha256": "d87dcd48a172f570f629f689c5bce920dc3852ce23ecec36fc8adaa436a40614",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 3
+    },
+    {
+      "id": "hallows_end-frame",
+      "set": "hallows_end",
+      "component": "frame",
+      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-frame.png",
+      "sha256": "d522a0e08fd7fc3fe05ce97da5c92452959c95f5e7de94805d2cbd534c436ca9",
+      "prompt": "Use case: precise-object-edit. Refine this Hallow's End two-bar unit frame. Keep its exact paint style, colors, two clear rectangular slots and straight long rail design. The side ornaments are STILL TOO LARGE. Reduce the Horseman and Wickerman reliefs to about 55% of their current size relative to the bars, keeping their natural proportions.\nMake a LOW, SLENDER frame with very small integrated corner motifs. The Horseman's HOOD should be about the HEIGHT OF THE HEALTH SLOT, not two or three times its height. His hood and one shoulder become the top-left carved metal corner. Remove the bulky torso and large arm completely; retain a tiny gauntlet gripping the bottom-left corner and a small glowing sword bevel running along the lower rail. His burgundy cloak should wrap the rail itself. The Wickerman mask should also be about the height of the health slot, embedded in the upper-right corner, with a narrow band of straw weaving the right end and short compact fire. No standing scarecrow body. The figures must read as details of the border, not as figures attached alongside it.\nEnlarge the HEALTH opening vertically by 35% while keeping the POWER slot thin, to further emphasize useful bar space. Keep both slots aligned, straight, transparent and at least60% of the canvas width. Overall decorated frame height must be no more than1.6 times the height of the complete two-bar stack (upper rail to bottom rail). Uppermost fire only slightly above top rail; bottom cloth and tiny pumpkin only slightly below bottom rail. Decorative endcaps narrow and wrap tightly around bar ends. Two different sides. No tall plumes, no huge hood, no broad projecting shoulder, no chunky body, no large hanging medallion, no big cloth skirts. All empty space actual alpha transparent. Preserve 2:1 canvas with large transparent upper and lower margins, no text or backgrounds. This is meant to be restrained compact unit-frame trim.",
+      "references": [
+        {
+          "file": "artwork/seasonal/warcraft-events-v4/frame-draft.png",
+          "sha256": "3d50ae956988763ef020518217b15d3c741bbb7506c2a91b8a4e3917d6566045",
+          "role": "First compact-frame pass; refine ornament scale and interweaving"
+        }
+      ],
+      "generation_revision": 4
+    },
+    {
+      "id": "hallows_end-portrait",
+      "set": "hallows_end",
+      "component": "portrait",
+      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-portrait.png",
+      "sha256": "002013354e8a5a3e042b1ec8a2250199457c90c779d9e08b6371854ecf1c51e8",
+      "prompt": "Use case: stylized-concept. Production replacement artwork for the Frostforge World of Warcraft addon, Hallow's End collection. Repaint at polished game key-art quality, with clear readable volumes, controlled brushwork, beautifully shaped bevels and crisp alpha silhouettes. Broad dark blue-black steel surfaces, worn silver trim, subdued burgundy cloak, selective emerald spectral light and warm pumpkin orange. Restrained detail, authentic Warcraft proportions; no melted/tangled/cracked-lava surfaces or excessive ropes. Reference 1 is the ACTUAL Headless Horseman model: use his pointed dark metal hood/cowl, deep recessed faceless green spectral fire, distinctive wide tiered plate shoulders with round fasteners, and red mantle. Strong clear knight silhouette, detailed hollow hood rim, dark negative space inside the hood with luminous green wisps; NOT an opaque green blob, not a human face, not a skull face. Reference 2 is the ACTUAL Wickerman: a simple bound straw/wood human effigy with a rectangular wooden mask and short branch crown; NOT a spiky treant monster. Both are painted relief ornaments integrated into functional UI, not copied screenshot cutouts. All surroundings and functional openings true transparent alpha. No text, letters, labels, backdrop, checkerboard or watermark.\nAsset: production 2:1 atlas containing TWO IDENTICAL right-opening C-shaped portrait surrounds side by side, both facing same way, geometry exactly as reference3. This is not a scene or portrait of a person in the hole. Each half has a completely clear circular lower-right portrait opening and an open right edge for health bars. Exact per-half normalized layout: opening center at 60% width,58% height, radius23.5% of half width; all artwork left of84% width. Above and upper-left of the opening integrate ONE recognizable Horseman hood with two broad armor shoulder plates, carefully rendered and naturally proportioned. Upper silhouette smooth with a small emerald wisp. Left flank one burgundy cloth drape, one small orange pumpkin lantern, steel trim. Below opening a SIMPLE clean arc of dark steel with warm edge light. No dangling spiky mess, no giant swords, no wicker monster in this small asset. Keep both copies the same. Actual round inner contour must be complete at the lower-left/bottom arc, but rightmost side open. Artwork inside 3% outer margins. Never stretch the hood to follow the circle; keep hood rigid above/left of it.",
+      "references": [
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/horseman-model.jpg",
+          "sha256": "0fbf5d22767ffe40017640d47541a8c672bb28fe21280bf229ef3617b7ce4151",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/wickerman.jpg",
+          "sha256": "d87dcd48a172f570f629f689c5bce920dc3852ce23ecec36fc8adaa436a40614",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "Frostforge/Media/Portraits/faction_neutral.png",
+          "sha256": "1f33c2e2db054ff1f62989317368b571086ac907c6ce479cc643b78b9f406b0a",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 3
+    },
+    {
+      "id": "hallows_end-minimap",
+      "set": "hallows_end",
+      "component": "minimap",
+      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-minimap.png",
+      "sha256": "d0970aceb0bbf618b804a623932c6c10634ea169ae2fea717645a52797a732f0",
+      "prompt": "Use case: stylized-concept. Production replacement artwork for the Frostforge World of Warcraft addon, Hallow's End collection. Repaint at polished game key-art quality, with clear readable volumes, controlled brushwork, beautifully shaped bevels and crisp alpha silhouettes. Broad dark blue-black steel surfaces, worn silver trim, subdued burgundy cloak, selective emerald spectral light and warm pumpkin orange. Restrained detail, authentic Warcraft proportions; no melted/tangled/cracked-lava surfaces or excessive ropes. Reference 1 is the ACTUAL Headless Horseman model: use his pointed dark metal hood/cowl, deep recessed faceless green spectral fire, distinctive wide tiered plate shoulders with round fasteners, and red mantle. Strong clear knight silhouette, detailed hollow hood rim, dark negative space inside the hood with luminous green wisps; NOT an opaque green blob, not a human face, not a skull face. Reference 2 is the ACTUAL Wickerman: a simple bound straw/wood human effigy with a rectangular wooden mask and short branch crown; NOT a spiky treant monster. Both are painted relief ornaments integrated into functional UI, not copied screenshot cutouts. All surroundings and functional openings true transparent alpha. No text, letters, labels, backdrop, checkerboard or watermark.\nAsset: one SQUARE circular minimap surround, centered perfectly, matching functional circular aperture of reference3. A clean continuous dark steel ring with silver bevel; large EXACTLY CIRCULAR transparent center with radius29.5% of total canvas width, centered at50%,50%. Outer metal ring radius38%. Ornament lies beyond ring. At 10 o'clock one compact recognizable Horseman cowl and shoulders rendered as a rigid upright relief, hood and face ABOVE and OUTSIDE the clear circular aperture; do NOT bend his hood or shoulders along ring curvature. At 3 o'clock a distinct small burning Wickerman totem and warm straw, contained upright silhouette. At 7 o'clock one rounded pumpkin lantern, and short burgundy cloth tails at bottom. Thin restrained green wisp around upper left; orange local fire around right. No cluttered branches, no repeated identical sculptural motifs, no compass/star emblems. Keep total art within3% margins and the central hole entirely clear. Ring geometry should already fit without warping any face.",
+      "references": [
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/horseman-model.jpg",
+          "sha256": "0fbf5d22767ffe40017640d47541a8c672bb28fe21280bf229ef3617b7ce4151",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v2/references/wickerman.jpg",
+          "sha256": "d87dcd48a172f570f629f689c5bce920dc3852ce23ecec36fc8adaa436a40614",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        },
+        {
+          "file": "Frostforge/Media/Minimaps/faction_neutral.png",
+          "sha256": "5f1d12aeab8c884df83ee886056a1e5c4fd683d434419e5b95c04f7966ab01ec",
+          "role": "Approved design / functional geometry / in-game subject reference"
+        }
+      ],
+      "generation_revision": 3
+    }
+  ],
+  "faction_emblems": [
+    {
+      "id": "faction_horde",
+      "label": "Horde",
+      "group": "faction",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/undead",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt269b19b0f00cc872/6169fc515e87796834fb5acd/VGJ2XT8PAJL31531171276190.png",
+      "file": "artwork/official-crests/originals/faction_horde.png",
+      "sha256": "e596a8fbbd0e542ad8496a1a87c4f91147070853be029f1cf9966f0004d6c011",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    },
+    {
+      "id": "faction_alliance",
+      "label": "Alliance",
+      "group": "faction",
+      "page": "https://worldofwarcraft.blizzard.com/en-us/game/races/human",
+      "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt07958d4a50c867ac/616a00180e274669d2eec122/W4EX9UNJV8OB1531430144879.png",
+      "file": "artwork/official-crests/originals/faction_alliance.png",
+      "sha256": "30ae0e592177665eecaaca0f8cf3dc6bca2bad1055ae682702c37dbd570f57bb",
+      "credit": "Blizzard Entertainment",
+      "permission_status": "No separate permission obtained"
+    }
+  ],
+  "prior_revision": "docs/artwork/warcraft-events-v3.json",
+  "fitting_landmarks": {
+    "file": "artwork/seasonal/warcraft-events-v4/fitting-landmarks.json",
+    "sha256": "0786c2ecbed8b76c831479c6f3dd3a28cb73724162d4776ef84ccde60ad10d7a"
+  },
+  "approved_action_hub": {
+    "file": "artwork/seasonal/warcraft-events-v3/approved-action-hub-reference.png",
+    "sha256": "67ba2a9dff6589fcc3377b7af30bc58e2e849c837898b02246eaa088394f503f"
+  }
+}

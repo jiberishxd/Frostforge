@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Updated the Hallow’s End unit frame with fuller Horseman armor, a more visible sword and richer cloth details.
+
 ## 1.0.2
 
 - Added seven holiday sets for portraits, unit frames, action hubs and minimaps, including Hallow’s End and Alliance and Horde Winter Veil.
