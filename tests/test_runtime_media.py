@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class RuntimeMediaTests(unittest.TestCase):
     def test_all_compressed_textures_preserve_original_tga_pixels(self):
         assets = json.loads((ROOT / "docs/phase1-assets.json").read_text())["assets"]
-        self.assertEqual(len(assets), 318)
+        self.assertEqual(len(assets), 346)
         for asset in assets:
             with self.subTest(asset=asset["file"]):
                 path = ROOT / asset["file"]

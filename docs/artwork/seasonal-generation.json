@@ -1,0 +1,308 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "transparent_background": true,
+  "processing": "User-authorized local fitting; generated originals retained; existing geometry helpers reused.",
+  "in_game_qualified": false,
+  "assets": [
+    {
+      "id": "harvest_hollow-portrait",
+      "set": "harvest_hollow",
+      "component": "portrait",
+      "original": "artwork/seasonal/v1/harvest_hollow-portrait.png",
+      "sha256": "0c597bff0c7053af09d6ddcf4906dcebfb064042028b9ca86f3141b7791f6341",
+      "prompt": "Use case: stylized-concept. Create production-ready hand-painted fantasy MMORPG UI artwork for Frostforge. Halloween Harvest Hollow: glowing carved jack-o-lantern motifs, dark wrought iron, twisted autumn vines, russet leaves, warm pumpkin-orange light and weathered bronze. Playfully sinister, rich sculpted fantasy materials.\nAsset: transparent portrait surround atlas, TWO matching C-shaped portrait borders side by side on a wide 2:1 canvas. Input image is a structural and rendering-style reference only. Replace its stone, compass and cloth decoration with the specified holiday motifs. Keep exact silhouette proportions, matching pair, lower-right empty circular portrait opening in each half, and the open right side joining to native bars. No portrait face or character in the holes. Sculptural beveled painting, thick readable silhouettes, no flat vector styling. Decoration belongs outside the openings. Preserve generous transparent space at right of each C and a small safe margin around all outer edges. Entire exterior and both portrait holes must have real transparent alpha, no checker pattern, black fill or background. No letters, words, watermark, panels or extra variants.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Portraits/faction_neutral.png",
+          "sha256": "1f33c2e2db054ff1f62989317368b571086ac907c6ce479cc643b78b9f406b0a",
+          "role": "geometry and rendering reference"
+        }
+      ]
+    },
+    {
+      "id": "witching_hour-portrait",
+      "set": "witching_hour",
+      "component": "portrait",
+      "original": "artwork/seasonal/v1/witching_hour-portrait.png",
+      "sha256": "dfa83936b5a409be6eab3010687b552b745c5898386ea8a819ed37c6fbd36c72",
+      "prompt": "Use case: stylized-concept. Create production-ready hand-painted fantasy MMORPG UI artwork for Frostforge. Halloween Witching Hour: haunted violet-black iron, curling bat-wing shapes, tiny ghostly carved faces, tattered plum cloth, eerie pale turquoise spectral light. Elegant spooky fantasy craftsmanship, distinct from pumpkin harvest.\nAsset: transparent portrait surround atlas, TWO matching C-shaped portrait borders side by side on a wide 2:1 canvas. Input image is a structural and rendering-style reference only. Replace its stone, compass and cloth decoration with the specified holiday motifs. Keep exact silhouette proportions, matching pair, lower-right empty circular portrait opening in each half, and the open right side joining to native bars. No portrait face or character in the holes. Sculptural beveled painting, thick readable silhouettes, no flat vector styling. Decoration belongs outside the openings. Preserve generous transparent space at right of each C and a small safe margin around all outer edges. Entire exterior and both portrait holes must have real transparent alpha, no checker pattern, black fill or background. No letters, words, watermark, panels or extra variants.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Portraits/faction_neutral.png",
+          "sha256": "1f33c2e2db054ff1f62989317368b571086ac907c6ce479cc643b78b9f406b0a",
+          "role": "geometry and rendering reference"
+        }
+      ]
+    },
+    {
+      "id": "holly_hearth-portrait",
+      "set": "holly_hearth",
+      "component": "portrait",
+      "original": "artwork/seasonal/v1/holly_hearth-portrait.png",
+      "sha256": "9b27cf62c00f1ccdd72ec53c052778107a95111b6f2000b2167120946be54012",
+      "prompt": "Use case: stylized-concept. Create production-ready hand-painted fantasy MMORPG UI artwork for Frostforge. Christmas Holly Hearth: rich crimson velvet bows, evergreen holly foliage with red berries, antique gold bells and filigree, warm candle-like golden highlights, restrained candy-cane striping. Festive handcrafted fantasy ornament.\nAsset: transparent portrait surround atlas, TWO matching C-shaped portrait borders side by side on a wide 2:1 canvas. Input image is a structural and rendering-style reference only. Replace its stone, compass and cloth decoration with the specified holiday motifs. Keep exact silhouette proportions, matching pair, lower-right empty circular portrait opening in each half, and the open right side joining to native bars. No portrait face or character in the holes. Sculptural beveled painting, thick readable silhouettes, no flat vector styling. Decoration belongs outside the openings. Preserve generous transparent space at right of each C and a small safe margin around all outer edges. Entire exterior and both portrait holes must have real transparent alpha, no checker pattern, black fill or background. No letters, words, watermark, panels or extra variants.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Portraits/faction_neutral.png",
+          "sha256": "1f33c2e2db054ff1f62989317368b571086ac907c6ce479cc643b78b9f406b0a",
+          "role": "geometry and rendering reference"
+        }
+      ]
+    },
+    {
+      "id": "winter_starlight-portrait",
+      "set": "winter_starlight",
+      "component": "portrait",
+      "original": "artwork/seasonal/v1/winter_starlight-portrait.png",
+      "sha256": "4f4f4af3ed9c5b273c5d1d8c3cf216454b8f4d6ea78e20aa7f780753ab5be0e6",
+      "prompt": "Use case: stylized-concept. Create production-ready hand-painted fantasy MMORPG UI artwork for Frostforge. Christmas Winter Starlight: intricate silver snowflakes, luminous icy blue crystals, midnight-blue velvet, delicate frosted evergreen sprigs and a sculpted star motif. Magical wintry elegance, clean frosty silver highlights.\nAsset: transparent portrait surround atlas, TWO matching C-shaped portrait borders side by side on a wide 2:1 canvas. Input image is a structural and rendering-style reference only. Replace its stone, compass and cloth decoration with the specified holiday motifs. Keep exact silhouette proportions, matching pair, lower-right empty circular portrait opening in each half, and the open right side joining to native bars. No portrait face or character in the holes. Sculptural beveled painting, thick readable silhouettes, no flat vector styling. Decoration belongs outside the openings. Preserve generous transparent space at right of each C and a small safe margin around all outer edges. Entire exterior and both portrait holes must have real transparent alpha, no checker pattern, black fill or background. No letters, words, watermark, panels or extra variants.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Portraits/faction_neutral.png",
+          "sha256": "1f33c2e2db054ff1f62989317368b571086ac907c6ce479cc643b78b9f406b0a",
+          "role": "geometry and rendering reference"
+        }
+      ]
+    },
+    {
+      "id": "harvest_hollow-frame",
+      "set": "harvest_hollow",
+      "component": "frame",
+      "original": "artwork/seasonal/v1/harvest_hollow-frame.png",
+      "sha256": "9fcfa417b5bb934f778ca729282da77fe86289473da0fb6eec64b92611f6b349",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Halloween Harvest Hollow: glowing carved jack-o-lantern motifs, dark wrought iron, twisted autumn vines, russet leaves, warm pumpkin-orange light and weathered bronze. Playfully sinister, rich sculpted fantasy materials.\nAsset composition: ONE wide 2:1 unit-frame shell. Image 1 is the required geometry template: keep two entirely transparent aligned rectangular slots (large health slot across x16\u201379% at y40\u201354%, thinner power slot y59\u201365%), thin straight rails, a narrow divider, ornamental endcaps and drapery below. Image 2 supplies the exact holiday materials, motifs and palette to match. No circular portrait opening on this asset; no extra bar slots. Keep all decoration outside both bar interiors, including flames, leaves and snow.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/UnitFrames/faction_neutral.png",
+          "sha256": "f1aee8097b91c270682318e13a98265b4a9673759efa5907a51290880d27ee80",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/harvest_hollow-portrait.png",
+          "sha256": "0c597bff0c7053af09d6ddcf4906dcebfb064042028b9ca86f3141b7791f6341",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "harvest_hollow-hub",
+      "set": "harvest_hollow",
+      "component": "hub",
+      "original": "artwork/seasonal/v1/harvest_hollow-hub.png",
+      "sha256": "ba6de505b640a0254210e2ea1a2f1d846bbd7c1ec3672f3ef1b72928c5674f94",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Halloween Harvest Hollow: glowing carved jack-o-lantern motifs, dark wrought iron, twisted autumn vines, russet leaves, warm pumpkin-orange light and weathered bronze. Playfully sinister, rich sculpted fantasy materials.\nAsset composition: ONE wide 2:1 action-bar hub surround with tall sculpted endcaps at the far left and right and a continuous low connecting rail, matching Image 1 geometry. The entire central button area from x29% to71% and y0% to61% must be completely transparent, nothing crossing it. Connecting rail spans y73\u201385%; small hanging ornaments stay below the rail; major ornaments confined to outer 28% on each side. Image 2 is the exact holiday palette/material/motif reference. This is an open U-shaped decorative frame, no buttons, icons or filled panel.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Hubs/faction_neutral.png",
+          "sha256": "264ed6cb4d4e2c0452e6b0429627a80ea4b5da426a28b8f8a56860a939c924b3",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/harvest_hollow-portrait.png",
+          "sha256": "0c597bff0c7053af09d6ddcf4906dcebfb064042028b9ca86f3141b7791f6341",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "harvest_hollow-minimap",
+      "set": "harvest_hollow",
+      "component": "minimap",
+      "original": "artwork/seasonal/v1/harvest_hollow-minimap.png",
+      "sha256": "8864aded6491adad6da1ebed3636d8582b8a54f8e14a4e142dbe2b7ba03769ec",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Halloween Harvest Hollow: glowing carved jack-o-lantern motifs, dark wrought iron, twisted autumn vines, russet leaves, warm pumpkin-orange light and weathered bronze. Playfully sinister, rich sculpted fantasy materials.\nAsset composition: ONE square circular minimap surround. Image 1 is the geometry template: full continuous circular rim with a completely transparent round opening precisely centered at50%/50%, with diameter58% of canvas. Image 2 supplies exact holiday materials, palette and motifs to match. All ornaments remain outside the circular hole; keep small margins so no edges clip. No map scene, clock, navigation marks, text, compass lettering or separate UI elements.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Minimaps/faction_neutral.png",
+          "sha256": "5f1d12aeab8c884df83ee886056a1e5c4fd683d434419e5b95c04f7966ab01ec",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/harvest_hollow-portrait.png",
+          "sha256": "0c597bff0c7053af09d6ddcf4906dcebfb064042028b9ca86f3141b7791f6341",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "witching_hour-frame",
+      "set": "witching_hour",
+      "component": "frame",
+      "original": "artwork/seasonal/v1/witching_hour-frame.png",
+      "sha256": "d5355b43aa951d6bf4055b10cd1f2bbb3f019e00b0fa944f61d17664c3ebd89d",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Halloween Witching Hour: haunted violet-black iron, curling bat-wing shapes, tiny ghostly carved faces, tattered plum cloth, eerie pale turquoise spectral light. Elegant spooky fantasy craftsmanship, distinct from pumpkin harvest.\nAsset composition: ONE wide 2:1 unit-frame shell. Image 1 is the required geometry template: keep two entirely transparent aligned rectangular slots (large health slot across x16\u201379% at y40\u201354%, thinner power slot y59\u201365%), thin straight rails, a narrow divider, ornamental endcaps and drapery below. Image 2 supplies the exact holiday materials, motifs and palette to match. No circular portrait opening on this asset; no extra bar slots. Keep all decoration outside both bar interiors, including flames, leaves and snow.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/UnitFrames/faction_neutral.png",
+          "sha256": "f1aee8097b91c270682318e13a98265b4a9673759efa5907a51290880d27ee80",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/witching_hour-portrait.png",
+          "sha256": "dfa83936b5a409be6eab3010687b552b745c5898386ea8a819ed37c6fbd36c72",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "witching_hour-hub",
+      "set": "witching_hour",
+      "component": "hub",
+      "original": "artwork/seasonal/v1/witching_hour-hub.png",
+      "sha256": "1011fd40b8667fdffd7a224ee7e7b713937e8fc1acaebb66722b8ab4c4a8faa0",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Halloween Witching Hour: haunted violet-black iron, curling bat-wing shapes, tiny ghostly carved faces, tattered plum cloth, eerie pale turquoise spectral light. Elegant spooky fantasy craftsmanship, distinct from pumpkin harvest.\nAsset composition: ONE wide 2:1 action-bar hub surround with tall sculpted endcaps at the far left and right and a continuous low connecting rail, matching Image 1 geometry. The entire central button area from x29% to71% and y0% to61% must be completely transparent, nothing crossing it. Connecting rail spans y73\u201385%; small hanging ornaments stay below the rail; major ornaments confined to outer 28% on each side. Image 2 is the exact holiday palette/material/motif reference. This is an open U-shaped decorative frame, no buttons, icons or filled panel.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Hubs/faction_neutral.png",
+          "sha256": "264ed6cb4d4e2c0452e6b0429627a80ea4b5da426a28b8f8a56860a939c924b3",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/witching_hour-portrait.png",
+          "sha256": "dfa83936b5a409be6eab3010687b552b745c5898386ea8a819ed37c6fbd36c72",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "witching_hour-minimap",
+      "set": "witching_hour",
+      "component": "minimap",
+      "original": "artwork/seasonal/v1/witching_hour-minimap.png",
+      "sha256": "cd86e21f717f118b7293bf122a0fa275cd3773f511c1e0cb517f93fd761ac806",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Halloween Witching Hour: haunted violet-black iron, curling bat-wing shapes, tiny ghostly carved faces, tattered plum cloth, eerie pale turquoise spectral light. Elegant spooky fantasy craftsmanship, distinct from pumpkin harvest.\nAsset composition: ONE square circular minimap surround. Image 1 is the geometry template: full continuous circular rim with a completely transparent round opening precisely centered at50%/50%, with diameter58% of canvas. Image 2 supplies exact holiday materials, palette and motifs to match. All ornaments remain outside the circular hole; keep small margins so no edges clip. No map scene, clock, navigation marks, text, compass lettering or separate UI elements.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Minimaps/faction_neutral.png",
+          "sha256": "5f1d12aeab8c884df83ee886056a1e5c4fd683d434419e5b95c04f7966ab01ec",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/witching_hour-portrait.png",
+          "sha256": "dfa83936b5a409be6eab3010687b552b745c5898386ea8a819ed37c6fbd36c72",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "holly_hearth-frame",
+      "set": "holly_hearth",
+      "component": "frame",
+      "original": "artwork/seasonal/v1/holly_hearth-frame.png",
+      "sha256": "45079f504592641da1fb1834ec4886820782509af1618b607ee5abfefe7323d6",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Christmas Holly Hearth: rich crimson velvet bows, evergreen holly foliage with red berries, antique gold bells and filigree, warm candle-like golden highlights, restrained candy-cane striping. Festive handcrafted fantasy ornament.\nAsset composition: ONE wide 2:1 unit-frame shell. Image 1 is the required geometry template: keep two entirely transparent aligned rectangular slots (large health slot across x16\u201379% at y40\u201354%, thinner power slot y59\u201365%), thin straight rails, a narrow divider, ornamental endcaps and drapery below. Image 2 supplies the exact holiday materials, motifs and palette to match. No circular portrait opening on this asset; no extra bar slots. Keep all decoration outside both bar interiors, including flames, leaves and snow.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/UnitFrames/faction_neutral.png",
+          "sha256": "f1aee8097b91c270682318e13a98265b4a9673759efa5907a51290880d27ee80",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/holly_hearth-portrait.png",
+          "sha256": "9b27cf62c00f1ccdd72ec53c052778107a95111b6f2000b2167120946be54012",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "holly_hearth-hub",
+      "set": "holly_hearth",
+      "component": "hub",
+      "original": "artwork/seasonal/v1/holly_hearth-hub.png",
+      "sha256": "cb97268bbfcb6c4550f4f5f466355d39a316a90925e394830362dffdf6294930",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Christmas Holly Hearth: rich crimson velvet bows, evergreen holly foliage with red berries, antique gold bells and filigree, warm candle-like golden highlights, restrained candy-cane striping. Festive handcrafted fantasy ornament.\nAsset composition: ONE wide 2:1 action-bar hub surround with tall sculpted endcaps at the far left and right and a continuous low connecting rail, matching Image 1 geometry. The entire central button area from x29% to71% and y0% to61% must be completely transparent, nothing crossing it. Connecting rail spans y73\u201385%; small hanging ornaments stay below the rail; major ornaments confined to outer 28% on each side. Image 2 is the exact holiday palette/material/motif reference. This is an open U-shaped decorative frame, no buttons, icons or filled panel.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Hubs/faction_neutral.png",
+          "sha256": "264ed6cb4d4e2c0452e6b0429627a80ea4b5da426a28b8f8a56860a939c924b3",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/holly_hearth-portrait.png",
+          "sha256": "9b27cf62c00f1ccdd72ec53c052778107a95111b6f2000b2167120946be54012",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "holly_hearth-minimap",
+      "set": "holly_hearth",
+      "component": "minimap",
+      "original": "artwork/seasonal/v1/holly_hearth-minimap.png",
+      "sha256": "8e02846eada4562b67a7ca3c454b6d85e0261b188179f875a373b94a481dcd5a",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Christmas Holly Hearth: rich crimson velvet bows, evergreen holly foliage with red berries, antique gold bells and filigree, warm candle-like golden highlights, restrained candy-cane striping. Festive handcrafted fantasy ornament.\nAsset composition: ONE square circular minimap surround. Image 1 is the geometry template: full continuous circular rim with a completely transparent round opening precisely centered at50%/50%, with diameter58% of canvas. Image 2 supplies exact holiday materials, palette and motifs to match. All ornaments remain outside the circular hole; keep small margins so no edges clip. No map scene, clock, navigation marks, text, compass lettering or separate UI elements.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Minimaps/faction_neutral.png",
+          "sha256": "5f1d12aeab8c884df83ee886056a1e5c4fd683d434419e5b95c04f7966ab01ec",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/holly_hearth-portrait.png",
+          "sha256": "9b27cf62c00f1ccdd72ec53c052778107a95111b6f2000b2167120946be54012",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "winter_starlight-frame",
+      "set": "winter_starlight",
+      "component": "frame",
+      "original": "artwork/seasonal/v1/winter_starlight-frame.png",
+      "sha256": "0bd074c36de35efcc2b94f8e4901940aef02b30c24663dcc8f6005bffcec878a",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Christmas Winter Starlight: intricate silver snowflakes, luminous icy blue crystals, midnight-blue velvet, delicate frosted evergreen sprigs and a sculpted star motif. Magical wintry elegance, clean frosty silver highlights.\nAsset composition: ONE wide 2:1 unit-frame shell. Image 1 is the required geometry template: keep two entirely transparent aligned rectangular slots (large health slot across x16\u201379% at y40\u201354%, thinner power slot y59\u201365%), thin straight rails, a narrow divider, ornamental endcaps and drapery below. Image 2 supplies the exact holiday materials, motifs and palette to match. No circular portrait opening on this asset; no extra bar slots. Keep all decoration outside both bar interiors, including flames, leaves and snow.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/UnitFrames/faction_neutral.png",
+          "sha256": "f1aee8097b91c270682318e13a98265b4a9673759efa5907a51290880d27ee80",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/winter_starlight-portrait.png",
+          "sha256": "4f4f4af3ed9c5b273c5d1d8c3cf216454b8f4d6ea78e20aa7f780753ab5be0e6",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "winter_starlight-hub",
+      "set": "winter_starlight",
+      "component": "hub",
+      "original": "artwork/seasonal/v1/winter_starlight-hub.png",
+      "sha256": "664edb5ff23b20b79803625873c189ab8f3ac8f59f17ac888aa64742f822a627",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Christmas Winter Starlight: intricate silver snowflakes, luminous icy blue crystals, midnight-blue velvet, delicate frosted evergreen sprigs and a sculpted star motif. Magical wintry elegance, clean frosty silver highlights.\nAsset composition: ONE wide 2:1 action-bar hub surround with tall sculpted endcaps at the far left and right and a continuous low connecting rail, matching Image 1 geometry. The entire central button area from x29% to71% and y0% to61% must be completely transparent, nothing crossing it. Connecting rail spans y73\u201385%; small hanging ornaments stay below the rail; major ornaments confined to outer 28% on each side. Image 2 is the exact holiday palette/material/motif reference. This is an open U-shaped decorative frame, no buttons, icons or filled panel.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Hubs/faction_neutral.png",
+          "sha256": "264ed6cb4d4e2c0452e6b0429627a80ea4b5da426a28b8f8a56860a939c924b3",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/winter_starlight-portrait.png",
+          "sha256": "4f4f4af3ed9c5b273c5d1d8c3cf216454b8f4d6ea78e20aa7f780753ab5be0e6",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    },
+    {
+      "id": "winter_starlight-minimap",
+      "set": "winter_starlight",
+      "component": "minimap",
+      "original": "artwork/seasonal/v1/winter_starlight-minimap.png",
+      "sha256": "69e17882d4e85dc6dcfdff64c150022e0373c31224a1394582742d40f2977e5d",
+      "prompt": "Use case: stylized-concept. Create a production-ready hand-painted fantasy MMORPG UI asset for the Frostforge addon. Christmas Winter Starlight: intricate silver snowflakes, luminous icy blue crystals, midnight-blue velvet, delicate frosted evergreen sprigs and a sculpted star motif. Magical wintry elegance, clean frosty silver highlights.\nAsset composition: ONE square circular minimap surround. Image 1 is the geometry template: full continuous circular rim with a completely transparent round opening precisely centered at50%/50%, with diameter58% of canvas. Image 2 supplies exact holiday materials, palette and motifs to match. All ornaments remain outside the circular hole; keep small margins so no edges clip. No map scene, clock, navigation marks, text, compass lettering or separate UI elements.\nBoth images are references only. Repaint the entire surround in the holiday design; do not retain the neutral compass emblem. Thick readable silhouettes, dimensional bevels, crafted metal and rich painted texture consistent with the portrait, polished game artwork rather than flat vector graphics. Entire exterior and functional openings must have real transparent alpha. No background, checkerboard pattern, solid black backdrop, text, watermark, character portrait, extra panel, or multiple views. Keep a small transparent safe margin around the artwork.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Minimaps/faction_neutral.png",
+          "sha256": "5f1d12aeab8c884df83ee886056a1e5c4fd683d434419e5b95c04f7966ab01ec",
+          "role": "geometry and rendering reference"
+        },
+        {
+          "file": "artwork/seasonal/v1/winter_starlight-portrait.png",
+          "sha256": "4f4f4af3ed9c5b273c5d1d8c3cf216454b8f4d6ea78e20aa7f780753ab5be0e6",
+          "role": "matching seasonal palette and materials"
+        }
+      ]
+    }
+  ]
+}

@@ -37,9 +37,9 @@ test("minimap preserves saved adjustments and hides with unavailable native anch
     Minimap=nil;M.tick(J.Core);assert(not map.frame.shown)
 end)
 
-test("42 minimaps share geometry while selecting independently of portraits",function(M)
+test("49 minimaps share geometry while selecting independently of portraits",function(M)
     local J=M.load();local minimap=J.Core.modules.minimap
-    assert(count(J.MinimapCatalog.entries)==42 and minimap.minimapID=="CLASS_PALADIN")
+    assert(count(J.MinimapCatalog.entries)==49 and minimap.minimapID=="CLASS_PALADIN")
     local before={}
     for name,t in pairs(minimap.textures) do before[name]={t.w,t.h,t.points[1][4],t.points[1][5]} end
     for id,entry in pairs(J.MinimapCatalog.entries) do

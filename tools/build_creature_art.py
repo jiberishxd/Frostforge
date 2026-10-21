@@ -60,7 +60,8 @@ def fit_shell(original):
     a[a[:,:,3]<16]=0
     h,w=a.shape[:2]
     middle=(a[:,int(w*.35):int(w*.6),3]<32).mean(axis=1)>.8
-    slots=[r for r in runs(middle) if h*.27<r[0]<h*.8 and r[1]-r[0]>h*.018]
+    # Exclude the unbounded exterior below short hanging ornaments.
+    slots=[r for r in runs(middle) if h*.27<r[0]<r[1]<h*.85 and r[1]-r[0]>h*.018]
     assert len(slots)==2, (original, 'Expected two bar openings', slots)
     measured={}
     for kind,(top,bottom) in zip(('health','power'),slots):
@@ -95,7 +96,9 @@ def fit_shell(original):
 def build(source_dir):
     assets, reports, entries = [], [], []
     catalog_path = ROOT / 'Frostforge/Themes/UnitSkins.lua'
-    catalog = catalog_path.read_text().split('-- Creature artwork', 1)[0].rstrip() + '\n'
+    catalog = '\n'.join(line for line in catalog_path.read_text().splitlines()
+                        if not line.startswith('J.UnitSkinCatalog.entries.CREATURE_')
+                        and not line.startswith('-- Creature artwork')).rstrip() + '\n'
     for name, base in TYPES.items():
         stem, identity = 'creature_' + name, 'CREATURE_' + name.upper()
         original = source_dir / (name + '-portrait.png')

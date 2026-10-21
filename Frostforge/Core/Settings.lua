@@ -175,7 +175,8 @@ function S:ShowCollection(kind,group,page)
     for id,b in pairs(self[spec.buttons]) do
         b:Hide();b.image:SetTexture(nil)
         local entry=J[spec.catalog].entries[id]
-        if entry.group==group and entry.label:lower():find(query,1,true) then visible[#visible+1]=id end
+        local searchText=entry.label.." "..(entry.holiday or "")
+        if entry.group==group and searchText:lower():find(query,1,true) then visible[#visible+1]=id end
     end
     table.sort(visible,function(a,b) return J[spec.catalog].entries[a].label<J[spec.catalog].entries[b].label end)
     local pages=math.max(1,math.ceil(#visible/12))
@@ -208,6 +209,7 @@ function S:CreateCollection(kind)
     self[spec.groups]={}
     local groups={{"CLASS","Classes"},{"RACE","Races"},{"FACTION","Factions"}}
     if kind=="portrait" or kind=="unit" then groups[#groups+1]={"CREATURE","Creatures"} end
+    if kind~="small" and kind~="cast" then groups[#groups+1]={"SEASONAL","Seasonal"} end
     local groupWidth=732/#groups
     for i,entry in ipairs(groups) do
         local group=entry[1]
@@ -226,7 +228,7 @@ function S:CreateCollection(kind)
     p.empty=text(p,"No matching artwork in this collection. Try another name or category.",24,-170,716)
     self[spec.buttons]={}
     for id,entry in pairs(J[spec.catalog].entries) do
-        if entry.group~="CREATURE" or kind=="portrait" or kind=="unit" then
+        if (entry.group~="CREATURE" and entry.group~="SEASONAL") or (kind~="small" and kind~="cast") then
         local choice=id
         local b=button(p,"",0,0,168,function()
             p:Hide();self:Set(spec.property,choice);if spec.mode then self:Set(spec.mode,"FIXED") end

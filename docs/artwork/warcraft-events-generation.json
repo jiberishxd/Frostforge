@@ -1,0 +1,170 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "transparent_background": true,
+  "processing": "User-authorized local fitting; generated originals retained; shared portrait, bar, hub and minimap geometry helpers reused.",
+  "in_game_qualified": false,
+  "event_references": [
+    {
+      "event": "Hallow's End",
+      "url": "https://news.blizzard.com/en-gb/article/22548002/the-horseman-rides-hallows-end-is-nigh",
+      "role": "Event motif research: Headless Horseman, Scarlet Monastery graveyard, Hallowed Helm and wicker curses."
+    },
+    {
+      "event": "Winter Veil",
+      "url": "https://news.blizzard.com/en-us/article/24249604/the-festive-feast-of-winter-veil-is-now-live",
+      "role": "Event motif research: Smokywood Pastures, Greatfather Winter, Metzen, holiday apparel, toys and gifts."
+    }
+  ],
+  "assets": [
+    {
+      "id": "hallows_end-portrait",
+      "set": "hallows_end",
+      "component": "portrait",
+      "original": "artwork/seasonal/warcraft-events-v1/hallows_end-portrait.png",
+      "sha256": "f6d8322087d122b10cd621d7d119db1039f9fbc9de8bbb0de71c9417255f7ae6",
+      "prompt": "Use case: stylized-concept.\nAsset type: production transparent portrait surround atlas for Frostforge WoW addon, NOT a scene or character portrait.\nPrimary request: create a NEW Hallow's End event theme.\nInput image 1: GEOMETRY reference only. Preserve its two-C surround layout, opening, proportions and negative space; completely replace its neutral expedition materials and ornaments.\nSubject: World of Warcraft Hallow's End event: the Headless Horseman's chunky blackened iron plate armor, angular orange Hallowed Helm jack-o-lantern crest with restrained spectral GREEN fire, weathered Scarlet Monastery graveyard stone, a little bound wicker/rope and torn deep-purple cloth. Broad oversized plate bevels and rivets. This is a Horseman and wicker design, dark and martial; pumpkin orange only as the small crest accent, green supernatural flame only on outer silhouette.\nStyle/medium: original hand-painted Warcraft game UI art, chunky low-poly-inspired sculpted shapes, broad painted color planes, exaggerated bevels, brushy highlights and strong readable dark contours, rich but matte materials. Belongs beside classic World of Warcraft in-game props. No photorealism, no PBR gloss, no tiny baroque filigree, no flat vector cartoon.\nComposition: wide 2:1 transparent atlas with TWO matching C-shaped portrait surrounds SIDE BY SIDE, same scale and layout as reference. Each frame has ornament at top and left and below, a perfectly transparent round portrait hole in lower-right portion, and an OPEN RIGHT EDGE connecting to horizontal health bars. Both C shapes face right, do not mirror. Each motif stays outside the portrait aperture. Keep clear outer margins; whole artwork visible.\nConstraints: true alpha transparency outside and inside the surrounds, no painted checkerboard, no character filling either portrait hole, no letters, no logos, no watermark, no UI screenshots. Border artwork only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Portraits/faction_neutral.png",
+          "sha256": "1f33c2e2db054ff1f62989317368b571086ac907c6ce479cc643b78b9f406b0a",
+          "role": "geometry reference"
+        }
+      ]
+    },
+    {
+      "id": "winter_veil-portrait",
+      "set": "winter_veil",
+      "component": "portrait",
+      "original": "artwork/seasonal/warcraft-events-v1/winter_veil-portrait.png",
+      "sha256": "6ee90765b7849f88b21da12571926700bd2a1e88d4407fc6406dd24adebf336e",
+      "prompt": "Use case: stylized-concept.\nAsset type: production transparent portrait surround atlas for Frostforge WoW addon, NOT a scene or character portrait.\nPrimary request: create a NEW Winter Veil event theme.\nInput image 1: GEOMETRY reference only. Preserve its two-C surround layout, opening, proportions and negative space; completely replace its neutral expedition materials and ornaments.\nSubject: World of Warcraft Feast of Winter Veil event: a Smokywood Pastures gift-workshop design, warm carved timber and chunky riveted brass/iron, an expressive small Greatfather Winter carved face medallion with wide white beard and red winter cap, deep-red fur-trim cloth, tied wooden gift crates and a small brass toy cog. Add one modest carved reindeer-antler detail recalling Metzen. Exaggerated sturdy Azeroth prop shapes, cozy warm tan wood and crimson red with sparse pine-green accents; avoid an elegant generic Christmas wreath.\nStyle/medium: original hand-painted Warcraft game UI art, chunky low-poly-inspired sculpted shapes, broad painted color planes, exaggerated bevels, brushy highlights and strong readable dark contours, rich but matte materials. Belongs beside classic World of Warcraft in-game props. No photorealism, no PBR gloss, no tiny baroque filigree, no flat vector cartoon.\nComposition: wide 2:1 transparent atlas with TWO matching C-shaped portrait surrounds SIDE BY SIDE, same scale and layout as reference. Each frame has ornament at top and left and below, a perfectly transparent round portrait hole in lower-right portion, and an OPEN RIGHT EDGE connecting to horizontal health bars. Both C shapes face right, do not mirror. Each motif stays outside the portrait aperture. Keep clear outer margins; whole artwork visible.\nConstraints: true alpha transparency outside and inside the surrounds, no painted checkerboard, no character filling either portrait hole, no letters, no logos, no watermark, no UI screenshots. Border artwork only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Portraits/faction_neutral.png",
+          "sha256": "1f33c2e2db054ff1f62989317368b571086ac907c6ce479cc643b78b9f406b0a",
+          "role": "geometry reference"
+        }
+      ]
+    },
+    {
+      "id": "hallows_end-frame",
+      "set": "hallows_end",
+      "component": "frame",
+      "original": "artwork/seasonal/warcraft-events-v1/hallows_end-frame.png",
+      "sha256": "736f74db4c3d32f738ef04c01f240308f4947914f777df62e3ca849dafa5992d",
+      "prompt": "Use case: stylized-concept.\nAsset type: production transparent frame surround for Frostforge WoW addon.\nPrimary request: NEW matching Hallow's End event-themed artwork.\nInput image 1: GEOMETRY reference; preserve its functional structure and negative space, completely replace neutral expedition motifs.\nInput image 2: STYLE AND MOTIF reference from this same new set. Match its painting, materials, colors, recognizable crest and chunky bevels, adapting placement for this component; do NOT copy portrait layout.\nSubject: World of Warcraft Hallow's End event: the Headless Horseman's chunky blackened iron plate armor, angular orange Hallowed Helm jack-o-lantern crest with restrained spectral GREEN fire, weathered Scarlet Monastery graveyard stone, a little bound wicker/rope and torn deep-purple cloth. Broad oversized plate bevels and rivets. This is a Horseman and wicker design, dark and martial; pumpkin orange only as the small crest accent, green supernatural flame only on outer silhouette.\nStyle/medium: original hand-painted Warcraft game UI art, chunky low-poly-inspired sculpted shapes, broad painted color planes, exaggerated bevels, brushy highlights and strong readable dark contours, rich but matte materials. Belongs beside classic World of Warcraft in-game props. No photorealism, no PBR gloss, no tiny baroque filigree, no flat vector cartoon.\nComposition: Wide 2:1 single unit-frame shell. Match reference geometry: TWO long parallel completely transparent rectangular slots, health above (about x16\u201379%, y40\u201354%) and thinner power below (about y59\u201365%). Thin top rail, thin shared divider and sturdy bottom rail, elaborate end caps OUTSIDE openings. Aligned rectangular slots at least 60% canvas width. Large central bar area remains open, no interior glow, vines or ribbons. Decoration above rail or hanging below bottom rail; keep center upper/lower slots empty. Outer margin all sides. No portrait ring.\nConstraints: real alpha transparency outside artwork AND functional opening(s); no checkerboard, backdrop, characters in holes, text, logos, watermarks, screenshots or alternate variants. Border artwork only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/UnitFrames/faction_neutral.png",
+          "sha256": "f1aee8097b91c270682318e13a98265b4a9673759efa5907a51290880d27ee80",
+          "role": "geometry reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v1/hallows_end-portrait.png",
+          "sha256": "f6d8322087d122b10cd621d7d119db1039f9fbc9de8bbb0de71c9417255f7ae6",
+          "role": "matching event portrait style and motif reference"
+        }
+      ]
+    },
+    {
+      "id": "hallows_end-hub",
+      "set": "hallows_end",
+      "component": "hub",
+      "original": "artwork/seasonal/warcraft-events-v1/hallows_end-hub.png",
+      "sha256": "c08bea6aac0ce8d47608fd2d96ecd66f330206772efc33969df5f84e6ac606c7",
+      "prompt": "Use case: stylized-concept.\nAsset type: production transparent hub surround for Frostforge WoW addon.\nPrimary request: NEW matching Hallow's End event-themed artwork.\nInput image 1: GEOMETRY reference; preserve its functional structure and negative space, completely replace neutral expedition motifs.\nInput image 2: STYLE AND MOTIF reference from this same new set. Match its painting, materials, colors, recognizable crest and chunky bevels, adapting placement for this component; do NOT copy portrait layout.\nSubject: World of Warcraft Hallow's End event: the Headless Horseman's chunky blackened iron plate armor, angular orange Hallowed Helm jack-o-lantern crest with restrained spectral GREEN fire, weathered Scarlet Monastery graveyard stone, a little bound wicker/rope and torn deep-purple cloth. Broad oversized plate bevels and rivets. This is a Horseman and wicker design, dark and martial; pumpkin orange only as the small crest accent, green supernatural flame only on outer silhouette.\nStyle/medium: original hand-painted Warcraft game UI art, chunky low-poly-inspired sculpted shapes, broad painted color planes, exaggerated bevels, brushy highlights and strong readable dark contours, rich but matte materials. Belongs beside classic World of Warcraft in-game props. No photorealism, no PBR gloss, no tiny baroque filigree, no flat vector cartoon.\nComposition: Wide 2:1 single action-bar hub surround, open U silhouette matching reference geometry. Tall decorated end caps confined to left and right outer 28% of canvas; CENTRAL BUTTON AREA x29\u201371%, y0\u201361% must be completely transparent. One continuous nearly horizontal bottom rail spanning full width at y73\u201385%, meeting both end caps. A small central crest can hang BELOW the bottom rail, never rise into button space. Ornaments on outer ends or below bottom rail. No top crossbar; no closed rectangular box; no buttons or icons; no filled interior panel. All outer tips visible within canvas.\nConstraints: real alpha transparency outside artwork AND functional opening(s); no checkerboard, backdrop, characters in holes, text, logos, watermarks, screenshots or alternate variants. Border artwork only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Hubs/faction_neutral.png",
+          "sha256": "264ed6cb4d4e2c0452e6b0429627a80ea4b5da426a28b8f8a56860a939c924b3",
+          "role": "geometry reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v1/hallows_end-portrait.png",
+          "sha256": "f6d8322087d122b10cd621d7d119db1039f9fbc9de8bbb0de71c9417255f7ae6",
+          "role": "matching event portrait style and motif reference"
+        }
+      ]
+    },
+    {
+      "id": "hallows_end-minimap",
+      "set": "hallows_end",
+      "component": "minimap",
+      "original": "artwork/seasonal/warcraft-events-v1/hallows_end-minimap.png",
+      "sha256": "b74f459218f2a49de776b585e0d39e46faadbd6cd9f6a4400d49f7f17cb89c9c",
+      "prompt": "Use case: stylized-concept.\nAsset type: production transparent minimap surround for Frostforge WoW addon.\nPrimary request: NEW matching Hallow's End event-themed artwork.\nInput image 1: GEOMETRY reference; preserve its functional structure and negative space, completely replace neutral expedition motifs.\nInput image 2: STYLE AND MOTIF reference from this same new set. Match its painting, materials, colors, recognizable crest and chunky bevels, adapting placement for this component; do NOT copy portrait layout.\nSubject: World of Warcraft Hallow's End event: the Headless Horseman's chunky blackened iron plate armor, angular orange Hallowed Helm jack-o-lantern crest with restrained spectral GREEN fire, weathered Scarlet Monastery graveyard stone, a little bound wicker/rope and torn deep-purple cloth. Broad oversized plate bevels and rivets. This is a Horseman and wicker design, dark and martial; pumpkin orange only as the small crest accent, green supernatural flame only on outer silhouette.\nStyle/medium: original hand-painted Warcraft game UI art, chunky low-poly-inspired sculpted shapes, broad painted color planes, exaggerated bevels, brushy highlights and strong readable dark contours, rich but matte materials. Belongs beside classic World of Warcraft in-game props. No photorealism, no PBR gloss, no tiny baroque filigree, no flat vector cartoon.\nComposition: Square 1:1 single circular minimap surround with a fully continuous round inner rim. Large perfectly transparent circular hole at EXACT canvas center (50%,50%), diameter about58% of canvas; balanced thickness around circle; top crest, modest outer ornaments, whole art visible with margins. Preserve uninterrupted round map aperture, no motif reaching inside the circle, no background or map. This is a complete O ring, not the portrait's C shape.\nConstraints: real alpha transparency outside artwork AND functional opening(s); no checkerboard, backdrop, characters in holes, text, logos, watermarks, screenshots or alternate variants. Border artwork only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Minimaps/faction_neutral.png",
+          "sha256": "5f1d12aeab8c884df83ee886056a1e5c4fd683d434419e5b95c04f7966ab01ec",
+          "role": "geometry reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v1/hallows_end-portrait.png",
+          "sha256": "f6d8322087d122b10cd621d7d119db1039f9fbc9de8bbb0de71c9417255f7ae6",
+          "role": "matching event portrait style and motif reference"
+        }
+      ]
+    },
+    {
+      "id": "winter_veil-frame",
+      "set": "winter_veil",
+      "component": "frame",
+      "original": "artwork/seasonal/warcraft-events-v1/winter_veil-frame.png",
+      "sha256": "5397606407b8ef1e03863902cdcd639448e1f471497d2c4a37e4af1d7c2fc12a",
+      "prompt": "Use case: stylized-concept.\nAsset type: production transparent frame surround for Frostforge WoW addon.\nPrimary request: NEW matching Winter Veil event-themed artwork.\nInput image 1: GEOMETRY reference; preserve its functional structure and negative space, completely replace neutral expedition motifs.\nInput image 2: STYLE AND MOTIF reference from this same new set. Match its painting, materials, colors, recognizable crest and chunky bevels, adapting placement for this component; do NOT copy portrait layout.\nSubject: World of Warcraft Feast of Winter Veil event: a Smokywood Pastures gift-workshop design, warm carved timber and chunky riveted brass/iron, an expressive small Greatfather Winter carved face medallion with wide white beard and red winter cap, deep-red fur-trim cloth, tied wooden gift crates and a small brass toy cog. Add one modest carved reindeer-antler detail recalling Metzen. Exaggerated sturdy Azeroth prop shapes, cozy warm tan wood and crimson red with sparse pine-green accents; avoid an elegant generic Christmas wreath.\nStyle/medium: original hand-painted Warcraft game UI art, chunky low-poly-inspired sculpted shapes, broad painted color planes, exaggerated bevels, brushy highlights and strong readable dark contours, rich but matte materials. Belongs beside classic World of Warcraft in-game props. No photorealism, no PBR gloss, no tiny baroque filigree, no flat vector cartoon.\nComposition: Wide 2:1 single unit-frame shell. Match reference geometry: TWO long parallel completely transparent rectangular slots, health above (about x16\u201379%, y40\u201354%) and thinner power below (about y59\u201365%). Thin top rail, thin shared divider and sturdy bottom rail, elaborate end caps OUTSIDE openings. Aligned rectangular slots at least 60% canvas width. Large central bar area remains open, no interior glow, vines or ribbons. Decoration above rail or hanging below bottom rail; keep center upper/lower slots empty. Outer margin all sides. No portrait ring.\nConstraints: real alpha transparency outside artwork AND functional opening(s); no checkerboard, backdrop, characters in holes, text, logos, watermarks, screenshots or alternate variants. Border artwork only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/UnitFrames/faction_neutral.png",
+          "sha256": "f1aee8097b91c270682318e13a98265b4a9673759efa5907a51290880d27ee80",
+          "role": "geometry reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v1/winter_veil-portrait.png",
+          "sha256": "6ee90765b7849f88b21da12571926700bd2a1e88d4407fc6406dd24adebf336e",
+          "role": "matching event portrait style and motif reference"
+        }
+      ]
+    },
+    {
+      "id": "winter_veil-hub",
+      "set": "winter_veil",
+      "component": "hub",
+      "original": "artwork/seasonal/warcraft-events-v1/winter_veil-hub.png",
+      "sha256": "7ce72cd8bcf1c07c7934b379ef373e9dd066c8fc54bbd4193d5cd12521f6d1c3",
+      "prompt": "Use case: stylized-concept.\nAsset type: production transparent hub surround for Frostforge WoW addon.\nPrimary request: NEW matching Winter Veil event-themed artwork.\nInput image 1: GEOMETRY reference; preserve its functional structure and negative space, completely replace neutral expedition motifs.\nInput image 2: STYLE AND MOTIF reference from this same new set. Match its painting, materials, colors, recognizable crest and chunky bevels, adapting placement for this component; do NOT copy portrait layout.\nSubject: World of Warcraft Feast of Winter Veil event: a Smokywood Pastures gift-workshop design, warm carved timber and chunky riveted brass/iron, an expressive small Greatfather Winter carved face medallion with wide white beard and red winter cap, deep-red fur-trim cloth, tied wooden gift crates and a small brass toy cog. Add one modest carved reindeer-antler detail recalling Metzen. Exaggerated sturdy Azeroth prop shapes, cozy warm tan wood and crimson red with sparse pine-green accents; avoid an elegant generic Christmas wreath.\nStyle/medium: original hand-painted Warcraft game UI art, chunky low-poly-inspired sculpted shapes, broad painted color planes, exaggerated bevels, brushy highlights and strong readable dark contours, rich but matte materials. Belongs beside classic World of Warcraft in-game props. No photorealism, no PBR gloss, no tiny baroque filigree, no flat vector cartoon.\nComposition: Wide 2:1 single action-bar hub surround, open U silhouette matching reference geometry. Tall decorated end caps confined to left and right outer 28% of canvas; CENTRAL BUTTON AREA x29\u201371%, y0\u201361% must be completely transparent. One continuous nearly horizontal bottom rail spanning full width at y73\u201385%, meeting both end caps. A small central crest can hang BELOW the bottom rail, never rise into button space. Ornaments on outer ends or below bottom rail. No top crossbar; no closed rectangular box; no buttons or icons; no filled interior panel. All outer tips visible within canvas.\nConstraints: real alpha transparency outside artwork AND functional opening(s); no checkerboard, backdrop, characters in holes, text, logos, watermarks, screenshots or alternate variants. Border artwork only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Hubs/faction_neutral.png",
+          "sha256": "264ed6cb4d4e2c0452e6b0429627a80ea4b5da426a28b8f8a56860a939c924b3",
+          "role": "geometry reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v1/winter_veil-portrait.png",
+          "sha256": "6ee90765b7849f88b21da12571926700bd2a1e88d4407fc6406dd24adebf336e",
+          "role": "matching event portrait style and motif reference"
+        }
+      ]
+    },
+    {
+      "id": "winter_veil-minimap",
+      "set": "winter_veil",
+      "component": "minimap",
+      "original": "artwork/seasonal/warcraft-events-v1/winter_veil-minimap.png",
+      "sha256": "b698d82f2220f022b55c528f190b1c4c8fa9a1eca6a78b9837adc7fa1bfa9982",
+      "prompt": "Use case: stylized-concept.\nAsset type: production transparent minimap surround for Frostforge WoW addon.\nPrimary request: NEW matching Winter Veil event-themed artwork.\nInput image 1: GEOMETRY reference; preserve its functional structure and negative space, completely replace neutral expedition motifs.\nInput image 2: STYLE AND MOTIF reference from this same new set. Match its painting, materials, colors, recognizable crest and chunky bevels, adapting placement for this component; do NOT copy portrait layout.\nSubject: World of Warcraft Feast of Winter Veil event: a Smokywood Pastures gift-workshop design, warm carved timber and chunky riveted brass/iron, an expressive small Greatfather Winter carved face medallion with wide white beard and red winter cap, deep-red fur-trim cloth, tied wooden gift crates and a small brass toy cog. Add one modest carved reindeer-antler detail recalling Metzen. Exaggerated sturdy Azeroth prop shapes, cozy warm tan wood and crimson red with sparse pine-green accents; avoid an elegant generic Christmas wreath.\nStyle/medium: original hand-painted Warcraft game UI art, chunky low-poly-inspired sculpted shapes, broad painted color planes, exaggerated bevels, brushy highlights and strong readable dark contours, rich but matte materials. Belongs beside classic World of Warcraft in-game props. No photorealism, no PBR gloss, no tiny baroque filigree, no flat vector cartoon.\nComposition: Square 1:1 single circular minimap surround with a fully continuous round inner rim. Large perfectly transparent circular hole at EXACT canvas center (50%,50%), diameter about58% of canvas; balanced thickness around circle; top crest, modest outer ornaments, whole art visible with margins. Preserve uninterrupted round map aperture, no motif reaching inside the circle, no background or map. This is a complete O ring, not the portrait's C shape.\nConstraints: real alpha transparency outside artwork AND functional opening(s); no checkerboard, backdrop, characters in holes, text, logos, watermarks, screenshots or alternate variants. Border artwork only.",
+      "references": [
+        {
+          "file": "Frostforge/Media/Minimaps/faction_neutral.png",
+          "sha256": "5f1d12aeab8c884df83ee886056a1e5c4fd683d434419e5b95c04f7966ab01ec",
+          "role": "geometry reference"
+        },
+        {
+          "file": "artwork/seasonal/warcraft-events-v1/winter_veil-portrait.png",
+          "sha256": "6ee90765b7849f88b21da12571926700bd2a1e88d4407fc6406dd24adebf336e",
+          "role": "matching event portrait style and motif reference"
+        }
+      ]
+    }
+  ]
+}
