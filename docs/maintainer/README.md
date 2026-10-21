@@ -13,7 +13,7 @@ python3 tools/package.py
 python3 tools/check.py --packages
 ```
 
-Upload the appropriate client ZIP from `dist/`. Each contains one `Frostforge/` folder: active Lua, the TOC, all 298 runtime textures, an install readme and credits. The [CI workflow](../../.github/workflows/validate.yml) also checks the cast preview.
+Upload the appropriate client ZIP from `dist/`. Each contains one `Frostforge/` folder: active Lua, the TOC, all 318 runtime textures, an install readme and credits. The [CI workflow](../../.github/workflows/validate.yml) also checks the cast preview.
 
 Preserve saved settings, combat deferral and provider ownership. Decorations must not capture input or change gameplay. Keep changes scoped; report automated checks separately from [in-game checks](VALIDATION.md).
 

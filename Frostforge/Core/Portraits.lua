@@ -5,6 +5,8 @@ J.Portraits = P
 J.Core.properties.portraitMode = {CLASS=true,RACE=true,FACTION=true,FIXED=true}
 J.Core.properties.portrait = {}
 for id in pairs(J.PortraitCatalog.entries) do J.Core.properties.portrait[id] = true end
+J.Core.properties.npcArtwork = {boolean=true}
+J.Core.propertyOrder[#J.Core.propertyOrder+1] = "npcArtwork"
 
 function P:IsUnitKey(key)
     return key == "playerFrame" or key == "targetFrame" or key == "focusFrame"
@@ -106,16 +108,43 @@ function P:NPCCity(unit)
     return id
 end
 
+function P:CreatureArtwork(unit)
+    if publicCall(UnitPlayerControlled,unit)~=false or type(UnitCreatureType)~="function" then return end
+    local ok,name,typeID=pcall(UnitCreatureType,unit)
+    if not ok then return end
+    -- The numeric ID is independent of client language. Never use restricted
+    -- values as table keys, or infer identity from names/health/reaction.
+    if not J.Core:IsSafe(typeID) or not J.Core:IsSafe(name) then return end
+    if J.Core:IsNumber(typeID) then return J.PortraitCatalog.creatures[typeID] end
+    if type(name)~="string" then return end
+    -- Older clients may return only the localized label. Resolve exact client
+    -- names when available, with English labels as a conservative fallback.
+    if not self.creatureNames then
+        self.creatureNames={}
+        for id,artwork in pairs(J.PortraitCatalog.creatures) do
+            local entry=J.PortraitCatalog.entries[artwork]
+            self.creatureNames[entry.label]=artwork
+            local info=publicCall(field(C_CreatureInfo,"GetCreatureTypeInfo"),id)
+            local localized=field(info,"name")
+            if type(localized)=="string" then self.creatureNames[localized]=artwork end
+        end
+    end
+    return self.creatureNames[name]
+end
+
 function P:Resolve(config)
     local id
     if config.portraitMode == "FIXED" then
         id = config.portrait
     else
         local player=publicCall(UnitIsPlayer,config.unit)
-        if player==false then id=self:NPCCity(config.unit) end
+        if player==false then
+            id=self:NPCCity(config.unit)
+            if not id and config.npcArtwork~=false then id=self:CreatureArtwork(config.unit) end
+        end
         if not id and config.portraitMode == "CLASS" then
             -- NPC UnitClass commonly returns WARRIOR regardless of appearance.
-            -- Unrecognized NPC affiliations keep the neutral fallback.
+            -- Unknown creature types keep the neutral fallback.
             if player == true then
                 local value = token(UnitClass,config.unit,2)
                 if value then id = J.PortraitCatalog.classes[value] end

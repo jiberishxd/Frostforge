@@ -304,6 +304,11 @@ M.unitData = {
 function UnitExists(unit) return M.unitData[unit]~=nil end
 function UnitIsPlayer(unit) return M.unitData[unit] and M.unitData[unit].player end
 function UnitClass(unit) return "localized",M.unitData[unit] and M.unitData[unit].class end
+function UnitCreatureType(unit)
+    local data=M.unitData[unit] or {}
+    return data.creatureType,data.creatureTypeID
+end
+C_CreatureInfo=nil
 function UnitRace(unit) return "localized",M.unitData[unit] and M.unitData[unit].race end
 function UnitFactionGroup(unit) return M.unitData[unit] and M.unitData[unit].faction end
 function UnitGUID(unit) return M.unitData[unit] and M.unitData[unit].guid end

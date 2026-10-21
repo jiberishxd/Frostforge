@@ -178,7 +178,7 @@ for _,key in ipairs({"playerFrame","targetFrame","focusFrame"}) do
             count=count+1
             if b:IsShown() then assert(b.image.path==J.UnitSkinCatalog.entries[id].shell) end
         end
-        assert(count==42 and S.unitPicker:IsVisible())
+        assert(count==52 and S.unitPicker:IsVisible())
         S:ShowCollection("unit","RACE",1);S.unitPicker.search:SetText("Night Elf")
         local b=S.unitButtons.RACE_NIGHTELF
         assert(b:IsVisible() and b.image.w==156 and b.image.h==78)

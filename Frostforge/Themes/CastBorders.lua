@@ -51,3 +51,8 @@ for id, inset in pairs(insets) do
     J.CastBorderFitLimits[1] = math.max(J.CastBorderFitLimits[1],inset[1]+inset[3])
     J.CastBorderFitLimits[2] = math.max(J.CastBorderFitLimits[2],inset[2]+inset[4])
 end
+
+-- Creature portraits/shells reuse an existing matching cast trim and its fit.
+for _,entry in pairs(J.UnitSkinCatalog.entries) do
+    if entry.castTheme then entry.castInsets=J.UnitSkinCatalog.entries[entry.castTheme].castInsets end
+end

@@ -206,9 +206,12 @@ function S:CreateCollection(kind)
     backdrop(p,"outer");text(p,spec.title,24,-22,650,"GameFontNormalLarge")
     button(p,"X",714,-18,28,function() p:Hide() end)
     self[spec.groups]={}
-    for i,entry in ipairs({{"CLASS","Classes"},{"RACE","Races"},{"FACTION","Factions"}}) do
+    local groups={{"CLASS","Classes"},{"RACE","Races"},{"FACTION","Factions"}}
+    if kind=="portrait" or kind=="unit" then groups[#groups+1]={"CREATURE","Creatures"} end
+    local groupWidth=732/#groups
+    for i,entry in ipairs(groups) do
         local group=entry[1]
-        self[spec.groups][group]=button(p,entry[2],24+(i-1)*244,-64,232,function() self:ShowCollection(kind,group) end)
+        self[spec.groups][group]=button(p,entry[2],24+(i-1)*groupWidth,-64,groupWidth-12,function() self:ShowCollection(kind,group) end)
     end
     text(p,"Find artwork",24,-115,90,"GameFontNormalSmall")
     p.search=CreateFrame("EditBox",nil,p,"BackdropTemplate")
@@ -223,6 +226,7 @@ function S:CreateCollection(kind)
     p.empty=text(p,"No matching artwork in this collection. Try another name or category.",24,-170,716)
     self[spec.buttons]={}
     for id,entry in pairs(J[spec.catalog].entries) do
+        if entry.group~="CREATURE" or kind=="portrait" or kind=="unit" then
         local choice=id
         local b=button(p,"",0,0,168,function()
             p:Hide();self:Set(spec.property,choice);if spec.mode then self:Set(spec.mode,"FIXED") end
@@ -235,6 +239,7 @@ function S:CreateCollection(kind)
         if kind=="portrait" then b.image:SetTexCoord(0,.5,0,1) end
         local caption=text(b,entry.label,6,-86,156);caption:SetJustifyH("CENTER")
         self[spec.buttons][id]=b
+        end
     end
     p.hint=text(p,"",24,-536,716)
     p.previous=button(p,"Previous",24,-566,144,function() self:ShowCollection(kind,self[spec.group],self[spec.page]-1) end)
@@ -820,6 +825,10 @@ function S:Create()
     self.minimapCaption=text(a,"Artwork collection",414,-102,236,"GameFontNormal")
     self.minimapButton=button(a,"Browse artwork",414,-124,236,function() self:HideMenus();self:ShowMinimapGroup(self.minimapGroup or "CLASS",self.minimapPage);self.minimapPicker:Show() end)
     self.modeHelp=text(a,"",154,-166,496)
+    self.npcArtworkToggle=toggle(a,"Match NPC creature types",346,-220,318,function()
+        self:Set("npcArtwork",not J.ThemeManager:Resolve(self.selected).npcArtwork)
+    end)
+    self.npcArtworkHelp=text(a,"City art and fixed choices take priority.",376,-258,288,"GameFontNormalSmall")
     self:Dropdown("portraitSource","Portrait provider",portraitSources,0,-282,a)
     self:Dropdown("smallPortraitSource","Portrait provider",hubSources,0,-282,a)
     self:Dropdown("hubSource","Action bar provider",hubSources,0,-236,a)
@@ -983,6 +992,9 @@ function S:Refresh()
     self.hubCaption:SetShown(hub);self.hubButton:SetShown(hub)
     self.controls.portraitMode.button:SetShown(unit);self.controls.portraitMode.label:SetShown(unit)
     self.portraitCaption:SetShown(unit);self.portraitButton:SetShown(unit)
+    local creatureOptions=self.selected=="targetFrame" or self.selected=="focusFrame"
+    self.npcArtworkToggle:SetShown(creatureOptions);self.npcArtworkToggle:SetChecked(config.npcArtwork)
+    self.npcArtworkHelp:SetShown(creatureOptions);self.modeHelp:SetShown(not creatureOptions)
     self.genericPreviewPanel:SetShown(not unit);self.genericChoicePanel:SetShown(not unit)
     self.portraitCard:SetShown(unit);self.unitCard:SetShown(unit)
     self.unitPreview:SetShown(unit);self.unitCaption:SetShown(unit);self.unitBrowse:SetShown(unit)
@@ -1004,7 +1016,7 @@ function S:Refresh()
         self.sourceStatus:SetText("|cff9edfffPortrait:|r "..portrait.."\n|cff9edfffUnit frame:|r "..frame)
         self.providerHelp:SetText("Full shells fit Blizzard, ElvUI and Ellesmere: horizontal health with full-width power below. No power keeps a dark empty opening.")
         self.placementHelp:SetText("Offsets move only the decoration. Use your UI addon's settings to move the portrait or health bars themselves.")
-        self.guideHelp:SetText("|cff9edfffArtwork missing?|r Target a unit, check its artwork toggle and provider, and enable portraits in that provider.\n|cff9edfffWrong NPC theme?|r Browse for a fixed design to override automatic matching.")
+        self.guideHelp:SetText("|cff9edfffArtwork missing?|r Target a unit, check its artwork toggle and provider, and enable portraits in that provider.\n|cff9edfffWrong NPC theme?|r Creature matching follows the NPC type. City affiliations take priority. Browse Creatures for a fixed design.")
         if small then
             local group=J.SmallFrames.groups[self.selected]
             local borderID=config.smallFrameArt=="MATCH" and id or config.smallFrameArt

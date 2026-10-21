@@ -28,6 +28,7 @@ end
 local function supported(key,property)
     if J.SmallFrames:IsKey(key) then return J.SmallFrames:Supports(property) end
     if J.SmallFrames.properties[property] then return false end
+    if property=="npcArtwork" then return J.Portraits:IsUnitKey(key) end
     if J.BlizzardUnits.placementProperties[property] then return key=="targetFrame" or key=="focusFrame" end
     if J.BlizzardUnits.textProperties[property] then return J.Portraits:IsUnitKey(key) end
     if J.BlizzardUnits.styleProperties[property] then return J.Portraits:IsUnitKey(key) end
