@@ -2702,22 +2702,22 @@
   {
     "id": "seasonal_hallows_end",
     "fit_version": 3,
-    "source": "artwork/seasonal/warcraft-events-v4/hallows_end-frame.png",
-    "source_sha256": "d522a0e08fd7fc3fe05ce97da5c92452959c95f5e7de94805d2cbd534c436ca9",
-    "file": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_hallows_end.png",
-    "sha256": "936373faad9e3a5cf61eeac3d2da688ae925a7c6be3f5c2f7f8a3e9c9c0f0d91",
+    "source": "artwork/seasonal/warcraft-events-v5/hallows_end-frame.png",
+    "source_sha256": "864dcc4f4a3fdc9bfd90d3c274a57126b1d09f4357626965982ac8cf6a1a94b6",
+    "file": "artwork/seasonal/warcraft-events-v5/fitted/UnitFrames/seasonal_hallows_end.png",
+    "sha256": "c726f4cd507ea5cfc8a955a6b466f70ac792d614869d157ee0e9fb9ed41428c3",
     "measured": {
       "health": [
-        242,
-        444,
-        1571,
-        516
+        351,
+        465,
+        1498,
+        550
       ],
       "power": [
-        242,
-        547,
-        1571,
-        565
+        351,
+        586,
+        1498,
+        613
       ],
       "scale": [
         0.27959413754227735,
@@ -2734,18 +2734,18 @@
         ],
         "margin": 4,
         "health": [
-          75.66178128523111,
-          128.13979706877114,
-          447.2423900789177,
-          148.2705749718151
+          106.13754227733935,
+          134.01127395715895,
+          426.83201803833146,
+          157.77677564825254
         ],
         "power": [
-          75.66178128523111,
-          156.9379932356257,
-          447.2423900789177,
-          161.9706877113867
+          106.13754227733935,
+          167.84216459977452,
+          426.83201803833146,
+          175.391206313416
         ],
-        "divider": 8.667418263810589
+        "divider": 10.065388951521982
       },
       "encoded_alpha_floor": 8
     }
@@ -2853,9 +2853,9 @@
   {
     "id": "seasonal_winter_veil",
     "fit_version": 3,
-    "source": "artwork/seasonal/warcraft-events-v4/winter_veil-frame.png",
+    "source": "artwork/seasonal/warcraft-events-v5/winter_veil-frame.png",
     "source_sha256": "28644d63b69503c710de36abe3b0095403c55a2b4dfcfecdca9782d97fabe5f8",
-    "file": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_winter_veil.png",
+    "file": "artwork/seasonal/warcraft-events-v5/fitted/UnitFrames/seasonal_winter_veil.png",
     "sha256": "ec8e6310fc5b122380cadeeba8a6c465d7ee8094da31b894b33e37ccd257ed5c",
     "measured": {
       "health": [
@@ -2903,9 +2903,9 @@
   {
     "id": "seasonal_winter_veil_horde",
     "fit_version": 3,
-    "source": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-frame.png",
+    "source": "artwork/seasonal/warcraft-events-v5/winter_veil_horde-frame.png",
     "source_sha256": "97d94bf684de2c58f39cd64ac063c9dec63f9c717fea1ee122fc4046f095deed",
-    "file": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_winter_veil_horde.png",
+    "file": "artwork/seasonal/warcraft-events-v5/fitted/UnitFrames/seasonal_winter_veil_horde.png",
     "sha256": "f7a51eb2b8cffd2d68822c8c4e1926cec282b3756b69e9e65840e6aa1e0da96f",
     "measured": {
       "health": [

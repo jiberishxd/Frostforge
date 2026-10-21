@@ -20323,14 +20323,14 @@
     },
     {
       "file": "Frostforge/Media/Portraits/seasonal_hallows_end.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/Portraits/seasonal_hallows_end.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/Portraits/seasonal_hallows_end.png",
       "size": [
         512,
         256
       ],
       "sha256": "da813f09557ca220f96f328805f7c80c1e0606a5f41ecf75decde7d0d8f1a878",
       "source_sha256": "da813f09557ca220f96f328805f7c80c1e0606a5f41ecf75decde7d0d8f1a878",
-      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-portrait.png",
+      "original": "artwork/seasonal/warcraft-events-v5/hallows_end-portrait.png",
       "original_sha256": "002013354e8a5a3e042b1ec8a2250199457c90c779d9e08b6371854ecf1c51e8",
       "legacy_tga_sha256": "cb8ed007fc7c9eff37b6f89334eac43beec3ce9503f807ba9b2622e41a4f3a9f",
       "alphaBounds": [
@@ -20403,21 +20403,21 @@
     },
     {
       "file": "Frostforge/Media/UnitFrames/seasonal_hallows_end.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_hallows_end.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/UnitFrames/seasonal_hallows_end.png",
       "size": [
         512,
         256
       ],
-      "sha256": "936373faad9e3a5cf61eeac3d2da688ae925a7c6be3f5c2f7f8a3e9c9c0f0d91",
-      "source_sha256": "936373faad9e3a5cf61eeac3d2da688ae925a7c6be3f5c2f7f8a3e9c9c0f0d91",
-      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-frame.png",
-      "original_sha256": "d522a0e08fd7fc3fe05ce97da5c92452959c95f5e7de94805d2cbd534c436ca9",
-      "legacy_tga_sha256": "9da46994c063de8924d7589e48b9bdcf24fe9b616e0b2468254a4a354520aeb6",
+      "sha256": "c726f4cd507ea5cfc8a955a6b466f70ac792d614869d157ee0e9fb9ed41428c3",
+      "source_sha256": "c726f4cd507ea5cfc8a955a6b466f70ac792d614869d157ee0e9fb9ed41428c3",
+      "original": "artwork/seasonal/warcraft-events-v5/hallows_end-frame.png",
+      "original_sha256": "864dcc4f4a3fdc9bfd90d3c274a57126b1d09f4357626965982ac8cf6a1a94b6",
+      "legacy_tga_sha256": "5334f6f7388f34803f274131bfaed38311384ed1baa61c5bfd64e7a0d71f4b73",
       "alphaBounds": [
-        21,
-        88,
-        490,
-        193
+        17,
+        76,
+        497,
+        222
       ],
       "in_game_qualified": false,
       "kind": "unit-shell",
@@ -20428,36 +20428,36 @@
         ],
         "margin": 4,
         "health": [
-          75.66178128523111,
-          128.13979706877114,
-          447.2423900789177,
-          148.2705749718151
+          106.13754227733935,
+          134.01127395715895,
+          426.83201803833146,
+          157.77677564825254
         ],
         "power": [
-          75.66178128523111,
-          156.9379932356257,
-          447.2423900789177,
-          161.9706877113867
+          106.13754227733935,
+          167.84216459977452,
+          426.83201803833146,
+          175.391206313416
         ],
-        "divider": 8.667418263810589
+        "divider": 10.065388951521982
       },
       "references": [
         {
-          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
-          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+          "file": "artwork/seasonal/warcraft-events-v5/generation-prompts.json",
+          "sha256": "b2ebfb9b1a1473c35808313b13be91d15837ad078fc2fc330683c5be35969486"
         }
       ]
     },
     {
       "file": "Frostforge/Media/Hubs/seasonal_hallows_end.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/Hubs/seasonal_hallows_end.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/Hubs/seasonal_hallows_end.png",
       "size": [
         1024,
         512
       ],
       "sha256": "fd96bf086116e14b1ad363aed4941a6864abed7e831d822b7ca77244fb865b32",
       "source_sha256": "fd96bf086116e14b1ad363aed4941a6864abed7e831d822b7ca77244fb865b32",
-      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-hub.png",
+      "original": "artwork/seasonal/warcraft-events-v5/hallows_end-hub.png",
       "original_sha256": "6792ec4a962a4b4697fcc4f4359155e038142589ab09ecd66f88e464dd3f87dc",
       "legacy_tga_sha256": "887617bbc697fd2e8ad2a6ff141da94a7ccaf898ab2cda86a3405f8b4acadd6a",
       "alphaBounds": [
@@ -20540,14 +20540,14 @@
     },
     {
       "file": "Frostforge/Media/Minimaps/seasonal_hallows_end.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/Minimaps/seasonal_hallows_end.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/Minimaps/seasonal_hallows_end.png",
       "size": [
         512,
         512
       ],
       "sha256": "cd102f338b7119e24bf9e4278a6840a58ca3e5686786169badaa83650a03faa8",
       "source_sha256": "cd102f338b7119e24bf9e4278a6840a58ca3e5686786169badaa83650a03faa8",
-      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-minimap.png",
+      "original": "artwork/seasonal/warcraft-events-v5/hallows_end-minimap.png",
       "original_sha256": "d0970aceb0bbf618b804a623932c6c10634ea169ae2fea717645a52797a732f0",
       "legacy_tga_sha256": "2cf35549d8b61caab5a008d07875f0d79469ec1a2f5cff42038d6b6d6333b91e",
       "alphaBounds": [
@@ -20580,8 +20580,8 @@
       ],
       "references": [
         {
-          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
-          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+          "file": "artwork/seasonal/warcraft-events-v5/generation-prompts.json",
+          "sha256": "b2ebfb9b1a1473c35808313b13be91d15837ad078fc2fc330683c5be35969486"
         }
       ],
       "clear_points": [
@@ -21123,14 +21123,14 @@
     },
     {
       "file": "Frostforge/Media/Portraits/seasonal_winter_veil.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/Portraits/seasonal_winter_veil.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/Portraits/seasonal_winter_veil.png",
       "size": [
         512,
         256
       ],
       "sha256": "7cebd422bcd7bb4441f52a66ac3a267014814250c0e647aaa9e76cc444d8cbbd",
       "source_sha256": "7cebd422bcd7bb4441f52a66ac3a267014814250c0e647aaa9e76cc444d8cbbd",
-      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-portrait.png",
+      "original": "artwork/seasonal/warcraft-events-v5/winter_veil-portrait.png",
       "original_sha256": "eeb1b2c05e112bd8b854ad1dcc5d0b73c0e9f6a195ad30b141fe4a9bdb665cea",
       "legacy_tga_sha256": "9a8e5c3095d5d9c8c72d74a60b25c4d07b610a8bbe9e9d156887a9e567b793a8",
       "alphaBounds": [
@@ -21203,14 +21203,14 @@
     },
     {
       "file": "Frostforge/Media/UnitFrames/seasonal_winter_veil.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_winter_veil.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/UnitFrames/seasonal_winter_veil.png",
       "size": [
         512,
         256
       ],
       "sha256": "ec8e6310fc5b122380cadeeba8a6c465d7ee8094da31b894b33e37ccd257ed5c",
       "source_sha256": "ec8e6310fc5b122380cadeeba8a6c465d7ee8094da31b894b33e37ccd257ed5c",
-      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-frame.png",
+      "original": "artwork/seasonal/warcraft-events-v5/winter_veil-frame.png",
       "original_sha256": "28644d63b69503c710de36abe3b0095403c55a2b4dfcfecdca9782d97fabe5f8",
       "legacy_tga_sha256": "ac799b4cdbcaf9d2b0468d011ce06b30d25b2ab238879a40a554d8d92d791bf5",
       "alphaBounds": [
@@ -21243,21 +21243,21 @@
       },
       "references": [
         {
-          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
-          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+          "file": "artwork/seasonal/warcraft-events-v5/generation-prompts.json",
+          "sha256": "b2ebfb9b1a1473c35808313b13be91d15837ad078fc2fc330683c5be35969486"
         }
       ]
     },
     {
       "file": "Frostforge/Media/Hubs/seasonal_winter_veil.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/Hubs/seasonal_winter_veil.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/Hubs/seasonal_winter_veil.png",
       "size": [
         1024,
         512
       ],
       "sha256": "2eec19fd1edcf22841226b8171cac93bc8df58683928ae0c74afe57eed642f39",
       "source_sha256": "2eec19fd1edcf22841226b8171cac93bc8df58683928ae0c74afe57eed642f39",
-      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-hub.png",
+      "original": "artwork/seasonal/warcraft-events-v5/winter_veil-hub.png",
       "original_sha256": "be44a5ae8ca790b49a8db0da9daae93f9dc7b3ad49f54c77af50445b59d5d1ae",
       "legacy_tga_sha256": "eb88e0d5f688e9bfd25a351af71c9939e79c9396d237949f6776e3af4ed377f4",
       "alphaBounds": [
@@ -21340,14 +21340,14 @@
     },
     {
       "file": "Frostforge/Media/Minimaps/seasonal_winter_veil.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/Minimaps/seasonal_winter_veil.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/Minimaps/seasonal_winter_veil.png",
       "size": [
         512,
         512
       ],
       "sha256": "4f325c523f1010e5278a2e3023a309cd131eaaab9135bb0a115c75e133311bef",
       "source_sha256": "4f325c523f1010e5278a2e3023a309cd131eaaab9135bb0a115c75e133311bef",
-      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-minimap.png",
+      "original": "artwork/seasonal/warcraft-events-v5/winter_veil-minimap.png",
       "original_sha256": "0b7fbb4a0787759212b06b3e6301d3fa40927943967f43acf34aaab1ef2c4465",
       "legacy_tga_sha256": "9da3a7aacd90b0adacb110fd81e4c7b3301a193c4e252a52d5a4475264271f9c",
       "alphaBounds": [
@@ -21380,8 +21380,8 @@
       ],
       "references": [
         {
-          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
-          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+          "file": "artwork/seasonal/warcraft-events-v5/generation-prompts.json",
+          "sha256": "b2ebfb9b1a1473c35808313b13be91d15837ad078fc2fc330683c5be35969486"
         }
       ],
       "clear_points": [
@@ -21415,14 +21415,14 @@
     },
     {
       "file": "Frostforge/Media/Portraits/seasonal_winter_veil_horde.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/Portraits/seasonal_winter_veil_horde.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/Portraits/seasonal_winter_veil_horde.png",
       "size": [
         512,
         256
       ],
       "sha256": "fa46d53626802de501ea054fb2f1b7137fde67300e6dba0b33a94eec3b3a6fce",
       "source_sha256": "fa46d53626802de501ea054fb2f1b7137fde67300e6dba0b33a94eec3b3a6fce",
-      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-portrait.png",
+      "original": "artwork/seasonal/warcraft-events-v5/winter_veil_horde-portrait.png",
       "original_sha256": "85ae7af91bbd3841568efb53b3d988fb88914e23bfe7b39f41809840e0651c4f",
       "legacy_tga_sha256": "1fe018039094e94f6ec6d8a4f588d2f83acd0dbf5d5a42b05fd868f66e1875cc",
       "alphaBounds": [
@@ -21495,14 +21495,14 @@
     },
     {
       "file": "Frostforge/Media/UnitFrames/seasonal_winter_veil_horde.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_winter_veil_horde.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/UnitFrames/seasonal_winter_veil_horde.png",
       "size": [
         512,
         256
       ],
       "sha256": "f7a51eb2b8cffd2d68822c8c4e1926cec282b3756b69e9e65840e6aa1e0da96f",
       "source_sha256": "f7a51eb2b8cffd2d68822c8c4e1926cec282b3756b69e9e65840e6aa1e0da96f",
-      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-frame.png",
+      "original": "artwork/seasonal/warcraft-events-v5/winter_veil_horde-frame.png",
       "original_sha256": "97d94bf684de2c58f39cd64ac063c9dec63f9c717fea1ee122fc4046f095deed",
       "legacy_tga_sha256": "73d2898f42c4d1f53b42ba1ea935999b11049e1fec8fa40b80c3c7fc0440d2da",
       "alphaBounds": [
@@ -21535,21 +21535,21 @@
       },
       "references": [
         {
-          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
-          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+          "file": "artwork/seasonal/warcraft-events-v5/generation-prompts.json",
+          "sha256": "b2ebfb9b1a1473c35808313b13be91d15837ad078fc2fc330683c5be35969486"
         }
       ]
     },
     {
       "file": "Frostforge/Media/Hubs/seasonal_winter_veil_horde.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/Hubs/seasonal_winter_veil_horde.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/Hubs/seasonal_winter_veil_horde.png",
       "size": [
         1024,
         512
       ],
       "sha256": "42a905e67674cc61862d466c34b6b2b9174fdf1e91f5ee488d6129c296ae3dfb",
       "source_sha256": "42a905e67674cc61862d466c34b6b2b9174fdf1e91f5ee488d6129c296ae3dfb",
-      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-hub.png",
+      "original": "artwork/seasonal/warcraft-events-v5/winter_veil_horde-hub.png",
       "original_sha256": "34ad74ab61ba0bc444f307ffe3b10db7cd0ec3327915a2e44d5d9bd75f398379",
       "legacy_tga_sha256": "cea2d16293b6f731713a62e931f5a2b41e0a2041bfef45d155e22d93fb4917ab",
       "alphaBounds": [
@@ -21632,14 +21632,14 @@
     },
     {
       "file": "Frostforge/Media/Minimaps/seasonal_winter_veil_horde.png",
-      "source": "artwork/seasonal/warcraft-events-v4/fitted/Minimaps/seasonal_winter_veil_horde.png",
+      "source": "artwork/seasonal/warcraft-events-v5/fitted/Minimaps/seasonal_winter_veil_horde.png",
       "size": [
         512,
         512
       ],
       "sha256": "9a3d1b636ff1b2a088787684ae270d7888c4e51067d6b428e38b8b6ad88c7eb1",
       "source_sha256": "9a3d1b636ff1b2a088787684ae270d7888c4e51067d6b428e38b8b6ad88c7eb1",
-      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-minimap.png",
+      "original": "artwork/seasonal/warcraft-events-v5/winter_veil_horde-minimap.png",
       "original_sha256": "efaa5c3543fc7774668f405c4c57f747393a0d6b531b9d3eb39a44230016e2f2",
       "legacy_tga_sha256": "06a2b946607ed65d9ef4238d85e8a9220f2ea8c2c166882624bba30106da8f48",
       "alphaBounds": [
@@ -21672,8 +21672,8 @@
       ],
       "references": [
         {
-          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
-          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+          "file": "artwork/seasonal/warcraft-events-v5/generation-prompts.json",
+          "sha256": "b2ebfb9b1a1473c35808313b13be91d15837ad078fc2fc330683c5be35969486"
         }
       ],
       "clear_points": [
