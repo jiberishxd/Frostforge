@@ -34,6 +34,57 @@ Winter Veil uses the in-game dwarf Greatfather Winter for Alliance and the orc G
 
 The event sets draw on Blizzard’s [Hallow’s End](https://news.blizzard.com/en-gb/article/22548002/the-horseman-rides-hallows-end-is-nigh) and [Feast of Winter Veil](https://news.blizzard.com/en-us/article/24249604/the-festive-feast-of-winter-veil-is-now-live) descriptions. Their chunky painted armor, timber and holiday props are original fan-made compositions for Frostforge.
 
-![Seven seasonal artwork options](images/seasonal-collection.png)
+![Seven seasonal artwork options on a black background](images/seasonal/seasonal-collection.jpg)
 
-*Fitted runtime artwork preview. Each row includes a portrait surround, unit-frame shell, action hub and minimap; live-client review is still required.*
+*Actual addon artwork arranged for the gallery, with its intended proportions preserved. These are artwork previews, not in-game screenshots.*
+
+Open a set below to see its full showcase image.
+
+<details>
+<summary>Harvest Hollow</summary>
+
+![Harvest Hollow: portrait, unit frame, minimap and action hub](images/seasonal/seasonal-harvest-hollow.jpg)
+
+</details>
+
+<details>
+<summary>Witching Hour</summary>
+
+![Witching Hour: portrait, unit frame, minimap and action hub](images/seasonal/seasonal-witching-hour.jpg)
+
+</details>
+
+<details>
+<summary>Hallow’s End</summary>
+
+![Hallow’s End: portrait, unit frame, minimap and action hub](images/seasonal/seasonal-hallows-end.jpg)
+
+</details>
+
+<details>
+<summary>Holly Hearth</summary>
+
+![Holly Hearth: portrait, unit frame, minimap and action hub](images/seasonal/seasonal-holly-hearth.jpg)
+
+</details>
+
+<details>
+<summary>Winter Starlight</summary>
+
+![Winter Starlight: portrait, unit frame, minimap and action hub](images/seasonal/seasonal-winter-starlight.jpg)
+
+</details>
+
+<details>
+<summary>Winter Veil: Alliance</summary>
+
+![Winter Veil Alliance: portrait, unit frame, minimap and action hub](images/seasonal/seasonal-winter-veil.jpg)
+
+</details>
+
+<details>
+<summary>Winter Veil: Horde</summary>
+
+![Winter Veil Horde: portrait, unit frame, minimap and action hub](images/seasonal/seasonal-winter-veil-horde.jpg)
+
+</details>
