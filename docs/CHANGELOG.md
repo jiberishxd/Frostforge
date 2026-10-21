@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.0.3
 
 - Updated the Hallow’s End unit frame with fuller Horseman armor, a more visible sword and richer cloth details.
 - Made the Horseman clearly headless in the matching portrait and minimap artwork.
