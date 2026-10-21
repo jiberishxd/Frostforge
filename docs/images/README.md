@@ -14,3 +14,19 @@ The composition tool uses existing images only; it does not generate or replace 
 `blizzard-controls.jpg` shows the actual exported stock portrait/name controls and the stock-wide stone switch. Capture mode hides only the preview-page header so the full options panel fits in the browser viewport.
 
 - `the-igloo.jpg`: the website tab with the official transparent logo and copyable website address; an offline rendering of the real settings objects.
+
+## Seasonal showcases
+
+`seasonal/` contains one 1800 × 2500 overview and seven 1600 × 1200 collection cards, on pure black with white uppercase titles. These replace the older seasonal contact sheet. Each uses final shipped textures, one round portrait atlas half, uniformly fitted unit frames and minimaps, and hubs restored to their declared 2172 × 724 display proportions before uniform scaling. No addon artwork is modified.
+
+The gallery uses optimized JPEGs (about 3.9 MB total). Full-quality PNGs and the CurseForge upload bundle are generated under ignored `output/seasonal-gallery/`; neither they nor local fonts are included in addon packages.
+
+Titles use [Cinzel Decorative Black](https://github.com/google/fonts/tree/main/ofl/cinzeldecorative) by Natanael Gama, available under the SIL Open Font License. Labels use Arial Bold. To reproduce the cards, download `CinzelDecorative-Black.ttf` and its `OFL.txt` into ignored `.tools/gallery-fonts/`, then run:
+
+```sh
+python3 tools/render_seasonal_gallery.py \
+  --font .tools/gallery-fonts/CinzelDecorative-Black.ttf \
+  --label-font "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
+```
+
+On other systems, pass the path to a locally installed bold label font. The tool verifies the display font checksum and records image sizes alongside the local PNG bundle.
