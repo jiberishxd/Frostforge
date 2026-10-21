@@ -1,6 +1,6 @@
 # Quick start
 
-1. Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). With WoW closed, install its complete **Frostforge** folder in `Interface/AddOns/`. The final path is `Interface/AddOns/Frostforge/Frostforge.toc`. Version 1.0.2 targets Retail **12.1.0** and Forever **1.60.1**; use the package for your client.
+1. Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). With WoW closed, install its complete **Frostforge** folder in `Interface/AddOns/`. The final path is `Interface/AddOns/Frostforge/Frostforge.toc`. Version 1.0.3 targets Retail **12.1.0** and Forever **1.60.1**; use the package for your client.
 2. Restart WoW, enable **Jiberish's Frostforge** and follow the first-login setup tour.
 3. Open `/frostforge`, choose a component, select its artwork and provider, then enable and fit it. Portrait art and full unit-frame art have separate switches and browsers.
 

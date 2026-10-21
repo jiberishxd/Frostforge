@@ -14,7 +14,7 @@ Give your Warcraft interface a matching look with **42 class, race and faction t
 
 ## Get started
 
-Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). Version 1.0.2 provides separate packages for Retail **12.1.0** and Forever **1.60.1**.
+Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). Version 1.0.3 provides separate packages for Retail **12.1.0** and Forever **1.60.1**.
 
 Place the ZIP's **Frostforge** folder in `Interface/AddOns/`, restart WoW and follow the first-login setup tour. Open settings anytime with `/frostforge`. Keep your `WTF` folder when updating. [Installation and upgrade notes](docs/GETTING-STARTED.md).
 
