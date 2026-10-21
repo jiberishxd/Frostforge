@@ -2598,5 +2598,356 @@
         "divider": 13.42051860202929
       }
     }
+  },
+  {
+    "id": "seasonal_harvest_hollow",
+    "fit_version": 3,
+    "source": "artwork/seasonal/v1/harvest_hollow-frame.png",
+    "source_sha256": "9fcfa417b5bb934f778ca729282da77fe86289473da0fb6eec64b92611f6b349",
+    "file": "artwork/seasonal/v1/fitted/UnitFrames/seasonal_harvest_hollow.png",
+    "sha256": "a67d104d86c364cc489624055c4f6e4a01ea48de8b9192e8c2179640b1c42ac4",
+    "measured": {
+      "health": [
+        331,
+        309,
+        1444,
+        419
+      ],
+      "power": [
+        331,
+        469,
+        1444,
+        514
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          100.5456595264938,
+          90.3945885005637,
+          411.7339346110485,
+          121.14994363021421
+        ],
+        "power": [
+          100.5456595264938,
+          135.12965050732808,
+          411.7339346110485,
+          147.71138669673056
+        ],
+        "divider": 13.97970687711387
+      }
+    }
+  },
+  {
+    "id": "seasonal_witching_hour",
+    "fit_version": 3,
+    "source": "artwork/seasonal/v1/witching_hour-frame.png",
+    "source_sha256": "d5355b43aa951d6bf4055b10cd1f2bbb3f019e00b0fa944f61d17664c3ebd89d",
+    "file": "artwork/seasonal/v1/fitted/UnitFrames/seasonal_witching_hour.png",
+    "sha256": "fec2b656da80fbb8e6a1d9820159eee4cbcfc5bfa39bee178c9d8f4ff9a13da6",
+    "measured": {
+      "health": [
+        285,
+        294,
+        1433,
+        417
+      ],
+      "power": [
+        285,
+        460,
+        1433,
+        507
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          87.68432919954904,
+          86.20067643742954,
+          408.6583990980834,
+          120.59075535512964
+        ],
+        "power": [
+          87.68432919954904,
+          132.61330326944758,
+          408.6583990980834,
+          145.7542277339346
+        ],
+        "divider": 12.02254791431794
+      }
+    }
+  },
+  {
+    "id": "seasonal_hallows_end",
+    "fit_version": 3,
+    "source": "artwork/seasonal/warcraft-events-v4/hallows_end-frame.png",
+    "source_sha256": "d522a0e08fd7fc3fe05ce97da5c92452959c95f5e7de94805d2cbd534c436ca9",
+    "file": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_hallows_end.png",
+    "sha256": "936373faad9e3a5cf61eeac3d2da688ae925a7c6be3f5c2f7f8a3e9c9c0f0d91",
+    "measured": {
+      "health": [
+        242,
+        444,
+        1571,
+        516
+      ],
+      "power": [
+        242,
+        547,
+        1571,
+        565
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          75.66178128523111,
+          128.13979706877114,
+          447.2423900789177,
+          148.2705749718151
+        ],
+        "power": [
+          75.66178128523111,
+          156.9379932356257,
+          447.2423900789177,
+          161.9706877113867
+        ],
+        "divider": 8.667418263810589
+      },
+      "encoded_alpha_floor": 8
+    }
+  },
+  {
+    "id": "seasonal_holly_hearth",
+    "fit_version": 3,
+    "source": "artwork/seasonal/v1/holly_hearth-frame.png",
+    "source_sha256": "45079f504592641da1fb1834ec4886820782509af1618b607ee5abfefe7323d6",
+    "file": "artwork/seasonal/v1/fitted/UnitFrames/seasonal_holly_hearth.png",
+    "sha256": "c718a482adfcf6b344ee3dc537c379e6be25e981703230d9e255d0365b2cbfb6",
+    "measured": {
+      "health": [
+        327,
+        297,
+        1458,
+        419
+      ],
+      "power": [
+        320,
+        462,
+        1458,
+        510
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          99.42728297632469,
+          87.03945885005636,
+          415.64825253664037,
+          121.14994363021421
+        ],
+        "power": [
+          97.47012401352875,
+          133.17249154453214,
+          415.64825253664037,
+          146.59301014656145
+        ],
+        "divider": 12.022547914317926
+      }
+    }
+  },
+  {
+    "id": "seasonal_winter_starlight",
+    "fit_version": 3,
+    "source": "artwork/seasonal/v1/winter_starlight-frame.png",
+    "source_sha256": "0bd074c36de35efcc2b94f8e4901940aef02b30c24663dcc8f6005bffcec878a",
+    "file": "artwork/seasonal/v1/fitted/UnitFrames/seasonal_winter_starlight.png",
+    "sha256": "81bf5857a676c068ae400727f86534baea7f9c8b466c7747b4ac00bbd7c81543",
+    "measured": {
+      "health": [
+        396,
+        303,
+        1383,
+        419
+      ],
+      "power": [
+        396,
+        465,
+        1383,
+        489
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          118.71927846674183,
+          88.71702367531003,
+          394.67869222096954,
+          121.14994363021421
+        ],
+        "power": [
+          118.71927846674183,
+          134.01127395715895,
+          394.67869222096954,
+          140.72153325817362
+        ],
+        "divider": 12.861330326944739
+      }
+    }
+  },
+  {
+    "id": "seasonal_winter_veil",
+    "fit_version": 3,
+    "source": "artwork/seasonal/warcraft-events-v4/winter_veil-frame.png",
+    "source_sha256": "28644d63b69503c710de36abe3b0095403c55a2b4dfcfecdca9782d97fabe5f8",
+    "file": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_winter_veil.png",
+    "sha256": "ec8e6310fc5b122380cadeeba8a6c465d7ee8094da31b894b33e37ccd257ed5c",
+    "measured": {
+      "health": [
+        471,
+        313,
+        1415,
+        423
+      ],
+      "power": [
+        441,
+        465,
+        1415,
+        509
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          139.68883878241263,
+          91.5129650507328,
+          403.6257046223224,
+          122.26832018038331
+        ],
+        "power": [
+          131.3010146561443,
+          134.01127395715895,
+          403.6257046223224,
+          146.31341600901916
+        ],
+        "divider": 11.742953776775636
+      }
+    }
+  },
+  {
+    "id": "seasonal_winter_veil_horde",
+    "fit_version": 3,
+    "source": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-frame.png",
+    "source_sha256": "97d94bf684de2c58f39cd64ac063c9dec63f9c717fea1ee122fc4046f095deed",
+    "file": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_winter_veil_horde.png",
+    "sha256": "f7a51eb2b8cffd2d68822c8c4e1926cec282b3756b69e9e65840e6aa1e0da96f",
+    "measured": {
+      "health": [
+        436,
+        381,
+        1394,
+        500
+      ],
+      "power": [
+        421,
+        541,
+        1394,
+        577
+      ],
+      "scale": [
+        0.27959413754227735,
+        0.27959413754227735
+      ],
+      "offset": [
+        8,
+        4
+      ],
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          129.90304396843294,
+          110.52536640360766,
+          397.7542277339346,
+          143.79706877113867
+        ],
+        "power": [
+          125.70913190529876,
+          155.26042841037204,
+          397.7542277339346,
+          165.32581736189402
+        ],
+        "divider": 11.463359639233374
+      }
+    }
   }
 ]

@@ -10,3 +10,6 @@ artwork/official-crests/pages/
 
 # Source art is a separately backed-up local library (directory or symlink).
 /artwork
+
+# Generated previews, superseded art, and local release bundles stay local.
+/output/

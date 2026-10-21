@@ -37,7 +37,7 @@ class ShellFitTests(unittest.TestCase):
     def test_complete_cast_silhouettes_have_clear_centers_and_uncropped_details(self):
         source = (ROOT / 'docs/artwork/cast-borders.js').read_text()
         data = json.loads(source.split('window.castBorders=', 1)[1].rstrip(';\n'))
-        self.assertEqual(len(data['themes']), 52)
+        self.assertEqual(len(data['themes']), 59)
         for identity, theme in data['themes'].items():
             image = open_asset(ROOT / 'artwork/cast-bars/assets' / (theme['file'] + '.png')).convert('RGBA')
             alpha = np.asarray(image)[:,:,3]

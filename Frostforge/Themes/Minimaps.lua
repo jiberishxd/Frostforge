@@ -43,3 +43,12 @@ J.MinimapCatalog.entries.RACE_HARANIR = {label="Haranir",group="RACE",texture="I
 J.MinimapCatalog.entries.FACTION_ALLIANCE = {label="Alliance",group="FACTION",texture="Interface\\AddOns\\Frostforge\\Media\\Minimaps\\faction_alliance.png"}
 J.MinimapCatalog.entries.FACTION_HORDE = {label="Horde",group="FACTION",texture="Interface\\AddOns\\Frostforge\\Media\\Minimaps\\faction_horde.png"}
 J.MinimapCatalog.entries.FACTION_NEUTRAL = {label="Neutral",group="FACTION",texture="Interface\\AddOns\\Frostforge\\Media\\Minimaps\\faction_neutral.png"}
+
+-- Seasonal artwork: 7 complete holiday collections.
+J.MinimapCatalog.entries.SEASONAL_HARVEST_HOLLOW = {label="Harvest Hollow",group="SEASONAL",holiday="Halloween",texture="Interface\\AddOns\\Frostforge\\Media\\Minimaps\\seasonal_harvest_hollow.png"}
+J.MinimapCatalog.entries.SEASONAL_WITCHING_HOUR = {label="Witching Hour",group="SEASONAL",holiday="Halloween",texture="Interface\\AddOns\\Frostforge\\Media\\Minimaps\\seasonal_witching_hour.png"}
+J.MinimapCatalog.entries.SEASONAL_HALLOWS_END = {label="Hallow's End",group="SEASONAL",holiday="Halloween",texture="Interface\\AddOns\\Frostforge\\Media\\Minimaps\\seasonal_hallows_end.png"}
+J.MinimapCatalog.entries.SEASONAL_HOLLY_HEARTH = {label="Holly Hearth",group="SEASONAL",holiday="Christmas",texture="Interface\\AddOns\\Frostforge\\Media\\Minimaps\\seasonal_holly_hearth.png"}
+J.MinimapCatalog.entries.SEASONAL_WINTER_STARLIGHT = {label="Winter Starlight",group="SEASONAL",holiday="Christmas",texture="Interface\\AddOns\\Frostforge\\Media\\Minimaps\\seasonal_winter_starlight.png"}
+J.MinimapCatalog.entries.SEASONAL_WINTER_VEIL = {label="Winter Veil: Alliance",group="SEASONAL",holiday="Christmas",texture="Interface\\AddOns\\Frostforge\\Media\\Minimaps\\seasonal_winter_veil.png"}
+J.MinimapCatalog.entries.SEASONAL_WINTER_VEIL_HORDE = {label="Winter Veil: Horde",group="SEASONAL",holiday="Christmas",texture="Interface\\AddOns\\Frostforge\\Media\\Minimaps\\seasonal_winter_veil_horde.png"}

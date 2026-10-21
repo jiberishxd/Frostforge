@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+
+- Added seven holiday sets for portraits, unit frames, action hubs and minimaps, including Hallow’s End and Alliance and Horde Winter Veil.
+- Find them in the new Seasonal category in each artwork browser.
+
 ## 1.0.1
 
 - Add ten dedicated NPC creature themes: Beast, Humanoid, Undead, Demon, Dragonkin, Elemental, Mechanical, Giant, Critter and Aberration, each with new portrait and unit-frame artwork.

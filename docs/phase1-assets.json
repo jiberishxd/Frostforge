@@ -19812,6 +19812,1898 @@
           "sha256": "2e6ff804d549d13bf6b1bdae9cb726e26c9758c3d9627f14a813f7de08540dee"
         }
       ]
+    },
+    {
+      "file": "Frostforge/Media/Portraits/seasonal_harvest_hollow.png",
+      "source": "artwork/seasonal/v1/fitted/Portraits/seasonal_harvest_hollow.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "d1ff23c6b80788ea09a731df9bcef3262b150a84bc6fd06a422827ba4394db57",
+      "source_sha256": "d1ff23c6b80788ea09a731df9bcef3262b150a84bc6fd06a422827ba4394db57",
+      "original": "artwork/seasonal/v1/harvest_hollow-portrait.png",
+      "original_sha256": "0c597bff0c7053af09d6ddcf4906dcebfb064042028b9ca86f3141b7791f6341",
+      "legacy_tga_sha256": "9a9b8c7689cb6a117dc4ef77473beff646496dfd8c9c17bc5c396699b4eb4c8f",
+      "alphaBounds": [
+        8,
+        8,
+        468,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_harvest_hollow",
+      "label": "Harvest Hollow",
+      "group": "SEASONAL",
+      "holiday": "Halloween",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        6,
+        3,
+        229,
+        252
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/seasonal_harvest_hollow.png",
+      "source": "artwork/seasonal/v1/fitted/UnitFrames/seasonal_harvest_hollow.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "a67d104d86c364cc489624055c4f6e4a01ea48de8b9192e8c2179640b1c42ac4",
+      "source_sha256": "a67d104d86c364cc489624055c4f6e4a01ea48de8b9192e8c2179640b1c42ac4",
+      "original": "artwork/seasonal/v1/harvest_hollow-frame.png",
+      "original_sha256": "9fcfa417b5bb934f778ca729282da77fe86289473da0fb6eec64b92611f6b349",
+      "legacy_tga_sha256": "d8ea961bf2ed6c5a73d0b64b20055ebecf158acceed36462705c06b707dd6bc9",
+      "alphaBounds": [
+        13,
+        13,
+        501,
+        243
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          100.5456595264938,
+          90.3945885005637,
+          411.7339346110485,
+          121.14994363021421
+        ],
+        "power": [
+          100.5456595264938,
+          135.12965050732808,
+          411.7339346110485,
+          147.71138669673056
+        ],
+        "divider": 13.97970687711387
+      },
+      "references": [
+        {
+          "file": "artwork/seasonal/v1/generation-prompts.json",
+          "sha256": "a960e4ecb5e02ccdc3946649492f27ca832cd54bdee7bda1a37ed54deac6a8dc"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Hubs/seasonal_harvest_hollow.png",
+      "source": "artwork/seasonal/v1/fitted/Hubs/seasonal_harvest_hollow.png",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "358bb5e9a0f87c6cd96607178b1e2d8b1bed2af9fa0a40e1bd1b7763247fe78e",
+      "source_sha256": "358bb5e9a0f87c6cd96607178b1e2d8b1bed2af9fa0a40e1bd1b7763247fe78e",
+      "original": "artwork/seasonal/v1/harvest_hollow-hub.png",
+      "original_sha256": "ba6de505b640a0254210e2ea1a2f1d846bbd7c1ec3672f3ef1b72928c5674f94",
+      "legacy_tga_sha256": "dc20780bd27b1da246ef077a198eff6ea50fdbfe5e54207d51fe1989c1f9e24f",
+      "alphaBounds": [
+        2,
+        15,
+        1021,
+        474
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_harvest_hollow",
+      "label": "Harvest Hollow",
+      "group": "SEASONAL",
+      "holiday": "Halloween",
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          431,
+          444
+        ],
+        [
+          494,
+          530
+        ],
+        [
+          568,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; continuous five-piece hub registration"
+    },
+    {
+      "file": "Frostforge/Media/Minimaps/seasonal_harvest_hollow.png",
+      "source": "artwork/seasonal/v1/fitted/Minimaps/seasonal_harvest_hollow.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "dd804f0f06ca26011bdf816cf3998b118082f4436a683e118e47fcac36b0661b",
+      "source_sha256": "dd804f0f06ca26011bdf816cf3998b118082f4436a683e118e47fcac36b0661b",
+      "original": "artwork/seasonal/v1/harvest_hollow-minimap.png",
+      "original_sha256": "8864aded6491adad6da1ebed3636d8582b8a54f8e14a4e142dbe2b7ba03769ec",
+      "legacy_tga_sha256": "f52e49569470b0ae3752865a664195a0a02e7e73359af14d4a6446661677bae9",
+      "alphaBounds": [
+        13,
+        14,
+        500,
+        491
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_harvest_hollow",
+      "label": "Harvest Hollow",
+      "group": "SEASONAL",
+      "holiday": "Halloween",
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "source_circle": [
+        255.65789117652054,
+        258.89879533164645,
+        142.37586927399084
+      ],
+      "references": [
+        {
+          "file": "artwork/seasonal/v1/generation-prompts.json",
+          "sha256": "a960e4ecb5e02ccdc3946649492f27ca832cd54bdee7bda1a37ed54deac6a8dc"
+        }
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared circular aperture registration"
+    },
+    {
+      "file": "Frostforge/Media/Portraits/seasonal_witching_hour.png",
+      "source": "artwork/seasonal/v1/fitted/Portraits/seasonal_witching_hour.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "697674ffde592c89e6ca7ad53111d023f068019bc107741c1e9d2e0f746e1570",
+      "source_sha256": "697674ffde592c89e6ca7ad53111d023f068019bc107741c1e9d2e0f746e1570",
+      "original": "artwork/seasonal/v1/witching_hour-portrait.png",
+      "original_sha256": "dfa83936b5a409be6eab3010687b552b745c5898386ea8a819ed37c6fbd36c72",
+      "legacy_tga_sha256": "af2ce442b2179ff796d8f5d1e2c6528e07185fc0cd763591eb75e9bda968f8ba",
+      "alphaBounds": [
+        8,
+        8,
+        467,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_witching_hour",
+      "label": "Witching Hour",
+      "group": "SEASONAL",
+      "holiday": "Halloween",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        9,
+        5,
+        233,
+        250
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/seasonal_witching_hour.png",
+      "source": "artwork/seasonal/v1/fitted/UnitFrames/seasonal_witching_hour.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "fec2b656da80fbb8e6a1d9820159eee4cbcfc5bfa39bee178c9d8f4ff9a13da6",
+      "source_sha256": "fec2b656da80fbb8e6a1d9820159eee4cbcfc5bfa39bee178c9d8f4ff9a13da6",
+      "original": "artwork/seasonal/v1/witching_hour-frame.png",
+      "original_sha256": "d5355b43aa951d6bf4055b10cd1f2bbb3f019e00b0fa944f61d17664c3ebd89d",
+      "legacy_tga_sha256": "2abec434d6bd0e2948a0372a4d7b3a436af3be39448504febd84d52a3e481455",
+      "alphaBounds": [
+        10,
+        11,
+        504,
+        245
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          87.68432919954904,
+          86.20067643742954,
+          408.6583990980834,
+          120.59075535512964
+        ],
+        "power": [
+          87.68432919954904,
+          132.61330326944758,
+          408.6583990980834,
+          145.7542277339346
+        ],
+        "divider": 12.02254791431794
+      },
+      "references": [
+        {
+          "file": "artwork/seasonal/v1/generation-prompts.json",
+          "sha256": "a960e4ecb5e02ccdc3946649492f27ca832cd54bdee7bda1a37ed54deac6a8dc"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Hubs/seasonal_witching_hour.png",
+      "source": "artwork/seasonal/v1/fitted/Hubs/seasonal_witching_hour.png",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "66c281746f9f1211d72137da57d0e765f7d31d8f5336a3c1260890f9842357db",
+      "source_sha256": "66c281746f9f1211d72137da57d0e765f7d31d8f5336a3c1260890f9842357db",
+      "original": "artwork/seasonal/v1/witching_hour-hub.png",
+      "original_sha256": "1011fd40b8667fdffd7a224ee7e7b713937e8fc1acaebb66722b8ab4c4a8faa0",
+      "legacy_tga_sha256": "6ed1ce87cadce762b6b4c16189745f116d9a932636de9a9023a1cca35c25dcd0",
+      "alphaBounds": [
+        4,
+        16,
+        1021,
+        501
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_witching_hour",
+      "label": "Witching Hour",
+      "group": "SEASONAL",
+      "holiday": "Halloween",
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          430,
+          444
+        ],
+        [
+          485,
+          530
+        ],
+        [
+          564,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; continuous five-piece hub registration"
+    },
+    {
+      "file": "Frostforge/Media/Minimaps/seasonal_witching_hour.png",
+      "source": "artwork/seasonal/v1/fitted/Minimaps/seasonal_witching_hour.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "996b315ec55b059c45675113b98ca2d461272a70963f137eefc8021ca3c1bcc8",
+      "source_sha256": "996b315ec55b059c45675113b98ca2d461272a70963f137eefc8021ca3c1bcc8",
+      "original": "artwork/seasonal/v1/witching_hour-minimap.png",
+      "original_sha256": "cd86e21f717f118b7293bf122a0fa275cd3773f511c1e0cb517f93fd761ac806",
+      "legacy_tga_sha256": "72f109cb43e147710bd0a4b57abb9b961381b2ce7eebb8e8dd46b60befa9e36e",
+      "alphaBounds": [
+        11,
+        14,
+        502,
+        494
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_witching_hour",
+      "label": "Witching Hour",
+      "group": "SEASONAL",
+      "holiday": "Halloween",
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "source_circle": [
+        254.82656554191706,
+        251.37980848083507,
+        145.57045820649194
+      ],
+      "references": [
+        {
+          "file": "artwork/seasonal/v1/generation-prompts.json",
+          "sha256": "a960e4ecb5e02ccdc3946649492f27ca832cd54bdee7bda1a37ed54deac6a8dc"
+        }
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared circular aperture registration"
+    },
+    {
+      "file": "Frostforge/Media/Portraits/seasonal_hallows_end.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/Portraits/seasonal_hallows_end.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "da813f09557ca220f96f328805f7c80c1e0606a5f41ecf75decde7d0d8f1a878",
+      "source_sha256": "da813f09557ca220f96f328805f7c80c1e0606a5f41ecf75decde7d0d8f1a878",
+      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-portrait.png",
+      "original_sha256": "002013354e8a5a3e042b1ec8a2250199457c90c779d9e08b6371854ecf1c51e8",
+      "legacy_tga_sha256": "cb8ed007fc7c9eff37b6f89334eac43beec3ce9503f807ba9b2622e41a4f3a9f",
+      "alphaBounds": [
+        16,
+        10,
+        470,
+        238
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_hallows_end",
+      "label": "Hallow's End",
+      "group": "SEASONAL",
+      "holiday": "Halloween",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        14,
+        7,
+        240,
+        240
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "uniform scale and translation; clear native openings; no contour warp",
+      "proportion_fit": {
+        "method": "uniform scale and translation; clear native openings; no contour warp",
+        "source_circle": [
+          155.33260001477842,
+          148.26387203873134,
+          58.31142796950214
+        ],
+        "ornament_scale_xy": [
+          0.9768952104198556,
+          0.9768952104198556
+        ],
+        "source_bounds": [
+          14,
+          7,
+          240,
+          240
+        ]
+      }
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/seasonal_hallows_end.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_hallows_end.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "936373faad9e3a5cf61eeac3d2da688ae925a7c6be3f5c2f7f8a3e9c9c0f0d91",
+      "source_sha256": "936373faad9e3a5cf61eeac3d2da688ae925a7c6be3f5c2f7f8a3e9c9c0f0d91",
+      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-frame.png",
+      "original_sha256": "d522a0e08fd7fc3fe05ce97da5c92452959c95f5e7de94805d2cbd534c436ca9",
+      "legacy_tga_sha256": "9da46994c063de8924d7589e48b9bdcf24fe9b616e0b2468254a4a354520aeb6",
+      "alphaBounds": [
+        21,
+        88,
+        490,
+        193
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          75.66178128523111,
+          128.13979706877114,
+          447.2423900789177,
+          148.2705749718151
+        ],
+        "power": [
+          75.66178128523111,
+          156.9379932356257,
+          447.2423900789177,
+          161.9706877113867
+        ],
+        "divider": 8.667418263810589
+      },
+      "references": [
+        {
+          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
+          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Hubs/seasonal_hallows_end.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/Hubs/seasonal_hallows_end.png",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "fd96bf086116e14b1ad363aed4941a6864abed7e831d822b7ca77244fb865b32",
+      "source_sha256": "fd96bf086116e14b1ad363aed4941a6864abed7e831d822b7ca77244fb865b32",
+      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-hub.png",
+      "original_sha256": "6792ec4a962a4b4697fcc4f4359155e038142589ab09ecd66f88e464dd3f87dc",
+      "legacy_tga_sha256": "887617bbc697fd2e8ad2a6ff141da94a7ccaf898ab2cda86a3405f8b4acadd6a",
+      "alphaBounds": [
+        12,
+        27,
+        988,
+        502
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_hallows_end",
+      "label": "Hallow's End",
+      "group": "SEASONAL",
+      "holiday": "Halloween",
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "transform": "uniform ornaments; flexible connecting rails",
+      "proportion_fit": {
+        "method": "uniform ornaments; flexible connecting rails",
+        "ornament_scale": 0.9331259720062208,
+        "ornament_scale_xy": [
+          0.9331259720062208,
+          0.9331259720062208
+        ],
+        "offset_y": 35.65318818040441,
+        "source_x": [
+          -21.433333333333394,
+          643.0,
+          962.2583333333333,
+          1208.7416666666668,
+          1583.0,
+          2247.4333333333334
+        ],
+        "target_x": [
+          0,
+          620,
+          980,
+          1210,
+          1552,
+          2172
+        ],
+        "source_rail": [
+          548.0,
+          608.0
+        ]
+      }
+    },
+    {
+      "file": "Frostforge/Media/Minimaps/seasonal_hallows_end.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/Minimaps/seasonal_hallows_end.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "cd102f338b7119e24bf9e4278a6840a58ca3e5686786169badaa83650a03faa8",
+      "source_sha256": "cd102f338b7119e24bf9e4278a6840a58ca3e5686786169badaa83650a03faa8",
+      "original": "artwork/seasonal/warcraft-events-v4/hallows_end-minimap.png",
+      "original_sha256": "d0970aceb0bbf618b804a623932c6c10634ea169ae2fea717645a52797a732f0",
+      "legacy_tga_sha256": "2cf35549d8b61caab5a008d07875f0d79469ec1a2f5cff42038d6b6d6333b91e",
+      "alphaBounds": [
+        28,
+        28,
+        490,
+        502
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_hallows_end",
+      "label": "Hallow's End",
+      "group": "SEASONAL",
+      "holiday": "Halloween",
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "source_circle": [
+        255.71347928002461,
+        246.71327838601545,
+        133.03338934358217
+      ],
+      "references": [
+        {
+          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
+          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+        }
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "transform": "uniform scale and translation; inward rim trimmed to aperture; no radial warp",
+      "proportion_fit": {
+        "method": "uniform scale and translation; inward rim trimmed to aperture; no radial warp",
+        "source_circle": [
+          255.71347928002461,
+          246.71327838601545,
+          133.03338934358217
+        ],
+        "ornament_scale_xy": [
+          0.9343425999305451,
+          0.9343425999305451
+        ],
+        "margin_pixels_removed": 0
+      }
+    },
+    {
+      "file": "Frostforge/Media/Portraits/seasonal_holly_hearth.png",
+      "source": "artwork/seasonal/v1/fitted/Portraits/seasonal_holly_hearth.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "7f30bd159b2352e2bbee7036c95fb462e4bb5fffcb5d7b0ebdefecd1c532f67a",
+      "source_sha256": "7f30bd159b2352e2bbee7036c95fb462e4bb5fffcb5d7b0ebdefecd1c532f67a",
+      "original": "artwork/seasonal/v1/holly_hearth-portrait.png",
+      "original_sha256": "9b27cf62c00f1ccdd72ec53c052778107a95111b6f2000b2167120946be54012",
+      "legacy_tga_sha256": "a97c8ae7cfc1d65486c3dbb780196ac0881394ddd0d98e51b6bc8d0979fd0459",
+      "alphaBounds": [
+        8,
+        8,
+        465,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_holly_hearth",
+      "label": "Holly Hearth",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        7,
+        7,
+        238,
+        249
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/seasonal_holly_hearth.png",
+      "source": "artwork/seasonal/v1/fitted/UnitFrames/seasonal_holly_hearth.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "c718a482adfcf6b344ee3dc537c379e6be25e981703230d9e255d0365b2cbfb6",
+      "source_sha256": "c718a482adfcf6b344ee3dc537c379e6be25e981703230d9e255d0365b2cbfb6",
+      "original": "artwork/seasonal/v1/holly_hearth-frame.png",
+      "original_sha256": "45079f504592641da1fb1834ec4886820782509af1618b607ee5abfefe7323d6",
+      "legacy_tga_sha256": "69d98fe28f16ea5f3d07c5cf8e70b1d4ffe0605d4c35411ec978a898b3729c0a",
+      "alphaBounds": [
+        14,
+        20,
+        502,
+        219
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          99.42728297632469,
+          87.03945885005636,
+          415.64825253664037,
+          121.14994363021421
+        ],
+        "power": [
+          97.47012401352875,
+          133.17249154453214,
+          415.64825253664037,
+          146.59301014656145
+        ],
+        "divider": 12.022547914317926
+      },
+      "references": [
+        {
+          "file": "artwork/seasonal/v1/generation-prompts.json",
+          "sha256": "a960e4ecb5e02ccdc3946649492f27ca832cd54bdee7bda1a37ed54deac6a8dc"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Hubs/seasonal_holly_hearth.png",
+      "source": "artwork/seasonal/v1/fitted/Hubs/seasonal_holly_hearth.png",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "5e7ade4f211e4ec921a3b35f3bbbb3b211e7a36935cf0088471902cb39efea8c",
+      "source_sha256": "5e7ade4f211e4ec921a3b35f3bbbb3b211e7a36935cf0088471902cb39efea8c",
+      "original": "artwork/seasonal/v1/holly_hearth-hub.png",
+      "original_sha256": "cb97268bbfcb6c4550f4f5f466355d39a316a90925e394830362dffdf6294930",
+      "legacy_tga_sha256": "a71890bb431c56524bfe46e78f77a4b5e8cb8d27817f1723920f2438e57b5e41",
+      "alphaBounds": [
+        0,
+        15,
+        1024,
+        494
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_holly_hearth",
+      "label": "Holly Hearth",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          422,
+          444
+        ],
+        [
+          489,
+          530
+        ],
+        [
+          609,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; continuous five-piece hub registration"
+    },
+    {
+      "file": "Frostforge/Media/Minimaps/seasonal_holly_hearth.png",
+      "source": "artwork/seasonal/v1/fitted/Minimaps/seasonal_holly_hearth.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "02f8fef75290819f0429b7923dffa925a8a1f2d272792634a586f273e8a376db",
+      "source_sha256": "02f8fef75290819f0429b7923dffa925a8a1f2d272792634a586f273e8a376db",
+      "original": "artwork/seasonal/v1/holly_hearth-minimap.png",
+      "original_sha256": "8e02846eada4562b67a7ca3c454b6d85e0261b188179f875a373b94a481dcd5a",
+      "legacy_tga_sha256": "bae2f01202e124af4bb240c7b11c9e96a24ff00a79dcdaaf0e2c0fbd9adb3ab0",
+      "alphaBounds": [
+        12,
+        10,
+        501,
+        495
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_holly_hearth",
+      "label": "Holly Hearth",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "source_circle": [
+        256.03587772532524,
+        250.73679298670672,
+        149.83848532036143
+      ],
+      "references": [
+        {
+          "file": "artwork/seasonal/v1/generation-prompts.json",
+          "sha256": "a960e4ecb5e02ccdc3946649492f27ca832cd54bdee7bda1a37ed54deac6a8dc"
+        }
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared circular aperture registration"
+    },
+    {
+      "file": "Frostforge/Media/Portraits/seasonal_winter_starlight.png",
+      "source": "artwork/seasonal/v1/fitted/Portraits/seasonal_winter_starlight.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "68cd293a64e75fa904053da585e18344cd912d63d4ff98d2ee5decdf5234c7f4",
+      "source_sha256": "68cd293a64e75fa904053da585e18344cd912d63d4ff98d2ee5decdf5234c7f4",
+      "original": "artwork/seasonal/v1/winter_starlight-portrait.png",
+      "original_sha256": "4f4f4af3ed9c5b273c5d1d8c3cf216454b8f4d6ea78e20aa7f780753ab5be0e6",
+      "legacy_tga_sha256": "18891d999a71557306ae65b0486b446e00790b7d160f580213e831a2f0238b6e",
+      "alphaBounds": [
+        8,
+        8,
+        467,
+        244
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_winter_starlight",
+      "label": "Winter Starlight",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        8,
+        5,
+        224,
+        251
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared player/round contour registration"
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/seasonal_winter_starlight.png",
+      "source": "artwork/seasonal/v1/fitted/UnitFrames/seasonal_winter_starlight.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "81bf5857a676c068ae400727f86534baea7f9c8b466c7747b4ac00bbd7c81543",
+      "source_sha256": "81bf5857a676c068ae400727f86534baea7f9c8b466c7747b4ac00bbd7c81543",
+      "original": "artwork/seasonal/v1/winter_starlight-frame.png",
+      "original_sha256": "0bd074c36de35efcc2b94f8e4901940aef02b30c24663dcc8f6005bffcec878a",
+      "legacy_tga_sha256": "eeb72b05e5ac3378de9392ae3340472149fe4c5f25140aef1f58fc435cfb2272",
+      "alphaBounds": [
+        12,
+        20,
+        500,
+        226
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          118.71927846674183,
+          88.71702367531003,
+          394.67869222096954,
+          121.14994363021421
+        ],
+        "power": [
+          118.71927846674183,
+          134.01127395715895,
+          394.67869222096954,
+          140.72153325817362
+        ],
+        "divider": 12.861330326944739
+      },
+      "references": [
+        {
+          "file": "artwork/seasonal/v1/generation-prompts.json",
+          "sha256": "a960e4ecb5e02ccdc3946649492f27ca832cd54bdee7bda1a37ed54deac6a8dc"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Hubs/seasonal_winter_starlight.png",
+      "source": "artwork/seasonal/v1/fitted/Hubs/seasonal_winter_starlight.png",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "d869c6c1e7feacb56d89ccd4a20e064c164b7bbef417f1a1fc3516d9adaab299",
+      "source_sha256": "d869c6c1e7feacb56d89ccd4a20e064c164b7bbef417f1a1fc3516d9adaab299",
+      "original": "artwork/seasonal/v1/winter_starlight-hub.png",
+      "original_sha256": "664edb5ff23b20b79803625873c189ab8f3ac8f59f17ac888aa64742f822a627",
+      "legacy_tga_sha256": "b861c72ea648364d1203ecf542e9797e967b62fc7a2fe478d15d051cf5a9e9ba",
+      "alphaBounds": [
+        0,
+        17,
+        1024,
+        484
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_winter_starlight",
+      "label": "Winter Starlight",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "vertical_registration": [
+        [
+          0,
+          8
+        ],
+        [
+          454,
+          444
+        ],
+        [
+          501,
+          530
+        ],
+        [
+          582,
+          620
+        ],
+        [
+          724,
+          716
+        ]
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; continuous five-piece hub registration"
+    },
+    {
+      "file": "Frostforge/Media/Minimaps/seasonal_winter_starlight.png",
+      "source": "artwork/seasonal/v1/fitted/Minimaps/seasonal_winter_starlight.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "61fec11fa84f8f98ff3f583235624b659039c265c413e660ff8cd399a0b64416",
+      "source_sha256": "61fec11fa84f8f98ff3f583235624b659039c265c413e660ff8cd399a0b64416",
+      "original": "artwork/seasonal/v1/winter_starlight-minimap.png",
+      "original_sha256": "69e17882d4e85dc6dcfdff64c150022e0373c31224a1394582742d40f2977e5d",
+      "legacy_tga_sha256": "47ab60607197face82a41f727f110ac5af042b75be4e4ab4b80c32f2b5117a77",
+      "alphaBounds": [
+        15,
+        13,
+        498,
+        492
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_winter_starlight",
+      "label": "Winter Starlight",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "source_circle": [
+        255.6659142230785,
+        263.57733903935275,
+        141.59030164225535
+      ],
+      "references": [
+        {
+          "file": "artwork/seasonal/v1/generation-prompts.json",
+          "sha256": "a960e4ecb5e02ccdc3946649492f27ca832cd54bdee7bda1a37ed54deac6a8dc"
+        }
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "transform": "Generated alpha retained; shared circular aperture registration"
+    },
+    {
+      "file": "Frostforge/Media/Portraits/seasonal_winter_veil.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/Portraits/seasonal_winter_veil.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "7cebd422bcd7bb4441f52a66ac3a267014814250c0e647aaa9e76cc444d8cbbd",
+      "source_sha256": "7cebd422bcd7bb4441f52a66ac3a267014814250c0e647aaa9e76cc444d8cbbd",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-portrait.png",
+      "original_sha256": "eeb1b2c05e112bd8b854ad1dcc5d0b73c0e9f6a195ad30b141fe4a9bdb665cea",
+      "legacy_tga_sha256": "9a8e5c3095d5d9c8c72d74a60b25c4d07b610a8bbe9e9d156887a9e567b793a8",
+      "alphaBounds": [
+        26,
+        32,
+        470,
+        242
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_winter_veil",
+      "label": "Winter Veil: Alliance",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        10,
+        2,
+        232,
+        250
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "uniform scale and translation; clear native openings; no contour warp",
+      "proportion_fit": {
+        "method": "uniform scale and translation; clear native openings; no contour warp",
+        "source_circle": [
+          160.32376759218704,
+          138.93107484758247,
+          55.86133277223866
+        ],
+        "ornament_scale_xy": [
+          0.8463213258884588,
+          0.8463213258884588
+        ],
+        "source_bounds": [
+          10,
+          2,
+          232,
+          250
+        ]
+      }
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/seasonal_winter_veil.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_winter_veil.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "ec8e6310fc5b122380cadeeba8a6c465d7ee8094da31b894b33e37ccd257ed5c",
+      "source_sha256": "ec8e6310fc5b122380cadeeba8a6c465d7ee8094da31b894b33e37ccd257ed5c",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-frame.png",
+      "original_sha256": "28644d63b69503c710de36abe3b0095403c55a2b4dfcfecdca9782d97fabe5f8",
+      "legacy_tga_sha256": "ac799b4cdbcaf9d2b0468d011ce06b30d25b2ab238879a40a554d8d92d791bf5",
+      "alphaBounds": [
+        9,
+        11,
+        504,
+        240
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          139.68883878241263,
+          91.5129650507328,
+          403.6257046223224,
+          122.26832018038331
+        ],
+        "power": [
+          131.3010146561443,
+          134.01127395715895,
+          403.6257046223224,
+          146.31341600901916
+        ],
+        "divider": 11.742953776775636
+      },
+      "references": [
+        {
+          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
+          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Hubs/seasonal_winter_veil.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/Hubs/seasonal_winter_veil.png",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "2eec19fd1edcf22841226b8171cac93bc8df58683928ae0c74afe57eed642f39",
+      "source_sha256": "2eec19fd1edcf22841226b8171cac93bc8df58683928ae0c74afe57eed642f39",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-hub.png",
+      "original_sha256": "be44a5ae8ca790b49a8db0da9daae93f9dc7b3ad49f54c77af50445b59d5d1ae",
+      "legacy_tga_sha256": "eb88e0d5f688e9bfd25a351af71c9939e79c9396d237949f6776e3af4ed377f4",
+      "alphaBounds": [
+        100,
+        8,
+        905,
+        493
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_winter_veil",
+      "label": "Winter Veil: Alliance",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "transform": "uniform ornaments; flexible connecting rails",
+      "proportion_fit": {
+        "method": "uniform ornaments; flexible connecting rails",
+        "ornament_scale": 0.8267254038179148,
+        "ornament_scale_xy": [
+          0.8267254038179148,
+          0.8267254038179148
+        ],
+        "offset_y": -11.975036710719564,
+        "source_x": [
+          -249.94671403197162,
+          500.0,
+          747.8969804618117,
+          1026.1030195381882,
+          1323.0,
+          2072.9467140319716
+        ],
+        "target_x": [
+          0,
+          620,
+          980,
+          1210,
+          1552,
+          2172
+        ],
+        "source_rail": [
+          662.0,
+          758.0
+        ]
+      }
+    },
+    {
+      "file": "Frostforge/Media/Minimaps/seasonal_winter_veil.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/Minimaps/seasonal_winter_veil.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "4f325c523f1010e5278a2e3023a309cd131eaaab9135bb0a115c75e133311bef",
+      "source_sha256": "4f325c523f1010e5278a2e3023a309cd131eaaab9135bb0a115c75e133311bef",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil-minimap.png",
+      "original_sha256": "0b7fbb4a0787759212b06b3e6301d3fa40927943967f43acf34aaab1ef2c4465",
+      "legacy_tga_sha256": "9da3a7aacd90b0adacb110fd81e4c7b3301a193c4e252a52d5a4475264271f9c",
+      "alphaBounds": [
+        11,
+        19,
+        501,
+        502
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_winter_veil",
+      "label": "Winter Veil: Alliance",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "source_circle": [
+        257.35433480886815,
+        245.63349370027436,
+        142.4887740342566
+      ],
+      "references": [
+        {
+          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
+          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+        }
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "transform": "uniform scale and translation; inward rim trimmed to aperture; no radial warp",
+      "proportion_fit": {
+        "method": "uniform scale and translation; inward rim trimmed to aperture; no radial warp",
+        "source_circle": [
+          257.35433480886815,
+          245.63349370027436,
+          142.4887740342566
+        ],
+        "ornament_scale_xy": [
+          0.9709254928470645,
+          0.9709254928470645
+        ],
+        "margin_pixels_removed": 0
+      }
+    },
+    {
+      "file": "Frostforge/Media/Portraits/seasonal_winter_veil_horde.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/Portraits/seasonal_winter_veil_horde.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "fa46d53626802de501ea054fb2f1b7137fde67300e6dba0b33a94eec3b3a6fce",
+      "source_sha256": "fa46d53626802de501ea054fb2f1b7137fde67300e6dba0b33a94eec3b3a6fce",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-portrait.png",
+      "original_sha256": "85ae7af91bbd3841568efb53b3d988fb88914e23bfe7b39f41809840e0651c4f",
+      "legacy_tga_sha256": "1fe018039094e94f6ec6d8a4f588d2f83acd0dbf5d5a42b05fd868f66e1875cc",
+      "alphaBounds": [
+        10,
+        38,
+        470,
+        237
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_winter_veil_horde",
+      "label": "Winter Veil: Horde",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "fit_version": 5,
+      "registration_box": [
+        8,
+        8,
+        214,
+        244
+      ],
+      "registration_source_bounds": [
+        6,
+        11,
+        248,
+        243
+      ],
+      "portrait_center": [
+        154,
+        148
+      ],
+      "portrait_radius": 60,
+      "round_portrait_radius": 58,
+      "clear_points": [
+        [
+          0.30078125,
+          0.578125
+        ],
+        [
+          0.80078125,
+          0.578125
+        ],
+        [
+          0.45,
+          0.5
+        ],
+        [
+          0.95,
+          0.5
+        ]
+      ],
+      "transform": "uniform scale and translation; clear native openings; no contour warp",
+      "proportion_fit": {
+        "method": "uniform scale and translation; clear native openings; no contour warp",
+        "source_circle": [
+          172.9020151939593,
+          139.17317129945346,
+          57.52790704382703
+        ],
+        "ornament_scale_xy": [
+          0.8627816736224273,
+          0.8627816736224273
+        ],
+        "source_bounds": [
+          6,
+          11,
+          248,
+          243
+        ]
+      }
+    },
+    {
+      "file": "Frostforge/Media/UnitFrames/seasonal_winter_veil_horde.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/UnitFrames/seasonal_winter_veil_horde.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "f7a51eb2b8cffd2d68822c8c4e1926cec282b3756b69e9e65840e6aa1e0da96f",
+      "source_sha256": "f7a51eb2b8cffd2d68822c8c4e1926cec282b3756b69e9e65840e6aa1e0da96f",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-frame.png",
+      "original_sha256": "97d94bf684de2c58f39cd64ac063c9dec63f9c717fea1ee122fc4046f095deed",
+      "legacy_tga_sha256": "73d2898f42c4d1f53b42ba1ea935999b11049e1fec8fa40b80c3c7fc0440d2da",
+      "alphaBounds": [
+        8,
+        13,
+        504,
+        247
+      ],
+      "in_game_qualified": false,
+      "kind": "unit-shell",
+      "registration": {
+        "canvas": [
+          512,
+          256
+        ],
+        "margin": 4,
+        "health": [
+          129.90304396843294,
+          110.52536640360766,
+          397.7542277339346,
+          143.79706877113867
+        ],
+        "power": [
+          125.70913190529876,
+          155.26042841037204,
+          397.7542277339346,
+          165.32581736189402
+        ],
+        "divider": 11.463359639233374
+      },
+      "references": [
+        {
+          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
+          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+        }
+      ]
+    },
+    {
+      "file": "Frostforge/Media/Hubs/seasonal_winter_veil_horde.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/Hubs/seasonal_winter_veil_horde.png",
+      "size": [
+        1024,
+        512
+      ],
+      "sha256": "42a905e67674cc61862d466c34b6b2b9174fdf1e91f5ee488d6129c296ae3dfb",
+      "source_sha256": "42a905e67674cc61862d466c34b6b2b9174fdf1e91f5ee488d6129c296ae3dfb",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-hub.png",
+      "original_sha256": "34ad74ab61ba0bc444f307ffe3b10db7cd0ec3327915a2e44d5d9bd75f398379",
+      "legacy_tga_sha256": "cea2d16293b6f731713a62e931f5a2b41e0a2041bfef45d155e22d93fb4917ab",
+      "alphaBounds": [
+        116,
+        20,
+        881,
+        492
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_winter_veil_horde",
+      "label": "Winter Veil: Horde",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "registration": {
+        "canvas": [
+          2172,
+          724
+        ],
+        "seams": [
+          620,
+          980,
+          1210,
+          1552
+        ],
+        "rail_band": [
+          530,
+          620
+        ],
+        "clear_region": [
+          620,
+          0,
+          1552,
+          440
+        ]
+      },
+      "clear_points": [
+        [
+          0.5,
+          0.25
+        ],
+        [
+          0.4,
+          0.5
+        ],
+        [
+          0.6,
+          0.5
+        ]
+      ],
+      "transform": "uniform ornaments; flexible connecting rails",
+      "proportion_fit": {
+        "method": "uniform ornaments; flexible connecting rails",
+        "ornament_scale": 0.7888198757763976,
+        "ornament_scale_xy": [
+          0.7888198757763976,
+          0.7888198757763976
+        ],
+        "offset_y": 19.67080745341616,
+        "source_x": [
+          -308.98425196850394,
+          477.0,
+          741.2125984251968,
+          1032.7874015748032,
+          1367.0,
+          2152.984251968504
+        ],
+        "target_x": [
+          0,
+          620,
+          980,
+          1210,
+          1552,
+          2172
+        ],
+        "source_rail": [
+          659.0,
+          749.0
+        ]
+      }
+    },
+    {
+      "file": "Frostforge/Media/Minimaps/seasonal_winter_veil_horde.png",
+      "source": "artwork/seasonal/warcraft-events-v4/fitted/Minimaps/seasonal_winter_veil_horde.png",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "9a3d1b636ff1b2a088787684ae270d7888c4e51067d6b428e38b8b6ad88c7eb1",
+      "source_sha256": "9a3d1b636ff1b2a088787684ae270d7888c4e51067d6b428e38b8b6ad88c7eb1",
+      "original": "artwork/seasonal/warcraft-events-v4/winter_veil_horde-minimap.png",
+      "original_sha256": "efaa5c3543fc7774668f405c4c57f747393a0d6b531b9d3eb39a44230016e2f2",
+      "legacy_tga_sha256": "06a2b946607ed65d9ef4238d85e8a9220f2ea8c2c166882624bba30106da8f48",
+      "alphaBounds": [
+        10,
+        30,
+        490,
+        498
+      ],
+      "in_game_qualified": false,
+      "id": "seasonal_winter_veil_horde",
+      "label": "Winter Veil: Horde",
+      "group": "SEASONAL",
+      "holiday": "Christmas",
+      "registration": {
+        "canvas": [
+          512,
+          512
+        ],
+        "center": [
+          256,
+          256
+        ],
+        "radius": 149,
+        "margin": 8
+      },
+      "source_circle": [
+        262.8634054388064,
+        243.581601697568,
+        142.9208025667768
+      ],
+      "references": [
+        {
+          "file": "artwork/seasonal/warcraft-events-v4/generation-prompts.json",
+          "sha256": "2ae8a26b0a4eaff51c2bef710e1387326d13cf7015fd53647b90318e5429e5d2"
+        }
+      ],
+      "clear_points": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.3
+        ],
+        [
+          0.3,
+          0.5
+        ]
+      ],
+      "transform": "uniform scale and translation; inward rim trimmed to aperture; no radial warp",
+      "proportion_fit": {
+        "method": "uniform scale and translation; inward rim trimmed to aperture; no radial warp",
+        "source_circle": [
+          262.8634054388064,
+          243.581601697568,
+          142.9208025667768
+        ],
+        "ornament_scale_xy": [
+          0.9503081348365896,
+          0.9503081348365896
+        ],
+        "margin_pixels_removed": 0
+      }
     }
   ],
   "in_game_qualified": false,

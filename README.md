@@ -6,13 +6,15 @@
 
 Give your Warcraft interface a matching look with **42 class, race and faction themes** for portraits, unit frames, cast bars, the minimap and action bars—including compact borders for Party and Target of Target. **10 NPC creature themes** add distinct portrait and unit-frame art that follows the NPC type. Supports Blizzard frames and compatible ElvUI, EllesmereUI, Blinkii and mMediaTag layouts.
 
+**Seven seasonal options** add three Halloween and four Christmas looks, including Hallow’s End and separate Alliance and Horde Winter Veil sets, each with matching portraits, unit frames, action hubs and minimaps. Find them in each artwork browser's **Seasonal** category.
+
 ![Frostforge artwork showcase](docs/images/overview.jpg)
 
 *Shipped artwork arranged as a preview; not an in-game screenshot.*
 
 ## Get started
 
-Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). Version 1.0.1 provides separate packages for Retail **12.1.0** and Forever **1.60.1**.
+Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). Version 1.0.2 provides separate packages for Retail **12.1.0** and Forever **1.60.1**.
 
 Place the ZIP's **Frostforge** folder in `Interface/AddOns/`, restart WoW and follow the first-login setup tour. Open settings anytime with `/frostforge`. Keep your `WTF` folder when updating. [Installation and upgrade notes](docs/GETTING-STARTED.md).
 

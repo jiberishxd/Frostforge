@@ -1,6 +1,6 @@
 # Quick start
 
-1. Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). With WoW closed, install its complete **Frostforge** folder in `Interface/AddOns/`. The final path is `Interface/AddOns/Frostforge/Frostforge.toc`. Version 1.0.1 targets Retail **12.1.0** and Forever **1.60.1**; use the package for your client.
+1. Download the **Retail** or **Forever** ZIP from the [latest release](https://github.com/jiberishxd/Frostforge/releases/latest). With WoW closed, install its complete **Frostforge** folder in `Interface/AddOns/`. The final path is `Interface/AddOns/Frostforge/Frostforge.toc`. Version 1.0.2 targets Retail **12.1.0** and Forever **1.60.1**; use the package for your client.
 2. Restart WoW, enable **Jiberish's Frostforge** and follow the first-login setup tour.
 3. Open `/frostforge`, choose a component, select its artwork and provider, then enable and fit it. Portrait art and full unit-frame art have separate switches and browsers.
 
@@ -27,3 +27,9 @@ Replace the addon folder when updating; keep `WTF` and all saved settings. An ea
 In **Target / Focus → Artwork**, leave an automatic theme selected and enable **Match NPC creature types** (on by default). Supported NPC types select a matching portrait and unit-frame shell. Enable **Unit-frame art** separately to show the shell. City affiliations keep their existing race artwork.
 
 Open either artwork browser and choose **Creatures** to select one of the ten designs manually. This switches the shared portrait/frame theme to a fixed design. Turning creature matching off restores the previous NPC selection behavior. Unknown, unavailable or restricted creature types fall back safely. Players keep their class/race/faction selection.
+
+### Seasonal artwork
+
+Choose **Seasonal** in the portrait, unit-frame, action hub or minimap artwork browser. Harvest Hollow, Witching Hour and Hallow’s End are Halloween sets; Holly Hearth, Winter Starlight, Winter Veil: Alliance and Winter Veil: Horde are Christmas options. The two Winter Veil versions feature the faction’s dwarf or orc Greatfather Winter; select the version you want by name. Search by name or holiday. Pick the same collection in each component for a matching interface, or mix them independently.
+
+Choosing a portrait or full frame sets that unit's shared portrait/frame theme; enable each artwork component separately. Seasonal choices stay selected until you change them and do not switch with the calendar. Cast bars and compact frame borders use existing matching trims.

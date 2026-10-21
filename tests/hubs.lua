@@ -1,8 +1,8 @@
 local test,near,count = ...
 
-test("42 hubs share geometry while selecting independently of portraits",function(M)
+test("49 hubs share geometry while selecting independently of portraits",function(M)
     local J=M.load();local hub=J.Core.modules.actionHub
-    assert(count(J.HubCatalog.entries)==42 and hub.hubID=="CLASS_PALADIN")
+    assert(count(J.HubCatalog.entries)==49 and hub.hubID=="CLASS_PALADIN")
     local before={}
     for name,t in pairs(hub.textures) do before[name]={t.w,t.h,t.points[1][4],t.points[1][5]} end
     for id,entry in pairs(J.HubCatalog.entries) do

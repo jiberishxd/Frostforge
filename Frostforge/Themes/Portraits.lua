@@ -111,3 +111,12 @@ C.entries.CREATURE_MECHANICAL = {label="Mechanical",group="CREATURE",texture="In
 C.creatures[9] = "CREATURE_MECHANICAL"
 C.entries.CREATURE_ABERRATION = {label="Aberration",group="CREATURE",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\creature_aberration.png"}
 C.creatures[14] = "CREATURE_ABERRATION"
+
+-- Seasonal artwork: 7 complete holiday collections.
+J.PortraitCatalog.entries.SEASONAL_HARVEST_HOLLOW = {label="Harvest Hollow",group="SEASONAL",holiday="Halloween",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\seasonal_harvest_hollow.png"}
+J.PortraitCatalog.entries.SEASONAL_WITCHING_HOUR = {label="Witching Hour",group="SEASONAL",holiday="Halloween",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\seasonal_witching_hour.png"}
+J.PortraitCatalog.entries.SEASONAL_HALLOWS_END = {label="Hallow's End",group="SEASONAL",holiday="Halloween",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\seasonal_hallows_end.png"}
+J.PortraitCatalog.entries.SEASONAL_HOLLY_HEARTH = {label="Holly Hearth",group="SEASONAL",holiday="Christmas",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\seasonal_holly_hearth.png"}
+J.PortraitCatalog.entries.SEASONAL_WINTER_STARLIGHT = {label="Winter Starlight",group="SEASONAL",holiday="Christmas",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\seasonal_winter_starlight.png"}
+J.PortraitCatalog.entries.SEASONAL_WINTER_VEIL = {label="Winter Veil: Alliance",group="SEASONAL",holiday="Christmas",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\seasonal_winter_veil.png"}
+J.PortraitCatalog.entries.SEASONAL_WINTER_VEIL_HORDE = {label="Winter Veil: Horde",group="SEASONAL",holiday="Christmas",texture="Interface\\AddOns\\Frostforge\\Media\\Portraits\\seasonal_winter_veil_horde.png"}
